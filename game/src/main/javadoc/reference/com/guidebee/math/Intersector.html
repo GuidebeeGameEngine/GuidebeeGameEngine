@@ -1,0 +1,3577 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <meta name="description" content="Javadoc API documentation for Guidebee Game Engine." />
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
+<title>
+
+  Intersector - Guidebee Game Engine API
+
+
+| Guidebee Game Engine
+
+</title>
+<link href="../../../../assets/doclava-developer-docs.css" rel="stylesheet" type="text/css" />
+<link href="../../../../assets/customizations.css" rel="stylesheet" type="text/css" />
+<script src="../../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../../assets/doclava-developer-docs.js" type="text/javascript"></script>
+<script src="../../../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../", "../../../../assets/");
+</script>
+<script src="../../../../assets/doclava-developer-reference.js" type="text/javascript"></script>
+<script src="../../../../assets/navtree_data.js" type="text/javascript"></script>
+<script src="../../../../assets/customizations.js" type="text/javascript"></script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+
+<body class="">
+
+<div id="header">
+    <div id="headerLeft">
+    
+      <span id="masthead-title">Guidebee Game Engine</span>
+    
+    </div>
+    <div id="headerRight">
+      
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../../')"
+                      onkeyup="return search_changed(event, false, '../../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      
+    </div>
+</div><!-- header -->
+
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first side-nav-resizable" id="side-nav">
+      <div id="swapper">
+        <div id="nav-panels">
+          <div id="resize-packages-nav">
+            <div id="packages-nav">
+              <div id="index-links">
+                <a href="../../../packages.html"  >Package Index</a> | 
+                <a href="../../../classes.html" >Class Index</a>
+              </div>
+              <ul>
+                
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/drawing/package-summary.html">com.guidebee.drawing</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/drawing/geometry/package-summary.html">com.guidebee.drawing.geometry</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/package-summary.html">com.guidebee.game</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/activity/package-summary.html">com.guidebee.game.activity</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/audio/package-summary.html">com.guidebee.game.audio</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/camera/package-summary.html">com.guidebee.game.camera</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/camera/viewports/package-summary.html">com.guidebee.game.camera.viewports</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/entity/package-summary.html">com.guidebee.game.entity</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/entity/directors/package-summary.html">com.guidebee.game.entity.directors</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/entity/signals/package-summary.html">com.guidebee.game.entity.signals</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/entity/utils/package-summary.html">com.guidebee.game.entity.utils</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/files/package-summary.html">com.guidebee.game.files</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/graphics/package-summary.html">com.guidebee.game.graphics</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/input/package-summary.html">com.guidebee.game.input</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/maps/package-summary.html">com.guidebee.game.maps</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/maps/objects/package-summary.html">com.guidebee.game.maps.objects</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/maps/tiled/package-summary.html">com.guidebee.game.maps.tiled</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/maps/tiled/tiles/package-summary.html">com.guidebee.game.maps.tiled.tiles</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/microedition/package-summary.html">com.guidebee.game.microedition</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/net/package-summary.html">com.guidebee.game.net</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/physics/package-summary.html">com.guidebee.game.physics</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/physics/joints/package-summary.html">com.guidebee.game.physics.joints</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/scene/package-summary.html">com.guidebee.game.scene</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/scene/actions/package-summary.html">com.guidebee.game.scene.actions</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/scene/collision/package-summary.html">com.guidebee.game.scene.collision</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/tween/package-summary.html">com.guidebee.game.tween</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/tween/equations/package-summary.html">com.guidebee.game.tween.equations</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/tween/paths/package-summary.html">com.guidebee.game.tween.paths</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/tween/primitives/package-summary.html">com.guidebee.game.tween.primitives</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/ui/package-summary.html">com.guidebee.game.ui</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/ui/drawable/package-summary.html">com.guidebee.game.ui.drawable</a></li>
+    <li class="selected api apilevel-">
+  <a href="../../../com/guidebee/math/package-summary.html">com.guidebee.math</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/math/collision/package-summary.html">com.guidebee.math.collision</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/math/geometry/package-summary.html">com.guidebee.math.geometry</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/utils/package-summary.html">com.guidebee.utils</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/utils/collections/package-summary.html">com.guidebee.utils.collections</a></li>
+              </ul><br/>
+            </div> <!-- end packages -->
+          </div> <!-- end resize-packages -->
+          <div id="classes-nav">
+            <ul>
+              
+    <li><h2>Interfaces</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../com/guidebee/math/Vector.html">Vector</a>&lt;T&nbsp;extends&nbsp;<a href="../../../com/guidebee/math/Vector.html">Vector</a>&lt;T&gt;&gt;</li>
+      </ul>
+    </li>
+              
+    <li><h2>Classes</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../com/guidebee/math/Bresenham2.html">Bresenham2</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/math/ConvexHull.html">ConvexHull</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/math/CumulativeDistribution.html">CumulativeDistribution</a>&lt;T&gt;</li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/math/CumulativeDistribution.CumulativeValue.html">CumulativeDistribution.CumulativeValue</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/math/DelaunayTriangulator.html">DelaunayTriangulator</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/math/EarClippingTriangulator.html">EarClippingTriangulator</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/math/FloatCounter.html">FloatCounter</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/math/Frustum.html">Frustum</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/math/GeometryUtils.html">GeometryUtils</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/math/GridPoint2.html">GridPoint2</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/math/GridPoint3.html">GridPoint3</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/math/Interpolation.html">Interpolation</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/math/Interpolation.Bounce.html">Interpolation.Bounce</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/math/Interpolation.BounceIn.html">Interpolation.BounceIn</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/math/Interpolation.BounceOut.html">Interpolation.BounceOut</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/math/Interpolation.Elastic.html">Interpolation.Elastic</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/math/Interpolation.ElasticIn.html">Interpolation.ElasticIn</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/math/Interpolation.ElasticOut.html">Interpolation.ElasticOut</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/math/Interpolation.Exp.html">Interpolation.Exp</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/math/Interpolation.ExpIn.html">Interpolation.ExpIn</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/math/Interpolation.ExpOut.html">Interpolation.ExpOut</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/math/Interpolation.Pow.html">Interpolation.Pow</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/math/Interpolation.PowIn.html">Interpolation.PowIn</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/math/Interpolation.PowOut.html">Interpolation.PowOut</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/math/Interpolation.Swing.html">Interpolation.Swing</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/math/Interpolation.SwingIn.html">Interpolation.SwingIn</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/math/Interpolation.SwingOut.html">Interpolation.SwingOut</a></li>
+          <li class="selected api apilevel-"><a href="../../../com/guidebee/math/Intersector.html">Intersector</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/math/Intersector.MinimumTranslationVector.html">Intersector.MinimumTranslationVector</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/math/Intersector.SplitTriangle.html">Intersector.SplitTriangle</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/math/MathUtils.html">MathUtils</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/math/Matrix3.html">Matrix3</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/math/Matrix4.html">Matrix4</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/math/Quaternion.html">Quaternion</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/math/RandomXS128.html">RandomXS128</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/math/Utils.html">Utils</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/math/Vector2.html">Vector2</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/math/Vector3.html">Vector3</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/math/WindowedMean.html">WindowedMean</a></li>
+      </ul>
+    </li>
+              
+              
+              
+              
+            </ul><br/>
+          </div><!-- end classes -->
+        </div><!-- end nav-panels -->
+        <div id="nav-tree" style="display:none">
+          <div id="index-links">
+            <a href="../../../packages.html"  >Package Index</a> | 
+            <a href="../../../classes.html" >Class Index</a>
+          </div>
+        </div><!-- end nav-tree -->
+      </div><!-- end swapper -->
+    </div> <!-- end side-nav -->
+    <script>
+      if (!isMobile) {
+        $("<a href='#' id='nav-swap' onclick='swapNav();return false;' style='font-size:10px;line-height:9px;margin-left:1em;text-decoration:none;'><span id='tree-link'>Use Tree Navigation</span><span id='panel-link' style='display:none'>Use Panel Navigation</span></a>").appendTo("#side-nav");
+        chooseDefaultNav();
+        if ($("#nav-tree").is(':visible')) {
+          init_default_navtree("../../../");
+        } else {
+          addLoadEvent(function() {
+            scrollIntoView("packages-nav");
+            scrollIntoView("classes-nav");
+          });
+        }
+        $("#swapper").css({borderBottom:"2px solid #aaa"});
+      } else {
+        swapNav(); // tree view should be used on mobile
+      }
+    </script>
+
+
+
+<div class="g-unit" id="doc-content">
+
+<div id="api-info-block">
+
+
+
+  
+   
+  
+  
+  
+  
+
+
+<div class="sum-details-links">
+
+
+Summary:
+
+  <a href="#nestedclasses">Nested Classes</a>
+  
+
+
+
+
+
+
+
+
+
+  &#124; <a href="#pubctors">Ctors</a>
+  
+
+
+
+  &#124; <a href="#pubmethods">Methods</a>
+  
+
+
+
+  &#124; <a href="#inhmethods">Inherited Methods</a>
+
+&#124; <a href="#" onclick="return toggleAllClassInherited()" id="toggleAllClassInherited">[Expand All]</a>
+
+</div><!-- end sum-details-links -->
+<div class="api-level">
+  
+
+
+  
+  
+
+</div>
+</div><!-- end api-info-block -->
+
+
+<!-- ======== START OF CLASS DATA ======== -->
+
+<div id="jd-header">
+    public
+     
+    final 
+    
+    class
+<h1>Intersector</h1>
+
+
+
+  
+    extends Object<br/>
+  
+  
+  
+
+  
+  
+  
+
+
+</div><!-- end header -->
+
+<div id="naMessage"></div>
+
+<div id="jd-content" class="api apilevel-">
+<table class="jd-inheritance-table">
+
+
+    <tr>
+         	
+        <td colspan="2" class="jd-inheritance-class-cell">java.lang.Object</td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+         	
+        <td colspan="1" class="jd-inheritance-class-cell">com.guidebee.math.Intersector</td>
+    </tr>
+    
+
+</table>
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Class Overview</h2>
+<p>Class offering various static methods for intersection testing between
+ different geometric objects.</p>
+
+
+
+
+
+</div><!-- jd-descr -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Summary</h2>
+
+
+
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<table id="nestedclasses" class="jd-sumtable"><tr><th colspan="12">Nested Classes</th></tr>
+
+
+  
+    <tr class="alt-color api apilevel-" >
+      <td class="jd-typecol">
+        
+         
+         
+        
+        class</td>
+      <td class="jd-linkcol"><a href="../../../com/guidebee/math/Intersector.MinimumTranslationVector.html">Intersector.MinimumTranslationVector</a></td>
+      <td class="jd-descrcol" width="100%">Minimum Translation Vector.&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+      <td class="jd-typecol">
+        
+         
+         
+        
+        class</td>
+      <td class="jd-linkcol"><a href="../../../com/guidebee/math/Intersector.SplitTriangle.html">Intersector.SplitTriangle</a></td>
+      <td class="jd-descrcol" width="100%">Split Triangle.&nbsp;</td>
+    </tr>
+    
+    
+
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<table id="pubctors" class="jd-sumtable"><tr><th colspan="12">Public Constructors</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/math/Intersector.html#Intersector()">Intersector</a></span>()
+        
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="pubmethods" class="jd-sumtable"><tr><th colspan="12">Public Methods</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            float
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/math/Intersector.html#distanceLinePoint(com.guidebee.math.Vector2, com.guidebee.math.Vector2, com.guidebee.math.Vector2)">distanceLinePoint</a></span>(<a href="../../../com/guidebee/math/Vector2.html">Vector2</a> start, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> end, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> point)
+        
+        <div class="jd-descrdiv">Returns the distance between the given line segment and point.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            float
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/math/Intersector.html#distanceLinePoint(float, float, float, float, float, float)">distanceLinePoint</a></span>(float startX, float startY, float endX, float endY, float pointX, float pointY)
+        
+        <div class="jd-descrdiv">Returns the distance between the given line and point.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            float
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/math/Intersector.html#distanceSegmentPoint(com.guidebee.math.Vector2, com.guidebee.math.Vector2, com.guidebee.math.Vector2)">distanceSegmentPoint</a></span>(<a href="../../../com/guidebee/math/Vector2.html">Vector2</a> start, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> end, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> point)
+        
+        <div class="jd-descrdiv">Returns the distance between the given segment and point.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            float
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/math/Intersector.html#distanceSegmentPoint(float, float, float, float, float, float)">distanceSegmentPoint</a></span>(float startX, float startY, float endX, float endY, float pointX, float pointY)
+        
+        <div class="jd-descrdiv">Returns the distance between the given segment and point.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            float
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/math/Intersector.html#intersectLinePlane(float, float, float, float, float, float, com.guidebee.math.geometry.Plane, com.guidebee.math.Vector3)">intersectLinePlane</a></span>(float x, float y, float z, float x2, float y2, float z2, <a href="../../../com/guidebee/math/geometry/Plane.html">Plane</a> plane, <a href="../../../com/guidebee/math/Vector3.html">Vector3</a> intersection)
+        
+        <div class="jd-descrdiv">Intersects a line and a plane.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/math/Intersector.html#intersectLinePolygon(com.guidebee.math.Vector2, com.guidebee.math.Vector2, com.guidebee.math.geometry.Polygon)">intersectLinePolygon</a></span>(<a href="../../../com/guidebee/math/Vector2.html">Vector2</a> p1, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> p2, <a href="../../../com/guidebee/math/geometry/Polygon.html">Polygon</a> polygon)
+        
+        <div class="jd-descrdiv">Check whether the given line and <code><a href="../../../com/guidebee/math/geometry/Polygon.html">Polygon</a></code> intersect.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/math/Intersector.html#intersectLines(float, float, float, float, float, float, float, float, com.guidebee.math.Vector2)">intersectLines</a></span>(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> intersection)
+        
+        <div class="jd-descrdiv">Intersects the two lines and returns the intersection point in intersection.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/math/Intersector.html#intersectLines(com.guidebee.math.Vector2, com.guidebee.math.Vector2, com.guidebee.math.Vector2, com.guidebee.math.Vector2, com.guidebee.math.Vector2)">intersectLines</a></span>(<a href="../../../com/guidebee/math/Vector2.html">Vector2</a> p1, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> p2, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> p3, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> p4, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> intersection)
+        
+        <div class="jd-descrdiv">Intersects the two lines and returns the intersection
+ point in intersection.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/math/Intersector.html#intersectRayBounds(com.guidebee.math.collision.Ray, com.guidebee.math.collision.BoundingBox, com.guidebee.math.Vector3)">intersectRayBounds</a></span>(<a href="../../../com/guidebee/math/collision/Ray.html">Ray</a> ray, <a href="../../../com/guidebee/math/collision/BoundingBox.html">BoundingBox</a> box, <a href="../../../com/guidebee/math/Vector3.html">Vector3</a> intersection)
+        
+        <div class="jd-descrdiv">Intersects a <code><a href="../../../com/guidebee/math/collision/Ray.html">Ray</a></code> and a <code><a href="../../../com/guidebee/math/collision/BoundingBox.html">BoundingBox</a></code>, returning the
+ intersection point in intersection.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/math/Intersector.html#intersectRayBoundsFast(com.guidebee.math.collision.Ray, com.guidebee.math.collision.BoundingBox)">intersectRayBoundsFast</a></span>(<a href="../../../com/guidebee/math/collision/Ray.html">Ray</a> ray, <a href="../../../com/guidebee/math/collision/BoundingBox.html">BoundingBox</a> box)
+        
+        <div class="jd-descrdiv">Quick check whether the given <code><a href="../../../com/guidebee/math/collision/Ray.html">Ray</a></code> and <code><a href="../../../com/guidebee/math/collision/BoundingBox.html">BoundingBox</a></code> intersect.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/math/Intersector.html#intersectRayBoundsFast(com.guidebee.math.collision.Ray, com.guidebee.math.Vector3, com.guidebee.math.Vector3)">intersectRayBoundsFast</a></span>(<a href="../../../com/guidebee/math/collision/Ray.html">Ray</a> ray, <a href="../../../com/guidebee/math/Vector3.html">Vector3</a> center, <a href="../../../com/guidebee/math/Vector3.html">Vector3</a> dimensions)
+        
+        <div class="jd-descrdiv">Quick check whether the given <code><a href="../../../com/guidebee/math/collision/Ray.html">Ray</a></code> and <code><a href="../../../com/guidebee/math/collision/BoundingBox.html">BoundingBox</a></code> intersect.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/math/Intersector.html#intersectRayPlane(com.guidebee.math.collision.Ray, com.guidebee.math.geometry.Plane, com.guidebee.math.Vector3)">intersectRayPlane</a></span>(<a href="../../../com/guidebee/math/collision/Ray.html">Ray</a> ray, <a href="../../../com/guidebee/math/geometry/Plane.html">Plane</a> plane, <a href="../../../com/guidebee/math/Vector3.html">Vector3</a> intersection)
+        
+        <div class="jd-descrdiv">Intersects a <code><a href="../../../com/guidebee/math/collision/Ray.html">Ray</a></code> and a
+ <code><a href="../../../com/guidebee/math/geometry/Plane.html">Plane</a></code>.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            float
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/math/Intersector.html#intersectRayRay(com.guidebee.math.Vector2, com.guidebee.math.Vector2, com.guidebee.math.Vector2, com.guidebee.math.Vector2)">intersectRayRay</a></span>(<a href="../../../com/guidebee/math/Vector2.html">Vector2</a> start1, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> direction1, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> start2, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> direction2)
+        
+        <div class="jd-descrdiv">Intersect two 2D Rays and return the scalar parameter of the first
+ ray at the intersection point.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/math/Intersector.html#intersectRaySphere(com.guidebee.math.collision.Ray, com.guidebee.math.Vector3, float, com.guidebee.math.Vector3)">intersectRaySphere</a></span>(<a href="../../../com/guidebee/math/collision/Ray.html">Ray</a> ray, <a href="../../../com/guidebee/math/Vector3.html">Vector3</a> center, float radius, <a href="../../../com/guidebee/math/Vector3.html">Vector3</a> intersection)
+        
+        <div class="jd-descrdiv">Intersects a <code><a href="../../../com/guidebee/math/collision/Ray.html">Ray</a></code> and a sphere, returning the intersection
+ point in intersection.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/math/Intersector.html#intersectRayTriangle(com.guidebee.math.collision.Ray, com.guidebee.math.Vector3, com.guidebee.math.Vector3, com.guidebee.math.Vector3, com.guidebee.math.Vector3)">intersectRayTriangle</a></span>(<a href="../../../com/guidebee/math/collision/Ray.html">Ray</a> ray, <a href="../../../com/guidebee/math/Vector3.html">Vector3</a> t1, <a href="../../../com/guidebee/math/Vector3.html">Vector3</a> t2, <a href="../../../com/guidebee/math/Vector3.html">Vector3</a> t3, <a href="../../../com/guidebee/math/Vector3.html">Vector3</a> intersection)
+        
+        <div class="jd-descrdiv">Intersect a <code><a href="../../../com/guidebee/math/collision/Ray.html">Ray</a></code> and a triangle, returning the intersection
+ point in intersection.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/math/Intersector.html#intersectRayTriangles(com.guidebee.math.collision.Ray, float[], com.guidebee.math.Vector3)">intersectRayTriangles</a></span>(<a href="../../../com/guidebee/math/collision/Ray.html">Ray</a> ray, float[] triangles, <a href="../../../com/guidebee/math/Vector3.html">Vector3</a> intersection)
+        
+        <div class="jd-descrdiv">Intersects the given ray with list of triangles.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/math/Intersector.html#intersectRayTriangles(com.guidebee.math.collision.Ray, java.util.List<com.guidebee.math.Vector3>, com.guidebee.math.Vector3)">intersectRayTriangles</a></span>(<a href="../../../com/guidebee/math/collision/Ray.html">Ray</a> ray, List&lt;<a href="../../../com/guidebee/math/Vector3.html">Vector3</a>&gt; triangles, <a href="../../../com/guidebee/math/Vector3.html">Vector3</a> intersection)
+        
+        <div class="jd-descrdiv">Intersects the given ray with list of triangles.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/math/Intersector.html#intersectRayTriangles(com.guidebee.math.collision.Ray, float[], short[], int, com.guidebee.math.Vector3)">intersectRayTriangles</a></span>(<a href="../../../com/guidebee/math/collision/Ray.html">Ray</a> ray, float[] vertices, short[] indices, int vertexSize, <a href="../../../com/guidebee/math/Vector3.html">Vector3</a> intersection)
+        
+        <div class="jd-descrdiv">Intersects the given ray with list of triangles.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/math/Intersector.html#intersectRectangles(com.guidebee.math.geometry.Rectangle, com.guidebee.math.geometry.Rectangle, com.guidebee.math.geometry.Rectangle)">intersectRectangles</a></span>(<a href="../../../com/guidebee/math/geometry/Rectangle.html">Rectangle</a> rectangle1, <a href="../../../com/guidebee/math/geometry/Rectangle.html">Rectangle</a> rectangle2, <a href="../../../com/guidebee/math/geometry/Rectangle.html">Rectangle</a> intersection)
+        
+        <div class="jd-descrdiv">Determines whether the given rectangles intersect and, if they do,
+ sets the supplied <code>intersection</code> rectangle to the
+ area of overlap.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/math/Intersector.html#intersectSegmentCircle(com.guidebee.math.Vector2, com.guidebee.math.Vector2, com.guidebee.math.Vector2, float)">intersectSegmentCircle</a></span>(<a href="../../../com/guidebee/math/Vector2.html">Vector2</a> start, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> end, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> center, float squareRadius)
+        
+        <div class="jd-descrdiv">Returns whether the given line segment intersects the given circle.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            float
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/math/Intersector.html#intersectSegmentCircleDisplace(com.guidebee.math.Vector2, com.guidebee.math.Vector2, com.guidebee.math.Vector2, float, com.guidebee.math.Vector2)">intersectSegmentCircleDisplace</a></span>(<a href="../../../com/guidebee/math/Vector2.html">Vector2</a> start, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> end, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> point, float radius, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> displacement)
+        
+        <div class="jd-descrdiv">Checks whether the line segment and the circle intersect and returns
+ by how much and in what direction the line has to move
+ away from the circle to not intersect.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/math/Intersector.html#intersectSegmentPlane(com.guidebee.math.Vector3, com.guidebee.math.Vector3, com.guidebee.math.geometry.Plane, com.guidebee.math.Vector3)">intersectSegmentPlane</a></span>(<a href="../../../com/guidebee/math/Vector3.html">Vector3</a> start, <a href="../../../com/guidebee/math/Vector3.html">Vector3</a> end, <a href="../../../com/guidebee/math/geometry/Plane.html">Plane</a> plane, <a href="../../../com/guidebee/math/Vector3.html">Vector3</a> intersection)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/math/Intersector.html#intersectSegmentPolygon(com.guidebee.math.Vector2, com.guidebee.math.Vector2, com.guidebee.math.geometry.Polygon)">intersectSegmentPolygon</a></span>(<a href="../../../com/guidebee/math/Vector2.html">Vector2</a> p1, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> p2, <a href="../../../com/guidebee/math/geometry/Polygon.html">Polygon</a> polygon)
+        
+        <div class="jd-descrdiv">Check whether the given line segment and <code><a href="../../../com/guidebee/math/geometry/Polygon.html">Polygon</a></code> intersect.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/math/Intersector.html#intersectSegments(float, float, float, float, float, float, float, float, com.guidebee.math.Vector2)">intersectSegments</a></span>(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> intersection)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/math/Intersector.html#intersectSegments(com.guidebee.math.Vector2, com.guidebee.math.Vector2, com.guidebee.math.Vector2, com.guidebee.math.Vector2, com.guidebee.math.Vector2)">intersectSegments</a></span>(<a href="../../../com/guidebee/math/Vector2.html">Vector2</a> p1, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> p2, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> p3, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> p4, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> intersection)
+        
+        <div class="jd-descrdiv">Intersects the two line segments and returns the intersection
+ point in intersection.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/math/Intersector.html#isPointInPolygon(com.guidebee.utils.collections.Array<com.guidebee.math.Vector2>, com.guidebee.math.Vector2)">isPointInPolygon</a></span>(<a href="../../../com/guidebee/utils/collections/Array.html">Array</a>&lt;<a href="../../../com/guidebee/math/Vector2.html">Vector2</a>&gt; polygon, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> point)
+        
+        <div class="jd-descrdiv">Checks whether the given point is in the polygon.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/math/Intersector.html#isPointInPolygon(float[], int, int, float, float)">isPointInPolygon</a></span>(float[] polygon, int offset, int count, float x, float y)
+        
+        <div class="jd-descrdiv">Returns true if the specified point is in the polygon.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/math/Intersector.html#isPointInTriangle(com.guidebee.math.Vector2, com.guidebee.math.Vector2, com.guidebee.math.Vector2, com.guidebee.math.Vector2)">isPointInTriangle</a></span>(<a href="../../../com/guidebee/math/Vector2.html">Vector2</a> p, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> a, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> b, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> c)
+        
+        <div class="jd-descrdiv">Returns true if the given point is inside the triangle.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/math/Intersector.html#isPointInTriangle(float, float, float, float, float, float, float, float)">isPointInTriangle</a></span>(float px, float py, float ax, float ay, float bx, float by, float cx, float cy)
+        
+        <div class="jd-descrdiv">Returns true if the given point is inside the triangle.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/math/Intersector.html#isPointInTriangle(com.guidebee.math.Vector3, com.guidebee.math.Vector3, com.guidebee.math.Vector3, com.guidebee.math.Vector3)">isPointInTriangle</a></span>(<a href="../../../com/guidebee/math/Vector3.html">Vector3</a> point, <a href="../../../com/guidebee/math/Vector3.html">Vector3</a> t1, <a href="../../../com/guidebee/math/Vector3.html">Vector3</a> t2, <a href="../../../com/guidebee/math/Vector3.html">Vector3</a> t3)
+        
+        <div class="jd-descrdiv">Returns whether the given point is inside the triangle.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/math/Intersector.html#main(java.lang.String[])">main</a></span>(String[] args)
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            <a href="../../../com/guidebee/math/Vector2.html">Vector2</a>
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/math/Intersector.html#nearestSegmentPoint(com.guidebee.math.Vector2, com.guidebee.math.Vector2, com.guidebee.math.Vector2, com.guidebee.math.Vector2)">nearestSegmentPoint</a></span>(<a href="../../../com/guidebee/math/Vector2.html">Vector2</a> start, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> end, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> point, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> nearest)
+        
+        <div class="jd-descrdiv">Returns a point on the segment nearest to the specified point.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            <a href="../../../com/guidebee/math/Vector2.html">Vector2</a>
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/math/Intersector.html#nearestSegmentPoint(float, float, float, float, float, float, com.guidebee.math.Vector2)">nearestSegmentPoint</a></span>(float startX, float startY, float endX, float endY, float pointX, float pointY, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> nearest)
+        
+        <div class="jd-descrdiv">Returns a point on the segment nearest to the specified point.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/math/Intersector.html#overlapConvexPolygons(float[], float[], com.guidebee.math.Intersector.MinimumTranslationVector)">overlapConvexPolygons</a></span>(float[] verts1, float[] verts2, <a href="../../../com/guidebee/math/Intersector.MinimumTranslationVector.html">Intersector.MinimumTranslationVector</a> mtv)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/math/Intersector.html#overlapConvexPolygons(com.guidebee.math.geometry.Polygon, com.guidebee.math.geometry.Polygon, com.guidebee.math.Intersector.MinimumTranslationVector)">overlapConvexPolygons</a></span>(<a href="../../../com/guidebee/math/geometry/Polygon.html">Polygon</a> p1, <a href="../../../com/guidebee/math/geometry/Polygon.html">Polygon</a> p2, <a href="../../../com/guidebee/math/Intersector.MinimumTranslationVector.html">Intersector.MinimumTranslationVector</a> mtv)
+        
+        <div class="jd-descrdiv">Check whether specified counter-clockwise wound convex polygons overlap.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/math/Intersector.html#overlapConvexPolygons(com.guidebee.math.geometry.Polygon, com.guidebee.math.geometry.Polygon)">overlapConvexPolygons</a></span>(<a href="../../../com/guidebee/math/geometry/Polygon.html">Polygon</a> p1, <a href="../../../com/guidebee/math/geometry/Polygon.html">Polygon</a> p2)
+        
+        <div class="jd-descrdiv">Check whether specified counter-clockwise wound convex polygons overlap.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/math/Intersector.html#overlapConvexPolygons(float[], int, int, float[], int, int, com.guidebee.math.Intersector.MinimumTranslationVector)">overlapConvexPolygons</a></span>(float[] verts1, int offset1, int count1, float[] verts2, int offset2, int count2, <a href="../../../com/guidebee/math/Intersector.MinimumTranslationVector.html">Intersector.MinimumTranslationVector</a> mtv)
+        
+        <div class="jd-descrdiv">Check whether polygons defined by the given counter-clockwise wound
+ vertex arrays overlap.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/math/Intersector.html#overlaps(com.guidebee.math.geometry.Rectangle, com.guidebee.math.geometry.Rectangle)">overlaps</a></span>(<a href="../../../com/guidebee/math/geometry/Rectangle.html">Rectangle</a> r1, <a href="../../../com/guidebee/math/geometry/Rectangle.html">Rectangle</a> r2)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/math/Intersector.html#overlaps(com.guidebee.math.geometry.Circle, com.guidebee.math.geometry.Rectangle)">overlaps</a></span>(<a href="../../../com/guidebee/math/geometry/Circle.html">Circle</a> c, <a href="../../../com/guidebee/math/geometry/Rectangle.html">Rectangle</a> r)
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/math/Intersector.html#overlaps(com.guidebee.math.geometry.Circle, com.guidebee.math.geometry.Circle)">overlaps</a></span>(<a href="../../../com/guidebee/math/geometry/Circle.html">Circle</a> c1, <a href="../../../com/guidebee/math/geometry/Circle.html">Circle</a> c2)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            int
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/math/Intersector.html#pointLineSide(float, float, float, float, float, float)">pointLineSide</a></span>(float linePoint1X, float linePoint1Y, float linePoint2X, float linePoint2Y, float pointX, float pointY)
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            int
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/math/Intersector.html#pointLineSide(com.guidebee.math.Vector2, com.guidebee.math.Vector2, com.guidebee.math.Vector2)">pointLineSide</a></span>(<a href="../../../com/guidebee/math/Vector2.html">Vector2</a> linePoint1, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> linePoint2, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> point)
+        
+        <div class="jd-descrdiv">Determines on which side of the given line the point is.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/math/Intersector.html#splitTriangle(float[], com.guidebee.math.geometry.Plane, com.guidebee.math.Intersector.SplitTriangle)">splitTriangle</a></span>(float[] triangle, <a href="../../../com/guidebee/math/geometry/Plane.html">Plane</a> plane, <a href="../../../com/guidebee/math/Intersector.SplitTriangle.html">Intersector.SplitTriangle</a> split)
+        
+        <div class="jd-descrdiv">Splits the triangle by the plane.</div>
+  
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="inhmethods" class="jd-sumtable"><tr><th>
+  <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
+  <div style="clear:left;">Inherited Methods</div></th></tr>
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Object" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-java.lang.Object-trigger"
+          src="../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  java.lang.Object
+
+<div id="inherited-methods-java.lang.Object">
+  <div id="inherited-methods-java.lang.Object-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.lang.Object-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">equals</span>(Object arg0)
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            Class&lt;?&gt;
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">getClass</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            int
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">hashCode</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">notify</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">notifyAll</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            String
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">toString</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">wait</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">wait</span>(long arg0, int arg1)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">wait</span>(long arg0)
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+</table>
+
+
+</div><!-- jd-descr (summary) -->
+
+<!-- Details -->
+
+
+
+
+
+
+
+
+<!-- XML Attributes -->
+
+
+<!-- Enum Values -->
+
+
+<!-- Constants -->
+
+
+<!-- Fields -->
+
+
+<!-- Public ctors -->
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<h2>Public Constructors</h2>
+
+
+
+<a id="Intersector()"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        
+      </span>
+      <span class="sympad">Intersector</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<!-- Protected ctors -->
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+<!-- Public methdos -->
+
+<h2>Public Methods</h2>
+
+
+
+<a id="distanceLinePoint(com.guidebee.math.Vector2, com.guidebee.math.Vector2, com.guidebee.math.Vector2)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        float
+      </span>
+      <span class="sympad">distanceLinePoint</span>
+      <span class="normal">(<a href="../../../com/guidebee/math/Vector2.html">Vector2</a> start, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> end, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> point)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the distance between the given line segment and point.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>start</th>
+          <td>The line start point</td>
+        </tr>
+        <tr>
+          <th>end</th>
+          <td>The line end point</td>
+        </tr>
+        <tr>
+          <th>point</th>
+          <td>The point</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The distance between the line segment and the point.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="distanceLinePoint(float, float, float, float, float, float)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        float
+      </span>
+      <span class="sympad">distanceLinePoint</span>
+      <span class="normal">(float startX, float startY, float endX, float endY, float pointX, float pointY)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the distance between the given line and point. Note the
+ specified line is not a line segment.
+</p></div>
+
+    </div>
+</div>
+
+
+<a id="distanceSegmentPoint(com.guidebee.math.Vector2, com.guidebee.math.Vector2, com.guidebee.math.Vector2)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        float
+      </span>
+      <span class="sympad">distanceSegmentPoint</span>
+      <span class="normal">(<a href="../../../com/guidebee/math/Vector2.html">Vector2</a> start, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> end, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> point)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the distance between the given segment and point.
+</p></div>
+
+    </div>
+</div>
+
+
+<a id="distanceSegmentPoint(float, float, float, float, float, float)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        float
+      </span>
+      <span class="sympad">distanceSegmentPoint</span>
+      <span class="normal">(float startX, float startY, float endX, float endY, float pointX, float pointY)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the distance between the given segment and point.
+</p></div>
+
+    </div>
+</div>
+
+
+<a id="intersectLinePlane(float, float, float, float, float, float, com.guidebee.math.geometry.Plane, com.guidebee.math.Vector3)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        float
+      </span>
+      <span class="sympad">intersectLinePlane</span>
+      <span class="normal">(float x, float y, float z, float x2, float y2, float z2, <a href="../../../com/guidebee/math/geometry/Plane.html">Plane</a> plane, <a href="../../../com/guidebee/math/Vector3.html">Vector3</a> intersection)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Intersects a line and a plane. The intersection is returned as the
+ distance from the first point to the plane. In case an
+ intersection happened, the return value is in the range [0,1].
+ The intersection point can be recovered by point1 + t *
+ (point2 - point1) where t is the return value of this method.</p></div>
+
+    </div>
+</div>
+
+
+<a id="intersectLinePolygon(com.guidebee.math.Vector2, com.guidebee.math.Vector2, com.guidebee.math.geometry.Polygon)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">intersectLinePolygon</span>
+      <span class="normal">(<a href="../../../com/guidebee/math/Vector2.html">Vector2</a> p1, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> p2, <a href="../../../com/guidebee/math/geometry/Polygon.html">Polygon</a> polygon)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Check whether the given line and <code><a href="../../../com/guidebee/math/geometry/Polygon.html">Polygon</a></code> intersect.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>p1</th>
+          <td>The first point of the line</td>
+        </tr>
+        <tr>
+          <th>p2</th>
+          <td>The second point of the line</td>
+        </tr>
+        <tr>
+          <th>polygon</th>
+          <td>The polygon</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>Whether polygon and line intersects
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="intersectLines(float, float, float, float, float, float, float, float, com.guidebee.math.Vector2)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">intersectLines</span>
+      <span class="normal">(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> intersection)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Intersects the two lines and returns the intersection point in intersection.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>intersection</th>
+          <td>The intersection point, or null.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>Whether the two lines intersect
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="intersectLines(com.guidebee.math.Vector2, com.guidebee.math.Vector2, com.guidebee.math.Vector2, com.guidebee.math.Vector2, com.guidebee.math.Vector2)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">intersectLines</span>
+      <span class="normal">(<a href="../../../com/guidebee/math/Vector2.html">Vector2</a> p1, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> p2, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> p3, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> p4, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> intersection)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Intersects the two lines and returns the intersection
+ point in intersection.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>p1</th>
+          <td>The first point of the first line</td>
+        </tr>
+        <tr>
+          <th>p2</th>
+          <td>The second point of the first line</td>
+        </tr>
+        <tr>
+          <th>p3</th>
+          <td>The first point of the second line</td>
+        </tr>
+        <tr>
+          <th>p4</th>
+          <td>The second point of the second line</td>
+        </tr>
+        <tr>
+          <th>intersection</th>
+          <td>The intersection point</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>Whether the two lines intersect
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="intersectRayBounds(com.guidebee.math.collision.Ray, com.guidebee.math.collision.BoundingBox, com.guidebee.math.Vector3)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">intersectRayBounds</span>
+      <span class="normal">(<a href="../../../com/guidebee/math/collision/Ray.html">Ray</a> ray, <a href="../../../com/guidebee/math/collision/BoundingBox.html">BoundingBox</a> box, <a href="../../../com/guidebee/math/Vector3.html">Vector3</a> intersection)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Intersects a <code><a href="../../../com/guidebee/math/collision/Ray.html">Ray</a></code> and a <code><a href="../../../com/guidebee/math/collision/BoundingBox.html">BoundingBox</a></code>, returning the
+ intersection point in intersection.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>ray</th>
+          <td>The ray</td>
+        </tr>
+        <tr>
+          <th>box</th>
+          <td>The box</td>
+        </tr>
+        <tr>
+          <th>intersection</th>
+          <td>The intersection point (optional)</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>Whether an intersection is present.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="intersectRayBoundsFast(com.guidebee.math.collision.Ray, com.guidebee.math.collision.BoundingBox)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">intersectRayBoundsFast</span>
+      <span class="normal">(<a href="../../../com/guidebee/math/collision/Ray.html">Ray</a> ray, <a href="../../../com/guidebee/math/collision/BoundingBox.html">BoundingBox</a> box)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Quick check whether the given <code><a href="../../../com/guidebee/math/collision/Ray.html">Ray</a></code> and <code><a href="../../../com/guidebee/math/collision/BoundingBox.html">BoundingBox</a></code> intersect.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>ray</th>
+          <td>The ray</td>
+        </tr>
+        <tr>
+          <th>box</th>
+          <td>The bounding box</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>Whether the ray and the bounding box intersect.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="intersectRayBoundsFast(com.guidebee.math.collision.Ray, com.guidebee.math.Vector3, com.guidebee.math.Vector3)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">intersectRayBoundsFast</span>
+      <span class="normal">(<a href="../../../com/guidebee/math/collision/Ray.html">Ray</a> ray, <a href="../../../com/guidebee/math/Vector3.html">Vector3</a> center, <a href="../../../com/guidebee/math/Vector3.html">Vector3</a> dimensions)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Quick check whether the given <code><a href="../../../com/guidebee/math/collision/Ray.html">Ray</a></code> and <code><a href="../../../com/guidebee/math/collision/BoundingBox.html">BoundingBox</a></code> intersect.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>ray</th>
+          <td>The ray</td>
+        </tr>
+        <tr>
+          <th>center</th>
+          <td>The center of the bounding box</td>
+        </tr>
+        <tr>
+          <th>dimensions</th>
+          <td>The dimensions (width, height and depth) of the bounding box</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>Whether the ray and the bounding box intersect.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="intersectRayPlane(com.guidebee.math.collision.Ray, com.guidebee.math.geometry.Plane, com.guidebee.math.Vector3)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">intersectRayPlane</span>
+      <span class="normal">(<a href="../../../com/guidebee/math/collision/Ray.html">Ray</a> ray, <a href="../../../com/guidebee/math/geometry/Plane.html">Plane</a> plane, <a href="../../../com/guidebee/math/Vector3.html">Vector3</a> intersection)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Intersects a <code><a href="../../../com/guidebee/math/collision/Ray.html">Ray</a></code> and a
+ <code><a href="../../../com/guidebee/math/geometry/Plane.html">Plane</a></code>. The intersection point is stored in intersection in
+ case an intersection is
+ present.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>ray</th>
+          <td>The ray</td>
+        </tr>
+        <tr>
+          <th>plane</th>
+          <td>The plane</td>
+        </tr>
+        <tr>
+          <th>intersection</th>
+          <td>The vector the intersection point is written to (optional)</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>Whether an intersection is present.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="intersectRayRay(com.guidebee.math.Vector2, com.guidebee.math.Vector2, com.guidebee.math.Vector2, com.guidebee.math.Vector2)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        float
+      </span>
+      <span class="sympad">intersectRayRay</span>
+      <span class="normal">(<a href="../../../com/guidebee/math/Vector2.html">Vector2</a> start1, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> direction1, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> start2, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> direction2)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Intersect two 2D Rays and return the scalar parameter of the first
+ ray at the intersection point.
+ You can get the intersection point by: Vector2 point(direction1).scl(scalar).add(start1);
+ For more information, check: http://stackoverflow.com/a/565282/1091440</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>start1</th>
+          <td>Where the first ray start</td>
+        </tr>
+        <tr>
+          <th>direction1</th>
+          <td>The direction the first ray is pointing</td>
+        </tr>
+        <tr>
+          <th>start2</th>
+          <td>Where the second ray start</td>
+        </tr>
+        <tr>
+          <th>direction2</th>
+          <td>The direction the second ray is pointing</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>scalar parameter on the first ray describing the point where
+ the intersection happens. May be negative.
+ In case the rays are collinear, Float.POSITIVE_INFINITY will be returned.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="intersectRaySphere(com.guidebee.math.collision.Ray, com.guidebee.math.Vector3, float, com.guidebee.math.Vector3)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">intersectRaySphere</span>
+      <span class="normal">(<a href="../../../com/guidebee/math/collision/Ray.html">Ray</a> ray, <a href="../../../com/guidebee/math/Vector3.html">Vector3</a> center, float radius, <a href="../../../com/guidebee/math/Vector3.html">Vector3</a> intersection)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Intersects a <code><a href="../../../com/guidebee/math/collision/Ray.html">Ray</a></code> and a sphere, returning the intersection
+ point in intersection.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>ray</th>
+          <td>The ray, the direction component must be
+                     normalized before calling this method</td>
+        </tr>
+        <tr>
+          <th>center</th>
+          <td>The center of the sphere</td>
+        </tr>
+        <tr>
+          <th>radius</th>
+          <td>The radius of the sphere</td>
+        </tr>
+        <tr>
+          <th>intersection</th>
+          <td>The intersection point (optional, can be null)</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>Whether an intersection is present.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="intersectRayTriangle(com.guidebee.math.collision.Ray, com.guidebee.math.Vector3, com.guidebee.math.Vector3, com.guidebee.math.Vector3, com.guidebee.math.Vector3)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">intersectRayTriangle</span>
+      <span class="normal">(<a href="../../../com/guidebee/math/collision/Ray.html">Ray</a> ray, <a href="../../../com/guidebee/math/Vector3.html">Vector3</a> t1, <a href="../../../com/guidebee/math/Vector3.html">Vector3</a> t2, <a href="../../../com/guidebee/math/Vector3.html">Vector3</a> t3, <a href="../../../com/guidebee/math/Vector3.html">Vector3</a> intersection)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Intersect a <code><a href="../../../com/guidebee/math/collision/Ray.html">Ray</a></code> and a triangle, returning the intersection
+ point in intersection.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>ray</th>
+          <td>The ray</td>
+        </tr>
+        <tr>
+          <th>t1</th>
+          <td>The first vertex of the triangle</td>
+        </tr>
+        <tr>
+          <th>t2</th>
+          <td>The second vertex of the triangle</td>
+        </tr>
+        <tr>
+          <th>t3</th>
+          <td>The third vertex of the triangle</td>
+        </tr>
+        <tr>
+          <th>intersection</th>
+          <td>The intersection point (optional)</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>True in case an intersection is present.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="intersectRayTriangles(com.guidebee.math.collision.Ray, float[], com.guidebee.math.Vector3)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">intersectRayTriangles</span>
+      <span class="normal">(<a href="../../../com/guidebee/math/collision/Ray.html">Ray</a> ray, float[] triangles, <a href="../../../com/guidebee/math/Vector3.html">Vector3</a> intersection)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Intersects the given ray with list of triangles. Returns the nearest
+ intersection point in intersection</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>ray</th>
+          <td>The ray</td>
+        </tr>
+        <tr>
+          <th>triangles</th>
+          <td>The triangles, each successive 3 elements from a vertex</td>
+        </tr>
+        <tr>
+          <th>intersection</th>
+          <td>The nearest intersection point (optional)</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>Whether the ray and the triangles intersect.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="intersectRayTriangles(com.guidebee.math.collision.Ray, java.util.List<com.guidebee.math.Vector3>, com.guidebee.math.Vector3)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">intersectRayTriangles</span>
+      <span class="normal">(<a href="../../../com/guidebee/math/collision/Ray.html">Ray</a> ray, List&lt;<a href="../../../com/guidebee/math/Vector3.html">Vector3</a>&gt; triangles, <a href="../../../com/guidebee/math/Vector3.html">Vector3</a> intersection)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Intersects the given ray with list of triangles. Returns the nearest
+ intersection point in intersection</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>ray</th>
+          <td>The ray</td>
+        </tr>
+        <tr>
+          <th>triangles</th>
+          <td>The triangles</td>
+        </tr>
+        <tr>
+          <th>intersection</th>
+          <td>The nearest intersection point (optional)</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>Whether the ray and the triangles intersect.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="intersectRayTriangles(com.guidebee.math.collision.Ray, float[], short[], int, com.guidebee.math.Vector3)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">intersectRayTriangles</span>
+      <span class="normal">(<a href="../../../com/guidebee/math/collision/Ray.html">Ray</a> ray, float[] vertices, short[] indices, int vertexSize, <a href="../../../com/guidebee/math/Vector3.html">Vector3</a> intersection)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Intersects the given ray with list of triangles. Returns the nearest
+ intersection point in intersection</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>ray</th>
+          <td>The ray</td>
+        </tr>
+        <tr>
+          <th>vertices</th>
+          <td>the vertices</td>
+        </tr>
+        <tr>
+          <th>indices</th>
+          <td>the indices, each successive 3 shorts index the
+                     3 vertices of a triangle</td>
+        </tr>
+        <tr>
+          <th>vertexSize</th>
+          <td>the size of a vertex in floats</td>
+        </tr>
+        <tr>
+          <th>intersection</th>
+          <td>The nearest intersection point (optional)</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>Whether the ray and the triangles intersect.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="intersectRectangles(com.guidebee.math.geometry.Rectangle, com.guidebee.math.geometry.Rectangle, com.guidebee.math.geometry.Rectangle)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">intersectRectangles</span>
+      <span class="normal">(<a href="../../../com/guidebee/math/geometry/Rectangle.html">Rectangle</a> rectangle1, <a href="../../../com/guidebee/math/geometry/Rectangle.html">Rectangle</a> rectangle2, <a href="../../../com/guidebee/math/geometry/Rectangle.html">Rectangle</a> intersection)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Determines whether the given rectangles intersect and, if they do,
+ sets the supplied <code>intersection</code> rectangle to the
+ area of overlap.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>Whether the rectangles intersect
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="intersectSegmentCircle(com.guidebee.math.Vector2, com.guidebee.math.Vector2, com.guidebee.math.Vector2, float)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">intersectSegmentCircle</span>
+      <span class="normal">(<a href="../../../com/guidebee/math/Vector2.html">Vector2</a> start, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> end, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> center, float squareRadius)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns whether the given line segment intersects the given circle.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>start</th>
+          <td>The start point of the line segment</td>
+        </tr>
+        <tr>
+          <th>end</th>
+          <td>The end point of the line segment</td>
+        </tr>
+        <tr>
+          <th>center</th>
+          <td>The center of the circle</td>
+        </tr>
+        <tr>
+          <th>squareRadius</th>
+          <td>The squared radius of the circle</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>Whether the line segment and the circle intersect
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="intersectSegmentCircleDisplace(com.guidebee.math.Vector2, com.guidebee.math.Vector2, com.guidebee.math.Vector2, float, com.guidebee.math.Vector2)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        float
+      </span>
+      <span class="sympad">intersectSegmentCircleDisplace</span>
+      <span class="normal">(<a href="../../../com/guidebee/math/Vector2.html">Vector2</a> start, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> end, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> point, float radius, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> displacement)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Checks whether the line segment and the circle intersect and returns
+ by how much and in what direction the line has to move
+ away from the circle to not intersect.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>start</th>
+          <td>The line segment starting point</td>
+        </tr>
+        <tr>
+          <th>end</th>
+          <td>The line segment end point</td>
+        </tr>
+        <tr>
+          <th>point</th>
+          <td>The center of the circle</td>
+        </tr>
+        <tr>
+          <th>radius</th>
+          <td>The radius of the circle</td>
+        </tr>
+        <tr>
+          <th>displacement</th>
+          <td>The displacement vector set by the
+                     method having unit length</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The displacement or Float.POSITIVE_INFINITY if no
+ intersection is present
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="intersectSegmentPlane(com.guidebee.math.Vector3, com.guidebee.math.Vector3, com.guidebee.math.geometry.Plane, com.guidebee.math.Vector3)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">intersectSegmentPlane</span>
+      <span class="normal">(<a href="../../../com/guidebee/math/Vector3.html">Vector3</a> start, <a href="../../../com/guidebee/math/Vector3.html">Vector3</a> end, <a href="../../../com/guidebee/math/geometry/Plane.html">Plane</a> plane, <a href="../../../com/guidebee/math/Vector3.html">Vector3</a> intersection)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="intersectSegmentPolygon(com.guidebee.math.Vector2, com.guidebee.math.Vector2, com.guidebee.math.geometry.Polygon)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">intersectSegmentPolygon</span>
+      <span class="normal">(<a href="../../../com/guidebee/math/Vector2.html">Vector2</a> p1, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> p2, <a href="../../../com/guidebee/math/geometry/Polygon.html">Polygon</a> polygon)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Check whether the given line segment and <code><a href="../../../com/guidebee/math/geometry/Polygon.html">Polygon</a></code> intersect.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>p1</th>
+          <td>The first point of the segment</td>
+        </tr>
+        <tr>
+          <th>p2</th>
+          <td>The second point of the segment</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>Whether polygon and segment intersect
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="intersectSegments(float, float, float, float, float, float, float, float, com.guidebee.math.Vector2)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">intersectSegments</span>
+      <span class="normal">(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> intersection)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="intersectSegments(com.guidebee.math.Vector2, com.guidebee.math.Vector2, com.guidebee.math.Vector2, com.guidebee.math.Vector2, com.guidebee.math.Vector2)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">intersectSegments</span>
+      <span class="normal">(<a href="../../../com/guidebee/math/Vector2.html">Vector2</a> p1, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> p2, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> p3, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> p4, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> intersection)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Intersects the two line segments and returns the intersection
+ point in intersection.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>p1</th>
+          <td>The first point of the first line segment</td>
+        </tr>
+        <tr>
+          <th>p2</th>
+          <td>The second point of the first line segment</td>
+        </tr>
+        <tr>
+          <th>p3</th>
+          <td>The first point of the second line segment</td>
+        </tr>
+        <tr>
+          <th>p4</th>
+          <td>The second point of the second line segment</td>
+        </tr>
+        <tr>
+          <th>intersection</th>
+          <td>The intersection point (optional)</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>Whether the two line segments intersect
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="isPointInPolygon(com.guidebee.utils.collections.Array<com.guidebee.math.Vector2>, com.guidebee.math.Vector2)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">isPointInPolygon</span>
+      <span class="normal">(<a href="../../../com/guidebee/utils/collections/Array.html">Array</a>&lt;<a href="../../../com/guidebee/math/Vector2.html">Vector2</a>&gt; polygon, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> point)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Checks whether the given point is in the polygon.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>polygon</th>
+          <td>The polygon vertices passed as an array</td>
+        </tr>
+        <tr>
+          <th>point</th>
+          <td>The point</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>true if the point is in the polygon
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="isPointInPolygon(float[], int, int, float, float)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">isPointInPolygon</span>
+      <span class="normal">(float[] polygon, int offset, int count, float x, float y)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns true if the specified point is in the polygon.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>offset</th>
+          <td>Starting polygon index.</td>
+        </tr>
+        <tr>
+          <th>count</th>
+          <td>Number of array indices to use after offset.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="isPointInTriangle(com.guidebee.math.Vector2, com.guidebee.math.Vector2, com.guidebee.math.Vector2, com.guidebee.math.Vector2)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">isPointInTriangle</span>
+      <span class="normal">(<a href="../../../com/guidebee/math/Vector2.html">Vector2</a> p, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> a, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> b, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> c)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns true if the given point is inside the triangle.
+</p></div>
+
+    </div>
+</div>
+
+
+<a id="isPointInTriangle(float, float, float, float, float, float, float, float)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">isPointInTriangle</span>
+      <span class="normal">(float px, float py, float ax, float ay, float bx, float by, float cx, float cy)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns true if the given point is inside the triangle.
+</p></div>
+
+    </div>
+</div>
+
+
+<a id="isPointInTriangle(com.guidebee.math.Vector3, com.guidebee.math.Vector3, com.guidebee.math.Vector3, com.guidebee.math.Vector3)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">isPointInTriangle</span>
+      <span class="normal">(<a href="../../../com/guidebee/math/Vector3.html">Vector3</a> point, <a href="../../../com/guidebee/math/Vector3.html">Vector3</a> t1, <a href="../../../com/guidebee/math/Vector3.html">Vector3</a> t2, <a href="../../../com/guidebee/math/Vector3.html">Vector3</a> t3)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns whether the given point is inside the triangle. This
+ assumes that the point is on the plane of the triangle. No
+ check is performed that this is the case.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>point</th>
+          <td>the point</td>
+        </tr>
+        <tr>
+          <th>t1</th>
+          <td>the first vertex of the triangle</td>
+        </tr>
+        <tr>
+          <th>t2</th>
+          <td>the second vertex of the triangle</td>
+        </tr>
+        <tr>
+          <th>t3</th>
+          <td>the third vertex of the triangle</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>whether the point is in the triangle
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="main(java.lang.String[])"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">main</span>
+      <span class="normal">(String[] args)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="nearestSegmentPoint(com.guidebee.math.Vector2, com.guidebee.math.Vector2, com.guidebee.math.Vector2, com.guidebee.math.Vector2)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        <a href="../../../com/guidebee/math/Vector2.html">Vector2</a>
+      </span>
+      <span class="sympad">nearestSegmentPoint</span>
+      <span class="normal">(<a href="../../../com/guidebee/math/Vector2.html">Vector2</a> start, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> end, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> point, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> nearest)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns a point on the segment nearest to the specified point.
+</p></div>
+
+    </div>
+</div>
+
+
+<a id="nearestSegmentPoint(float, float, float, float, float, float, com.guidebee.math.Vector2)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        <a href="../../../com/guidebee/math/Vector2.html">Vector2</a>
+      </span>
+      <span class="sympad">nearestSegmentPoint</span>
+      <span class="normal">(float startX, float startY, float endX, float endY, float pointX, float pointY, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> nearest)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns a point on the segment nearest to the specified point.
+</p></div>
+
+    </div>
+</div>
+
+
+<a id="overlapConvexPolygons(float[], float[], com.guidebee.math.Intersector.MinimumTranslationVector)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">overlapConvexPolygons</span>
+      <span class="normal">(float[] verts1, float[] verts2, <a href="../../../com/guidebee/math/Intersector.MinimumTranslationVector.html">Intersector.MinimumTranslationVector</a> mtv)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../com/guidebee/math/Intersector.html#overlapConvexPolygons(float[], int, int, float[], int, int, com.guidebee.math.Intersector.MinimumTranslationVector)">overlapConvexPolygons(float[], int, int, float[], int, int, MinimumTranslationVector)</a></code></li>
+      </ul>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="overlapConvexPolygons(com.guidebee.math.geometry.Polygon, com.guidebee.math.geometry.Polygon, com.guidebee.math.Intersector.MinimumTranslationVector)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">overlapConvexPolygons</span>
+      <span class="normal">(<a href="../../../com/guidebee/math/geometry/Polygon.html">Polygon</a> p1, <a href="../../../com/guidebee/math/geometry/Polygon.html">Polygon</a> p2, <a href="../../../com/guidebee/math/Intersector.MinimumTranslationVector.html">Intersector.MinimumTranslationVector</a> mtv)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Check whether specified counter-clockwise wound convex polygons overlap.
+ If they do, optionally obtain a Minimum Translation Vector indicating the
+ minimum magnitude vector required to push the polygon p1 out of collision
+ with polygon p2.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>p1</th>
+          <td>The first polygon.</td>
+        </tr>
+        <tr>
+          <th>p2</th>
+          <td>The second polygon.</td>
+        </tr>
+        <tr>
+          <th>mtv</th>
+          <td>A Minimum Translation Vector to fill in the case of a
+            collision, or null (optional).</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>Whether polygons overlap.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="overlapConvexPolygons(com.guidebee.math.geometry.Polygon, com.guidebee.math.geometry.Polygon)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">overlapConvexPolygons</span>
+      <span class="normal">(<a href="../../../com/guidebee/math/geometry/Polygon.html">Polygon</a> p1, <a href="../../../com/guidebee/math/geometry/Polygon.html">Polygon</a> p2)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Check whether specified counter-clockwise wound convex polygons overlap.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>p1</th>
+          <td>The first polygon.</td>
+        </tr>
+        <tr>
+          <th>p2</th>
+          <td>The second polygon.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>Whether polygons overlap.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="overlapConvexPolygons(float[], int, int, float[], int, int, com.guidebee.math.Intersector.MinimumTranslationVector)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">overlapConvexPolygons</span>
+      <span class="normal">(float[] verts1, int offset1, int count1, float[] verts2, int offset2, int count2, <a href="../../../com/guidebee/math/Intersector.MinimumTranslationVector.html">Intersector.MinimumTranslationVector</a> mtv)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Check whether polygons defined by the given counter-clockwise wound
+ vertex arrays overlap. If they do, optionally obtain a Minimum Translation
+ Vector indicating the minimum magnitude vector required to push the
+ polygon defined by verts1 out of the collision with the polygon defined by verts2.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>verts1</th>
+          <td>Vertices of the first polygon.</td>
+        </tr>
+        <tr>
+          <th>verts2</th>
+          <td>Vertices of the second polygon.</td>
+        </tr>
+        <tr>
+          <th>mtv</th>
+          <td>A Minimum Translation Vector to fill in the case of a
+               collision, or null (optional).</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>Whether polygons overlap.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="overlaps(com.guidebee.math.geometry.Rectangle, com.guidebee.math.geometry.Rectangle)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">overlaps</span>
+      <span class="normal">(<a href="../../../com/guidebee/math/geometry/Rectangle.html">Rectangle</a> r1, <a href="../../../com/guidebee/math/geometry/Rectangle.html">Rectangle</a> r2)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="overlaps(com.guidebee.math.geometry.Circle, com.guidebee.math.geometry.Rectangle)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">overlaps</span>
+      <span class="normal">(<a href="../../../com/guidebee/math/geometry/Circle.html">Circle</a> c, <a href="../../../com/guidebee/math/geometry/Rectangle.html">Rectangle</a> r)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="overlaps(com.guidebee.math.geometry.Circle, com.guidebee.math.geometry.Circle)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">overlaps</span>
+      <span class="normal">(<a href="../../../com/guidebee/math/geometry/Circle.html">Circle</a> c1, <a href="../../../com/guidebee/math/geometry/Circle.html">Circle</a> c2)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="pointLineSide(float, float, float, float, float, float)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">pointLineSide</span>
+      <span class="normal">(float linePoint1X, float linePoint1Y, float linePoint2X, float linePoint2Y, float pointX, float pointY)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="pointLineSide(com.guidebee.math.Vector2, com.guidebee.math.Vector2, com.guidebee.math.Vector2)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">pointLineSide</span>
+      <span class="normal">(<a href="../../../com/guidebee/math/Vector2.html">Vector2</a> linePoint1, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> linePoint2, <a href="../../../com/guidebee/math/Vector2.html">Vector2</a> point)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Determines on which side of the given line the point is. Returns -1
+ if the point is on the left side of the line, 0 if the
+ point is on the line and 1 if the point is on the right side of the
+ line. Left and right are relative to the lines direction
+ which is linePoint1 to linePoint2.
+</p></div>
+
+    </div>
+</div>
+
+
+<a id="splitTriangle(float[], com.guidebee.math.geometry.Plane, com.guidebee.math.Intersector.SplitTriangle)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">splitTriangle</span>
+      <span class="normal">(float[] triangle, <a href="../../../com/guidebee/math/geometry/Plane.html">Plane</a> plane, <a href="../../../com/guidebee/math/Intersector.SplitTriangle.html">Intersector.SplitTriangle</a> split)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Splits the triangle by the plane. The result is stored in the SplitTriangle
+ instance. Depending on where the triangle is
+ relative to the plane, the result can be:
+ <p/>
+ <ul>
+ <li>Triangle is fully in front/behind: <code><a href="../../../com/guidebee/math/Intersector.SplitTriangle.html#front">front</a></code> or
+ <code><a href="../../../com/guidebee/math/Intersector.SplitTriangle.html#back">back</a></code> will contain the original
+ triangle, <code><a href="../../../com/guidebee/math/Intersector.SplitTriangle.html#total">total</a></code> will be one.</li>
+ <li>Triangle has two vertices in front, one behind: <code><a href="../../../com/guidebee/math/Intersector.SplitTriangle.html#front">front</a></code>
+ contains 2 triangles,
+ <code><a href="../../../com/guidebee/math/Intersector.SplitTriangle.html#back">back</a></code> contains 1 triangles, <code><a href="../../../com/guidebee/math/Intersector.SplitTriangle.html#total">total</a></code>
+ will be 3.</li>
+ <li>Triangle has one vertex in front, two behind: <code><a href="../../../com/guidebee/math/Intersector.SplitTriangle.html#front">front</a></code>
+ contains 1 triangle,
+ <code><a href="../../../com/guidebee/math/Intersector.SplitTriangle.html#back">back</a></code> contains 2 triangles, <code><a href="../../../com/guidebee/math/Intersector.SplitTriangle.html#total">total</a></code>
+ will be 3.</li>
+ </ul>
+ <p/>
+ The input triangle should have the form: x, y, z, x2, y2, z2, x3, y3, y3.
+ One can add additional attributes per vertex which
+ will be interpolated if split, such as texture coordinates or normals.
+ Note that these additional attributes won't be
+ normalized, as might be necessary in case of normals.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>split</th>
+          <td>output SplitTriangle
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+
+
+
+<!-- ========= END OF CLASS DATA ========= -->
+<a id="navbar_top"></a>
+
+<div id="footer">
+Generated by <a href="http://code.google.com/p/doclava/">Doclava</a>.
+</div> <!-- end footer -->
+
+</div> <!-- jd-content -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize doclava-developer-docs.js */
+</script>
+
+</body>
+</html>

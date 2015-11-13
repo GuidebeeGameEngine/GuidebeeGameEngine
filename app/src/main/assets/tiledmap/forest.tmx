@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="25" height="15" tilewidth="32" tileheight="32" nextobjectid="13">
+ <tileset firstgid="1" name="grass-tiles-2-small" tilewidth="32" tileheight="32" tilecount="72">
+  <image source="grass-tiles-2-small.png" width="384" height="192"/>
+ </tileset>
+ <tileset firstgid="73" name="littleshrooms_0" tilewidth="32" tileheight="32" tilecount="1">
+  <image source="littleshrooms_0.png" width="32" height="40"/>
+ </tileset>
+ <tileset firstgid="74" name="tree2-final" tilewidth="32" tileheight="32" tilecount="64">
+  <image source="tree2-final.png" width="256" height="256"/>
+  <tile id="63">
+   <objectgroup draworder="index"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="138" name="qubodup-bush_0" tilewidth="32" tileheight="32" tilecount="1">
+  <image source="qubodup-bush_0.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="139" name="qubodup-bush_berries_0" tilewidth="32" tileheight="32" tilecount="1">
+  <image source="qubodup-bush_berries_0.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="140" name="bucket" tilewidth="32" tileheight="32" tilecount="16">
+  <image source="bucket.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="156" name="box" tilewidth="32" tileheight="32" tilecount="4">
+  <image source="box.png" width="64" height="64"/>
+ </tileset>
+ <layer name="Background" width="25" height="15">
+  <data encoding="base64" compression="zlib">
+   eJydlFsPgjAUgzcSRCEsEUwISqIv3v7/H3RLemKtA4MPX3ZhtJxuzDvn/AJTpALbyCkSVlBAp13weER68rhn1lwjN7TW99AP1E8+DVomVwc/7zCv7DN+af0wU4d6FMD0D4L6sYfBcxOy6vG+ZfUU/TIyRjYZT/XwNOfxrTtQI4MOdbG+ZR/gxXAuXENB+jX52LgSfftO82nIN5dR4kJ6JTIwbaN07/OpHgP1be8793kWOmhyPrXos2aQMXvu3HcOimaUOFPt7Z8ePOa+5bYn/Tbjwx5p348/2pHGdp5r1GLnpSFNLx5cq52HuXvHSB76zw9Sg3ow+q/rvgbxWLoPOb+1PNz7fvy1Nnm8AERsElA=
+  </data>
+ </layer>
+ <layer name="berries" width="25" height="15">
+  <data encoding="base64" compression="zlib">
+   eJzl0MsKgCAQQFH/v/c70+pXu8uhRQ6RQnjhMCsZ1Zg0FYn2xOjPd9eWwxufyv39bwv9W4kKNZpIO1t06DF8tOPeiAkzFuUZj13MUCssNjjljgOnmLIL/LkRZw==
+  </data>
+ </layer>
+ <layer name="Foreground" width="25" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AU0ArUAHEtENcBcT0Qe9LAjhYgbgXiNiBup4H5o2BoAgDb9wRW
+  </data>
+ </layer>
+ <layer name="Top" width="25" height="15">
+  <data encoding="base64" compression="zlib">
+   eJztzTUOQlEAAEHOh7u7uwTvoINbM/SU7ycksMnUG4v9dnESJEmRJkOWXKBHngJFSpSpUKUW6FGnQZMWbTp06QV69BkwZMSYCVNmgR5zFixZsWbDll2gx7s9B46cOHPhGvDxqRv3iB8PnhE//n1/L5WxE+k=
+  </data>
+ </layer>
+ <objectgroup name="Collision">
+  <object id="1" name="TreeCollisionArea" x="510" y="256" width="128" height="62"/>
+  <object id="9" name="BucketArea" x="160" y="351" width="127" height="127"/>
+  <object id="11" name="BoxCollisionArea" x="575" y="415" width="127" height="63"/>
+ </objectgroup>
+</map>

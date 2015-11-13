@@ -1,0 +1,172 @@
+battlecity.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+img11
+  rotate: false
+  xy: 112, 327
+  size: 132, 12
+  orig: 132, 12
+  offset: 0, 0
+  index: -1
+img12
+  rotate: false
+  xy: 2, 377
+  size: 144, 24
+  orig: 144, 24
+  offset: 0, 0
+  index: -1
+img13
+  rotate: false
+  xy: 458, 48
+  size: 12, 3
+  orig: 12, 3
+  offset: 0, 0
+  index: -1
+img14
+  rotate: false
+  xy: 2, 327
+  size: 108, 48
+  orig: 108, 48
+  offset: 0, 0
+  index: -1
+img15
+  rotate: false
+  xy: 2, 2
+  size: 276, 48
+  orig: 276, 48
+  offset: 0, 0
+  index: -1
+img21
+  rotate: false
+  xy: 485, 34
+  size: 6, 6
+  orig: 6, 6
+  offset: 0, 0
+  index: -1
+img22
+  rotate: false
+  xy: 485, 42
+  size: 6, 6
+  orig: 6, 6
+  offset: 0, 0
+  index: -1
+img23
+  rotate: false
+  xy: 472, 48
+  size: 6, 6
+  orig: 6, 6
+  offset: 0, 0
+  index: -1
+img24
+  rotate: false
+  xy: 496, 18
+  size: 12, 6
+  orig: 12, 6
+  offset: 0, 0
+  index: -1
+img25
+  rotate: false
+  xy: 480, 50
+  size: 6, 6
+  orig: 6, 6
+  offset: 0, 0
+  index: -1
+img31
+  rotate: false
+  xy: 2, 52
+  size: 176, 153
+  orig: 176, 153
+  offset: 0, 0
+  index: -1
+img32
+  rotate: false
+  xy: 2, 207
+  size: 176, 118
+  orig: 176, 118
+  offset: 0, 0
+  index: -1
+img33
+  rotate: false
+  xy: 493, 43
+  size: 15, 16
+  orig: 15, 16
+  offset: 0, 0
+  index: -1
+img34
+  rotate: false
+  xy: 493, 26
+  size: 16, 15
+  orig: 16, 15
+  offset: 0, 0
+  index: -1
+img35
+  rotate: false
+  xy: 499, 9
+  size: 7, 7
+  orig: 7, 7
+  offset: 0, 0
+  index: -1
+img41
+  rotate: false
+  xy: 180, 61
+  size: 60, 6
+  orig: 60, 6
+  offset: 0, 0
+  index: -1
+img42
+  rotate: false
+  xy: 458, 2
+  size: 50, 5
+  orig: 50, 5
+  offset: 0, 0
+  index: -1
+img43
+  rotate: false
+  xy: 280, 2
+  size: 176, 208
+  orig: 176, 208
+  offset: 0, 0
+  index: -1
+img44
+  rotate: false
+  xy: 458, 34
+  size: 25, 12
+  orig: 25, 12
+  offset: 0, 0
+  index: -1
+img45
+  rotate: false
+  xy: 180, 69
+  size: 55, 6
+  orig: 55, 6
+  offset: 0, 0
+  index: -1
+img46
+  rotate: false
+  xy: 458, 26
+  size: 33, 6
+  orig: 33, 6
+  offset: 0, 0
+  index: -1
+img47
+  rotate: false
+  xy: 180, 52
+  size: 70, 7
+  orig: 70, 7
+  offset: 0, 0
+  index: -1
+img48
+  rotate: false
+  xy: 458, 9
+  size: 39, 7
+  orig: 39, 7
+  offset: 0, 0
+  index: -1
+tiles
+  rotate: false
+  xy: 458, 18
+  size: 36, 6
+  orig: 36, 6
+  offset: 0, 0
+  index: -1

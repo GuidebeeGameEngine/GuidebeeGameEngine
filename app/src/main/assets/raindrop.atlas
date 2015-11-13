@@ -1,0 +1,74 @@
+raindrop.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Back
+  rotate: false
+  xy: 2, 256
+  size: 238, 237
+  orig: 256, 256
+  offset: 9, 9
+  index: 8
+Button_08_Normal_Shoot
+  rotate: false
+  xy: 282, 2
+  size: 125, 125
+  orig: 128, 128
+  offset: 1, 2
+  index: -1
+Button_08_Normal_Virgin
+  rotate: false
+  xy: 282, 129
+  size: 125, 125
+  orig: 128, 128
+  offset: 1, 2
+  index: -1
+Button_08_Pressed_Shoot
+  rotate: false
+  xy: 242, 383
+  size: 120, 120
+  orig: 128, 128
+  offset: 4, 4
+  index: -1
+Button_08_Pressed_Virgin
+  rotate: false
+  xy: 364, 383
+  size: 120, 120
+  orig: 128, 128
+  offset: 4, 4
+  index: -1
+Joystick
+  rotate: false
+  xy: 242, 256
+  size: 125, 125
+  orig: 128, 128
+  offset: 1, 2
+  index: 8
+bucket
+  rotate: false
+  xy: 409, 2
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+droplet
+  rotate: false
+  xy: 409, 68
+  size: 42, 64
+  orig: 64, 64
+  offset: 12, 0
+  index: -1
+mario2
+  rotate: false
+  xy: 2, 2
+  size: 278, 252
+  orig: 512, 256
+  offset: 4, 0
+  index: -1
+numbers
+  rotate: false
+  xy: 2, 495
+  size: 140, 14
+  orig: 140, 14
+  offset: 0, 0
+  index: -1

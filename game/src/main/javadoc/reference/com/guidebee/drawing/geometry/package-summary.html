@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <meta name="description" content="Javadoc API documentation for Guidebee Game Engine." />
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico" />
+<title>
+
+  com.guidebee.drawing.geometry - Guidebee Game Engine API
+
+
+| Guidebee Game Engine
+
+</title>
+<link href="../../../../../assets/doclava-developer-docs.css" rel="stylesheet" type="text/css" />
+<link href="../../../../../assets/customizations.css" rel="stylesheet" type="text/css" />
+<script src="../../../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../../../assets/doclava-developer-docs.js" type="text/javascript"></script>
+<script src="../../../../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../../", "../../../../../assets/");
+</script>
+<script src="../../../../../assets/doclava-developer-reference.js" type="text/javascript"></script>
+<script src="../../../../../assets/navtree_data.js" type="text/javascript"></script>
+<script src="../../../../../assets/customizations.js" type="text/javascript"></script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+
+<body class="">
+
+<div id="header">
+    <div id="headerLeft">
+    
+      <span id="masthead-title">Guidebee Game Engine</span>
+    
+    </div>
+    <div id="headerRight">
+      
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../../../')"
+                      onkeyup="return search_changed(event, false, '../../../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      
+    </div>
+</div><!-- header -->
+
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first side-nav-resizable" id="side-nav">
+      <div id="swapper">
+        <div id="nav-panels">
+          <div id="resize-packages-nav">
+            <div id="packages-nav">
+              <div id="index-links">
+                <a href="../../../../packages.html"  >Package Index</a> | 
+                <a href="../../../../classes.html" >Class Index</a>
+              </div>
+              <ul>
+                
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/drawing/package-summary.html">com.guidebee.drawing</a></li>
+    <li class="selected api apilevel-">
+  <a href="../../../../com/guidebee/drawing/geometry/package-summary.html">com.guidebee.drawing.geometry</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/package-summary.html">com.guidebee.game</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/activity/package-summary.html">com.guidebee.game.activity</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/audio/package-summary.html">com.guidebee.game.audio</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/camera/package-summary.html">com.guidebee.game.camera</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/camera/viewports/package-summary.html">com.guidebee.game.camera.viewports</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/entity/package-summary.html">com.guidebee.game.entity</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/entity/directors/package-summary.html">com.guidebee.game.entity.directors</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/entity/signals/package-summary.html">com.guidebee.game.entity.signals</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/entity/utils/package-summary.html">com.guidebee.game.entity.utils</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/files/package-summary.html">com.guidebee.game.files</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/graphics/package-summary.html">com.guidebee.game.graphics</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/input/package-summary.html">com.guidebee.game.input</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/maps/package-summary.html">com.guidebee.game.maps</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/maps/objects/package-summary.html">com.guidebee.game.maps.objects</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/maps/tiled/package-summary.html">com.guidebee.game.maps.tiled</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/maps/tiled/tiles/package-summary.html">com.guidebee.game.maps.tiled.tiles</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/microedition/package-summary.html">com.guidebee.game.microedition</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/net/package-summary.html">com.guidebee.game.net</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/physics/package-summary.html">com.guidebee.game.physics</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/physics/joints/package-summary.html">com.guidebee.game.physics.joints</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/scene/package-summary.html">com.guidebee.game.scene</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/scene/actions/package-summary.html">com.guidebee.game.scene.actions</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/scene/collision/package-summary.html">com.guidebee.game.scene.collision</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/tween/package-summary.html">com.guidebee.game.tween</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/tween/equations/package-summary.html">com.guidebee.game.tween.equations</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/tween/paths/package-summary.html">com.guidebee.game.tween.paths</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/tween/primitives/package-summary.html">com.guidebee.game.tween.primitives</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/ui/package-summary.html">com.guidebee.game.ui</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/ui/drawable/package-summary.html">com.guidebee.game.ui.drawable</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/math/package-summary.html">com.guidebee.math</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/math/collision/package-summary.html">com.guidebee.math.collision</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/math/geometry/package-summary.html">com.guidebee.math.geometry</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/utils/package-summary.html">com.guidebee.utils</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/utils/collections/package-summary.html">com.guidebee.utils.collections</a></li>
+              </ul><br/>
+            </div> <!-- end packages -->
+          </div> <!-- end resize-packages -->
+          <div id="classes-nav">
+            <ul>
+              
+    <li><h2>Interfaces</h2>
+      <ul>
+        <li class="api apilevel-"><a href="../../../../com/guidebee/drawing/geometry/IPathIterator.html">IPathIterator</a></li>
+        <li class="api apilevel-"><a href="../../../../com/guidebee/drawing/geometry/IShape.html">IShape</a></li>
+      </ul>
+    </li>
+              
+    <li><h2>Classes</h2>
+      <ul>
+        <li class="api apilevel-"><a href="../../../../com/guidebee/drawing/geometry/AffineTransform.html">AffineTransform</a></li>
+        <li class="api apilevel-"><a href="../../../../com/guidebee/drawing/geometry/Arc.html">Arc</a></li>
+        <li class="api apilevel-"><a href="../../../../com/guidebee/drawing/geometry/Area.html">Area</a></li>
+        <li class="api apilevel-"><a href="../../../../com/guidebee/drawing/geometry/CubicCurve.html">CubicCurve</a></li>
+        <li class="api apilevel-"><a href="../../../../com/guidebee/drawing/geometry/Dimension.html">Dimension</a></li>
+        <li class="api apilevel-"><a href="../../../../com/guidebee/drawing/geometry/Ellipse.html">Ellipse</a></li>
+        <li class="api apilevel-"><a href="../../../../com/guidebee/drawing/geometry/FlatteningPathIterator.html">FlatteningPathIterator</a></li>
+        <li class="api apilevel-"><a href="../../../../com/guidebee/drawing/geometry/Line.html">Line</a></li>
+        <li class="api apilevel-"><a href="../../../../com/guidebee/drawing/geometry/Path.html">Path</a></li>
+        <li class="api apilevel-"><a href="../../../../com/guidebee/drawing/geometry/Point.html">Point</a></li>
+        <li class="api apilevel-"><a href="../../../../com/guidebee/drawing/geometry/Polygon.html">Polygon</a></li>
+        <li class="api apilevel-"><a href="../../../../com/guidebee/drawing/geometry/Polyline.html">Polyline</a></li>
+        <li class="api apilevel-"><a href="../../../../com/guidebee/drawing/geometry/QuadCurve.html">QuadCurve</a></li>
+        <li class="api apilevel-"><a href="../../../../com/guidebee/drawing/geometry/Rectangle.html">Rectangle</a></li>
+        <li class="api apilevel-"><a href="../../../../com/guidebee/drawing/geometry/RectangularShape.html">RectangularShape</a></li>
+        <li class="api apilevel-"><a href="../../../../com/guidebee/drawing/geometry/RoundRectangle.html">RoundRectangle</a></li>
+      </ul>
+    </li>
+              
+              
+              
+    <li><h2>Exceptions</h2>
+      <ul>
+        <li class="api apilevel-"><a href="../../../../com/guidebee/drawing/geometry/IllegalPathStateException.html">IllegalPathStateException</a></li>
+        <li class="api apilevel-"><a href="../../../../com/guidebee/drawing/geometry/NoninvertibleTransformException.html">NoninvertibleTransformException</a></li>
+      </ul>
+    </li>
+              
+            </ul><br/>
+          </div><!-- end classes -->
+        </div><!-- end nav-panels -->
+        <div id="nav-tree" style="display:none">
+          <div id="index-links">
+            <a href="../../../../packages.html"  >Package Index</a> | 
+            <a href="../../../../classes.html" >Class Index</a>
+          </div>
+        </div><!-- end nav-tree -->
+      </div><!-- end swapper -->
+    </div> <!-- end side-nav -->
+    <script>
+      if (!isMobile) {
+        $("<a href='#' id='nav-swap' onclick='swapNav();return false;' style='font-size:10px;line-height:9px;margin-left:1em;text-decoration:none;'><span id='tree-link'>Use Tree Navigation</span><span id='panel-link' style='display:none'>Use Panel Navigation</span></a>").appendTo("#side-nav");
+        chooseDefaultNav();
+        if ($("#nav-tree").is(':visible')) {
+          init_default_navtree("../../../../");
+        } else {
+          addLoadEvent(function() {
+            scrollIntoView("packages-nav");
+            scrollIntoView("classes-nav");
+          });
+        }
+        $("#swapper").css({borderBottom:"2px solid #aaa"});
+      } else {
+        swapNav(); // tree view should be used on mobile
+      }
+    </script>
+
+
+
+<div class="g-unit" id="doc-content">
+
+<div id="api-info-block">
+<div class="api-level">
+  
+
+
+  
+  
+
+</div>
+</div>
+
+<div id="jd-header">
+  package
+  <h1>com.guidebee.drawing.geometry</h1>
+</div><!-- end header -->
+
+<div id="naMessage"></div>
+
+<div id="jd-content" class="api apilevel-">
+
+
+  <div class="jd-descr">
+    Provides the Java 2D classes for defining and performing operations on objects related to two-dimensional geometry.
+<!--
+<h2>Package Specification</h2>
+
+##### FILL IN ANY SPECS NEEDED BY JAVA COMPATIBILITY KIT #####
+<ul>
+  <li><a href="">##### REFER TO ANY FRAMEMAKER SPECIFICATION HERE #####</a>
+</ul>
+
+<h2>Related Documentation</h2>
+
+For overviews, tutorials, examples, guides, and tool documentation, please see:
+<ul>
+  <li><a href="">##### REFER TO NON-SPEC DOCUMENTATION HERE #####</a>
+</ul>
+-->
+
+
+
+  </div>
+
+
+
+
+
+  
+    <h2>Interfaces</h2>
+    <div class="jd-sumtable">
+    
+  <table class="jd-sumtable-expando">
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../com/guidebee/drawing/geometry/IPathIterator.html">IPathIterator</a></td>
+              <td class="jd-descrcol" width="100%">The <code>IPathIterator</code> interface provides the mechanism
+ for objects that implement the  IShape
+ interface to return the geometry of their boundary by allowing
+ a caller to retrieve the path of that boundary a segment at a
+ time.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../com/guidebee/drawing/geometry/IShape.html">IShape</a></td>
+              <td class="jd-descrcol" width="100%">The <code>IShape</code> interface provides definitions for objects
+ that represent some form of geometric shape.&nbsp;</td>
+          </tr>
+  </table>
+    </div>
+  
+
+
+  
+    <h2>Classes</h2>
+    <div class="jd-sumtable">
+    
+  <table class="jd-sumtable-expando">
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../com/guidebee/drawing/geometry/AffineTransform.html">AffineTransform</a></td>
+              <td class="jd-descrcol" width="100%">The <code>AffineTransform</code> class represents a 2D affine transform
+ that performs a linear mapping from 2D coordinates to other 2D
+ coordinates that preserves the "straightness" and
+ "parallelness" of lines.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../com/guidebee/drawing/geometry/Arc.html">Arc</a></td>
+              <td class="jd-descrcol" width="100%">This class defines an arc specified in <code>Double</code> precision.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../com/guidebee/drawing/geometry/Area.html">Area</a></td>
+              <td class="jd-descrcol" width="100%">An <code>Area</code> object stores and manipulates a
+ resolution-independent description of an enclosed area of
+ 2-dimensional space.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../com/guidebee/drawing/geometry/CubicCurve.html">CubicCurve</a></td>
+              <td class="jd-descrcol" width="100%">A cubic parametric curve segment specified with
+ <code>int</code> coordinates.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../com/guidebee/drawing/geometry/Dimension.html">Dimension</a></td>
+              <td class="jd-descrcol" width="100%">The <code>Dimension</code> class encapsulates the width and
+ height of a component (in integer=) in a single object.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../com/guidebee/drawing/geometry/Ellipse.html">Ellipse</a></td>
+              <td class="jd-descrcol" width="100%">The <code>Ellipse</code> class defines an ellipse specified
+ in <code>Double</code> precision.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../com/guidebee/drawing/geometry/FlatteningPathIterator.html">FlatteningPathIterator</a></td>
+              <td class="jd-descrcol" width="100%">The <code>FlatteningPathIterator</code> class returns a flattened view of
+ another <code><a href="../../../../com/guidebee/drawing/geometry/IPathIterator.html">IPathIterator</a></code> object.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../com/guidebee/drawing/geometry/Line.html">Line</a></td>
+              <td class="jd-descrcol" width="100%">A line segment specified with int coordinates.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../com/guidebee/drawing/geometry/Path.html">Path</a></td>
+              <td class="jd-descrcol" width="100%">The <code>Path</code> class provides a simple, yet flexible
+ shape which represents an arbitrary geometric path.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../com/guidebee/drawing/geometry/Point.html">Point</a></td>
+              <td class="jd-descrcol" width="100%">A point representing a location in <code>(x, y)</code> coordinate space,
+ specified in integer.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../com/guidebee/drawing/geometry/Polygon.html">Polygon</a></td>
+              <td class="jd-descrcol" width="100%">The <code>Polygon</code> class encapsulates a description of a
+ closed, two-dimensional region within a coordinate space.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../com/guidebee/drawing/geometry/Polyline.html">Polyline</a></td>
+              <td class="jd-descrcol" width="100%">The <code>Polyline</code> class encapsulates a description of a
+ collection of line segments within a coordinate space.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../com/guidebee/drawing/geometry/QuadCurve.html">QuadCurve</a></td>
+              <td class="jd-descrcol" width="100%">A quadratic parametric curve segment specified with
+ <code>int</code> coordinates.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../com/guidebee/drawing/geometry/Rectangle.html">Rectangle</a></td>
+              <td class="jd-descrcol" width="100%">A <code>Rectangle</code> specifies an area in a coordinate space that is
+ enclosed by the <code>Rectangle</code> object's upper-left point
+ <code>(x, y)</code>
+ in the coordinate space, its width, and its height.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../com/guidebee/drawing/geometry/RectangularShape.html">RectangularShape</a></td>
+              <td class="jd-descrcol" width="100%"><code>RectangularShape</code> is the base class for a number of
+ <code><a href="../../../../com/guidebee/drawing/geometry/IShape.html">IShape</a></code> objects whose geometry is defined by a rectangular frame.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../com/guidebee/drawing/geometry/RoundRectangle.html">RoundRectangle</a></td>
+              <td class="jd-descrcol" width="100%">The <code>RoundRectangle</code> class defines a rectangle with rounded
+ corners all specified in <code>long</code> coordinates.&nbsp;</td>
+          </tr>
+  </table>
+    </div>
+  
+
+
+  
+
+
+  
+    <h2>Exceptions</h2>
+    <div class="jd-sumtable">
+    
+  <table class="jd-sumtable-expando">
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../com/guidebee/drawing/geometry/IllegalPathStateException.html">IllegalPathStateException</a></td>
+              <td class="jd-descrcol" width="100%">The <code>IllegalPathStateException</code> represents an
+ exception that is thrown if an operation is performed on a path
+ that is in an illegal state with respect to the particular
+ operation being performed, such as appending a path segment
+ to a <code><a href="../../../../com/guidebee/drawing/geometry/Path.html">Path</a></code> without an initial moveto.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../com/guidebee/drawing/geometry/NoninvertibleTransformException.html">NoninvertibleTransformException</a></td>
+              <td class="jd-descrcol" width="100%">The <code>NoninvertibleTransformException</code> class represents
+ an exception that is thrown if an operation is performed requiring
+ the inverse of an <code><a href="../../../../com/guidebee/drawing/geometry/AffineTransform.html">AffineTransform</a></code> object but the
+ <code>AffineTransform</code> is in a non-invertible state.&nbsp;</td>
+          </tr>
+  </table>
+    </div>
+  
+
+
+  
+
+
+<div id="footer">
+Generated by <a href="http://code.google.com/p/doclava/">Doclava</a>.
+</div> <!-- end footer -->
+
+</div><!-- end jd-content -->
+</div><!-- doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize doclava-developer-docs.js */
+</script>
+
+</body>
+</html>

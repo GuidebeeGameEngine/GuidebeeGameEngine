@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <meta name="description" content="Javadoc API documentation for Guidebee Game Engine." />
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
+<title>
+
+  InputProcessor - Guidebee Game Engine API
+
+
+| Guidebee Game Engine
+
+</title>
+<link href="../../../../assets/doclava-developer-docs.css" rel="stylesheet" type="text/css" />
+<link href="../../../../assets/customizations.css" rel="stylesheet" type="text/css" />
+<script src="../../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../../assets/doclava-developer-docs.js" type="text/javascript"></script>
+<script src="../../../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../", "../../../../assets/");
+</script>
+<script src="../../../../assets/doclava-developer-reference.js" type="text/javascript"></script>
+<script src="../../../../assets/navtree_data.js" type="text/javascript"></script>
+<script src="../../../../assets/customizations.js" type="text/javascript"></script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+
+<body class="">
+
+<div id="header">
+    <div id="headerLeft">
+    
+      <span id="masthead-title">Guidebee Game Engine</span>
+    
+    </div>
+    <div id="headerRight">
+      
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../../')"
+                      onkeyup="return search_changed(event, false, '../../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      
+    </div>
+</div><!-- header -->
+
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first side-nav-resizable" id="side-nav">
+      <div id="swapper">
+        <div id="nav-panels">
+          <div id="resize-packages-nav">
+            <div id="packages-nav">
+              <div id="index-links">
+                <a href="../../../packages.html"  >Package Index</a> | 
+                <a href="../../../classes.html" >Class Index</a>
+              </div>
+              <ul>
+                
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/drawing/package-summary.html">com.guidebee.drawing</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/drawing/geometry/package-summary.html">com.guidebee.drawing.geometry</a></li>
+    <li class="selected api apilevel-">
+  <a href="../../../com/guidebee/game/package-summary.html">com.guidebee.game</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/activity/package-summary.html">com.guidebee.game.activity</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/audio/package-summary.html">com.guidebee.game.audio</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/camera/package-summary.html">com.guidebee.game.camera</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/camera/viewports/package-summary.html">com.guidebee.game.camera.viewports</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/entity/package-summary.html">com.guidebee.game.entity</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/entity/directors/package-summary.html">com.guidebee.game.entity.directors</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/entity/signals/package-summary.html">com.guidebee.game.entity.signals</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/entity/utils/package-summary.html">com.guidebee.game.entity.utils</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/files/package-summary.html">com.guidebee.game.files</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/graphics/package-summary.html">com.guidebee.game.graphics</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/input/package-summary.html">com.guidebee.game.input</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/maps/package-summary.html">com.guidebee.game.maps</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/maps/objects/package-summary.html">com.guidebee.game.maps.objects</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/maps/tiled/package-summary.html">com.guidebee.game.maps.tiled</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/maps/tiled/tiles/package-summary.html">com.guidebee.game.maps.tiled.tiles</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/microedition/package-summary.html">com.guidebee.game.microedition</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/net/package-summary.html">com.guidebee.game.net</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/physics/package-summary.html">com.guidebee.game.physics</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/physics/joints/package-summary.html">com.guidebee.game.physics.joints</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/scene/package-summary.html">com.guidebee.game.scene</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/scene/actions/package-summary.html">com.guidebee.game.scene.actions</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/scene/collision/package-summary.html">com.guidebee.game.scene.collision</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/tween/package-summary.html">com.guidebee.game.tween</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/tween/equations/package-summary.html">com.guidebee.game.tween.equations</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/tween/paths/package-summary.html">com.guidebee.game.tween.paths</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/tween/primitives/package-summary.html">com.guidebee.game.tween.primitives</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/ui/package-summary.html">com.guidebee.game.ui</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/game/ui/drawable/package-summary.html">com.guidebee.game.ui.drawable</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/math/package-summary.html">com.guidebee.math</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/math/collision/package-summary.html">com.guidebee.math.collision</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/math/geometry/package-summary.html">com.guidebee.math.geometry</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/utils/package-summary.html">com.guidebee.utils</a></li>
+    <li class="api apilevel-">
+  <a href="../../../com/guidebee/utils/collections/package-summary.html">com.guidebee.utils.collections</a></li>
+              </ul><br/>
+            </div> <!-- end packages -->
+          </div> <!-- end resize-packages -->
+          <div id="classes-nav">
+            <ul>
+              
+    <li><h2>Interfaces</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../com/guidebee/game/Application.html">Application</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/game/ApplicationListener.html">ApplicationListener</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/game/Audio.html">Audio</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/game/Collidable.html">Collidable</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/game/Files.html">Files</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/game/Graphics.html">Graphics</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/game/Input.html">Input</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/game/Input.TextInputListener.html">Input.TextInputListener</a></li>
+          <li class="selected api apilevel-"><a href="../../../com/guidebee/game/InputProcessor.html">InputProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/game/LifecycleListener.html">LifecycleListener</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/game/Net.html">Net</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/game/Net.HttpMethods.html">Net.HttpMethods</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/game/Net.HttpResponse.html">Net.HttpResponse</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/game/Net.HttpResponseListener.html">Net.HttpResponseListener</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/game/Preferences.html">Preferences</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/game/Screen.html">Screen</a></li>
+      </ul>
+    </li>
+              
+    <li><h2>Classes</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../com/guidebee/game/ApplicationAdapter.html">ApplicationAdapter</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/game/Configuration.html">Configuration</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/game/GameEngine.html">GameEngine</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/game/GamePlay.html">GamePlay</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/game/Graphics.BufferFormat.html">Graphics.BufferFormat</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/game/Graphics.DisplayMode.html">Graphics.DisplayMode</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/game/Input.Buttons.html">Input.Buttons</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/game/Input.Keys.html">Input.Keys</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/game/InputAdapter.html">InputAdapter</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/game/InputMultiplexer.html">InputMultiplexer</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/game/InputProcessorQueue.html">InputProcessorQueue</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/game/Net.HttpRequest.html">Net.HttpRequest</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/game/ResourceManager.html">ResourceManager</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/game/ScreenAdapter.html">ScreenAdapter</a></li>
+      </ul>
+    </li>
+              
+              
+    <li><h2>Enums</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../com/guidebee/game/Files.FileType.html">Files.FileType</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/game/Input.Orientation.html">Input.Orientation</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/game/Input.Peripheral.html">Input.Peripheral</a></li>
+          <li class="api apilevel-"><a href="../../../com/guidebee/game/Net.Protocol.html">Net.Protocol</a></li>
+      </ul>
+    </li>
+              
+    <li><h2>Exceptions</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../com/guidebee/game/GameEngineRuntimeException.html">GameEngineRuntimeException</a></li>
+      </ul>
+    </li>
+              
+            </ul><br/>
+          </div><!-- end classes -->
+        </div><!-- end nav-panels -->
+        <div id="nav-tree" style="display:none">
+          <div id="index-links">
+            <a href="../../../packages.html"  >Package Index</a> | 
+            <a href="../../../classes.html" >Class Index</a>
+          </div>
+        </div><!-- end nav-tree -->
+      </div><!-- end swapper -->
+    </div> <!-- end side-nav -->
+    <script>
+      if (!isMobile) {
+        $("<a href='#' id='nav-swap' onclick='swapNav();return false;' style='font-size:10px;line-height:9px;margin-left:1em;text-decoration:none;'><span id='tree-link'>Use Tree Navigation</span><span id='panel-link' style='display:none'>Use Panel Navigation</span></a>").appendTo("#side-nav");
+        chooseDefaultNav();
+        if ($("#nav-tree").is(':visible')) {
+          init_default_navtree("../../../");
+        } else {
+          addLoadEvent(function() {
+            scrollIntoView("packages-nav");
+            scrollIntoView("classes-nav");
+          });
+        }
+        $("#swapper").css({borderBottom:"2px solid #aaa"});
+      } else {
+        swapNav(); // tree view should be used on mobile
+      }
+    </script>
+
+
+
+<div class="g-unit" id="doc-content">
+
+<div id="api-info-block">
+
+
+
+
+<div class="sum-details-links">
+
+
+Summary:
+
+
+
+
+
+
+
+
+
+
+
+  <a href="#pubmethods">Methods</a>
+  
+
+
+
+&#124; <a href="#" onclick="return toggleAllClassInherited()" id="toggleAllClassInherited">[Expand All]</a>
+
+</div><!-- end sum-details-links -->
+<div class="api-level">
+  
+
+
+  
+  
+
+</div>
+</div><!-- end api-info-block -->
+
+
+<!-- ======== START OF CLASS DATA ======== -->
+
+<div id="jd-header">
+    public
+     
+     
+    
+    interface
+<h1>InputProcessor</h1>
+
+
+
+  
+  
+  
+
+
+</div><!-- end header -->
+
+<div id="naMessage"></div>
+
+<div id="jd-content" class="api apilevel-">
+<table class="jd-inheritance-table">
+
+
+    <tr>
+         	
+        <td colspan="1" class="jd-inheritance-class-cell">com.guidebee.game.InputProcessor</td>
+    </tr>
+    
+
+</table>
+
+
+
+
+
+
+<table class="jd-sumtable jd-sumtable-subclasses"><tr><td colspan="12" style="border:none;margin:0;padding:0;">
+
+  <a href="#" onclick="return toggleInherited(this, null)" id="subclasses-indirect" class="jd-expando-trigger closed"
+          ><img id="subclasses-indirect-trigger"
+          src="../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>Known Indirect Subclasses
+
+  <div id="subclasses-indirect">
+      <div id="subclasses-indirect-list"
+              class="jd-inheritedlinks"
+              
+              >
+          
+            
+              <a href="../../../com/guidebee/game/input/GestureDetector.html">GestureDetector</a>,
+            
+              <a href="../../../com/guidebee/game/InputAdapter.html">InputAdapter</a>,
+            
+              <a href="../../../com/guidebee/game/InputMultiplexer.html">InputMultiplexer</a>,
+            
+              <a href="../../../com/guidebee/game/InputProcessorQueue.html">InputProcessorQueue</a>,
+            
+              <a href="../../../com/guidebee/game/microedition/LayerManager.html">LayerManager</a>,
+            
+              <a href="../../../com/guidebee/game/input/RemoteSender.html">RemoteSender</a>,
+            
+              <a href="../../../com/guidebee/game/scene/Stage.html">Stage</a>
+            
+          
+      </div>
+      <div id="subclasses-indirect-summary"
+              style="display: none;"
+              >
+  <table class="jd-sumtable-expando">
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../com/guidebee/game/input/GestureDetector.html">GestureDetector</a></td>
+              <td class="jd-descrcol" width="100%"><code><a href="../../../com/guidebee/game/InputProcessor.html">InputProcessor</a></code> implementation that detects
+ gestures (tap, long press, fling, pan, zoom, pinch) and hands them to a
+ <code><a href="../../../com/guidebee/game/input/GestureDetector.GestureListener.html">GestureDetector.GestureListener</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../com/guidebee/game/InputAdapter.html">InputAdapter</a></td>
+              <td class="jd-descrcol" width="100%">An adapter class for <code><a href="../../../com/guidebee/game/InputProcessor.html">InputProcessor</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../com/guidebee/game/InputMultiplexer.html">InputMultiplexer</a></td>
+              <td class="jd-descrcol" width="100%">An <code><a href="../../../com/guidebee/game/InputProcessor.html">InputProcessor</a></code> that delegates to an ordered list of other
+ InputProcessors.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../com/guidebee/game/InputProcessorQueue.html">InputProcessorQueue</a></td>
+              <td class="jd-descrcol" width="100%">Queues events that are later passed to the wrapped <code><a href="../../../com/guidebee/game/InputProcessor.html">InputProcessor</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../com/guidebee/game/microedition/LayerManager.html">LayerManager</a></td>
+              <td class="jd-descrcol" width="100%">The LayerManager manages a series of Layers.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../com/guidebee/game/input/RemoteSender.html">RemoteSender</a></td>
+              <td class="jd-descrcol" width="100%">Sends all inputs from touch, key, accelerometer and compass to a
+ <code><a href="../../../com/guidebee/game/input/RemoteInput.html">RemoteInput</a></code> at the given ip/port.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../com/guidebee/game/scene/Stage.html">Stage</a></td>
+              <td class="jd-descrcol" width="100%">Container containing hierarchies of <code><a href="../../../com/guidebee/game/scene/Actor.html">actors</a></code>.&nbsp;</td>
+          </tr>
+  </table>
+      </div>
+  </div>
+</td></tr></table>
+
+
+<div class="jd-descr">
+
+
+<h2>Class Overview</h2>
+<p>An InputProcessor is used to receive input events from the keyboard and the
+ touch screen (mouse on the desktop). For this it
+ has to be registered with the <code><a href="../../../com/guidebee/game/Input.html#setInputProcessor(com.guidebee.game.InputProcessor)">setInputProcessor(InputProcessor)</a></code>
+ method. It will be called each frame before the
+ call to <code><a href="../../../com/guidebee/game/ApplicationListener.html#render()">render()</a></code>. Each method returns a boolean
+ in case you want to use this with the
+ <code><a href="../../../com/guidebee/game/InputMultiplexer.html">InputMultiplexer</a></code> to chain input processors.</p>
+
+
+
+
+
+</div><!-- jd-descr -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Summary</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="pubmethods" class="jd-sumtable"><tr><th colspan="12">Public Methods</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            abstract
+            
+            
+            
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/game/InputProcessor.html#keyDown(int)">keyDown</a></span>(int keycode)
+        
+        <div class="jd-descrdiv">Called when a key was pressed</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            abstract
+            
+            
+            
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/game/InputProcessor.html#keyTyped(char)">keyTyped</a></span>(char character)
+        
+        <div class="jd-descrdiv">Called when a key was typed</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            abstract
+            
+            
+            
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/game/InputProcessor.html#keyUp(int)">keyUp</a></span>(int keycode)
+        
+        <div class="jd-descrdiv">Called when a key was released</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            abstract
+            
+            
+            
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/game/InputProcessor.html#mouseMoved(int, int)">mouseMoved</a></span>(int screenX, int screenY)
+        
+        <div class="jd-descrdiv">Called when the mouse was moved without any buttons being pressed.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            abstract
+            
+            
+            
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/game/InputProcessor.html#scrolled(int)">scrolled</a></span>(int amount)
+        
+        <div class="jd-descrdiv">Called when the mouse wheel was scrolled.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            abstract
+            
+            
+            
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/game/InputProcessor.html#touchDown(int, int, int, int)">touchDown</a></span>(int screenX, int screenY, int pointer, int button)
+        
+        <div class="jd-descrdiv">Called when the screen was touched or a mouse button was pressed.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            abstract
+            
+            
+            
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/game/InputProcessor.html#touchDragged(int, int, int)">touchDragged</a></span>(int screenX, int screenY, int pointer)
+        
+        <div class="jd-descrdiv">Called when a finger or the mouse was dragged.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            abstract
+            
+            
+            
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/game/InputProcessor.html#touchUp(int, int, int, int)">touchUp</a></span>(int screenX, int screenY, int pointer, int button)
+        
+        <div class="jd-descrdiv">Called when a finger was lifted or a mouse button was released.</div>
+  
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+
+</div><!-- jd-descr (summary) -->
+
+<!-- Details -->
+
+
+
+
+
+
+
+
+<!-- XML Attributes -->
+
+
+<!-- Enum Values -->
+
+
+<!-- Constants -->
+
+
+<!-- Fields -->
+
+
+<!-- Public ctors -->
+
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<!-- Protected ctors -->
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+<!-- Public methdos -->
+
+<h2>Public Methods</h2>
+
+
+
+<a id="keyDown(int)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        boolean
+      </span>
+      <span class="sympad">keyDown</span>
+      <span class="normal">(int keycode)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Called when a key was pressed</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>keycode</th>
+          <td>one of the constants in <code><a href="../../../com/guidebee/game/Input.Keys.html">Input.Keys</a></code></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>whether the input was processed
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="keyTyped(char)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        boolean
+      </span>
+      <span class="sympad">keyTyped</span>
+      <span class="normal">(char character)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Called when a key was typed</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>character</th>
+          <td>The character</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>whether the input was processed
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="keyUp(int)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        boolean
+      </span>
+      <span class="sympad">keyUp</span>
+      <span class="normal">(int keycode)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Called when a key was released</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>keycode</th>
+          <td>one of the constants in <code><a href="../../../com/guidebee/game/Input.Keys.html">Input.Keys</a></code></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>whether the input was processed
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="mouseMoved(int, int)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        boolean
+      </span>
+      <span class="sympad">mouseMoved</span>
+      <span class="normal">(int screenX, int screenY)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Called when the mouse was moved without any buttons being pressed.
+ Will not be called on either Android or iOS.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>whether the input was processed
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="scrolled(int)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        boolean
+      </span>
+      <span class="sympad">scrolled</span>
+      <span class="normal">(int amount)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Called when the mouse wheel was scrolled. Will not be called on
+ either Android or iOS.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>amount</th>
+          <td>the scroll amount, -1 or 1 depending on the direction
+               the wheel was scrolled.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>whether the input was processed.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="touchDown(int, int, int, int)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        boolean
+      </span>
+      <span class="sympad">touchDown</span>
+      <span class="normal">(int screenX, int screenY, int pointer, int button)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Called when the screen was touched or a mouse button was pressed.
+ The button parameter will be <code><a href="../../../com/guidebee/game/Input.Buttons.html#LEFT">LEFT</a></code> on
+ Android and iOS.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>screenX</th>
+          <td>The x coordinate, origin is in the upper left corner</td>
+        </tr>
+        <tr>
+          <th>screenY</th>
+          <td>The y coordinate, origin is in the upper left corner</td>
+        </tr>
+        <tr>
+          <th>pointer</th>
+          <td>the pointer for the event.</td>
+        </tr>
+        <tr>
+          <th>button</th>
+          <td>the button</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>whether the input was processed
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="touchDragged(int, int, int)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        boolean
+      </span>
+      <span class="sympad">touchDragged</span>
+      <span class="normal">(int screenX, int screenY, int pointer)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Called when a finger or the mouse was dragged.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>pointer</th>
+          <td>the pointer for the event.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>whether the input was processed
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="touchUp(int, int, int, int)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        boolean
+      </span>
+      <span class="sympad">touchUp</span>
+      <span class="normal">(int screenX, int screenY, int pointer, int button)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Called when a finger was lifted or a mouse button was released.
+ The button parameter will be <code><a href="../../../com/guidebee/game/Input.Buttons.html#LEFT">LEFT</a></code> on Android
+ and iOS.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>pointer</th>
+          <td>the pointer for the event.</td>
+        </tr>
+        <tr>
+          <th>button</th>
+          <td>the button</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>whether the input was processed
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+
+
+
+<!-- ========= END OF CLASS DATA ========= -->
+<a id="navbar_top"></a>
+
+<div id="footer">
+Generated by <a href="http://code.google.com/p/doclava/">Doclava</a>.
+</div> <!-- end footer -->
+
+</div> <!-- jd-content -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize doclava-developer-docs.js */
+</script>
+
+</body>
+</html>

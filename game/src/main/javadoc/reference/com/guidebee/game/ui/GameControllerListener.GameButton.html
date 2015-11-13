@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <meta name="description" content="Javadoc API documentation for Guidebee Game Engine." />
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico" />
+<title>
+
+  GameControllerListener.GameButton - Guidebee Game Engine API
+
+
+| Guidebee Game Engine
+
+</title>
+<link href="../../../../../assets/doclava-developer-docs.css" rel="stylesheet" type="text/css" />
+<link href="../../../../../assets/customizations.css" rel="stylesheet" type="text/css" />
+<script src="../../../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../../../assets/doclava-developer-docs.js" type="text/javascript"></script>
+<script src="../../../../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../../", "../../../../../assets/");
+</script>
+<script src="../../../../../assets/doclava-developer-reference.js" type="text/javascript"></script>
+<script src="../../../../../assets/navtree_data.js" type="text/javascript"></script>
+<script src="../../../../../assets/customizations.js" type="text/javascript"></script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+
+<body class="">
+
+<div id="header">
+    <div id="headerLeft">
+    
+      <span id="masthead-title">Guidebee Game Engine</span>
+    
+    </div>
+    <div id="headerRight">
+      
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../../../')"
+                      onkeyup="return search_changed(event, false, '../../../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      
+    </div>
+</div><!-- header -->
+
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first side-nav-resizable" id="side-nav">
+      <div id="swapper">
+        <div id="nav-panels">
+          <div id="resize-packages-nav">
+            <div id="packages-nav">
+              <div id="index-links">
+                <a href="../../../../packages.html"  >Package Index</a> | 
+                <a href="../../../../classes.html" >Class Index</a>
+              </div>
+              <ul>
+                
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/drawing/package-summary.html">com.guidebee.drawing</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/drawing/geometry/package-summary.html">com.guidebee.drawing.geometry</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/package-summary.html">com.guidebee.game</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/activity/package-summary.html">com.guidebee.game.activity</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/audio/package-summary.html">com.guidebee.game.audio</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/camera/package-summary.html">com.guidebee.game.camera</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/camera/viewports/package-summary.html">com.guidebee.game.camera.viewports</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/entity/package-summary.html">com.guidebee.game.entity</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/entity/directors/package-summary.html">com.guidebee.game.entity.directors</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/entity/signals/package-summary.html">com.guidebee.game.entity.signals</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/entity/utils/package-summary.html">com.guidebee.game.entity.utils</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/files/package-summary.html">com.guidebee.game.files</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/graphics/package-summary.html">com.guidebee.game.graphics</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/input/package-summary.html">com.guidebee.game.input</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/maps/package-summary.html">com.guidebee.game.maps</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/maps/objects/package-summary.html">com.guidebee.game.maps.objects</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/maps/tiled/package-summary.html">com.guidebee.game.maps.tiled</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/maps/tiled/tiles/package-summary.html">com.guidebee.game.maps.tiled.tiles</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/microedition/package-summary.html">com.guidebee.game.microedition</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/net/package-summary.html">com.guidebee.game.net</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/physics/package-summary.html">com.guidebee.game.physics</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/physics/joints/package-summary.html">com.guidebee.game.physics.joints</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/scene/package-summary.html">com.guidebee.game.scene</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/scene/actions/package-summary.html">com.guidebee.game.scene.actions</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/scene/collision/package-summary.html">com.guidebee.game.scene.collision</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/tween/package-summary.html">com.guidebee.game.tween</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/tween/equations/package-summary.html">com.guidebee.game.tween.equations</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/tween/paths/package-summary.html">com.guidebee.game.tween.paths</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/tween/primitives/package-summary.html">com.guidebee.game.tween.primitives</a></li>
+    <li class="selected api apilevel-">
+  <a href="../../../../com/guidebee/game/ui/package-summary.html">com.guidebee.game.ui</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/ui/drawable/package-summary.html">com.guidebee.game.ui.drawable</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/math/package-summary.html">com.guidebee.math</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/math/collision/package-summary.html">com.guidebee.math.collision</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/math/geometry/package-summary.html">com.guidebee.math.geometry</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/utils/package-summary.html">com.guidebee.utils</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/utils/collections/package-summary.html">com.guidebee.utils.collections</a></li>
+              </ul><br/>
+            </div> <!-- end packages -->
+          </div> <!-- end resize-packages -->
+          <div id="classes-nav">
+            <ul>
+              
+    <li><h2>Interfaces</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Cullable.html">Cullable</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Disableable.html">Disableable</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/EventListener.html">EventListener</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/GameControllerListener.html">GameControllerListener</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Layout.html">Layout</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/TextField.OnscreenKeyboard.html">TextField.OnscreenKeyboard</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/TextField.TextFieldFilter.html">TextField.TextFieldFilter</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/TextField.TextFieldListener.html">TextField.TextFieldListener</a></li>
+      </ul>
+    </li>
+              
+    <li><h2>Classes</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ActorGestureListener.html">ActorGestureListener</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Align.html">Align</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ArraySelection.html">ArraySelection</a>&lt;T&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Button.html">Button</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Button.ButtonStyle.html">Button.ButtonStyle</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ButtonGroup.html">ButtonGroup</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Cell.html">Cell</a>&lt;T&nbsp;extends&nbsp;Actor&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ChangeListener.html">ChangeListener</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ChangeListener.ChangeEvent.html">ChangeListener.ChangeEvent</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/CheckBox.html">CheckBox</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/CheckBox.CheckBoxStyle.html">CheckBox.CheckBoxStyle</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ChildWindow.html">ChildWindow</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ChildWindow.WindowStyle.html">ChildWindow.WindowStyle</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ClickListener.html">ClickListener</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Container.html">Container</a>&lt;T&nbsp;extends&nbsp;Actor&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Dialog.html">Dialog</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/DragAndDrop.html">DragAndDrop</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/DragAndDrop.Payload.html">DragAndDrop.Payload</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/DragAndDrop.Source.html">DragAndDrop.Source</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/DragAndDrop.Target.html">DragAndDrop.Target</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/DragListener.html">DragListener</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/DragScrollListener.html">DragScrollListener</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Event.html">Event</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/FocusListener.html">FocusListener</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/FocusListener.FocusEvent.html">FocusListener.FocusEvent</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/GameController.html">GameController</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/HorizontalGroup.html">HorizontalGroup</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Image.html">Image</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ImageButton.html">ImageButton</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ImageButton.ImageButtonStyle.html">ImageButton.ImageButtonStyle</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ImageTextButton.html">ImageTextButton</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ImageTextButton.ImageTextButtonStyle.html">ImageTextButton.ImageTextButtonStyle</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/InputEvent.html">InputEvent</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/InputListener.html">InputListener</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Label.html">Label</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Label.LabelStyle.html">Label.LabelStyle</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/List.html">List</a>&lt;T&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/List.ListStyle.html">List.ListStyle</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ProgressBar.html">ProgressBar</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ProgressBar.ProgressBarStyle.html">ProgressBar.ProgressBarStyle</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ScrollPane.html">ScrollPane</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ScrollPane.ScrollPaneStyle.html">ScrollPane.ScrollPaneStyle</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/SelectBox.html">SelectBox</a>&lt;T&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/SelectBox.SelectBoxStyle.html">SelectBox.SelectBoxStyle</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Selection.html">Selection</a>&lt;T&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Skin.html">Skin</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Skin.TintedDrawable.html">Skin.TintedDrawable</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Slider.html">Slider</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Slider.SliderStyle.html">Slider.SliderStyle</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/SplitPane.html">SplitPane</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/SplitPane.SplitPaneStyle.html">SplitPane.SplitPaneStyle</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Stack.html">Stack</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Table.html">Table</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Table.DebugRect.html">Table.DebugRect</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/TextArea.html">TextArea</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/TextArea.TextAreaListener.html">TextArea.TextAreaListener</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/TextButton.html">TextButton</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/TextButton.TextButtonStyle.html">TextButton.TextButtonStyle</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/TextField.html">TextField</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/TextField.DefaultOnscreenKeyboard.html">TextField.DefaultOnscreenKeyboard</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/TextField.TextFieldClickListener.html">TextField.TextFieldClickListener</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/TextField.TextFieldFilter.DigitsOnlyFilter.html">TextField.TextFieldFilter.DigitsOnlyFilter</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/TextField.TextFieldStyle.html">TextField.TextFieldStyle</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Touchpad.html">Touchpad</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Touchpad.TouchpadStyle.html">Touchpad.TouchpadStyle</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Tree.html">Tree</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Tree.Node.html">Tree.Node</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Tree.TreeStyle.html">Tree.TreeStyle</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Utils.html">Utils</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Value.html">Value</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Value.Fixed.html">Value.Fixed</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/VerticalGroup.html">VerticalGroup</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Widget.html">Widget</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/WidgetGroup.html">WidgetGroup</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Window.html">Window</a></li>
+      </ul>
+    </li>
+              
+              
+    <li><h2>Enums</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/FocusListener.FocusEvent.Type.html">FocusListener.FocusEvent.Type</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/GameControllerListener.Direction.html">GameControllerListener.Direction</a></li>
+          <li class="selected api apilevel-"><a href="../../../../com/guidebee/game/ui/GameControllerListener.GameButton.html">GameControllerListener.GameButton</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/InputEvent.Type.html">InputEvent.Type</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Table.Debug.html">Table.Debug</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Touchable.html">Touchable</a></li>
+      </ul>
+    </li>
+              
+              
+            </ul><br/>
+          </div><!-- end classes -->
+        </div><!-- end nav-panels -->
+        <div id="nav-tree" style="display:none">
+          <div id="index-links">
+            <a href="../../../../packages.html"  >Package Index</a> | 
+            <a href="../../../../classes.html" >Class Index</a>
+          </div>
+        </div><!-- end nav-tree -->
+      </div><!-- end swapper -->
+    </div> <!-- end side-nav -->
+    <script>
+      if (!isMobile) {
+        $("<a href='#' id='nav-swap' onclick='swapNav();return false;' style='font-size:10px;line-height:9px;margin-left:1em;text-decoration:none;'><span id='tree-link'>Use Tree Navigation</span><span id='panel-link' style='display:none'>Use Panel Navigation</span></a>").appendTo("#side-nav");
+        chooseDefaultNav();
+        if ($("#nav-tree").is(':visible')) {
+          init_default_navtree("../../../../");
+        } else {
+          addLoadEvent(function() {
+            scrollIntoView("packages-nav");
+            scrollIntoView("classes-nav");
+          });
+        }
+        $("#swapper").css({borderBottom:"2px solid #aaa"});
+      } else {
+        swapNav(); // tree view should be used on mobile
+      }
+    </script>
+
+
+
+<div class="g-unit" id="doc-content">
+
+<div id="api-info-block">
+
+
+
+  
+   
+  
+  
+  
+  
+
+  
+   
+  
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+   
+  
+  
+  
+  
+
+
+<div class="sum-details-links">
+
+
+Summary:
+
+
+
+
+  <a href="#enumconstants">Enums</a>
+  
+
+
+
+
+
+
+
+
+  &#124; <a href="#pubmethods">Methods</a>
+  
+
+
+
+  &#124; <a href="#inhmethods">Inherited Methods</a>
+
+&#124; <a href="#" onclick="return toggleAllClassInherited()" id="toggleAllClassInherited">[Expand All]</a>
+
+</div><!-- end sum-details-links -->
+<div class="api-level">
+  
+
+
+  
+  
+
+</div>
+</div><!-- end api-info-block -->
+
+
+<!-- ======== START OF CLASS DATA ======== -->
+
+<div id="jd-header">
+    public
+    static 
+    final 
+    
+    enum
+<h1>GameControllerListener.GameButton</h1>
+
+
+
+  
+  
+  
+
+  
+    extends Enum&lt;E&nbsp;extends&nbsp;Enum&lt;E&gt;&gt;<br/>
+  
+  
+  
+
+  
+  
+  
+
+
+</div><!-- end header -->
+
+<div id="naMessage"></div>
+
+<div id="jd-content" class="api apilevel-">
+<table class="jd-inheritance-table">
+
+
+    <tr>
+         	
+        <td colspan="3" class="jd-inheritance-class-cell">java.lang.Object</td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+         	
+        <td colspan="2" class="jd-inheritance-class-cell">java.lang.Enum&lt;E&nbsp;extends&nbsp;java.lang.Enum&lt;E&gt;&gt;</td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;</td>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+         	
+        <td colspan="1" class="jd-inheritance-class-cell">com.guidebee.game.ui.GameControllerListener.GameButton</td>
+    </tr>
+    
+
+</table>
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Class Overview</h2>
+<p>button type.
+</p>
+
+
+
+
+
+</div><!-- jd-descr -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Summary</h2>
+
+
+
+
+
+
+
+
+
+
+
+<!-- =========== ENUM CONSTANT SUMMARY =========== -->
+<table id="enumconstants" class="jd-sumtable"><tr><th colspan="12">Enum Values</th></tr>
+
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../com/guidebee/game/ui/GameControllerListener.GameButton.html">GameControllerListener.GameButton</a>&nbsp;</td>
+        <td class="jd-linkcol">BUTTON_A&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../com/guidebee/game/ui/GameControllerListener.GameButton.html">GameControllerListener.GameButton</a>&nbsp;</td>
+        <td class="jd-linkcol">BUTTON_B&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="pubmethods" class="jd-sumtable"><tr><th colspan="12">Public Methods</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            <a href="../../../../com/guidebee/game/ui/GameControllerListener.GameButton.html">GameControllerListener.GameButton</a>
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/GameControllerListener.GameButton.html#valueOf(java.lang.String)">valueOf</a></span>(String name)
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            static
+            
+            <a href="../../../../com/guidebee/game/ui/GameControllerListener.GameButton.html">GameButton[]</a>
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/GameControllerListener.GameButton.html#values()">values</a></span>()
+        
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="inhmethods" class="jd-sumtable"><tr><th>
+  <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
+  <div style="clear:left;">Inherited Methods</div></th></tr>
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Enum" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-java.lang.Enum-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  java.lang.Enum
+
+<div id="inherited-methods-java.lang.Enum">
+  <div id="inherited-methods-java.lang.Enum-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.lang.Enum-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            int
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">compareTo</span>(Object arg0)
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            int
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">compareTo</span>(E arg0)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">equals</span>(Object arg0)
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            Class&lt;E&gt;
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">getDeclaringClass</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            int
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">hashCode</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            String
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">name</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            int
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">ordinal</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            String
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">toString</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            &lt;T&nbsp;extends&nbsp;Enum&lt;T&gt;&gt;
+            T
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">valueOf</span>(Class&lt;T&gt; arg0, String arg1)
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Object" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-java.lang.Object-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  java.lang.Object
+
+<div id="inherited-methods-java.lang.Object">
+  <div id="inherited-methods-java.lang.Object-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.lang.Object-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">equals</span>(Object arg0)
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            Class&lt;?&gt;
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">getClass</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            int
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">hashCode</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">notify</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">notifyAll</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            String
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">toString</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">wait</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">wait</span>(long arg0, int arg1)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">wait</span>(long arg0)
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Comparable" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-java.lang.Comparable-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  java.lang.Comparable
+
+<div id="inherited-methods-java.lang.Comparable">
+  <div id="inherited-methods-java.lang.Comparable-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.lang.Comparable-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            abstract
+            
+            
+            
+            
+            int
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">compareTo</span>(T arg0)
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+</table>
+
+
+</div><!-- jd-descr (summary) -->
+
+<!-- Details -->
+
+
+
+
+
+
+
+
+<!-- XML Attributes -->
+
+
+<!-- Enum Values -->
+
+
+<!-- ========= ENUM CONSTANTS DETAIL ======== -->
+<h2>Enum Values</h2>
+
+
+
+
+<a id="BUTTON_A"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../com/guidebee/game/ui/GameControllerListener.GameButton.html">GameControllerListener.GameButton</a>
+      </span>
+        BUTTON_A
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<a id="BUTTON_B"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../com/guidebee/game/ui/GameControllerListener.GameButton.html">GameControllerListener.GameButton</a>
+      </span>
+        BUTTON_B
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+
+<!-- Constants -->
+
+
+<!-- Fields -->
+
+
+<!-- Public ctors -->
+
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<!-- Protected ctors -->
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+<!-- Public methdos -->
+
+<h2>Public Methods</h2>
+
+
+
+<a id="valueOf(java.lang.String)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        <a href="../../../../com/guidebee/game/ui/GameControllerListener.GameButton.html">GameControllerListener.GameButton</a>
+      </span>
+      <span class="sympad">valueOf</span>
+      <span class="normal">(String name)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="values()"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+         
+         
+        <a href="../../../../com/guidebee/game/ui/GameControllerListener.GameButton.html">GameButton[]</a>
+      </span>
+      <span class="sympad">values</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+
+
+
+<!-- ========= END OF CLASS DATA ========= -->
+<a id="navbar_top"></a>
+
+<div id="footer">
+Generated by <a href="http://code.google.com/p/doclava/">Doclava</a>.
+</div> <!-- end footer -->
+
+</div> <!-- jd-content -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize doclava-developer-docs.js */
+</script>
+
+</body>
+</html>

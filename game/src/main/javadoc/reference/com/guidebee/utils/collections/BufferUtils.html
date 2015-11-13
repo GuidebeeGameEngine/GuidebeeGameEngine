@@ -1,0 +1,3590 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <meta name="description" content="Javadoc API documentation for Guidebee Game Engine." />
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico" />
+<title>
+
+  BufferUtils - Guidebee Game Engine API
+
+
+| Guidebee Game Engine
+
+</title>
+<link href="../../../../../assets/doclava-developer-docs.css" rel="stylesheet" type="text/css" />
+<link href="../../../../../assets/customizations.css" rel="stylesheet" type="text/css" />
+<script src="../../../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../../../assets/doclava-developer-docs.js" type="text/javascript"></script>
+<script src="../../../../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../../", "../../../../../assets/");
+</script>
+<script src="../../../../../assets/doclava-developer-reference.js" type="text/javascript"></script>
+<script src="../../../../../assets/navtree_data.js" type="text/javascript"></script>
+<script src="../../../../../assets/customizations.js" type="text/javascript"></script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+
+<body class="">
+
+<div id="header">
+    <div id="headerLeft">
+    
+      <span id="masthead-title">Guidebee Game Engine</span>
+    
+    </div>
+    <div id="headerRight">
+      
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../../../')"
+                      onkeyup="return search_changed(event, false, '../../../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      
+    </div>
+</div><!-- header -->
+
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first side-nav-resizable" id="side-nav">
+      <div id="swapper">
+        <div id="nav-panels">
+          <div id="resize-packages-nav">
+            <div id="packages-nav">
+              <div id="index-links">
+                <a href="../../../../packages.html"  >Package Index</a> | 
+                <a href="../../../../classes.html" >Class Index</a>
+              </div>
+              <ul>
+                
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/drawing/package-summary.html">com.guidebee.drawing</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/drawing/geometry/package-summary.html">com.guidebee.drawing.geometry</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/package-summary.html">com.guidebee.game</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/activity/package-summary.html">com.guidebee.game.activity</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/audio/package-summary.html">com.guidebee.game.audio</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/camera/package-summary.html">com.guidebee.game.camera</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/camera/viewports/package-summary.html">com.guidebee.game.camera.viewports</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/entity/package-summary.html">com.guidebee.game.entity</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/entity/directors/package-summary.html">com.guidebee.game.entity.directors</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/entity/signals/package-summary.html">com.guidebee.game.entity.signals</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/entity/utils/package-summary.html">com.guidebee.game.entity.utils</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/files/package-summary.html">com.guidebee.game.files</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/graphics/package-summary.html">com.guidebee.game.graphics</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/input/package-summary.html">com.guidebee.game.input</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/maps/package-summary.html">com.guidebee.game.maps</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/maps/objects/package-summary.html">com.guidebee.game.maps.objects</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/maps/tiled/package-summary.html">com.guidebee.game.maps.tiled</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/maps/tiled/tiles/package-summary.html">com.guidebee.game.maps.tiled.tiles</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/microedition/package-summary.html">com.guidebee.game.microedition</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/net/package-summary.html">com.guidebee.game.net</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/physics/package-summary.html">com.guidebee.game.physics</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/physics/joints/package-summary.html">com.guidebee.game.physics.joints</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/scene/package-summary.html">com.guidebee.game.scene</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/scene/actions/package-summary.html">com.guidebee.game.scene.actions</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/scene/collision/package-summary.html">com.guidebee.game.scene.collision</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/tween/package-summary.html">com.guidebee.game.tween</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/tween/equations/package-summary.html">com.guidebee.game.tween.equations</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/tween/paths/package-summary.html">com.guidebee.game.tween.paths</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/tween/primitives/package-summary.html">com.guidebee.game.tween.primitives</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/ui/package-summary.html">com.guidebee.game.ui</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/ui/drawable/package-summary.html">com.guidebee.game.ui.drawable</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/math/package-summary.html">com.guidebee.math</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/math/collision/package-summary.html">com.guidebee.math.collision</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/math/geometry/package-summary.html">com.guidebee.math.geometry</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/utils/package-summary.html">com.guidebee.utils</a></li>
+    <li class="selected api apilevel-">
+  <a href="../../../../com/guidebee/utils/collections/package-summary.html">com.guidebee.utils.collections</a></li>
+              </ul><br/>
+            </div> <!-- end packages -->
+          </div> <!-- end resize-packages -->
+          <div id="classes-nav">
+            <ul>
+              
+              
+    <li><h2>Classes</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/Array.html">Array</a>&lt;T&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/Array.ArrayIterable.html">Array.ArrayIterable</a>&lt;T&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/Array.ArrayIterator.html">Array.ArrayIterator</a>&lt;T&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/ArrayMap.html">ArrayMap</a>&lt;K,&nbsp;V&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/ArrayMap.Entries.html">ArrayMap.Entries</a>&lt;K,&nbsp;V&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/ArrayMap.Keys.html">ArrayMap.Keys</a>&lt;K&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/ArrayMap.Values.html">ArrayMap.Values</a>&lt;V&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/AtomicQueue.html">AtomicQueue</a>&lt;T&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/BinaryHeap.html">BinaryHeap</a>&lt;T&nbsp;extends&nbsp;<a href="../../../../com/guidebee/utils/collections/BinaryHeap.Node.html">BinaryHeap.Node</a>&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/BinaryHeap.Node.html">BinaryHeap.Node</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/Bits.html">Bits</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/BooleanArray.html">BooleanArray</a></li>
+          <li class="selected api apilevel-"><a href="../../../../com/guidebee/utils/collections/BufferUtils.html">BufferUtils</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/ByteArray.html">ByteArray</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/CharArray.html">CharArray</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/DataBuffer.html">DataBuffer</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/DelayedRemovalArray.html">DelayedRemovalArray</a>&lt;T&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/FloatArray.html">FloatArray</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/IdentityMap.html">IdentityMap</a>&lt;K,&nbsp;V&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/IdentityMap.Entries.html">IdentityMap.Entries</a>&lt;K,&nbsp;V&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/IdentityMap.Entry.html">IdentityMap.Entry</a>&lt;K,&nbsp;V&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/IdentityMap.Keys.html">IdentityMap.Keys</a>&lt;K&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/IdentityMap.Values.html">IdentityMap.Values</a>&lt;V&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/IntArray.html">IntArray</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/IntFloatMap.html">IntFloatMap</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/IntFloatMap.Entries.html">IntFloatMap.Entries</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/IntFloatMap.Entry.html">IntFloatMap.Entry</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/IntFloatMap.Keys.html">IntFloatMap.Keys</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/IntFloatMap.Values.html">IntFloatMap.Values</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/IntIntMap.html">IntIntMap</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/IntIntMap.Entries.html">IntIntMap.Entries</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/IntIntMap.Entry.html">IntIntMap.Entry</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/IntIntMap.Keys.html">IntIntMap.Keys</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/IntIntMap.Values.html">IntIntMap.Values</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/IntMap.html">IntMap</a>&lt;V&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/IntMap.Entries.html">IntMap.Entries</a>&lt;V&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/IntMap.Entry.html">IntMap.Entry</a>&lt;V&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/IntMap.Keys.html">IntMap.Keys</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/IntMap.Values.html">IntMap.Values</a>&lt;V&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/IntSet.html">IntSet</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/IntSet.IntSetIterator.html">IntSet.IntSetIterator</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/LongArray.html">LongArray</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/LongMap.html">LongMap</a>&lt;V&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/LongMap.Entries.html">LongMap.Entries</a>&lt;V&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/LongMap.Entry.html">LongMap.Entry</a>&lt;V&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/LongMap.Keys.html">LongMap.Keys</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/LongMap.Values.html">LongMap.Values</a>&lt;V&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/ObjectFloatMap.html">ObjectFloatMap</a>&lt;K&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/ObjectFloatMap.Entries.html">ObjectFloatMap.Entries</a>&lt;K&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/ObjectFloatMap.Entry.html">ObjectFloatMap.Entry</a>&lt;K&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/ObjectFloatMap.Keys.html">ObjectFloatMap.Keys</a>&lt;K&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/ObjectFloatMap.Values.html">ObjectFloatMap.Values</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/ObjectIntMap.html">ObjectIntMap</a>&lt;K&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/ObjectIntMap.Entries.html">ObjectIntMap.Entries</a>&lt;K&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/ObjectIntMap.Entry.html">ObjectIntMap.Entry</a>&lt;K&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/ObjectIntMap.Keys.html">ObjectIntMap.Keys</a>&lt;K&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/ObjectIntMap.Values.html">ObjectIntMap.Values</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/ObjectMap.html">ObjectMap</a>&lt;K,&nbsp;V&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/ObjectMap.Entries.html">ObjectMap.Entries</a>&lt;K,&nbsp;V&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/ObjectMap.Entry.html">ObjectMap.Entry</a>&lt;K,&nbsp;V&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/ObjectMap.Keys.html">ObjectMap.Keys</a>&lt;K&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/ObjectMap.Values.html">ObjectMap.Values</a>&lt;V&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/ObjectSet.html">ObjectSet</a>&lt;T&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/ObjectSet.ObjectSetIterator.html">ObjectSet.ObjectSetIterator</a>&lt;K&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/OrderedMap.html">OrderedMap</a>&lt;K,&nbsp;V&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/OrderedMap.OrderedMapEntries.html">OrderedMap.OrderedMapEntries</a>&lt;K,&nbsp;V&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/OrderedMap.OrderedMapKeys.html">OrderedMap.OrderedMapKeys</a>&lt;K&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/OrderedMap.OrderedMapValues.html">OrderedMap.OrderedMapValues</a>&lt;V&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/OrderedSet.html">OrderedSet</a>&lt;T&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/OrderedSet.OrderedSetIterator.html">OrderedSet.OrderedSetIterator</a>&lt;T&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/PooledLinkedList.html">PooledLinkedList</a>&lt;T&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/ShortArray.html">ShortArray</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/SnapshotArray.html">SnapshotArray</a>&lt;T&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/Sort.html">Sort</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/SortedIntList.html">SortedIntList</a>&lt;E&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/utils/collections/SortedIntList.Node.html">SortedIntList.Node</a>&lt;E&gt;</li>
+      </ul>
+    </li>
+              
+              
+              
+              
+            </ul><br/>
+          </div><!-- end classes -->
+        </div><!-- end nav-panels -->
+        <div id="nav-tree" style="display:none">
+          <div id="index-links">
+            <a href="../../../../packages.html"  >Package Index</a> | 
+            <a href="../../../../classes.html" >Class Index</a>
+          </div>
+        </div><!-- end nav-tree -->
+      </div><!-- end swapper -->
+    </div> <!-- end side-nav -->
+    <script>
+      if (!isMobile) {
+        $("<a href='#' id='nav-swap' onclick='swapNav();return false;' style='font-size:10px;line-height:9px;margin-left:1em;text-decoration:none;'><span id='tree-link'>Use Tree Navigation</span><span id='panel-link' style='display:none'>Use Panel Navigation</span></a>").appendTo("#side-nav");
+        chooseDefaultNav();
+        if ($("#nav-tree").is(':visible')) {
+          init_default_navtree("../../../../");
+        } else {
+          addLoadEvent(function() {
+            scrollIntoView("packages-nav");
+            scrollIntoView("classes-nav");
+          });
+        }
+        $("#swapper").css({borderBottom:"2px solid #aaa"});
+      } else {
+        swapNav(); // tree view should be used on mobile
+      }
+    </script>
+
+
+
+<div class="g-unit" id="doc-content">
+
+<div id="api-info-block">
+
+
+
+  
+   
+  
+  
+  
+  
+
+
+<div class="sum-details-links">
+
+
+Summary:
+
+
+
+
+
+
+
+
+
+  <a href="#pubctors">Ctors</a>
+  
+
+
+
+  &#124; <a href="#pubmethods">Methods</a>
+  
+
+
+
+  &#124; <a href="#inhmethods">Inherited Methods</a>
+
+&#124; <a href="#" onclick="return toggleAllClassInherited()" id="toggleAllClassInherited">[Expand All]</a>
+
+</div><!-- end sum-details-links -->
+<div class="api-level">
+  
+
+
+  
+  
+
+</div>
+</div><!-- end api-info-block -->
+
+
+<!-- ======== START OF CLASS DATA ======== -->
+
+<div id="jd-header">
+    public
+     
+    final 
+    
+    class
+<h1>BufferUtils</h1>
+
+
+
+  
+    extends Object<br/>
+  
+  
+  
+
+  
+  
+  
+
+
+</div><!-- end header -->
+
+<div id="naMessage"></div>
+
+<div id="jd-content" class="api apilevel-">
+<table class="jd-inheritance-table">
+
+
+    <tr>
+         	
+        <td colspan="2" class="jd-inheritance-class-cell">java.lang.Object</td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+         	
+        <td colspan="1" class="jd-inheritance-class-cell">com.guidebee.utils.collections.BufferUtils</td>
+    </tr>
+    
+
+</table>
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Class Overview</h2>
+<p>Class with static helper methods to increase the speed of array/direct buffer
+ and direct buffer/direct buffer transfers</p>
+
+
+
+
+
+</div><!-- jd-descr -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Summary</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<table id="pubctors" class="jd-sumtable"><tr><th colspan="12">Public Constructors</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/utils/collections/BufferUtils.html#BufferUtils()">BufferUtils</a></span>()
+        
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="pubmethods" class="jd-sumtable"><tr><th colspan="12">Public Methods</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/utils/collections/BufferUtils.html#clear(java.nio.ByteBuffer, int)">clear</a></span>(ByteBuffer buffer, int numBytes)
+        
+        <div class="jd-descrdiv">Writes the specified number of zeros to the buffer.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/utils/collections/BufferUtils.html#copy(byte[], int, java.nio.Buffer, int)">copy</a></span>(byte[] src, int srcOffset, Buffer dst, int numElements)
+        
+        <div class="jd-descrdiv">Copies the contents of src to dst, starting from src[srcOffset],
+ copying numElements elements.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/utils/collections/BufferUtils.html#copy(float[], java.nio.Buffer, int, int)">copy</a></span>(float[] src, Buffer dst, int numFloats, int offset)
+        
+        <div class="jd-descrdiv">Copies numFloats floats from src starting at offset to dst.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/utils/collections/BufferUtils.html#copy(int[], int, java.nio.Buffer, int)">copy</a></span>(int[] src, int srcOffset, Buffer dst, int numElements)
+        
+        <div class="jd-descrdiv">Copies the contents of src to dst, starting from src[srcOffset],
+ copying numElements elements.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/utils/collections/BufferUtils.html#copy(double[], int, java.nio.Buffer, int)">copy</a></span>(double[] src, int srcOffset, Buffer dst, int numElements)
+        
+        <div class="jd-descrdiv">Copies the contents of src to dst, starting from src[srcOffset],
+ copying numElements elements.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/utils/collections/BufferUtils.html#copy(long[], int, java.nio.Buffer, int)">copy</a></span>(long[] src, int srcOffset, Buffer dst, int numElements)
+        
+        <div class="jd-descrdiv">Copies the contents of src to dst, starting from src[srcOffset],
+ copying numElements elements.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/utils/collections/BufferUtils.html#copy(long[], int, int, java.nio.Buffer)">copy</a></span>(long[] src, int srcOffset, int numElements, Buffer dst)
+        
+        <div class="jd-descrdiv">Copies the contents of src to dst, starting from src[srcOffset],
+ copying numElements elements.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/utils/collections/BufferUtils.html#copy(char[], int, java.nio.Buffer, int)">copy</a></span>(char[] src, int srcOffset, Buffer dst, int numElements)
+        
+        <div class="jd-descrdiv">Copies the contents of src to dst, starting from src[srcOffset],
+ copying numElements elements.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/utils/collections/BufferUtils.html#copy(double[], int, int, java.nio.Buffer)">copy</a></span>(double[] src, int srcOffset, int numElements, Buffer dst)
+        
+        <div class="jd-descrdiv">Copies the contents of src to dst, starting from src[srcOffset],
+ copying numElements elements.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/utils/collections/BufferUtils.html#copy(float[], int, int, java.nio.Buffer)">copy</a></span>(float[] src, int srcOffset, int numElements, Buffer dst)
+        
+        <div class="jd-descrdiv">Copies the contents of src to dst, starting from src[srcOffset],
+ copying numElements elements.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/utils/collections/BufferUtils.html#copy(short[], int, java.nio.Buffer, int)">copy</a></span>(short[] src, int srcOffset, Buffer dst, int numElements)
+        
+        <div class="jd-descrdiv">Copies the contents of src to dst, starting from src[srcOffset],
+ copying numElements elements.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/utils/collections/BufferUtils.html#copy(int[], int, int, java.nio.Buffer)">copy</a></span>(int[] src, int srcOffset, int numElements, Buffer dst)
+        
+        <div class="jd-descrdiv">Copies the contents of src to dst, starting from src[srcOffset],
+ copying numElements elements.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/utils/collections/BufferUtils.html#copy(java.nio.Buffer, java.nio.Buffer, int)">copy</a></span>(Buffer src, Buffer dst, int numElements)
+        
+        <div class="jd-descrdiv">Copies the contents of src to dst, starting from the current position
+ of src, copying numElements elements (using the data
+ type of src, no matter the datatype of dst).</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/utils/collections/BufferUtils.html#copy(char[], int, int, java.nio.Buffer)">copy</a></span>(char[] src, int srcOffset, int numElements, Buffer dst)
+        
+        <div class="jd-descrdiv">Copies the contents of src to dst, starting from src[srcOffset],
+ copying numElements elements.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/utils/collections/BufferUtils.html#copy(float[], int, java.nio.Buffer, int)">copy</a></span>(float[] src, int srcOffset, Buffer dst, int numElements)
+        
+        <div class="jd-descrdiv">Copies the contents of src to dst, starting from src[srcOffset],
+ copying numElements elements.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/utils/collections/BufferUtils.html#disposeUnsafeByteBuffer(java.nio.ByteBuffer)">disposeUnsafeByteBuffer</a></span>(ByteBuffer buffer)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            long
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/utils/collections/BufferUtils.html#findFloats(float[], int, java.nio.Buffer, int, float)">findFloats</a></span>(float[] vertex, int strideInBytes, Buffer vertices, int numVertices, float epsilon)
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            long
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/utils/collections/BufferUtils.html#findFloats(java.nio.Buffer, int, float[], int, float)">findFloats</a></span>(Buffer vertex, int strideInBytes, float[] vertices, int numVertices, float epsilon)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            long
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/utils/collections/BufferUtils.html#findFloats(float[], int, float[], int)">findFloats</a></span>(float[] vertex, int strideInBytes, float[] vertices, int numVertices)
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            long
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/utils/collections/BufferUtils.html#findFloats(java.nio.Buffer, int, float[], int)">findFloats</a></span>(Buffer vertex, int strideInBytes, float[] vertices, int numVertices)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            long
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/utils/collections/BufferUtils.html#findFloats(java.nio.Buffer, int, java.nio.Buffer, int)">findFloats</a></span>(Buffer vertex, int strideInBytes, Buffer vertices, int numVertices)
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            long
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/utils/collections/BufferUtils.html#findFloats(float[], int, java.nio.Buffer, int)">findFloats</a></span>(float[] vertex, int strideInBytes, Buffer vertices, int numVertices)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            long
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/utils/collections/BufferUtils.html#findFloats(java.nio.Buffer, int, java.nio.Buffer, int, float)">findFloats</a></span>(Buffer vertex, int strideInBytes, Buffer vertices, int numVertices, float epsilon)
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            long
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/utils/collections/BufferUtils.html#findFloats(float[], int, float[], int, float)">findFloats</a></span>(float[] vertex, int strideInBytes, float[] vertices, int numVertices, float epsilon)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            int
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/utils/collections/BufferUtils.html#getAllocatedBytesUnsafe()">getAllocatedBytesUnsafe</a></span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            long
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/utils/collections/BufferUtils.html#getUnsafeBufferAddress(java.nio.Buffer)">getUnsafeBufferAddress</a></span>(Buffer buffer)
+        
+        <div class="jd-descrdiv">Returns the address of the Buffer, it assumes it is an unsafe buffer.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            ByteBuffer
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/utils/collections/BufferUtils.html#newByteBuffer(int)">newByteBuffer</a></span>(int numBytes)
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            CharBuffer
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/utils/collections/BufferUtils.html#newCharBuffer(int)">newCharBuffer</a></span>(int numChars)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            DoubleBuffer
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/utils/collections/BufferUtils.html#newDoubleBuffer(int)">newDoubleBuffer</a></span>(int numDoubles)
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            FloatBuffer
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/utils/collections/BufferUtils.html#newFloatBuffer(int)">newFloatBuffer</a></span>(int numFloats)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            IntBuffer
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/utils/collections/BufferUtils.html#newIntBuffer(int)">newIntBuffer</a></span>(int numInts)
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            LongBuffer
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/utils/collections/BufferUtils.html#newLongBuffer(int)">newLongBuffer</a></span>(int numLongs)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            ShortBuffer
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/utils/collections/BufferUtils.html#newShortBuffer(int)">newShortBuffer</a></span>(int numShorts)
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            ByteBuffer
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/utils/collections/BufferUtils.html#newUnsafeByteBuffer(java.nio.ByteBuffer)">newUnsafeByteBuffer</a></span>(ByteBuffer buffer)
+        
+        <div class="jd-descrdiv">Registers the given ByteBuffer as an unsafe ByteBuffer.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            ByteBuffer
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/utils/collections/BufferUtils.html#newUnsafeByteBuffer(int)">newUnsafeByteBuffer</a></span>(int numBytes)
+        
+        <div class="jd-descrdiv">Allocates a new direct ByteBuffer from native heap memory using the native byte
+ order.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/utils/collections/BufferUtils.html#transform(java.nio.Buffer, int, int, int, com.guidebee.math.Matrix3, int)">transform</a></span>(Buffer data, int dimensions, int strideInBytes, int count, <a href="../../../../com/guidebee/math/Matrix3.html">Matrix3</a> matrix, int offset)
+        
+        <div class="jd-descrdiv">Multiply float vector components within the buffer with the specified matrix.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/utils/collections/BufferUtils.html#transform(float[], int, int, int, com.guidebee.math.Matrix3, int)">transform</a></span>(float[] data, int dimensions, int strideInBytes, int count, <a href="../../../../com/guidebee/math/Matrix3.html">Matrix3</a> matrix, int offset)
+        
+        <div class="jd-descrdiv">Multiply float vector components within the buffer with the specified matrix.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/utils/collections/BufferUtils.html#transform(float[], int, int, int, com.guidebee.math.Matrix3)">transform</a></span>(float[] data, int dimensions, int strideInBytes, int count, <a href="../../../../com/guidebee/math/Matrix3.html">Matrix3</a> matrix)
+        
+        <div class="jd-descrdiv">Multiply float vector components within the buffer with the specified matrix.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/utils/collections/BufferUtils.html#transform(java.nio.Buffer, int, int, int, com.guidebee.math.Matrix3)">transform</a></span>(Buffer data, int dimensions, int strideInBytes, int count, <a href="../../../../com/guidebee/math/Matrix3.html">Matrix3</a> matrix)
+        
+        <div class="jd-descrdiv">Multiply float vector components within the buffer with the specified matrix.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/utils/collections/BufferUtils.html#transform(java.nio.Buffer, int, int, int, com.guidebee.math.Matrix4, int)">transform</a></span>(Buffer data, int dimensions, int strideInBytes, int count, <a href="../../../../com/guidebee/math/Matrix4.html">Matrix4</a> matrix, int offset)
+        
+        <div class="jd-descrdiv">Multiply float vector components within the buffer with the specified matrix.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/utils/collections/BufferUtils.html#transform(float[], int, int, int, com.guidebee.math.Matrix4)">transform</a></span>(float[] data, int dimensions, int strideInBytes, int count, <a href="../../../../com/guidebee/math/Matrix4.html">Matrix4</a> matrix)
+        
+        <div class="jd-descrdiv">Multiply float vector components within the buffer with the specified matrix.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/utils/collections/BufferUtils.html#transform(java.nio.Buffer, int, int, int, com.guidebee.math.Matrix4)">transform</a></span>(Buffer data, int dimensions, int strideInBytes, int count, <a href="../../../../com/guidebee/math/Matrix4.html">Matrix4</a> matrix)
+        
+        <div class="jd-descrdiv">Multiply float vector components within the buffer with the specified matrix.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/utils/collections/BufferUtils.html#transform(float[], int, int, int, com.guidebee.math.Matrix4, int)">transform</a></span>(float[] data, int dimensions, int strideInBytes, int count, <a href="../../../../com/guidebee/math/Matrix4.html">Matrix4</a> matrix, int offset)
+        
+        <div class="jd-descrdiv">Multiply float vector components within the buffer with the specified matrix.</div>
+  
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="inhmethods" class="jd-sumtable"><tr><th>
+  <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
+  <div style="clear:left;">Inherited Methods</div></th></tr>
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Object" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-java.lang.Object-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  java.lang.Object
+
+<div id="inherited-methods-java.lang.Object">
+  <div id="inherited-methods-java.lang.Object-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.lang.Object-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">equals</span>(Object arg0)
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            Class&lt;?&gt;
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">getClass</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            int
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">hashCode</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">notify</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">notifyAll</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            String
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">toString</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">wait</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">wait</span>(long arg0, int arg1)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">wait</span>(long arg0)
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+</table>
+
+
+</div><!-- jd-descr (summary) -->
+
+<!-- Details -->
+
+
+
+
+
+
+
+
+<!-- XML Attributes -->
+
+
+<!-- Enum Values -->
+
+
+<!-- Constants -->
+
+
+<!-- Fields -->
+
+
+<!-- Public ctors -->
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<h2>Public Constructors</h2>
+
+
+
+<a id="BufferUtils()"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        
+      </span>
+      <span class="sympad">BufferUtils</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<!-- Protected ctors -->
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+<!-- Public methdos -->
+
+<h2>Public Methods</h2>
+
+
+
+<a id="clear(java.nio.ByteBuffer, int)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">clear</span>
+      <span class="normal">(ByteBuffer buffer, int numBytes)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Writes the specified number of zeros to the buffer. This is generally
+ faster than reallocating a new buffer.
+</p></div>
+
+    </div>
+</div>
+
+
+<a id="copy(byte[], int, java.nio.Buffer, int)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">copy</span>
+      <span class="normal">(byte[] src, int srcOffset, Buffer dst, int numElements)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Copies the contents of src to dst, starting from src[srcOffset],
+ copying numElements elements. The Buffer instance's
+ <code><a href="null#position()">position()</a></code> is used to define the offset into the
+ Buffer itself. The position will stay the same, the limit
+ will be set to position + numElements. <b>The Buffer must be a
+ direct Buffer with native byte order. No error checking is
+ performed</b>.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>src</th>
+          <td>the source array.</td>
+        </tr>
+        <tr>
+          <th>srcOffset</th>
+          <td>the offset into the source array.</td>
+        </tr>
+        <tr>
+          <th>dst</th>
+          <td>the destination Buffer, its position
+                    is used as an offset.</td>
+        </tr>
+        <tr>
+          <th>numElements</th>
+          <td>the number of elements to copy.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="copy(float[], java.nio.Buffer, int, int)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">copy</span>
+      <span class="normal">(float[] src, Buffer dst, int numFloats, int offset)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Copies numFloats floats from src starting at offset to dst. Dst is assumed
+ to be a direct Buffer. The method will
+ crash if that is not the case. The position and limit of the buffer are
+ ignored, the copy is placed at position 0 in the
+ buffer. After the copying process the position of the buffer is set to 0
+ and its limit is set to numFloats * 4 if it is a
+ ByteBuffer and numFloats if it is a FloatBuffer. In case the Buffer is
+ neither a ByteBuffer nor a FloatBuffer the limit is
+ not set. This is an expert method, use at your own risk.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>src</th>
+          <td>the source array</td>
+        </tr>
+        <tr>
+          <th>dst</th>
+          <td>the destination buffer, has to be a direct Buffer</td>
+        </tr>
+        <tr>
+          <th>numFloats</th>
+          <td>the number of floats to copy</td>
+        </tr>
+        <tr>
+          <th>offset</th>
+          <td>the offset in src to start copying from
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="copy(int[], int, java.nio.Buffer, int)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">copy</span>
+      <span class="normal">(int[] src, int srcOffset, Buffer dst, int numElements)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Copies the contents of src to dst, starting from src[srcOffset],
+ copying numElements elements. The Buffer instance's
+ <code><a href="null#position()">position()</a></code> is used to define the offset into the
+ Buffer itself. The position will stay the same, the limit
+ will be set to position + numElements. <b>The Buffer must be a
+ direct Buffer with native byte order. No error checking is
+ performed</b>.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>src</th>
+          <td>the source array.</td>
+        </tr>
+        <tr>
+          <th>srcOffset</th>
+          <td>the offset into the source array.</td>
+        </tr>
+        <tr>
+          <th>dst</th>
+          <td>the destination Buffer, its position is used as an offset.</td>
+        </tr>
+        <tr>
+          <th>numElements</th>
+          <td>the number of elements to copy.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="copy(double[], int, java.nio.Buffer, int)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">copy</span>
+      <span class="normal">(double[] src, int srcOffset, Buffer dst, int numElements)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Copies the contents of src to dst, starting from src[srcOffset],
+ copying numElements elements. The Buffer instance's
+ <code><a href="null#position()">position()</a></code> is used to define the offset into the
+ Buffer itself. The position will stay the same, the limit
+ will be set to position + numElements. <b>The Buffer must be a
+ direct Buffer with native byte order. No error checking is
+ performed</b>.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>src</th>
+          <td>the source array.</td>
+        </tr>
+        <tr>
+          <th>srcOffset</th>
+          <td>the offset into the source array.</td>
+        </tr>
+        <tr>
+          <th>dst</th>
+          <td>the destination Buffer, its position is used as an offset.</td>
+        </tr>
+        <tr>
+          <th>numElements</th>
+          <td>the number of elements to copy.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="copy(long[], int, java.nio.Buffer, int)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">copy</span>
+      <span class="normal">(long[] src, int srcOffset, Buffer dst, int numElements)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Copies the contents of src to dst, starting from src[srcOffset],
+ copying numElements elements. The Buffer instance's
+ <code><a href="null#position()">position()</a></code> is used to define the offset into the
+ Buffer itself. The position will stay the same, the limit
+ will be set to position + numElements. <b>The Buffer must be a
+ direct Buffer with native byte order. No error checking is
+ performed</b>.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>src</th>
+          <td>the source array.</td>
+        </tr>
+        <tr>
+          <th>srcOffset</th>
+          <td>the offset into the source array.</td>
+        </tr>
+        <tr>
+          <th>dst</th>
+          <td>the destination Buffer, its position is
+                    used as an offset.</td>
+        </tr>
+        <tr>
+          <th>numElements</th>
+          <td>the number of elements to copy.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="copy(long[], int, int, java.nio.Buffer)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">copy</span>
+      <span class="normal">(long[] src, int srcOffset, int numElements, Buffer dst)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Copies the contents of src to dst, starting from src[srcOffset],
+ copying numElements elements. The Buffer instance's
+ <code><a href="null#position()">position()</a></code> is used to define the offset into the
+ Buffer itself. The position and limit will stay the same.
+ <b>The Buffer must be a direct Buffer with native byte order.
+ No error checking is performed</b>.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>src</th>
+          <td>the source array.</td>
+        </tr>
+        <tr>
+          <th>srcOffset</th>
+          <td>the offset into the source array.</td>
+        </tr>
+        <tr>
+          <th>numElements</th>
+          <td>the number of elements to copy.</td>
+        </tr>
+        <tr>
+          <th>dst</th>
+          <td>the destination Buffer, its position is used as an offset.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="copy(char[], int, java.nio.Buffer, int)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">copy</span>
+      <span class="normal">(char[] src, int srcOffset, Buffer dst, int numElements)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Copies the contents of src to dst, starting from src[srcOffset],
+ copying numElements elements. The Buffer instance's
+ <code><a href="null#position()">position()</a></code> is used to define the offset into the
+ Buffer itself. The position will stay the same, the limit
+ will be set to position + numElements. <b>The Buffer must be a
+ direct Buffer with native byte order. No error checking is
+ performed</b>.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>src</th>
+          <td>the source array.</td>
+        </tr>
+        <tr>
+          <th>srcOffset</th>
+          <td>the offset into the source array.</td>
+        </tr>
+        <tr>
+          <th>dst</th>
+          <td>the destination Buffer, its position is used as an offset.</td>
+        </tr>
+        <tr>
+          <th>numElements</th>
+          <td>the number of elements to copy.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="copy(double[], int, int, java.nio.Buffer)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">copy</span>
+      <span class="normal">(double[] src, int srcOffset, int numElements, Buffer dst)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Copies the contents of src to dst, starting from src[srcOffset],
+ copying numElements elements. The Buffer instance's
+ <code><a href="null#position()">position()</a></code> is used to define the offset into the
+ Buffer itself. The position and limit will stay the same.
+ <b>The Buffer must be a direct Buffer with native byte order.
+ No error checking is performed</b>.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>src</th>
+          <td>the source array.</td>
+        </tr>
+        <tr>
+          <th>srcOffset</th>
+          <td>the offset into the source array.</td>
+        </tr>
+        <tr>
+          <th>numElements</th>
+          <td>the number of elements to copy.</td>
+        </tr>
+        <tr>
+          <th>dst</th>
+          <td>the destination Buffer, its position is used as an offset.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="copy(float[], int, int, java.nio.Buffer)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">copy</span>
+      <span class="normal">(float[] src, int srcOffset, int numElements, Buffer dst)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Copies the contents of src to dst, starting from src[srcOffset],
+ copying numElements elements. The Buffer instance's
+ <code><a href="null#position()">position()</a></code> is used to define the offset into the
+ Buffer itself. The position and limit will stay the same.
+ <b>The Buffer must be a direct Buffer with native byte order.
+ No error checking is performed</b>.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>src</th>
+          <td>the source array.</td>
+        </tr>
+        <tr>
+          <th>srcOffset</th>
+          <td>the offset into the source array.</td>
+        </tr>
+        <tr>
+          <th>numElements</th>
+          <td>the number of elements to copy.</td>
+        </tr>
+        <tr>
+          <th>dst</th>
+          <td>the destination Buffer, its position
+                    is used as an offset.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="copy(short[], int, java.nio.Buffer, int)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">copy</span>
+      <span class="normal">(short[] src, int srcOffset, Buffer dst, int numElements)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Copies the contents of src to dst, starting from src[srcOffset],
+ copying numElements elements. The Buffer instance's
+ <code><a href="null#position()">position()</a></code> is used to define the offset into the
+ Buffer itself. The position will stay the same, the limit
+ will be set to position + numElements. <b>The Buffer must be a
+ direct Buffer with native byte order. No error checking is
+ performed</b>.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>src</th>
+          <td>the source array.</td>
+        </tr>
+        <tr>
+          <th>srcOffset</th>
+          <td>the offset into the source array.</td>
+        </tr>
+        <tr>
+          <th>dst</th>
+          <td>the destination Buffer, its position is used as an offset.</td>
+        </tr>
+        <tr>
+          <th>numElements</th>
+          <td>the number of elements to copy.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="copy(int[], int, int, java.nio.Buffer)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">copy</span>
+      <span class="normal">(int[] src, int srcOffset, int numElements, Buffer dst)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Copies the contents of src to dst, starting from src[srcOffset],
+ copying numElements elements. The Buffer instance's
+ <code><a href="null#position()">position()</a></code> is used to define the offset into the
+ Buffer itself. The position and limit will stay the same.
+ <b>The Buffer must be a direct Buffer with native byte order.
+ No error checking is performed</b>.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>src</th>
+          <td>the source array.</td>
+        </tr>
+        <tr>
+          <th>srcOffset</th>
+          <td>the offset into the source array.</td>
+        </tr>
+        <tr>
+          <th>numElements</th>
+          <td>the number of elements to copy.</td>
+        </tr>
+        <tr>
+          <th>dst</th>
+          <td>the destination Buffer, its position is used as an offset.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="copy(java.nio.Buffer, java.nio.Buffer, int)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">copy</span>
+      <span class="normal">(Buffer src, Buffer dst, int numElements)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Copies the contents of src to dst, starting from the current position
+ of src, copying numElements elements (using the data
+ type of src, no matter the datatype of dst). The dst <code><a href="null#position()">position()</a></code>
+ is used as the writing offset. The position
+ of both Buffers will stay the same. The limit of the src Buffer will stay
+ the same. The limit of the dst Buffer will be set
+ to dst.position() + numElements, where numElements are translated to the
+ number of elements appropriate for the dst Buffer
+ data type. <b>The Buffers must be direct Buffers with native byte order.
+ No error checking is performed</b>.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>src</th>
+          <td>the source Buffer.</td>
+        </tr>
+        <tr>
+          <th>dst</th>
+          <td>the destination Buffer.</td>
+        </tr>
+        <tr>
+          <th>numElements</th>
+          <td>the number of elements to copy.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="copy(char[], int, int, java.nio.Buffer)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">copy</span>
+      <span class="normal">(char[] src, int srcOffset, int numElements, Buffer dst)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Copies the contents of src to dst, starting from src[srcOffset],
+ copying numElements elements. The Buffer instance's
+ <code><a href="null#position()">position()</a></code> is used to define the offset into the
+ Buffer itself. The position and limit will stay the same.
+ <b>The Buffer must be a direct Buffer with native byte order.
+ No error checking is performed</b>.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>src</th>
+          <td>the source array.</td>
+        </tr>
+        <tr>
+          <th>srcOffset</th>
+          <td>the offset into the source array.</td>
+        </tr>
+        <tr>
+          <th>numElements</th>
+          <td>the number of elements to copy.</td>
+        </tr>
+        <tr>
+          <th>dst</th>
+          <td>the destination Buffer, its position is used as an offset.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="copy(float[], int, java.nio.Buffer, int)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">copy</span>
+      <span class="normal">(float[] src, int srcOffset, Buffer dst, int numElements)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Copies the contents of src to dst, starting from src[srcOffset],
+ copying numElements elements. The Buffer instance's
+ <code><a href="null#position()">position()</a></code> is used to define the offset into the
+ Buffer itself. The position will stay the same, the limit
+ will be set to position + numElements. <b>The Buffer must be a
+ direct Buffer with native byte order. No error checking is
+ performed</b>.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>src</th>
+          <td>the source array.</td>
+        </tr>
+        <tr>
+          <th>srcOffset</th>
+          <td>the offset into the source array.</td>
+        </tr>
+        <tr>
+          <th>dst</th>
+          <td>the destination Buffer, its position is used as an offset.</td>
+        </tr>
+        <tr>
+          <th>numElements</th>
+          <td>the number of elements to copy.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="disposeUnsafeByteBuffer(java.nio.ByteBuffer)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">disposeUnsafeByteBuffer</span>
+      <span class="normal">(ByteBuffer buffer)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="findFloats(float[], int, java.nio.Buffer, int, float)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        long
+      </span>
+      <span class="sympad">findFloats</span>
+      <span class="normal">(float[] vertex, int strideInBytes, Buffer vertices, int numVertices, float epsilon)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="findFloats(java.nio.Buffer, int, float[], int, float)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        long
+      </span>
+      <span class="sympad">findFloats</span>
+      <span class="normal">(Buffer vertex, int strideInBytes, float[] vertices, int numVertices, float epsilon)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="findFloats(float[], int, float[], int)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        long
+      </span>
+      <span class="sympad">findFloats</span>
+      <span class="normal">(float[] vertex, int strideInBytes, float[] vertices, int numVertices)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="findFloats(java.nio.Buffer, int, float[], int)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        long
+      </span>
+      <span class="sympad">findFloats</span>
+      <span class="normal">(Buffer vertex, int strideInBytes, float[] vertices, int numVertices)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="findFloats(java.nio.Buffer, int, java.nio.Buffer, int)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        long
+      </span>
+      <span class="sympad">findFloats</span>
+      <span class="normal">(Buffer vertex, int strideInBytes, Buffer vertices, int numVertices)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="findFloats(float[], int, java.nio.Buffer, int)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        long
+      </span>
+      <span class="sympad">findFloats</span>
+      <span class="normal">(float[] vertex, int strideInBytes, Buffer vertices, int numVertices)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="findFloats(java.nio.Buffer, int, java.nio.Buffer, int, float)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        long
+      </span>
+      <span class="sympad">findFloats</span>
+      <span class="normal">(Buffer vertex, int strideInBytes, Buffer vertices, int numVertices, float epsilon)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="findFloats(float[], int, float[], int, float)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        long
+      </span>
+      <span class="sympad">findFloats</span>
+      <span class="normal">(float[] vertex, int strideInBytes, float[] vertices, int numVertices, float epsilon)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="getAllocatedBytesUnsafe()"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">getAllocatedBytesUnsafe</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the number of bytes allocated with <code><a href="../../../../com/guidebee/utils/collections/BufferUtils.html#newUnsafeByteBuffer(int)">newUnsafeByteBuffer(int)</a></code>
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="getUnsafeBufferAddress(java.nio.Buffer)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        long
+      </span>
+      <span class="sympad">getUnsafeBufferAddress</span>
+      <span class="normal">(Buffer buffer)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the address of the Buffer, it assumes it is an unsafe buffer.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>buffer</th>
+          <td>The Buffer to ask the address for.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the address of the Buffer.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="newByteBuffer(int)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        ByteBuffer
+      </span>
+      <span class="sympad">newByteBuffer</span>
+      <span class="normal">(int numBytes)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="newCharBuffer(int)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        CharBuffer
+      </span>
+      <span class="sympad">newCharBuffer</span>
+      <span class="normal">(int numChars)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="newDoubleBuffer(int)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        DoubleBuffer
+      </span>
+      <span class="sympad">newDoubleBuffer</span>
+      <span class="normal">(int numDoubles)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="newFloatBuffer(int)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        FloatBuffer
+      </span>
+      <span class="sympad">newFloatBuffer</span>
+      <span class="normal">(int numFloats)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="newIntBuffer(int)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        IntBuffer
+      </span>
+      <span class="sympad">newIntBuffer</span>
+      <span class="normal">(int numInts)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="newLongBuffer(int)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        LongBuffer
+      </span>
+      <span class="sympad">newLongBuffer</span>
+      <span class="normal">(int numLongs)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="newShortBuffer(int)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        ShortBuffer
+      </span>
+      <span class="sympad">newShortBuffer</span>
+      <span class="normal">(int numShorts)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="newUnsafeByteBuffer(java.nio.ByteBuffer)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        ByteBuffer
+      </span>
+      <span class="sympad">newUnsafeByteBuffer</span>
+      <span class="normal">(ByteBuffer buffer)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Registers the given ByteBuffer as an unsafe ByteBuffer. The ByteBuffer must have been
+ allocated in native code, pointing to a memory region allocated via malloc. Needs to
+ be disposed with #freeMemory(ByteBuffer).</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>buffer</th>
+          <td>the ByteBuffer to register</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the ByteBuffer passed to the method
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="newUnsafeByteBuffer(int)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        ByteBuffer
+      </span>
+      <span class="sympad">newUnsafeByteBuffer</span>
+      <span class="normal">(int numBytes)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Allocates a new direct ByteBuffer from native heap memory using the native byte
+ order. Needs to be disposed with
+ #freeMemory(ByteBuffer).</p></div>
+
+    </div>
+</div>
+
+
+<a id="transform(java.nio.Buffer, int, int, int, com.guidebee.math.Matrix3, int)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">transform</span>
+      <span class="normal">(Buffer data, int dimensions, int strideInBytes, int count, <a href="../../../../com/guidebee/math/Matrix3.html">Matrix3</a> matrix, int offset)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Multiply float vector components within the buffer with the specified matrix.
+ The specified offset value is added to the
+ <code><a href="null#position()">position()</a></code> and used as the offset.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>data</th>
+          <td>The buffer to transform.</td>
+        </tr>
+        <tr>
+          <th>dimensions</th>
+          <td>The number of components (x, y, z) of the vector (2 for xy or 3 for xyz)</td>
+        </tr>
+        <tr>
+          <th>strideInBytes</th>
+          <td>The offset between the first and the second vector to transform</td>
+        </tr>
+        <tr>
+          <th>count</th>
+          <td>The number of vectors to transform</td>
+        </tr>
+        <tr>
+          <th>matrix</th>
+          <td>The matrix to multiply the vector with,</td>
+        </tr>
+        <tr>
+          <th>offset</th>
+          <td>The offset within the buffer (in bytes relative to the
+                      current position) to the vector
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="transform(float[], int, int, int, com.guidebee.math.Matrix3, int)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">transform</span>
+      <span class="normal">(float[] data, int dimensions, int strideInBytes, int count, <a href="../../../../com/guidebee/math/Matrix3.html">Matrix3</a> matrix, int offset)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Multiply float vector components within the buffer with the specified matrix.
+ The specified offset value is added to the
+ <code><a href="null#position()">position()</a></code> and used as the offset.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>data</th>
+          <td>The buffer to transform.</td>
+        </tr>
+        <tr>
+          <th>dimensions</th>
+          <td>The number of components (x, y, z) of the vector (2 for xy or 3 for xyz)</td>
+        </tr>
+        <tr>
+          <th>strideInBytes</th>
+          <td>The offset between the first and the second vector to transform</td>
+        </tr>
+        <tr>
+          <th>count</th>
+          <td>The number of vectors to transform</td>
+        </tr>
+        <tr>
+          <th>matrix</th>
+          <td>The matrix to multiply the vector with,</td>
+        </tr>
+        <tr>
+          <th>offset</th>
+          <td>The offset within the buffer (in bytes relative to the
+                      current position) to the vector
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="transform(float[], int, int, int, com.guidebee.math.Matrix3)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">transform</span>
+      <span class="normal">(float[] data, int dimensions, int strideInBytes, int count, <a href="../../../../com/guidebee/math/Matrix3.html">Matrix3</a> matrix)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Multiply float vector components within the buffer with the specified matrix.
+ The <code><a href="null#position()">position()</a></code> is used as the
+ offset.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>data</th>
+          <td>The buffer to transform.</td>
+        </tr>
+        <tr>
+          <th>dimensions</th>
+          <td>The number of components (x, y, z) of the vector (2 for xy or 3 for xyz)</td>
+        </tr>
+        <tr>
+          <th>strideInBytes</th>
+          <td>The offset between the first and the second vector to transform</td>
+        </tr>
+        <tr>
+          <th>count</th>
+          <td>The number of vectors to transform</td>
+        </tr>
+        <tr>
+          <th>matrix</th>
+          <td>The matrix to multiply the vector with
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="transform(java.nio.Buffer, int, int, int, com.guidebee.math.Matrix3)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">transform</span>
+      <span class="normal">(Buffer data, int dimensions, int strideInBytes, int count, <a href="../../../../com/guidebee/math/Matrix3.html">Matrix3</a> matrix)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Multiply float vector components within the buffer with the specified matrix.
+ The <code><a href="null#position()">position()</a></code> is used as the
+ offset.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>data</th>
+          <td>The buffer to transform.</td>
+        </tr>
+        <tr>
+          <th>dimensions</th>
+          <td>The number of components (x, y, z) of the vector (2 for xy or 3 for xyz)</td>
+        </tr>
+        <tr>
+          <th>strideInBytes</th>
+          <td>The offset between the first and the second vector to transform</td>
+        </tr>
+        <tr>
+          <th>count</th>
+          <td>The number of vectors to transform</td>
+        </tr>
+        <tr>
+          <th>matrix</th>
+          <td>The matrix to multiply the vector with
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="transform(java.nio.Buffer, int, int, int, com.guidebee.math.Matrix4, int)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">transform</span>
+      <span class="normal">(Buffer data, int dimensions, int strideInBytes, int count, <a href="../../../../com/guidebee/math/Matrix4.html">Matrix4</a> matrix, int offset)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Multiply float vector components within the buffer with the specified matrix.
+ The specified offset value is added to the
+ <code><a href="null#position()">position()</a></code> and used as the offset.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>data</th>
+          <td>The buffer to transform.</td>
+        </tr>
+        <tr>
+          <th>dimensions</th>
+          <td>The number of components of the vector
+                      (2 for xy, 3 for xyz or 4 for xyzw)</td>
+        </tr>
+        <tr>
+          <th>strideInBytes</th>
+          <td>The offset between the first and the second vector to transform</td>
+        </tr>
+        <tr>
+          <th>count</th>
+          <td>The number of vectors to transform</td>
+        </tr>
+        <tr>
+          <th>matrix</th>
+          <td>The matrix to multiply the vector with</td>
+        </tr>
+        <tr>
+          <th>offset</th>
+          <td>The offset within the buffer (in bytes relative to
+                      the current position) to the vector
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="transform(float[], int, int, int, com.guidebee.math.Matrix4)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">transform</span>
+      <span class="normal">(float[] data, int dimensions, int strideInBytes, int count, <a href="../../../../com/guidebee/math/Matrix4.html">Matrix4</a> matrix)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Multiply float vector components within the buffer with the specified matrix.
+ The <code><a href="null#position()">position()</a></code> is used as the
+ offset.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>data</th>
+          <td>The buffer to transform.</td>
+        </tr>
+        <tr>
+          <th>dimensions</th>
+          <td>The number of components of the vector
+                      (2 for xy, 3 for xyz or 4 for xyzw)</td>
+        </tr>
+        <tr>
+          <th>strideInBytes</th>
+          <td>The offset between the first and the second vector to transform</td>
+        </tr>
+        <tr>
+          <th>count</th>
+          <td>The number of vectors to transform</td>
+        </tr>
+        <tr>
+          <th>matrix</th>
+          <td>The matrix to multiply the vector with
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="transform(java.nio.Buffer, int, int, int, com.guidebee.math.Matrix4)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">transform</span>
+      <span class="normal">(Buffer data, int dimensions, int strideInBytes, int count, <a href="../../../../com/guidebee/math/Matrix4.html">Matrix4</a> matrix)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Multiply float vector components within the buffer with the specified matrix.
+ The <code><a href="null#position()">position()</a></code> is used as the
+ offset.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>data</th>
+          <td>The buffer to transform.</td>
+        </tr>
+        <tr>
+          <th>dimensions</th>
+          <td>The number of components of the vector
+                      (2 for xy, 3 for xyz or 4 for xyzw)</td>
+        </tr>
+        <tr>
+          <th>strideInBytes</th>
+          <td>The offset between the first and the second vector to transform</td>
+        </tr>
+        <tr>
+          <th>count</th>
+          <td>The number of vectors to transform</td>
+        </tr>
+        <tr>
+          <th>matrix</th>
+          <td>The matrix to multiply the vector with
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="transform(float[], int, int, int, com.guidebee.math.Matrix4, int)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">transform</span>
+      <span class="normal">(float[] data, int dimensions, int strideInBytes, int count, <a href="../../../../com/guidebee/math/Matrix4.html">Matrix4</a> matrix, int offset)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Multiply float vector components within the buffer with the specified matrix.
+ The specified offset value is added to the
+ <code><a href="null#position()">position()</a></code> and used as the offset.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>data</th>
+          <td>The buffer to transform.</td>
+        </tr>
+        <tr>
+          <th>dimensions</th>
+          <td>The number of components of the vector (2 for xy, 3 for xyz or 4 for xyzw)</td>
+        </tr>
+        <tr>
+          <th>strideInBytes</th>
+          <td>The offset between the first and the second vector to transform</td>
+        </tr>
+        <tr>
+          <th>count</th>
+          <td>The number of vectors to transform</td>
+        </tr>
+        <tr>
+          <th>matrix</th>
+          <td>The matrix to multiply the vector with</td>
+        </tr>
+        <tr>
+          <th>offset</th>
+          <td>The offset within the buffer (in bytes relative to the
+                      current position) to the vector
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+
+
+
+<!-- ========= END OF CLASS DATA ========= -->
+<a id="navbar_top"></a>
+
+<div id="footer">
+Generated by <a href="http://code.google.com/p/doclava/">Doclava</a>.
+</div> <!-- end footer -->
+
+</div> <!-- jd-content -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize doclava-developer-docs.js */
+</script>
+
+</body>
+</html>
