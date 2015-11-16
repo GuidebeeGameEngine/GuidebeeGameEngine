@@ -45,10 +45,9 @@ public class DropScene extends Scene  {
 
 
     public DropScene() {
-        //super(new ScalingViewport(ViewPortConfiguration.WIDTH,
-         //       ViewPortConfiguration.HEIGHT));
-        super(new ExtendViewport(ViewPortConfiguration.WIDTH,
-                      ViewPortConfiguration.HEIGHT));
+        super(new ScalingViewport(ViewPortConfiguration.WIDTH,
+               ViewPortConfiguration.HEIGHT));
+
 
         rainMusic = assetManager.get("rain.mp3", Music.class);
         background= assetManager.get("tiledmap/forest.tmx", TiledMap.class);
