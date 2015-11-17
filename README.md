@@ -18,7 +18,7 @@ Guidebee Android Game Engine Tutorials
 
 1. [Android Gradle Project](https://github.com/GuidebeeGameEngine/Raindrop/wiki/Android-Gradle-Project)
 
-1. [Basics](https://github.com/GuidebeeGameEngine/Raindrop/wiki/Camera-and-Viewport-basics)
+1. [Basics](https://github.com/GuidebeeGameEngine/Raindrop/wiki/Basics)
 
 1. [Packages](https://github.com/GuidebeeGameEngine/Raindrop/wiki/Packages)
 
