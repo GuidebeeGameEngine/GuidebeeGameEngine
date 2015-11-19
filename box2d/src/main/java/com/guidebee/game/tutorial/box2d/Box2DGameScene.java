@@ -1,6 +1,7 @@
 package com.guidebee.game.tutorial.box2d;
 
 import com.guidebee.game.scene.Scene;
+import com.guidebee.game.tutorial.box2d.stage.BasicBox2DStage;
 
 import static com.guidebee.game.GameEngine.assetManager;
 import static com.guidebee.game.GameEngine.graphics;
@@ -8,7 +9,7 @@ import static com.guidebee.game.GameEngine.graphics;
 public class Box2DGameScene extends Scene {
 
     public Box2DGameScene(){
-        super(new Box2DGameStage());
+        super(new BasicBox2DStage());
     }
 
     @Override
