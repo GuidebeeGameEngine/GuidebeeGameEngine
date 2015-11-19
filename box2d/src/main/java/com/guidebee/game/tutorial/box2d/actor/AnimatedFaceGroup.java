@@ -15,7 +15,7 @@ public class AnimatedFaceGroup extends Group {
     private long lastDropTime =0;
 
     private void spawnFace(){
-        int type=(MathUtils.random(3) + 1) % 3;
+        int type=(MathUtils.random(4) + 1) % 4;
 
         AnimatedFace.Type faceType=AnimatedFace.Type.values()[type];
         AnimatedFace animatedFace=new AnimatedFace(faceType);
@@ -29,19 +29,25 @@ public class AnimatedFaceGroup extends Group {
                 break;
             case Circle:
                 animatedFace.initBody(BodyDef.BodyType.DynamicBody,
-                        Shape.Type.Circle,dropRect,1.0f,0,0.1f);
+                        Shape.Type.Circle,dropRect,1.0f,0.5f,0.1f);
 
                 break;
             case Triangle:
-                PolygonShape shape=new PolygonShape();
+                PolygonShape triangleShape=new PolygonShape();
 
-                float [] vertices=getTriangleVertices();
-                shape.set(vertices);
+                float [] triangleVertices=getTriangleVertices();
+                triangleShape.set(triangleVertices);
                 animatedFace.initBody(BodyDef.BodyType.DynamicBody,
-                        shape,dropRect,1.0f,0f,0.1f);
+                        triangleShape,dropRect,1.0f,0.5f,0.1f);
                 break;
             case Hexagon:
-                animatedFace.initBody();
+                PolygonShape shape=new PolygonShape();
+
+                float [] vertices=getHexagonVertices();
+                shape.set(vertices);
+                animatedFace.initBody(BodyDef.BodyType.DynamicBody,
+                        shape,dropRect,1.0f,0.5f,0.1f);
+
                 break;
         }
 
@@ -50,6 +56,25 @@ public class AnimatedFaceGroup extends Group {
         lastDropTime= TimeUtils.nanoTime();
     }
 
+    private float [] getHexagonVertices(){
+        float[] vertices=new float[12];
+        vertices[0]=0;
+        vertices[1]=-16;
+        vertices[2]=14;
+        vertices[3]=-8;
+        vertices[4]=14;
+        vertices[5]=8;
+
+        vertices[6]=0;
+        vertices[7]=16;
+        vertices[8]=14;
+        vertices[9]=-8;
+        vertices[10]=-14;
+        vertices[11]=-8;
+
+        return GameEngine.toBox2DVertices(vertices);
+
+    }
 
     private float [] getTriangleVertices(){
         float[] vertices=new float[6];
