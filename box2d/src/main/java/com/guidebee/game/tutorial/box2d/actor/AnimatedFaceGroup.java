@@ -53,19 +53,15 @@ public class AnimatedFaceGroup extends Group {
 
     private float [] getTriangleVertices(){
         float[] vertices=new float[6];
-        vertices[0]=0;
-        vertices[1]=0;
-        vertices[2]=32;
-        vertices[3]=0;
-        vertices[4]=16;
-        vertices[5]=32;
+        vertices[0]=-16;
+        vertices[1]=-16;
+        vertices[2]=16;
+        vertices[3]=-16;
+        vertices[4]=0;
+        vertices[5]=16;
 
-        for(int i=0;i<vertices.length;i++){
-            vertices[i]= GameEngine.toBox2D(vertices[i]-16);
-        }
+        return GameEngine.toBox2DVertices(vertices);
 
-
-        return vertices;
     }
 
     @Override

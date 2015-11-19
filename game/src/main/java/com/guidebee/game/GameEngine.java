@@ -108,6 +108,32 @@ public class GameEngine {
         return pixel / pixelToBox2DUnit;
     }
 
+
+    /**
+     * To box2d vertices
+     * @param vertices
+     * @return
+     */
+    public static float [] toBox2DVertices(float[] vertices){
+        for(int i=0;i<vertices.length;i++){
+            vertices[i]= toBox2D(vertices[i]);
+        }
+        return vertices;
+    }
+
+
+    /**
+     * to pixel vertices
+     * @param vertices
+     * @return
+     */
+    public static float [] toPixelVertices(float[] vertices){
+        for(int i=0;i<vertices.length;i++){
+            vertices[i]= toPixel(vertices[i]);
+        }
+        return vertices;
+    }
+
     /**
      * Conversion between box2d unit and pixel unit
      * @param box2d
