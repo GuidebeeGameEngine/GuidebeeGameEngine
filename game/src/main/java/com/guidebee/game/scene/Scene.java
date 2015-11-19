@@ -40,6 +40,14 @@ public class Scene extends ScreenAdapter{
 
 
     /**
+     * Constructor with passed in stage.
+     * @param stage
+     */
+    public Scene(Stage stage){
+        sceneStage=stage;
+    }
+
+    /**
      * Default constructor.
      */
     public Scene(){

@@ -23,18 +23,18 @@ public class Ground extends Actor{
         setPosition(0, 0);
         initEdgeBody(0,groundTextRegion.getRegionHeight(),
                 Configuration.SCREEN_WIDTH,
-                groundTextRegion.getRegionHeight(),1f,0.8f,0.3f);
+                groundTextRegion.getRegionHeight(),1f,0.5f,0.3f);
 
     }
 
     @Override
     public void draw(Batch batch, float parentAlpha) {
-        int backWidth = groundTextRegion.getRegionWidth();
+        /*int backWidth = groundTextRegion.getRegionWidth();
         int size = Configuration.SCREEN_WIDTH / backWidth;
         if (size * backWidth < Configuration.SCREEN_WIDTH) size++;
         for (int i = -1; i < size; i++) {
             batch.draw(groundTextRegion,  i * backWidth, 0);
-        }
+        }*/
 
 
     }

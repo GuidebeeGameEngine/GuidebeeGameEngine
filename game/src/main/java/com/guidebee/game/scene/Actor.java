@@ -368,6 +368,7 @@ public class Actor implements Collidable {
 
         BodyDef bodyDef=new BodyDef();
         bodyDef.type=type;
+
         bodyDef.position.set(GameEngine.toBox2D((getX()+ rect.getX()+ rect.getWidth()/2)),
                 GameEngine.toBox2D(getY() + rect.getY()+ rect.getHeight()/2));
         this.body = GameEngine.world.createBody(bodyDef);

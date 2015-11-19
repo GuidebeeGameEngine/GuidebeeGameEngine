@@ -783,7 +783,7 @@ public final class World implements Disposable {
      * @param upperX   the x coordinate of the upper right corner
      * @param upperY   the y coordinate of the upper right corner
      */
-    public void QueryAABB(QueryCallback callback, float lowerX, float lowerY,
+    public void queryAABB(QueryCallback callback, float lowerX, float lowerY,
                           float upperX, float upperY) {
         queryCallback = callback;
         jniQueryAABB(addr, lowerX, lowerY, upperX, upperY);
@@ -800,7 +800,7 @@ public final class World implements Disposable {
 		aabb.upperBound = b2Vec2( upX, upY );
 	
 		CustomQueryCallback callback( env, object );
-		world->QueryAABB( &callback, aabb );
+		world->queryAABB( &callback, aabb );
 	*/
 
 //

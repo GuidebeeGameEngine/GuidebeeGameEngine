@@ -2,6 +2,7 @@ package com.guidebee.game.tutorial.box2d.actor;
 
 import com.guidebee.game.GameEngine;
 import com.guidebee.game.graphics.Animation;
+import com.guidebee.game.graphics.Batch;
 import com.guidebee.game.graphics.TextureAtlas;
 import com.guidebee.game.graphics.TextureRegion;
 import com.guidebee.game.maps.tiled.tiles.AnimatedTiledMapTile;
@@ -81,6 +82,11 @@ public class AnimatedFace extends Actor{
         elapsedTime += GameEngine.graphics.getDeltaTime();
         setTextureRegion(animation.getKeyFrame(elapsedTime, true));
         //setTextureRegion(animation.getKeyFrame(0));
+
+    }
+
+    @Override
+    public void draw(Batch batch, float parentAlpha) {
 
     }
 

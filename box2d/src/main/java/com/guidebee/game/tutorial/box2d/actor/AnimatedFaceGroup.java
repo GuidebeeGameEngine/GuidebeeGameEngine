@@ -67,8 +67,8 @@ public class AnimatedFaceGroup extends Group {
 
         vertices[6]=0;
         vertices[7]=16;
-        vertices[8]=14;
-        vertices[9]=-8;
+        vertices[8]=-14;
+        vertices[9]=8;
         vertices[10]=-14;
         vertices[11]=-8;
 
