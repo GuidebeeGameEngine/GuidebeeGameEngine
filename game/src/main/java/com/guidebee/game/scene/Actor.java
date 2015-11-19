@@ -311,26 +311,89 @@ public class Actor implements Collidable {
         return null;
     }
 
+
+    /**
+     * Init box2d body
+     * @param bodyType body type
+     * @param rect   the rectangle area for box2d body (in pixels). the box2d rectangle
+     *               area size can be different with sprite area. normally they are equal
+     */
     public void initBody(BodyDef.BodyType bodyType,Rectangle rect){
 
-        initBody(bodyType,Shape.Type.Polygon,rect,1.0f,0,1.0f);
+        initBody(bodyType, Shape.Type.Polygon, rect, 1.0f, 0, 1.0f);
     }
 
+    /**
+     * Init box2d body ,the box2d rectangle size is same as sprite size.
+     * @param bodyType body type
+     */
     public void initBody(BodyDef.BodyType bodyType){
         Rectangle rectangle=new Rectangle(0,0,getWidth(),getHeight());
-        initBody(bodyType,Shape.Type.Polygon,rectangle,1.0f,0,1.0f);
+        initBody(bodyType, Shape.Type.Polygon, rectangle, 1.0f, 0, 1.0f);
     }
 
+    /**
+     * Init box2d body
+     * @param rectangle
+     */
     public void initBody(Rectangle rectangle){
-        initBody(BodyDef.BodyType.DynamicBody,Shape.Type.Polygon, rectangle, 1.0f,0,1.0f);
+        initBody(BodyDef.BodyType.DynamicBody, Shape.Type.Polygon, rectangle, 1.0f, 0, 1.0f);
     }
 
+    /**
+     * Init box2d body ,the box2d rectangle size is same as sprite size.
+     */
     public void initBody(){
-        Rectangle rectangle=new Rectangle(0,0,getWidth(),getHeight());
+        Rectangle rectangle = new Rectangle(0, 0, getWidth(), getHeight());
         initBody(BodyDef.BodyType.DynamicBody,Shape.Type.Polygon, rectangle, 1.0f,0,1.0f);
     }
 
+    /**
+     * Init box2d body
+     * @param type
+     * @param polygonShape
+     * @param rect
+     * @param density
+     * @param restitution
+     * @param friction
+     */
+    public void initBody(BodyDef.BodyType type ,PolygonShape polygonShape,Rectangle rect,
+                         float density,float restitution,float friction){
+        if(GameEngine.world==null){
+            throw new RuntimeException("Please initialize game engine world first");
+        }
+        if(this.body!=null){
+            GameEngine.world.destroyBody(body);
+        }
 
+        BodyDef bodyDef=new BodyDef();
+        bodyDef.type=type;
+        bodyDef.position.set(GameEngine.toBox2D((getX()+ rect.getX()+ rect.getWidth()/2)),
+                GameEngine.toBox2D(getY() + rect.getY()+ rect.getHeight()/2));
+        this.body = GameEngine.world.createBody(bodyDef);
+        offsetX = (getWidth()-rect.getWidth())/2-rect.getX();
+        offsetY = (getHeight()-rect.getHeight())/2-rect.getY();
+        Shape shape=polygonShape;
+        setOrigin(getOriginX()-offsetX,getOriginY()-offsetY);
+        FixtureDef fixtureDef = new FixtureDef();
+        fixtureDef.shape = shape;
+        fixtureDef.density = density;
+        fixtureDef.restitution=restitution;
+        fixtureDef.friction=friction;
+        body.createFixture(fixtureDef);
+        body.setUserData(this);
+        shape.dispose();
+    }
+
+    /**
+     * Init box2d body ,the shape can be circle and rect, for other type uses rect.
+     * @param type
+     * @param shapeType
+     * @param rect
+     * @param density
+     * @param restitution
+     * @param friction
+     */
     public void initBody(BodyDef.BodyType type ,Shape.Type shapeType,Rectangle rect,
                          float density,float restitution,float friction){
         if(GameEngine.world==null){
@@ -365,12 +428,22 @@ public class Actor implements Collidable {
         fixtureDef.density = density;
         fixtureDef.restitution=restitution;
         fixtureDef.friction=friction;
-        Fixture fixture = body.createFixture(fixtureDef);
+        body.createFixture(fixtureDef);
         body.setUserData(this);
         shape.dispose();
     }
 
 
+    /**
+     * Init an edge body.
+     * @param x1
+     * @param y1
+     * @param x2
+     * @param y2
+     * @param density
+     * @param restitution
+     * @param friction
+     */
     public void initEdgeBody(float x1,float y1,float x2,float y2,
                              float density,float restitution,float friction){
         if(GameEngine.world==null){
