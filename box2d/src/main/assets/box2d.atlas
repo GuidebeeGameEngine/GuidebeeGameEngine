@@ -2,87 +2,150 @@ box2d.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
+Back
+  rotate: false
+  xy: 2, 2
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 8
+Button_08_Normal_Shoot
+  rotate: false
+  xy: 260, 2
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+Button_08_Normal_Virgin
+  rotate: false
+  xy: 260, 132
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+Button_08_Pressed_Shoot
+  rotate: false
+  xy: 390, 2
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+Button_08_Pressed_Virgin
+  rotate: false
+  xy: 390, 132
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+Joystick
+  rotate: false
+  xy: 520, 2
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: 8
 banana_tiled
   rotate: false
-  xy: 248, 116
+  xy: 766, 116
   size: 132, 70
   orig: 132, 70
   offset: 0, 0
   index: -1
 birdanimation
   rotate: false
-  xy: 382, 116
+  xy: 834, 214
   size: 102, 24
   orig: 102, 24
   offset: 0, 0
   index: -1
+blast
+  rotate: false
+  xy: 834, 188
+  size: 144, 24
+  orig: 144, 24
+  offset: 0, 0
+  index: -1
 box
   rotate: false
-  xy: 382, 142
+  xy: 800, 188
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
+bullet
+  rotate: false
+  xy: 650, 124
+  size: 12, 3
+  orig: 12, 3
+  offset: 0, 0
+  index: -1
 enemy
   rotate: false
-  xy: 2, 2
+  xy: 520, 132
   size: 72, 128
   orig: 72, 128
   offset: 0, 0
   index: -1
 face_box
   rotate: false
-  xy: 416, 142
+  xy: 800, 222
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 face_box_tiled
   rotate: false
-  xy: 2, 132
+  xy: 668, 210
   size: 64, 32
   orig: 64, 32
   offset: 0, 0
   index: -1
 face_circle_tiled
   rotate: false
-  xy: 2, 166
+  xy: 734, 210
   size: 64, 32
   orig: 64, 32
   offset: 0, 0
   index: -1
 face_hexagon_tiled
   rotate: false
-  xy: 68, 132
+  xy: 900, 116
   size: 64, 32
   orig: 64, 32
   offset: 0, 0
   index: -1
 face_triangle_tiled
   rotate: false
-  xy: 68, 166
+  xy: 900, 150
   size: 64, 32
   orig: 64, 32
   offset: 0, 0
   index: -1
 ground
   rotate: false
-  xy: 150, 2
+  xy: 650, 2
   size: 336, 112
   orig: 336, 112
   offset: 0, 0
   index: -1
 helicopter_tiled
   rotate: false
-  xy: 150, 116
+  xy: 668, 124
   size: 96, 84
   orig: 96, 84
   offset: 0, 0
   index: -1
 player
   rotate: false
-  xy: 76, 2
+  xy: 594, 132
   size: 72, 128
   orig: 72, 128
+  offset: 0, 0
+  index: -1
+tiles
+  rotate: false
+  xy: 650, 116
+  size: 36, 6
+  orig: 36, 6
   offset: 0, 0
   index: -1
