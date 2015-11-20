@@ -29,12 +29,12 @@ public class Ground extends Actor{
 
     @Override
     public void draw(Batch batch, float parentAlpha) {
-        /*int backWidth = groundTextRegion.getRegionWidth();
+        int backWidth = groundTextRegion.getRegionWidth();
         int size = Configuration.SCREEN_WIDTH / backWidth;
         if (size * backWidth < Configuration.SCREEN_WIDTH) size++;
         for (int i = -1; i < size; i++) {
             batch.draw(groundTextRegion,  i * backWidth, 0);
-        }*/
+        }
 
 
     }

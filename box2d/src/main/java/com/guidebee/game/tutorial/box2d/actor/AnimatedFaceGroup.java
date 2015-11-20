@@ -19,7 +19,8 @@ public class AnimatedFaceGroup extends Group {
 
         AnimatedFace.Type faceType=AnimatedFace.Type.values()[type];
         AnimatedFace animatedFace=new AnimatedFace(faceType);
-        animatedFace.setPosition(MathUtils.random(0, Configuration.SCREEN_WIDTH - 64),
+        animatedFace.setPosition(MathUtils.random(0,
+                        Configuration.SCREEN_WIDTH - 64),
                 Configuration.SCREEN_HEIGHT);
 
         Rectangle dropRect=new Rectangle(0,0,32,32);

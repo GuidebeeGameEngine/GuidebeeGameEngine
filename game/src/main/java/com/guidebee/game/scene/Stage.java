@@ -903,6 +903,9 @@ public class Stage extends InputAdapter implements Disposable {
         internalStageHUD.setUserObject(null);
         internalStage.dispose();
         internalStageHUD.dispose();
+        if (this.world != null) {
+            this.world.dispose();
+        }
 
 
     }
