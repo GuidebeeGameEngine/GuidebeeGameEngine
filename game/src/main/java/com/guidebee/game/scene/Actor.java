@@ -436,6 +436,37 @@ public class Actor implements Collidable {
 
 
     /**
+     * Initialize a chain shape.
+     * @param chainShape
+     * @param density
+     * @param restitution
+     * @param friction
+     */
+    public void initChainBody(ChainShape chainShape,float density,
+                              float restitution,float friction){
+        if(GameEngine.world==null){
+            throw new RuntimeException("Please initialize game engine world first");
+        }
+        if(this.body!=null){
+            GameEngine.world.destroyBody(body);
+        }
+        BodyDef bodyDef3 = new BodyDef();
+        bodyDef3.type = BodyDef.BodyType.StaticBody;
+        bodyDef3.position.set(GameEngine.toBox2D(getX()),GameEngine.toBox2D(getY()));
+        FixtureDef fixtureDef3 = new FixtureDef();
+
+        fixtureDef3.shape = chainShape;
+        fixtureDef3.restitution=restitution;
+        fixtureDef3.friction=friction;
+        fixtureDef3.density=density;
+        body= GameEngine.world.createBody(bodyDef3);
+        body.createFixture(fixtureDef3);
+        body.setUserData(this);
+
+
+    }
+
+    /**
      * Init an edge body.
      * @param x1
      * @param y1

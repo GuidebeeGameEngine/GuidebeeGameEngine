@@ -2,11 +2,9 @@ package com.guidebee.game.tutorial.box2d;
 
 import com.guidebee.game.GameEngine;
 import com.guidebee.game.InputProcessor;
-import com.guidebee.game.graphics.TextureAtlas;
 import com.guidebee.game.scene.Scene;
+import com.guidebee.game.tutorial.box2d.stage.BasicBox2DStage;
 import com.guidebee.game.tutorial.box2d.stage.SelfControlStage;
-import com.guidebee.game.ui.GameController;
-import com.guidebee.game.ui.drawable.TextureRegionDrawable;
 
 import static com.guidebee.game.GameEngine.assetManager;
 import static com.guidebee.game.GameEngine.graphics;
