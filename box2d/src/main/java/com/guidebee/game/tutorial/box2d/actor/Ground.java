@@ -3,6 +3,7 @@ package com.guidebee.game.tutorial.box2d.actor;
 
 import com.guidebee.game.GameEngine;
 import com.guidebee.game.graphics.Batch;
+import com.guidebee.game.graphics.Sprite;
 import com.guidebee.game.graphics.TextureAtlas;
 import com.guidebee.game.graphics.TextureRegion;
 import com.guidebee.game.physics.ChainShape;
@@ -48,6 +49,7 @@ public class Ground extends Actor{
         posY=y;
         groundWidth =width;
 
+
         TextureAtlas textureAtlas = assetManager.get("box2d.atlas",
                 TextureAtlas.class);
         groundTextRegion = textureAtlas.findRegion("ground");
@@ -55,6 +57,10 @@ public class Ground extends Actor{
         int size = width/ backWidth;
         if (size * backWidth < groundWidth) size++;
         groundWidth =size*backWidth;
+
+        //Sprite emptySprite=new Sprite();
+        //emptySprite.setSize(groundWidth,groundTextRegion.getRegionHeight());
+        //setSprite(emptySprite);
         setSize(groundWidth,
                 groundTextRegion.getRegionHeight());
         setPosition(x, y);

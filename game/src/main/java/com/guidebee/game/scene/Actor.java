@@ -1239,7 +1239,7 @@ public class Actor implements Collidable {
     }
 
 
-    void resetSpriteWithBody(){
+    public void resetSpriteWithBody(){
         if (sprite != null) {
             sprite.setPosition(body.getPosition().x * GameEngine.pixelToBox2DUnit
                             -sprite.getWidth()/2+offsetX,
@@ -1263,7 +1263,7 @@ public class Actor implements Collidable {
         }
     }
 
-    void resetBodyWithSprite(){
+    public void resetBodyWithSprite(){
         if(body!=null){
             body.setTransform(GameEngine.toBox2D(dataTrait.x+dataTrait.width/2-offsetX),
                     GameEngine.toBox2D(dataTrait.y + dataTrait.height / 2-offsetY),
@@ -1334,8 +1334,15 @@ public class Actor implements Collidable {
 
     @Override
     public Rectangle getBoundingAABB() {
-        return sprite.getBoundingRectangle();
+
+        if(sprite!=null) {
+            return sprite.getBoundingRectangle();
+        }else{
+            return new Rectangle(getX(),getY(),getWidth(),getHeight());
+        }
     }
+
+
 
     @Override
     public Polygon getBoundingPolygon() {
