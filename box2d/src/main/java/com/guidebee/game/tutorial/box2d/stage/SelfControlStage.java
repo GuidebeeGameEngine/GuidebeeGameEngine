@@ -61,6 +61,12 @@ public class SelfControlStage extends Box2DGameStage implements CollisionListene
     public void collisionDetected(Collision collision) {
         Collidable objectA=collision.getObjectA();
         Collidable objectB=collision.getObjectB();
+        if((objectB.getName()=="Player") ||
+        (objectA.getName()=="Player")){
+
+            Log.d("State","Walking");
+        }
+
         if(!(objectA.getName()=="Ground" && objectB.getName()=="Ground")) {
             Log.d("Collide", collision.getObjectA().getName() + ":" +
                     collision.getObjectB().getName());

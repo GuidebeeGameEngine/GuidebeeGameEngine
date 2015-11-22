@@ -1,5 +1,7 @@
 package com.guidebee.game.tutorial.box2d.actor;
 
+import android.util.Log;
+
 import com.guidebee.game.GameEngine;
 import com.guidebee.game.graphics.Animation;
 import com.guidebee.game.graphics.TextureAtlas;
@@ -10,6 +12,7 @@ import com.guidebee.game.tutorial.box2d.Configuration;
 import com.guidebee.game.ui.GameControllerListener;
 import com.guidebee.game.ui.GameControllerListener.Direction;
 import com.guidebee.game.ui.Touchpad;
+import com.guidebee.math.Vector2;
 import com.guidebee.math.geometry.Rectangle;
 import com.guidebee.utils.collections.Array;
 
@@ -18,6 +21,9 @@ import static com.guidebee.game.GameEngine.graphics;
 
 
 public class Player extends Actor implements GameControllerListener {
+
+
+
     private final Animation forwardAnimation;
     private final Animation backwardAnimation;
     private final Animation leftAnimation;
@@ -33,10 +39,12 @@ public class Player extends Actor implements GameControllerListener {
     private float speed =5f;
     private Direction currentDirection= Direction.NONE;
 
-    private boolean isSelfControl=true;
+    private boolean isSelfControl=false;
     private float oldX;
     private float oldY;
     private float scale=1.0f;
+
+
 
     public Player(){
         super("Player");
@@ -107,12 +115,22 @@ public class Player extends Actor implements GameControllerListener {
 
     @Override
     public void ButtonPressed(GameButton button) {
+        if (button == GameButton.BUTTON_B) {
+            if (isSelfControl) {
+                setY(getY() + 400 * graphics.getDeltaTime());
+            } else {
+                Vector2 originalSpeed=getBody().getLinearVelocity();
+                originalSpeed.y+=speed * 2;
+                getBody().setLinearVelocity( originalSpeed);
+            }
 
+        }
     }
 
     private void handleKeyPress(){
 
-         {
+
+
             oldX = getX();
             oldY=getY();
             switch (currentDirection) {
@@ -125,6 +143,7 @@ public class Player extends Actor implements GameControllerListener {
 
                         getBody().setLinearVelocity(-speed, speed);
                     }
+
                     break;
                 case NORTHEAST:
                     setTextureRegion(forwardAnimation.getKeyFrame(elapsedTime, true));
@@ -134,6 +153,7 @@ public class Player extends Actor implements GameControllerListener {
                     }else {
                         getBody().setLinearVelocity(speed, speed);
                     }
+
                     break;
 
                 case SOUTHWEST:
@@ -144,6 +164,7 @@ public class Player extends Actor implements GameControllerListener {
                     }else {
                         getBody().setLinearVelocity(-speed, -speed);
                     }
+
                     break;
                 case SOUTHEAST:
                     setTextureRegion(backwardAnimation.getKeyFrame(elapsedTime, true));
@@ -153,6 +174,7 @@ public class Player extends Actor implements GameControllerListener {
                     }else {
                         getBody().setLinearVelocity(speed, -speed);
                     }
+
                     break;
 
                 case WEST:
@@ -181,6 +203,7 @@ public class Player extends Actor implements GameControllerListener {
                     }else {
                         getBody().setLinearVelocity(0, speed);
                     }
+
                     break;
                 case SOUTH:
                     setTextureRegion(backwardAnimation.getKeyFrame(elapsedTime, true));
@@ -192,11 +215,11 @@ public class Player extends Actor implements GameControllerListener {
                     break;
 
             }
-
-
+            currentDirection=Direction.NONE;
             if (getX() < 0) {
                 setX(0);
                 if(!isSelfControl) {
+                    getBody().setLinearVelocity(0,0);
                     resetBodyWithSprite();
                 }
                 currentDirection=Direction.NONE;
@@ -204,6 +227,7 @@ public class Player extends Actor implements GameControllerListener {
             if (getY() < 0) {
                 setY(0);
                 if(!isSelfControl) {
+                    getBody().setLinearVelocity(0,0);
                     resetBodyWithSprite();
                 }
                 currentDirection=Direction.NONE;
@@ -211,6 +235,7 @@ public class Player extends Actor implements GameControllerListener {
             if (getX() > Configuration.SCREEN_WIDTH - SPRITE_WIDTH*scale) {
                 setX(Configuration.SCREEN_WIDTH - SPRITE_WIDTH*scale);
                 if(!isSelfControl) {
+                    getBody().setLinearVelocity(0,0);
                     resetBodyWithSprite();
                 }
                 currentDirection=Direction.NONE;
@@ -218,11 +243,13 @@ public class Player extends Actor implements GameControllerListener {
             if (getY() > Configuration.SCREEN_HEIGHT - SPRITE_HEIGHT*scale) {
                 setY(Configuration.SCREEN_HEIGHT - SPRITE_HEIGHT*scale);
                 if(!isSelfControl) {
+                    getBody().setLinearVelocity(0,0);
                     resetBodyWithSprite();
                 }
                 currentDirection=Direction.NONE;
             }
-        }
+
+
     }
 
 
@@ -235,6 +262,7 @@ public class Player extends Actor implements GameControllerListener {
     public void act(float delta){
         super.act(delta);
         elapsedTime += GameEngine.graphics.getDeltaTime();
+        //Log.d("state:", currentStage.toString());
         handleKeyPress();
 
 
