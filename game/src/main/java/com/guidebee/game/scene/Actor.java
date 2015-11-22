@@ -282,8 +282,8 @@ public class Actor implements Collidable {
 
     public void setSelfControl(Boolean control){
         this.selfControl=control;
-        //if(body!=null){
-         //   body.setType(BodyDef.BodyType.KinematicBody);
+        //if(body!=null && selfControl){
+        //   body.setType(BodyDef.BodyType.KinematicBody);
         //}
     }
 
@@ -404,6 +404,8 @@ public class Actor implements Collidable {
             GameEngine.world.destroyBody(body);
         }
 
+        float scaleX=getScaleX();
+        float scaleY=getScaleY();
         BodyDef bodyDef=new BodyDef();
         bodyDef.type=type;
         bodyDef.position.set(GameEngine.toBox2D((getX()+ rect.getX()+ rect.getWidth()/2)),
@@ -415,13 +417,14 @@ public class Actor implements Collidable {
         setOrigin(getOriginX()-offsetX,getOriginY()-offsetY);
         if(shapeType==Shape.Type.Circle){
             shape  = new CircleShape();
-            shape.setRadius(GameEngine.toBox2D(Math.min(rect.getWidth()/2,rect.getHeight()/2)));
+            shape.setRadius(GameEngine.toBox2D(Math.min(rect.getWidth()*scaleX/2,
+                    rect.getHeight()*scaleY/2)));
 
         }else{
             shape  =  new PolygonShape();
             PolygonShape polygonShape=(PolygonShape)shape;
-            polygonShape.setAsBox(GameEngine.toBox2D(rect.getWidth()/2),
-                    GameEngine.toBox2D(rect.getHeight()/2));
+            polygonShape.setAsBox(GameEngine.toBox2D(rect.getWidth()*scaleX/2),
+                    GameEngine.toBox2D(rect.getHeight()*scaleY/2));
 
         }
         FixtureDef fixtureDef = new FixtureDef();

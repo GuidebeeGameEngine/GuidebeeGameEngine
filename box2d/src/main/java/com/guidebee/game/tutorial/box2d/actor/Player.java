@@ -33,8 +33,10 @@ public class Player extends Actor implements GameControllerListener {
     private float speed =5f;
     private Direction currentDirection= Direction.NONE;
 
-    //private float oldX;
-    //private float oldY;
+    private boolean isSelfControl=true;
+    private float oldX;
+    private float oldY;
+    private float scale=1.0f;
 
     public Player(){
         super("Player");
@@ -84,14 +86,15 @@ public class Player extends Actor implements GameControllerListener {
         rightAnimation=new Animation(tick,keyFramesRight);
         leftAnimation=new Animation(tick,keyFramesLeft);
         setTextureRegion(forwardAnimation.getKeyFrame(0));
-        setPosition(Configuration.SCREEN_WIDTH / 2 - 64 / 2, 400);
-        Rectangle boundRect=new Rectangle(0,0,SPRITE_WIDTH,SPRITE_HEIGHT);
+        setPosition(Configuration.SCREEN_WIDTH / 2 - 64 / 2, 300);
+        Rectangle boundRect=new Rectangle(2,0,SPRITE_WIDTH-4,SPRITE_HEIGHT-6);
 
-        //scaleBy(3.0f);
-        initBody(BodyDef.BodyType.DynamicBody,boundRect);
+        scaleBy(scale);
+        initBody(BodyDef.BodyType.DynamicBody, boundRect);
         resetBodyWithSprite();
-        //setSelfControl(true);
+        setSelfControl(isSelfControl);
         getBody().setFixedRotation(true);
+        scale=getScaleX();
 
 
     }
@@ -110,80 +113,113 @@ public class Player extends Actor implements GameControllerListener {
     private void handleKeyPress(){
 
          {
-            //oldX=getX();
-           // oldY=getY();
+            oldX = getX();
+            oldY=getY();
             switch (currentDirection) {
                 case NORTHWEST:
                     setTextureRegion(forwardAnimation.getKeyFrame(elapsedTime, true));
-                    //setY(getY() + 100 * graphics.getDeltaTime());
-                    //setX(getX() - 100 * graphics.getDeltaTime());
-                    getBody().setLinearVelocity(-speed,speed);
+                    if(isSelfControl){
+                        setY(getY() + 100 * graphics.getDeltaTime());
+                        setX(getX() - 100 * graphics.getDeltaTime());
+                    }else {
+
+                        getBody().setLinearVelocity(-speed, speed);
+                    }
                     break;
                 case NORTHEAST:
                     setTextureRegion(forwardAnimation.getKeyFrame(elapsedTime, true));
-                    //setY(getY() + 100 * graphics.getDeltaTime());
-                    //setX(getX() + 100 * graphics.getDeltaTime());
-                    getBody().setLinearVelocity(speed, speed);
+                    if(isSelfControl) {
+                        setY(getY() + 100 * graphics.getDeltaTime());
+                        setX(getX() + 100 * graphics.getDeltaTime());
+                    }else {
+                        getBody().setLinearVelocity(speed, speed);
+                    }
                     break;
 
                 case SOUTHWEST:
                     setTextureRegion(backwardAnimation.getKeyFrame(elapsedTime, true));
-                    //setY(getY() - 100 * graphics.getDeltaTime());
-                    //setX(getX() - 100 * graphics.getDeltaTime());
-                    getBody().setLinearVelocity(-speed, -speed);
+                    if(isSelfControl) {
+                        setY(getY() - 100 * graphics.getDeltaTime());
+                        setX(getX() - 100 * graphics.getDeltaTime());
+                    }else {
+                        getBody().setLinearVelocity(-speed, -speed);
+                    }
                     break;
                 case SOUTHEAST:
                     setTextureRegion(backwardAnimation.getKeyFrame(elapsedTime, true));
-                    //setY(getY() - 100 * graphics.getDeltaTime());
-                    //setX(getX() + 100 * graphics.getDeltaTime());
-                    getBody().setLinearVelocity(speed, -speed);
+                    if(isSelfControl) {
+                        setY(getY() - 100 * graphics.getDeltaTime());
+                        setX(getX() + 100 * graphics.getDeltaTime());
+                    }else {
+                        getBody().setLinearVelocity(speed, -speed);
+                    }
                     break;
 
                 case WEST:
                     setTextureRegion(leftAnimation.getKeyFrame(elapsedTime, true));
-                    //setX(getX() - 200 * graphics.getDeltaTime());
-                    getBody().setLinearVelocity(-speed,0);
+                    if(isSelfControl) {
+                        setX(getX() - 200 * graphics.getDeltaTime());
+                    }
+                    else {
+                        getBody().setLinearVelocity(-speed, 0);
+                    }
                     break;
                 case EAST:
 
                     setTextureRegion(rightAnimation.getKeyFrame(elapsedTime, true));
-                    //setX(getX() + 200 * graphics.getDeltaTime());
-                    getBody().setLinearVelocity(speed,0);
+                    if(isSelfControl) {
+                        setX(getX() + 200 * graphics.getDeltaTime());
+                    }else {
+                        getBody().setLinearVelocity(speed, 0);
+                    }
                     break;
                 case NORTH:
 
                     setTextureRegion(forwardAnimation.getKeyFrame(elapsedTime, true));
-                    //setY(getY() + 200 * graphics.getDeltaTime());
-                    getBody().setLinearVelocity(0,speed);
+                    if(isSelfControl) {
+                        setY(getY() + 200 * graphics.getDeltaTime());
+                    }else {
+                        getBody().setLinearVelocity(0, speed);
+                    }
                     break;
                 case SOUTH:
                     setTextureRegion(backwardAnimation.getKeyFrame(elapsedTime, true));
-                    //setY(getY() - 200 * graphics.getDeltaTime());
-                    getBody().setLinearVelocity(0,-speed);
+                    if(isSelfControl) {
+                        setY(getY() - 200 * graphics.getDeltaTime());
+                    }else {
+                        getBody().setLinearVelocity(0, -speed);
+                    }
                     break;
 
             }
-             currentDirection=Direction.NONE;
-             setRotation(0);
-             resetBodyWithSprite();
+
+
             if (getX() < 0) {
                 setX(0);
-                resetBodyWithSprite();
+                if(!isSelfControl) {
+                    resetBodyWithSprite();
+                }
                 currentDirection=Direction.NONE;
             }
             if (getY() < 0) {
                 setY(0);
-                resetBodyWithSprite();
+                if(!isSelfControl) {
+                    resetBodyWithSprite();
+                }
                 currentDirection=Direction.NONE;
             }
-            if (getX() > Configuration.SCREEN_WIDTH - SPRITE_WIDTH) {
-                setX(Configuration.SCREEN_WIDTH - SPRITE_WIDTH);
-                resetBodyWithSprite();
+            if (getX() > Configuration.SCREEN_WIDTH - SPRITE_WIDTH*scale) {
+                setX(Configuration.SCREEN_WIDTH - SPRITE_WIDTH*scale);
+                if(!isSelfControl) {
+                    resetBodyWithSprite();
+                }
                 currentDirection=Direction.NONE;
             }
-            if (getY() > Configuration.SCREEN_HEIGHT - SPRITE_HEIGHT) {
-                setY(Configuration.SCREEN_HEIGHT - SPRITE_HEIGHT);
-                resetBodyWithSprite();
+            if (getY() > Configuration.SCREEN_HEIGHT - SPRITE_HEIGHT*scale) {
+                setY(Configuration.SCREEN_HEIGHT - SPRITE_HEIGHT*scale);
+                if(!isSelfControl) {
+                    resetBodyWithSprite();
+                }
                 currentDirection=Direction.NONE;
             }
         }
