@@ -99,7 +99,8 @@ public class Player extends Actor implements GameControllerListener {
 
         scaleBy(scale);
         initBody(BodyDef.BodyType.DynamicBody, boundRect);
-        resetBodyWithSprite();
+        getBody().setSleepingAllowed(false);
+
         setSelfControl(isSelfControl);
         getBody().setFixedRotation(true);
         scale=getScaleX();
@@ -115,7 +116,7 @@ public class Player extends Actor implements GameControllerListener {
 
     @Override
     public void ButtonPressed(GameButton button) {
-        if (button == GameButton.BUTTON_B) {
+       if (button == GameButton.BUTTON_B) {
             if (isSelfControl) {
                 setY(getY() + 400 * graphics.getDeltaTime());
             } else {
@@ -125,6 +126,7 @@ public class Player extends Actor implements GameControllerListener {
             }
 
         }
+        Log.d("ButtonPressed",button.toString());
     }
 
     private void handleKeyPress(){
@@ -133,6 +135,7 @@ public class Player extends Actor implements GameControllerListener {
 
             oldX = getX();
             oldY=getY();
+
             switch (currentDirection) {
                 case NORTHWEST:
                     setTextureRegion(forwardAnimation.getKeyFrame(elapsedTime, true));

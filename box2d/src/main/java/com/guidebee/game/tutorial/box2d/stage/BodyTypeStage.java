@@ -10,23 +10,29 @@ import com.guidebee.game.scene.collision.CollisionListener;
 import com.guidebee.game.tutorial.box2d.actor.AnimatedFaceGroup;
 import com.guidebee.game.tutorial.box2d.actor.Face;
 import com.guidebee.game.tutorial.box2d.actor.Ground;
+import com.guidebee.game.tutorial.box2d.actor.Platform;
 import com.guidebee.game.tutorial.box2d.actor.Player;
 import com.guidebee.game.ui.GameController;
 import com.guidebee.game.ui.drawable.TextureRegionDrawable;
 
 import static com.guidebee.game.GameEngine.assetManager;
 
-public class SelfControlStage extends Box2DGameStage implements CollisionListener{
+public class BodyTypeStage extends Box2DGameStage implements CollisionListener {
 
 
     private final Ground ground;
-    private final Ground secondLevelGround;
-    private final Ground thirdLevelGround;
+
     private final Face face;
-    //private final AnimatedFaceGroup animatedFaceGroup;
+
     private final Player player;
 
-    public SelfControlStage(){
+    private final Platform platform;
+
+    private final Platform secondPlatform;
+
+
+
+    public BodyTypeStage(){
         super();
         TextureAtlas textureAtlas=assetManager.get("box2d.atlas",TextureAtlas.class);
         GameController gameController
@@ -41,17 +47,23 @@ public class SelfControlStage extends Box2DGameStage implements CollisionListene
 
         ground=new Ground();
         addActor(ground);
-        secondLevelGround=new Ground(0,80,500);
-        addActor(secondLevelGround);
-        thirdLevelGround=new Ground(0,160,200);
-        addActor(thirdLevelGround);
+
+
+        platform =new Platform();
+        addActor(platform);
+
+        secondPlatform=new Platform(150,350,2);
+        addActor(secondPlatform);
+
         face=new Face();
         addActor(face);
-        //animatedFaceGroup=new AnimatedFaceGroup();
-        //addActor(animatedFaceGroup);
+
 
         player=new Player();
         addActor(player);
+
+
+
         gameController.addGameControllerListener(player);
 
         setCollisionListener(this, Collidable.BOX2D_CONTACT);
@@ -61,7 +73,6 @@ public class SelfControlStage extends Box2DGameStage implements CollisionListene
     public void collisionDetected(Collision collision) {
         Collidable objectA=collision.getObjectA();
         Collidable objectB=collision.getObjectB();
-
 
         if(!(objectA.getName()=="Ground" && objectB.getName()=="Ground")) {
             Log.d("Collide", collision.getObjectA().getName() + ":" +

@@ -44,6 +44,13 @@ Joystick
   orig: 128, 128
   offset: 0, 0
   index: 8
+Platform
+  rotate: false
+  xy: 668, 244
+  size: 96, 16
+  orig: 96, 16
+  offset: 0, 0
+  index: -1
 banana_tiled
   rotate: false
   xy: 766, 116

@@ -414,7 +414,7 @@ public class Actor implements Collidable {
         offsetX = (getWidth()-rect.getWidth())/2-rect.getX();
         offsetY = (getHeight()-rect.getHeight())/2-rect.getY();
         Shape shape;
-        setOrigin(getOriginX()-offsetX,getOriginY()-offsetY);
+        setOrigin(getOriginX() - offsetX, getOriginY() - offsetY);
         if(shapeType==Shape.Type.Circle){
             shape  = new CircleShape();
             shape.setRadius(GameEngine.toBox2D(Math.min(rect.getWidth()*scaleX/2,
@@ -1262,6 +1262,10 @@ public class Actor implements Collidable {
             sprite.setRotation(dataTrait.rotation);
         }
         if(selfControl){
+            resetBodyWithSprite();
+        }
+
+        if(body!=null &&  getBody().getType()== BodyDef.BodyType.KinematicBody){
             resetBodyWithSprite();
         }
     }

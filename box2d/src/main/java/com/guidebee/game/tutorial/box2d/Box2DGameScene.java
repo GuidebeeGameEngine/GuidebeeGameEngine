@@ -4,6 +4,7 @@ import com.guidebee.game.GameEngine;
 import com.guidebee.game.InputProcessor;
 import com.guidebee.game.scene.Scene;
 import com.guidebee.game.tutorial.box2d.stage.BasicBox2DStage;
+import com.guidebee.game.tutorial.box2d.stage.BodyTypeStage;
 import com.guidebee.game.tutorial.box2d.stage.SelfControlStage;
 
 import static com.guidebee.game.GameEngine.assetManager;
@@ -14,7 +15,7 @@ public class Box2DGameScene extends Scene {
     private InputProcessor savedInputProcessor;
 
     public Box2DGameScene(){
-        super(new SelfControlStage());
+        super(new BodyTypeStage());
 
     }
 
