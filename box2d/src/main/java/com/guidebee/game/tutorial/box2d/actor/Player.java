@@ -99,6 +99,7 @@ public class Player extends Actor implements GameControllerListener {
 
         scaleBy(scale);
         initBody(BodyDef.BodyType.DynamicBody, boundRect);
+
         getBody().setSleepingAllowed(false);
 
         setSelfControl(isSelfControl);

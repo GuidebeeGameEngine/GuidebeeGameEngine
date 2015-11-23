@@ -6,6 +6,7 @@ import com.guidebee.game.graphics.Batch;
 import com.guidebee.game.graphics.Sprite;
 import com.guidebee.game.graphics.TextureAtlas;
 import com.guidebee.game.graphics.TextureRegion;
+import com.guidebee.game.physics.BodyDef;
 import com.guidebee.game.physics.ChainShape;
 import com.guidebee.game.scene.Actor;
 import com.guidebee.game.tutorial.box2d.Configuration;
@@ -67,9 +68,7 @@ public class Ground extends Actor{
 
         ChainShape chainShape=new ChainShape();
         chainShape.createChain(getVertices());
-
-
-        initChainBody(chainShape,1f,0.5f,0.3f);
+        initChainBody(BodyDef.BodyType.StaticBody, chainShape,1f,0.5f,0.3f);
         chainShape.dispose();
     }
 

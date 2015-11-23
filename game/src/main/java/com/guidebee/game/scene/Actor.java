@@ -386,6 +386,48 @@ public class Actor implements Collidable {
         shape.dispose();
     }
 
+
+    /**
+     * Init box2d body
+     * @param type
+     * @param polygonShape
+     * @param rect
+     * @param density
+     * @param restitution
+     * @param friction
+     */
+    public void initBody(BodyDef.BodyType type ,PolygonShape[] polygonShapes,Rectangle rect,
+                         float density,float restitution,float friction){
+        if(GameEngine.world==null){
+            throw new RuntimeException("Please initialize game engine world first");
+        }
+        if(this.body!=null){
+            GameEngine.world.destroyBody(body);
+        }
+
+        BodyDef bodyDef=new BodyDef();
+        bodyDef.type=type;
+
+        bodyDef.position.set(GameEngine.toBox2D((getX()+ rect.getX()+ rect.getWidth()/2)),
+                GameEngine.toBox2D(getY() + rect.getY()+ rect.getHeight()/2));
+        this.body = GameEngine.world.createBody(bodyDef);
+        offsetX = (getWidth()-rect.getWidth())/2-rect.getX();
+        offsetY = (getHeight()-rect.getHeight())/2-rect.getY();
+        setOrigin(getOriginX() - offsetX, getOriginY() - offsetY);
+        for(int i=0;i<polygonShapes.length;i++) {
+
+            Shape shape = polygonShapes[i];
+            FixtureDef fixtureDef = new FixtureDef();
+            fixtureDef.shape = shape;
+            fixtureDef.density = density;
+            fixtureDef.restitution = restitution;
+            fixtureDef.friction = friction;
+            body.createFixture(fixtureDef);
+            shape.dispose();
+        }
+        body.setUserData(this);
+    }
+
     /**
      * Init box2d body ,the shape can be circle and rect, for other type uses rect.
      * @param type
@@ -447,6 +489,17 @@ public class Actor implements Collidable {
      */
     public void initChainBody(ChainShape chainShape,float density,
                               float restitution,float friction){
+        initChainBody(BodyDef.BodyType.StaticBody, chainShape, density, restitution, friction);
+    }
+    /**
+     * Initialize a chain shape.
+     * @param chainShape
+     * @param density
+     * @param restitution
+     * @param friction
+     */
+    public void initChainBody(BodyDef.BodyType bodyType,ChainShape chainShape,float density,
+                              float restitution,float friction){
         if(GameEngine.world==null){
             throw new RuntimeException("Please initialize game engine world first");
         }
@@ -454,7 +507,7 @@ public class Actor implements Collidable {
             GameEngine.world.destroyBody(body);
         }
         BodyDef bodyDef3 = new BodyDef();
-        bodyDef3.type = BodyDef.BodyType.StaticBody;
+        bodyDef3.type = bodyType;
         bodyDef3.position.set(GameEngine.toBox2D(getX()),GameEngine.toBox2D(getY()));
         FixtureDef fixtureDef3 = new FixtureDef();
 

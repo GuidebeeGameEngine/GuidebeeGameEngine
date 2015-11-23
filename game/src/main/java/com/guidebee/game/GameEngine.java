@@ -19,6 +19,7 @@ package com.guidebee.game;
 
 //--------------------------------- IMPORTS ------------------------------------
 
+import com.guidebee.game.engine.drawing.parser.NumberListParser;
 import com.guidebee.game.engine.graphics.opengles.IGL20;
 import com.guidebee.game.engine.graphics.opengles.IGL30;
 import com.guidebee.game.physics.World;
@@ -142,4 +143,20 @@ public class GameEngine {
     public static float toPixel(float box2d) {
         return box2d * pixelToBox2DUnit;
     }
+
+
+    private static final NumberListParser numberListParser = new NumberListParser();
+
+    /**
+     * Get vertices from string
+     * @param input like "69, -20  , 67, -18  , 56, -16 " .
+     * @return
+     */
+    public static float [] getVerticesFromString(String input){
+        synchronized (numberListParser) {
+            float[] coords = numberListParser.parseNumberList(input);
+            return coords;
+        }
+    }
+
 }
