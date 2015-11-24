@@ -273,7 +273,16 @@ public class Stage extends InputAdapter implements Disposable {
                 world.setContactFilter(new ContactFilter() {
                     @Override
                     public boolean shouldCollide(Fixture fixtureA, Fixture fixtureB) {
-                        return true;
+                        Filter filterA = fixtureA.getFilterData();
+                        Filter filterB = fixtureB.getFilterData();
+
+                        if (filterA.groupIndex == filterB.groupIndex && filterA.groupIndex != 0) {
+                            return filterA.groupIndex > 0;
+                        }
+
+                        boolean collide = (filterA.maskBits & filterB.categoryBits) != 0
+                                && (filterA.categoryBits & filterB.maskBits) != 0;
+                        return collide;
                     }
                 });
 

@@ -12,9 +12,9 @@ import com.guidebee.utils.TimeUtils;
 
 
 public class AnimatedFaceGroup extends Group {
-    private long lastDropTime =0;
+    protected long lastDropTime =0;
 
-    private void spawnFace(){
+    protected void spawnFace(){
         int type=(MathUtils.random(4) + 1) % 4;
 
         AnimatedFace.Type faceType=AnimatedFace.Type.values()[type];
@@ -57,7 +57,7 @@ public class AnimatedFaceGroup extends Group {
         lastDropTime= TimeUtils.nanoTime();
     }
 
-    private float [] getHexagonVertices(){
+    protected float [] getHexagonVertices(){
         float[] vertices=new float[12];
         vertices[0]=0;
         vertices[1]=-16;
@@ -77,7 +77,7 @@ public class AnimatedFaceGroup extends Group {
 
     }
 
-    private float [] getTriangleVertices(){
+    protected float [] getTriangleVertices(){
         float[] vertices=new float[6];
         vertices[0]=-16;
         vertices[1]=-16;
