@@ -11,19 +11,21 @@ public class Face extends Actor {
 
     private final TextureRegion faceTextRegion;
 
-    public  Face(){
+    public Face(int x, int y){
         super("Face");
         TextureAtlas textureAtlas=assetManager.get("box2d.atlas",
                 TextureAtlas.class);
         faceTextRegion=textureAtlas.findRegion("face_box");
         setTextureRegion(faceTextRegion);
-
-        setPosition((Configuration.SCREEN_WIDTH
-                        -faceTextRegion.getRegionWidth())/2,
-                (Configuration.SCREEN_HEIGHT
-                        -faceTextRegion.getRegionHeight())/2);
+        setPosition(x,y);
         initBody();
+    }
 
+    public  Face(){
+        this((Configuration.SCREEN_WIDTH
+                        -32)/2,
+                (Configuration.SCREEN_HEIGHT
+                        -32)/2);
     }
 
 }

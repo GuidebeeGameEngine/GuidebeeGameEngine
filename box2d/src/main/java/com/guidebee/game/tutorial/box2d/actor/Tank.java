@@ -1,7 +1,5 @@
 package com.guidebee.game.tutorial.box2d.actor;
 
-import android.util.Log;
-
 import com.guidebee.game.GameEngine;
 import com.guidebee.game.graphics.TextureAtlas;
 import com.guidebee.game.graphics.TextureRegion;
@@ -10,7 +8,6 @@ import com.guidebee.game.physics.PolygonShape;
 import com.guidebee.game.scene.Actor;
 import com.guidebee.game.tutorial.box2d.Configuration;
 import com.guidebee.math.geometry.Rectangle;
-import com.guidebee.utils.collections.Array;
 
 import static com.guidebee.game.GameEngine.assetManager;
 

@@ -11,140 +11,147 @@ Back
   index: 8
 Button_08_Normal_Shoot
   rotate: false
-  xy: 260, 136
+  xy: 335, 2
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 Button_08_Normal_Virgin
   rotate: false
-  xy: 335, 2
+  xy: 465, 2
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 Button_08_Pressed_Shoot
   rotate: false
-  xy: 390, 132
+  xy: 595, 2
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 Button_08_Pressed_Virgin
   rotate: false
-  xy: 465, 2
+  xy: 614, 132
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 Joystick
   rotate: false
-  xy: 520, 132
+  xy: 725, 2
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: 8
 Platform
   rotate: false
-  xy: 904, 214
+  xy: 252, 260
   size: 96, 16
   orig: 96, 16
   offset: 0, 0
   index: -1
 banana_tiled
   rotate: false
-  xy: 822, 116
+  xy: 874, 132
   size: 132, 70
   orig: 132, 70
   offset: 0, 0
   index: -1
 birdanimation
   rotate: false
-  xy: 890, 188
+  xy: 148, 260
   size: 102, 24
   orig: 102, 24
   offset: 0, 0
   index: -1
 blast
   rotate: false
-  xy: 724, 236
+  xy: 2, 260
   size: 144, 24
   orig: 144, 24
   offset: 0, 0
   index: -1
 box
   rotate: false
-  xy: 856, 188
+  xy: 972, 204
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 bullet
   rotate: false
-  xy: 2, 260
+  xy: 290, 278
   size: 12, 3
   orig: 12, 3
   offset: 0, 0
   index: -1
+buttonrefresh
+  rotate: false
+  xy: 744, 132
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
 enemy
   rotate: false
-  xy: 595, 2
+  xy: 855, 2
   size: 72, 128
   orig: 72, 128
   offset: 0, 0
   index: -1
 face_box
   rotate: false
-  xy: 870, 222
+  xy: 972, 238
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 face_box_tiled
   rotate: false
-  xy: 724, 202
+  xy: 350, 250
   size: 64, 32
   orig: 64, 32
   offset: 0, 0
   index: -1
 face_circle_tiled
   rotate: false
-  xy: 790, 202
+  xy: 416, 250
   size: 64, 32
   orig: 64, 32
   offset: 0, 0
   index: -1
 face_hexagon_tiled
   rotate: false
-  xy: 956, 116
+  xy: 482, 250
   size: 64, 32
   orig: 64, 32
   offset: 0, 0
   index: -1
 face_triangle_tiled
   rotate: false
-  xy: 956, 150
+  xy: 548, 250
   size: 64, 32
   orig: 64, 32
   offset: 0, 0
   index: -1
 ground
   rotate: false
-  xy: 669, 2
+  xy: 260, 136
   size: 336, 112
   orig: 336, 112
   offset: 0, 0
   index: -1
 helicopter_tiled
   rotate: false
-  xy: 724, 116
+  xy: 874, 204
   size: 96, 84
   orig: 96, 84
   offset: 0, 0
   index: -1
 player
   rotate: false
-  xy: 650, 132
+  xy: 929, 2
   size: 72, 128
   orig: 72, 128
   offset: 0, 0
@@ -158,7 +165,7 @@ tank
   index: -1
 tiles
   rotate: false
-  xy: 669, 116
+  xy: 252, 278
   size: 36, 6
   orig: 36, 6
   offset: 0, 0
