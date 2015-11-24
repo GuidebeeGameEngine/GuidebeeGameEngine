@@ -21,6 +21,11 @@ public class FilterAnimatedFaceGroup extends AnimatedFaceGroup{
 
     private boolean useFilter=false;
 
+    public void setUseFilter(boolean filter){
+        useFilter=filter;
+        clearChildren();
+    }
+
     private void setFilter(Body body,short categoryBits, short maskBits){
         if(useFilter) {
             if (body != null) {

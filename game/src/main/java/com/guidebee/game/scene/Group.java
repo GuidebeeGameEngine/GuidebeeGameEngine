@@ -477,13 +477,24 @@ public class Group extends Actor implements Cullable {
      * Removes all actors from this group.
      */
     public void clearChildren() {
+
+        SnapshotArray<Actor> actors=getChildren();
+        for(Actor actor:actors){
+            removeActor(actor);
+        }
+
         internalGroup.clearChildren();
+
     }
 
     /**
      * Removes all children, actions, and listeners from this group.
      */
     public void clear() {
+        SnapshotArray<Actor> actors=getChildren();
+        for(Actor actor:actors){
+            removeActor(actor);
+        }
         internalGroup.clear();
     }
 
