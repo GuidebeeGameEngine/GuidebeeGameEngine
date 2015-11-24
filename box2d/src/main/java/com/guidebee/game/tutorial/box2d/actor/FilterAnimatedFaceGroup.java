@@ -35,7 +35,7 @@ public class FilterAnimatedFaceGroup extends AnimatedFaceGroup{
                 filter.maskBits = maskBits;
                 for (Fixture fixture : fixtures) {
                     fixture.setFilterData(filter);
-                    fixture.refilter();
+
                 }
             }
         }

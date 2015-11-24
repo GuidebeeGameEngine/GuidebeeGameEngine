@@ -40,6 +40,7 @@ import com.guidebee.game.physics.*;
 import com.guidebee.game.scene.actions.Action;
 import com.guidebee.game.scene.collision.Collision;
 import com.guidebee.game.scene.collision.CollisionListener;
+import com.guidebee.game.scene.collision.SensorListener;
 import com.guidebee.game.ui.*;
 import com.guidebee.math.Matrix4;
 import com.guidebee.math.Vector2;
@@ -117,20 +118,17 @@ public class Stage extends InputAdapter implements Disposable {
         @Override
         public void beginContact(Contact contact) {
 
-            Fixture fixture1 = contact.getFixtureA();
-            Fixture fixture2 = contact.getFixtureB();
-            if (fixture1 != null && fixture2 != null
-                    && contact.isTouching()) {
-                Collision collision = new Collision(contact);
-                if (collisionListener != null) {
-                    collisionListener.collisionDetected(collision);
-                }
+            if(sensorListener!=null){
+                sensorListener.beginContact(contact);
             }
-
         }
 
         @Override
         public void endContact(Contact contact) {
+
+            if(sensorListener!=null){
+                sensorListener.endContact(contact);
+            }
 
 
         }
@@ -142,6 +140,16 @@ public class Stage extends InputAdapter implements Disposable {
 
         @Override
         public void postSolve(Contact contact, ContactImpulse impulse) {
+            Fixture fixture1 = contact.getFixtureA();
+            Fixture fixture2 = contact.getFixtureB();
+            if (fixture1 != null && fixture2 != null
+                    && contact.isTouching()) {
+                Collision collision = new Collision(contact);
+                if (collisionListener != null) {
+                    collisionListener.collisionDetected(collision);
+                }
+            }
+
 
         }
     }
@@ -174,6 +182,12 @@ public class Stage extends InputAdapter implements Disposable {
      * Collision listener
      */
     protected CollisionListener collisionListener = null;
+
+
+    /**
+     * Sensor listener
+     */
+    protected SensorListener sensorListener=null;
 
 
     protected ContactMonitor contactMonitor = new ContactMonitor();
