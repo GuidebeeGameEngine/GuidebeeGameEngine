@@ -56,14 +56,15 @@ public class Box2DDebugRenderer {
     private boolean drawInactiveBodies;
     private boolean drawVelocities;
     private boolean drawContacts;
+    private boolean drawOverlays;
 
     public Box2DDebugRenderer() {
-        this(true, true, false, true, false, true);
+        this(true, true, false, true, false, true,true);
     }
 
     public Box2DDebugRenderer(boolean drawBodies, boolean drawJoints,
                               boolean drawAABBs, boolean drawInactiveBodies,
-                              boolean drawVelocities, boolean drawContacts) {
+                              boolean drawVelocities, boolean drawContacts,boolean drawOverlays) {
         // next we setup the immediate mode renderer
         renderer = new ShapeRenderer();
 
@@ -77,6 +78,7 @@ public class Box2DDebugRenderer {
         this.drawInactiveBodies = drawInactiveBodies;
         this.drawVelocities = drawVelocities;
         this.drawContacts = drawContacts;
+        this.drawOverlays = drawOverlays;
     }
 
     /**
@@ -86,6 +88,11 @@ public class Box2DDebugRenderer {
         renderer.setProjectionMatrix(projMatrix);
         renderBodies(world);
     }
+
+    public void drawOverlays(){
+
+    }
+
 
     public final Color SHAPE_NOT_ACTIVE = new Color(0.5f, 0.5f, 0.3f, 1);
     public final Color SHAPE_STATIC = new Color(0.5f, 0.9f, 0.5f, 1);
@@ -113,6 +120,10 @@ public class Box2DDebugRenderer {
                 Joint joint = iter.next();
                 drawJoint(joint);
             }
+        }
+
+        if(drawOverlays){
+            drawOverlays();
         }
         renderer.end();
         if (drawContacts) {
