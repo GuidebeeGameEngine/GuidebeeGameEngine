@@ -18,7 +18,11 @@ package com.guidebee.utils;
 
 //--------------------------------- IMPORTS ------------------------------------
 
-import com.guidebee.game.engine.utils.reflect.*;
+import com.guidebee.game.engine.utils.reflect.ArrayReflection;
+import com.guidebee.game.engine.utils.reflect.ClassReflection;
+import com.guidebee.game.engine.utils.reflect.Constructor;
+import com.guidebee.game.engine.utils.reflect.Field;
+import com.guidebee.game.engine.utils.reflect.ReflectionException;
 import com.guidebee.game.files.FileHandle;
 import com.guidebee.utils.JsonValue.PrettyPrintSettings;
 import com.guidebee.utils.JsonWriter.OutputType;
@@ -29,9 +33,18 @@ import com.guidebee.utils.collections.ObjectMap.Entry;
 import com.guidebee.utils.collections.ObjectMap.Values;
 import com.guidebee.utils.collections.OrderedMap;
 
-import java.io.*;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.Reader;
+import java.io.StringWriter;
+import java.io.Writer;
 import java.security.AccessControlException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 //[------------------------------ MAIN CLASS ----------------------------------]
 

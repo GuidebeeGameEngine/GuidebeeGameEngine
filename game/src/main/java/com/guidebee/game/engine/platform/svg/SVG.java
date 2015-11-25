@@ -19,17 +19,29 @@ package com.guidebee.game.engine.platform.svg;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
-import android.graphics.*;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import android.graphics.Picture;
+import android.graphics.RectF;
 import android.util.Log;
+
 import com.guidebee.game.GameEngineRuntimeException;
 import com.guidebee.game.engine.platform.svg.CSSParser.Ruleset;
+
 import org.xml.sax.SAXException;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.IntBuffer;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * AndroidSVG is a library for reading, parsing and rendering SVG documents on Android devices.

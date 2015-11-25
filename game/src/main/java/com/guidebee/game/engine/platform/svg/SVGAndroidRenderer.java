@@ -17,19 +17,63 @@
 package com.guidebee.game.engine.platform.svg;
 
 
-import android.graphics.*;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.DashPathEffect;
+import android.graphics.LinearGradient;
+import android.graphics.Matrix;
+import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.PathMeasure;
+import android.graphics.RadialGradient;
+import android.graphics.RectF;
+import android.graphics.Shader;
 import android.graphics.Shader.TileMode;
+import android.graphics.Typeface;
 import android.util.Base64;
 import android.util.Log;
-import com.guidebee.game.engine.platform.svg.SVG.*;
+
+import com.guidebee.game.engine.platform.svg.SVG.Box;
+import com.guidebee.game.engine.platform.svg.SVG.ClipPath;
+import com.guidebee.game.engine.platform.svg.SVG.Colour;
+import com.guidebee.game.engine.platform.svg.SVG.CurrentColor;
+import com.guidebee.game.engine.platform.svg.SVG.GradientElement;
+import com.guidebee.game.engine.platform.svg.SVG.GradientSpread;
+import com.guidebee.game.engine.platform.svg.SVG.Length;
+import com.guidebee.game.engine.platform.svg.SVG.Line;
+import com.guidebee.game.engine.platform.svg.SVG.Marker;
+import com.guidebee.game.engine.platform.svg.SVG.NotDirectlyRendered;
+import com.guidebee.game.engine.platform.svg.SVG.PaintReference;
+import com.guidebee.game.engine.platform.svg.SVG.PathDefinition;
+import com.guidebee.game.engine.platform.svg.SVG.PathInterface;
+import com.guidebee.game.engine.platform.svg.SVG.Pattern;
 import com.guidebee.game.engine.platform.svg.SVG.Rect;
+import com.guidebee.game.engine.platform.svg.SVG.SolidColor;
+import com.guidebee.game.engine.platform.svg.SVG.Stop;
+import com.guidebee.game.engine.platform.svg.SVG.Style;
 import com.guidebee.game.engine.platform.svg.SVG.Style.FontStyle;
 import com.guidebee.game.engine.platform.svg.SVG.Style.TextAnchor;
 import com.guidebee.game.engine.platform.svg.SVG.Style.TextDecoration;
 import com.guidebee.game.engine.platform.svg.SVG.Style.VectorEffect;
+import com.guidebee.game.engine.platform.svg.SVG.SvgContainer;
+import com.guidebee.game.engine.platform.svg.SVG.SvgElement;
+import com.guidebee.game.engine.platform.svg.SVG.SvgElementBase;
+import com.guidebee.game.engine.platform.svg.SVG.SvgLinearGradient;
+import com.guidebee.game.engine.platform.svg.SVG.SvgObject;
+import com.guidebee.game.engine.platform.svg.SVG.SvgPaint;
+import com.guidebee.game.engine.platform.svg.SVG.SvgRadialGradient;
+import com.guidebee.game.engine.platform.svg.SVG.TextContainer;
+import com.guidebee.game.engine.platform.svg.SVG.TextSequence;
+import com.guidebee.game.engine.platform.svg.SVG.Unit;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Locale;
+import java.util.Set;
+import java.util.Stack;
 
 /**
  * The rendering part of AndroidSVG.

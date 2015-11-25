@@ -31,7 +31,13 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
-import com.guidebee.game.*;
+
+import com.guidebee.game.ApplicationListener;
+import com.guidebee.game.Configuration;
+import com.guidebee.game.GameEngine;
+import com.guidebee.game.GameEngineRuntimeException;
+import com.guidebee.game.LifecycleListener;
+import com.guidebee.game.ResourceManager;
 import com.guidebee.game.engine.platform.InputFactory;
 import com.guidebee.game.engine.platform.surfaceview.FillResolutionStrategy;
 import com.guidebee.game.engine.utils.GameEngineiNativesLoader;

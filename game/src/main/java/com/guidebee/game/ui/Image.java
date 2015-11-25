@@ -18,7 +18,11 @@ package com.guidebee.game.ui;
 
 //--------------------------------- IMPORTS ------------------------------------
 
-import com.guidebee.game.graphics.*;
+import com.guidebee.game.graphics.Batch;
+import com.guidebee.game.graphics.Color;
+import com.guidebee.game.graphics.NinePatch;
+import com.guidebee.game.graphics.Texture;
+import com.guidebee.game.graphics.TextureRegion;
 import com.guidebee.game.ui.drawable.Drawable;
 import com.guidebee.game.ui.drawable.NinePatchDrawable;
 import com.guidebee.game.ui.drawable.TextureRegionDrawable;

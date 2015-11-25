@@ -19,6 +19,7 @@ package com.guidebee.game;
 //--------------------------------- IMPORTS ------------------------------------
 
 import android.media.SoundPool;
+
 import com.guidebee.game.engine.platform.surfaceview.FillResolutionStrategy;
 import com.guidebee.game.engine.platform.surfaceview.ResolutionStrategy;
 

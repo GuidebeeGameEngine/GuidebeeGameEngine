@@ -17,7 +17,9 @@
 package com.guidebee.game.engine.platform;
 
 //--------------------------------- IMPORTS ------------------------------------
+
 import android.opengl.GLES30;
+
 import com.guidebee.game.engine.graphics.opengles.IGL30;
 
 //[------------------------------ MAIN CLASS ----------------------------------]

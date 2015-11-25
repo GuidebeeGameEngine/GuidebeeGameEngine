@@ -18,7 +18,11 @@ package com.guidebee.game.ui;
 
 //--------------------------------- IMPORTS ------------------------------------
 
-import com.guidebee.game.graphics.*;
+import com.guidebee.game.graphics.Batch;
+import com.guidebee.game.graphics.BitmapFont;
+import com.guidebee.game.graphics.BitmapFontCache;
+import com.guidebee.game.graphics.Color;
+import com.guidebee.game.graphics.Font;
 import com.guidebee.game.graphics.Font.HAlignment;
 import com.guidebee.game.graphics.Font.TextBounds;
 import com.guidebee.game.ui.drawable.Drawable;

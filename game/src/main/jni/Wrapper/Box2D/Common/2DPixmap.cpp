@@ -1,10 +1,5 @@
-#include "2DPixmap.h"
-#include <stdlib.h>
 #define STBI_HEADER_FILE_ONLY
 #define STBI_NO_FAILURE_STRINGS
-#include "Stb_Image.cpp"
-#include "JPGDC.h"
-#include <string.h> 
 
 
 #ifdef __cplusplus

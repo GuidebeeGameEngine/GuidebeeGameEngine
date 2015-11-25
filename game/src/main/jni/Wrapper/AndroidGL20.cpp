@@ -1,8 +1,3 @@
-#include "AndroidGL20.h"
-#include <android/log.h>
-#include <GLES2/gl2.h>
-#include <GLES2/gl2ext.h>
-
 static int initialized = 0;
 
 static jclass nioAccessClass;

@@ -190,7 +190,6 @@
 #define _CRT_SECURE_NO_WARNINGS // suppress bogus warnings about fopen()
 #endif
 
-#include <stdio.h>
 #endif
 
 #define STBI_VERSION 1
@@ -338,17 +337,10 @@ extern void stbi_install_YCbCr_to_RGB(stbi_YCbCr_to_RGB_run func);
 #ifndef STBI_HEADER_FILE_ONLY
 
 #ifndef STBI_NO_HDR
-#include <math.h>  // ldexp
-#include <string.h> // strcmp, strtok
 #endif
 
 #ifndef STBI_NO_STDIO
-#include <stdio.h>
 #endif
-#include <stdlib.h>
-#include <memory.h>
-#include <assert.h>
-#include <stdarg.h>
 
 #ifndef _MSC_VER
    #ifdef __cplusplus

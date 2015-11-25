@@ -1,4 +1,3 @@
-#include "Shape.h"
 #include <Box2D/Box2D.h>
 
 JNIEXPORT jfloat JNICALL Java_com_guidebee_game_physics_Shape_jniGetRadius(JNIEnv* env,

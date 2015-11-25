@@ -1,8 +1,3 @@
-#include "Matrix4.h"
-#include <memory.h>
-#include <stdio.h>
-#include <string.h>
-
 #define M00 0
 #define M01 4
 #define M02 8

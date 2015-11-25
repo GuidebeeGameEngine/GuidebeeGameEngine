@@ -18,7 +18,11 @@ package com.guidebee.game;
 
 //--------------------------------- IMPORTS ------------------------------------
 
-import com.guidebee.game.net.*;
+import com.guidebee.game.net.HttpStatus;
+import com.guidebee.game.net.ServerSocket;
+import com.guidebee.game.net.ServerSocketHints;
+import com.guidebee.game.net.Socket;
+import com.guidebee.game.net.SocketHints;
 
 import java.io.InputStream;
 import java.io.OutputStream;

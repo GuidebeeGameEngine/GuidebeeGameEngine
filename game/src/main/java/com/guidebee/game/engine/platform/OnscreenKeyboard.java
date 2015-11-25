@@ -17,6 +17,7 @@
 package com.guidebee.game.engine.platform;
 
 //--------------------------------- IMPORTS ------------------------------------
+
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Handler;
@@ -25,14 +26,21 @@ import android.text.InputFilter;
 import android.text.method.ArrowKeyMovementMethod;
 import android.text.method.MovementMethod;
 import android.util.Log;
-import android.view.*;
+import android.view.Gravity;
+import android.view.KeyEvent;
+import android.view.MotionEvent;
+import android.view.View;
 import android.view.View.OnKeyListener;
 import android.view.View.OnTouchListener;
+import android.view.ViewGroup;
 import android.view.ViewTreeObserver.OnPreDrawListener;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+
 import com.guidebee.game.Input.Peripheral;
 
 //[------------------------------ MAIN CLASS ----------------------------------]

@@ -1,4 +1,3 @@
-#include "RevoluteJoint.h"
 #include <Box2D/Box2D.h>
 
 JNIEXPORT jfloat JNICALL

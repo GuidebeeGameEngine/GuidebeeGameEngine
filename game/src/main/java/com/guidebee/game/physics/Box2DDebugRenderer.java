@@ -18,8 +18,8 @@ package com.guidebee.game.physics;
 
 //--------------------------------- IMPORTS ------------------------------------
 
-import com.guidebee.game.engine.graphics.opengles.ShapeRenderer;
 import com.guidebee.game.graphics.Color;
+import com.guidebee.game.graphics.ShapeRenderer;
 import com.guidebee.game.physics.joints.PulleyJoint;
 import com.guidebee.math.Matrix4;
 import com.guidebee.math.Vector2;

@@ -18,8 +18,8 @@ package com.guidebee.game.engine.scene;
 
 //--------------------------------- IMPORTS ------------------------------------
 
-import com.guidebee.game.engine.graphics.opengles.ShapeRenderer;
 import com.guidebee.game.graphics.Batch;
+import com.guidebee.game.graphics.ShapeRenderer;
 import com.guidebee.game.ui.Cullable;
 import com.guidebee.game.ui.Touchable;
 import com.guidebee.math.Matrix3;
@@ -168,7 +168,7 @@ public class Group extends Actor implements Cullable {
     /**
      * Draws this actor's debug lines if {@link #getDebug()} is true and,
      * regardless of {@link #getDebug()}, calls
-     * {@link Actor#drawDebug(com.guidebee.game.engine.graphics.opengles.ShapeRenderer)}
+     * {@link Actor#drawDebug(ShapeRenderer)}
      * on each child.
      */
     public void drawDebug(ShapeRenderer shapes) {

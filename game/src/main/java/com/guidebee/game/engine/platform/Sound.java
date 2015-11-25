@@ -17,8 +17,10 @@
 package com.guidebee.game.engine.platform;
 
 //--------------------------------- IMPORTS ------------------------------------
+
 import android.media.AudioManager;
 import android.media.SoundPool;
+
 import com.guidebee.utils.collections.IntArray;
 
 //[------------------------------ MAIN CLASS ----------------------------------]

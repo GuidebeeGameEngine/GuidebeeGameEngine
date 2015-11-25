@@ -18,9 +18,9 @@ package com.guidebee.game.engine.scene;
 
 //--------------------------------- IMPORTS ------------------------------------
 
-import com.guidebee.game.engine.graphics.opengles.ShapeRenderer;
 import com.guidebee.game.graphics.Batch;
 import com.guidebee.game.graphics.Color;
+import com.guidebee.game.graphics.ShapeRenderer;
 import com.guidebee.game.scene.ScissorStack;
 import com.guidebee.game.scene.actions.Action;
 import com.guidebee.game.ui.Event;

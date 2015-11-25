@@ -37,6 +37,7 @@ import android.view.View.OnTouchListener;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+
 import com.guidebee.game.Application;
 import com.guidebee.game.Configuration;
 import com.guidebee.game.GameEngine;

@@ -14,11 +14,14 @@
  * limitations under the License.
  ******************************************************************************/
 //--------------------------------- PACKAGE ------------------------------------
-package com.guidebee.game.engine.graphics.opengles;
+package com.guidebee.game.graphics;
 
 //--------------------------------- IMPORTS ------------------------------------
+
 import com.guidebee.game.GameEngine;
-import com.guidebee.game.graphics.Color;
+import com.guidebee.game.engine.graphics.opengles.IGL20;
+import com.guidebee.game.engine.graphics.opengles.ImmediateModeRenderer;
+import com.guidebee.game.engine.graphics.opengles.ImmediateModeRenderer20;
 import com.guidebee.math.MathUtils;
 import com.guidebee.math.Matrix4;
 import com.guidebee.math.Vector2;

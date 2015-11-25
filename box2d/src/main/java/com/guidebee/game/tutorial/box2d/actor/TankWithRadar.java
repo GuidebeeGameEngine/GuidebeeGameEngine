@@ -14,9 +14,8 @@ import com.guidebee.math.geometry.Rectangle;
 
 import static com.guidebee.game.GameEngine.toBox2D;
 
-
-
-public class TankWithRadar extends  Tank implements SensorListener{
+public class TankWithRadar extends  Tank
+        implements SensorListener{
 
     private final Radar radar;
 
@@ -49,7 +48,8 @@ public class TankWithRadar extends  Tank implements SensorListener{
         }
 
 
-        private void setHelicopterPos(Actor helicopter,int index,boolean enterOrLeave){
+        private void setHelicopterPos(Actor helicopter,int index,
+                                      boolean enterOrLeave){
             float x=helicopter.getX();
             float y=helicopter.getY();
             if(enterOrLeave) {
@@ -59,7 +59,8 @@ public class TankWithRadar extends  Tank implements SensorListener{
                         (y - getCenterY()) / 4 + radar.getCenterY();
 
             }else{
-                radar.helicopterPostions[index].x=radar.helicopterPostions[index].y=0;
+                radar.helicopterPostions[index].x
+                        =radar.helicopterPostions[index].y=0;
             }
             if(enterOrLeave){
                 //start tracking this helicopter
@@ -71,7 +72,8 @@ public class TankWithRadar extends  Tank implements SensorListener{
 
         }
 
-        private void handleContact(boolean enterOrLeave, Contact contact){
+        private void handleContact(boolean enterOrLeave,
+                                   Contact contact){
             Fixture fixtureA = contact.getFixtureA();
             Fixture fixtureB = contact.getFixtureB();
 
@@ -104,9 +106,11 @@ public class TankWithRadar extends  Tank implements SensorListener{
 
 
             if(enterOrLeave){
-                Log.d("Enter", actorA.getName()+", "+actorB.getName());
+                Log.d("Enter", actorA.getName()
+                        +", "+actorB.getName());
             }else{
-                Log.d("Leave", actorA.getName()+", "+actorB.getName());
+                Log.d("Leave", actorA.getName()
+                        +", "+actorB.getName());
             }
         }
 
@@ -114,6 +118,7 @@ public class TankWithRadar extends  Tank implements SensorListener{
     @Override
     public void act(float delta) {
         super.act(delta);
+        //tracking helicopters
         for(int i=0;i<2;i++){
             if(actors[i]!=null){
                 setHelicopterPos(actors[i],i,true);

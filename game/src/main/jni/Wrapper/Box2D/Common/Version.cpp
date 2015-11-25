@@ -1,4 +1,3 @@
-#include "Version.h"
 #include <Box2D/Common/b2Settings.h>
 /*
  * Class:     com_guidebee_game_engine_box2d_api_common_Version

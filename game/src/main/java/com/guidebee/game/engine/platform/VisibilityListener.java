@@ -17,7 +17,9 @@
 package com.guidebee.game.engine.platform;
 
 //--------------------------------- IMPORTS ------------------------------------
+
 import android.view.View;
+
 import com.guidebee.game.activity.BaseActivity;
 
 //[------------------------------ MAIN CLASS ----------------------------------]

@@ -26,7 +26,15 @@ import android.os.Handler;
 import android.view.View;
 import android.view.Window;
 import android.widget.FrameLayout;
-import com.guidebee.game.*;
+
+import com.guidebee.game.ApplicationListener;
+import com.guidebee.game.Audio;
+import com.guidebee.game.Configuration;
+import com.guidebee.game.Files;
+import com.guidebee.game.Graphics;
+import com.guidebee.game.LifecycleListener;
+import com.guidebee.game.Net;
+import com.guidebee.game.Preferences;
 import com.guidebee.utils.Clipboard;
 import com.guidebee.utils.collections.Array;
 

@@ -18,10 +18,10 @@ package com.guidebee.game.scene;
 
 //--------------------------------- IMPORTS ------------------------------------
 
-import com.guidebee.game.engine.graphics.opengles.ShapeRenderer;
 import com.guidebee.game.entity.EntityEngine;
 import com.guidebee.game.graphics.Batch;
 import com.guidebee.game.graphics.Color;
+import com.guidebee.game.graphics.ShapeRenderer;
 import com.guidebee.game.physics.World;
 import com.guidebee.game.scene.actions.Action;
 import com.guidebee.game.scene.actions.TweenAction;
@@ -100,7 +100,7 @@ class InternalGroup extends com.guidebee.game.engine.scene.Group {
     /**
      * Draws this actor's debug lines if {@link #getDebug()} is true and,
      * regardless of {@link #getDebug()}, calls
-     * {@link Actor#drawDebug(com.guidebee.game.engine.graphics.opengles.ShapeRenderer)}
+     * {@link Actor#drawDebug(ShapeRenderer)}
      * on each child.
      */
     public void drawDebug(ShapeRenderer shapes) {
@@ -337,7 +337,7 @@ public class Group extends Actor implements Cullable {
     /**
      * Draws this actor's debug lines if {@link #getDebug()} is true and,
      * regardless of {@link #getDebug()}, calls
-     * {@link Actor#drawDebug(com.guidebee.game.engine.graphics.opengles.ShapeRenderer)}
+     * {@link Actor#drawDebug(ShapeRenderer)}
      * on each child.
      */
     public void drawDebug(ShapeRenderer shapes) {

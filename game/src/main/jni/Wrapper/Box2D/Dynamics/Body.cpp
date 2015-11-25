@@ -1,4 +1,3 @@
-#include "Body.h"
 #include <Box2D/Box2D.h>
 JNIEXPORT jlong JNICALL
 Java_com_guidebee_game_physics_Body_jniCreateFixture__JJFFFZSSS(JNIEnv* env, jobject object,

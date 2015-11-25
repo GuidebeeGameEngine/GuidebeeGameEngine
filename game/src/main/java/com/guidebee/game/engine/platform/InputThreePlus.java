@@ -17,10 +17,12 @@
 package com.guidebee.game.engine.platform;
 
 //--------------------------------- IMPORTS ------------------------------------
+
 import android.content.Context;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnGenericMotionListener;
+
 import com.guidebee.game.Application;
 import com.guidebee.game.Configuration;
 

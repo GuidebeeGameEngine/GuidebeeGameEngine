@@ -18,10 +18,10 @@ package com.guidebee.game.ui;
 
 //--------------------------------- IMPORTS ------------------------------------
 
-import com.guidebee.game.engine.graphics.opengles.ShapeRenderer;
 import com.guidebee.game.engine.scene.Actor;
 import com.guidebee.game.graphics.Batch;
 import com.guidebee.game.graphics.Color;
+import com.guidebee.game.graphics.ShapeRenderer;
 import com.guidebee.game.ui.drawable.Drawable;
 
 //[------------------------------ MAIN CLASS ----------------------------------]

@@ -18,8 +18,23 @@ package com.guidebee.drawing;
 
 //--------------------------------- IMPORTS ------------------------------------
 
-import com.guidebee.drawing.geometry.*;
-import com.guidebee.game.engine.drawing.core.*;
+import com.guidebee.drawing.geometry.AffineTransform;
+import com.guidebee.drawing.geometry.Area;
+import com.guidebee.drawing.geometry.IPathIterator;
+import com.guidebee.drawing.geometry.IShape;
+import com.guidebee.drawing.geometry.Path;
+import com.guidebee.drawing.geometry.Point;
+import com.guidebee.drawing.geometry.Polygon;
+import com.guidebee.drawing.geometry.Polyline;
+import com.guidebee.drawing.geometry.Rectangle;
+import com.guidebee.game.engine.drawing.core.GraphicsFP;
+import com.guidebee.game.engine.drawing.core.GraphicsPathDasherFP;
+import com.guidebee.game.engine.drawing.core.GraphicsPathFP;
+import com.guidebee.game.engine.drawing.core.MatrixFP;
+import com.guidebee.game.engine.drawing.core.PenFP;
+import com.guidebee.game.engine.drawing.core.PointFP;
+import com.guidebee.game.engine.drawing.core.SingleFP;
+import com.guidebee.game.engine.drawing.core.SolidBrushFP;
 
 //[------------------------------ MAIN CLASS ----------------------------------]
 

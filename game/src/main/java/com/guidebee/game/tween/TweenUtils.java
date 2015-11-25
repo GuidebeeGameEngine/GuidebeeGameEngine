@@ -18,7 +18,17 @@ package com.guidebee.game.tween;
 
 //--------------------------------- IMPORTS ------------------------------------
 
-import com.guidebee.game.tween.equations.*;
+import com.guidebee.game.tween.equations.Back;
+import com.guidebee.game.tween.equations.Bounce;
+import com.guidebee.game.tween.equations.Circ;
+import com.guidebee.game.tween.equations.Cubic;
+import com.guidebee.game.tween.equations.Elastic;
+import com.guidebee.game.tween.equations.Expo;
+import com.guidebee.game.tween.equations.Linear;
+import com.guidebee.game.tween.equations.Quad;
+import com.guidebee.game.tween.equations.Quart;
+import com.guidebee.game.tween.equations.Quint;
+import com.guidebee.game.tween.equations.Sine;
 
 //[------------------------------ MAIN CLASS ----------------------------------]
 

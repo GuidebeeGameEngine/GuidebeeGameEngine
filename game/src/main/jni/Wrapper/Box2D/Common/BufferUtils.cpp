@@ -1,8 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include "BufferUtils.h"
-
 JNIEXPORT void JNICALL
 Java_com_guidebee_utils_collections_BufferUtils_freeMemory(JNIEnv* env, jclass clazz, jobject obj_buffer)
 {

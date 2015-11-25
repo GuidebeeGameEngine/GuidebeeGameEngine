@@ -17,6 +17,7 @@
 package com.guidebee.game.engine.platform.svg;
 
 import android.util.Log;
+
 import org.xml.sax.SAXException;
 
 import java.util.ArrayList;

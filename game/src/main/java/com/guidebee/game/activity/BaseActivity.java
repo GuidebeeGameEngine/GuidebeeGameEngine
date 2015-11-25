@@ -24,6 +24,7 @@ import android.content.Intent;
 import android.os.Handler;
 import android.view.Window;
 import android.view.WindowManager;
+
 import com.guidebee.game.Application;
 import com.guidebee.game.LifecycleListener;
 import com.guidebee.game.engine.platform.Input;

@@ -18,7 +18,28 @@ package com.guidebee.game.physics;
 
 //--------------------------------- IMPORTS ------------------------------------
 
-import com.guidebee.game.physics.joints.*;
+import com.guidebee.game.physics.joints.DistanceJoint;
+import com.guidebee.game.physics.joints.DistanceJointDef;
+import com.guidebee.game.physics.joints.FrictionJoint;
+import com.guidebee.game.physics.joints.FrictionJointDef;
+import com.guidebee.game.physics.joints.GearJoint;
+import com.guidebee.game.physics.joints.GearJointDef;
+import com.guidebee.game.physics.joints.MotorJoint;
+import com.guidebee.game.physics.joints.MotorJointDef;
+import com.guidebee.game.physics.joints.MouseJoint;
+import com.guidebee.game.physics.joints.MouseJointDef;
+import com.guidebee.game.physics.joints.PrismaticJoint;
+import com.guidebee.game.physics.joints.PrismaticJointDef;
+import com.guidebee.game.physics.joints.PulleyJoint;
+import com.guidebee.game.physics.joints.PulleyJointDef;
+import com.guidebee.game.physics.joints.RevoluteJoint;
+import com.guidebee.game.physics.joints.RevoluteJointDef;
+import com.guidebee.game.physics.joints.RopeJoint;
+import com.guidebee.game.physics.joints.RopeJointDef;
+import com.guidebee.game.physics.joints.WeldJoint;
+import com.guidebee.game.physics.joints.WeldJointDef;
+import com.guidebee.game.physics.joints.WheelJoint;
+import com.guidebee.game.physics.joints.WheelJointDef;
 import com.guidebee.math.Vector2;
 import com.guidebee.utils.Disposable;
 import com.guidebee.utils.Pool;

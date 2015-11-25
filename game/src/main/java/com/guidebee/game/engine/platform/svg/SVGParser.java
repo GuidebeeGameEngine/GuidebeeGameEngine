@@ -18,25 +18,49 @@ package com.guidebee.game.engine.platform.svg;
 
 import android.graphics.Matrix;
 import android.util.Log;
+
 import com.guidebee.game.engine.platform.svg.CSSParser.MediaType;
-import com.guidebee.game.engine.platform.svg.SVG.*;
+import com.guidebee.game.engine.platform.svg.SVG.Box;
+import com.guidebee.game.engine.platform.svg.SVG.CSSClipRect;
+import com.guidebee.game.engine.platform.svg.SVG.Colour;
+import com.guidebee.game.engine.platform.svg.SVG.CurrentColor;
+import com.guidebee.game.engine.platform.svg.SVG.GradientSpread;
+import com.guidebee.game.engine.platform.svg.SVG.Length;
+import com.guidebee.game.engine.platform.svg.SVG.PaintReference;
+import com.guidebee.game.engine.platform.svg.SVG.Style;
 import com.guidebee.game.engine.platform.svg.SVG.Style.TextDecoration;
 import com.guidebee.game.engine.platform.svg.SVG.Style.TextDirection;
 import com.guidebee.game.engine.platform.svg.SVG.Style.VectorEffect;
+import com.guidebee.game.engine.platform.svg.SVG.SvgElementBase;
+import com.guidebee.game.engine.platform.svg.SVG.SvgObject;
+import com.guidebee.game.engine.platform.svg.SVG.SvgPaint;
+import com.guidebee.game.engine.platform.svg.SVG.TextChild;
+import com.guidebee.game.engine.platform.svg.SVG.TextPositionedContainer;
+import com.guidebee.game.engine.platform.svg.SVG.TextRoot;
+import com.guidebee.game.engine.platform.svg.SVG.Unit;
+
 import org.xml.sax.Attributes;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.ext.DefaultHandler2;
 
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Set;
 import java.util.zip.GZIPInputStream;
+
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
 
 /**
  * SVG parser code. Used by SVG class. Should not be called directly.

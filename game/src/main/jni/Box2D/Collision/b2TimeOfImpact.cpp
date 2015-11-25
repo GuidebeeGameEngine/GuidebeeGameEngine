@@ -23,7 +23,6 @@
 #include <Box2D/Collision/Shapes/b2PolygonShape.h>
 #include <Box2D/Common/b2Timer.h>
 
-#include <cstdio>
 using namespace std;
 
 float32 b2_toiTime, b2_toiMaxTime;

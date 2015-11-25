@@ -17,8 +17,10 @@
 package com.guidebee.game.engine.platform;
 
 //--------------------------------- IMPORTS ------------------------------------
+
 import android.content.Context;
 import android.view.MotionEvent;
+
 import com.guidebee.game.GameEngine;
 import com.guidebee.game.engine.platform.Input.TouchEvent;
 

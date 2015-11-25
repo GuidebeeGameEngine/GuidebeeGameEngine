@@ -20,11 +20,16 @@ package com.guidebee.game.engine.platform;
 
 import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
+
 import com.guidebee.game.Files.FileType;
 import com.guidebee.game.GameEngine;
 import com.guidebee.game.GameEngineRuntimeException;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileFilter;
+import java.io.FilenameFilter;
+import java.io.IOException;
+import java.io.InputStream;
 
 //[------------------------------ MAIN CLASS ----------------------------------]
 /**

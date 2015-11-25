@@ -17,7 +17,9 @@
 package com.guidebee.game.engine.platform;
 
 //--------------------------------- IMPORTS ------------------------------------
+
 import android.content.Context;
+
 import com.guidebee.game.Application;
 import com.guidebee.game.Configuration;
 
