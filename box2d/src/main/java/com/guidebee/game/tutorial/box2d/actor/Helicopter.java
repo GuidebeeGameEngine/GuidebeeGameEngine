@@ -21,6 +21,7 @@ public class Helicopter extends Actor {
 
 
 
+
     private final int SPRITE_WIDTH=48;
     private final int SPRITE_HEIGHT=42;
     private float elapsedTime = 0;
@@ -67,20 +68,22 @@ public class Helicopter extends Actor {
     @Override
     public void act(float delta){
         super.act(delta);
+
         elapsedTime += GameEngine.graphics.getDeltaTime();
         setTextureRegion(forwardAnimation.getKeyFrame(elapsedTime, true));
 
-        currentPos+=direction*step;
-        if(currentPos>0 && currentPos>=limit) {
-            currentPos=limit;
-            direction = -1 ;
+        currentPos += direction * step;
+        if (currentPos > 0 && currentPos >= limit) {
+            currentPos = limit;
+            direction = -1;
 
         }
-        if(currentPos<0 && currentPos<-limit){
-            currentPos=-limit;
-            direction = 1 ;
+        if (currentPos < 0 && currentPos < -limit) {
+            currentPos = -limit;
+            direction = 1;
         }
         setX(posX + currentPos);
+
 
 
 
