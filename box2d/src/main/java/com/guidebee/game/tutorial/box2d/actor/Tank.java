@@ -14,7 +14,7 @@ import static com.guidebee.game.GameEngine.assetManager;
 
 public class Tank extends Actor {
 
-    private final TextureRegion tankTextRegion;
+    protected final TextureRegion tankTextRegion;
 
     public  Tank(){
         super("Tank");
@@ -24,9 +24,16 @@ public class Tank extends Actor {
         setTextureRegion(tankTextRegion);
 
         setPosition((Configuration.SCREEN_WIDTH
-                        - tankTextRegion.getRegionWidth())/2,
+                        - tankTextRegion.getRegionWidth()) / 2,
                 (Configuration.SCREEN_HEIGHT
-                        - tankTextRegion.getRegionHeight())/2+100);
+                        - tankTextRegion.getRegionHeight()) / 2 + 100);
+        initTankBody();
+
+    }
+
+
+
+    protected void initTankBody(){
         PolygonShape []polygonShapes=new PolygonShape[tankPolygons.length];
         for(int i=0;i<polygonShapes.length;i++){
             polygonShapes[i]=new PolygonShape();
@@ -39,11 +46,9 @@ public class Tank extends Actor {
 
         initBody(BodyDef.BodyType.KinematicBody,
                 polygonShapes, dropRect, 1.0f, 0.5f, 0.1f);
-
     }
 
-
-    private final String [] tankPolygons=new String[] {
+    protected final String [] tankPolygons=new String[] {
             "15, 42  , 33, 5  , 33, 48  , 31, 50  , 20, 52",
             "-30, 50  , -32, 48  , -32, 5  , -13, 41  , -19, 52",
             "8, -56  , -6, 36  , -3, -56  , 2, -59",
@@ -59,7 +64,7 @@ public class Tank extends Actor {
     };
 
 
-    private float [] getTankVertices(int index){
+    protected float [] getTankVertices(int index){
         float[] vertices=GameEngine.getVerticesFromString(tankPolygons[index]);
 
         for(int i=0;i<vertices.length/2;i++){

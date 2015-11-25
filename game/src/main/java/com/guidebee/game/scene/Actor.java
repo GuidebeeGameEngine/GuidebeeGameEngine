@@ -349,43 +349,78 @@ public class Actor implements Collidable {
     }
 
     /**
-     * Init box2d body
+     * Add a shape for existing body.
+     * @param type
+     * @param polygonShapes
+     * @param rect
+     * @param density
+     * @param restitution
+     * @param friction
+     * @param isSensor
+     */
+    public void addBodyShape(BodyDef.BodyType type ,Shape [] polygonShapes,Rectangle rect,
+                        float density,float restitution,float friction,boolean isSensor){
+        initBody(type,polygonShapes,rect,density,restitution,friction,
+                true,isSensor,false,(short)0,(short)0,(short)0);
+
+    }
+
+    /**
+     *
      * @param type
      * @param polygonShape
      * @param rect
      * @param density
      * @param restitution
      * @param friction
+     * @param isSensor
      */
-    public void initBody(BodyDef.BodyType type ,PolygonShape polygonShape,Rectangle rect,
-                         float density,float restitution,float friction){
-        if(GameEngine.world==null){
-            throw new RuntimeException("Please initialize game engine world first");
-        }
-        if(this.body!=null){
-            GameEngine.world.destroyBody(body);
-        }
+    public void addBodyShape(BodyDef.BodyType type ,Shape polygonShape,Rectangle rect,
+                             float density,float restitution,float friction,boolean isSensor){
+        Shape [] polygonShapes=new Shape[1];
+        polygonShapes[0]=polygonShape;
+        initBody(type,polygonShapes,rect,density,restitution,friction,
+                true,isSensor,false,(short)0,(short)0,(short)0);
 
-        BodyDef bodyDef=new BodyDef();
-        bodyDef.type=type;
-
-        bodyDef.position.set(GameEngine.toBox2D((getX()+ rect.getX()+ rect.getWidth()/2)),
-                GameEngine.toBox2D(getY() + rect.getY()+ rect.getHeight()/2));
-        this.body = GameEngine.world.createBody(bodyDef);
-        offsetX = (getWidth()-rect.getWidth())/2-rect.getX();
-        offsetY = (getHeight()-rect.getHeight())/2-rect.getY();
-        Shape shape=polygonShape;
-        setOrigin(getOriginX()-offsetX,getOriginY()-offsetY);
-        FixtureDef fixtureDef = new FixtureDef();
-        fixtureDef.shape = shape;
-        fixtureDef.density = density;
-        fixtureDef.restitution=restitution;
-        fixtureDef.friction=friction;
-        body.createFixture(fixtureDef);
-        body.setUserData(this);
-        shape.dispose();
     }
 
+    /**
+     * Add a shape for existing body.
+     * @param type
+     * @param polygonShapes
+     * @param rect
+     * @param density
+     * @param restitution
+     * @param friction
+     * @param isSensor
+     */
+    public void addBodyShape(BodyDef.BodyType type ,Shape [] polygonShapes,Rectangle rect,
+                             float density,float restitution,float friction,boolean isSensor,
+                             short categoryBits,short maskBits,short groupIndex){
+        initBody(type,polygonShapes,rect,density,restitution,friction,
+                true,isSensor,true,categoryBits,maskBits,groupIndex);
+
+    }
+
+    /**
+     *
+     * @param type
+     * @param polygonShape
+     * @param rect
+     * @param density
+     * @param restitution
+     * @param friction
+     * @param isSensor
+     */
+    public void addBodyShape(BodyDef.BodyType type ,Shape polygonShape,Rectangle rect,
+                             float density,float restitution,float friction,boolean isSensor,
+                             short categoryBits,short maskBits,short groupIndex){
+        Shape [] polygonShapes=new Shape[1];
+        polygonShapes[0]=polygonShape;
+        initBody(type,polygonShapes,rect,density,restitution,friction,
+                true,isSensor,true,categoryBits,maskBits,groupIndex);
+
+    }
 
     /**
      * Init box2d body
@@ -396,12 +431,37 @@ public class Actor implements Collidable {
      * @param restitution
      * @param friction
      */
-    public void initBody(BodyDef.BodyType type ,PolygonShape[] polygonShapes,Rectangle rect,
+    public void initBody(BodyDef.BodyType type ,Shape polygonShape,Rectangle rect,
                          float density,float restitution,float friction){
+        Shape [] polygonShapes=new Shape[1];
+        polygonShapes[0]=polygonShape;
+        initBody(type,polygonShapes,rect,density,restitution,friction);
+    }
+
+
+    /**
+     * Init a body
+     * @param type body type
+     * @param polygonShapes  shapes for this body
+     * @param rect    bound rectangle
+     * @param density
+     * @param restitution
+     * @param friction
+     * @param keepBody  keep existing body or create a new body
+     * @param isSensor
+     * @param useFilter
+     * @param categoryBits
+     * @param maskBits
+     * @param groupIndex
+     */
+    public void initBody(BodyDef.BodyType type ,Shape[] polygonShapes,Rectangle rect,
+                         float density,float restitution,float friction,boolean keepBody,
+                         boolean isSensor,boolean useFilter,
+                         short categoryBits,short maskBits,short groupIndex){
         if(GameEngine.world==null){
             throw new RuntimeException("Please initialize game engine world first");
         }
-        if(this.body!=null){
+        if(this.body!=null && !keepBody){
             GameEngine.world.destroyBody(body);
         }
 
@@ -422,10 +482,32 @@ public class Actor implements Collidable {
             fixtureDef.density = density;
             fixtureDef.restitution = restitution;
             fixtureDef.friction = friction;
+            fixtureDef.isSensor=isSensor;
+            if(useFilter) {
+                fixtureDef.filter.categoryBits = categoryBits;
+                fixtureDef.filter.maskBits = maskBits;
+                fixtureDef.filter.groupIndex = groupIndex;
+            }
             body.createFixture(fixtureDef);
             shape.dispose();
         }
         body.setUserData(this);
+    }
+
+    /**
+     * Init box2d body
+     * @param type
+     * @param polygonShapes
+     * @param rect
+     * @param density
+     * @param restitution
+     * @param friction
+     */
+    public void initBody(BodyDef.BodyType type ,Shape[] polygonShapes,Rectangle rect,
+                         float density,float restitution,float friction){
+        initBody(type,polygonShapes,rect,density,restitution,friction,
+                false,false,false,(short)0,(short)0,(short)0);
+
     }
 
     /**
