@@ -270,6 +270,17 @@ public class Stage extends InputAdapter implements Disposable {
         }
     }
 
+
+    public void setSensorListener(SensorListener listener){
+        boolean existingMonitor=sensorListener!=null || collisionListener!=null;
+        sensorListener=listener;
+        if(!existingMonitor && listener!=null){
+            world.setContactListener(contactMonitor);
+        }
+
+    }
+
+
     public void setCollisionListener(CollisionListener listener) {
         setCollisionListener(listener, Collidable.BOUNDING_CIRCLE);
     }
