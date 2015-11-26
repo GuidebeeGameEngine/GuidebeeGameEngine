@@ -6,8 +6,13 @@ import com.guidebee.game.GameEngine;
 import com.guidebee.game.graphics.Animation;
 import com.guidebee.game.graphics.TextureAtlas;
 import com.guidebee.game.graphics.TextureRegion;
+import com.guidebee.game.physics.Body;
 import com.guidebee.game.physics.BodyDef;
+import com.guidebee.game.physics.Filter;
+import com.guidebee.game.physics.Fixture;
 import com.guidebee.game.scene.Actor;
+import com.guidebee.game.scene.Group;
+import com.guidebee.game.scene.Stage;
 import com.guidebee.game.tutorial.box2d.Configuration;
 import com.guidebee.game.ui.GameControllerListener;
 import com.guidebee.game.ui.GameControllerListener.Direction;
@@ -43,8 +48,34 @@ public class Player extends Actor implements GameControllerListener {
     private float oldX;
     private float oldY;
     private float scale=1.0f;
+    private Direction actorFaceDirection = Direction.NONE;
+
+    private Array<Bullet> bullets=new Array<>();
+    private final Group bulletGroup=new Group();
+    private final float bulletForce=100f;
 
 
+    private void setFilter(Body body){
+
+        if (body != null) {
+            Array<Fixture> fixtures = body.getFixtureList();
+            Filter filter = new Filter();
+            filter.groupIndex=-1;
+            for (Fixture fixture : fixtures) {
+                fixture.setFilterData(filter);
+
+            }
+        }
+
+    }
+
+    public void addBulletGroup(Stage stage){
+        stage.addActor(bulletGroup);
+    }
+
+    public void removeBullet(Actor actor){
+        bulletGroup.removeActor(actor);
+    }
 
     public Player(){
         super("Player");
@@ -105,6 +136,7 @@ public class Player extends Actor implements GameControllerListener {
         setSelfControl(isSelfControl);
         getBody().setFixedRotation(true);
         scale=getScaleX();
+        setFilter(getBody());
 
 
     }
@@ -112,6 +144,7 @@ public class Player extends Actor implements GameControllerListener {
     @Override
     public void KnobMoved(Touchpad touchpad, Direction direction) {
         currentDirection=direction;
+        actorFaceDirection=direction;
         handleKeyPress();
     }
 
@@ -127,14 +160,92 @@ public class Player extends Actor implements GameControllerListener {
             }
 
         }
+        if (button == GameButton.BUTTON_A) { //shoot
+            Bullet bullet=null;
+            float bulletX=getCenterX();
+            float bulletY=getY()+getHeight();
+            float xForce=0;
+            float yForce=bulletForce;
+
+            switch(actorFaceDirection){
+
+                case SOUTHEAST:
+                    bulletX=getX()+getWidth();
+                    bulletY=getY();
+                    xForce=bulletForce/2;
+                    yForce=-bulletForce/2;
+                    break;
+                case SOUTHWEST:
+                    bulletX=getX();
+                    bulletY=getY();
+                    xForce=-bulletForce/2;
+                    yForce=-bulletForce/2;
+                    break;
+                case NORTHEAST:
+                    bulletX=getX()+getWidth();
+                    bulletY=getY()+getHeight();
+                    xForce=bulletForce/2;
+                    yForce=bulletForce/2;
+                    break;
+
+                case NORTHWEST:
+                    bulletX=getX();
+                    bulletY=getY()+getHeight();
+                    xForce=-bulletForce/2;
+                    yForce=bulletForce/2;
+                    break;
+                case SOUTH:
+                    bulletX=getCenterX();
+                    bulletY=getY();
+                    xForce=0;
+                    yForce=-bulletForce;
+
+
+                    break;
+                case EAST:
+
+                    bulletX=getX()+getWidth();
+                    bulletY=getY()+getHeight()/4;
+                    xForce=bulletForce;
+                    yForce=0;
+
+
+                    break;
+                case WEST:
+
+                    bulletX=getX();
+                    bulletY=getY()+getHeight()/4;
+                    xForce=-bulletForce;
+                    yForce=0;
+
+
+                    break;
+                case NORTH:
+                default:
+                    bulletX=getCenterX();
+                    bulletY=getY()+getHeight();
+                    xForce=0;
+                    yForce=bulletForce;
+
+                    break;
+            }
+
+
+            bullet=new Bullet(bulletX,bulletY);
+            bullet.getBody().setBullet(true);
+            bullet.getBody().applyLinearImpulse(
+                    new Vector2(xForce, yForce),
+                    bullet.getBody().getWorldCenter(),true);
+            setFilter(bullet.getBody());
+            bulletGroup.addActor(bullet);
+        }
         Log.d("ButtonPressed",button.toString());
     }
 
     private void handleKeyPress(){
 
 
-
-            oldX = getX();
+        oldX = getX();
             oldY=getY();
 
             switch (currentDirection) {
@@ -219,6 +330,7 @@ public class Player extends Actor implements GameControllerListener {
                     break;
 
             }
+
             currentDirection=Direction.NONE;
             if (getX() < 0) {
                 setX(0);
@@ -268,6 +380,13 @@ public class Player extends Actor implements GameControllerListener {
         elapsedTime += GameEngine.graphics.getDeltaTime();
         //Log.d("state:", currentStage.toString());
         handleKeyPress();
+        for(Bullet bullet: bullets){
+            if(bullet.getY()>Configuration.SCREEN_HEIGHT ||
+                    bullet.getY() < 40 ||
+                    bullet.getX()<0 || bullet.getX()>Configuration.SCREEN_WIDTH){
+                bulletGroup.addActor(bullet);
+            }
+        }
 
 
     }

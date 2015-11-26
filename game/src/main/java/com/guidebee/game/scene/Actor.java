@@ -681,7 +681,7 @@ public class Actor implements Collidable {
     public boolean remove() {
         internalActor.setUserObject(null);
         entity.setUserObject(null);
-        clear();
+
         EntityEngine entityEngine=getStage().entityEngine;
         entityEngine.removeEntity(entity);
         Stage stage=(Stage)entityEngine.getUserObject();
@@ -689,6 +689,7 @@ public class Actor implements Collidable {
         if(world!=null && body!=null){
             stage.bodiesTobeDeleted.add(body);
         }
+        clear();
         return internalActor.remove();
     }
 
