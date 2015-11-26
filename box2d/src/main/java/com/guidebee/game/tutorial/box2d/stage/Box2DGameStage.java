@@ -75,6 +75,7 @@ public abstract class Box2DGameStage extends Stage implements QueryCallback {
                 return false;
             }
         }
+        this.touchFixture=null;
         return true;
     }
 }

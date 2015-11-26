@@ -3,6 +3,7 @@ package com.guidebee.game.tutorial.box2d;
 import com.guidebee.game.GameEngine;
 import com.guidebee.game.InputProcessor;
 import com.guidebee.game.scene.Scene;
+import com.guidebee.game.tutorial.box2d.stage.JointsOverviewStage;
 import com.guidebee.game.tutorial.box2d.stage.RayCastStage;
 
 import static com.guidebee.game.GameEngine.assetManager;
@@ -13,7 +14,7 @@ public class Box2DGameScene extends Scene {
     private InputProcessor savedInputProcessor;
 
     public Box2DGameScene(){
-        super(new RayCastStage());
+        super(new JointsOverviewStage());
 
     }
 

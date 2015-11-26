@@ -45,7 +45,7 @@ public class CollisionStage extends Box2DGameStage implements CollisionListener 
     private boolean useFilter=false;
 
     public CollisionStage(){
-        super();
+
         TextureAtlas textureAtlas=assetManager.get("box2d.atlas",TextureAtlas.class);
         GameController gameController
                 = new GameController(new TextureRegionDrawable(textureAtlas.findRegion("Back")),
