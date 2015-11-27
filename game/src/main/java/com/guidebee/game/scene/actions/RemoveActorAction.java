@@ -32,7 +32,14 @@ public class RemoveActorAction extends Action {
     public boolean act(float delta) {
         if (!removed) {
             removed = true;
-            (removeActor != null ? removeActor : actor).remove();
+            Actor toRemove=(removeActor != null ? removeActor : actor);
+            Object userObject=toRemove.getUserObject();
+            if(userObject instanceof com.guidebee.game.scene.Actor){
+                ((com.guidebee.game.scene.Actor)userObject).remove();
+            }else{
+                toRemove.remove();
+            }
+
         }
         return true;
     }
