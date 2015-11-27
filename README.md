@@ -11,7 +11,18 @@ Guidebee Game Engine
  Game API similar interfaces thus make it more convenient to port old Java ME games to Android platform. 
  It also makes most collision detection algorithms available for majorities of all game scenarios.
  
- ![battlecity](http://www.guidebeegameengine.com/download/images/guidebeegame.png)
+```
+dependencies {
+    ...
+    compile 'com.guidebee:game-engine:0.9.9'
+}
+
+```
+
+![Mario collect coins](http://i1.wp.com/www.guidebee.com.au/wordpress/wp-content/uploads/2015/11/stretchviewport.png)
+
+
+[ ![Download](https://api.bintray.com/packages/guidebee/guidebee/GGE/images/download.svg) ](https://bintray.com/guidebee/guidebee/GGE/_latestVersion)
 
 
 Guidebee Android Game Engine Tutorials
