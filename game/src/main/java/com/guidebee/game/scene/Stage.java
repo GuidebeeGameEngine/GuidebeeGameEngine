@@ -441,7 +441,8 @@ public class Stage extends InputAdapter implements Disposable {
     public void act(float delta) {
 
         if (world != null) {
-            world.step(delta, 6, 3);
+            world.step(delta, GameEngine.VelocityIterations,
+                    GameEngine.positionIterations);
             for (Body body : bodiesTobeDeleted) {
                 world.destroyBody(body);
             }

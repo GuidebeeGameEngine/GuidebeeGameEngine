@@ -159,4 +159,14 @@ public class GameEngine {
         }
     }
 
+    /**
+     * default velocity iterations for box2d simulation.
+     */
+    public static int VelocityIterations=6;
+
+    /**
+     * default position iterations for box2d simulation.
+     */
+    public static int positionIterations=3;
+
 }

@@ -11,5 +11,5 @@ public class Configuration {
     /**
      * Screen virtual height
      */
-    public final static int SCREEN_HEIGHT = 480;
+    public final static int SCREEN_HEIGHT = 450;
 }
