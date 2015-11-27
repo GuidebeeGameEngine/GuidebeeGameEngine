@@ -57,7 +57,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico" />
 <title>
 
-  ParticleEmitter - Guidebee Game Engine API
+  ShapeRenderer - Guidebee Game Engine API
 
 
 | Guidebee Game Engine
@@ -245,7 +245,7 @@
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/graphics/ParticleEffect.html">ParticleEffect</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/graphics/ParticleEffectPool.html">ParticleEffectPool</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/graphics/ParticleEffectPool.PooledEffect.html">ParticleEffectPool.PooledEffect</a></li>
-          <li class="selected api apilevel-"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html">ParticleEmitter</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html">ParticleEmitter</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.GradientColorValue.html">ParticleEmitter.GradientColorValue</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.NumericValue.html">ParticleEmitter.NumericValue</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.Particle.html">ParticleEmitter.Particle</a></li>
@@ -261,7 +261,7 @@
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/graphics/PolygonRegionLoader.PolygonRegionParameters.html">PolygonRegionLoader.PolygonRegionParameters</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/graphics/PolygonSprite.html">PolygonSprite</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/graphics/PolygonSpriteBatch.html">PolygonSpriteBatch</a></li>
-          <li class="api apilevel-"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html">ShapeRenderer</a></li>
+          <li class="selected api apilevel-"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html">ShapeRenderer</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/graphics/Sprite.html">Sprite</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/graphics/SpriteBatch.html">SpriteBatch</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/graphics/SpriteCache.html">SpriteCache</a></li>
@@ -339,6 +339,13 @@
   
   
 
+  
+   
+  
+  
+  
+  
+
 
 <div class="sum-details-links">
 
@@ -353,9 +360,6 @@ Summary:
 
 
 
-
-  &#124; <a href="#lfields">Fields</a>
-  
 
 
 
@@ -393,7 +397,7 @@ Summary:
      
     
     class
-<h1>ParticleEmitter</h1>
+<h1>ShapeRenderer</h1>
 
 
 
@@ -404,6 +408,11 @@ Summary:
   
 
   
+  
+      implements 
+      
+        <a href="../../../../com/guidebee/utils/Disposable.html">Disposable</a> 
+      
   
   
 
@@ -426,7 +435,7 @@ Summary:
         
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
          	
-        <td colspan="1" class="jd-inheritance-class-cell">com.guidebee.game.graphics.ParticleEmitter</td>
+        <td colspan="1" class="jd-inheritance-class-cell">com.guidebee.game.graphics.ShapeRenderer</td>
     </tr>
     
 
@@ -435,38 +444,6 @@ Summary:
 
 
 
-<table class="jd-sumtable jd-sumtable-subclasses"><tr><td colspan="12" style="border:none;margin:0;padding:0;">
-
-  <a href="#" onclick="return toggleInherited(this, null)" id="subclasses-direct" class="jd-expando-trigger closed"
-          ><img id="subclasses-direct-trigger"
-          src="../../../../../assets/images/triangle-closed.png"
-          class="jd-expando-trigger-img" /></a>Known Direct Subclasses
-
-  <div id="subclasses-direct">
-      <div id="subclasses-direct-list"
-              class="jd-inheritedlinks"
-              
-              >
-          
-            
-              <a href="../../../../com/guidebee/game/physics/ParticleEmitterBox2D.html">ParticleEmitterBox2D</a>
-            
-          
-      </div>
-      <div id="subclasses-direct-summary"
-              style="display: none;"
-              >
-  <table class="jd-sumtable-expando">
-        <tr class="alt-color api apilevel-" >
-              <td class="jd-linkcol"><a href="../../../../com/guidebee/game/physics/ParticleEmitterBox2D.html">ParticleEmitterBox2D</a></td>
-              <td class="jd-descrcol" width="100%">ParticleEmitterBox2D use box2d rayCast:ing to achieve continuous
-  collision detection against box2d fixtures.&nbsp;</td>
-          </tr>
-  </table>
-      </div>
-  </div>
-</td></tr></table>
-
 
 
 
@@ -474,8 +451,59 @@ Summary:
 
 
 <h2>Class Overview</h2>
-<p>Particle Emitter.
-</p>
+<p>Renders points, lines, shape outlines and filled shapes.
+ <p>
+ By default a 2D orthographic projection with the origin in the lower left
+ corner is used and units are specified in screen
+ pixels. This can be changed by configuring the projection matrix, usually
+ using the <code><a href="../../../../com/guidebee/game/camera/Camera.html#combined">combined</a></code> matrix. If the
+ screen resolution changes, the projection matrix may need to be updated.
+ <p>
+ Shapes are rendered in batches to increase performance. Standard usage
+ pattern looks as follows:
+ <p>
+ <pre>
+ <code>camera.update();
+ shapeRenderer.setProjectionMatrix(camera.combined);
+
+ shapeRenderer.begin(ShapeType.Line);
+ shapeRenderer.setColor(1, 1, 0, 1);
+ shapeRenderer.line(x, y, x2, y2);
+ shapeRenderer.rect(x, y, width, height);
+ shapeRenderer.circle(x, y, radius);
+ shapeRenderer.end();
+
+ shapeRenderer.begin(ShapeType.Filled);
+ shapeRenderer.setColor(0, 1, 0, 1);
+ shapeRenderer.rect(x, y, width, height);
+ shapeRenderer.circle(x, y, radius);
+ shapeRenderer.end();
+ </code>
+ </pre>
+ <p>
+ ShapeRenderer has a second matrix called the transformation matrix which is
+ used to rotate, scale and translate shapes in a
+ more flexible manner. The following example shows how to rotate a rectangle
+ around its center using the z-axis as the rotation
+ axis and placing it's center at (20, 12, 2):
+ <p>
+ <pre>
+ shapeRenderer.begin(ShapeType.Line);
+ shapeRenderer.identity();
+ shapeRenderer.translate(20, 12, 2);
+ shapeRenderer.rotate(0, 0, 1, 90);
+ shapeRenderer.rect(-width / 2, -height / 2, width, height);
+ shapeRenderer.end();
+ </pre>
+ <p>
+ Matrix operations all use postmultiplication and work just like glTranslate,
+ glScale and glRotate. The last transformation
+ specified will be the first that is applied to a shape (rotate then translate
+ in the above example).
+ <p>
+ The projection and transformation matrices are a state of the ShapeRenderer,
+ just like the color, and will be applied to all
+ shapes until they are changed.</p>
 
 
 
@@ -516,105 +544,9 @@ Summary:
          
          
         
-        class</td>
-      <td class="jd-linkcol"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.GradientColorValue.html">ParticleEmitter.GradientColorValue</a></td>
-      <td class="jd-descrcol" width="100%">Gradient Color Value.&nbsp;</td>
-    </tr>
-    
-    
-    <tr class=" api apilevel-" >
-      <td class="jd-typecol">
-        
-         
-         
-        
-        class</td>
-      <td class="jd-linkcol"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.NumericValue.html">ParticleEmitter.NumericValue</a></td>
-      <td class="jd-descrcol" width="100%">Numeric Value.&nbsp;</td>
-    </tr>
-    
-    
-    <tr class="alt-color api apilevel-" >
-      <td class="jd-typecol">
-        
-         
-         
-        
-        class</td>
-      <td class="jd-linkcol"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.Particle.html">ParticleEmitter.Particle</a></td>
-      <td class="jd-descrcol" width="100%">Particle.&nbsp;</td>
-    </tr>
-    
-    
-    <tr class=" api apilevel-" >
-      <td class="jd-typecol">
-        
-         
-         
-        
-        class</td>
-      <td class="jd-linkcol"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.ParticleValue.html">ParticleEmitter.ParticleValue</a></td>
-      <td class="jd-descrcol" width="100%">Particle Value.&nbsp;</td>
-    </tr>
-    
-    
-    <tr class="alt-color api apilevel-" >
-      <td class="jd-typecol">
-        
-         
-         
-        
-        class</td>
-      <td class="jd-linkcol"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.RangedNumericValue.html">ParticleEmitter.RangedNumericValue</a></td>
-      <td class="jd-descrcol" width="100%">Ranged Numeric Value.&nbsp;</td>
-    </tr>
-    
-    
-    <tr class=" api apilevel-" >
-      <td class="jd-typecol">
-        
-         
-         
-        
-        class</td>
-      <td class="jd-linkcol"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.ScaledNumericValue.html">ParticleEmitter.ScaledNumericValue</a></td>
-      <td class="jd-descrcol" width="100%">Scaled Numeric Value.&nbsp;</td>
-    </tr>
-    
-    
-    <tr class="alt-color api apilevel-" >
-      <td class="jd-typecol">
-        
-         
-         
-        
         enum</td>
-      <td class="jd-linkcol"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.SpawnEllipseSide.html">ParticleEmitter.SpawnEllipseSide</a></td>
-      <td class="jd-descrcol" width="100%">Spawn Ellipse Side.&nbsp;</td>
-    </tr>
-    
-    
-    <tr class=" api apilevel-" >
-      <td class="jd-typecol">
-        
-         
-         
-        
-        enum</td>
-      <td class="jd-linkcol"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.SpawnShape.html">ParticleEmitter.SpawnShape</a></td>
-      <td class="jd-descrcol" width="100%">Spawn Shape.&nbsp;</td>
-    </tr>
-    
-    
-    <tr class="alt-color api apilevel-" >
-      <td class="jd-typecol">
-        
-         
-         
-        
-        class</td>
-      <td class="jd-linkcol"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.SpawnShapeValue.html">ParticleEmitter.SpawnShapeValue</a></td>
-      <td class="jd-descrcol" width="100%">Spawn Shape Value.&nbsp;</td>
+      <td class="jd-linkcol"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html">ShapeRenderer.ShapeType</a></td>
+      <td class="jd-descrcol" width="100%">Shape types to be used with <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#begin(com.guidebee.game.graphics.ShapeRenderer.ShapeType)">begin(ShapeType)</a></code>.&nbsp;</td>
     </tr>
     
     
@@ -635,37 +567,6 @@ Summary:
 
 
 
-
-
-<!-- =========== FIELD SUMMARY =========== -->
-<table id="lfields" class="jd-sumtable"><tr><th colspan="12">Fields</th></tr>
-
-
-    
-      <tr class="alt-color api apilevel-" >
-          <td class="jd-typecol">
-          public
-          
-          
-          float</td>
-          <td class="jd-linkcol"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#duration">duration</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
-    
-      <tr class=" api apilevel-" >
-          <td class="jd-typecol">
-          public
-          
-          
-          float</td>
-          <td class="jd-linkcol"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#durationTimer">durationTimer</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
-    
-
-</table>
 
 
 
@@ -689,7 +590,7 @@ Summary:
             
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#ParticleEmitter()">ParticleEmitter</a></span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#ShapeRenderer()">ShapeRenderer</a></span>()
         
   </td></tr>
 
@@ -705,23 +606,7 @@ Summary:
             
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#ParticleEmitter(java.io.BufferedReader)">ParticleEmitter</a></span>(BufferedReader reader)
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#ParticleEmitter(com.guidebee.game.graphics.ParticleEmitter)">ParticleEmitter</a></span>(<a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html">ParticleEmitter</a> emitter)
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#ShapeRenderer(int)">ShapeRenderer</a></span>(int maxVertices)
         
   </td></tr>
 
@@ -750,42 +635,10 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#addParticle()">addParticle</a></span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#arc(float, float, float, float, float)">arc</a></span>(float x, float y, float radius, float start, float degrees)
         
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            void
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#addParticles(int)">addParticles</a></span>(int count)
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            void
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#allowCompletion()">allowCompletion</a></span>()
-        
-        <div class="jd-descrdiv">Ignores the <code><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#setContinuous(boolean)">continuous</a></code>
- setting until the emitter is started again.</div>
+        <div class="jd-descrdiv">Calls <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#arc(float, float, float, float, float, int)">arc(float, float, float, float, float, int)</a></code>
+ by estimating the number of segments needed for a smooth arc.</div>
   
   </td></tr>
 
@@ -801,9 +654,9 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#draw(com.guidebee.game.graphics.Batch, float)">draw</a></span>(<a href="../../../../com/guidebee/game/graphics/Batch.html">Batch</a> batch, float delta)
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#arc(float, float, float, float, float, int)">arc</a></span>(float x, float y, float radius, float start, float degrees, int segments)
         
-        <div class="jd-descrdiv">Updates and draws the particles.</div>
+        <div class="jd-descrdiv">Draws an arc using <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Line">Line</a></code> or <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Filled">Filled</a></code>.</div>
   
   </td></tr>
 
@@ -819,73 +672,9 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#draw(com.guidebee.game.graphics.Batch)">draw</a></span>(<a href="../../../../com/guidebee/game/graphics/Batch.html">Batch</a> batch)
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#begin(com.guidebee.game.graphics.ShapeRenderer.ShapeType)">begin</a></span>(<a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html">ShapeRenderer.ShapeType</a> type)
         
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            void
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#flipY()">flipY</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            int
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#getActiveCount()">getActiveCount</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            <a href="../../../../com/guidebee/game/graphics/ParticleEmitter.ScaledNumericValue.html">ParticleEmitter.ScaledNumericValue</a>
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#getAngle()">getAngle</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            <a href="../../../../com/guidebee/math/collision/BoundingBox.html">BoundingBox</a>
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#getBoundingBox()">getBoundingBox</a></span>()
-        
-        <div class="jd-descrdiv">Returns the bounding box for all active particles.</div>
+        <div class="jd-descrdiv">Starts a new batch of shapes.</div>
   
   </td></tr>
 
@@ -898,11 +687,13 @@ Summary:
             
             
             
-            <a href="../../../../com/guidebee/game/graphics/ParticleEmitter.RangedNumericValue.html">ParticleEmitter.RangedNumericValue</a>
+            void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#getDelay()">getDelay</a></span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#begin()">begin</a></span>()
         
+        <div class="jd-descrdiv">Begins a new batch without specifying a shape type.</div>
+  
   </td></tr>
 
 
@@ -914,10 +705,194 @@ Summary:
             
             
             
-            <a href="../../../../com/guidebee/game/graphics/ParticleEmitter.RangedNumericValue.html">ParticleEmitter.RangedNumericValue</a>
+            void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#getDuration()">getDuration</a></span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#box(float, float, float, float, float, float)">box</a></span>(float x, float y, float z, float width, float height, float depth)
+        
+        <div class="jd-descrdiv">Draws a cube using <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Line">Line</a></code> or <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Filled">Filled</a></code>.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#circle(float, float, float, int)">circle</a></span>(float x, float y, float radius, int segments)
+        
+        <div class="jd-descrdiv">Draws a circle using <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Line">Line</a></code> or <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Filled">Filled</a></code>.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#circle(float, float, float)">circle</a></span>(float x, float y, float radius)
+        
+        <div class="jd-descrdiv">Calls <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#circle(float, float, float, int)">circle(float, float, float, int)</a></code> by estimating the number
+ of segments needed for a smooth circle.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#cone(float, float, float, float, float)">cone</a></span>(float x, float y, float z, float radius, float height)
+        
+        <div class="jd-descrdiv">Calls <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#cone(float, float, float, float, float, int)">cone(float, float, float, float, float, int)</a></code>
+ by estimating the number of segments needed for a smooth
+ circular base.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#cone(float, float, float, float, float, int)">cone</a></span>(float x, float y, float z, float radius, float height, int segments)
+        
+        <div class="jd-descrdiv">Draws a cone using <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Line">Line</a></code> or <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Filled">Filled</a></code>.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#curve(float, float, float, float, float, float, float, float, int)">curve</a></span>(float x1, float y1, float cx1, float cy1, float cx2, float cy2, float x2, float y2, int segments)
+        
+        <div class="jd-descrdiv">Draws a curve using <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Line">Line</a></code>.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#dispose()">dispose</a></span>()
+        
+        <div class="jd-descrdiv">Releases all resources of this object.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#ellipse(float, float, float, float)">ellipse</a></span>(float x, float y, float width, float height)
+        
+        <div class="jd-descrdiv">Calls <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#ellipse(float, float, float, float, int)">ellipse(float, float, float, float, int)</a></code>
+ by estimating the number of segments needed for a smooth ellipse.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#ellipse(float, float, float, float, int)">ellipse</a></span>(float x, float y, float width, float height, int segments)
+        
+        <div class="jd-descrdiv">Draws an ellipse using <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Line">Line</a></code> or <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Filled">Filled</a></code>.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#end()">end</a></span>()
+        
+        <div class="jd-descrdiv">Finishes the batch of shapes and ensures they get rendered.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#flush()">flush</a></span>()
         
   </td></tr>
 
@@ -930,10 +905,10 @@ Summary:
             
             
             
-            <a href="../../../../com/guidebee/game/graphics/ParticleEmitter.ScaledNumericValue.html">ParticleEmitter.ScaledNumericValue</a>
+            <a href="../../../../com/guidebee/game/graphics/Color.html">Color</a>
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#getEmission()">getEmission</a></span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#getColor()">getColor</a></span>()
         
   </td></tr>
 
@@ -946,10 +921,46 @@ Summary:
             
             
             
-            <a href="../../../../com/guidebee/game/graphics/ParticleEmitter.ScaledNumericValue.html">ParticleEmitter.ScaledNumericValue</a>
+            <a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html">ShapeRenderer.ShapeType</a>
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#getGravity()">getGravity</a></span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#getCurrentType()">getCurrentType</a></span>()
+        
+        <div class="jd-descrdiv">Returns the current shape type.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            <a href="../../../../com/guidebee/math/Matrix4.html">Matrix4</a>
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#getProjectionMatrix()">getProjectionMatrix</a></span>()
+        
+        <div class="jd-descrdiv">If the matrix is modified, <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#updateMatrices()">updateMatrices()</a></code> must be called.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            ImmediateModeRenderer
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#getRenderer()">getRenderer</a></span>()
         
   </td></tr>
 
@@ -962,11 +973,13 @@ Summary:
             
             
             
-            String
+            <a href="../../../../com/guidebee/math/Matrix4.html">Matrix4</a>
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#getImagePath()">getImagePath</a></span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#getTransformMatrix()">getTransformMatrix</a></span>()
         
+        <div class="jd-descrdiv">If the matrix is modified, <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#updateMatrices()">updateMatrices()</a></code> must be called.</div>
+  
   </td></tr>
 
 
@@ -978,331 +991,13 @@ Summary:
             
             
             
-            <a href="../../../../com/guidebee/game/graphics/ParticleEmitter.ScaledNumericValue.html">ParticleEmitter.ScaledNumericValue</a>
+            void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#getLife()">getLife</a></span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#identity()">identity</a></span>()
         
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            <a href="../../../../com/guidebee/game/graphics/ParticleEmitter.ScaledNumericValue.html">ParticleEmitter.ScaledNumericValue</a>
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#getLifeOffset()">getLifeOffset</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            int
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#getMaxParticleCount()">getMaxParticleCount</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            int
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#getMinParticleCount()">getMinParticleCount</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            String
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#getName()">getName</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            float
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#getPercentComplete()">getPercentComplete</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            <a href="../../../../com/guidebee/game/graphics/ParticleEmitter.ScaledNumericValue.html">ParticleEmitter.ScaledNumericValue</a>
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#getRotation()">getRotation</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            <a href="../../../../com/guidebee/game/graphics/ParticleEmitter.ScaledNumericValue.html">ParticleEmitter.ScaledNumericValue</a>
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#getScale()">getScale</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            <a href="../../../../com/guidebee/game/graphics/ParticleEmitter.ScaledNumericValue.html">ParticleEmitter.ScaledNumericValue</a>
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#getSpawnHeight()">getSpawnHeight</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            <a href="../../../../com/guidebee/game/graphics/ParticleEmitter.SpawnShapeValue.html">ParticleEmitter.SpawnShapeValue</a>
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#getSpawnShape()">getSpawnShape</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            <a href="../../../../com/guidebee/game/graphics/ParticleEmitter.ScaledNumericValue.html">ParticleEmitter.ScaledNumericValue</a>
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#getSpawnWidth()">getSpawnWidth</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            <a href="../../../../com/guidebee/game/graphics/Sprite.html">Sprite</a>
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#getSprite()">getSprite</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            <a href="../../../../com/guidebee/game/graphics/ParticleEmitter.GradientColorValue.html">ParticleEmitter.GradientColorValue</a>
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#getTint()">getTint</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            <a href="../../../../com/guidebee/game/graphics/ParticleEmitter.ScaledNumericValue.html">ParticleEmitter.ScaledNumericValue</a>
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#getTransparency()">getTransparency</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            <a href="../../../../com/guidebee/game/graphics/ParticleEmitter.ScaledNumericValue.html">ParticleEmitter.ScaledNumericValue</a>
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#getVelocity()">getVelocity</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            <a href="../../../../com/guidebee/game/graphics/ParticleEmitter.ScaledNumericValue.html">ParticleEmitter.ScaledNumericValue</a>
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#getWind()">getWind</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            float
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#getX()">getX</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            <a href="../../../../com/guidebee/game/graphics/ParticleEmitter.RangedNumericValue.html">ParticleEmitter.RangedNumericValue</a>
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#getXOffsetValue()">getXOffsetValue</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            float
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#getY()">getY</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            <a href="../../../../com/guidebee/game/graphics/ParticleEmitter.RangedNumericValue.html">ParticleEmitter.RangedNumericValue</a>
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#getYOffsetValue()">getYOffsetValue</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            boolean
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#isAdditive()">isAdditive</a></span>()
-        
+        <div class="jd-descrdiv">Sets the transformation matrix to identity.</div>
+  
   </td></tr>
 
 
@@ -1317,7 +1012,7 @@ Summary:
             boolean
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#isAligned()">isAligned</a></span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#isDrawing()">isDrawing</a></span>()
         
   </td></tr>
 
@@ -1327,77 +1022,13 @@ Summary:
         <td class="jd-typecol">
             
             
+            final
             
             
-            
-            boolean
+            void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#isAttached()">isAttached</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            boolean
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#isBehind()">isBehind</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            boolean
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#isComplete()">isComplete</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            boolean
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#isContinuous()">isContinuous</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            boolean
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#isPremultipliedAlpha()">isPremultipliedAlpha</a></span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#line(com.guidebee.math.Vector2, com.guidebee.math.Vector2)">line</a></span>(<a href="../../../../com/guidebee/math/Vector2.html">Vector2</a> v0, <a href="../../../../com/guidebee/math/Vector2.html">Vector2</a> v1)
         
   </td></tr>
 
@@ -1413,7 +1044,75 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#load(java.io.BufferedReader)">load</a></span>(BufferedReader reader)
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#line(float, float, float, float, float, float, com.guidebee.game.graphics.Color, com.guidebee.game.graphics.Color)">line</a></span>(float x, float y, float z, float x2, float y2, float z2, <a href="../../../../com/guidebee/game/graphics/Color.html">Color</a> c1, <a href="../../../../com/guidebee/game/graphics/Color.html">Color</a> c2)
+        
+        <div class="jd-descrdiv">Draws a line using <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Line">Line</a></code> or <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Filled">Filled</a></code>.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#line(float, float, float, float, float, float)">line</a></span>(float x, float y, float z, float x2, float y2, float z2)
+        
+        <div class="jd-descrdiv">Draws a line using <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Line">Line</a></code> or <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Filled">Filled</a></code>.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#line(float, float, float, float)">line</a></span>(float x, float y, float x2, float y2)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#line(float, float, float, float, com.guidebee.game.graphics.Color, com.guidebee.game.graphics.Color)">line</a></span>(float x, float y, float x2, float y2, <a href="../../../../com/guidebee/game/graphics/Color.html">Color</a> c1, <a href="../../../../com/guidebee/game/graphics/Color.html">Color</a> c2)
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#line(com.guidebee.math.Vector3, com.guidebee.math.Vector3)">line</a></span>(<a href="../../../../com/guidebee/math/Vector3.html">Vector3</a> v0, <a href="../../../../com/guidebee/math/Vector3.html">Vector3</a> v1)
         
   </td></tr>
 
@@ -1429,7 +1128,78 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#reset()">reset</a></span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#point(float, float, float)">point</a></span>(float x, float y, float z)
+        
+        <div class="jd-descrdiv">Draws a point using <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Point">Point</a></code>, <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Line">Line</a></code>
+ or <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Filled">Filled</a></code>.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#polygon(float[])">polygon</a></span>(float[] vertices)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#polygon(float[], int, int)">polygon</a></span>(float[] vertices, int offset, int count)
+        
+        <div class="jd-descrdiv">Draws a polygon in the x/y plane using <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Line">Line</a></code>.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#polyline(float[], int, int)">polyline</a></span>(float[] vertices, int offset, int count)
+        
+        <div class="jd-descrdiv">Draws a polyline in the x/y plane using <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Line">Line</a></code>.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#polyline(float[])">polyline</a></span>(float[] vertices)
         
   </td></tr>
 
@@ -1445,8 +1215,11 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#save(java.io.Writer)">save</a></span>(Writer output)
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#rect(float, float, float, float, float, float, float, float, float)">rect</a></span>(float x, float y, float originX, float originY, float width, float height, float scaleX, float scaleY, float degrees)
         
+        <div class="jd-descrdiv">Draws a rectangle in the x/y plane using <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Line">Line</a></code>
+ or <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Filled">Filled</a></code>.</div>
+  
   </td></tr>
 
 
@@ -1461,7 +1234,83 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#setAdditive(boolean)">setAdditive</a></span>(boolean additive)
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#rect(float, float, float, float, com.guidebee.game.graphics.Color, com.guidebee.game.graphics.Color, com.guidebee.game.graphics.Color, com.guidebee.game.graphics.Color)">rect</a></span>(float x, float y, float width, float height, <a href="../../../../com/guidebee/game/graphics/Color.html">Color</a> col1, <a href="../../../../com/guidebee/game/graphics/Color.html">Color</a> col2, <a href="../../../../com/guidebee/game/graphics/Color.html">Color</a> col3, <a href="../../../../com/guidebee/game/graphics/Color.html">Color</a> col4)
+        
+        <div class="jd-descrdiv">Draws a rectangle in the x/y plane using <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Line">Line</a></code>
+ or <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Filled">Filled</a></code>.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#rect(float, float, float, float)">rect</a></span>(float x, float y, float width, float height)
+        
+        <div class="jd-descrdiv">Draws a rectangle in the x/y plane using <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Line">Line</a></code>
+ or <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Filled">Filled</a></code>.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#rect(float, float, float, float, float, float, float, float, float, com.guidebee.game.graphics.Color, com.guidebee.game.graphics.Color, com.guidebee.game.graphics.Color, com.guidebee.game.graphics.Color)">rect</a></span>(float x, float y, float originX, float originY, float width, float height, float scaleX, float scaleY, float degrees, <a href="../../../../com/guidebee/game/graphics/Color.html">Color</a> col1, <a href="../../../../com/guidebee/game/graphics/Color.html">Color</a> col2, <a href="../../../../com/guidebee/game/graphics/Color.html">Color</a> col3, <a href="../../../../com/guidebee/game/graphics/Color.html">Color</a> col4)
+        
+        <div class="jd-descrdiv">Draws a rectangle in the x/y plane using <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Line">Line</a></code>
+ or <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Filled">Filled</a></code>.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#rectLine(float, float, float, float, float)">rectLine</a></span>(float x1, float y1, float x2, float y2, float width)
+        
+        <div class="jd-descrdiv">Draws a line using a rotated rectangle, where with one edge is
+ centered at x1, y1 and the opposite edge centered at x2, y2.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#rectLine(com.guidebee.math.Vector2, com.guidebee.math.Vector2, float)">rectLine</a></span>(<a href="../../../../com/guidebee/math/Vector2.html">Vector2</a> p1, <a href="../../../../com/guidebee/math/Vector2.html">Vector2</a> p2, float width)
         
   </td></tr>
 
@@ -1477,7 +1326,43 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#setAligned(boolean)">setAligned</a></span>(boolean aligned)
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#rotate(float, float, float, float)">rotate</a></span>(float axisX, float axisY, float axisZ, float degrees)
+        
+        <div class="jd-descrdiv">Multiplies the current transformation matrix by a rotation matrix.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#scale(float, float, float)">scale</a></span>(float scaleX, float scaleY, float scaleZ)
+        
+        <div class="jd-descrdiv">Multiplies the current transformation matrix by a scale matrix.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#set(com.guidebee.game.graphics.ShapeRenderer.ShapeType)">set</a></span>(<a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html">ShapeRenderer.ShapeType</a> type)
         
   </td></tr>
 
@@ -1493,7 +1378,81 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#setAttached(boolean)">setAttached</a></span>(boolean attached)
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#setAutoShapeType(boolean)">setAutoShapeType</a></span>(boolean autoShapeType)
+        
+        <div class="jd-descrdiv">If true, when drawing a shape cannot be performed with the current shape
+ type, the batch is flushed and the shape type is
+ changed automatically.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#setColor(float, float, float, float)">setColor</a></span>(float r, float g, float b, float a)
+        
+        <div class="jd-descrdiv">Sets the color to be used by the next shapes drawn.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#setColor(com.guidebee.game.graphics.Color)">setColor</a></span>(<a href="../../../../com/guidebee/game/graphics/Color.html">Color</a> color)
+        
+        <div class="jd-descrdiv">Sets the color to be used by the next shapes drawn.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#setProjectionMatrix(com.guidebee.math.Matrix4)">setProjectionMatrix</a></span>(<a href="../../../../com/guidebee/math/Matrix4.html">Matrix4</a> matrix)
+        
+        <div class="jd-descrdiv">Sets the projection matrix to be used for rendering.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#setTransformMatrix(com.guidebee.math.Matrix4)">setTransformMatrix</a></span>(<a href="../../../../com/guidebee/math/Matrix4.html">Matrix4</a> matrix)
         
   </td></tr>
 
@@ -1509,8 +1468,10 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#setBehind(boolean)">setBehind</a></span>(boolean behind)
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#translate(float, float, float)">translate</a></span>(float x, float y, float z)
         
+        <div class="jd-descrdiv">Multiplies the current transformation matrix by a translation matrix.</div>
+  
   </td></tr>
 
 
@@ -1525,7 +1486,45 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#setContinuous(boolean)">setContinuous</a></span>(boolean continuous)
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#triangle(float, float, float, float, float, float)">triangle</a></span>(float x1, float y1, float x2, float y2, float x3, float y3)
+        
+        <div class="jd-descrdiv">Draws a triangle in x/y plane using <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Line">Line</a></code>
+ or <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Filled">Filled</a></code>.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#triangle(float, float, float, float, float, float, com.guidebee.game.graphics.Color, com.guidebee.game.graphics.Color, com.guidebee.game.graphics.Color)">triangle</a></span>(float x1, float y1, float x2, float y2, float x3, float y3, <a href="../../../../com/guidebee/game/graphics/Color.html">Color</a> col1, <a href="../../../../com/guidebee/game/graphics/Color.html">Color</a> col2, <a href="../../../../com/guidebee/game/graphics/Color.html">Color</a> col3)
+        
+        <div class="jd-descrdiv">Draws a triangle in x/y plane with colored corners using
+ <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Line">Line</a></code> or <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Filled">Filled</a></code>.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#updateMatrices()">updateMatrices</a></span>()
         
   </td></tr>
 
@@ -1541,7 +1540,7 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#setFlip(boolean, boolean)">setFlip</a></span>(boolean flipX, boolean flipY)
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#x(com.guidebee.math.Vector2, float)">x</a></span>(<a href="../../../../com/guidebee/math/Vector2.html">Vector2</a> p, float radius)
         
   </td></tr>
 
@@ -1557,136 +1556,11 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#setImagePath(java.lang.String)">setImagePath</a></span>(String imagePath)
+        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#x(float, float, float)">x</a></span>(float x, float y, float radius)
         
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            void
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#setMaxParticleCount(int)">setMaxParticleCount</a></span>(int maxParticleCount)
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            void
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#setMinParticleCount(int)">setMinParticleCount</a></span>(int minParticleCount)
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            void
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#setName(java.lang.String)">setName</a></span>(String name)
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            void
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#setPosition(float, float)">setPosition</a></span>(float x, float y)
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            void
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#setPremultipliedAlpha(boolean)">setPremultipliedAlpha</a></span>(boolean premultipliedAlpha)
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            void
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#setSprite(com.guidebee.game.graphics.Sprite)">setSprite</a></span>(<a href="../../../../com/guidebee/game/graphics/Sprite.html">Sprite</a> sprite)
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            void
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#start()">start</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            void
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#update(float)">update</a></span>(float delta)
-        
+        <div class="jd-descrdiv">Draws two crossed lines using <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Line">Line</a></code>
+ or <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Filled">Filled</a></code>.</div>
+  
   </td></tr>
 
 
@@ -1874,6 +1748,50 @@ From class
 </td></tr>
 
 
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-com.guidebee.utils.Disposable" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-com.guidebee.utils.Disposable-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  <a href="../../../../com/guidebee/utils/Disposable.html">com.guidebee.utils.Disposable</a>
+
+<div id="inherited-methods-com.guidebee.utils.Disposable">
+  <div id="inherited-methods-com.guidebee.utils.Disposable-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-com.guidebee.utils.Disposable-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            abstract
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/utils/Disposable.html#dispose()">dispose</a></span>()
+        
+        <div class="jd-descrdiv">Releases all resources of this object.</div>
+  
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
 </table>
 
 
@@ -1900,73 +1818,6 @@ From class
 <!-- Fields -->
 
 
-<!-- ========= FIELD DETAIL ======== -->
-<h2>Fields</h2>
-
-
-
-
-<a id="duration"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-        float
-      </span>
-        duration
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    
-    </div>
-</div>
-
-
-
-<a id="durationTimer"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-        float
-      </span>
-        durationTimer
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    
-    </div>
-</div>
-
-
-
-
 <!-- Public ctors -->
 
 
@@ -1975,7 +1826,7 @@ From class
 
 
 
-<a id="ParticleEmitter()"></a>
+<a id="ShapeRenderer()"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1987,7 +1838,7 @@ From class
          
         
       </span>
-      <span class="sympad">ParticleEmitter</span>
+      <span class="sympad">ShapeRenderer</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -2006,7 +1857,7 @@ From class
 </div>
 
 
-<a id="ParticleEmitter(java.io.BufferedReader)"></a>
+<a id="ShapeRenderer(int)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2018,48 +1869,8 @@ From class
          
         
       </span>
-      <span class="sympad">ParticleEmitter</span>
-      <span class="normal">(BufferedReader reader)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Throws</h5>
-      <table class="jd-tagtable">  
-        <tr>
-            <th>IOException</td>
-            <td></td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
-<a id="ParticleEmitter(com.guidebee.game.graphics.ParticleEmitter)"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        
-      </span>
-      <span class="sympad">ParticleEmitter</span>
-      <span class="normal">(<a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html">ParticleEmitter</a> emitter)</span>
+      <span class="sympad">ShapeRenderer</span>
+      <span class="normal">(int maxVertices)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -2092,7 +1903,7 @@ From class
 
 
 
-<a id="addParticle()"></a>
+<a id="arc(float, float, float, float, float)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2104,8 +1915,8 @@ From class
          
         void
       </span>
-      <span class="sympad">addParticle</span>
-      <span class="normal">()</span>
+      <span class="sympad">arc</span>
+      <span class="normal">(float x, float y, float radius, float start, float degrees)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -2117,78 +1928,15 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="addParticles(int)"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">addParticles</span>
-      <span class="normal">(int count)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="allowCompletion()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">allowCompletion</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Ignores the <code><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#setContinuous(boolean)">continuous</a></code>
- setting until the emitter is started again. This allows the emitter
- to stop smoothly.
+  <div class="jd-tagdata jd-tagdescr"><p>Calls <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#arc(float, float, float, float, float, int)">arc(float, float, float, float, float, int)</a></code>
+ by estimating the number of segments needed for a smooth arc.
 </p></div>
 
     </div>
 </div>
 
 
-<a id="draw(com.guidebee.game.graphics.Batch, float)"></a>
+<a id="arc(float, float, float, float, float, int)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2200,8 +1948,8 @@ From class
          
         void
       </span>
-      <span class="sympad">draw</span>
-      <span class="normal">(<a href="../../../../com/guidebee/game/graphics/Batch.html">Batch</a> batch, float delta)</span>
+      <span class="sympad">arc</span>
+      <span class="normal">(float x, float y, float radius, float start, float degrees, int segments)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -2213,16 +1961,14 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Updates and draws the particles. This is slightly more efficient than calling
- <code><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#update(float)">update(float)</a></code> and
- <code><a href="../../../../com/guidebee/game/graphics/ParticleEmitter.html#draw(com.guidebee.game.graphics.Batch)">draw(Batch)</a></code> separately.
+  <div class="jd-tagdata jd-tagdescr"><p>Draws an arc using <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Line">Line</a></code> or <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Filled">Filled</a></code>.
 </p></div>
 
     </div>
 </div>
 
 
-<a id="draw(com.guidebee.game.graphics.Batch)"></a>
+<a id="begin(com.guidebee.game.graphics.ShapeRenderer.ShapeType)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2234,8 +1980,8 @@ From class
          
         void
       </span>
-      <span class="sympad">draw</span>
-      <span class="normal">(<a href="../../../../com/guidebee/game/graphics/Batch.html">Batch</a> batch)</span>
+      <span class="sympad">begin</span>
+      <span class="normal">(<a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html">ShapeRenderer.ShapeType</a> type)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -2247,13 +1993,20 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Starts a new batch of shapes. Shapes drawn within the batch will attempt
+ to use the type specified. The call to this method
+ must be paired with a call to <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#end()">end()</a></code>.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#setAutoShapeType(boolean)">setAutoShapeType(boolean)</a></code></li>
+      </ul>
+  </div>
 
     </div>
 </div>
 
 
-<a id="flipY()"></a>
+<a id="begin()"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2265,7 +2018,7 @@ From class
          
         void
       </span>
-      <span class="sympad">flipY</span>
+      <span class="sympad">begin</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -2278,13 +2031,23 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Begins a new batch without specifying a shape type.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>IllegalStateException</td>
+            <td>if #autoShapeType is false.
+</td>
+        </tr>
+      </table>
+  </div>
 
     </div>
 </div>
 
 
-<a id="getActiveCount()"></a>
+<a id="box(float, float, float, float, float, float)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2294,10 +2057,10 @@ From class
          
          
          
-        int
+        void
       </span>
-      <span class="sympad">getActiveCount</span>
-      <span class="normal">()</span>
+      <span class="sympad">box</span>
+      <span class="normal">(float x, float y, float z, float width, float height, float depth)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -2309,1068 +2072,16 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="getAngle()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        <a href="../../../../com/guidebee/game/graphics/ParticleEmitter.ScaledNumericValue.html">ParticleEmitter.ScaledNumericValue</a>
-      </span>
-      <span class="sympad">getAngle</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="getBoundingBox()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        <a href="../../../../com/guidebee/math/collision/BoundingBox.html">BoundingBox</a>
-      </span>
-      <span class="sympad">getBoundingBox</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Returns the bounding box for all active particles. z axis will always be zero.
+  <div class="jd-tagdata jd-tagdescr"><p>Draws a cube using <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Line">Line</a></code> or <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Filled">Filled</a></code>.
+ The x, y and z specify the bottom, left, front corner
+ of the rectangle.
 </p></div>
 
     </div>
 </div>
 
 
-<a id="getDelay()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        <a href="../../../../com/guidebee/game/graphics/ParticleEmitter.RangedNumericValue.html">ParticleEmitter.RangedNumericValue</a>
-      </span>
-      <span class="sympad">getDelay</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="getDuration()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        <a href="../../../../com/guidebee/game/graphics/ParticleEmitter.RangedNumericValue.html">ParticleEmitter.RangedNumericValue</a>
-      </span>
-      <span class="sympad">getDuration</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="getEmission()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        <a href="../../../../com/guidebee/game/graphics/ParticleEmitter.ScaledNumericValue.html">ParticleEmitter.ScaledNumericValue</a>
-      </span>
-      <span class="sympad">getEmission</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="getGravity()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        <a href="../../../../com/guidebee/game/graphics/ParticleEmitter.ScaledNumericValue.html">ParticleEmitter.ScaledNumericValue</a>
-      </span>
-      <span class="sympad">getGravity</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="getImagePath()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        String
-      </span>
-      <span class="sympad">getImagePath</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="getLife()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        <a href="../../../../com/guidebee/game/graphics/ParticleEmitter.ScaledNumericValue.html">ParticleEmitter.ScaledNumericValue</a>
-      </span>
-      <span class="sympad">getLife</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="getLifeOffset()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        <a href="../../../../com/guidebee/game/graphics/ParticleEmitter.ScaledNumericValue.html">ParticleEmitter.ScaledNumericValue</a>
-      </span>
-      <span class="sympad">getLifeOffset</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="getMaxParticleCount()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        int
-      </span>
-      <span class="sympad">getMaxParticleCount</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="getMinParticleCount()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        int
-      </span>
-      <span class="sympad">getMinParticleCount</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="getName()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        String
-      </span>
-      <span class="sympad">getName</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="getPercentComplete()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        float
-      </span>
-      <span class="sympad">getPercentComplete</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="getRotation()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        <a href="../../../../com/guidebee/game/graphics/ParticleEmitter.ScaledNumericValue.html">ParticleEmitter.ScaledNumericValue</a>
-      </span>
-      <span class="sympad">getRotation</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="getScale()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        <a href="../../../../com/guidebee/game/graphics/ParticleEmitter.ScaledNumericValue.html">ParticleEmitter.ScaledNumericValue</a>
-      </span>
-      <span class="sympad">getScale</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="getSpawnHeight()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        <a href="../../../../com/guidebee/game/graphics/ParticleEmitter.ScaledNumericValue.html">ParticleEmitter.ScaledNumericValue</a>
-      </span>
-      <span class="sympad">getSpawnHeight</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="getSpawnShape()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        <a href="../../../../com/guidebee/game/graphics/ParticleEmitter.SpawnShapeValue.html">ParticleEmitter.SpawnShapeValue</a>
-      </span>
-      <span class="sympad">getSpawnShape</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="getSpawnWidth()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        <a href="../../../../com/guidebee/game/graphics/ParticleEmitter.ScaledNumericValue.html">ParticleEmitter.ScaledNumericValue</a>
-      </span>
-      <span class="sympad">getSpawnWidth</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="getSprite()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        <a href="../../../../com/guidebee/game/graphics/Sprite.html">Sprite</a>
-      </span>
-      <span class="sympad">getSprite</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="getTint()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        <a href="../../../../com/guidebee/game/graphics/ParticleEmitter.GradientColorValue.html">ParticleEmitter.GradientColorValue</a>
-      </span>
-      <span class="sympad">getTint</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="getTransparency()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        <a href="../../../../com/guidebee/game/graphics/ParticleEmitter.ScaledNumericValue.html">ParticleEmitter.ScaledNumericValue</a>
-      </span>
-      <span class="sympad">getTransparency</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="getVelocity()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        <a href="../../../../com/guidebee/game/graphics/ParticleEmitter.ScaledNumericValue.html">ParticleEmitter.ScaledNumericValue</a>
-      </span>
-      <span class="sympad">getVelocity</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="getWind()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        <a href="../../../../com/guidebee/game/graphics/ParticleEmitter.ScaledNumericValue.html">ParticleEmitter.ScaledNumericValue</a>
-      </span>
-      <span class="sympad">getWind</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="getX()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        float
-      </span>
-      <span class="sympad">getX</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="getXOffsetValue()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        <a href="../../../../com/guidebee/game/graphics/ParticleEmitter.RangedNumericValue.html">ParticleEmitter.RangedNumericValue</a>
-      </span>
-      <span class="sympad">getXOffsetValue</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="getY()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        float
-      </span>
-      <span class="sympad">getY</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="getYOffsetValue()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        <a href="../../../../com/guidebee/game/graphics/ParticleEmitter.RangedNumericValue.html">ParticleEmitter.RangedNumericValue</a>
-      </span>
-      <span class="sympad">getYOffsetValue</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="isAdditive()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        boolean
-      </span>
-      <span class="sympad">isAdditive</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="isAligned()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        boolean
-      </span>
-      <span class="sympad">isAligned</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="isAttached()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        boolean
-      </span>
-      <span class="sympad">isAttached</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="isBehind()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        boolean
-      </span>
-      <span class="sympad">isBehind</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="isComplete()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        boolean
-      </span>
-      <span class="sympad">isComplete</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="isContinuous()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        boolean
-      </span>
-      <span class="sympad">isContinuous</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="isPremultipliedAlpha()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        boolean
-      </span>
-      <span class="sympad">isPremultipliedAlpha</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="load(java.io.BufferedReader)"></a>
+<a id="circle(float, float, float, int)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -3382,8 +2093,521 @@ From class
          
         void
       </span>
-      <span class="sympad">load</span>
-      <span class="normal">(BufferedReader reader)</span>
+      <span class="sympad">circle</span>
+      <span class="normal">(float x, float y, float radius, int segments)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Draws a circle using <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Line">Line</a></code> or <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Filled">Filled</a></code>.
+</p></div>
+
+    </div>
+</div>
+
+
+<a id="circle(float, float, float)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">circle</span>
+      <span class="normal">(float x, float y, float radius)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Calls <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#circle(float, float, float, int)">circle(float, float, float, int)</a></code> by estimating the number
+ of segments needed for a smooth circle.
+</p></div>
+
+    </div>
+</div>
+
+
+<a id="cone(float, float, float, float, float)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">cone</span>
+      <span class="normal">(float x, float y, float z, float radius, float height)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Calls <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#cone(float, float, float, float, float, int)">cone(float, float, float, float, float, int)</a></code>
+ by estimating the number of segments needed for a smooth
+ circular base.
+</p></div>
+
+    </div>
+</div>
+
+
+<a id="cone(float, float, float, float, float, int)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">cone</span>
+      <span class="normal">(float x, float y, float z, float radius, float height, int segments)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Draws a cone using <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Line">Line</a></code> or <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Filled">Filled</a></code>.
+</p></div>
+
+    </div>
+</div>
+
+
+<a id="curve(float, float, float, float, float, float, float, float, int)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">curve</span>
+      <span class="normal">(float x1, float y1, float cx1, float cy1, float cx2, float cy2, float x2, float y2, int segments)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Draws a curve using <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Line">Line</a></code>.
+</p></div>
+
+    </div>
+</div>
+
+
+<a id="dispose()"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">dispose</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Releases all resources of this object.
+</p></div>
+
+    </div>
+</div>
+
+
+<a id="ellipse(float, float, float, float)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">ellipse</span>
+      <span class="normal">(float x, float y, float width, float height)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Calls <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#ellipse(float, float, float, float, int)">ellipse(float, float, float, float, int)</a></code>
+ by estimating the number of segments needed for a smooth ellipse.
+</p></div>
+
+    </div>
+</div>
+
+
+<a id="ellipse(float, float, float, float, int)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">ellipse</span>
+      <span class="normal">(float x, float y, float width, float height, int segments)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Draws an ellipse using <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Line">Line</a></code> or <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Filled">Filled</a></code>.
+</p></div>
+
+    </div>
+</div>
+
+
+<a id="end()"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">end</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Finishes the batch of shapes and ensures they get rendered.
+</p></div>
+
+    </div>
+</div>
+
+
+<a id="flush()"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">flush</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="getColor()"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../com/guidebee/game/graphics/Color.html">Color</a>
+      </span>
+      <span class="sympad">getColor</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="getCurrentType()"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html">ShapeRenderer.ShapeType</a>
+      </span>
+      <span class="sympad">getCurrentType</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the current shape type.
+</p></div>
+
+    </div>
+</div>
+
+
+<a id="getProjectionMatrix()"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../com/guidebee/math/Matrix4.html">Matrix4</a>
+      </span>
+      <span class="sympad">getProjectionMatrix</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>If the matrix is modified, <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#updateMatrices()">updateMatrices()</a></code> must be called.
+</p></div>
+
+    </div>
+</div>
+
+
+<a id="getRenderer()"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        ImmediateModeRenderer
+      </span>
+      <span class="sympad">getRenderer</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="getTransformMatrix()"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../com/guidebee/math/Matrix4.html">Matrix4</a>
+      </span>
+      <span class="sympad">getTransformMatrix</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>If the matrix is modified, <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#updateMatrices()">updateMatrices()</a></code> must be called.
+</p></div>
+
+    </div>
+</div>
+
+
+<a id="identity()"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">identity</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the transformation matrix to identity.
+</p></div>
+
+    </div>
+</div>
+
+
+<a id="isDrawing()"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">isDrawing</span>
+      <span class="normal">()</span>
     </h4>
       <div class="api-level">
         <div>
@@ -3397,64 +2621,29 @@ From class
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Throws</h5>
-      <table class="jd-tagtable">  
-        <tr>
-            <th>IOException</td>
-            <td></td>
-        </tr>
-      </table>
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>true if currently between begin and end.
+</li></ul>
   </div>
 
     </div>
 </div>
 
 
-<a id="reset()"></a>
+<a id="line(com.guidebee.math.Vector2, com.guidebee.math.Vector2)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
       <span class="normal">
         public 
          
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">reset</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="save(java.io.Writer)"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
+        final 
          
          
         void
       </span>
-      <span class="sympad">save</span>
-      <span class="normal">(Writer output)</span>
+      <span class="sympad">line</span>
+      <span class="normal">(<a href="../../../../com/guidebee/math/Vector2.html">Vector2</a> v0, <a href="../../../../com/guidebee/math/Vector2.html">Vector2</a> v1)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -3468,11 +2657,442 @@ From class
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Throws</h5>
-      <table class="jd-tagtable">  
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#line(float, float, float, float, float, float)">line(float, float, float, float, float, float)</a></code></li>
+      </ul>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="line(float, float, float, float, float, float, com.guidebee.game.graphics.Color, com.guidebee.game.graphics.Color)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">line</span>
+      <span class="normal">(float x, float y, float z, float x2, float y2, float z2, <a href="../../../../com/guidebee/game/graphics/Color.html">Color</a> c1, <a href="../../../../com/guidebee/game/graphics/Color.html">Color</a> c2)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Draws a line using <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Line">Line</a></code> or <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Filled">Filled</a></code>.
+ The line is drawn with two colors interpolated
+ between the start and end points.
+</p></div>
+
+    </div>
+</div>
+
+
+<a id="line(float, float, float, float, float, float)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+        final 
+         
+         
+        void
+      </span>
+      <span class="sympad">line</span>
+      <span class="normal">(float x, float y, float z, float x2, float y2, float z2)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Draws a line using <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Line">Line</a></code> or <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Filled">Filled</a></code>.
+</p></div>
+
+    </div>
+</div>
+
+
+<a id="line(float, float, float, float)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+        final 
+         
+         
+        void
+      </span>
+      <span class="sympad">line</span>
+      <span class="normal">(float x, float y, float x2, float y2)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#line(float, float, float, float, float, float)">line(float, float, float, float, float, float)</a></code></li>
+      </ul>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="line(float, float, float, float, com.guidebee.game.graphics.Color, com.guidebee.game.graphics.Color)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+        final 
+         
+         
+        void
+      </span>
+      <span class="sympad">line</span>
+      <span class="normal">(float x, float y, float x2, float y2, <a href="../../../../com/guidebee/game/graphics/Color.html">Color</a> c1, <a href="../../../../com/guidebee/game/graphics/Color.html">Color</a> c2)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#line(float, float, float, float, float, float, com.guidebee.game.graphics.Color, com.guidebee.game.graphics.Color)">line(float, float, float, float, float, float, Color, Color)</a></code></li>
+      </ul>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="line(com.guidebee.math.Vector3, com.guidebee.math.Vector3)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+        final 
+         
+         
+        void
+      </span>
+      <span class="sympad">line</span>
+      <span class="normal">(<a href="../../../../com/guidebee/math/Vector3.html">Vector3</a> v0, <a href="../../../../com/guidebee/math/Vector3.html">Vector3</a> v1)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#line(float, float, float, float, float, float)">line(float, float, float, float, float, float)</a></code></li>
+      </ul>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="point(float, float, float)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">point</span>
+      <span class="normal">(float x, float y, float z)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Draws a point using <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Point">Point</a></code>, <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Line">Line</a></code>
+ or <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Filled">Filled</a></code>.
+</p></div>
+
+    </div>
+</div>
+
+
+<a id="polygon(float[])"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">polygon</span>
+      <span class="normal">(float[] vertices)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#polygon(float[], int, int)">polygon(float[], int, int)</a></code></li>
+      </ul>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="polygon(float[], int, int)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">polygon</span>
+      <span class="normal">(float[] vertices, int offset, int count)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Draws a polygon in the x/y plane using <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Line">Line</a></code>. The
+ vertices must contain at least 3 points (6 floats x,y).
+</p></div>
+
+    </div>
+</div>
+
+
+<a id="polyline(float[], int, int)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">polyline</span>
+      <span class="normal">(float[] vertices, int offset, int count)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Draws a polyline in the x/y plane using <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Line">Line</a></code>.
+ The vertices must contain at least 2 points (4 floats x,y).
+</p></div>
+
+    </div>
+</div>
+
+
+<a id="polyline(float[])"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">polyline</span>
+      <span class="normal">(float[] vertices)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#polyline(float[], int, int)">polyline(float[], int, int)</a></code></li>
+      </ul>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="rect(float, float, float, float, float, float, float, float, float)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">rect</span>
+      <span class="normal">(float x, float y, float originX, float originY, float width, float height, float scaleX, float scaleY, float degrees)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Draws a rectangle in the x/y plane using <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Line">Line</a></code>
+ or <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Filled">Filled</a></code>. The x and y specify the lower
+ left corner. The originX and originY specify the point about
+ which to rotate the rectangle.
+</p></div>
+
+    </div>
+</div>
+
+
+<a id="rect(float, float, float, float, com.guidebee.game.graphics.Color, com.guidebee.game.graphics.Color, com.guidebee.game.graphics.Color, com.guidebee.game.graphics.Color)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">rect</span>
+      <span class="normal">(float x, float y, float width, float height, <a href="../../../../com/guidebee/game/graphics/Color.html">Color</a> col1, <a href="../../../../com/guidebee/game/graphics/Color.html">Color</a> col2, <a href="../../../../com/guidebee/game/graphics/Color.html">Color</a> col3, <a href="../../../../com/guidebee/game/graphics/Color.html">Color</a> col4)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Draws a rectangle in the x/y plane using <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Line">Line</a></code>
+ or <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Filled">Filled</a></code>. The x and y specify the lower
+ left corner.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
         <tr>
-            <th>IOException</td>
-            <td></td>
+          <th>col1</th>
+          <td>The color at (x, y).</td>
+        </tr>
+        <tr>
+          <th>col2</th>
+          <td>The color at (x + width, y).</td>
+        </tr>
+        <tr>
+          <th>col3</th>
+          <td>The color at (x + width, y + height).</td>
+        </tr>
+        <tr>
+          <th>col4</th>
+          <td>The color at (x, y + height).
+</td>
         </tr>
       </table>
   </div>
@@ -3481,7 +3101,7 @@ From class
 </div>
 
 
-<a id="setAdditive(boolean)"></a>
+<a id="rect(float, float, float, float)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -3493,8 +3113,230 @@ From class
          
         void
       </span>
-      <span class="sympad">setAdditive</span>
-      <span class="normal">(boolean additive)</span>
+      <span class="sympad">rect</span>
+      <span class="normal">(float x, float y, float width, float height)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Draws a rectangle in the x/y plane using <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Line">Line</a></code>
+ or <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Filled">Filled</a></code>.
+</p></div>
+
+    </div>
+</div>
+
+
+<a id="rect(float, float, float, float, float, float, float, float, float, com.guidebee.game.graphics.Color, com.guidebee.game.graphics.Color, com.guidebee.game.graphics.Color, com.guidebee.game.graphics.Color)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">rect</span>
+      <span class="normal">(float x, float y, float originX, float originY, float width, float height, float scaleX, float scaleY, float degrees, <a href="../../../../com/guidebee/game/graphics/Color.html">Color</a> col1, <a href="../../../../com/guidebee/game/graphics/Color.html">Color</a> col2, <a href="../../../../com/guidebee/game/graphics/Color.html">Color</a> col3, <a href="../../../../com/guidebee/game/graphics/Color.html">Color</a> col4)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Draws a rectangle in the x/y plane using <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Line">Line</a></code>
+ or <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Filled">Filled</a></code>. The x and y specify the lower
+ left corner. The originX and originY specify the point about which
+ to rotate the rectangle.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>col1</th>
+          <td>The color at (x, y)</td>
+        </tr>
+        <tr>
+          <th>col2</th>
+          <td>The color at (x + width, y)</td>
+        </tr>
+        <tr>
+          <th>col3</th>
+          <td>The color at (x + width, y + height)</td>
+        </tr>
+        <tr>
+          <th>col4</th>
+          <td>The color at (x, y + height)
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="rectLine(float, float, float, float, float)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">rectLine</span>
+      <span class="normal">(float x1, float y1, float x2, float y2, float width)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Draws a line using a rotated rectangle, where with one edge is
+ centered at x1, y1 and the opposite edge centered at x2, y2.
+</p></div>
+
+    </div>
+</div>
+
+
+<a id="rectLine(com.guidebee.math.Vector2, com.guidebee.math.Vector2, float)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">rectLine</span>
+      <span class="normal">(<a href="../../../../com/guidebee/math/Vector2.html">Vector2</a> p1, <a href="../../../../com/guidebee/math/Vector2.html">Vector2</a> p2, float width)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#rectLine(float, float, float, float, float)">rectLine(float, float, float, float, float)</a></code></li>
+      </ul>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="rotate(float, float, float, float)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">rotate</span>
+      <span class="normal">(float axisX, float axisY, float axisZ, float degrees)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Multiplies the current transformation matrix by a rotation matrix.
+</p></div>
+
+    </div>
+</div>
+
+
+<a id="scale(float, float, float)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">scale</span>
+      <span class="normal">(float scaleX, float scaleY, float scaleZ)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Multiplies the current transformation matrix by a scale matrix.
+</p></div>
+
+    </div>
+</div>
+
+
+<a id="set(com.guidebee.game.graphics.ShapeRenderer.ShapeType)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">set</span>
+      <span class="normal">(<a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html">ShapeRenderer.ShapeType</a> type)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -3512,7 +3354,7 @@ From class
 </div>
 
 
-<a id="setAligned(boolean)"></a>
+<a id="setAutoShapeType(boolean)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -3524,8 +3366,140 @@ From class
          
         void
       </span>
-      <span class="sympad">setAligned</span>
-      <span class="normal">(boolean aligned)</span>
+      <span class="sympad">setAutoShapeType</span>
+      <span class="normal">(boolean autoShapeType)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>If true, when drawing a shape cannot be performed with the current shape
+ type, the batch is flushed and the shape type is
+ changed automatically. This can increase the number of batch flushes if
+ care is not taken to draw the same type of shapes
+ together. Default is false.
+</p></div>
+
+    </div>
+</div>
+
+
+<a id="setColor(float, float, float, float)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setColor</span>
+      <span class="normal">(float r, float g, float b, float a)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the color to be used by the next shapes drawn.
+</p></div>
+
+    </div>
+</div>
+
+
+<a id="setColor(com.guidebee.game.graphics.Color)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setColor</span>
+      <span class="normal">(<a href="../../../../com/guidebee/game/graphics/Color.html">Color</a> color)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the color to be used by the next shapes drawn.
+</p></div>
+
+    </div>
+</div>
+
+
+<a id="setProjectionMatrix(com.guidebee.math.Matrix4)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setProjectionMatrix</span>
+      <span class="normal">(<a href="../../../../com/guidebee/math/Matrix4.html">Matrix4</a> matrix)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the projection matrix to be used for rendering. Usually this will
+ be set to <code><a href="../../../../com/guidebee/game/camera/Camera.html#combined">combined</a></code>.</p></div>
+
+    </div>
+</div>
+
+
+<a id="setTransformMatrix(com.guidebee.math.Matrix4)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setTransformMatrix</span>
+      <span class="normal">(<a href="../../../../com/guidebee/math/Matrix4.html">Matrix4</a> matrix)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -3543,7 +3517,7 @@ From class
 </div>
 
 
-<a id="setAttached(boolean)"></a>
+<a id="translate(float, float, float)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -3555,8 +3529,8 @@ From class
          
         void
       </span>
-      <span class="sympad">setAttached</span>
-      <span class="normal">(boolean attached)</span>
+      <span class="sympad">translate</span>
+      <span class="normal">(float x, float y, float z)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -3568,13 +3542,14 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Multiplies the current transformation matrix by a translation matrix.
+</p></div>
 
     </div>
 </div>
 
 
-<a id="setBehind(boolean)"></a>
+<a id="triangle(float, float, float, float, float, float)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -3586,8 +3561,8 @@ From class
          
         void
       </span>
-      <span class="sympad">setBehind</span>
-      <span class="normal">(boolean behind)</span>
+      <span class="sympad">triangle</span>
+      <span class="normal">(float x1, float y1, float x2, float y2, float x3, float y3)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -3599,13 +3574,15 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Draws a triangle in x/y plane using <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Line">Line</a></code>
+ or <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Filled">Filled</a></code>.
+</p></div>
 
     </div>
 </div>
 
 
-<a id="setContinuous(boolean)"></a>
+<a id="triangle(float, float, float, float, float, float, com.guidebee.game.graphics.Color, com.guidebee.game.graphics.Color, com.guidebee.game.graphics.Color)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -3617,8 +3594,8 @@ From class
          
         void
       </span>
-      <span class="sympad">setContinuous</span>
-      <span class="normal">(boolean continuous)</span>
+      <span class="sympad">triangle</span>
+      <span class="normal">(float x1, float y1, float x2, float y2, float x3, float y3, <a href="../../../../com/guidebee/game/graphics/Color.html">Color</a> col1, <a href="../../../../com/guidebee/game/graphics/Color.html">Color</a> col2, <a href="../../../../com/guidebee/game/graphics/Color.html">Color</a> col3)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -3630,13 +3607,15 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Draws a triangle in x/y plane with colored corners using
+ <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Line">Line</a></code> or <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Filled">Filled</a></code>.
+</p></div>
 
     </div>
 </div>
 
 
-<a id="setFlip(boolean, boolean)"></a>
+<a id="updateMatrices()"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -3648,255 +3627,7 @@ From class
          
         void
       </span>
-      <span class="sympad">setFlip</span>
-      <span class="normal">(boolean flipX, boolean flipY)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="setImagePath(java.lang.String)"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">setImagePath</span>
-      <span class="normal">(String imagePath)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="setMaxParticleCount(int)"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">setMaxParticleCount</span>
-      <span class="normal">(int maxParticleCount)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="setMinParticleCount(int)"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">setMinParticleCount</span>
-      <span class="normal">(int minParticleCount)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="setName(java.lang.String)"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">setName</span>
-      <span class="normal">(String name)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="setPosition(float, float)"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">setPosition</span>
-      <span class="normal">(float x, float y)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="setPremultipliedAlpha(boolean)"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">setPremultipliedAlpha</span>
-      <span class="normal">(boolean premultipliedAlpha)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="setSprite(com.guidebee.game.graphics.Sprite)"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">setSprite</span>
-      <span class="normal">(<a href="../../../../com/guidebee/game/graphics/Sprite.html">Sprite</a> sprite)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="start()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">start</span>
+      <span class="sympad">updateMatrices</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -3915,7 +3646,7 @@ From class
 </div>
 
 
-<a id="update(float)"></a>
+<a id="x(com.guidebee.math.Vector2, float)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -3927,8 +3658,8 @@ From class
          
         void
       </span>
-      <span class="sympad">update</span>
-      <span class="normal">(float delta)</span>
+      <span class="sympad">x</span>
+      <span class="normal">(<a href="../../../../com/guidebee/math/Vector2.html">Vector2</a> p, float radius)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -3941,6 +3672,44 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html#x(float, float, float)">x(float, float, float)</a></code></li>
+      </ul>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="x(float, float, float)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">x</span>
+      <span class="normal">(float x, float y, float radius)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Draws two crossed lines using <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Line">Line</a></code>
+ or <code><a href="../../../../com/guidebee/game/graphics/ShapeRenderer.ShapeType.html#Filled">Filled</a></code>.
+</p></div>
 
     </div>
 </div>

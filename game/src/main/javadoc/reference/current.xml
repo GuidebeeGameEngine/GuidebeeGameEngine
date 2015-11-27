@@ -10426,6 +10426,19 @@
  visibility="public"
 >
 </constructor>
+<method name="getVerticesFromString"
+ return="float[]"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="input" type="java.lang.String">
+</parameter>
+</method>
 <method name="toBox2D"
  return="float"
  abstract="false"
@@ -10437,6 +10450,19 @@
  visibility="public"
 >
 <parameter name="pixel" type="float">
+</parameter>
+</method>
+<method name="toBox2DVertices"
+ return="float[]"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="vertices" type="float[]">
 </parameter>
 </method>
 <method name="toPixel"
@@ -10452,6 +10478,29 @@
 <parameter name="box2d" type="float">
 </parameter>
 </method>
+<method name="toPixelVertices"
+ return="float[]"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="vertices" type="float[]">
+</parameter>
+</method>
+<field name="VelocityIterations"
+ type="int"
+ transient="false"
+ volatile="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
 <field name="app"
  type="com.guidebee.game.Application"
  transient="false"
@@ -10554,6 +10603,16 @@
 </field>
 <field name="pixelToBox2DUnit"
  type="float"
+ transient="false"
+ volatile="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="positionIterations"
+ type="int"
  transient="false"
  volatile="false"
  static="true"
@@ -29683,6 +29742,1010 @@
 >
 </method>
 </class>
+<class name="ShapeRenderer"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<implements name="com.guidebee.utils.Disposable">
+</implements>
+<constructor name="ShapeRenderer"
+ type="com.guidebee.game.graphics.ShapeRenderer"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+<constructor name="ShapeRenderer"
+ type="com.guidebee.game.graphics.ShapeRenderer"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="maxVertices" type="int">
+</parameter>
+</constructor>
+<method name="arc"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="x" type="float">
+</parameter>
+<parameter name="y" type="float">
+</parameter>
+<parameter name="radius" type="float">
+</parameter>
+<parameter name="start" type="float">
+</parameter>
+<parameter name="degrees" type="float">
+</parameter>
+</method>
+<method name="arc"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="x" type="float">
+</parameter>
+<parameter name="y" type="float">
+</parameter>
+<parameter name="radius" type="float">
+</parameter>
+<parameter name="start" type="float">
+</parameter>
+<parameter name="degrees" type="float">
+</parameter>
+<parameter name="segments" type="int">
+</parameter>
+</method>
+<method name="begin"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="begin"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="type" type="com.guidebee.game.graphics.ShapeRenderer.ShapeType">
+</parameter>
+</method>
+<method name="box"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="x" type="float">
+</parameter>
+<parameter name="y" type="float">
+</parameter>
+<parameter name="z" type="float">
+</parameter>
+<parameter name="width" type="float">
+</parameter>
+<parameter name="height" type="float">
+</parameter>
+<parameter name="depth" type="float">
+</parameter>
+</method>
+<method name="circle"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="x" type="float">
+</parameter>
+<parameter name="y" type="float">
+</parameter>
+<parameter name="radius" type="float">
+</parameter>
+</method>
+<method name="circle"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="x" type="float">
+</parameter>
+<parameter name="y" type="float">
+</parameter>
+<parameter name="radius" type="float">
+</parameter>
+<parameter name="segments" type="int">
+</parameter>
+</method>
+<method name="cone"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="x" type="float">
+</parameter>
+<parameter name="y" type="float">
+</parameter>
+<parameter name="z" type="float">
+</parameter>
+<parameter name="radius" type="float">
+</parameter>
+<parameter name="height" type="float">
+</parameter>
+</method>
+<method name="cone"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="x" type="float">
+</parameter>
+<parameter name="y" type="float">
+</parameter>
+<parameter name="z" type="float">
+</parameter>
+<parameter name="radius" type="float">
+</parameter>
+<parameter name="height" type="float">
+</parameter>
+<parameter name="segments" type="int">
+</parameter>
+</method>
+<method name="curve"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="x1" type="float">
+</parameter>
+<parameter name="y1" type="float">
+</parameter>
+<parameter name="cx1" type="float">
+</parameter>
+<parameter name="cy1" type="float">
+</parameter>
+<parameter name="cx2" type="float">
+</parameter>
+<parameter name="cy2" type="float">
+</parameter>
+<parameter name="x2" type="float">
+</parameter>
+<parameter name="y2" type="float">
+</parameter>
+<parameter name="segments" type="int">
+</parameter>
+</method>
+<method name="dispose"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="ellipse"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="x" type="float">
+</parameter>
+<parameter name="y" type="float">
+</parameter>
+<parameter name="width" type="float">
+</parameter>
+<parameter name="height" type="float">
+</parameter>
+</method>
+<method name="ellipse"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="x" type="float">
+</parameter>
+<parameter name="y" type="float">
+</parameter>
+<parameter name="width" type="float">
+</parameter>
+<parameter name="height" type="float">
+</parameter>
+<parameter name="segments" type="int">
+</parameter>
+</method>
+<method name="end"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="flush"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getColor"
+ return="com.guidebee.game.graphics.Color"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getCurrentType"
+ return="com.guidebee.game.graphics.ShapeRenderer.ShapeType"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getProjectionMatrix"
+ return="com.guidebee.math.Matrix4"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getRenderer"
+ return="com.guidebee.game.engine.graphics.opengles.ImmediateModeRenderer"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getTransformMatrix"
+ return="com.guidebee.math.Matrix4"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="identity"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="isDrawing"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="line"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="x" type="float">
+</parameter>
+<parameter name="y" type="float">
+</parameter>
+<parameter name="z" type="float">
+</parameter>
+<parameter name="x2" type="float">
+</parameter>
+<parameter name="y2" type="float">
+</parameter>
+<parameter name="z2" type="float">
+</parameter>
+</method>
+<method name="line"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="v0" type="com.guidebee.math.Vector3">
+</parameter>
+<parameter name="v1" type="com.guidebee.math.Vector3">
+</parameter>
+</method>
+<method name="line"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="x" type="float">
+</parameter>
+<parameter name="y" type="float">
+</parameter>
+<parameter name="x2" type="float">
+</parameter>
+<parameter name="y2" type="float">
+</parameter>
+</method>
+<method name="line"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="v0" type="com.guidebee.math.Vector2">
+</parameter>
+<parameter name="v1" type="com.guidebee.math.Vector2">
+</parameter>
+</method>
+<method name="line"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="x" type="float">
+</parameter>
+<parameter name="y" type="float">
+</parameter>
+<parameter name="x2" type="float">
+</parameter>
+<parameter name="y2" type="float">
+</parameter>
+<parameter name="c1" type="com.guidebee.game.graphics.Color">
+</parameter>
+<parameter name="c2" type="com.guidebee.game.graphics.Color">
+</parameter>
+</method>
+<method name="line"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="x" type="float">
+</parameter>
+<parameter name="y" type="float">
+</parameter>
+<parameter name="z" type="float">
+</parameter>
+<parameter name="x2" type="float">
+</parameter>
+<parameter name="y2" type="float">
+</parameter>
+<parameter name="z2" type="float">
+</parameter>
+<parameter name="c1" type="com.guidebee.game.graphics.Color">
+</parameter>
+<parameter name="c2" type="com.guidebee.game.graphics.Color">
+</parameter>
+</method>
+<method name="point"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="x" type="float">
+</parameter>
+<parameter name="y" type="float">
+</parameter>
+<parameter name="z" type="float">
+</parameter>
+</method>
+<method name="polygon"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="vertices" type="float[]">
+</parameter>
+<parameter name="offset" type="int">
+</parameter>
+<parameter name="count" type="int">
+</parameter>
+</method>
+<method name="polygon"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="vertices" type="float[]">
+</parameter>
+</method>
+<method name="polyline"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="vertices" type="float[]">
+</parameter>
+<parameter name="offset" type="int">
+</parameter>
+<parameter name="count" type="int">
+</parameter>
+</method>
+<method name="polyline"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="vertices" type="float[]">
+</parameter>
+</method>
+<method name="rect"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="x" type="float">
+</parameter>
+<parameter name="y" type="float">
+</parameter>
+<parameter name="width" type="float">
+</parameter>
+<parameter name="height" type="float">
+</parameter>
+</method>
+<method name="rect"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="x" type="float">
+</parameter>
+<parameter name="y" type="float">
+</parameter>
+<parameter name="width" type="float">
+</parameter>
+<parameter name="height" type="float">
+</parameter>
+<parameter name="col1" type="com.guidebee.game.graphics.Color">
+</parameter>
+<parameter name="col2" type="com.guidebee.game.graphics.Color">
+</parameter>
+<parameter name="col3" type="com.guidebee.game.graphics.Color">
+</parameter>
+<parameter name="col4" type="com.guidebee.game.graphics.Color">
+</parameter>
+</method>
+<method name="rect"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="x" type="float">
+</parameter>
+<parameter name="y" type="float">
+</parameter>
+<parameter name="originX" type="float">
+</parameter>
+<parameter name="originY" type="float">
+</parameter>
+<parameter name="width" type="float">
+</parameter>
+<parameter name="height" type="float">
+</parameter>
+<parameter name="scaleX" type="float">
+</parameter>
+<parameter name="scaleY" type="float">
+</parameter>
+<parameter name="degrees" type="float">
+</parameter>
+</method>
+<method name="rect"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="x" type="float">
+</parameter>
+<parameter name="y" type="float">
+</parameter>
+<parameter name="originX" type="float">
+</parameter>
+<parameter name="originY" type="float">
+</parameter>
+<parameter name="width" type="float">
+</parameter>
+<parameter name="height" type="float">
+</parameter>
+<parameter name="scaleX" type="float">
+</parameter>
+<parameter name="scaleY" type="float">
+</parameter>
+<parameter name="degrees" type="float">
+</parameter>
+<parameter name="col1" type="com.guidebee.game.graphics.Color">
+</parameter>
+<parameter name="col2" type="com.guidebee.game.graphics.Color">
+</parameter>
+<parameter name="col3" type="com.guidebee.game.graphics.Color">
+</parameter>
+<parameter name="col4" type="com.guidebee.game.graphics.Color">
+</parameter>
+</method>
+<method name="rectLine"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="x1" type="float">
+</parameter>
+<parameter name="y1" type="float">
+</parameter>
+<parameter name="x2" type="float">
+</parameter>
+<parameter name="y2" type="float">
+</parameter>
+<parameter name="width" type="float">
+</parameter>
+</method>
+<method name="rectLine"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="p1" type="com.guidebee.math.Vector2">
+</parameter>
+<parameter name="p2" type="com.guidebee.math.Vector2">
+</parameter>
+<parameter name="width" type="float">
+</parameter>
+</method>
+<method name="rotate"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="axisX" type="float">
+</parameter>
+<parameter name="axisY" type="float">
+</parameter>
+<parameter name="axisZ" type="float">
+</parameter>
+<parameter name="degrees" type="float">
+</parameter>
+</method>
+<method name="scale"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="scaleX" type="float">
+</parameter>
+<parameter name="scaleY" type="float">
+</parameter>
+<parameter name="scaleZ" type="float">
+</parameter>
+</method>
+<method name="set"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="type" type="com.guidebee.game.graphics.ShapeRenderer.ShapeType">
+</parameter>
+</method>
+<method name="setAutoShapeType"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="autoShapeType" type="boolean">
+</parameter>
+</method>
+<method name="setColor"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="color" type="com.guidebee.game.graphics.Color">
+</parameter>
+</method>
+<method name="setColor"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="r" type="float">
+</parameter>
+<parameter name="g" type="float">
+</parameter>
+<parameter name="b" type="float">
+</parameter>
+<parameter name="a" type="float">
+</parameter>
+</method>
+<method name="setProjectionMatrix"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="matrix" type="com.guidebee.math.Matrix4">
+</parameter>
+</method>
+<method name="setTransformMatrix"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="matrix" type="com.guidebee.math.Matrix4">
+</parameter>
+</method>
+<method name="translate"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="x" type="float">
+</parameter>
+<parameter name="y" type="float">
+</parameter>
+<parameter name="z" type="float">
+</parameter>
+</method>
+<method name="triangle"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="x1" type="float">
+</parameter>
+<parameter name="y1" type="float">
+</parameter>
+<parameter name="x2" type="float">
+</parameter>
+<parameter name="y2" type="float">
+</parameter>
+<parameter name="x3" type="float">
+</parameter>
+<parameter name="y3" type="float">
+</parameter>
+</method>
+<method name="triangle"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="x1" type="float">
+</parameter>
+<parameter name="y1" type="float">
+</parameter>
+<parameter name="x2" type="float">
+</parameter>
+<parameter name="y2" type="float">
+</parameter>
+<parameter name="x3" type="float">
+</parameter>
+<parameter name="y3" type="float">
+</parameter>
+<parameter name="col1" type="com.guidebee.game.graphics.Color">
+</parameter>
+<parameter name="col2" type="com.guidebee.game.graphics.Color">
+</parameter>
+<parameter name="col3" type="com.guidebee.game.graphics.Color">
+</parameter>
+</method>
+<method name="updateMatrices"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="x"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="x" type="float">
+</parameter>
+<parameter name="y" type="float">
+</parameter>
+<parameter name="radius" type="float">
+</parameter>
+</method>
+<method name="x"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="p" type="com.guidebee.math.Vector2">
+</parameter>
+<parameter name="radius" type="float">
+</parameter>
+</method>
+</class>
+<class name="ShapeRenderer.ShapeType"
+ extends="java.lang.Enum"
+ abstract="false"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<method name="getGlType"
+ return="int"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="valueOf"
+ return="com.guidebee.game.graphics.ShapeRenderer.ShapeType"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="name" type="java.lang.String">
+</parameter>
+</method>
+<method name="values"
+ return="com.guidebee.game.graphics.ShapeRenderer.ShapeType[]"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+</class>
 <class name="Sprite"
  extends="com.guidebee.game.graphics.TextureRegion"
  abstract="false"
@@ -39947,8 +41010,21 @@
 </parameter>
 <parameter name="drawContacts" type="boolean">
 </parameter>
+<parameter name="drawOverlays" type="boolean">
+</parameter>
 </constructor>
 <method name="dispose"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="drawOverlays"
  return="void"
  abstract="false"
  native="false"
@@ -42379,27 +43455,6 @@
 <parameter name="doSleep" type="boolean">
 </parameter>
 </constructor>
-<method name="QueryAABB"
- return="void"
- abstract="false"
- native="false"
- synchronized="false"
- static="false"
- final="false"
- deprecated="not deprecated"
- visibility="public"
->
-<parameter name="callback" type="com.guidebee.game.physics.QueryCallback">
-</parameter>
-<parameter name="lowerX" type="float">
-</parameter>
-<parameter name="lowerY" type="float">
-</parameter>
-<parameter name="upperX" type="float">
-</parameter>
-<parameter name="upperY" type="float">
-</parameter>
-</method>
 <method name="clearForces"
  return="void"
  abstract="false"
@@ -42598,6 +43653,27 @@
  deprecated="not deprecated"
  visibility="public"
 >
+</method>
+<method name="queryAABB"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="callback" type="com.guidebee.game.physics.QueryCallback">
+</parameter>
+<parameter name="lowerX" type="float">
+</parameter>
+<parameter name="lowerY" type="float">
+</parameter>
+<parameter name="upperX" type="float">
+</parameter>
+<parameter name="upperY" type="float">
+</parameter>
 </method>
 <method name="rayCast"
  return="void"
@@ -45249,6 +46325,118 @@
 <parameter name="action" type="com.guidebee.game.scene.actions.Action">
 </parameter>
 </method>
+<method name="addBodyShape"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="type" type="com.guidebee.game.physics.BodyDef.BodyType">
+</parameter>
+<parameter name="polygonShapes" type="com.guidebee.game.physics.Shape[]">
+</parameter>
+<parameter name="rect" type="com.guidebee.math.geometry.Rectangle">
+</parameter>
+<parameter name="density" type="float">
+</parameter>
+<parameter name="restitution" type="float">
+</parameter>
+<parameter name="friction" type="float">
+</parameter>
+<parameter name="isSensor" type="boolean">
+</parameter>
+</method>
+<method name="addBodyShape"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="type" type="com.guidebee.game.physics.BodyDef.BodyType">
+</parameter>
+<parameter name="polygonShape" type="com.guidebee.game.physics.Shape">
+</parameter>
+<parameter name="rect" type="com.guidebee.math.geometry.Rectangle">
+</parameter>
+<parameter name="density" type="float">
+</parameter>
+<parameter name="restitution" type="float">
+</parameter>
+<parameter name="friction" type="float">
+</parameter>
+<parameter name="isSensor" type="boolean">
+</parameter>
+</method>
+<method name="addBodyShape"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="type" type="com.guidebee.game.physics.BodyDef.BodyType">
+</parameter>
+<parameter name="polygonShapes" type="com.guidebee.game.physics.Shape[]">
+</parameter>
+<parameter name="rect" type="com.guidebee.math.geometry.Rectangle">
+</parameter>
+<parameter name="density" type="float">
+</parameter>
+<parameter name="restitution" type="float">
+</parameter>
+<parameter name="friction" type="float">
+</parameter>
+<parameter name="isSensor" type="boolean">
+</parameter>
+<parameter name="categoryBits" type="short">
+</parameter>
+<parameter name="maskBits" type="short">
+</parameter>
+<parameter name="groupIndex" type="short">
+</parameter>
+</method>
+<method name="addBodyShape"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="type" type="com.guidebee.game.physics.BodyDef.BodyType">
+</parameter>
+<parameter name="polygonShape" type="com.guidebee.game.physics.Shape">
+</parameter>
+<parameter name="rect" type="com.guidebee.math.geometry.Rectangle">
+</parameter>
+<parameter name="density" type="float">
+</parameter>
+<parameter name="restitution" type="float">
+</parameter>
+<parameter name="friction" type="float">
+</parameter>
+<parameter name="isSensor" type="boolean">
+</parameter>
+<parameter name="categoryBits" type="short">
+</parameter>
+<parameter name="maskBits" type="short">
+</parameter>
+<parameter name="groupIndex" type="short">
+</parameter>
+</method>
 <method name="addDataTrait"
  return="com.guidebee.game.scene.Actor"
  abstract="false"
@@ -45781,9 +46969,130 @@
 >
 <parameter name="type" type="com.guidebee.game.physics.BodyDef.BodyType">
 </parameter>
+<parameter name="polygonShape" type="com.guidebee.game.physics.Shape">
+</parameter>
+<parameter name="rect" type="com.guidebee.math.geometry.Rectangle">
+</parameter>
+<parameter name="density" type="float">
+</parameter>
+<parameter name="restitution" type="float">
+</parameter>
+<parameter name="friction" type="float">
+</parameter>
+</method>
+<method name="initBody"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="type" type="com.guidebee.game.physics.BodyDef.BodyType">
+</parameter>
+<parameter name="polygonShapes" type="com.guidebee.game.physics.Shape[]">
+</parameter>
+<parameter name="rect" type="com.guidebee.math.geometry.Rectangle">
+</parameter>
+<parameter name="density" type="float">
+</parameter>
+<parameter name="restitution" type="float">
+</parameter>
+<parameter name="friction" type="float">
+</parameter>
+<parameter name="keepBody" type="boolean">
+</parameter>
+<parameter name="isSensor" type="boolean">
+</parameter>
+<parameter name="useFilter" type="boolean">
+</parameter>
+<parameter name="categoryBits" type="short">
+</parameter>
+<parameter name="maskBits" type="short">
+</parameter>
+<parameter name="groupIndex" type="short">
+</parameter>
+</method>
+<method name="initBody"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="type" type="com.guidebee.game.physics.BodyDef.BodyType">
+</parameter>
+<parameter name="polygonShapes" type="com.guidebee.game.physics.Shape[]">
+</parameter>
+<parameter name="rect" type="com.guidebee.math.geometry.Rectangle">
+</parameter>
+<parameter name="density" type="float">
+</parameter>
+<parameter name="restitution" type="float">
+</parameter>
+<parameter name="friction" type="float">
+</parameter>
+</method>
+<method name="initBody"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="type" type="com.guidebee.game.physics.BodyDef.BodyType">
+</parameter>
 <parameter name="shapeType" type="com.guidebee.game.physics.Shape.Type">
 </parameter>
 <parameter name="rect" type="com.guidebee.math.geometry.Rectangle">
+</parameter>
+<parameter name="density" type="float">
+</parameter>
+<parameter name="restitution" type="float">
+</parameter>
+<parameter name="friction" type="float">
+</parameter>
+</method>
+<method name="initChainBody"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="chainShape" type="com.guidebee.game.physics.ChainShape">
+</parameter>
+<parameter name="density" type="float">
+</parameter>
+<parameter name="restitution" type="float">
+</parameter>
+<parameter name="friction" type="float">
+</parameter>
+</method>
+<method name="initChainBody"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="bodyType" type="com.guidebee.game.physics.BodyDef.BodyType">
+</parameter>
+<parameter name="chainShape" type="com.guidebee.game.physics.ChainShape">
 </parameter>
 <parameter name="density" type="float">
 </parameter>
@@ -45994,6 +47303,28 @@
 >
 <parameter name="dataTraitClass" type="java.lang.Class&lt;? extends com.guidebee.game.entity.DataTrait&gt;">
 </parameter>
+</method>
+<method name="resetBodyWithSprite"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="resetSpriteWithBody"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
 </method>
 <method name="rotateBy"
  return="void"
@@ -46901,6 +48232,16 @@
  deprecated="not deprecated"
  visibility="public"
 >
+<constructor name="Scene"
+ type="com.guidebee.game.scene.Scene"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="stage" type="com.guidebee.game.scene.Stage">
+</parameter>
+</constructor>
 <constructor name="Scene"
  type="com.guidebee.game.scene.Scene"
  static="false"
@@ -47904,6 +49245,19 @@
  visibility="public"
 >
 <parameter name="actor" type="com.guidebee.game.scene.Actor">
+</parameter>
+</method>
+<method name="setSensorListener"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="listener" type="com.guidebee.game.scene.collision.SensorListener">
 </parameter>
 </method>
 <method name="setViewport"
@@ -51734,6 +53088,40 @@
  visibility="public"
 >
 <parameter name="collision" type="com.guidebee.game.scene.collision.Collision">
+</parameter>
+</method>
+</interface>
+<interface name="SensorListener"
+ abstract="true"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<method name="beginContact"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="contact" type="com.guidebee.game.physics.Contact">
+</parameter>
+</method>
+<method name="endContact"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="contact" type="com.guidebee.game.physics.Contact">
 </parameter>
 </method>
 </interface>
