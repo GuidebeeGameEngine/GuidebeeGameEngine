@@ -170,4 +170,87 @@ public class WidgetGroup extends Group implements Layout {
         validate();
         super.draw(batch, parentAlpha);
     }
+
+    /**
+     * Add widget to the group
+     * @param widget
+     */
+    public void addComponent(Widget widget){
+        addActor(widget);
+    }
+
+    public void addComponentAt(int index, Widget widget){
+        addActorAt(index, widget);
+    }
+
+    public void addComponent(WidgetGroup widget){
+        addActor(widget);
+    }
+
+    public void addComponentAt(int index, WidgetGroup widget){
+        addActorAt(index, widget);
+    }
+
+    public void removeComponent(Widget widget){
+        removeActor(widget);
+    }
+
+    public void removeComponent(WidgetGroup widget){
+        removeActor(widget);
+    }
+
+    public void addComponentBefore(Widget widgetBefore, Widget widget){
+        addActorBefore(widgetBefore, widget);
+    }
+
+    public void addComponentBefore(Widget widgetBefore, WidgetGroup widget){
+        addActorBefore(widgetBefore, widget);
+    }
+
+    public void addComponentBefore(WidgetGroup widgetBefore, Widget widget){
+        addActorBefore(widgetBefore, widget);
+    }
+
+    public void addComponentBefore(WidgetGroup widgetBefore, WidgetGroup widget){
+        addActorBefore(widgetBefore, widget);
+    }
+
+    public void addComponentAfter(Widget widgetAfter, Widget widget){
+        addActorAfter(widgetAfter, widget);
+    }
+
+    public void addComponentAfter(Widget widgetAfter, WidgetGroup widget){
+        addActorAfter(widgetAfter, widget);
+    }
+
+    public void addComponentAfter(WidgetGroup widgetAfter, Widget widget){
+        addActorAfter(widgetAfter, widget);
+    }
+
+    public void addComponentAfter(WidgetGroup widgetAfter, WidgetGroup widget){
+        addActorAfter(widgetAfter, widget);
+    }
+
+    public boolean swapComponent(int first, int second){
+        return swapActor(first,second);
+    }
+
+    public boolean swapComponent(Widget first, Widget second){
+        return swapActor(first,second);
+    }
+
+    public boolean swapComponent(Widget first, WidgetGroup second){
+        return swapActor(first,second);
+    }
+
+    public boolean swapComponent(WidgetGroup first, Widget second){
+        return swapActor(first,second);
+    }
+
+    public boolean swapComponent(WidgetGroup first, WidgetGroup second){
+        return swapActor(first,second);
+    }
+
+
+
 }

@@ -7,8 +7,6 @@ import com.guidebee.game.ui.Window;
 
 public class MainWindow extends Window{
 
-
-
     private final BackgroundImage backgroundImage;
     private final Stack stack=new Stack();
 
@@ -20,7 +18,7 @@ public class MainWindow extends Window{
         backgroundImage=new BackgroundImage();
         addComponent(stack);
         backgroundImage.setFillParent(true);
-        stack.addActor(backgroundImage);
+        stack.addComponent(backgroundImage);
     }
 
 
