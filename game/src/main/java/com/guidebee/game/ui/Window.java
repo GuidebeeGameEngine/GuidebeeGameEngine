@@ -26,6 +26,7 @@ import com.guidebee.game.camera.viewports.ScreenViewport;
 import com.guidebee.game.engine.scene.Stage;
 import com.guidebee.game.graphics.Batch;
 import com.guidebee.game.graphics.SpriteBatch;
+import com.guidebee.game.graphics.TextureAtlas;
 
 //[------------------------------ MAIN CLASS ----------------------------------]
 
@@ -36,6 +37,10 @@ public class Window extends ScreenAdapter {
     private SpriteBatch batch;
     private Stage stage;
     private Table table = new Table();
+
+    private static final String TEXTURE_SKIN_UI= "skin/default/uiskin.atlas";
+    private static final String SKIN_UI="skin/default/uiskin.json";
+    public static Skin defaultSkin;
 
     private InputProcessor savedInputProcessor = null;
 
@@ -127,5 +132,10 @@ public class Window extends ScreenAdapter {
         batch.dispose();
         stage.dispose();
 
+    }
+
+    static {
+        defaultSkin=new Skin(GameEngine.files.internal(SKIN_UI),
+                new TextureAtlas(TEXTURE_SKIN_UI));
     }
 }
