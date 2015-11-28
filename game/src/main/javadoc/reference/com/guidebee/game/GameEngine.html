@@ -484,13 +484,24 @@ Summary:
           public
           static
           
+          int</td>
+          <td class="jd-linkcol"><a href="../../../com/guidebee/game/GameEngine.html#VelocityIterations">VelocityIterations</a></td>
+          <td class="jd-descrcol" width="100%">default velocity iterations for box2d simulation.</td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol">
+          public
+          static
+          
           <a href="../../../com/guidebee/game/Application.html">Application</a></td>
           <td class="jd-linkcol"><a href="../../../com/guidebee/game/GameEngine.html#app">app</a></td>
           <td class="jd-descrcol" width="100%">Application instance.</td>
       </tr>
       
     
-      <tr class=" api apilevel-" >
+      <tr class="alt-color api apilevel-" >
           <td class="jd-typecol">
           public
           static
@@ -501,7 +512,7 @@ Summary:
       </tr>
       
     
-      <tr class="alt-color api apilevel-" >
+      <tr class=" api apilevel-" >
           <td class="jd-typecol">
           public
           static
@@ -512,7 +523,7 @@ Summary:
       </tr>
       
     
-      <tr class=" api apilevel-" >
+      <tr class="alt-color api apilevel-" >
           <td class="jd-typecol">
           public
           static
@@ -523,7 +534,7 @@ Summary:
       </tr>
       
     
-      <tr class="alt-color api apilevel-" >
+      <tr class=" api apilevel-" >
           <td class="jd-typecol">
           public
           static
@@ -534,7 +545,7 @@ Summary:
       </tr>
       
     
-      <tr class=" api apilevel-" >
+      <tr class="alt-color api apilevel-" >
           <td class="jd-typecol">
           public
           static
@@ -545,7 +556,7 @@ Summary:
       </tr>
       
     
-      <tr class="alt-color api apilevel-" >
+      <tr class=" api apilevel-" >
           <td class="jd-typecol">
           public
           static
@@ -556,7 +567,7 @@ Summary:
       </tr>
       
     
-      <tr class=" api apilevel-" >
+      <tr class="alt-color api apilevel-" >
           <td class="jd-typecol">
           public
           static
@@ -567,7 +578,7 @@ Summary:
       </tr>
       
     
-      <tr class="alt-color api apilevel-" >
+      <tr class=" api apilevel-" >
           <td class="jd-typecol">
           public
           static
@@ -578,7 +589,7 @@ Summary:
       </tr>
       
     
-      <tr class=" api apilevel-" >
+      <tr class="alt-color api apilevel-" >
           <td class="jd-typecol">
           public
           static
@@ -589,7 +600,7 @@ Summary:
       </tr>
       
     
-      <tr class="alt-color api apilevel-" >
+      <tr class=" api apilevel-" >
           <td class="jd-typecol">
           public
           static
@@ -598,6 +609,17 @@ Summary:
           <td class="jd-linkcol"><a href="../../../com/guidebee/game/GameEngine.html#pixelToBox2DUnit">pixelToBox2DUnit</a></td>
           <td class="jd-descrcol" width="100%">pixel to box2d unit ratio
 </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol">
+          public
+          static
+          
+          int</td>
+          <td class="jd-linkcol"><a href="../../../com/guidebee/game/GameEngine.html#positionIterations">positionIterations</a></td>
+          <td class="jd-descrcol" width="100%">default position iterations for box2d simulation.</td>
       </tr>
       
     
@@ -663,12 +685,48 @@ Summary:
             
             static
             
+            float[]
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/game/GameEngine.html#getVerticesFromString(java.lang.String)">getVerticesFromString</a></span>(String input)
+        
+        <div class="jd-descrdiv">Get vertices from string</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
             float
         </td>
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../com/guidebee/game/GameEngine.html#toBox2D(float)">toBox2D</a></span>(float pixel)
         
         <div class="jd-descrdiv">Conversion between pixel unit and box2d unit</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            float[]
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/game/GameEngine.html#toBox2DVertices(float[])">toBox2DVertices</a></span>(float[] vertices)
+        
+        <div class="jd-descrdiv">To box2d vertices</div>
   
   </td></tr>
 
@@ -687,6 +745,24 @@ Summary:
         <span class="sympad"><a href="../../../com/guidebee/game/GameEngine.html#toPixel(float)">toPixel</a></span>(float box2d)
         
         <div class="jd-descrdiv">Conversion between box2d unit and pixel unit</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            float[]
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/guidebee/game/GameEngine.html#toPixelVertices(float[])">toPixelVertices</a></span>(float[] vertices)
+        
+        <div class="jd-descrdiv">to pixel vertices</div>
   
   </td></tr>
 
@@ -904,6 +980,37 @@ From class
 <!-- ========= FIELD DETAIL ======== -->
 <h2>Fields</h2>
 
+
+
+
+<a id="VelocityIterations"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+        int
+      </span>
+        VelocityIterations
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>default velocity iterations for box2d simulation.
+</p></div>
+
+    
+    </div>
+</div>
 
 
 
@@ -1248,6 +1355,37 @@ From class
 
 
 
+<a id="positionIterations"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+        int
+      </span>
+        positionIterations
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>default position iterations for box2d simulation.
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
 <a id="world"></a>
 
 <div class="jd-details api apilevel-"> 
@@ -1334,6 +1472,46 @@ From class
 
 
 
+<a id="getVerticesFromString(java.lang.String)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        float[]
+      </span>
+      <span class="sympad">getVerticesFromString</span>
+      <span class="normal">(String input)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get vertices from string</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>input</th>
+          <td>like "69, -20  , 67, -18  , 56, -16 " .</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
 <a id="toBox2D(float)"></a>
 
 <div class="jd-details api apilevel-"> 
@@ -1365,6 +1543,37 @@ From class
 </div>
 
 
+<a id="toBox2DVertices(float[])"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        float[]
+      </span>
+      <span class="sympad">toBox2DVertices</span>
+      <span class="normal">(float[] vertices)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>To box2d vertices</p></div>
+
+    </div>
+</div>
+
+
 <a id="toPixel(float)"></a>
 
 <div class="jd-details api apilevel-"> 
@@ -1391,6 +1600,37 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Conversion between box2d unit and pixel unit</p></div>
+
+    </div>
+</div>
+
+
+<a id="toPixelVertices(float[])"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        float[]
+      </span>
+      <span class="sympad">toPixelVertices</span>
+      <span class="normal">(float[] vertices)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>to pixel vertices</p></div>
 
     </div>
 </div>

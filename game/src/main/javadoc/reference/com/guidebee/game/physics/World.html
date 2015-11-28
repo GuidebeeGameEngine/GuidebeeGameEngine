@@ -524,24 +524,6 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/physics/World.html#QueryAABB(com.guidebee.game.physics.QueryCallback, float, float, float, float)">QueryAABB</a></span>(<a href="../../../../com/guidebee/game/physics/QueryCallback.html">QueryCallback</a> callback, float lowerX, float lowerY, float upperX, float upperY)
-        
-        <div class="jd-descrdiv">Query the world for all fixtures that potentially overlap the provided AABB.</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            void
-        </td>
-        <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/physics/World.html#clearForces()">clearForces</a></span>()
         
         <div class="jd-descrdiv">Manually clear the force buffer on all bodies.</div>
@@ -550,7 +532,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -568,7 +550,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -586,7 +568,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -604,7 +586,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -622,7 +604,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -640,7 +622,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -658,7 +640,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -674,7 +656,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -692,7 +674,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -710,7 +692,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -729,7 +711,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -745,7 +727,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -763,7 +745,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -779,7 +761,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -797,7 +779,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -813,7 +795,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -826,6 +808,24 @@ Summary:
         <span class="sympad"><a href="../../../../com/guidebee/game/physics/World.html#isLocked()">isLocked</a></span>()
         
         <div class="jd-descrdiv">Is the world locked (in the middle of a time step).</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/physics/World.html#queryAABB(com.guidebee.game.physics.QueryCallback, float, float, float, float)">queryAABB</a></span>(<a href="../../../../com/guidebee/game/physics/QueryCallback.html">QueryCallback</a> callback, float lowerX, float lowerY, float upperX, float upperY)
+        
+        <div class="jd-descrdiv">Query the world for all fixtures that potentially overlap the provided AABB.</div>
   
   </td></tr>
 
@@ -1330,63 +1330,6 @@ From interface
 
 <h2>Public Methods</h2>
 
-
-
-<a id="QueryAABB(com.guidebee.game.physics.QueryCallback, float, float, float, float)"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">QueryAABB</span>
-      <span class="normal">(<a href="../../../../com/guidebee/game/physics/QueryCallback.html">QueryCallback</a> callback, float lowerX, float lowerY, float upperX, float upperY)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Query the world for all fixtures that potentially overlap the provided AABB.</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>callback</th>
-          <td>a user implemented callback class.</td>
-        </tr>
-        <tr>
-          <th>lowerX</th>
-          <td>the x coordinate of the lower left corner</td>
-        </tr>
-        <tr>
-          <th>lowerY</th>
-          <td>the y coordinate of the lower left corner</td>
-        </tr>
-        <tr>
-          <th>upperX</th>
-          <td>the x coordinate of the upper right corner</td>
-        </tr>
-        <tr>
-          <th>upperY</th>
-          <td>the y coordinate of the upper right corner
-</td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
 
 
 <a id="clearForces()"></a>
@@ -1972,6 +1915,63 @@ From interface
       
   <div class="jd-tagdata jd-tagdescr"><p>Is the world locked (in the middle of a time step).
 </p></div>
+
+    </div>
+</div>
+
+
+<a id="queryAABB(com.guidebee.game.physics.QueryCallback, float, float, float, float)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">queryAABB</span>
+      <span class="normal">(<a href="../../../../com/guidebee/game/physics/QueryCallback.html">QueryCallback</a> callback, float lowerX, float lowerY, float upperX, float upperY)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Query the world for all fixtures that potentially overlap the provided AABB.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>callback</th>
+          <td>a user implemented callback class.</td>
+        </tr>
+        <tr>
+          <th>lowerX</th>
+          <td>the x coordinate of the lower left corner</td>
+        </tr>
+        <tr>
+          <th>lowerY</th>
+          <td>the y coordinate of the lower left corner</td>
+        </tr>
+        <tr>
+          <th>upperX</th>
+          <td>the x coordinate of the upper right corner</td>
+        </tr>
+        <tr>
+          <th>upperY</th>
+          <td>the y coordinate of the upper right corner
+</td>
+        </tr>
+      </table>
+  </div>
 
     </div>
 </div>
