@@ -46,24 +46,9 @@ public class MainWindow extends BaseWindow{
                 ));
 
 
-        TextureAtlas textureAtlas=assetManager
-                .get("uidemo.atlas",
-                        TextureAtlas.class);
-        TextureRegion playButton=textureAtlas
-                .findRegion("mainmenu_button_play");
-        TextureRegion playUpTextRegion=new TextureRegion(
-                playButton,0,0,
-                playButton.getRegionWidth()/2,
-                playButton.getRegionHeight());
-        TextureRegion playDownTextRegion=new TextureRegion(
-                playButton,
-                playButton.getRegionWidth()/2,0,
-                playButton.getRegionWidth()/2,
-                playButton.getRegionHeight());
 
-        Button button=new Button(
-                new TextureRegionDrawable(playUpTextRegion)
-                ,new TextureRegionDrawable(playDownTextRegion));
+
+        Button button=new Button(uiskin,"play");
 
         table.add(button);
 

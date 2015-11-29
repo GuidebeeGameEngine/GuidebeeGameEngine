@@ -21,7 +21,8 @@ public abstract class BaseWindow extends Window {
                 Configuration.SCREEN_HEIGHT);
         stack.setFillParent(true);
         addComponent(stack);
-        uiskin = new Skin(files.internal("skin/uiskin.json"), new TextureAtlas("skin/uiskin.atlas"));
+        uiskin = new Skin(files.internal("skin/uiskin.json"),
+                new TextureAtlas("skin/uiskin.atlas"));
         this.gamePlay=gamePlay;
     }
 }

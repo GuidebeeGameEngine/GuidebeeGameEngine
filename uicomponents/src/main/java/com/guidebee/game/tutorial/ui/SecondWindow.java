@@ -9,16 +9,8 @@ import com.guidebee.game.ui.EventListener;
 import com.guidebee.game.ui.HorizontalGroup;
 import com.guidebee.game.ui.Table;
 import com.guidebee.game.ui.drawable.TextureRegionDrawable;
-import com.guidebee.math.Interpolation;
 
-import static com.guidebee.game.GameEngine.*;
-import static com.guidebee.game.ui.actions.Actions.delay;
-import static com.guidebee.game.ui.actions.Actions.moveBy;
-import static com.guidebee.game.ui.actions.Actions.moveTo;
-import static com.guidebee.game.ui.actions.Actions.parallel;
-import static com.guidebee.game.ui.actions.Actions.rotateBy;
-import static com.guidebee.game.ui.actions.Actions.rotateTo;
-import static com.guidebee.game.ui.actions.Actions.sequence;
+import static com.guidebee.game.GameEngine.assetManager;
 
 
 public class SecondWindow extends BaseWindow{
