@@ -395,7 +395,7 @@ public class UIContainer extends UIComponent implements Cullable {
      * again and has actions, they should be
      * {@link UIComponent#clearActions() cleared} so the actions will be returned
      * to their
-     * {@link com.guidebee.game.ui.action.Action#setPool(com.guidebee.utils.Pool) pool},
+     * {@link com.guidebee.game.ui.actions.Action#setPool(com.guidebee.utils.Pool) pool},
      * if any. This is not done automatically.
      */
     public boolean removeActor(UIComponent actor) {

@@ -46322,7 +46322,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="action" type="com.guidebee.game.ui.action.Action">
+<parameter name="action" type="com.guidebee.game.ui.actions.Action">
 </parameter>
 </method>
 <method name="addBodyShape"
@@ -46581,7 +46581,7 @@
 </parameter>
 </method>
 <method name="getActions"
- return="com.guidebee.utils.collections.Array&lt;com.guidebee.game.ui.action.Action&gt;"
+ return="com.guidebee.utils.collections.Array&lt;com.guidebee.game.ui.actions.Action&gt;"
  abstract="false"
  native="false"
  synchronized="false"
@@ -47277,7 +47277,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="action" type="com.guidebee.game.ui.action.Action">
+<parameter name="action" type="com.guidebee.game.ui.actions.Action">
 </parameter>
 </method>
 <method name="removeAllDataTraits"
@@ -48668,7 +48668,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="action" type="com.guidebee.game.ui.action.Action">
+<parameter name="action" type="com.guidebee.game.ui.actions.Action">
 </parameter>
 </method>
 <method name="addActor"
@@ -49340,7 +49340,7 @@
 </method>
 </class>
 </package>
-<package name="com.guidebee.game.ui.action"
+<package name="com.guidebee.game.ui.actions"
 >
 <class name="Action"
  extends="java.lang.Object"
@@ -49353,7 +49353,7 @@
 <implements name="com.guidebee.utils.Pool.Poolable">
 </implements>
 <constructor name="Action"
- type="com.guidebee.game.ui.action.Action"
+ type="com.guidebee.game.ui.actions.Action"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -49453,7 +49453,7 @@
  visibility="public"
 >
 <constructor name="Actions"
- type="com.guidebee.game.ui.action.Actions"
+ type="com.guidebee.game.ui.actions.Actions"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -49474,7 +49474,7 @@
 </parameter>
 </method>
 <method name="addAction"
- return="com.guidebee.game.ui.action.AddAction"
+ return="com.guidebee.game.ui.actions.AddAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -49483,11 +49483,11 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="action" type="com.guidebee.game.ui.action.Action">
+<parameter name="action" type="com.guidebee.game.ui.actions.Action">
 </parameter>
 </method>
 <method name="addAction"
- return="com.guidebee.game.ui.action.AddAction"
+ return="com.guidebee.game.ui.actions.AddAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -49496,13 +49496,13 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="action" type="com.guidebee.game.ui.action.Action">
+<parameter name="action" type="com.guidebee.game.ui.actions.Action">
 </parameter>
 <parameter name="targetActor" type="com.guidebee.game.ui.UIComponent">
 </parameter>
 </method>
 <method name="addListener"
- return="com.guidebee.game.ui.action.AddListenerAction"
+ return="com.guidebee.game.ui.actions.AddListenerAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -49517,7 +49517,7 @@
 </parameter>
 </method>
 <method name="addListener"
- return="com.guidebee.game.ui.action.AddListenerAction"
+ return="com.guidebee.game.ui.actions.AddListenerAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -49534,7 +49534,7 @@
 </parameter>
 </method>
 <method name="after"
- return="com.guidebee.game.ui.action.AfterAction"
+ return="com.guidebee.game.ui.actions.AfterAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -49543,11 +49543,11 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="action" type="com.guidebee.game.ui.action.Action">
+<parameter name="action" type="com.guidebee.game.ui.actions.Action">
 </parameter>
 </method>
 <method name="alpha"
- return="com.guidebee.game.ui.action.AlphaAction"
+ return="com.guidebee.game.ui.actions.AlphaAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -49560,7 +49560,7 @@
 </parameter>
 </method>
 <method name="alpha"
- return="com.guidebee.game.ui.action.AlphaAction"
+ return="com.guidebee.game.ui.actions.AlphaAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -49575,7 +49575,7 @@
 </parameter>
 </method>
 <method name="alpha"
- return="com.guidebee.game.ui.action.AlphaAction"
+ return="com.guidebee.game.ui.actions.AlphaAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -49592,7 +49592,7 @@
 </parameter>
 </method>
 <method name="color"
- return="com.guidebee.game.ui.action.ColorAction"
+ return="com.guidebee.game.ui.actions.ColorAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -49605,7 +49605,7 @@
 </parameter>
 </method>
 <method name="color"
- return="com.guidebee.game.ui.action.ColorAction"
+ return="com.guidebee.game.ui.actions.ColorAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -49620,7 +49620,7 @@
 </parameter>
 </method>
 <method name="color"
- return="com.guidebee.game.ui.action.ColorAction"
+ return="com.guidebee.game.ui.actions.ColorAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -49637,7 +49637,7 @@
 </parameter>
 </method>
 <method name="delay"
- return="com.guidebee.game.ui.action.DelayAction"
+ return="com.guidebee.game.ui.actions.DelayAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -49650,7 +49650,7 @@
 </parameter>
 </method>
 <method name="delay"
- return="com.guidebee.game.ui.action.DelayAction"
+ return="com.guidebee.game.ui.actions.DelayAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -49661,11 +49661,11 @@
 >
 <parameter name="duration" type="float">
 </parameter>
-<parameter name="delayedAction" type="com.guidebee.game.ui.action.Action">
+<parameter name="delayedAction" type="com.guidebee.game.ui.actions.Action">
 </parameter>
 </method>
 <method name="fadeIn"
- return="com.guidebee.game.ui.action.AlphaAction"
+ return="com.guidebee.game.ui.actions.AlphaAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -49678,7 +49678,7 @@
 </parameter>
 </method>
 <method name="fadeIn"
- return="com.guidebee.game.ui.action.AlphaAction"
+ return="com.guidebee.game.ui.actions.AlphaAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -49693,7 +49693,7 @@
 </parameter>
 </method>
 <method name="fadeOut"
- return="com.guidebee.game.ui.action.AlphaAction"
+ return="com.guidebee.game.ui.actions.AlphaAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -49706,7 +49706,7 @@
 </parameter>
 </method>
 <method name="fadeOut"
- return="com.guidebee.game.ui.action.AlphaAction"
+ return="com.guidebee.game.ui.actions.AlphaAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -49721,7 +49721,7 @@
 </parameter>
 </method>
 <method name="forever"
- return="com.guidebee.game.ui.action.RepeatAction"
+ return="com.guidebee.game.ui.actions.RepeatAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -49730,11 +49730,11 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="repeatedAction" type="com.guidebee.game.ui.action.Action">
+<parameter name="repeatedAction" type="com.guidebee.game.ui.actions.Action">
 </parameter>
 </method>
 <method name="hide"
- return="com.guidebee.game.ui.action.VisibleAction"
+ return="com.guidebee.game.ui.actions.VisibleAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -49745,7 +49745,7 @@
 >
 </method>
 <method name="layout"
- return="com.guidebee.game.ui.action.LayoutAction"
+ return="com.guidebee.game.ui.actions.LayoutAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -49758,7 +49758,7 @@
 </parameter>
 </method>
 <method name="moveBy"
- return="com.guidebee.game.ui.action.MoveByAction"
+ return="com.guidebee.game.ui.actions.MoveByAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -49773,7 +49773,7 @@
 </parameter>
 </method>
 <method name="moveBy"
- return="com.guidebee.game.ui.action.MoveByAction"
+ return="com.guidebee.game.ui.actions.MoveByAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -49790,7 +49790,7 @@
 </parameter>
 </method>
 <method name="moveBy"
- return="com.guidebee.game.ui.action.MoveByAction"
+ return="com.guidebee.game.ui.actions.MoveByAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -49809,7 +49809,7 @@
 </parameter>
 </method>
 <method name="moveTo"
- return="com.guidebee.game.ui.action.MoveToAction"
+ return="com.guidebee.game.ui.actions.MoveToAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -49824,7 +49824,7 @@
 </parameter>
 </method>
 <method name="moveTo"
- return="com.guidebee.game.ui.action.MoveToAction"
+ return="com.guidebee.game.ui.actions.MoveToAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -49841,7 +49841,7 @@
 </parameter>
 </method>
 <method name="moveTo"
- return="com.guidebee.game.ui.action.MoveToAction"
+ return="com.guidebee.game.ui.actions.MoveToAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -49860,7 +49860,7 @@
 </parameter>
 </method>
 <method name="parallel"
- return="com.guidebee.game.ui.action.ParallelAction"
+ return="com.guidebee.game.ui.actions.ParallelAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -49869,11 +49869,11 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="action1" type="com.guidebee.game.ui.action.Action">
+<parameter name="action1" type="com.guidebee.game.ui.actions.Action">
 </parameter>
 </method>
 <method name="parallel"
- return="com.guidebee.game.ui.action.ParallelAction"
+ return="com.guidebee.game.ui.actions.ParallelAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -49882,13 +49882,13 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="action1" type="com.guidebee.game.ui.action.Action">
+<parameter name="action1" type="com.guidebee.game.ui.actions.Action">
 </parameter>
-<parameter name="action2" type="com.guidebee.game.ui.action.Action">
+<parameter name="action2" type="com.guidebee.game.ui.actions.Action">
 </parameter>
 </method>
 <method name="parallel"
- return="com.guidebee.game.ui.action.ParallelAction"
+ return="com.guidebee.game.ui.actions.ParallelAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -49897,15 +49897,15 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="action1" type="com.guidebee.game.ui.action.Action">
+<parameter name="action1" type="com.guidebee.game.ui.actions.Action">
 </parameter>
-<parameter name="action2" type="com.guidebee.game.ui.action.Action">
+<parameter name="action2" type="com.guidebee.game.ui.actions.Action">
 </parameter>
-<parameter name="action3" type="com.guidebee.game.ui.action.Action">
+<parameter name="action3" type="com.guidebee.game.ui.actions.Action">
 </parameter>
 </method>
 <method name="parallel"
- return="com.guidebee.game.ui.action.ParallelAction"
+ return="com.guidebee.game.ui.actions.ParallelAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -49914,17 +49914,17 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="action1" type="com.guidebee.game.ui.action.Action">
+<parameter name="action1" type="com.guidebee.game.ui.actions.Action">
 </parameter>
-<parameter name="action2" type="com.guidebee.game.ui.action.Action">
+<parameter name="action2" type="com.guidebee.game.ui.actions.Action">
 </parameter>
-<parameter name="action3" type="com.guidebee.game.ui.action.Action">
+<parameter name="action3" type="com.guidebee.game.ui.actions.Action">
 </parameter>
-<parameter name="action4" type="com.guidebee.game.ui.action.Action">
+<parameter name="action4" type="com.guidebee.game.ui.actions.Action">
 </parameter>
 </method>
 <method name="parallel"
- return="com.guidebee.game.ui.action.ParallelAction"
+ return="com.guidebee.game.ui.actions.ParallelAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -49933,19 +49933,19 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="action1" type="com.guidebee.game.ui.action.Action">
+<parameter name="action1" type="com.guidebee.game.ui.actions.Action">
 </parameter>
-<parameter name="action2" type="com.guidebee.game.ui.action.Action">
+<parameter name="action2" type="com.guidebee.game.ui.actions.Action">
 </parameter>
-<parameter name="action3" type="com.guidebee.game.ui.action.Action">
+<parameter name="action3" type="com.guidebee.game.ui.actions.Action">
 </parameter>
-<parameter name="action4" type="com.guidebee.game.ui.action.Action">
+<parameter name="action4" type="com.guidebee.game.ui.actions.Action">
 </parameter>
-<parameter name="action5" type="com.guidebee.game.ui.action.Action">
+<parameter name="action5" type="com.guidebee.game.ui.actions.Action">
 </parameter>
 </method>
 <method name="parallel"
- return="com.guidebee.game.ui.action.ParallelAction"
+ return="com.guidebee.game.ui.actions.ParallelAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -49954,11 +49954,11 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="actions" type="com.guidebee.game.ui.action.Action...">
+<parameter name="actions" type="com.guidebee.game.ui.actions.Action...">
 </parameter>
 </method>
 <method name="parallel"
- return="com.guidebee.game.ui.action.ParallelAction"
+ return="com.guidebee.game.ui.actions.ParallelAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -49969,7 +49969,7 @@
 >
 </method>
 <method name="removeAction"
- return="com.guidebee.game.ui.action.RemoveAction"
+ return="com.guidebee.game.ui.actions.RemoveAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -49978,11 +49978,11 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="action" type="com.guidebee.game.ui.action.Action">
+<parameter name="action" type="com.guidebee.game.ui.actions.Action">
 </parameter>
 </method>
 <method name="removeAction"
- return="com.guidebee.game.ui.action.RemoveAction"
+ return="com.guidebee.game.ui.actions.RemoveAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -49991,13 +49991,13 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="action" type="com.guidebee.game.ui.action.Action">
+<parameter name="action" type="com.guidebee.game.ui.actions.Action">
 </parameter>
 <parameter name="targetActor" type="com.guidebee.game.ui.UIComponent">
 </parameter>
 </method>
 <method name="removeActor"
- return="com.guidebee.game.ui.action.RemoveActorAction"
+ return="com.guidebee.game.ui.actions.RemoveActorAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -50008,7 +50008,7 @@
 >
 </method>
 <method name="removeActor"
- return="com.guidebee.game.ui.action.RemoveActorAction"
+ return="com.guidebee.game.ui.actions.RemoveActorAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -50021,7 +50021,7 @@
 </parameter>
 </method>
 <method name="removeListener"
- return="com.guidebee.game.ui.action.RemoveListenerAction"
+ return="com.guidebee.game.ui.actions.RemoveListenerAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -50036,7 +50036,7 @@
 </parameter>
 </method>
 <method name="removeListener"
- return="com.guidebee.game.ui.action.RemoveListenerAction"
+ return="com.guidebee.game.ui.actions.RemoveListenerAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -50053,7 +50053,7 @@
 </parameter>
 </method>
 <method name="repeat"
- return="com.guidebee.game.ui.action.RepeatAction"
+ return="com.guidebee.game.ui.actions.RepeatAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -50064,11 +50064,11 @@
 >
 <parameter name="count" type="int">
 </parameter>
-<parameter name="repeatedAction" type="com.guidebee.game.ui.action.Action">
+<parameter name="repeatedAction" type="com.guidebee.game.ui.actions.Action">
 </parameter>
 </method>
 <method name="rotateBy"
- return="com.guidebee.game.ui.action.RotateByAction"
+ return="com.guidebee.game.ui.actions.RotateByAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -50081,7 +50081,7 @@
 </parameter>
 </method>
 <method name="rotateBy"
- return="com.guidebee.game.ui.action.RotateByAction"
+ return="com.guidebee.game.ui.actions.RotateByAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -50096,7 +50096,7 @@
 </parameter>
 </method>
 <method name="rotateBy"
- return="com.guidebee.game.ui.action.RotateByAction"
+ return="com.guidebee.game.ui.actions.RotateByAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -50113,7 +50113,7 @@
 </parameter>
 </method>
 <method name="rotateTo"
- return="com.guidebee.game.ui.action.RotateToAction"
+ return="com.guidebee.game.ui.actions.RotateToAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -50126,7 +50126,7 @@
 </parameter>
 </method>
 <method name="rotateTo"
- return="com.guidebee.game.ui.action.RotateToAction"
+ return="com.guidebee.game.ui.actions.RotateToAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -50141,7 +50141,7 @@
 </parameter>
 </method>
 <method name="rotateTo"
- return="com.guidebee.game.ui.action.RotateToAction"
+ return="com.guidebee.game.ui.actions.RotateToAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -50158,7 +50158,7 @@
 </parameter>
 </method>
 <method name="run"
- return="com.guidebee.game.ui.action.RunnableAction"
+ return="com.guidebee.game.ui.actions.RunnableAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -50171,7 +50171,7 @@
 </parameter>
 </method>
 <method name="scaleBy"
- return="com.guidebee.game.ui.action.ScaleByAction"
+ return="com.guidebee.game.ui.actions.ScaleByAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -50186,7 +50186,7 @@
 </parameter>
 </method>
 <method name="scaleBy"
- return="com.guidebee.game.ui.action.ScaleByAction"
+ return="com.guidebee.game.ui.actions.ScaleByAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -50203,7 +50203,7 @@
 </parameter>
 </method>
 <method name="scaleBy"
- return="com.guidebee.game.ui.action.ScaleByAction"
+ return="com.guidebee.game.ui.actions.ScaleByAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -50222,7 +50222,7 @@
 </parameter>
 </method>
 <method name="scaleTo"
- return="com.guidebee.game.ui.action.ScaleToAction"
+ return="com.guidebee.game.ui.actions.ScaleToAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -50237,7 +50237,7 @@
 </parameter>
 </method>
 <method name="scaleTo"
- return="com.guidebee.game.ui.action.ScaleToAction"
+ return="com.guidebee.game.ui.actions.ScaleToAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -50254,7 +50254,7 @@
 </parameter>
 </method>
 <method name="scaleTo"
- return="com.guidebee.game.ui.action.ScaleToAction"
+ return="com.guidebee.game.ui.actions.ScaleToAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -50273,7 +50273,7 @@
 </parameter>
 </method>
 <method name="sequence"
- return="com.guidebee.game.ui.action.SequenceAction"
+ return="com.guidebee.game.ui.actions.SequenceAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -50282,11 +50282,11 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="action1" type="com.guidebee.game.ui.action.Action">
+<parameter name="action1" type="com.guidebee.game.ui.actions.Action">
 </parameter>
 </method>
 <method name="sequence"
- return="com.guidebee.game.ui.action.SequenceAction"
+ return="com.guidebee.game.ui.actions.SequenceAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -50295,13 +50295,13 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="action1" type="com.guidebee.game.ui.action.Action">
+<parameter name="action1" type="com.guidebee.game.ui.actions.Action">
 </parameter>
-<parameter name="action2" type="com.guidebee.game.ui.action.Action">
+<parameter name="action2" type="com.guidebee.game.ui.actions.Action">
 </parameter>
 </method>
 <method name="sequence"
- return="com.guidebee.game.ui.action.SequenceAction"
+ return="com.guidebee.game.ui.actions.SequenceAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -50310,15 +50310,15 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="action1" type="com.guidebee.game.ui.action.Action">
+<parameter name="action1" type="com.guidebee.game.ui.actions.Action">
 </parameter>
-<parameter name="action2" type="com.guidebee.game.ui.action.Action">
+<parameter name="action2" type="com.guidebee.game.ui.actions.Action">
 </parameter>
-<parameter name="action3" type="com.guidebee.game.ui.action.Action">
+<parameter name="action3" type="com.guidebee.game.ui.actions.Action">
 </parameter>
 </method>
 <method name="sequence"
- return="com.guidebee.game.ui.action.SequenceAction"
+ return="com.guidebee.game.ui.actions.SequenceAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -50327,17 +50327,17 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="action1" type="com.guidebee.game.ui.action.Action">
+<parameter name="action1" type="com.guidebee.game.ui.actions.Action">
 </parameter>
-<parameter name="action2" type="com.guidebee.game.ui.action.Action">
+<parameter name="action2" type="com.guidebee.game.ui.actions.Action">
 </parameter>
-<parameter name="action3" type="com.guidebee.game.ui.action.Action">
+<parameter name="action3" type="com.guidebee.game.ui.actions.Action">
 </parameter>
-<parameter name="action4" type="com.guidebee.game.ui.action.Action">
+<parameter name="action4" type="com.guidebee.game.ui.actions.Action">
 </parameter>
 </method>
 <method name="sequence"
- return="com.guidebee.game.ui.action.SequenceAction"
+ return="com.guidebee.game.ui.actions.SequenceAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -50346,19 +50346,19 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="action1" type="com.guidebee.game.ui.action.Action">
+<parameter name="action1" type="com.guidebee.game.ui.actions.Action">
 </parameter>
-<parameter name="action2" type="com.guidebee.game.ui.action.Action">
+<parameter name="action2" type="com.guidebee.game.ui.actions.Action">
 </parameter>
-<parameter name="action3" type="com.guidebee.game.ui.action.Action">
+<parameter name="action3" type="com.guidebee.game.ui.actions.Action">
 </parameter>
-<parameter name="action4" type="com.guidebee.game.ui.action.Action">
+<parameter name="action4" type="com.guidebee.game.ui.actions.Action">
 </parameter>
-<parameter name="action5" type="com.guidebee.game.ui.action.Action">
+<parameter name="action5" type="com.guidebee.game.ui.actions.Action">
 </parameter>
 </method>
 <method name="sequence"
- return="com.guidebee.game.ui.action.SequenceAction"
+ return="com.guidebee.game.ui.actions.SequenceAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -50367,11 +50367,11 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="actions" type="com.guidebee.game.ui.action.Action...">
+<parameter name="actions" type="com.guidebee.game.ui.actions.Action...">
 </parameter>
 </method>
 <method name="sequence"
- return="com.guidebee.game.ui.action.SequenceAction"
+ return="com.guidebee.game.ui.actions.SequenceAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -50382,7 +50382,7 @@
 >
 </method>
 <method name="show"
- return="com.guidebee.game.ui.action.VisibleAction"
+ return="com.guidebee.game.ui.actions.VisibleAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -50393,7 +50393,7 @@
 >
 </method>
 <method name="sizeBy"
- return="com.guidebee.game.ui.action.SizeByAction"
+ return="com.guidebee.game.ui.actions.SizeByAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -50408,7 +50408,7 @@
 </parameter>
 </method>
 <method name="sizeBy"
- return="com.guidebee.game.ui.action.SizeByAction"
+ return="com.guidebee.game.ui.actions.SizeByAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -50425,7 +50425,7 @@
 </parameter>
 </method>
 <method name="sizeBy"
- return="com.guidebee.game.ui.action.SizeByAction"
+ return="com.guidebee.game.ui.actions.SizeByAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -50444,7 +50444,7 @@
 </parameter>
 </method>
 <method name="sizeTo"
- return="com.guidebee.game.ui.action.SizeToAction"
+ return="com.guidebee.game.ui.actions.SizeToAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -50459,7 +50459,7 @@
 </parameter>
 </method>
 <method name="sizeTo"
- return="com.guidebee.game.ui.action.SizeToAction"
+ return="com.guidebee.game.ui.actions.SizeToAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -50476,7 +50476,7 @@
 </parameter>
 </method>
 <method name="sizeTo"
- return="com.guidebee.game.ui.action.SizeToAction"
+ return="com.guidebee.game.ui.actions.SizeToAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -50495,7 +50495,7 @@
 </parameter>
 </method>
 <method name="timeScale"
- return="com.guidebee.game.ui.action.TimeScaleAction"
+ return="com.guidebee.game.ui.actions.TimeScaleAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -50506,11 +50506,11 @@
 >
 <parameter name="scale" type="float">
 </parameter>
-<parameter name="scaledAction" type="com.guidebee.game.ui.action.Action">
+<parameter name="scaledAction" type="com.guidebee.game.ui.actions.Action">
 </parameter>
 </method>
 <method name="touchable"
- return="com.guidebee.game.ui.action.TouchableAction"
+ return="com.guidebee.game.ui.actions.TouchableAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -50523,7 +50523,7 @@
 </parameter>
 </method>
 <method name="visible"
- return="com.guidebee.game.ui.action.VisibleAction"
+ return="com.guidebee.game.ui.actions.VisibleAction"
  abstract="false"
  native="false"
  synchronized="false"
@@ -50537,7 +50537,7 @@
 </method>
 </class>
 <class name="AddAction"
- extends="com.guidebee.game.ui.action.Action"
+ extends="com.guidebee.game.ui.actions.Action"
  abstract="false"
  static="false"
  final="false"
@@ -50545,7 +50545,7 @@
  visibility="public"
 >
 <constructor name="AddAction"
- type="com.guidebee.game.ui.action.AddAction"
+ type="com.guidebee.game.ui.actions.AddAction"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -50566,7 +50566,7 @@
 </parameter>
 </method>
 <method name="getAction"
- return="com.guidebee.game.ui.action.Action"
+ return="com.guidebee.game.ui.actions.Action"
  abstract="false"
  native="false"
  synchronized="false"
@@ -50597,7 +50597,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="action" type="com.guidebee.game.ui.action.Action">
+<parameter name="action" type="com.guidebee.game.ui.actions.Action">
 </parameter>
 </method>
 <method name="setTargetActor"
@@ -50615,7 +50615,7 @@
 </method>
 </class>
 <class name="AddListenerAction"
- extends="com.guidebee.game.ui.action.Action"
+ extends="com.guidebee.game.ui.actions.Action"
  abstract="false"
  static="false"
  final="false"
@@ -50623,7 +50623,7 @@
  visibility="public"
 >
 <constructor name="AddListenerAction"
- type="com.guidebee.game.ui.action.AddListenerAction"
+ type="com.guidebee.game.ui.actions.AddListenerAction"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -50717,7 +50717,7 @@
 </method>
 </class>
 <class name="AfterAction"
- extends="com.guidebee.game.ui.action.DelegateAction"
+ extends="com.guidebee.game.ui.actions.DelegateAction"
  abstract="false"
  static="false"
  final="false"
@@ -50725,7 +50725,7 @@
  visibility="public"
 >
 <constructor name="AfterAction"
- type="com.guidebee.game.ui.action.AfterAction"
+ type="com.guidebee.game.ui.actions.AfterAction"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -50734,7 +50734,7 @@
 </constructor>
 </class>
 <class name="AlphaAction"
- extends="com.guidebee.game.ui.action.TemporalAction"
+ extends="com.guidebee.game.ui.actions.TemporalAction"
  abstract="false"
  static="false"
  final="false"
@@ -50742,7 +50742,7 @@
  visibility="public"
 >
 <constructor name="AlphaAction"
- type="com.guidebee.game.ui.action.AlphaAction"
+ type="com.guidebee.game.ui.actions.AlphaAction"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -50799,7 +50799,7 @@
 </method>
 </class>
 <class name="ColorAction"
- extends="com.guidebee.game.ui.action.TemporalAction"
+ extends="com.guidebee.game.ui.actions.TemporalAction"
  abstract="false"
  static="false"
  final="false"
@@ -50807,7 +50807,7 @@
  visibility="public"
 >
 <constructor name="ColorAction"
- type="com.guidebee.game.ui.action.ColorAction"
+ type="com.guidebee.game.ui.actions.ColorAction"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -50864,7 +50864,7 @@
 </method>
 </class>
 <class name="CountdownEventAction"
- extends="com.guidebee.game.ui.action.EventAction"
+ extends="com.guidebee.game.ui.actions.EventAction"
  abstract="false"
  static="false"
  final="false"
@@ -50872,7 +50872,7 @@
  visibility="public"
 >
 <constructor name="CountdownEventAction"
- type="com.guidebee.game.ui.action.CountdownEventAction"
+ type="com.guidebee.game.ui.actions.CountdownEventAction"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -50898,7 +50898,7 @@
 </method>
 </class>
 <class name="DelayAction"
- extends="com.guidebee.game.ui.action.DelegateAction"
+ extends="com.guidebee.game.ui.actions.DelegateAction"
  abstract="false"
  static="false"
  final="false"
@@ -50906,7 +50906,7 @@
  visibility="public"
 >
 <constructor name="DelayAction"
- type="com.guidebee.game.ui.action.DelayAction"
+ type="com.guidebee.game.ui.actions.DelayAction"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -50914,7 +50914,7 @@
 >
 </constructor>
 <constructor name="DelayAction"
- type="com.guidebee.game.ui.action.DelayAction"
+ type="com.guidebee.game.ui.actions.DelayAction"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -50984,7 +50984,7 @@
 </method>
 </class>
 <class name="DelegateAction"
- extends="com.guidebee.game.ui.action.Action"
+ extends="com.guidebee.game.ui.actions.Action"
  abstract="true"
  static="false"
  final="false"
@@ -50992,7 +50992,7 @@
  visibility="public"
 >
 <constructor name="DelegateAction"
- type="com.guidebee.game.ui.action.DelegateAction"
+ type="com.guidebee.game.ui.actions.DelegateAction"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -51013,7 +51013,7 @@
 </parameter>
 </method>
 <method name="getAction"
- return="com.guidebee.game.ui.action.Action"
+ return="com.guidebee.game.ui.actions.Action"
  abstract="false"
  native="false"
  synchronized="false"
@@ -51033,12 +51033,12 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="action" type="com.guidebee.game.ui.action.Action">
+<parameter name="action" type="com.guidebee.game.ui.actions.Action">
 </parameter>
 </method>
 </class>
 <class name="EventAction"
- extends="com.guidebee.game.ui.action.Action"
+ extends="com.guidebee.game.ui.actions.Action"
  abstract="true"
  static="false"
  final="false"
@@ -51046,7 +51046,7 @@
  visibility="public"
 >
 <constructor name="EventAction"
- type="com.guidebee.game.ui.action.EventAction"
+ type="com.guidebee.game.ui.actions.EventAction"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -51107,7 +51107,7 @@
 </method>
 </class>
 <class name="FloatAction"
- extends="com.guidebee.game.ui.action.TemporalAction"
+ extends="com.guidebee.game.ui.actions.TemporalAction"
  abstract="false"
  static="false"
  final="false"
@@ -51115,7 +51115,7 @@
  visibility="public"
 >
 <constructor name="FloatAction"
- type="com.guidebee.game.ui.action.FloatAction"
+ type="com.guidebee.game.ui.actions.FloatAction"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -51123,7 +51123,7 @@
 >
 </constructor>
 <constructor name="FloatAction"
- type="com.guidebee.game.ui.action.FloatAction"
+ type="com.guidebee.game.ui.actions.FloatAction"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -51208,7 +51208,7 @@
 </method>
 </class>
 <class name="IntAction"
- extends="com.guidebee.game.ui.action.TemporalAction"
+ extends="com.guidebee.game.ui.actions.TemporalAction"
  abstract="false"
  static="false"
  final="false"
@@ -51216,7 +51216,7 @@
  visibility="public"
 >
 <constructor name="IntAction"
- type="com.guidebee.game.ui.action.IntAction"
+ type="com.guidebee.game.ui.actions.IntAction"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -51224,7 +51224,7 @@
 >
 </constructor>
 <constructor name="IntAction"
- type="com.guidebee.game.ui.action.IntAction"
+ type="com.guidebee.game.ui.actions.IntAction"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -51309,7 +51309,7 @@
 </method>
 </class>
 <class name="LayoutAction"
- extends="com.guidebee.game.ui.action.Action"
+ extends="com.guidebee.game.ui.actions.Action"
  abstract="false"
  static="false"
  final="false"
@@ -51317,7 +51317,7 @@
  visibility="public"
 >
 <constructor name="LayoutAction"
- type="com.guidebee.game.ui.action.LayoutAction"
+ type="com.guidebee.game.ui.actions.LayoutAction"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -51363,7 +51363,7 @@
 </method>
 </class>
 <class name="MoveByAction"
- extends="com.guidebee.game.ui.action.RelativeTemporalAction"
+ extends="com.guidebee.game.ui.actions.RelativeTemporalAction"
  abstract="false"
  static="false"
  final="false"
@@ -51371,7 +51371,7 @@
  visibility="public"
 >
 <constructor name="MoveByAction"
- type="com.guidebee.game.ui.action.MoveByAction"
+ type="com.guidebee.game.ui.actions.MoveByAction"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -51443,7 +51443,7 @@
 </method>
 </class>
 <class name="MoveToAction"
- extends="com.guidebee.game.ui.action.TemporalAction"
+ extends="com.guidebee.game.ui.actions.TemporalAction"
  abstract="false"
  static="false"
  final="false"
@@ -51451,7 +51451,7 @@
  visibility="public"
 >
 <constructor name="MoveToAction"
- type="com.guidebee.game.ui.action.MoveToAction"
+ type="com.guidebee.game.ui.actions.MoveToAction"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -51523,7 +51523,7 @@
 </method>
 </class>
 <class name="ParallelAction"
- extends="com.guidebee.game.ui.action.Action"
+ extends="com.guidebee.game.ui.actions.Action"
  abstract="false"
  static="false"
  final="false"
@@ -51531,7 +51531,7 @@
  visibility="public"
 >
 <constructor name="ParallelAction"
- type="com.guidebee.game.ui.action.ParallelAction"
+ type="com.guidebee.game.ui.actions.ParallelAction"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -51539,73 +51539,73 @@
 >
 </constructor>
 <constructor name="ParallelAction"
- type="com.guidebee.game.ui.action.ParallelAction"
+ type="com.guidebee.game.ui.actions.ParallelAction"
  static="false"
  final="false"
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="action1" type="com.guidebee.game.ui.action.Action">
+<parameter name="action1" type="com.guidebee.game.ui.actions.Action">
 </parameter>
 </constructor>
 <constructor name="ParallelAction"
- type="com.guidebee.game.ui.action.ParallelAction"
+ type="com.guidebee.game.ui.actions.ParallelAction"
  static="false"
  final="false"
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="action1" type="com.guidebee.game.ui.action.Action">
+<parameter name="action1" type="com.guidebee.game.ui.actions.Action">
 </parameter>
-<parameter name="action2" type="com.guidebee.game.ui.action.Action">
+<parameter name="action2" type="com.guidebee.game.ui.actions.Action">
 </parameter>
 </constructor>
 <constructor name="ParallelAction"
- type="com.guidebee.game.ui.action.ParallelAction"
+ type="com.guidebee.game.ui.actions.ParallelAction"
  static="false"
  final="false"
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="action1" type="com.guidebee.game.ui.action.Action">
+<parameter name="action1" type="com.guidebee.game.ui.actions.Action">
 </parameter>
-<parameter name="action2" type="com.guidebee.game.ui.action.Action">
+<parameter name="action2" type="com.guidebee.game.ui.actions.Action">
 </parameter>
-<parameter name="action3" type="com.guidebee.game.ui.action.Action">
+<parameter name="action3" type="com.guidebee.game.ui.actions.Action">
 </parameter>
 </constructor>
 <constructor name="ParallelAction"
- type="com.guidebee.game.ui.action.ParallelAction"
+ type="com.guidebee.game.ui.actions.ParallelAction"
  static="false"
  final="false"
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="action1" type="com.guidebee.game.ui.action.Action">
+<parameter name="action1" type="com.guidebee.game.ui.actions.Action">
 </parameter>
-<parameter name="action2" type="com.guidebee.game.ui.action.Action">
+<parameter name="action2" type="com.guidebee.game.ui.actions.Action">
 </parameter>
-<parameter name="action3" type="com.guidebee.game.ui.action.Action">
+<parameter name="action3" type="com.guidebee.game.ui.actions.Action">
 </parameter>
-<parameter name="action4" type="com.guidebee.game.ui.action.Action">
+<parameter name="action4" type="com.guidebee.game.ui.actions.Action">
 </parameter>
 </constructor>
 <constructor name="ParallelAction"
- type="com.guidebee.game.ui.action.ParallelAction"
+ type="com.guidebee.game.ui.actions.ParallelAction"
  static="false"
  final="false"
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="action1" type="com.guidebee.game.ui.action.Action">
+<parameter name="action1" type="com.guidebee.game.ui.actions.Action">
 </parameter>
-<parameter name="action2" type="com.guidebee.game.ui.action.Action">
+<parameter name="action2" type="com.guidebee.game.ui.actions.Action">
 </parameter>
-<parameter name="action3" type="com.guidebee.game.ui.action.Action">
+<parameter name="action3" type="com.guidebee.game.ui.actions.Action">
 </parameter>
-<parameter name="action4" type="com.guidebee.game.ui.action.Action">
+<parameter name="action4" type="com.guidebee.game.ui.actions.Action">
 </parameter>
-<parameter name="action5" type="com.guidebee.game.ui.action.Action">
+<parameter name="action5" type="com.guidebee.game.ui.actions.Action">
 </parameter>
 </constructor>
 <method name="act"
@@ -51631,11 +51631,11 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="action" type="com.guidebee.game.ui.action.Action">
+<parameter name="action" type="com.guidebee.game.ui.actions.Action">
 </parameter>
 </method>
 <method name="getActions"
- return="com.guidebee.utils.collections.Array&lt;com.guidebee.game.ui.action.Action&gt;"
+ return="com.guidebee.utils.collections.Array&lt;com.guidebee.game.ui.actions.Action&gt;"
  abstract="false"
  native="false"
  synchronized="false"
@@ -51647,7 +51647,7 @@
 </method>
 </class>
 <class name="RelativeTemporalAction"
- extends="com.guidebee.game.ui.action.TemporalAction"
+ extends="com.guidebee.game.ui.actions.TemporalAction"
  abstract="true"
  static="false"
  final="false"
@@ -51655,7 +51655,7 @@
  visibility="public"
 >
 <constructor name="RelativeTemporalAction"
- type="com.guidebee.game.ui.action.RelativeTemporalAction"
+ type="com.guidebee.game.ui.actions.RelativeTemporalAction"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -51664,7 +51664,7 @@
 </constructor>
 </class>
 <class name="RemoveAction"
- extends="com.guidebee.game.ui.action.Action"
+ extends="com.guidebee.game.ui.actions.Action"
  abstract="false"
  static="false"
  final="false"
@@ -51672,7 +51672,7 @@
  visibility="public"
 >
 <constructor name="RemoveAction"
- type="com.guidebee.game.ui.action.RemoveAction"
+ type="com.guidebee.game.ui.actions.RemoveAction"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -51693,7 +51693,7 @@
 </parameter>
 </method>
 <method name="getAction"
- return="com.guidebee.game.ui.action.Action"
+ return="com.guidebee.game.ui.actions.Action"
  abstract="false"
  native="false"
  synchronized="false"
@@ -51724,7 +51724,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="action" type="com.guidebee.game.ui.action.Action">
+<parameter name="action" type="com.guidebee.game.ui.actions.Action">
 </parameter>
 </method>
 <method name="setTargetActor"
@@ -51742,7 +51742,7 @@
 </method>
 </class>
 <class name="RemoveActorAction"
- extends="com.guidebee.game.ui.action.Action"
+ extends="com.guidebee.game.ui.actions.Action"
  abstract="false"
  static="false"
  final="false"
@@ -51750,7 +51750,7 @@
  visibility="public"
 >
 <constructor name="RemoveActorAction"
- type="com.guidebee.game.ui.action.RemoveActorAction"
+ type="com.guidebee.game.ui.actions.RemoveActorAction"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -51796,7 +51796,7 @@
 </method>
 </class>
 <class name="RemoveListenerAction"
- extends="com.guidebee.game.ui.action.Action"
+ extends="com.guidebee.game.ui.actions.Action"
  abstract="false"
  static="false"
  final="false"
@@ -51804,7 +51804,7 @@
  visibility="public"
 >
 <constructor name="RemoveListenerAction"
- type="com.guidebee.game.ui.action.RemoveListenerAction"
+ type="com.guidebee.game.ui.actions.RemoveListenerAction"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -51898,7 +51898,7 @@
 </method>
 </class>
 <class name="RepeatAction"
- extends="com.guidebee.game.ui.action.DelegateAction"
+ extends="com.guidebee.game.ui.actions.DelegateAction"
  abstract="false"
  static="false"
  final="false"
@@ -51906,7 +51906,7 @@
  visibility="public"
 >
 <constructor name="RepeatAction"
- type="com.guidebee.game.ui.action.RepeatAction"
+ type="com.guidebee.game.ui.actions.RepeatAction"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -51961,7 +51961,7 @@
 </field>
 </class>
 <class name="RotateByAction"
- extends="com.guidebee.game.ui.action.RelativeTemporalAction"
+ extends="com.guidebee.game.ui.actions.RelativeTemporalAction"
  abstract="false"
  static="false"
  final="false"
@@ -51969,7 +51969,7 @@
  visibility="public"
 >
 <constructor name="RotateByAction"
- type="com.guidebee.game.ui.action.RotateByAction"
+ type="com.guidebee.game.ui.actions.RotateByAction"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -52002,7 +52002,7 @@
 </method>
 </class>
 <class name="RotateToAction"
- extends="com.guidebee.game.ui.action.TemporalAction"
+ extends="com.guidebee.game.ui.actions.TemporalAction"
  abstract="false"
  static="false"
  final="false"
@@ -52010,7 +52010,7 @@
  visibility="public"
 >
 <constructor name="RotateToAction"
- type="com.guidebee.game.ui.action.RotateToAction"
+ type="com.guidebee.game.ui.actions.RotateToAction"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -52043,7 +52043,7 @@
 </method>
 </class>
 <class name="RunnableAction"
- extends="com.guidebee.game.ui.action.Action"
+ extends="com.guidebee.game.ui.actions.Action"
  abstract="false"
  static="false"
  final="false"
@@ -52051,7 +52051,7 @@
  visibility="public"
 >
 <constructor name="RunnableAction"
- type="com.guidebee.game.ui.action.RunnableAction"
+ type="com.guidebee.game.ui.actions.RunnableAction"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -52108,7 +52108,7 @@
 </method>
 </class>
 <class name="ScaleByAction"
- extends="com.guidebee.game.ui.action.RelativeTemporalAction"
+ extends="com.guidebee.game.ui.actions.RelativeTemporalAction"
  abstract="false"
  static="false"
  final="false"
@@ -52116,7 +52116,7 @@
  visibility="public"
 >
 <constructor name="ScaleByAction"
- type="com.guidebee.game.ui.action.ScaleByAction"
+ type="com.guidebee.game.ui.actions.ScaleByAction"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -52201,7 +52201,7 @@
 </method>
 </class>
 <class name="ScaleToAction"
- extends="com.guidebee.game.ui.action.TemporalAction"
+ extends="com.guidebee.game.ui.actions.TemporalAction"
  abstract="false"
  static="false"
  final="false"
@@ -52209,7 +52209,7 @@
  visibility="public"
 >
 <constructor name="ScaleToAction"
- type="com.guidebee.game.ui.action.ScaleToAction"
+ type="com.guidebee.game.ui.actions.ScaleToAction"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -52294,7 +52294,7 @@
 </method>
 </class>
 <class name="SequenceAction"
- extends="com.guidebee.game.ui.action.ParallelAction"
+ extends="com.guidebee.game.ui.actions.ParallelAction"
  abstract="false"
  static="false"
  final="false"
@@ -52302,7 +52302,7 @@
  visibility="public"
 >
 <constructor name="SequenceAction"
- type="com.guidebee.game.ui.action.SequenceAction"
+ type="com.guidebee.game.ui.actions.SequenceAction"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -52310,78 +52310,78 @@
 >
 </constructor>
 <constructor name="SequenceAction"
- type="com.guidebee.game.ui.action.SequenceAction"
+ type="com.guidebee.game.ui.actions.SequenceAction"
  static="false"
  final="false"
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="action1" type="com.guidebee.game.ui.action.Action">
+<parameter name="action1" type="com.guidebee.game.ui.actions.Action">
 </parameter>
 </constructor>
 <constructor name="SequenceAction"
- type="com.guidebee.game.ui.action.SequenceAction"
+ type="com.guidebee.game.ui.actions.SequenceAction"
  static="false"
  final="false"
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="action1" type="com.guidebee.game.ui.action.Action">
+<parameter name="action1" type="com.guidebee.game.ui.actions.Action">
 </parameter>
-<parameter name="action2" type="com.guidebee.game.ui.action.Action">
+<parameter name="action2" type="com.guidebee.game.ui.actions.Action">
 </parameter>
 </constructor>
 <constructor name="SequenceAction"
- type="com.guidebee.game.ui.action.SequenceAction"
+ type="com.guidebee.game.ui.actions.SequenceAction"
  static="false"
  final="false"
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="action1" type="com.guidebee.game.ui.action.Action">
+<parameter name="action1" type="com.guidebee.game.ui.actions.Action">
 </parameter>
-<parameter name="action2" type="com.guidebee.game.ui.action.Action">
+<parameter name="action2" type="com.guidebee.game.ui.actions.Action">
 </parameter>
-<parameter name="action3" type="com.guidebee.game.ui.action.Action">
+<parameter name="action3" type="com.guidebee.game.ui.actions.Action">
 </parameter>
 </constructor>
 <constructor name="SequenceAction"
- type="com.guidebee.game.ui.action.SequenceAction"
+ type="com.guidebee.game.ui.actions.SequenceAction"
  static="false"
  final="false"
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="action1" type="com.guidebee.game.ui.action.Action">
+<parameter name="action1" type="com.guidebee.game.ui.actions.Action">
 </parameter>
-<parameter name="action2" type="com.guidebee.game.ui.action.Action">
+<parameter name="action2" type="com.guidebee.game.ui.actions.Action">
 </parameter>
-<parameter name="action3" type="com.guidebee.game.ui.action.Action">
+<parameter name="action3" type="com.guidebee.game.ui.actions.Action">
 </parameter>
-<parameter name="action4" type="com.guidebee.game.ui.action.Action">
+<parameter name="action4" type="com.guidebee.game.ui.actions.Action">
 </parameter>
 </constructor>
 <constructor name="SequenceAction"
- type="com.guidebee.game.ui.action.SequenceAction"
+ type="com.guidebee.game.ui.actions.SequenceAction"
  static="false"
  final="false"
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="action1" type="com.guidebee.game.ui.action.Action">
+<parameter name="action1" type="com.guidebee.game.ui.actions.Action">
 </parameter>
-<parameter name="action2" type="com.guidebee.game.ui.action.Action">
+<parameter name="action2" type="com.guidebee.game.ui.actions.Action">
 </parameter>
-<parameter name="action3" type="com.guidebee.game.ui.action.Action">
+<parameter name="action3" type="com.guidebee.game.ui.actions.Action">
 </parameter>
-<parameter name="action4" type="com.guidebee.game.ui.action.Action">
+<parameter name="action4" type="com.guidebee.game.ui.actions.Action">
 </parameter>
-<parameter name="action5" type="com.guidebee.game.ui.action.Action">
+<parameter name="action5" type="com.guidebee.game.ui.actions.Action">
 </parameter>
 </constructor>
 </class>
 <class name="SizeByAction"
- extends="com.guidebee.game.ui.action.RelativeTemporalAction"
+ extends="com.guidebee.game.ui.actions.RelativeTemporalAction"
  abstract="false"
  static="false"
  final="false"
@@ -52389,7 +52389,7 @@
  visibility="public"
 >
 <constructor name="SizeByAction"
- type="com.guidebee.game.ui.action.SizeByAction"
+ type="com.guidebee.game.ui.actions.SizeByAction"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -52461,7 +52461,7 @@
 </method>
 </class>
 <class name="SizeToAction"
- extends="com.guidebee.game.ui.action.TemporalAction"
+ extends="com.guidebee.game.ui.actions.TemporalAction"
  abstract="false"
  static="false"
  final="false"
@@ -52469,7 +52469,7 @@
  visibility="public"
 >
 <constructor name="SizeToAction"
- type="com.guidebee.game.ui.action.SizeToAction"
+ type="com.guidebee.game.ui.actions.SizeToAction"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -52541,7 +52541,7 @@
 </method>
 </class>
 <class name="TemporalAction"
- extends="com.guidebee.game.ui.action.Action"
+ extends="com.guidebee.game.ui.actions.Action"
  abstract="true"
  static="false"
  final="false"
@@ -52549,7 +52549,7 @@
  visibility="public"
 >
 <constructor name="TemporalAction"
- type="com.guidebee.game.ui.action.TemporalAction"
+ type="com.guidebee.game.ui.actions.TemporalAction"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -52557,7 +52557,7 @@
 >
 </constructor>
 <constructor name="TemporalAction"
- type="com.guidebee.game.ui.action.TemporalAction"
+ type="com.guidebee.game.ui.actions.TemporalAction"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -52567,7 +52567,7 @@
 </parameter>
 </constructor>
 <constructor name="TemporalAction"
- type="com.guidebee.game.ui.action.TemporalAction"
+ type="com.guidebee.game.ui.actions.TemporalAction"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -52700,7 +52700,7 @@
 </method>
 </class>
 <class name="TimeScaleAction"
- extends="com.guidebee.game.ui.action.DelegateAction"
+ extends="com.guidebee.game.ui.actions.DelegateAction"
  abstract="false"
  static="false"
  final="false"
@@ -52708,7 +52708,7 @@
  visibility="public"
 >
 <constructor name="TimeScaleAction"
- type="com.guidebee.game.ui.action.TimeScaleAction"
+ type="com.guidebee.game.ui.actions.TimeScaleAction"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -52741,7 +52741,7 @@
 </method>
 </class>
 <class name="TouchableAction"
- extends="com.guidebee.game.ui.action.Action"
+ extends="com.guidebee.game.ui.actions.Action"
  abstract="false"
  static="false"
  final="false"
@@ -52749,7 +52749,7 @@
  visibility="public"
 >
 <constructor name="TouchableAction"
- type="com.guidebee.game.ui.action.TouchableAction"
+ type="com.guidebee.game.ui.actions.TouchableAction"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -52795,7 +52795,7 @@
 </method>
 </class>
 <class name="TweenAction"
- extends="com.guidebee.game.ui.action.Action"
+ extends="com.guidebee.game.ui.actions.Action"
  abstract="false"
  static="false"
  final="false"
@@ -52803,13 +52803,13 @@
  visibility="public"
 >
 <constructor name="TweenAction"
- type="com.guidebee.game.ui.action.TweenAction"
+ type="com.guidebee.game.ui.actions.TweenAction"
  static="false"
  final="false"
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="tween" type="com.guidebee.game.ui.action.tween.BaseTween">
+<parameter name="tween" type="com.guidebee.game.ui.actions.tween.BaseTween">
 </parameter>
 </constructor>
 <method name="act"
@@ -52826,7 +52826,7 @@
 </parameter>
 </method>
 <method name="getTween"
- return="com.guidebee.game.ui.action.tween.BaseTween"
+ return="com.guidebee.game.ui.actions.tween.BaseTween"
  abstract="false"
  native="false"
  synchronized="false"
@@ -52937,7 +52937,7 @@
 </field>
 </class>
 <class name="VisibleAction"
- extends="com.guidebee.game.ui.action.Action"
+ extends="com.guidebee.game.ui.actions.Action"
  abstract="false"
  static="false"
  final="false"
@@ -52945,7 +52945,7 @@
  visibility="public"
 >
 <constructor name="VisibleAction"
- type="com.guidebee.game.ui.action.VisibleAction"
+ type="com.guidebee.game.ui.actions.VisibleAction"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -53126,7 +53126,7 @@
 </method>
 </interface>
 </package>
-<package name="com.guidebee.game.ui.action.tween"
+<package name="com.guidebee.game.ui.actions.tween"
 >
 <class name="BaseTween"
  extends="java.lang.Object"
@@ -53137,7 +53137,7 @@
  visibility="public"
 >
 <constructor name="BaseTween"
- type="com.guidebee.game.ui.action.tween.BaseTween"
+ type="com.guidebee.game.ui.actions.tween.BaseTween"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -53395,7 +53395,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="callback" type="com.guidebee.game.ui.action.tween.TweenCallback">
+<parameter name="callback" type="com.guidebee.game.ui.actions.tween.TweenCallback">
 </parameter>
 </method>
 <method name="setCallbackTriggers"
@@ -53445,7 +53445,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="manager" type="com.guidebee.game.ui.action.tween.TweenManager">
+<parameter name="manager" type="com.guidebee.game.ui.actions.tween.TweenManager">
 </parameter>
 </method>
 <method name="update"
@@ -53497,7 +53497,7 @@
 </method>
 </interface>
 <class name="Timeline"
- extends="com.guidebee.game.ui.action.tween.BaseTween"
+ extends="com.guidebee.game.ui.actions.tween.BaseTween"
  abstract="false"
  static="false"
  final="true"
@@ -53505,7 +53505,7 @@
  visibility="public"
 >
 <method name="beginParallel"
- return="com.guidebee.game.ui.action.tween.Timeline"
+ return="com.guidebee.game.ui.actions.tween.Timeline"
  abstract="false"
  native="false"
  synchronized="false"
@@ -53516,7 +53516,7 @@
 >
 </method>
 <method name="beginSequence"
- return="com.guidebee.game.ui.action.tween.Timeline"
+ return="com.guidebee.game.ui.actions.tween.Timeline"
  abstract="false"
  native="false"
  synchronized="false"
@@ -53527,7 +53527,7 @@
 >
 </method>
 <method name="createParallel"
- return="com.guidebee.game.ui.action.tween.Timeline"
+ return="com.guidebee.game.ui.actions.tween.Timeline"
  abstract="false"
  native="false"
  synchronized="false"
@@ -53538,7 +53538,7 @@
 >
 </method>
 <method name="createSequence"
- return="com.guidebee.game.ui.action.tween.Timeline"
+ return="com.guidebee.game.ui.actions.tween.Timeline"
  abstract="false"
  native="false"
  synchronized="false"
@@ -53549,7 +53549,7 @@
 >
 </method>
 <method name="end"
- return="com.guidebee.game.ui.action.tween.Timeline"
+ return="com.guidebee.game.ui.actions.tween.Timeline"
  abstract="false"
  native="false"
  synchronized="false"
@@ -53573,7 +53573,7 @@
 </parameter>
 </method>
 <method name="getChildren"
- return="java.util.List&lt;com.guidebee.game.ui.action.tween.BaseTween&lt;?&gt;&gt;"
+ return="java.util.List&lt;com.guidebee.game.ui.actions.tween.BaseTween&lt;?&gt;&gt;"
  abstract="false"
  native="false"
  synchronized="false"
@@ -53595,7 +53595,7 @@
 >
 </method>
 <method name="push"
- return="com.guidebee.game.ui.action.tween.Timeline"
+ return="com.guidebee.game.ui.actions.tween.Timeline"
  abstract="false"
  native="false"
  synchronized="false"
@@ -53604,11 +53604,11 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="tween" type="com.guidebee.game.ui.action.tween.Tween">
+<parameter name="tween" type="com.guidebee.game.ui.actions.tween.Tween">
 </parameter>
 </method>
 <method name="push"
- return="com.guidebee.game.ui.action.tween.Timeline"
+ return="com.guidebee.game.ui.actions.tween.Timeline"
  abstract="false"
  native="false"
  synchronized="false"
@@ -53617,11 +53617,11 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="timeline" type="com.guidebee.game.ui.action.tween.Timeline">
+<parameter name="timeline" type="com.guidebee.game.ui.actions.tween.Timeline">
 </parameter>
 </method>
 <method name="pushPause"
- return="com.guidebee.game.ui.action.tween.Timeline"
+ return="com.guidebee.game.ui.actions.tween.Timeline"
  abstract="false"
  native="false"
  synchronized="false"
@@ -53635,7 +53635,7 @@
 </method>
 </class>
 <class name="Tween"
- extends="com.guidebee.game.ui.action.tween.BaseTween"
+ extends="com.guidebee.game.ui.actions.tween.BaseTween"
  abstract="false"
  static="false"
  final="true"
@@ -53643,7 +53643,7 @@
  visibility="public"
 >
 <method name="call"
- return="com.guidebee.game.ui.action.tween.Tween"
+ return="com.guidebee.game.ui.actions.tween.Tween"
  abstract="false"
  native="false"
  synchronized="false"
@@ -53652,11 +53652,11 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="callback" type="com.guidebee.game.ui.action.tween.TweenCallback">
+<parameter name="callback" type="com.guidebee.game.ui.actions.tween.TweenCallback">
 </parameter>
 </method>
 <method name="cast"
- return="com.guidebee.game.ui.action.tween.Tween"
+ return="com.guidebee.game.ui.actions.tween.Tween"
  abstract="false"
  native="false"
  synchronized="false"
@@ -53669,7 +53669,7 @@
 </parameter>
 </method>
 <method name="ease"
- return="com.guidebee.game.ui.action.tween.Tween"
+ return="com.guidebee.game.ui.actions.tween.Tween"
  abstract="false"
  native="false"
  synchronized="false"
@@ -53678,7 +53678,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="easeEquation" type="com.guidebee.game.ui.action.tween.TweenEquation">
+<parameter name="easeEquation" type="com.guidebee.game.ui.actions.tween.TweenEquation">
 </parameter>
 </method>
 <method name="ensurePoolCapacity"
@@ -53695,7 +53695,7 @@
 </parameter>
 </method>
 <method name="from"
- return="com.guidebee.game.ui.action.tween.Tween"
+ return="com.guidebee.game.ui.actions.tween.Tween"
  abstract="false"
  native="false"
  synchronized="false"
@@ -53712,7 +53712,7 @@
 </parameter>
 </method>
 <method name="getAccessor"
- return="com.guidebee.game.ui.action.tween.TweenAccessor&lt;?&gt;"
+ return="com.guidebee.game.ui.actions.tween.TweenAccessor&lt;?&gt;"
  abstract="false"
  native="false"
  synchronized="false"
@@ -53734,7 +53734,7 @@
 >
 </method>
 <method name="getEasing"
- return="com.guidebee.game.ui.action.tween.TweenEquation"
+ return="com.guidebee.game.ui.actions.tween.TweenEquation"
  abstract="false"
  native="false"
  synchronized="false"
@@ -53756,7 +53756,7 @@
 >
 </method>
 <method name="getRegisteredAccessor"
- return="com.guidebee.game.ui.action.tween.TweenAccessor&lt;?&gt;"
+ return="com.guidebee.game.ui.actions.tween.TweenAccessor&lt;?&gt;"
  abstract="false"
  native="false"
  synchronized="false"
@@ -53824,7 +53824,7 @@
 >
 </method>
 <method name="mark"
- return="com.guidebee.game.ui.action.tween.Tween"
+ return="com.guidebee.game.ui.actions.tween.Tween"
  abstract="false"
  native="false"
  synchronized="false"
@@ -53835,7 +53835,7 @@
 >
 </method>
 <method name="path"
- return="com.guidebee.game.ui.action.tween.Tween"
+ return="com.guidebee.game.ui.actions.tween.Tween"
  abstract="false"
  native="false"
  synchronized="false"
@@ -53844,7 +53844,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="path" type="com.guidebee.game.ui.action.tween.TweenPath">
+<parameter name="path" type="com.guidebee.game.ui.actions.tween.TweenPath">
 </parameter>
 </method>
 <method name="registerAccessor"
@@ -53859,11 +53859,11 @@
 >
 <parameter name="someClass" type="java.lang.Class&lt;?&gt;">
 </parameter>
-<parameter name="defaultAccessor" type="com.guidebee.game.ui.action.tween.TweenAccessor&lt;?&gt;">
+<parameter name="defaultAccessor" type="com.guidebee.game.ui.actions.tween.TweenAccessor&lt;?&gt;">
 </parameter>
 </method>
 <method name="set"
- return="com.guidebee.game.ui.action.tween.Tween"
+ return="com.guidebee.game.ui.actions.tween.Tween"
  abstract="false"
  native="false"
  synchronized="false"
@@ -53904,7 +53904,7 @@
 </parameter>
 </method>
 <method name="target"
- return="com.guidebee.game.ui.action.tween.Tween"
+ return="com.guidebee.game.ui.actions.tween.Tween"
  abstract="false"
  native="false"
  synchronized="false"
@@ -53917,7 +53917,7 @@
 </parameter>
 </method>
 <method name="target"
- return="com.guidebee.game.ui.action.tween.Tween"
+ return="com.guidebee.game.ui.actions.tween.Tween"
  abstract="false"
  native="false"
  synchronized="false"
@@ -53932,7 +53932,7 @@
 </parameter>
 </method>
 <method name="target"
- return="com.guidebee.game.ui.action.tween.Tween"
+ return="com.guidebee.game.ui.actions.tween.Tween"
  abstract="false"
  native="false"
  synchronized="false"
@@ -53949,7 +53949,7 @@
 </parameter>
 </method>
 <method name="target"
- return="com.guidebee.game.ui.action.tween.Tween"
+ return="com.guidebee.game.ui.actions.tween.Tween"
  abstract="false"
  native="false"
  synchronized="false"
@@ -53962,7 +53962,7 @@
 </parameter>
 </method>
 <method name="targetRelative"
- return="com.guidebee.game.ui.action.tween.Tween"
+ return="com.guidebee.game.ui.actions.tween.Tween"
  abstract="false"
  native="false"
  synchronized="false"
@@ -53975,7 +53975,7 @@
 </parameter>
 </method>
 <method name="targetRelative"
- return="com.guidebee.game.ui.action.tween.Tween"
+ return="com.guidebee.game.ui.actions.tween.Tween"
  abstract="false"
  native="false"
  synchronized="false"
@@ -53990,7 +53990,7 @@
 </parameter>
 </method>
 <method name="targetRelative"
- return="com.guidebee.game.ui.action.tween.Tween"
+ return="com.guidebee.game.ui.actions.tween.Tween"
  abstract="false"
  native="false"
  synchronized="false"
@@ -54007,7 +54007,7 @@
 </parameter>
 </method>
 <method name="targetRelative"
- return="com.guidebee.game.ui.action.tween.Tween"
+ return="com.guidebee.game.ui.actions.tween.Tween"
  abstract="false"
  native="false"
  synchronized="false"
@@ -54020,7 +54020,7 @@
 </parameter>
 </method>
 <method name="to"
- return="com.guidebee.game.ui.action.tween.Tween"
+ return="com.guidebee.game.ui.actions.tween.Tween"
  abstract="false"
  native="false"
  synchronized="false"
@@ -54037,7 +54037,7 @@
 </parameter>
 </method>
 <method name="waypoint"
- return="com.guidebee.game.ui.action.tween.Tween"
+ return="com.guidebee.game.ui.actions.tween.Tween"
  abstract="false"
  native="false"
  synchronized="false"
@@ -54050,7 +54050,7 @@
 </parameter>
 </method>
 <method name="waypoint"
- return="com.guidebee.game.ui.action.tween.Tween"
+ return="com.guidebee.game.ui.actions.tween.Tween"
  abstract="false"
  native="false"
  synchronized="false"
@@ -54065,7 +54065,7 @@
 </parameter>
 </method>
 <method name="waypoint"
- return="com.guidebee.game.ui.action.tween.Tween"
+ return="com.guidebee.game.ui.actions.tween.Tween"
  abstract="false"
  native="false"
  synchronized="false"
@@ -54082,7 +54082,7 @@
 </parameter>
 </method>
 <method name="waypoint"
- return="com.guidebee.game.ui.action.tween.Tween"
+ return="com.guidebee.game.ui.actions.tween.Tween"
  abstract="false"
  native="false"
  synchronized="false"
@@ -54167,7 +54167,7 @@
 >
 <parameter name="type" type="int">
 </parameter>
-<parameter name="source" type="com.guidebee.game.ui.action.tween.BaseTween&lt;?&gt;">
+<parameter name="source" type="com.guidebee.game.ui.actions.tween.BaseTween&lt;?&gt;">
 </parameter>
 </method>
 <field name="ANY"
@@ -54301,7 +54301,7 @@
  visibility="public"
 >
 <constructor name="TweenEquation"
- type="com.guidebee.game.ui.action.tween.TweenEquation"
+ type="com.guidebee.game.ui.actions.tween.TweenEquation"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -54343,7 +54343,7 @@
  visibility="public"
 >
 <field name="easeInBack"
- type="com.guidebee.game.ui.action.tween.equations.Back"
+ type="com.guidebee.game.ui.actions.tween.equations.Back"
  transient="false"
  volatile="false"
  value="null"
@@ -54354,7 +54354,7 @@
 >
 </field>
 <field name="easeInBounce"
- type="com.guidebee.game.ui.action.tween.equations.Bounce"
+ type="com.guidebee.game.ui.actions.tween.equations.Bounce"
  transient="false"
  volatile="false"
  value="null"
@@ -54365,7 +54365,7 @@
 >
 </field>
 <field name="easeInCirc"
- type="com.guidebee.game.ui.action.tween.equations.Circ"
+ type="com.guidebee.game.ui.actions.tween.equations.Circ"
  transient="false"
  volatile="false"
  value="null"
@@ -54376,7 +54376,7 @@
 >
 </field>
 <field name="easeInCubic"
- type="com.guidebee.game.ui.action.tween.equations.Cubic"
+ type="com.guidebee.game.ui.actions.tween.equations.Cubic"
  transient="false"
  volatile="false"
  value="null"
@@ -54387,7 +54387,7 @@
 >
 </field>
 <field name="easeInElastic"
- type="com.guidebee.game.ui.action.tween.equations.Elastic"
+ type="com.guidebee.game.ui.actions.tween.equations.Elastic"
  transient="false"
  volatile="false"
  value="null"
@@ -54398,7 +54398,7 @@
 >
 </field>
 <field name="easeInExpo"
- type="com.guidebee.game.ui.action.tween.equations.Expo"
+ type="com.guidebee.game.ui.actions.tween.equations.Expo"
  transient="false"
  volatile="false"
  value="null"
@@ -54409,7 +54409,7 @@
 >
 </field>
 <field name="easeInOutBack"
- type="com.guidebee.game.ui.action.tween.equations.Back"
+ type="com.guidebee.game.ui.actions.tween.equations.Back"
  transient="false"
  volatile="false"
  value="null"
@@ -54420,7 +54420,7 @@
 >
 </field>
 <field name="easeInOutBounce"
- type="com.guidebee.game.ui.action.tween.equations.Bounce"
+ type="com.guidebee.game.ui.actions.tween.equations.Bounce"
  transient="false"
  volatile="false"
  value="null"
@@ -54431,7 +54431,7 @@
 >
 </field>
 <field name="easeInOutCirc"
- type="com.guidebee.game.ui.action.tween.equations.Circ"
+ type="com.guidebee.game.ui.actions.tween.equations.Circ"
  transient="false"
  volatile="false"
  value="null"
@@ -54442,7 +54442,7 @@
 >
 </field>
 <field name="easeInOutCubic"
- type="com.guidebee.game.ui.action.tween.equations.Cubic"
+ type="com.guidebee.game.ui.actions.tween.equations.Cubic"
  transient="false"
  volatile="false"
  value="null"
@@ -54453,7 +54453,7 @@
 >
 </field>
 <field name="easeInOutElastic"
- type="com.guidebee.game.ui.action.tween.equations.Elastic"
+ type="com.guidebee.game.ui.actions.tween.equations.Elastic"
  transient="false"
  volatile="false"
  value="null"
@@ -54464,7 +54464,7 @@
 >
 </field>
 <field name="easeInOutExpo"
- type="com.guidebee.game.ui.action.tween.equations.Expo"
+ type="com.guidebee.game.ui.actions.tween.equations.Expo"
  transient="false"
  volatile="false"
  value="null"
@@ -54475,7 +54475,7 @@
 >
 </field>
 <field name="easeInOutQuad"
- type="com.guidebee.game.ui.action.tween.equations.Quad"
+ type="com.guidebee.game.ui.actions.tween.equations.Quad"
  transient="false"
  volatile="false"
  value="null"
@@ -54486,7 +54486,7 @@
 >
 </field>
 <field name="easeInOutQuart"
- type="com.guidebee.game.ui.action.tween.equations.Quart"
+ type="com.guidebee.game.ui.actions.tween.equations.Quart"
  transient="false"
  volatile="false"
  value="null"
@@ -54497,7 +54497,7 @@
 >
 </field>
 <field name="easeInOutQuint"
- type="com.guidebee.game.ui.action.tween.equations.Quint"
+ type="com.guidebee.game.ui.actions.tween.equations.Quint"
  transient="false"
  volatile="false"
  value="null"
@@ -54508,7 +54508,7 @@
 >
 </field>
 <field name="easeInOutSine"
- type="com.guidebee.game.ui.action.tween.equations.Sine"
+ type="com.guidebee.game.ui.actions.tween.equations.Sine"
  transient="false"
  volatile="false"
  value="null"
@@ -54519,7 +54519,7 @@
 >
 </field>
 <field name="easeInQuad"
- type="com.guidebee.game.ui.action.tween.equations.Quad"
+ type="com.guidebee.game.ui.actions.tween.equations.Quad"
  transient="false"
  volatile="false"
  value="null"
@@ -54530,7 +54530,7 @@
 >
 </field>
 <field name="easeInQuart"
- type="com.guidebee.game.ui.action.tween.equations.Quart"
+ type="com.guidebee.game.ui.actions.tween.equations.Quart"
  transient="false"
  volatile="false"
  value="null"
@@ -54541,7 +54541,7 @@
 >
 </field>
 <field name="easeInQuint"
- type="com.guidebee.game.ui.action.tween.equations.Quint"
+ type="com.guidebee.game.ui.actions.tween.equations.Quint"
  transient="false"
  volatile="false"
  value="null"
@@ -54552,7 +54552,7 @@
 >
 </field>
 <field name="easeInSine"
- type="com.guidebee.game.ui.action.tween.equations.Sine"
+ type="com.guidebee.game.ui.actions.tween.equations.Sine"
  transient="false"
  volatile="false"
  value="null"
@@ -54563,7 +54563,7 @@
 >
 </field>
 <field name="easeNone"
- type="com.guidebee.game.ui.action.tween.equations.Linear"
+ type="com.guidebee.game.ui.actions.tween.equations.Linear"
  transient="false"
  volatile="false"
  value="null"
@@ -54574,7 +54574,7 @@
 >
 </field>
 <field name="easeOutBack"
- type="com.guidebee.game.ui.action.tween.equations.Back"
+ type="com.guidebee.game.ui.actions.tween.equations.Back"
  transient="false"
  volatile="false"
  value="null"
@@ -54585,7 +54585,7 @@
 >
 </field>
 <field name="easeOutBounce"
- type="com.guidebee.game.ui.action.tween.equations.Bounce"
+ type="com.guidebee.game.ui.actions.tween.equations.Bounce"
  transient="false"
  volatile="false"
  value="null"
@@ -54596,7 +54596,7 @@
 >
 </field>
 <field name="easeOutCirc"
- type="com.guidebee.game.ui.action.tween.equations.Circ"
+ type="com.guidebee.game.ui.actions.tween.equations.Circ"
  transient="false"
  volatile="false"
  value="null"
@@ -54607,7 +54607,7 @@
 >
 </field>
 <field name="easeOutCubic"
- type="com.guidebee.game.ui.action.tween.equations.Cubic"
+ type="com.guidebee.game.ui.actions.tween.equations.Cubic"
  transient="false"
  volatile="false"
  value="null"
@@ -54618,7 +54618,7 @@
 >
 </field>
 <field name="easeOutElastic"
- type="com.guidebee.game.ui.action.tween.equations.Elastic"
+ type="com.guidebee.game.ui.actions.tween.equations.Elastic"
  transient="false"
  volatile="false"
  value="null"
@@ -54629,7 +54629,7 @@
 >
 </field>
 <field name="easeOutExpo"
- type="com.guidebee.game.ui.action.tween.equations.Expo"
+ type="com.guidebee.game.ui.actions.tween.equations.Expo"
  transient="false"
  volatile="false"
  value="null"
@@ -54640,7 +54640,7 @@
 >
 </field>
 <field name="easeOutQuad"
- type="com.guidebee.game.ui.action.tween.equations.Quad"
+ type="com.guidebee.game.ui.actions.tween.equations.Quad"
  transient="false"
  volatile="false"
  value="null"
@@ -54651,7 +54651,7 @@
 >
 </field>
 <field name="easeOutQuart"
- type="com.guidebee.game.ui.action.tween.equations.Quart"
+ type="com.guidebee.game.ui.actions.tween.equations.Quart"
  transient="false"
  volatile="false"
  value="null"
@@ -54662,7 +54662,7 @@
 >
 </field>
 <field name="easeOutQuint"
- type="com.guidebee.game.ui.action.tween.equations.Quint"
+ type="com.guidebee.game.ui.actions.tween.equations.Quint"
  transient="false"
  volatile="false"
  value="null"
@@ -54673,7 +54673,7 @@
 >
 </field>
 <field name="easeOutSine"
- type="com.guidebee.game.ui.action.tween.equations.Sine"
+ type="com.guidebee.game.ui.actions.tween.equations.Sine"
  transient="false"
  volatile="false"
  value="null"
@@ -54693,7 +54693,7 @@
  visibility="public"
 >
 <constructor name="TweenManager"
- type="com.guidebee.game.ui.action.tween.TweenManager"
+ type="com.guidebee.game.ui.actions.tween.TweenManager"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -54701,7 +54701,7 @@
 >
 </constructor>
 <method name="add"
- return="com.guidebee.game.ui.action.tween.TweenManager"
+ return="com.guidebee.game.ui.actions.tween.TweenManager"
  abstract="false"
  native="false"
  synchronized="false"
@@ -54710,7 +54710,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="object" type="com.guidebee.game.ui.action.tween.BaseTween&lt;?&gt;">
+<parameter name="object" type="com.guidebee.game.ui.actions.tween.BaseTween&lt;?&gt;">
 </parameter>
 </method>
 <method name="containsTarget"
@@ -54755,7 +54755,7 @@
 </parameter>
 </method>
 <method name="getObjects"
- return="java.util.List&lt;com.guidebee.game.ui.action.tween.BaseTween&lt;?&gt;&gt;"
+ return="java.util.List&lt;com.guidebee.game.ui.actions.tween.BaseTween&lt;?&gt;&gt;"
  abstract="false"
  native="false"
  synchronized="false"
@@ -54858,7 +54858,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="object" type="com.guidebee.game.ui.action.tween.BaseTween&lt;?&gt;">
+<parameter name="object" type="com.guidebee.game.ui.actions.tween.BaseTween&lt;?&gt;">
 </parameter>
 <parameter name="value" type="boolean">
 </parameter>
@@ -54873,7 +54873,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="object" type="com.guidebee.game.ui.action.tween.BaseTween&lt;?&gt;">
+<parameter name="object" type="com.guidebee.game.ui.actions.tween.BaseTween&lt;?&gt;">
 </parameter>
 <parameter name="value" type="boolean">
 </parameter>
@@ -54936,7 +54936,7 @@
  visibility="public"
 >
 <field name="catmullRom"
- type="com.guidebee.game.ui.action.tween.paths.CatmullRom"
+ type="com.guidebee.game.ui.actions.tween.paths.CatmullRom"
  transient="false"
  volatile="false"
  value="null"
@@ -54947,7 +54947,7 @@
 >
 </field>
 <field name="linear"
- type="com.guidebee.game.ui.action.tween.paths.Linear"
+ type="com.guidebee.game.ui.actions.tween.paths.Linear"
  transient="false"
  volatile="false"
  value="null"
@@ -54967,7 +54967,7 @@
  visibility="public"
 >
 <constructor name="TweenUtils"
- type="com.guidebee.game.ui.action.tween.TweenUtils"
+ type="com.guidebee.game.ui.actions.tween.TweenUtils"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -54975,7 +54975,7 @@
 >
 </constructor>
 <method name="parseEasing"
- return="com.guidebee.game.ui.action.tween.TweenEquation"
+ return="com.guidebee.game.ui.actions.tween.TweenEquation"
  abstract="false"
  native="false"
  synchronized="false"
@@ -54989,10 +54989,10 @@
 </method>
 </class>
 </package>
-<package name="com.guidebee.game.ui.action.tween.equations"
+<package name="com.guidebee.game.ui.actions.tween.equations"
 >
 <class name="Back"
- extends="com.guidebee.game.ui.action.tween.TweenEquation"
+ extends="com.guidebee.game.ui.actions.tween.TweenEquation"
  abstract="true"
  static="false"
  final="false"
@@ -55000,7 +55000,7 @@
  visibility="public"
 >
 <constructor name="Back"
- type="com.guidebee.game.ui.action.tween.equations.Back"
+ type="com.guidebee.game.ui.actions.tween.equations.Back"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -55008,7 +55008,7 @@
 >
 </constructor>
 <method name="s"
- return="com.guidebee.game.ui.action.tween.equations.Back"
+ return="com.guidebee.game.ui.actions.tween.equations.Back"
  abstract="false"
  native="false"
  synchronized="false"
@@ -55021,7 +55021,7 @@
 </parameter>
 </method>
 <field name="IN"
- type="com.guidebee.game.ui.action.tween.equations.Back"
+ type="com.guidebee.game.ui.actions.tween.equations.Back"
  transient="false"
  volatile="false"
  static="true"
@@ -55031,7 +55031,7 @@
 >
 </field>
 <field name="INOUT"
- type="com.guidebee.game.ui.action.tween.equations.Back"
+ type="com.guidebee.game.ui.actions.tween.equations.Back"
  transient="false"
  volatile="false"
  static="true"
@@ -55041,7 +55041,7 @@
 >
 </field>
 <field name="OUT"
- type="com.guidebee.game.ui.action.tween.equations.Back"
+ type="com.guidebee.game.ui.actions.tween.equations.Back"
  transient="false"
  volatile="false"
  static="true"
@@ -55052,7 +55052,7 @@
 </field>
 </class>
 <class name="Bounce"
- extends="com.guidebee.game.ui.action.tween.TweenEquation"
+ extends="com.guidebee.game.ui.actions.tween.TweenEquation"
  abstract="true"
  static="false"
  final="false"
@@ -55060,7 +55060,7 @@
  visibility="public"
 >
 <constructor name="Bounce"
- type="com.guidebee.game.ui.action.tween.equations.Bounce"
+ type="com.guidebee.game.ui.actions.tween.equations.Bounce"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -55068,7 +55068,7 @@
 >
 </constructor>
 <field name="IN"
- type="com.guidebee.game.ui.action.tween.equations.Bounce"
+ type="com.guidebee.game.ui.actions.tween.equations.Bounce"
  transient="false"
  volatile="false"
  static="true"
@@ -55078,7 +55078,7 @@
 >
 </field>
 <field name="INOUT"
- type="com.guidebee.game.ui.action.tween.equations.Bounce"
+ type="com.guidebee.game.ui.actions.tween.equations.Bounce"
  transient="false"
  volatile="false"
  static="true"
@@ -55088,7 +55088,7 @@
 >
 </field>
 <field name="OUT"
- type="com.guidebee.game.ui.action.tween.equations.Bounce"
+ type="com.guidebee.game.ui.actions.tween.equations.Bounce"
  transient="false"
  volatile="false"
  static="true"
@@ -55099,7 +55099,7 @@
 </field>
 </class>
 <class name="Circ"
- extends="com.guidebee.game.ui.action.tween.TweenEquation"
+ extends="com.guidebee.game.ui.actions.tween.TweenEquation"
  abstract="true"
  static="false"
  final="false"
@@ -55107,7 +55107,7 @@
  visibility="public"
 >
 <constructor name="Circ"
- type="com.guidebee.game.ui.action.tween.equations.Circ"
+ type="com.guidebee.game.ui.actions.tween.equations.Circ"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -55115,7 +55115,7 @@
 >
 </constructor>
 <field name="IN"
- type="com.guidebee.game.ui.action.tween.equations.Circ"
+ type="com.guidebee.game.ui.actions.tween.equations.Circ"
  transient="false"
  volatile="false"
  static="true"
@@ -55125,7 +55125,7 @@
 >
 </field>
 <field name="INOUT"
- type="com.guidebee.game.ui.action.tween.equations.Circ"
+ type="com.guidebee.game.ui.actions.tween.equations.Circ"
  transient="false"
  volatile="false"
  static="true"
@@ -55135,7 +55135,7 @@
 >
 </field>
 <field name="OUT"
- type="com.guidebee.game.ui.action.tween.equations.Circ"
+ type="com.guidebee.game.ui.actions.tween.equations.Circ"
  transient="false"
  volatile="false"
  static="true"
@@ -55146,7 +55146,7 @@
 </field>
 </class>
 <class name="Cubic"
- extends="com.guidebee.game.ui.action.tween.TweenEquation"
+ extends="com.guidebee.game.ui.actions.tween.TweenEquation"
  abstract="true"
  static="false"
  final="false"
@@ -55154,7 +55154,7 @@
  visibility="public"
 >
 <constructor name="Cubic"
- type="com.guidebee.game.ui.action.tween.equations.Cubic"
+ type="com.guidebee.game.ui.actions.tween.equations.Cubic"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -55162,7 +55162,7 @@
 >
 </constructor>
 <field name="IN"
- type="com.guidebee.game.ui.action.tween.equations.Cubic"
+ type="com.guidebee.game.ui.actions.tween.equations.Cubic"
  transient="false"
  volatile="false"
  static="true"
@@ -55172,7 +55172,7 @@
 >
 </field>
 <field name="INOUT"
- type="com.guidebee.game.ui.action.tween.equations.Cubic"
+ type="com.guidebee.game.ui.actions.tween.equations.Cubic"
  transient="false"
  volatile="false"
  static="true"
@@ -55182,7 +55182,7 @@
 >
 </field>
 <field name="OUT"
- type="com.guidebee.game.ui.action.tween.equations.Cubic"
+ type="com.guidebee.game.ui.actions.tween.equations.Cubic"
  transient="false"
  volatile="false"
  static="true"
@@ -55193,7 +55193,7 @@
 </field>
 </class>
 <class name="Elastic"
- extends="com.guidebee.game.ui.action.tween.TweenEquation"
+ extends="com.guidebee.game.ui.actions.tween.TweenEquation"
  abstract="true"
  static="false"
  final="false"
@@ -55201,7 +55201,7 @@
  visibility="public"
 >
 <constructor name="Elastic"
- type="com.guidebee.game.ui.action.tween.equations.Elastic"
+ type="com.guidebee.game.ui.actions.tween.equations.Elastic"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -55209,7 +55209,7 @@
 >
 </constructor>
 <method name="a"
- return="com.guidebee.game.ui.action.tween.equations.Elastic"
+ return="com.guidebee.game.ui.actions.tween.equations.Elastic"
  abstract="false"
  native="false"
  synchronized="false"
@@ -55222,7 +55222,7 @@
 </parameter>
 </method>
 <method name="p"
- return="com.guidebee.game.ui.action.tween.equations.Elastic"
+ return="com.guidebee.game.ui.actions.tween.equations.Elastic"
  abstract="false"
  native="false"
  synchronized="false"
@@ -55235,7 +55235,7 @@
 </parameter>
 </method>
 <field name="IN"
- type="com.guidebee.game.ui.action.tween.equations.Elastic"
+ type="com.guidebee.game.ui.actions.tween.equations.Elastic"
  transient="false"
  volatile="false"
  static="true"
@@ -55245,7 +55245,7 @@
 >
 </field>
 <field name="INOUT"
- type="com.guidebee.game.ui.action.tween.equations.Elastic"
+ type="com.guidebee.game.ui.actions.tween.equations.Elastic"
  transient="false"
  volatile="false"
  static="true"
@@ -55255,7 +55255,7 @@
 >
 </field>
 <field name="OUT"
- type="com.guidebee.game.ui.action.tween.equations.Elastic"
+ type="com.guidebee.game.ui.actions.tween.equations.Elastic"
  transient="false"
  volatile="false"
  static="true"
@@ -55266,7 +55266,7 @@
 </field>
 </class>
 <class name="Expo"
- extends="com.guidebee.game.ui.action.tween.TweenEquation"
+ extends="com.guidebee.game.ui.actions.tween.TweenEquation"
  abstract="true"
  static="false"
  final="false"
@@ -55274,7 +55274,7 @@
  visibility="public"
 >
 <constructor name="Expo"
- type="com.guidebee.game.ui.action.tween.equations.Expo"
+ type="com.guidebee.game.ui.actions.tween.equations.Expo"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -55282,7 +55282,7 @@
 >
 </constructor>
 <field name="IN"
- type="com.guidebee.game.ui.action.tween.equations.Expo"
+ type="com.guidebee.game.ui.actions.tween.equations.Expo"
  transient="false"
  volatile="false"
  static="true"
@@ -55292,7 +55292,7 @@
 >
 </field>
 <field name="INOUT"
- type="com.guidebee.game.ui.action.tween.equations.Expo"
+ type="com.guidebee.game.ui.actions.tween.equations.Expo"
  transient="false"
  volatile="false"
  static="true"
@@ -55302,7 +55302,7 @@
 >
 </field>
 <field name="OUT"
- type="com.guidebee.game.ui.action.tween.equations.Expo"
+ type="com.guidebee.game.ui.actions.tween.equations.Expo"
  transient="false"
  volatile="false"
  static="true"
@@ -55313,7 +55313,7 @@
 </field>
 </class>
 <class name="Linear"
- extends="com.guidebee.game.ui.action.tween.TweenEquation"
+ extends="com.guidebee.game.ui.actions.tween.TweenEquation"
  abstract="true"
  static="false"
  final="false"
@@ -55321,7 +55321,7 @@
  visibility="public"
 >
 <constructor name="Linear"
- type="com.guidebee.game.ui.action.tween.equations.Linear"
+ type="com.guidebee.game.ui.actions.tween.equations.Linear"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -55329,7 +55329,7 @@
 >
 </constructor>
 <field name="INOUT"
- type="com.guidebee.game.ui.action.tween.equations.Linear"
+ type="com.guidebee.game.ui.actions.tween.equations.Linear"
  transient="false"
  volatile="false"
  static="true"
@@ -55340,7 +55340,7 @@
 </field>
 </class>
 <class name="Quad"
- extends="com.guidebee.game.ui.action.tween.TweenEquation"
+ extends="com.guidebee.game.ui.actions.tween.TweenEquation"
  abstract="true"
  static="false"
  final="false"
@@ -55348,7 +55348,7 @@
  visibility="public"
 >
 <constructor name="Quad"
- type="com.guidebee.game.ui.action.tween.equations.Quad"
+ type="com.guidebee.game.ui.actions.tween.equations.Quad"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -55356,7 +55356,7 @@
 >
 </constructor>
 <field name="IN"
- type="com.guidebee.game.ui.action.tween.equations.Quad"
+ type="com.guidebee.game.ui.actions.tween.equations.Quad"
  transient="false"
  volatile="false"
  static="true"
@@ -55366,7 +55366,7 @@
 >
 </field>
 <field name="INOUT"
- type="com.guidebee.game.ui.action.tween.equations.Quad"
+ type="com.guidebee.game.ui.actions.tween.equations.Quad"
  transient="false"
  volatile="false"
  static="true"
@@ -55376,7 +55376,7 @@
 >
 </field>
 <field name="OUT"
- type="com.guidebee.game.ui.action.tween.equations.Quad"
+ type="com.guidebee.game.ui.actions.tween.equations.Quad"
  transient="false"
  volatile="false"
  static="true"
@@ -55387,7 +55387,7 @@
 </field>
 </class>
 <class name="Quart"
- extends="com.guidebee.game.ui.action.tween.TweenEquation"
+ extends="com.guidebee.game.ui.actions.tween.TweenEquation"
  abstract="true"
  static="false"
  final="false"
@@ -55395,7 +55395,7 @@
  visibility="public"
 >
 <constructor name="Quart"
- type="com.guidebee.game.ui.action.tween.equations.Quart"
+ type="com.guidebee.game.ui.actions.tween.equations.Quart"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -55403,7 +55403,7 @@
 >
 </constructor>
 <field name="IN"
- type="com.guidebee.game.ui.action.tween.equations.Quart"
+ type="com.guidebee.game.ui.actions.tween.equations.Quart"
  transient="false"
  volatile="false"
  static="true"
@@ -55413,7 +55413,7 @@
 >
 </field>
 <field name="INOUT"
- type="com.guidebee.game.ui.action.tween.equations.Quart"
+ type="com.guidebee.game.ui.actions.tween.equations.Quart"
  transient="false"
  volatile="false"
  static="true"
@@ -55423,7 +55423,7 @@
 >
 </field>
 <field name="OUT"
- type="com.guidebee.game.ui.action.tween.equations.Quart"
+ type="com.guidebee.game.ui.actions.tween.equations.Quart"
  transient="false"
  volatile="false"
  static="true"
@@ -55434,7 +55434,7 @@
 </field>
 </class>
 <class name="Quint"
- extends="com.guidebee.game.ui.action.tween.TweenEquation"
+ extends="com.guidebee.game.ui.actions.tween.TweenEquation"
  abstract="true"
  static="false"
  final="false"
@@ -55442,7 +55442,7 @@
  visibility="public"
 >
 <constructor name="Quint"
- type="com.guidebee.game.ui.action.tween.equations.Quint"
+ type="com.guidebee.game.ui.actions.tween.equations.Quint"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -55450,7 +55450,7 @@
 >
 </constructor>
 <field name="IN"
- type="com.guidebee.game.ui.action.tween.equations.Quint"
+ type="com.guidebee.game.ui.actions.tween.equations.Quint"
  transient="false"
  volatile="false"
  static="true"
@@ -55460,7 +55460,7 @@
 >
 </field>
 <field name="INOUT"
- type="com.guidebee.game.ui.action.tween.equations.Quint"
+ type="com.guidebee.game.ui.actions.tween.equations.Quint"
  transient="false"
  volatile="false"
  static="true"
@@ -55470,7 +55470,7 @@
 >
 </field>
 <field name="OUT"
- type="com.guidebee.game.ui.action.tween.equations.Quint"
+ type="com.guidebee.game.ui.actions.tween.equations.Quint"
  transient="false"
  volatile="false"
  static="true"
@@ -55481,7 +55481,7 @@
 </field>
 </class>
 <class name="Sine"
- extends="com.guidebee.game.ui.action.tween.TweenEquation"
+ extends="com.guidebee.game.ui.actions.tween.TweenEquation"
  abstract="true"
  static="false"
  final="false"
@@ -55489,7 +55489,7 @@
  visibility="public"
 >
 <constructor name="Sine"
- type="com.guidebee.game.ui.action.tween.equations.Sine"
+ type="com.guidebee.game.ui.actions.tween.equations.Sine"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -55497,7 +55497,7 @@
 >
 </constructor>
 <field name="IN"
- type="com.guidebee.game.ui.action.tween.equations.Sine"
+ type="com.guidebee.game.ui.actions.tween.equations.Sine"
  transient="false"
  volatile="false"
  static="true"
@@ -55507,7 +55507,7 @@
 >
 </field>
 <field name="INOUT"
- type="com.guidebee.game.ui.action.tween.equations.Sine"
+ type="com.guidebee.game.ui.actions.tween.equations.Sine"
  transient="false"
  volatile="false"
  static="true"
@@ -55517,7 +55517,7 @@
 >
 </field>
 <field name="OUT"
- type="com.guidebee.game.ui.action.tween.equations.Sine"
+ type="com.guidebee.game.ui.actions.tween.equations.Sine"
  transient="false"
  volatile="false"
  static="true"
@@ -55528,7 +55528,7 @@
 </field>
 </class>
 </package>
-<package name="com.guidebee.game.ui.action.tween.paths"
+<package name="com.guidebee.game.ui.actions.tween.paths"
 >
 <class name="CatmullRom"
  extends="java.lang.Object"
@@ -55538,10 +55538,10 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<implements name="com.guidebee.game.ui.action.tween.TweenPath">
+<implements name="com.guidebee.game.ui.actions.tween.TweenPath">
 </implements>
 <constructor name="CatmullRom"
- type="com.guidebee.game.ui.action.tween.paths.CatmullRom"
+ type="com.guidebee.game.ui.actions.tween.paths.CatmullRom"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -55574,10 +55574,10 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<implements name="com.guidebee.game.ui.action.tween.TweenPath">
+<implements name="com.guidebee.game.ui.actions.tween.TweenPath">
 </implements>
 <constructor name="Linear"
- type="com.guidebee.game.ui.action.tween.paths.Linear"
+ type="com.guidebee.game.ui.actions.tween.paths.Linear"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -55603,7 +55603,7 @@
 </method>
 </class>
 </package>
-<package name="com.guidebee.game.ui.action.tween.primitives"
+<package name="com.guidebee.game.ui.actions.tween.primitives"
 >
 <class name="MutableFloat"
  extends="java.lang.Number"
@@ -55613,10 +55613,10 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<implements name="com.guidebee.game.ui.action.tween.TweenAccessor">
+<implements name="com.guidebee.game.ui.actions.tween.TweenAccessor">
 </implements>
 <constructor name="MutableFloat"
- type="com.guidebee.game.ui.action.tween.primitives.MutableFloat"
+ type="com.guidebee.game.ui.actions.tween.primitives.MutableFloat"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -55657,7 +55657,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="target" type="com.guidebee.game.ui.action.tween.primitives.MutableFloat">
+<parameter name="target" type="com.guidebee.game.ui.actions.tween.primitives.MutableFloat">
 </parameter>
 <parameter name="tweenType" type="int">
 </parameter>
@@ -55709,7 +55709,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="target" type="com.guidebee.game.ui.action.tween.primitives.MutableFloat">
+<parameter name="target" type="com.guidebee.game.ui.actions.tween.primitives.MutableFloat">
 </parameter>
 <parameter name="tweenType" type="int">
 </parameter>
@@ -55725,10 +55725,10 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<implements name="com.guidebee.game.ui.action.tween.TweenAccessor">
+<implements name="com.guidebee.game.ui.actions.tween.TweenAccessor">
 </implements>
 <constructor name="MutableInteger"
- type="com.guidebee.game.ui.action.tween.primitives.MutableInteger"
+ type="com.guidebee.game.ui.actions.tween.primitives.MutableInteger"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -55769,7 +55769,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="target" type="com.guidebee.game.ui.action.tween.primitives.MutableInteger">
+<parameter name="target" type="com.guidebee.game.ui.actions.tween.primitives.MutableInteger">
 </parameter>
 <parameter name="tweenType" type="int">
 </parameter>
@@ -55821,7 +55821,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="target" type="com.guidebee.game.ui.action.tween.primitives.MutableInteger">
+<parameter name="target" type="com.guidebee.game.ui.actions.tween.primitives.MutableInteger">
 </parameter>
 <parameter name="tweenType" type="int">
 </parameter>
@@ -60557,7 +60557,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="action" type="com.guidebee.game.ui.action.Action">
+<parameter name="action" type="com.guidebee.game.ui.actions.Action">
 </parameter>
 </method>
 <method name="hide"
@@ -60613,7 +60613,7 @@
 >
 <parameter name="stage" type="com.guidebee.game.ui.UIWindow">
 </parameter>
-<parameter name="action" type="com.guidebee.game.ui.action.Action">
+<parameter name="action" type="com.guidebee.game.ui.actions.Action">
 </parameter>
 </method>
 <method name="show"

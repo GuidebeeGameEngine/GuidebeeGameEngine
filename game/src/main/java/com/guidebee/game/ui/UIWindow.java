@@ -31,7 +31,7 @@ import com.guidebee.game.graphics.ShapeRenderer;
 import com.guidebee.game.graphics.SpriteBatch;
 import com.guidebee.game.ui.InputEvent.Type;
 import com.guidebee.game.ui.Table.Debug;
-import com.guidebee.game.ui.action.Action;
+import com.guidebee.game.ui.actions.Action;
 import com.guidebee.math.Matrix4;
 import com.guidebee.math.Vector2;
 import com.guidebee.math.geometry.Rectangle;
@@ -625,7 +625,7 @@ public class UIWindow extends InputAdapter implements Disposable {
     /**
      * Adds an action to the root of the stage.
      *
-     * @see UIContainer#addAction(com.guidebee.game.ui.action.Action)
+     * @see UIContainer#addAction(com.guidebee.game.ui.actions.Action)
      */
     public void addAction(Action action) {
         root.addAction(action);

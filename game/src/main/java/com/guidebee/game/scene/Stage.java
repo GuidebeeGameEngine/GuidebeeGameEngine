@@ -56,7 +56,7 @@ import com.guidebee.game.ui.UIContainer;
 import com.guidebee.game.ui.UIWindow;
 import com.guidebee.game.ui.Widget;
 import com.guidebee.game.ui.WidgetGroup;
-import com.guidebee.game.ui.action.Action;
+import com.guidebee.game.ui.actions.Action;
 import com.guidebee.math.Matrix4;
 import com.guidebee.math.Vector2;
 import com.guidebee.math.geometry.Rectangle;
@@ -591,7 +591,7 @@ public class Stage extends InputAdapter implements Disposable {
     /**
      * Adds an action to the root of the stage.
      *
-     * @see Group#addAction(com.guidebee.game.ui.action.Action)
+     * @see Group#addAction(com.guidebee.game.ui.actions.Action)
      */
     public void addAction(Action action) {
         internalStage.addAction(action);

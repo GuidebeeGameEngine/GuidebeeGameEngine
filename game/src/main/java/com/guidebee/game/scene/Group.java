@@ -27,8 +27,8 @@ import com.guidebee.game.ui.Cullable;
 import com.guidebee.game.ui.UIComponent;
 import com.guidebee.game.ui.UIContainer;
 import com.guidebee.game.ui.UIWindow;
-import com.guidebee.game.ui.action.Action;
-import com.guidebee.game.ui.action.TweenAction;
+import com.guidebee.game.ui.actions.Action;
+import com.guidebee.game.ui.actions.TweenAction;
 import com.guidebee.math.Matrix4;
 import com.guidebee.math.Vector2;
 import com.guidebee.math.geometry.Rectangle;
@@ -466,7 +466,7 @@ public class Group extends Actor implements Cullable {
     /**
      * Removes an actor from this group. all the actor will remove itself.
      * after removeActor, this actor is no longer useable.
-     * {@link com.guidebee.game.ui.action.Action#setPool(com.guidebee.utils.Pool) pool},
+     * {@link com.guidebee.game.ui.actions.Action#setPool(com.guidebee.utils.Pool) pool},
      * if any. This is not done automatically.
      */
     public boolean removeActor(Actor actor) {

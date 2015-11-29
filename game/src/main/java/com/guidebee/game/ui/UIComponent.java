@@ -22,7 +22,7 @@ import com.guidebee.game.graphics.Batch;
 import com.guidebee.game.graphics.Color;
 import com.guidebee.game.graphics.ShapeRenderer;
 import com.guidebee.game.scene.ScissorStack;
-import com.guidebee.game.ui.action.Action;
+import com.guidebee.game.ui.actions.Action;
 import com.guidebee.math.MathUtils;
 import com.guidebee.math.Vector2;
 import com.guidebee.math.geometry.Rectangle;
@@ -39,10 +39,10 @@ import com.guidebee.utils.collections.DelayedRemovalArray;
  * origin is relative to the position and is used for scale and rotation.
  * <p>
  * An actor has a list of in progress
- * {@link com.guidebee.game.ui.action.Action actions} that are applied
+ * {@link com.guidebee.game.ui.actions.Action actions} that are applied
  * to the actor (often over time). These are generally
  * used to change the presentation of the actor (moving it, resizing it, etc).
- * See {@link #act(float)}, {@link com.guidebee.game.ui.action.Action} and its
+ * See {@link #act(float)}, {@link com.guidebee.game.ui.actions.Action} and its
  * many subclasses.
  * <p>
  * An actor has two kinds of listeners associated with it: "capture" and regular.

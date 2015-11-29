@@ -18,8 +18,8 @@ package com.guidebee.game.ui;
 
 //--------------------------------- IMPORTS ------------------------------------
 
-import com.guidebee.game.ui.action.Action;
-import com.guidebee.game.ui.action.Actions;
+import com.guidebee.game.ui.actions.Action;
+import com.guidebee.game.ui.actions.Actions;
 import com.guidebee.math.Interpolation;
 import com.guidebee.utils.collections.ObjectMap;
 
