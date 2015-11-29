@@ -40,11 +40,11 @@ import com.guidebee.game.physics.FixtureDef;
 import com.guidebee.game.physics.PolygonShape;
 import com.guidebee.game.physics.Shape;
 import com.guidebee.game.physics.World;
-import com.guidebee.game.scene.actions.Action;
-import com.guidebee.game.scene.actions.TweenAction;
 import com.guidebee.game.ui.UIComponent;
 import com.guidebee.game.ui.UIContainer;
 import com.guidebee.game.ui.UIWindow;
+import com.guidebee.game.ui.action.Action;
+import com.guidebee.game.ui.action.TweenAction;
 import com.guidebee.math.Vector2;
 import com.guidebee.math.geometry.Circle;
 import com.guidebee.math.geometry.Polygon;
@@ -162,10 +162,10 @@ class InternalActor extends UIComponent {
  * origin is relative to the position and is used for scale and rotation.
  * <p>
  * An actor has a list of in progress
- * {@link com.guidebee.game.scene.actions.Action actions} that are applied
+ * {@link com.guidebee.game.ui.action.Action actions} that are applied
  * to the actor (often over time). These are generally
  * used to change the presentation of the actor (moving it, resizing it, etc).
- * See {@link #act(float)}, {@link com.guidebee.game.scene.actions.Action} and its
+ * See {@link #act(float)}, {@link com.guidebee.game.ui.action.Action} and its
  * many subclasses.
  * <p>
  *

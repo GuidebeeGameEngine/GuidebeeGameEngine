@@ -45,7 +45,6 @@ import com.guidebee.game.physics.Filter;
 import com.guidebee.game.physics.Fixture;
 import com.guidebee.game.physics.Manifold;
 import com.guidebee.game.physics.World;
-import com.guidebee.game.scene.actions.Action;
 import com.guidebee.game.scene.collision.Collision;
 import com.guidebee.game.scene.collision.CollisionListener;
 import com.guidebee.game.scene.collision.SensorListener;
@@ -57,6 +56,7 @@ import com.guidebee.game.ui.UIContainer;
 import com.guidebee.game.ui.UIWindow;
 import com.guidebee.game.ui.Widget;
 import com.guidebee.game.ui.WidgetGroup;
+import com.guidebee.game.ui.action.Action;
 import com.guidebee.math.Matrix4;
 import com.guidebee.math.Vector2;
 import com.guidebee.math.geometry.Rectangle;
@@ -591,7 +591,7 @@ public class Stage extends InputAdapter implements Disposable {
     /**
      * Adds an action to the root of the stage.
      *
-     * @see Group#addAction(com.guidebee.game.scene.actions.Action)
+     * @see Group#addAction(com.guidebee.game.ui.action.Action)
      */
     public void addAction(Action action) {
         internalStage.addAction(action);

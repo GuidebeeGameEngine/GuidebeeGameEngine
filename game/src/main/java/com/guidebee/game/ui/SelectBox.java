@@ -22,8 +22,8 @@ import com.guidebee.game.graphics.Batch;
 import com.guidebee.game.graphics.BitmapFont;
 import com.guidebee.game.graphics.Color;
 import com.guidebee.game.graphics.Font;
-import com.guidebee.game.scene.actions.Actions;
 import com.guidebee.game.ui.List.ListStyle;
+import com.guidebee.game.ui.action.Actions;
 import com.guidebee.game.ui.drawable.Drawable;
 import com.guidebee.math.Interpolation;
 import com.guidebee.math.Vector2;
@@ -31,7 +31,7 @@ import com.guidebee.utils.Pools;
 import com.guidebee.utils.collections.Array;
 import com.guidebee.utils.collections.ObjectSet;
 
-import static com.guidebee.game.scene.actions.Actions.sequence;
+import static com.guidebee.game.ui.action.Actions.sequence;
 
 //[------------------------------ MAIN CLASS ----------------------------------]
 
