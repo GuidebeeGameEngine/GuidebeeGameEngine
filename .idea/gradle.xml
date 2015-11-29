@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/box2d" />
             <option value="$PROJECT_DIR$/game" />
+            <option value="$PROJECT_DIR$/uicomponents" />
             <option value="$PROJECT_DIR$/uicomponnets" />
           </set>
         </option>

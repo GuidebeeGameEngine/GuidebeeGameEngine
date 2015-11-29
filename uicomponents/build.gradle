@@ -5,7 +5,7 @@ android {
     buildToolsVersion "23.0.2"
 
     defaultConfig {
-        applicationId "com.example.uicomponnets"
+        applicationId "com.guidebee.game.tutorial.ui"
         minSdkVersion 15
         targetSdkVersion 23
         versionCode 1
