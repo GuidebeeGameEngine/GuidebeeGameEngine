@@ -75,7 +75,7 @@ public class Scene extends ScreenAdapter{
 
     @Override
     public void render(float delta){
-        sceneStage.act();
+        sceneStage.act(delta);
         sceneStage.draw();
     }
 

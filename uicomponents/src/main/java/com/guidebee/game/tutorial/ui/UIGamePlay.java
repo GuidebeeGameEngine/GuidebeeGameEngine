@@ -26,13 +26,6 @@ public class UIGamePlay extends GamePlay {
 
     }
 
-    public void showMainWindow(){
-        setScreen(mainWindow);
-    }
-
-    public void showSecondWindow(){
-        setScreen(secondWindow);
-    }
 
     private void loadAssets(){
 

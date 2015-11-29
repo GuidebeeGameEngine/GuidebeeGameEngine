@@ -32,24 +32,24 @@ import com.guidebee.utils.collections.DelayedRemovalArray;
 
 //[------------------------------ MAIN CLASS ----------------------------------]
 /**
- * 2D scene graph node. An actor has a position, rectangular size, origin,
+ * 2D scene graph node. An component has a position, rectangular size, origin,
  * scale, rotation, Z index, and color. The position
- * corresponds to the unrotated, unscaled bottom left corner of the actor.
- * The position is relative to the actor's parent. The
+ * corresponds to the unrotated, unscaled bottom left corner of the component.
+ * The position is relative to the component's parent. The
  * origin is relative to the position and is used for scale and rotation.
  * <p>
- * An actor has a list of in progress
+ * An component has a list of in progress
  * {@link com.guidebee.game.ui.actions.Action actions} that are applied
- * to the actor (often over time). These are generally
- * used to change the presentation of the actor (moving it, resizing it, etc).
+ * to the component (often over time). These are generally
+ * used to change the presentation of the component (moving it, resizing it, etc).
  * See {@link #act(float)}, {@link com.guidebee.game.ui.actions.Action} and its
  * many subclasses.
  * <p>
- * An actor has two kinds of listeners associated with it: "capture" and regular.
- * The listeners are notified of events the actor
+ * An component has two kinds of listeners associated with it: "capture" and regular.
+ * The listeners are notified of events the component
  * or its children receive. The regular listeners are designed to allow an
- * actor to respond to events that have been delivered.
- * The capture listeners are designed to allow a parent or container actor to
+ * component to respond to events that have been delivered.
+ * The capture listeners are designed to allow a parent or container component to
  * handle events before child actors. See {@link #fire}
  * for more details.
  * <p>
@@ -93,14 +93,14 @@ public class UIComponent {
 
     /**
      * constructor
-     * @param name  name of the actor.
+     * @param name  name of the component.
      */
     public UIComponent(String name){
         setName(name);
     }
 
     /**
-     * Draws the actor. The batch is configured to draw in the parent's
+     * Draws the component. The batch is configured to draw in the parent's
      * coordinate system.
      * {@link com.guidebee.game.graphics.Batch#draw(com.guidebee.game.graphics.TextureRegion,
      * float, float, float, float, float, float, float, float, float)
@@ -113,14 +113,14 @@ public class UIComponent {
      * <p>
      * The default implementation does nothing.
      *
-     * @param parentAlpha Should be multiplied with the actor's alpha, allowing
+     * @param parentAlpha Should be multiplied with the component's alpha, allowing
      *                    a parent's alpha to affect all children.
      */
     public void draw(Batch batch, float parentAlpha) {
     }
 
     /**
-     * Updates the actor based on time. Typically this is called each frame
+     * Updates the component based on time. Typically this is called each frame
      * by {@link UIWindow#act(float)}.
      * <p>
      * The default implementation calls {@link Action#act(float)} on
@@ -145,22 +145,22 @@ public class UIComponent {
     }
 
     /**
-     * Sets this actor as the event {@link Event#setTarget(UIComponent) target}
-     * and propagates the event to this actor and ancestor
-     * actors as necessary. If this actor is not in the stage, the stage
+     * Sets this component as the event {@link Event#setTarget(UIComponent) target}
+     * and propagates the event to this component and ancestor
+     * actors as necessary. If this component is not in the stage, the stage
      * must be set before calling this method.
      * <p>
      * Events are fired in 2 phases.
      * <ol>
      * <li>The first phase (the "capture" phase) notifies listeners on
-     * each actor starting at the root and propagating downward to
-     * (and including) this actor.</li>
-     * <li>The second phase notifies listeners on each actor starting at
-     * this actor and, if {@link Event#getBubbles()} is true,
+     * each component starting at the root and propagating downward to
+     * (and including) this component.</li>
+     * <li>The second phase notifies listeners on each component starting at
+     * this component and, if {@link Event#getBubbles()} is true,
      * propagating upward to the root.</li>
      * </ol>
      * If the event is {@link com.guidebee.game.ui.Event#stop() stopped} at any time, it will
-     * not propagate to the next actor.
+     * not propagate to the next component.
      *
      * @return true if the event was {@link com.guidebee.game.ui.Event#cancel() cancelled}.
      */
@@ -210,11 +210,11 @@ public class UIComponent {
     }
 
     /**
-     * Notifies this actor's listeners of the event. The event is not
+     * Notifies this component's listeners of the event. The event is not
      * propagated to any parents. Before notifying the listeners,
-     * this actor is set as the {@link com.guidebee.game.ui.Event#getListenerActor() listener actor}.
+     * this component is set as the {@link com.guidebee.game.ui.Event#getListenerActor() listener component}.
      * The event {@link Event#setTarget(UIComponent) target}
-     * must be set before calling this method. If this actor is not in the stage,
+     * must be set before calling this method. If this component is not in the stage,
      * the stage must be set before calling this method.
      *
      * @param capture If true, the capture listeners will be notified instead of
@@ -254,18 +254,18 @@ public class UIComponent {
     }
 
     /**
-     * Returns the deepest actor that contains the specified point and is
+     * Returns the deepest component that contains the specified point and is
      * {@link #getTouchable() touchable} and
-     * {@link #isVisible() visible}, or null if no actor was hit. The point
-     * is specified in the actor's local coordinate system (0,0
-     * is the bottom left of the actor and width,height is the upper right).
+     * {@link #isVisible() visible}, or null if no component was hit. The point
+     * is specified in the component's local coordinate system (0,0
+     * is the bottom left of the component and width,height is the upper right).
      * <p>
      * This method is used to delegate touchDown, mouse, and enter/exit events.
      * If this method returns null, those events will not
      * occur on this UIComponent.
      * <p>
-     * The default implementation returns this actor if the point is within this
-     * actor's bounds.
+     * The default implementation returns this component if the point is within this
+     * component's bounds.
      *
      * @param touchable If true, the hit detection will respect
      *                  the {@link #setTouchable(Touchable) touchability}.
@@ -277,7 +277,7 @@ public class UIComponent {
     }
 
     /**
-     * Removes this actor from its parent, if it has a parent.
+     * Removes this component from its parent, if it has a parent.
      *
      * @see UIContainer#removeComponent(UIComponent)
      */
@@ -288,7 +288,7 @@ public class UIComponent {
 
     /**
      * Add a listener to receive events that {@link #hit(float, float, boolean) hit}
-     * this actor. See {@link #fire(com.guidebee.game.ui.Event)}.
+     * this component. See {@link #fire(com.guidebee.game.ui.Event)}.
      *
      * @see com.guidebee.game.ui.InputListener
      * @see com.guidebee.game.ui.ClickListener
@@ -341,7 +341,7 @@ public class UIComponent {
     }
 
     /**
-     * Removes all actions on this actor.
+     * Removes all actions on this component.
      */
     public void clearActions() {
         for (int i = actions.size - 1; i >= 0; i--)
@@ -350,7 +350,7 @@ public class UIComponent {
     }
 
     /**
-     * Removes all listeners on this actor.
+     * Removes all listeners on this component.
      */
     public void clearListeners() {
         listeners.clear();
@@ -358,7 +358,7 @@ public class UIComponent {
     }
 
     /**
-     * Removes all actions and listeners on this actor.
+     * Removes all actions and listeners on this component.
      */
     public void clear() {
         clearActions();
@@ -366,74 +366,74 @@ public class UIComponent {
     }
 
     /**
-     * Returns the stage that this actor is currently in, or null if not in a stage.
+     * Returns the stage that this component is currently in, or null if not in a stage.
      */
     public UIWindow getStage() {
         return stage;
     }
 
     /**
-     * Called by the framework when this actor or any parent is added to a
+     * Called by the framework when this component or any parent is added to a
      * group that is in the stage.
      *
-     * @param stage May be null if the actor or any parent is no longer in a stage.
+     * @param stage May be null if the component or any parent is no longer in a stage.
      */
     protected void setWindow(UIWindow stage) {
         this.stage = stage;
     }
 
     /**
-     * Returns true if this actor is the same as or is the descendant of the
-     * specified actor.
+     * Returns true if this component is the same as or is the descendant of the
+     * specified component.
      */
-    public boolean isDescendantOf(UIComponent actor) {
-        if (actor == null)
-            throw new IllegalArgumentException("actor cannot be null.");
+    public boolean isDescendantOf(UIComponent component) {
+        if (component == null)
+            throw new IllegalArgumentException("component cannot be null.");
         UIComponent parent = this;
         while (true) {
             if (parent == null) return false;
-            if (parent == actor) return true;
+            if (parent == component) return true;
             parent = parent.parent;
         }
     }
 
     /**
-     * Returns true if this actor is the same as or is the ascendant of the specified actor.
+     * Returns true if this component is the same as or is the ascendant of the specified component.
      */
-    public boolean isAscendantOf(UIComponent actor) {
-        if (actor == null) throw new IllegalArgumentException("actor cannot be null.");
+    public boolean isAscendantOf(UIComponent component) {
+        if (component == null) throw new IllegalArgumentException("component cannot be null.");
         while (true) {
-            if (actor == null) return false;
-            if (actor == this) return true;
-            actor = actor.parent;
+            if (component == null) return false;
+            if (component == this) return true;
+            component = component.parent;
         }
     }
 
     /**
-     * Returns true if the actor's parent is not null.
+     * Returns true if the component's parent is not null.
      */
     public boolean hasParent() {
         return parent != null;
     }
 
     /**
-     * Returns the parent actor, or null if not in a group.
+     * Returns the parent component, or null if not in a group.
      */
     public UIContainer getParent() {
         return parent;
     }
 
     /**
-     * Called by the framework when an actor is added to or removed from a group.
+     * Called by the framework when an component is added to or removed from a group.
      *
-     * @param parent May be null if the actor has been removed from the parent.
+     * @param parent May be null if the component has been removed from the parent.
      */
     protected void setParent(UIContainer parent) {
         this.parent = parent;
     }
 
     /**
-     * Returns true if input events are processed by this actor.
+     * Returns true if input events are processed by this component.
      */
     public boolean isTouchable() {
         return touchable == Touchable.enabled;
@@ -444,7 +444,7 @@ public class UIComponent {
     }
 
     /**
-     * Determines how touch events are distributed to this actor. Default
+     * Determines how touch events are distributed to this component. Default
      * is {@link Touchable#enabled}.
      */
     public void setTouchable(Touchable touchable) {
@@ -456,7 +456,7 @@ public class UIComponent {
     }
 
     /**
-     * If false, the actor will not be drawn and will not receive touch events.
+     * If false, the component will not be drawn and will not receive touch events.
      * Default is true.
      */
     public void setVisible(boolean visible) {
@@ -478,7 +478,7 @@ public class UIComponent {
     }
 
     /**
-     * Get the X position of the actor (left edge of actor)
+     * Get the X position of the component (left edge of component)
      */
     public float getX() {
         return x;
@@ -492,7 +492,7 @@ public class UIComponent {
     }
 
     /**
-     * Get the Y position of the actor (bottom edge of actor)
+     * Get the Y position of the component (bottom edge of component)
      */
     public float getY() {
         return y;
@@ -583,13 +583,13 @@ public class UIComponent {
     }
 
     /**
-     * Called when the actor's position has been changed.
+     * Called when the component's position has been changed.
      */
     protected void positionChanged() {
     }
 
     /**
-     * Called when the actor's size has been changed.
+     * Called when the component's size has been changed.
      */
     protected void sizeChanged() {
     }
@@ -735,7 +735,7 @@ public class UIComponent {
     }
 
     /**
-     * Returns the color the actor will be tinted when drawn. The returned
+     * Returns the color the component will be tinted when drawn. The returned
      * instance can be modified to change the color.
      */
     public Color getColor() {
@@ -743,7 +743,7 @@ public class UIComponent {
     }
 
     /**
-     * Retrieve custom actor name set with {@link UIComponent#setName(String)},
+     * Retrieve custom component name set with {@link UIComponent#setName(String)},
      * used for easier identification
      */
     public String getName() {
@@ -751,7 +751,7 @@ public class UIComponent {
     }
 
     /**
-     * Sets a name for easier identification of the actor in application code.
+     * Sets a name for easier identification of the component in application code.
      *
      * @see UIContainer#findComponent(String)
      */
@@ -760,21 +760,21 @@ public class UIComponent {
     }
 
     /**
-     * Changes the z-order for this actor so it is in front of all siblings.
+     * Changes the z-order for this component so it is in front of all siblings.
      */
     public void toFront() {
         setZIndex(Integer.MAX_VALUE);
     }
 
     /**
-     * Changes the z-order for this actor so it is in back of all siblings.
+     * Changes the z-order for this component so it is in back of all siblings.
      */
     public void toBack() {
         setZIndex(0);
     }
 
     /**
-     * Sets the z-index of this actor. The z-index is the index into the
+     * Sets the z-index of this component. The z-index is the index into the
      * parent's {@link UIContainer#getChildren() children}, where a
      * lower index is below a higher index. Setting a z-index higher than
      * the number of children will move the child to the front.
@@ -794,7 +794,7 @@ public class UIComponent {
     }
 
     /**
-     * Returns the z-index of this actor.
+     * Returns the z-index of this component.
      *
      * @see #setZIndex(int)
      */
@@ -806,7 +806,7 @@ public class UIComponent {
 
     /**
      * Calls {@link #clipBegin(float, float, float, float)}
-     * to clip this actor's bounds.
+     * to clip this component's bounds.
      */
     public boolean clipBegin() {
         return clipBegin(x, y, width, height);
@@ -845,7 +845,7 @@ public class UIComponent {
     }
 
     /**
-     * Transforms the specified point in screen coordinates to the actor's
+     * Transforms the specified point in screen coordinates to the component's
      * local coordinate system.
      */
     public Vector2 screenToLocalCoordinates(Vector2 screenCoords) {
@@ -856,7 +856,7 @@ public class UIComponent {
 
     /**
      * Transforms the specified point in the stage's coordinates to the
-     * actor's local coordinate system.
+     * component's local coordinate system.
      */
     public Vector2 stageToLocalCoordinates(Vector2 stageCoords) {
         if (parent == null) return stageCoords;
@@ -866,7 +866,7 @@ public class UIComponent {
     }
 
     /**
-     * Transforms the specified point in the actor's coordinates to be
+     * Transforms the specified point in the component's coordinates to be
      * in the stage's coordinates.
      *
      * @see UIWindow#toScreenCoordinates(Vector2, com.guidebee.math.Matrix4)
@@ -876,7 +876,7 @@ public class UIComponent {
     }
 
     /**
-     * Transforms the specified point in the actor's coordinates to be
+     * Transforms the specified point in the component's coordinates to be
      * in the parent's coordinates.
      */
     public Vector2 localToParentCoordinates(Vector2 localCoords) {
@@ -909,22 +909,22 @@ public class UIComponent {
     }
 
     /**
-     * Converts coordinates for this actor to those of a parent actor. The
+     * Converts coordinates for this component to those of a parent component. The
      * ascendant does not need to be a direct parent.
      */
     public Vector2 localToAscendantCoordinates(UIComponent ascendant, Vector2 localCoords) {
-        UIComponent actor = this;
-        while (actor != null) {
-            actor.localToParentCoordinates(localCoords);
-            actor = actor.parent;
-            if (actor == ascendant) break;
+        UIComponent component = this;
+        while (component != null) {
+            component.localToParentCoordinates(localCoords);
+            component = component.parent;
+            if (component == ascendant) break;
         }
         return localCoords;
     }
 
     /**
      * Converts the coordinates given in the parent's coordinate system to
-     * this actor's coordinate system.
+     * this component's coordinate system.
      */
     public Vector2 parentToLocalCoordinates(Vector2 parentCoords) {
         final float rotation = this.rotation;
@@ -956,14 +956,14 @@ public class UIComponent {
     }
 
     /**
-     * Draws this actor's debug lines if {@link #getDebug()} is true.
+     * Draws this component's debug lines if {@link #getDebug()} is true.
      */
     public void drawDebug(ShapeRenderer shapes) {
         drawDebugBounds(shapes);
     }
 
     /**
-     * Draws a rectange for the bounds of this actor if {@link #getDebug()} is true.
+     * Draws a rectange for the bounds of this component if {@link #getDebug()} is true.
      */
     protected void drawDebugBounds(ShapeRenderer shapes) {
         if (!getDebug()) return;
@@ -974,7 +974,7 @@ public class UIComponent {
     }
 
     /**
-     * If true, {@link #drawDebug(ShapeRenderer)} will be called for this actor.
+     * If true, {@link #drawDebug(ShapeRenderer)} will be called for this component.
      */
     public void setDebug(boolean enabled) {
         debug = enabled;

@@ -12,6 +12,6 @@
         background : { drawable : background},
         soundon: {drawable: soundon} ,
         soundoff: {drawable: soundoff},
-        bird: {drawable: bird1},
+        bird1: {drawable: bird1},
   }
 }

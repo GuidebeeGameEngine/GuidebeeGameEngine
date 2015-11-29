@@ -33,7 +33,7 @@ import com.guidebee.utils.collections.SnapshotArray;
  * <p>
  * Actors have a z-order equal to the order they were inserted into the group.
  * Actors inserted later will be drawn on top of
- * actors added earlier. Touch events that hit more than one actor are
+ * actors added earlier. Touch events that hit more than one component are
  * distributed to topmost actors first.
  *
  * @author mzechner
@@ -164,7 +164,7 @@ public class UIContainer extends UIComponent implements Cullable {
     }
 
     /**
-     * Draws this actor's debug lines if {@link #getDebug()} is true and,
+     * Draws this component's debug lines if {@link #getDebug()} is true and,
      * regardless of {@link #getDebug()}, calls
      * {@link UIComponent#drawDebug(ShapeRenderer)}
      * on each child.
@@ -329,81 +329,81 @@ public class UIContainer extends UIComponent implements Cullable {
     }
 
     /**
-     * Adds an actor as a child of this group. The actor is first
+     * Adds an component as a child of this group. The component is first
      * removed from its parent group, if any.
      *
      * @see #remove()
      */
-    public void addComponent(UIComponent actor) {
-        actor.remove();
-        children.add(actor);
-        actor.setParent(this);
-        actor.setWindow(getStage());
+    public void addComponent(UIComponent component) {
+        component.remove();
+        children.add(component);
+        component.setParent(this);
+        component.setWindow(getStage());
         childrenChanged();
     }
 
     /**
-     * Adds an actor as a child of this group, at a specific index.
-     * The actor is first removed from its parent group, if any.
+     * Adds an component as a child of this group, at a specific index.
+     * The component is first removed from its parent group, if any.
      *
      * @param index May be greater than the number of children.
      */
-    public void addComponentAt(int index, UIComponent actor) {
-        actor.remove();
+    public void addComponentAt(int index, UIComponent component) {
+        component.remove();
         if (index >= children.size)
-            children.add(actor);
+            children.add(component);
         else
-            children.insert(index, actor);
-        actor.setParent(this);
-        actor.setWindow(getStage());
+            children.insert(index, component);
+        component.setParent(this);
+        component.setWindow(getStage());
         childrenChanged();
     }
 
     /**
-     * Adds an actor as a child of this group, immediately before
-     * another child actor. The actor is first removed from its parent
+     * Adds an component as a child of this group, immediately before
+     * another child component. The component is first removed from its parent
      * group, if any.
      */
-    public void addComponentBefore(UIComponent actorBefore, UIComponent actor) {
-        actor.remove();
+    public void addComponentBefore(UIComponent actorBefore, UIComponent component) {
+        component.remove();
         int index = children.indexOf(actorBefore, true);
-        children.insert(index, actor);
-        actor.setParent(this);
-        actor.setWindow(getStage());
+        children.insert(index, component);
+        component.setParent(this);
+        component.setWindow(getStage());
         childrenChanged();
     }
 
     /**
-     * Adds an actor as a child of this group, immediately after another
-     * child actor. The actor is first removed from its parent
+     * Adds an component as a child of this group, immediately after another
+     * child component. The component is first removed from its parent
      * group, if any.
      */
-    public void addComponentAfter(UIComponent actorAfter, UIComponent actor) {
-        actor.remove();
+    public void addComponentAfter(UIComponent actorAfter, UIComponent component) {
+        component.remove();
         int index = children.indexOf(actorAfter, true);
         if (index == children.size)
-            children.add(actor);
+            children.add(component);
         else
-            children.insert(index + 1, actor);
-        actor.setParent(this);
-        actor.setWindow(getStage());
+            children.insert(index + 1, component);
+        component.setParent(this);
+        component.setWindow(getStage());
         childrenChanged();
     }
 
     /**
-     * Removes an actor from this group. If the actor will not be used
+     * Removes an component from this group. If the component will not be used
      * again and has actions, they should be
      * {@link UIComponent#clearActions() cleared} so the actions will be returned
      * to their
      * {@link com.guidebee.game.ui.actions.Action#setPool(com.guidebee.utils.Pool) pool},
      * if any. This is not done automatically.
      */
-    public boolean removeComponent(UIComponent actor) {
-        if (!children.removeValue(actor, true)) return false;
+    public boolean removeComponent(UIComponent component) {
+        if (!children.removeValue(component, true)) return false;
         UIWindow stage = getStage();
-        if (stage != null) stage.unfocus(actor);
-        actor.setParent(null);
-        actor.setWindow(null);
+        if (stage != null) stage.unfocus(component);
+        component.setParent(null);
+        component.setWindow(null);
         childrenChanged();
         return true;
     }
@@ -432,8 +432,8 @@ public class UIContainer extends UIComponent implements Cullable {
     }
 
     /**
-     * Returns the first actor found with the specified name. Note this
-     * recursively compares the name of every actor in the group.
+     * Returns the first component found with the specified name. Note this
+     * recursively compares the name of every component in the group.
      */
     public <T extends UIComponent> T findComponent(String name) {
         Array<UIComponent> children = this.children;
@@ -442,8 +442,8 @@ public class UIContainer extends UIComponent implements Cullable {
         for (int i = 0, n = children.size; i < n; i++) {
             UIComponent child = children.get(i);
             if (child instanceof UIContainer) {
-                UIComponent actor = ((UIContainer) child).findComponent(name);
-                if (actor != null) return (T) actor;
+                UIComponent component = ((UIContainer) child).findComponent(name);
+                if (component != null) return (T) component;
             }
         }
         return null;
@@ -511,17 +511,17 @@ public class UIContainer extends UIComponent implements Cullable {
     }
 
     /**
-     * Converts coordinates for this group to those of a descendant actor.
+     * Converts coordinates for this group to those of a descendant component.
      * The descendant does not need to be a direct child.
      *
-     * @throws IllegalArgumentException if the specified actor is not a
+     * @throws IllegalArgumentException if the specified component is not a
      * descendant of this group.
      */
     public Vector2 localToDescendantCoordinates(UIComponent descendant, Vector2 localCoords) {
         UIContainer parent = descendant.parent;
         if (parent == null)
             throw new IllegalArgumentException("Child is not a descendant: " + descendant);
-        // First convert to the actor's parent coordinates.
+        // First convert to the component's parent coordinates.
         if (parent != this) localToDescendantCoordinates(parent, localCoords);
         // Then from each parent down to the descendant.
         descendant.parentToLocalCoordinates(localCoords);
@@ -554,7 +554,7 @@ public class UIContainer extends UIComponent implements Cullable {
     }
 
     /**
-     * Prints the actor hierarchy recursively for debugging purposes.
+     * Prints the component hierarchy recursively for debugging purposes.
      */
     public void print() {
         print("");
