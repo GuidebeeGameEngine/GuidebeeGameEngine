@@ -14,14 +14,12 @@ import com.guidebee.game.tutorial.box2d.Configuration;
 import com.guidebee.game.tutorial.box2d.actor.AnimatedFace;
 import com.guidebee.game.tutorial.box2d.actor.Face;
 import com.guidebee.game.tutorial.box2d.actor.Ground;
-import com.guidebee.game.tutorial.box2d.actor.Platform;
 import com.guidebee.game.tutorial.box2d.actor.Player;
 import com.guidebee.game.tutorial.box2d.actor.Tank;
 import com.guidebee.game.ui.GameController;
 import com.guidebee.game.ui.drawable.TextureRegionDrawable;
 import com.guidebee.math.MathUtils;
 import com.guidebee.math.geometry.Rectangle;
-import com.guidebee.utils.TimeUtils;
 
 import static com.guidebee.game.GameEngine.assetManager;
 

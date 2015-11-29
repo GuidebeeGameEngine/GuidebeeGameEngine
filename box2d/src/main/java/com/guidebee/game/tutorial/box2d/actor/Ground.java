@@ -3,7 +3,6 @@ package com.guidebee.game.tutorial.box2d.actor;
 
 import com.guidebee.game.GameEngine;
 import com.guidebee.game.graphics.Batch;
-import com.guidebee.game.graphics.Sprite;
 import com.guidebee.game.graphics.TextureAtlas;
 import com.guidebee.game.graphics.TextureRegion;
 import com.guidebee.game.physics.BodyDef;
@@ -11,7 +10,7 @@ import com.guidebee.game.physics.ChainShape;
 import com.guidebee.game.scene.Actor;
 import com.guidebee.game.tutorial.box2d.Configuration;
 
-import static com.guidebee.game.GameEngine.*;
+import static com.guidebee.game.GameEngine.assetManager;
 
 public class Ground extends Actor{
 

@@ -1,6 +1,7 @@
 package com.mapdigit.game.tutorial.coords;
 
 import android.os.Bundle;
+
 import com.guidebee.game.Configuration;
 import com.guidebee.game.activity.GameActivity;
 

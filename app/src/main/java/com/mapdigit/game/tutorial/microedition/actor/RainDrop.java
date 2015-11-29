@@ -1,6 +1,5 @@
 package com.mapdigit.game.tutorial.microedition.actor;
 
-import com.guidebee.game.GameEngine;
 import com.guidebee.game.graphics.Batch;
 import com.guidebee.game.graphics.Texture;
 import com.guidebee.game.microedition.Sprite;
@@ -13,7 +12,8 @@ import com.guidebee.utils.TimeUtils;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import static com.guidebee.game.GameEngine.*;
+import static com.guidebee.game.GameEngine.assetManager;
+import static com.guidebee.game.GameEngine.graphics;
 
 public class RainDrop extends Sprite {
 

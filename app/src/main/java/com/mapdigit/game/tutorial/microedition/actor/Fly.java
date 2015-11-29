@@ -5,7 +5,7 @@ import com.guidebee.game.graphics.Batch;
 import com.guidebee.game.graphics.Texture;
 import com.guidebee.game.microedition.Sprite;
 
-import static com.guidebee.game.GameEngine.*;
+import static com.guidebee.game.GameEngine.assetManager;
 
 public class Fly extends Sprite {
 

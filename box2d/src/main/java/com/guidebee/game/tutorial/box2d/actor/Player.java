@@ -15,7 +15,6 @@ import com.guidebee.game.scene.Group;
 import com.guidebee.game.scene.Stage;
 import com.guidebee.game.tutorial.box2d.Configuration;
 import com.guidebee.game.ui.GameControllerListener;
-import com.guidebee.game.ui.GameControllerListener.Direction;
 import com.guidebee.game.ui.Touchpad;
 import com.guidebee.math.Vector2;
 import com.guidebee.math.geometry.Rectangle;

@@ -4,7 +4,6 @@ import com.guidebee.game.GameEngine;
 import com.guidebee.game.graphics.Animation;
 import com.guidebee.game.graphics.TextureAtlas;
 import com.guidebee.game.graphics.TextureRegion;
-import com.guidebee.game.physics.BodyDef;
 import com.guidebee.game.scene.Actor;
 import com.guidebee.utils.collections.Array;
 

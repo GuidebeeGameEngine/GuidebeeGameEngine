@@ -4,7 +4,6 @@ import com.guidebee.game.GameEngine;
 import com.guidebee.game.InputProcessor;
 import com.guidebee.game.scene.Scene;
 import com.guidebee.game.tutorial.box2d.stage.BulletStage;
-import com.guidebee.game.tutorial.box2d.stage.JointsOverviewStage;
 
 import static com.guidebee.game.GameEngine.assetManager;
 import static com.guidebee.game.GameEngine.graphics;

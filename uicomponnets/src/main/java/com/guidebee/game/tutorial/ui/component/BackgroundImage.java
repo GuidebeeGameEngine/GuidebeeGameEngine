@@ -1,10 +1,10 @@
 package com.guidebee.game.tutorial.ui.component;
 
 
-
 import com.guidebee.game.graphics.Texture;
 import com.guidebee.game.ui.Image;
-import static com.guidebee.game.GameEngine.*;
+
+import static com.guidebee.game.GameEngine.assetManager;
 
 public class BackgroundImage extends Image {
 

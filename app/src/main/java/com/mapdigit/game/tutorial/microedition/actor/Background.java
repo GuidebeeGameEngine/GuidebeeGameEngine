@@ -6,7 +6,7 @@ import com.guidebee.game.graphics.Texture;
 import com.guidebee.game.graphics.TextureRegion;
 import com.guidebee.game.microedition.TiledLayer;
 
-import static com.guidebee.game.GameEngine.*;
+import static com.guidebee.game.GameEngine.assetManager;
 
 
 public class Background extends TiledLayer {

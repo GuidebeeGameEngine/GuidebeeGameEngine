@@ -4,14 +4,12 @@ import android.util.Log;
 
 import com.guidebee.game.Collidable;
 import com.guidebee.game.graphics.TextureAtlas;
-import com.guidebee.game.scene.Actor;
 import com.guidebee.game.scene.collision.Collision;
 import com.guidebee.game.scene.collision.CollisionListener;
 import com.guidebee.game.tutorial.box2d.actor.AnimatedFaceGroup;
 import com.guidebee.game.tutorial.box2d.actor.BoxGround;
 import com.guidebee.game.tutorial.box2d.actor.Bullet;
 import com.guidebee.game.tutorial.box2d.actor.Face;
-import com.guidebee.game.tutorial.box2d.actor.Ground;
 import com.guidebee.game.tutorial.box2d.actor.Player;
 import com.guidebee.game.ui.GameController;
 import com.guidebee.game.ui.drawable.TextureRegionDrawable;

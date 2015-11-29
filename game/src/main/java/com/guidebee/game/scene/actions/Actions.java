@@ -18,10 +18,10 @@ package com.guidebee.game.scene.actions;
 
 //--------------------------------- IMPORTS ------------------------------------
 
-import com.guidebee.game.ui.UIComponent;
 import com.guidebee.game.graphics.Color;
 import com.guidebee.game.ui.EventListener;
 import com.guidebee.game.ui.Touchable;
+import com.guidebee.game.ui.UIComponent;
 import com.guidebee.math.Interpolation;
 import com.guidebee.utils.Pool;
 import com.guidebee.utils.Pools;

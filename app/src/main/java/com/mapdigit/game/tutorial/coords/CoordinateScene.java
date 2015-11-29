@@ -1,6 +1,5 @@
 package com.mapdigit.game.tutorial.coords;
 
-import com.guidebee.game.camera.viewports.ScalingViewport;
 import com.guidebee.game.camera.viewports.ScreenViewport;
 import com.guidebee.game.scene.Scene;
 

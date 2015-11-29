@@ -6,7 +6,6 @@ import com.guidebee.game.physics.BodyDef;
 import com.guidebee.game.physics.Shape;
 import com.guidebee.game.scene.Actor;
 import com.guidebee.game.tutorial.box2d.Configuration;
-import com.guidebee.math.Vector2;
 import com.guidebee.math.geometry.Rectangle;
 
 import static com.guidebee.game.GameEngine.assetManager;

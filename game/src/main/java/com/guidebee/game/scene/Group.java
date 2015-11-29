@@ -18,9 +18,6 @@ package com.guidebee.game.scene;
 
 //--------------------------------- IMPORTS ------------------------------------
 
-import com.guidebee.game.ui.UIComponent;
-import com.guidebee.game.ui.UIContainer;
-import com.guidebee.game.ui.UIWindow;
 import com.guidebee.game.entity.EntityEngine;
 import com.guidebee.game.graphics.Batch;
 import com.guidebee.game.graphics.Color;
@@ -29,6 +26,9 @@ import com.guidebee.game.physics.World;
 import com.guidebee.game.scene.actions.Action;
 import com.guidebee.game.scene.actions.TweenAction;
 import com.guidebee.game.ui.Cullable;
+import com.guidebee.game.ui.UIComponent;
+import com.guidebee.game.ui.UIContainer;
+import com.guidebee.game.ui.UIWindow;
 import com.guidebee.math.Matrix4;
 import com.guidebee.math.Vector2;
 import com.guidebee.math.geometry.Rectangle;

@@ -3,7 +3,6 @@ package com.guidebee.game.tutorial.box2d.stage;
 import android.util.Log;
 
 import com.guidebee.game.Collidable;
-import com.guidebee.game.GameEngine;
 import com.guidebee.game.graphics.TextureAtlas;
 import com.guidebee.game.scene.collision.Collision;
 import com.guidebee.game.scene.collision.CollisionListener;
@@ -14,7 +13,6 @@ import com.guidebee.game.tutorial.box2d.actor.Ground;
 import com.guidebee.game.tutorial.box2d.actor.Player;
 import com.guidebee.game.ui.GameController;
 import com.guidebee.game.ui.drawable.TextureRegionDrawable;
-import com.guidebee.math.Vector2;
 
 import static com.guidebee.game.GameEngine.assetManager;
 

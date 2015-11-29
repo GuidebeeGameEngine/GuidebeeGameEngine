@@ -1,6 +1,7 @@
 package com.guidebee.game.tutorial.ui;
 
 import android.os.Bundle;
+
 import com.guidebee.game.Configuration;
 import com.guidebee.game.activity.GameActivity;
 

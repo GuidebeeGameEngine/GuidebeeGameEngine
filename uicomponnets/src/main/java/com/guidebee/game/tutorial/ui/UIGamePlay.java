@@ -4,7 +4,7 @@ import com.guidebee.game.GamePlay;
 import com.guidebee.game.graphics.Texture;
 import com.guidebee.game.graphics.TextureAtlas;
 
-import static com.guidebee.game.GameEngine.*;
+import static com.guidebee.game.GameEngine.assetManager;
 
 
 public class UIGamePlay extends GamePlay {

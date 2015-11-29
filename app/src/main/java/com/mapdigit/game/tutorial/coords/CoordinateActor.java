@@ -2,7 +2,8 @@ package com.mapdigit.game.tutorial.coords;
 
 import com.guidebee.game.graphics.Texture;
 import com.guidebee.game.scene.Actor;
-import static com.guidebee.game.GameEngine.*;
+
+import static com.guidebee.game.GameEngine.assetManager;
 
 public class CoordinateActor extends Actor {
 

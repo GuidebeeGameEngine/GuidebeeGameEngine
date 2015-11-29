@@ -1,13 +1,11 @@
 package com.guidebee.game.tutorial.box2d.stage;
 
 
-import com.guidebee.game.GameEngine;
 import com.guidebee.game.physics.joints.MotorJoint;
 import com.guidebee.game.physics.joints.MotorJointDef;
 import com.guidebee.game.tutorial.box2d.actor.AnimatedFaceGroup;
 import com.guidebee.game.tutorial.box2d.actor.BoxGround;
 import com.guidebee.game.tutorial.box2d.actor.Face;
-import com.guidebee.game.tutorial.box2d.actor.Ground;
 
 public class JointsOverviewStage extends Box2DGameStage {
 

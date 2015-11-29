@@ -18,10 +18,10 @@ package com.guidebee.game.scene.actions;
 
 //--------------------------------- IMPORTS ------------------------------------
 
-import com.guidebee.game.ui.UIComponent;
 import com.guidebee.game.engine.utils.reflect.ClassReflection;
 import com.guidebee.game.ui.Event;
 import com.guidebee.game.ui.EventListener;
+import com.guidebee.game.ui.UIComponent;
 
 //[------------------------------ MAIN CLASS ----------------------------------]
 /**

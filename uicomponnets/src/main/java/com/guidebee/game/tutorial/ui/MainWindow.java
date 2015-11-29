@@ -1,20 +1,17 @@
 package com.guidebee.game.tutorial.ui;
 
-import com.guidebee.game.GameEngine;
 import com.guidebee.game.graphics.Color;
-import com.guidebee.game.graphics.Texture;
 import com.guidebee.game.graphics.TextureAtlas;
 import com.guidebee.game.graphics.TextureRegion;
 import com.guidebee.game.tutorial.ui.component.BackgroundImage;
 import com.guidebee.game.ui.Button;
 import com.guidebee.game.ui.Label;
-import com.guidebee.game.ui.Skin;
 import com.guidebee.game.ui.Stack;
 import com.guidebee.game.ui.Table;
 import com.guidebee.game.ui.Window;
 import com.guidebee.game.ui.drawable.TextureRegionDrawable;
 
-import static com.guidebee.game.GameEngine.*;
+import static com.guidebee.game.GameEngine.assetManager;
 
 
 public class MainWindow extends Window{

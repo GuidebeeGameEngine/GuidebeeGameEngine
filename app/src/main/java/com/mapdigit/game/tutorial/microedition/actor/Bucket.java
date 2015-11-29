@@ -7,7 +7,9 @@ import com.guidebee.game.graphics.Texture;
 import com.guidebee.game.microedition.Sprite;
 import com.guidebee.math.Vector3;
 
-import static com.guidebee.game.GameEngine.*;
+import static com.guidebee.game.GameEngine.assetManager;
+import static com.guidebee.game.GameEngine.graphics;
+import static com.guidebee.game.GameEngine.input;
 
 public class Bucket extends Sprite {
 

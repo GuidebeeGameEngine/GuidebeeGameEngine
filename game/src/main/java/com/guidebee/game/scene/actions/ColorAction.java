@@ -17,8 +17,9 @@
 package com.guidebee.game.scene.actions;
 
 //--------------------------------- IMPORTS ------------------------------------
-import com.guidebee.game.ui.UIComponent;
+
 import com.guidebee.game.graphics.Color;
+import com.guidebee.game.ui.UIComponent;
 
 //[------------------------------ MAIN CLASS ----------------------------------]
 /**
