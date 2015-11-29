@@ -243,7 +243,7 @@
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Button.html">Button</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Button.ButtonStyle.html">Button.ButtonStyle</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ButtonGroup.html">ButtonGroup</a></li>
-          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Cell.html">Cell</a>&lt;T&nbsp;extends&nbsp;Actor&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Cell.html">Cell</a>&lt;T&nbsp;extends&nbsp;<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a>&gt;</li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ChangeListener.html">ChangeListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ChangeListener.ChangeEvent.html">ChangeListener.ChangeEvent</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/CheckBox.html">CheckBox</a></li>
@@ -251,7 +251,7 @@
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ChildWindow.html">ChildWindow</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ChildWindow.WindowStyle.html">ChildWindow.WindowStyle</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ClickListener.html">ClickListener</a></li>
-          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Container.html">Container</a>&lt;T&nbsp;extends&nbsp;Actor&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Container.html">Container</a>&lt;T&nbsp;extends&nbsp;<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a>&gt;</li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Dialog.html">Dialog</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/DragAndDrop.html">DragAndDrop</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/DragAndDrop.Payload.html">DragAndDrop.Payload</a></li>
@@ -305,6 +305,10 @@
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Tree.html">Tree</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Tree.Node.html">Tree.Node</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Tree.TreeStyle.html">Tree.TreeStyle</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/UIContainer.html">UIContainer</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/UIWindow.html">UIWindow</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/UIWindow.TouchFocus.html">UIWindow.TouchFocus</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Utils.html">Utils</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Value.html">Value</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Value.Fixed.html">Value.Fixed</a></li>
@@ -506,7 +510,7 @@ Summary:
         
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
          	
-        <td colspan="4" class="jd-inheritance-class-cell">com.guidebee.game.ui.UIComponent</td>
+        <td colspan="4" class="jd-inheritance-class-cell"><a href="../../../../com/guidebee/game/ui/UIComponent.html">com.guidebee.game.ui.UIComponent</a></td>
     </tr>
     
 
@@ -516,7 +520,7 @@ Summary:
         
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
          	
-        <td colspan="3" class="jd-inheritance-class-cell">com.guidebee.game.ui.UIContainer</td>
+        <td colspan="3" class="jd-inheritance-class-cell"><a href="../../../../com/guidebee/game/ui/UIContainer.html">com.guidebee.game.ui.UIContainer</a></td>
     </tr>
     
 
@@ -654,8 +658,8 @@ Summary:
 
 
 <h2>Class Overview</h2>
-<p>A UIContainer that sizes and positions children using table constraints. By default,
- <code><a href="null#getTouchable()">getTouchable()</a></code> is
+<p>A group that sizes and positions children using table constraints. By default,
+ <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#getTouchable()">getTouchable()</a></code> is
  <code><a href="../../../../com/guidebee/game/ui/Touchable.html#childrenOnly">childrenOnly</a></code>.
  <p/>
  The preferred and minimum sizes are that of the children when laid out in
@@ -844,7 +848,7 @@ Summary:
             
             
             
-            &lt;T&nbsp;extends&nbsp;Actor&gt;
+            &lt;T&nbsp;extends&nbsp;<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a>&gt;
             <a href="../../../../com/guidebee/game/ui/Cell.html">Cell</a>&lt;T&gt;
         </td>
         <td class="jd-linkcol" width="100%">
@@ -863,13 +867,11 @@ Summary:
             
             
             
-            <a href="../../../../com/guidebee/game/ui/Cell.html">Cell</a>&lt;<a href="../../../../com/guidebee/game/ui/Label.html">Label</a>&gt;
+            void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Table.html#add(java.lang.String, java.lang.String)">add</a></span>(String text, String labelStyleName)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Table.html#add(com.guidebee.game.ui.UIComponent...)">add</a></span>(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent...</a> actors)
         
-        <div class="jd-descrdiv">Adds a new cell with a label.</div>
-  
   </td></tr>
 
 
@@ -884,7 +886,7 @@ Summary:
             <a href="../../../../com/guidebee/game/ui/Cell.html">Cell</a>&lt;<a href="../../../../com/guidebee/game/ui/Label.html">Label</a>&gt;
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Table.html#add(java.lang.String, java.lang.String, com.guidebee.game.graphics.Color)">add</a></span>(String text, String fontName, <a href="../../../../com/guidebee/game/graphics/Color.html">Color</a> color)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Table.html#add(java.lang.String, java.lang.String)">add</a></span>(String text, String labelStyleName)
         
         <div class="jd-descrdiv">Adds a new cell with a label.</div>
   
@@ -899,11 +901,13 @@ Summary:
             
             
             
-            void
+            <a href="../../../../com/guidebee/game/ui/Cell.html">Cell</a>&lt;<a href="../../../../com/guidebee/game/ui/Label.html">Label</a>&gt;
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Table.html#add(com.guidebee.game.ui.UIComponent...)">add</a></span>(Actor... actors)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Table.html#add(java.lang.String, java.lang.String, com.guidebee.game.graphics.Color)">add</a></span>(String text, String fontName, <a href="../../../../com/guidebee/game/graphics/Color.html">Color</a> color)
         
+        <div class="jd-descrdiv">Adds a new cell with a label.</div>
+  
   </td></tr>
 
 
@@ -1098,7 +1102,7 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/Table.html#debug()">debug</a></span>()
         
-        <div class="jd-descrdiv">Calls <code><a href="null#setDebug(boolean)">setDebug(boolean)</a></code> with <code>true</code>.</div>
+        <div class="jd-descrdiv">Calls <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#setDebug(boolean)">setDebug(boolean)</a></code> with <code>true</code>.</div>
   
   </td></tr>
 
@@ -1152,7 +1156,7 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/Table.html#debugAll()">debugAll</a></span>()
         
-        <div class="jd-descrdiv">Calls <code><a href="null#setDebug(boolean, boolean)">setDebug(boolean, boolean)</a></code> with <code>true, true</code>.</div>
+        <div class="jd-descrdiv">Calls <code><a href="../../../../com/guidebee/game/ui/UIContainer.html#setDebug(boolean, boolean)">setDebug(boolean, boolean)</a></code> with <code>true, true</code>.</div>
   
   </td></tr>
 
@@ -1225,7 +1229,7 @@ Summary:
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/Table.html#draw(com.guidebee.game.graphics.Batch, float)">draw</a></span>(<a href="../../../../com/guidebee/game/graphics/Batch.html">Batch</a> batch, float parentAlpha)
         
         <div class="jd-descrdiv">If this method is overridden, the super method or <code><a href="../../../../com/guidebee/game/ui/WidgetGroup.html#validate()">validate()</a></code>
- should be called to ensure the widget UIContainer is laid
+ should be called to ensure the widget group is laid
  out.</div>
   
   </td></tr>
@@ -1244,9 +1248,9 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/Table.html#drawDebug(com.guidebee.game.graphics.ShapeRenderer)">drawDebug</a></span>(<a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html">ShapeRenderer</a> shapes)
         
-        <div class="jd-descrdiv">Draws this actor's debug lines if <code><a href="null#getDebug()">getDebug()</a></code> is true and,
- regardless of <code><a href="null#getDebug()">getDebug()</a></code>, calls
- <code><a href="null#drawDebug(com.guidebee.game.graphics.ShapeRenderer)">drawDebug(ShapeRenderer)</a></code>
+        <div class="jd-descrdiv">Draws this actor's debug lines if <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#getDebug()">getDebug()</a></code> is true and,
+ regardless of <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#getDebug()">getDebug()</a></code>, calls
+ <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#drawDebug(com.guidebee.game.graphics.ShapeRenderer)">drawDebug(ShapeRenderer)</a></code>
  on each child.</div>
   
   </td></tr>
@@ -1291,7 +1295,7 @@ Summary:
             
             
             
-            &lt;T&nbsp;extends&nbsp;Actor&gt;
+            &lt;T&nbsp;extends&nbsp;<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a>&gt;
             <a href="../../../../com/guidebee/game/ui/Cell.html">Cell</a>&lt;T&gt;
         </td>
         <td class="jd-linkcol" width="100%">
@@ -1638,14 +1642,14 @@ Summary:
             
             
             
-            Actor
+            <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a>
         </td>
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/Table.html#hit(float, float, boolean)">hit</a></span>(float x, float y, boolean touchable)
         
         <div class="jd-descrdiv">Returns the deepest actor that contains the specified point and is
- <code><a href="null#getTouchable()">touchable</a></code> and
- <code><a href="null#isVisible()">visible</a></code>, or null if no actor was hit.</div>
+ <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#getTouchable()">touchable</a></code> and
+ <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#isVisible()">visible</a></code>, or null if no actor was hit.</div>
   
   </td></tr>
 
@@ -1932,9 +1936,9 @@ Summary:
             boolean
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Table.html#removeActor(com.guidebee.game.ui.UIComponent)">removeActor</a></span>(Actor actor)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Table.html#removeActor(com.guidebee.game.ui.UIComponent)">removeActor</a></span>(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> actor)
         
-        <div class="jd-descrdiv">Removes an actor from this UIContainer.</div>
+        <div class="jd-descrdiv">Removes an actor from this group.</div>
   
   </td></tr>
 
@@ -1952,7 +1956,7 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/Table.html#reset()">reset</a></span>()
         
-        <div class="jd-descrdiv">Removes all actors and cells from the table (same as <code><a href="null#clear()">clear()</a></code>)
+        <div class="jd-descrdiv">Removes all actors and cells from the table (same as <code><a href="../../../../com/guidebee/game/ui/UIContainer.html#clear()">clear()</a></code>)
  and additionally resets all table properties and
  cell, column, and row defaults.</div>
   
@@ -2088,7 +2092,7 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/Table.html#setDebug(boolean)">setDebug</a></span>(boolean enabled)
         
-        <div class="jd-descrdiv">If true, <code><a href="null#drawDebug(com.guidebee.game.graphics.ShapeRenderer)">drawDebug(ShapeRenderer)</a></code> will be called for this actor.</div>
+        <div class="jd-descrdiv">If true, <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#drawDebug(com.guidebee.game.graphics.ShapeRenderer)">drawDebug(ShapeRenderer)</a></code> will be called for this actor.</div>
   
   </td></tr>
 
@@ -2138,7 +2142,7 @@ Summary:
             <a href="../../../../com/guidebee/game/ui/Cell.html">Cell</a>&lt;<a href="../../../../com/guidebee/game/ui/Stack.html">Stack</a>&gt;
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Table.html#stack(com.guidebee.game.ui.UIComponent...)">stack</a></span>(Actor... actors)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Table.html#stack(com.guidebee.game.ui.UIComponent...)">stack</a></span>(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent...</a> actors)
         
         <div class="jd-descrdiv">Adds a new cell to the table with the specified actors in a <code><a href="../../../../com/guidebee/game/ui/Stack.html">Stack</a></code>.</div>
   
@@ -2209,10 +2213,204 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/WidgetGroup.html#addComponent(com.guidebee.game.ui.Widget)">addComponent</a></span>(<a href="../../../../com/guidebee/game/ui/Widget.html">Widget</a> widget)
+        
+        <div class="jd-descrdiv">Add widget to the group</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/WidgetGroup.html#addComponent(com.guidebee.game.ui.WidgetGroup)">addComponent</a></span>(<a href="../../../../com/guidebee/game/ui/WidgetGroup.html">WidgetGroup</a> widget)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/WidgetGroup.html#addComponentAfter(com.guidebee.game.ui.WidgetGroup, com.guidebee.game.ui.WidgetGroup)">addComponentAfter</a></span>(<a href="../../../../com/guidebee/game/ui/WidgetGroup.html">WidgetGroup</a> widgetAfter, <a href="../../../../com/guidebee/game/ui/WidgetGroup.html">WidgetGroup</a> widget)
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/WidgetGroup.html#addComponentAfter(com.guidebee.game.ui.Widget, com.guidebee.game.ui.WidgetGroup)">addComponentAfter</a></span>(<a href="../../../../com/guidebee/game/ui/Widget.html">Widget</a> widgetAfter, <a href="../../../../com/guidebee/game/ui/WidgetGroup.html">WidgetGroup</a> widget)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/WidgetGroup.html#addComponentAfter(com.guidebee.game.ui.WidgetGroup, com.guidebee.game.ui.Widget)">addComponentAfter</a></span>(<a href="../../../../com/guidebee/game/ui/WidgetGroup.html">WidgetGroup</a> widgetAfter, <a href="../../../../com/guidebee/game/ui/Widget.html">Widget</a> widget)
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/WidgetGroup.html#addComponentAfter(com.guidebee.game.ui.Widget, com.guidebee.game.ui.Widget)">addComponentAfter</a></span>(<a href="../../../../com/guidebee/game/ui/Widget.html">Widget</a> widgetAfter, <a href="../../../../com/guidebee/game/ui/Widget.html">Widget</a> widget)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/WidgetGroup.html#addComponentAt(int, com.guidebee.game.ui.Widget)">addComponentAt</a></span>(int index, <a href="../../../../com/guidebee/game/ui/Widget.html">Widget</a> widget)
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/WidgetGroup.html#addComponentAt(int, com.guidebee.game.ui.WidgetGroup)">addComponentAt</a></span>(int index, <a href="../../../../com/guidebee/game/ui/WidgetGroup.html">WidgetGroup</a> widget)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/WidgetGroup.html#addComponentBefore(com.guidebee.game.ui.Widget, com.guidebee.game.ui.WidgetGroup)">addComponentBefore</a></span>(<a href="../../../../com/guidebee/game/ui/Widget.html">Widget</a> widgetBefore, <a href="../../../../com/guidebee/game/ui/WidgetGroup.html">WidgetGroup</a> widget)
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/WidgetGroup.html#addComponentBefore(com.guidebee.game.ui.WidgetGroup, com.guidebee.game.ui.WidgetGroup)">addComponentBefore</a></span>(<a href="../../../../com/guidebee/game/ui/WidgetGroup.html">WidgetGroup</a> widgetBefore, <a href="../../../../com/guidebee/game/ui/WidgetGroup.html">WidgetGroup</a> widget)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/WidgetGroup.html#addComponentBefore(com.guidebee.game.ui.Widget, com.guidebee.game.ui.Widget)">addComponentBefore</a></span>(<a href="../../../../com/guidebee/game/ui/Widget.html">Widget</a> widgetBefore, <a href="../../../../com/guidebee/game/ui/Widget.html">Widget</a> widget)
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/WidgetGroup.html#addComponentBefore(com.guidebee.game.ui.WidgetGroup, com.guidebee.game.ui.Widget)">addComponentBefore</a></span>(<a href="../../../../com/guidebee/game/ui/WidgetGroup.html">WidgetGroup</a> widgetBefore, <a href="../../../../com/guidebee/game/ui/Widget.html">Widget</a> widget)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/WidgetGroup.html#draw(com.guidebee.game.graphics.Batch, float)">draw</a></span>(<a href="../../../../com/guidebee/game/graphics/Batch.html">Batch</a> batch, float parentAlpha)
         
         <div class="jd-descrdiv">If this method is overridden, the super method or <code><a href="../../../../com/guidebee/game/ui/WidgetGroup.html#validate()">validate()</a></code>
- should be called to ensure the widget UIContainer is laid
+ should be called to ensure the widget group is laid
  out.</div>
   
   </td></tr>
@@ -2425,6 +2623,38 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/WidgetGroup.html#removeComponent(com.guidebee.game.ui.WidgetGroup)">removeComponent</a></span>(<a href="../../../../com/guidebee/game/ui/WidgetGroup.html">WidgetGroup</a> widget)
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/WidgetGroup.html#removeComponent(com.guidebee.game.ui.Widget)">removeComponent</a></span>(<a href="../../../../com/guidebee/game/ui/Widget.html">Widget</a> widget)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/WidgetGroup.html#setFillParent(boolean)">setFillParent</a></span>(boolean fillParent)
         
         <div class="jd-descrdiv">If true, this actor will be sized to the parent in <code><a href="../../../../com/guidebee/game/ui/Layout.html#validate()">validate()</a></code>.</div>
@@ -2458,6 +2688,86 @@ From class
             
             
             
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/WidgetGroup.html#swapComponent(com.guidebee.game.ui.Widget, com.guidebee.game.ui.WidgetGroup)">swapComponent</a></span>(<a href="../../../../com/guidebee/game/ui/Widget.html">Widget</a> first, <a href="../../../../com/guidebee/game/ui/WidgetGroup.html">WidgetGroup</a> second)
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/WidgetGroup.html#swapComponent(com.guidebee.game.ui.WidgetGroup, com.guidebee.game.ui.WidgetGroup)">swapComponent</a></span>(<a href="../../../../com/guidebee/game/ui/WidgetGroup.html">WidgetGroup</a> first, <a href="../../../../com/guidebee/game/ui/WidgetGroup.html">WidgetGroup</a> second)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/WidgetGroup.html#swapComponent(com.guidebee.game.ui.WidgetGroup, com.guidebee.game.ui.Widget)">swapComponent</a></span>(<a href="../../../../com/guidebee/game/ui/WidgetGroup.html">WidgetGroup</a> first, <a href="../../../../com/guidebee/game/ui/Widget.html">Widget</a> second)
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/WidgetGroup.html#swapComponent(com.guidebee.game.ui.Widget, com.guidebee.game.ui.Widget)">swapComponent</a></span>(<a href="../../../../com/guidebee/game/ui/Widget.html">Widget</a> first, <a href="../../../../com/guidebee/game/ui/Widget.html">Widget</a> second)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/WidgetGroup.html#swapComponent(int, int)">swapComponent</a></span>(int first, int second)
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
             void
         </td>
         <td class="jd-linkcol" width="100%">
@@ -2478,18 +2788,18 @@ From class
 <tr class="api apilevel-" >
 <td colspan="12">
   <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-com.guidebee.game.ui.UIContainer" class="jd-expando-trigger closed"
-          ><img id="inherited-methods-com.guidebee.game.engine.scene.Group-trigger"
+          ><img id="inherited-methods-com.guidebee.game.ui.UIContainer-trigger"
           src="../../../../../assets/images/triangle-closed.png"
           class="jd-expando-trigger-img" /></a>
 From class
 
-  com.guidebee.game.ui.UIContainer
+  <a href="../../../../com/guidebee/game/ui/UIContainer.html">com.guidebee.game.ui.UIContainer</a>
 
 <div id="inherited-methods-com.guidebee.game.ui.UIContainer">
-  <div id="inherited-methods-com.guidebee.game.engine.scene.Group-list"
+  <div id="inherited-methods-com.guidebee.game.ui.UIContainer-list"
         class="jd-inheritedlinks">
   </div>
-  <div id="inherited-methods-com.guidebee.game.engine.scene.Group-summary" style="display: none;">
+  <div id="inherited-methods-com.guidebee.game.ui.UIContainer-summary" style="display: none;">
     <table class="jd-sumtable-expando">
     
 
@@ -2505,7 +2815,7 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">act</span>(float delta)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIContainer.html#act(float)">act</a></span>(float delta)
         
         <div class="jd-descrdiv">Updates the actor based on time.</div>
   
@@ -2523,9 +2833,9 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">addActor</span>(Actor actor)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIContainer.html#addActor(com.guidebee.game.ui.UIComponent)">addActor</a></span>(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> actor)
         
-        <div class="jd-descrdiv">Adds an actor as a child of this UIContainer.</div>
+        <div class="jd-descrdiv">Adds an actor as a child of this group.</div>
   
   </td></tr>
 
@@ -2541,9 +2851,9 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">addActorAfter</span>(Actor actorAfter, Actor actor)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIContainer.html#addActorAfter(com.guidebee.game.ui.UIComponent, com.guidebee.game.ui.UIComponent)">addActorAfter</a></span>(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> actorAfter, <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> actor)
         
-        <div class="jd-descrdiv">Adds an actor as a child of this UIContainer, immediately after another
+        <div class="jd-descrdiv">Adds an actor as a child of this group, immediately after another
  child actor.</div>
   
   </td></tr>
@@ -2560,9 +2870,9 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">addActorAt</span>(int index, Actor actor)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIContainer.html#addActorAt(int, com.guidebee.game.ui.UIComponent)">addActorAt</a></span>(int index, <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> actor)
         
-        <div class="jd-descrdiv">Adds an actor as a child of this UIContainer, at a specific index.</div>
+        <div class="jd-descrdiv">Adds an actor as a child of this group, at a specific index.</div>
   
   </td></tr>
 
@@ -2578,9 +2888,9 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">addActorBefore</span>(Actor actorBefore, Actor actor)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIContainer.html#addActorBefore(com.guidebee.game.ui.UIComponent, com.guidebee.game.ui.UIComponent)">addActorBefore</a></span>(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> actorBefore, <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> actor)
         
-        <div class="jd-descrdiv">Adds an actor as a child of this UIContainer, immediately before
+        <div class="jd-descrdiv">Adds an actor as a child of this group, immediately before
  another child actor.</div>
   
   </td></tr>
@@ -2597,9 +2907,9 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">clear</span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIContainer.html#clear()">clear</a></span>()
         
-        <div class="jd-descrdiv">Removes all children, actions, and listeners from this UIContainer.</div>
+        <div class="jd-descrdiv">Removes all children, actions, and listeners from this group.</div>
   
   </td></tr>
 
@@ -2615,9 +2925,9 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">clearChildren</span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIContainer.html#clearChildren()">clearChildren</a></span>()
         
-        <div class="jd-descrdiv">Removes all actors from this UIContainer.</div>
+        <div class="jd-descrdiv">Removes all actors from this group.</div>
   
   </td></tr>
 
@@ -2630,12 +2940,12 @@ From class
             
             
             
-            Group
+            <a href="../../../../com/guidebee/game/ui/UIContainer.html">UIContainer</a>
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">debugAll</span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIContainer.html#debugAll()">debugAll</a></span>()
         
-        <div class="jd-descrdiv">Calls <code><a href="null#setDebug(boolean, boolean)">setDebug(boolean, boolean)</a></code> with <code>true, true</code>.</div>
+        <div class="jd-descrdiv">Calls <code><a href="../../../../com/guidebee/game/ui/UIContainer.html#setDebug(boolean, boolean)">setDebug(boolean, boolean)</a></code> with <code>true, true</code>.</div>
   
   </td></tr>
 
@@ -2651,9 +2961,9 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">draw</span>(<a href="../../../../com/guidebee/game/graphics/Batch.html">Batch</a> batch, float parentAlpha)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIContainer.html#draw(com.guidebee.game.graphics.Batch, float)">draw</a></span>(<a href="../../../../com/guidebee/game/graphics/Batch.html">Batch</a> batch, float parentAlpha)
         
-        <div class="jd-descrdiv">Draws the UIContainer and its children.</div>
+        <div class="jd-descrdiv">Draws the group and its children.</div>
   
   </td></tr>
 
@@ -2669,11 +2979,11 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">drawDebug</span>(<a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html">ShapeRenderer</a> shapes)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIContainer.html#drawDebug(com.guidebee.game.graphics.ShapeRenderer)">drawDebug</a></span>(<a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html">ShapeRenderer</a> shapes)
         
-        <div class="jd-descrdiv">Draws this actor's debug lines if <code><a href="null#getDebug()">getDebug()</a></code> is true and,
- regardless of <code><a href="null#getDebug()">getDebug()</a></code>, calls
- <code><a href="null#drawDebug(com.guidebee.game.graphics.ShapeRenderer)">drawDebug(ShapeRenderer)</a></code>
+        <div class="jd-descrdiv">Draws this actor's debug lines if <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#getDebug()">getDebug()</a></code> is true and,
+ regardless of <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#getDebug()">getDebug()</a></code>, calls
+ <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#drawDebug(com.guidebee.game.graphics.ShapeRenderer)">drawDebug(ShapeRenderer)</a></code>
  on each child.</div>
   
   </td></tr>
@@ -2686,11 +2996,11 @@ From class
             
             
             
-            &lt;T&nbsp;extends&nbsp;Actor&gt;
+            &lt;T&nbsp;extends&nbsp;<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a>&gt;
             T
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">findActor</span>(String name)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIContainer.html#findActor(java.lang.String)">findActor</a></span>(String name)
         
         <div class="jd-descrdiv">Returns the first actor found with the specified name.</div>
   
@@ -2705,12 +3015,12 @@ From class
             
             
             
-            <a href="../../../../com/guidebee/utils/collections/SnapshotArray.html">SnapshotArray</a>&lt;Actor&gt;
+            <a href="../../../../com/guidebee/utils/collections/SnapshotArray.html">SnapshotArray</a>&lt;<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a>&gt;
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">getChildren</span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIContainer.html#getChildren()">getChildren</a></span>()
         
-        <div class="jd-descrdiv">Returns an ordered list of child actors in this UIContainer.</div>
+        <div class="jd-descrdiv">Returns an ordered list of child actors in this group.</div>
   
   </td></tr>
 
@@ -2726,7 +3036,7 @@ From class
             boolean
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">hasChildren</span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIContainer.html#hasChildren()">hasChildren</a></span>()
         
   </td></tr>
 
@@ -2739,14 +3049,14 @@ From class
             
             
             
-            Actor
+            <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a>
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">hit</span>(float x, float y, boolean touchable)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIContainer.html#hit(float, float, boolean)">hit</a></span>(float x, float y, boolean touchable)
         
         <div class="jd-descrdiv">Returns the deepest actor that contains the specified point and is
- <code><a href="null#getTouchable()">touchable</a></code> and
- <code><a href="null#isVisible()">visible</a></code>, or null if no actor was hit.</div>
+ <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#getTouchable()">touchable</a></code> and
+ <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#isVisible()">visible</a></code>, or null if no actor was hit.</div>
   
   </td></tr>
 
@@ -2762,7 +3072,7 @@ From class
             boolean
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">isTransform</span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIContainer.html#isTransform()">isTransform</a></span>()
         
   </td></tr>
 
@@ -2778,9 +3088,9 @@ From class
             <a href="../../../../com/guidebee/math/Vector2.html">Vector2</a>
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">localToDescendantCoordinates</span>(Actor descendant, <a href="../../../../com/guidebee/math/Vector2.html">Vector2</a> localCoords)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIContainer.html#localToDescendantCoordinates(com.guidebee.game.ui.UIComponent, com.guidebee.math.Vector2)">localToDescendantCoordinates</a></span>(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> descendant, <a href="../../../../com/guidebee/math/Vector2.html">Vector2</a> localCoords)
         
-        <div class="jd-descrdiv">Converts coordinates for this UIContainer to those of a descendant actor.</div>
+        <div class="jd-descrdiv">Converts coordinates for this group to those of a descendant actor.</div>
   
   </td></tr>
 
@@ -2796,7 +3106,7 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">print</span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIContainer.html#print()">print</a></span>()
         
         <div class="jd-descrdiv">Prints the actor hierarchy recursively for debugging purposes.</div>
   
@@ -2814,9 +3124,9 @@ From class
             boolean
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">removeActor</span>(Actor actor)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIContainer.html#removeActor(com.guidebee.game.ui.UIComponent)">removeActor</a></span>(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> actor)
         
-        <div class="jd-descrdiv">Removes an actor from this UIContainer.</div>
+        <div class="jd-descrdiv">Removes an actor from this group.</div>
   
   </td></tr>
 
@@ -2832,7 +3142,7 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">setCullingArea</span>(<a href="../../../../com/guidebee/math/geometry/Rectangle.html">Rectangle</a> cullingArea)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIContainer.html#setCullingArea(com.guidebee.math.geometry.Rectangle)">setCullingArea</a></span>(<a href="../../../../com/guidebee/math/geometry/Rectangle.html">Rectangle</a> cullingArea)
         
         <div class="jd-descrdiv">Children completely outside of this rectangle will not be drawn.</div>
   
@@ -2850,9 +3160,9 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">setDebug</span>(boolean enabled, boolean recursively)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIContainer.html#setDebug(boolean, boolean)">setDebug</a></span>(boolean enabled, boolean recursively)
         
-        <div class="jd-descrdiv">If true, <code><a href="null#drawDebug(com.guidebee.game.graphics.ShapeRenderer)">drawDebug(ShapeRenderer)</a></code> will be called for this UIContainer and,
+        <div class="jd-descrdiv">If true, <code><a href="../../../../com/guidebee/game/ui/UIContainer.html#drawDebug(com.guidebee.game.graphics.ShapeRenderer)">drawDebug(ShapeRenderer)</a></code> will be called for this group and,
  optionally, all children recursively.</div>
   
   </td></tr>
@@ -2869,7 +3179,7 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">setTransform</span>(boolean transform)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIContainer.html#setTransform(boolean)">setTransform</a></span>(boolean transform)
         
         <div class="jd-descrdiv">When true (the default), the Batch is transformed so children are
  drawn in their parent's coordinate system.</div>
@@ -2888,7 +3198,7 @@ From class
             boolean
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">swapActor</span>(Actor first, Actor second)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIContainer.html#swapActor(com.guidebee.game.ui.UIComponent, com.guidebee.game.ui.UIComponent)">swapActor</a></span>(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> first, <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> second)
         
         <div class="jd-descrdiv">Swaps two actors.</div>
   
@@ -2906,7 +3216,7 @@ From class
             boolean
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">swapActor</span>(int first, int second)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIContainer.html#swapActor(int, int)">swapActor</a></span>(int first, int second)
         
         <div class="jd-descrdiv">Swaps two actors by index.</div>
   
@@ -2923,18 +3233,18 @@ From class
 <tr class="api apilevel-" >
 <td colspan="12">
   <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-com.guidebee.game.ui.UIComponent" class="jd-expando-trigger closed"
-          ><img id="inherited-methods-com.guidebee.game.engine.scene.Actor-trigger"
+          ><img id="inherited-methods-com.guidebee.game.ui.UIComponent-trigger"
           src="../../../../../assets/images/triangle-closed.png"
           class="jd-expando-trigger-img" /></a>
 From class
 
-  com.guidebee.game.ui.UIComponent
+  <a href="../../../../com/guidebee/game/ui/UIComponent.html">com.guidebee.game.ui.UIComponent</a>
 
 <div id="inherited-methods-com.guidebee.game.ui.UIComponent">
-  <div id="inherited-methods-com.guidebee.game.engine.scene.Actor-list"
+  <div id="inherited-methods-com.guidebee.game.ui.UIComponent-list"
         class="jd-inheritedlinks">
   </div>
-  <div id="inherited-methods-com.guidebee.game.engine.scene.Actor-summary" style="display: none;">
+  <div id="inherited-methods-com.guidebee.game.ui.UIComponent-summary" style="display: none;">
     <table class="jd-sumtable-expando">
     
 
@@ -2950,7 +3260,7 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">act</span>(float delta)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#act(float)">act</a></span>(float delta)
         
         <div class="jd-descrdiv">Updates the actor based on time.</div>
   
@@ -2968,7 +3278,7 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">addAction</span>(<a href="../../../../com/guidebee/game/scene/actions/Action.html">Action</a> action)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#addAction(com.guidebee.game.scene.actions.Action)">addAction</a></span>(<a href="../../../../com/guidebee/game/scene/actions/Action.html">Action</a> action)
         
   </td></tr>
 
@@ -2984,7 +3294,7 @@ From class
             boolean
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">addCaptureListener</span>(<a href="../../../../com/guidebee/game/ui/EventListener.html">EventListener</a> listener)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#addCaptureListener(com.guidebee.game.ui.EventListener)">addCaptureListener</a></span>(<a href="../../../../com/guidebee/game/ui/EventListener.html">EventListener</a> listener)
         
         <div class="jd-descrdiv">Adds a listener that is only notified during the capture phase.</div>
   
@@ -3002,9 +3312,9 @@ From class
             boolean
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">addListener</span>(<a href="../../../../com/guidebee/game/ui/EventListener.html">EventListener</a> listener)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#addListener(com.guidebee.game.ui.EventListener)">addListener</a></span>(<a href="../../../../com/guidebee/game/ui/EventListener.html">EventListener</a> listener)
         
-        <div class="jd-descrdiv">Add a listener to receive events that <code><a href="null#hit(float, float, boolean)">hit</a></code>
+        <div class="jd-descrdiv">Add a listener to receive events that <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#hit(float, float, boolean)">hit</a></code>
  this actor.</div>
   
   </td></tr>
@@ -3021,7 +3331,7 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">clear</span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#clear()">clear</a></span>()
         
         <div class="jd-descrdiv">Removes all actions and listeners on this actor.</div>
   
@@ -3039,7 +3349,7 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">clearActions</span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#clearActions()">clearActions</a></span>()
         
         <div class="jd-descrdiv">Removes all actions on this actor.</div>
   
@@ -3057,7 +3367,7 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">clearListeners</span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#clearListeners()">clearListeners</a></span>()
         
         <div class="jd-descrdiv">Removes all listeners on this actor.</div>
   
@@ -3075,9 +3385,9 @@ From class
             boolean
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">clipBegin</span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#clipBegin()">clipBegin</a></span>()
         
-        <div class="jd-descrdiv">Calls <code><a href="null#clipBegin(float, float, float, float)">clipBegin(float, float, float, float)</a></code>
+        <div class="jd-descrdiv">Calls <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#clipBegin(float, float, float, float)">clipBegin(float, float, float, float)</a></code>
  to clip this actor's bounds.</div>
   
   </td></tr>
@@ -3094,7 +3404,7 @@ From class
             boolean
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">clipBegin</span>(float x, float y, float width, float height)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#clipBegin(float, float, float, float)">clipBegin</a></span>(float x, float y, float width, float height)
         
         <div class="jd-descrdiv">Clips the specified screen aligned rectangle, specified relative to the
  transform matrix of the stage's Batch.</div>
@@ -3113,9 +3423,9 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">clipEnd</span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#clipEnd()">clipEnd</a></span>()
         
-        <div class="jd-descrdiv">Ends clipping begun by <code><a href="null#clipBegin(float, float, float, float)">clipBegin(float, float, float, float)</a></code>.</div>
+        <div class="jd-descrdiv">Ends clipping begun by <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#clipBegin(float, float, float, float)">clipBegin(float, float, float, float)</a></code>.</div>
   
   </td></tr>
 
@@ -3128,12 +3438,12 @@ From class
             
             
             
-            Actor
+            <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a>
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">debug</span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#debug()">debug</a></span>()
         
-        <div class="jd-descrdiv">Calls <code><a href="null#setDebug(boolean)">setDebug(boolean)</a></code> with <code>true</code>.</div>
+        <div class="jd-descrdiv">Calls <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#setDebug(boolean)">setDebug(boolean)</a></code> with <code>true</code>.</div>
   
   </td></tr>
 
@@ -3149,7 +3459,7 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">draw</span>(<a href="../../../../com/guidebee/game/graphics/Batch.html">Batch</a> batch, float parentAlpha)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#draw(com.guidebee.game.graphics.Batch, float)">draw</a></span>(<a href="../../../../com/guidebee/game/graphics/Batch.html">Batch</a> batch, float parentAlpha)
         
         <div class="jd-descrdiv">Draws the actor.</div>
   
@@ -3167,9 +3477,9 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">drawDebug</span>(<a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html">ShapeRenderer</a> shapes)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#drawDebug(com.guidebee.game.graphics.ShapeRenderer)">drawDebug</a></span>(<a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html">ShapeRenderer</a> shapes)
         
-        <div class="jd-descrdiv">Draws this actor's debug lines if <code><a href="null#getDebug()">getDebug()</a></code> is true.</div>
+        <div class="jd-descrdiv">Draws this actor's debug lines if <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#getDebug()">getDebug()</a></code> is true.</div>
   
   </td></tr>
 
@@ -3185,7 +3495,7 @@ From class
             boolean
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">fire</span>(<a href="../../../../com/guidebee/game/ui/Event.html">Event</a> event)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#fire(com.guidebee.game.ui.Event)">fire</a></span>(<a href="../../../../com/guidebee/game/ui/Event.html">Event</a> event)
         
         <div class="jd-descrdiv">Sets this actor as the event <code><a href="../../../../com/guidebee/game/ui/Event.html#setTarget(com.guidebee.game.ui.UIComponent)">target</a></code>
  and propagates the event to this actor and ancestor
@@ -3205,7 +3515,7 @@ From class
             <a href="../../../../com/guidebee/utils/collections/Array.html">Array</a>&lt;<a href="../../../../com/guidebee/game/scene/actions/Action.html">Action</a>&gt;
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">getActions</span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#getActions()">getActions</a></span>()
         
   </td></tr>
 
@@ -3221,7 +3531,7 @@ From class
             <a href="../../../../com/guidebee/utils/collections/Array.html">Array</a>&lt;<a href="../../../../com/guidebee/game/ui/EventListener.html">EventListener</a>&gt;
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">getCaptureListeners</span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#getCaptureListeners()">getCaptureListeners</a></span>()
         
   </td></tr>
 
@@ -3237,7 +3547,7 @@ From class
             float
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">getCenterX</span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#getCenterX()">getCenterX</a></span>()
         
   </td></tr>
 
@@ -3253,7 +3563,7 @@ From class
             float
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">getCenterY</span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#getCenterY()">getCenterY</a></span>()
         
   </td></tr>
 
@@ -3269,7 +3579,7 @@ From class
             <a href="../../../../com/guidebee/game/graphics/Color.html">Color</a>
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">getColor</span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#getColor()">getColor</a></span>()
         
         <div class="jd-descrdiv">Returns the color the actor will be tinted when drawn.</div>
   
@@ -3287,7 +3597,7 @@ From class
             boolean
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">getDebug</span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#getDebug()">getDebug</a></span>()
         
   </td></tr>
 
@@ -3303,7 +3613,7 @@ From class
             float
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">getHeight</span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#getHeight()">getHeight</a></span>()
         
   </td></tr>
 
@@ -3319,7 +3629,7 @@ From class
             <a href="../../../../com/guidebee/utils/collections/Array.html">Array</a>&lt;<a href="../../../../com/guidebee/game/ui/EventListener.html">EventListener</a>&gt;
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">getListeners</span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#getListeners()">getListeners</a></span>()
         
   </td></tr>
 
@@ -3335,9 +3645,9 @@ From class
             String
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">getName</span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#getName()">getName</a></span>()
         
-        <div class="jd-descrdiv">Retrieve custom actor name set with <code><a href="null#setName(java.lang.String)">setName(String)</a></code>,
+        <div class="jd-descrdiv">Retrieve custom actor name set with <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#setName(java.lang.String)">setName(String)</a></code>,
  used for easier identification
 </div>
   
@@ -3355,7 +3665,7 @@ From class
             float
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">getOriginX</span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#getOriginX()">getOriginX</a></span>()
         
   </td></tr>
 
@@ -3371,7 +3681,7 @@ From class
             float
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">getOriginY</span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#getOriginY()">getOriginY</a></span>()
         
   </td></tr>
 
@@ -3384,12 +3694,12 @@ From class
             
             
             
-            Group
+            <a href="../../../../com/guidebee/game/ui/UIContainer.html">UIContainer</a>
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">getParent</span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#getParent()">getParent</a></span>()
         
-        <div class="jd-descrdiv">Returns the parent actor, or null if not in a UIContainer.</div>
+        <div class="jd-descrdiv">Returns the parent actor, or null if not in a group.</div>
   
   </td></tr>
 
@@ -3405,7 +3715,7 @@ From class
             float
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">getRight</span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#getRight()">getRight</a></span>()
         
         <div class="jd-descrdiv">Returns x plus width.</div>
   
@@ -3423,7 +3733,7 @@ From class
             float
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">getRotation</span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#getRotation()">getRotation</a></span>()
         
   </td></tr>
 
@@ -3439,7 +3749,7 @@ From class
             float
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">getScaleX</span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#getScaleX()">getScaleX</a></span>()
         
   </td></tr>
 
@@ -3455,7 +3765,7 @@ From class
             float
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">getScaleY</span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#getScaleY()">getScaleY</a></span>()
         
   </td></tr>
 
@@ -3468,10 +3778,10 @@ From class
             
             
             
-            Stage
+            <a href="../../../../com/guidebee/game/ui/UIWindow.html">UIWindow</a>
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">getStage</span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#getStage()">getStage</a></span>()
         
         <div class="jd-descrdiv">Returns the stage that this actor is currently in, or null if not in a stage.</div>
   
@@ -3489,7 +3799,7 @@ From class
             float
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">getTop</span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#getTop()">getTop</a></span>()
         
         <div class="jd-descrdiv">Returns y plus height.</div>
   
@@ -3507,7 +3817,7 @@ From class
             <a href="../../../../com/guidebee/game/ui/Touchable.html">Touchable</a>
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">getTouchable</span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#getTouchable()">getTouchable</a></span>()
         
   </td></tr>
 
@@ -3523,7 +3833,7 @@ From class
             Object
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">getUserObject</span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#getUserObject()">getUserObject</a></span>()
         
         <div class="jd-descrdiv">Retrieves application specific object for convenience.</div>
   
@@ -3541,7 +3851,7 @@ From class
             float
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">getWidth</span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#getWidth()">getWidth</a></span>()
         
   </td></tr>
 
@@ -3557,7 +3867,7 @@ From class
             float
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">getX</span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#getX()">getX</a></span>()
         
         <div class="jd-descrdiv">Get the X position of the actor (left edge of actor)
 </div>
@@ -3576,7 +3886,7 @@ From class
             float
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">getY</span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#getY()">getY</a></span>()
         
         <div class="jd-descrdiv">Get the Y position of the actor (bottom edge of actor)
 </div>
@@ -3595,7 +3905,7 @@ From class
             int
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">getZIndex</span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#getZIndex()">getZIndex</a></span>()
         
         <div class="jd-descrdiv">Returns the z-index of this actor.</div>
   
@@ -3613,7 +3923,7 @@ From class
             boolean
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">hasParent</span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#hasParent()">hasParent</a></span>()
         
         <div class="jd-descrdiv">Returns true if the actor's parent is not null.</div>
   
@@ -3628,14 +3938,14 @@ From class
             
             
             
-            Actor
+            <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a>
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">hit</span>(float x, float y, boolean touchable)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#hit(float, float, boolean)">hit</a></span>(float x, float y, boolean touchable)
         
         <div class="jd-descrdiv">Returns the deepest actor that contains the specified point and is
- <code><a href="null#getTouchable()">touchable</a></code> and
- <code><a href="null#isVisible()">visible</a></code>, or null if no actor was hit.</div>
+ <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#getTouchable()">touchable</a></code> and
+ <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#isVisible()">visible</a></code>, or null if no actor was hit.</div>
   
   </td></tr>
 
@@ -3651,7 +3961,7 @@ From class
             boolean
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">isAscendantOf</span>(Actor actor)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#isAscendantOf(com.guidebee.game.ui.UIComponent)">isAscendantOf</a></span>(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> actor)
         
         <div class="jd-descrdiv">Returns true if this actor is the same as or is the ascendant of the specified actor.</div>
   
@@ -3669,7 +3979,7 @@ From class
             boolean
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">isDescendantOf</span>(Actor actor)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#isDescendantOf(com.guidebee.game.ui.UIComponent)">isDescendantOf</a></span>(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> actor)
         
         <div class="jd-descrdiv">Returns true if this actor is the same as or is the descendant of the
  specified actor.</div>
@@ -3688,7 +3998,7 @@ From class
             boolean
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">isTouchable</span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#isTouchable()">isTouchable</a></span>()
         
         <div class="jd-descrdiv">Returns true if input events are processed by this actor.</div>
   
@@ -3706,7 +4016,7 @@ From class
             boolean
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">isVisible</span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#isVisible()">isVisible</a></span>()
         
   </td></tr>
 
@@ -3722,7 +4032,7 @@ From class
             <a href="../../../../com/guidebee/math/Vector2.html">Vector2</a>
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">localToAscendantCoordinates</span>(Actor ascendant, <a href="../../../../com/guidebee/math/Vector2.html">Vector2</a> localCoords)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#localToAscendantCoordinates(com.guidebee.game.ui.UIComponent, com.guidebee.math.Vector2)">localToAscendantCoordinates</a></span>(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> ascendant, <a href="../../../../com/guidebee/math/Vector2.html">Vector2</a> localCoords)
         
         <div class="jd-descrdiv">Converts coordinates for this actor to those of a parent actor.</div>
   
@@ -3740,7 +4050,7 @@ From class
             <a href="../../../../com/guidebee/math/Vector2.html">Vector2</a>
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">localToParentCoordinates</span>(<a href="../../../../com/guidebee/math/Vector2.html">Vector2</a> localCoords)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#localToParentCoordinates(com.guidebee.math.Vector2)">localToParentCoordinates</a></span>(<a href="../../../../com/guidebee/math/Vector2.html">Vector2</a> localCoords)
         
         <div class="jd-descrdiv">Transforms the specified point in the actor's coordinates to be
  in the parent's coordinates.</div>
@@ -3759,7 +4069,7 @@ From class
             <a href="../../../../com/guidebee/math/Vector2.html">Vector2</a>
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">localToStageCoordinates</span>(<a href="../../../../com/guidebee/math/Vector2.html">Vector2</a> localCoords)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#localToStageCoordinates(com.guidebee.math.Vector2)">localToStageCoordinates</a></span>(<a href="../../../../com/guidebee/math/Vector2.html">Vector2</a> localCoords)
         
         <div class="jd-descrdiv">Transforms the specified point in the actor's coordinates to be
  in the stage's coordinates.</div>
@@ -3778,7 +4088,7 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">moveBy</span>(float x, float y)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#moveBy(float, float)">moveBy</a></span>(float x, float y)
         
         <div class="jd-descrdiv">Add x and y to current position
 </div>
@@ -3797,7 +4107,7 @@ From class
             boolean
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">notify</span>(<a href="../../../../com/guidebee/game/ui/Event.html">Event</a> event, boolean capture)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#notify(com.guidebee.game.ui.Event, boolean)">notify</a></span>(<a href="../../../../com/guidebee/game/ui/Event.html">Event</a> event, boolean capture)
         
         <div class="jd-descrdiv">Notifies this actor's listeners of the event.</div>
   
@@ -3815,7 +4125,7 @@ From class
             <a href="../../../../com/guidebee/math/Vector2.html">Vector2</a>
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">parentToLocalCoordinates</span>(<a href="../../../../com/guidebee/math/Vector2.html">Vector2</a> parentCoords)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#parentToLocalCoordinates(com.guidebee.math.Vector2)">parentToLocalCoordinates</a></span>(<a href="../../../../com/guidebee/math/Vector2.html">Vector2</a> parentCoords)
         
         <div class="jd-descrdiv">Converts the coordinates given in the parent's coordinate system to
  this actor's coordinate system.</div>
@@ -3834,7 +4144,7 @@ From class
             boolean
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">remove</span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#remove()">remove</a></span>()
         
         <div class="jd-descrdiv">Removes this actor from its parent, if it has a parent.</div>
   
@@ -3852,7 +4162,7 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">removeAction</span>(<a href="../../../../com/guidebee/game/scene/actions/Action.html">Action</a> action)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#removeAction(com.guidebee.game.scene.actions.Action)">removeAction</a></span>(<a href="../../../../com/guidebee/game/scene/actions/Action.html">Action</a> action)
         
   </td></tr>
 
@@ -3868,7 +4178,7 @@ From class
             boolean
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">removeCaptureListener</span>(<a href="../../../../com/guidebee/game/ui/EventListener.html">EventListener</a> listener)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#removeCaptureListener(com.guidebee.game.ui.EventListener)">removeCaptureListener</a></span>(<a href="../../../../com/guidebee/game/ui/EventListener.html">EventListener</a> listener)
         
   </td></tr>
 
@@ -3884,7 +4194,7 @@ From class
             boolean
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">removeListener</span>(<a href="../../../../com/guidebee/game/ui/EventListener.html">EventListener</a> listener)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#removeListener(com.guidebee.game.ui.EventListener)">removeListener</a></span>(<a href="../../../../com/guidebee/game/ui/EventListener.html">EventListener</a> listener)
         
   </td></tr>
 
@@ -3900,7 +4210,7 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">rotateBy</span>(float amountInDegrees)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#rotateBy(float)">rotateBy</a></span>(float amountInDegrees)
         
         <div class="jd-descrdiv">Adds the specified rotation to the current rotation.</div>
   
@@ -3918,7 +4228,7 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">scaleBy</span>(float scaleX, float scaleY)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#scaleBy(float, float)">scaleBy</a></span>(float scaleX, float scaleY)
         
         <div class="jd-descrdiv">Adds the specified scale to the current scale.</div>
   
@@ -3936,7 +4246,7 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">scaleBy</span>(float scale)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#scaleBy(float)">scaleBy</a></span>(float scale)
         
         <div class="jd-descrdiv">Adds the specified scale to the current scale.</div>
   
@@ -3954,7 +4264,7 @@ From class
             <a href="../../../../com/guidebee/math/Vector2.html">Vector2</a>
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">screenToLocalCoordinates</span>(<a href="../../../../com/guidebee/math/Vector2.html">Vector2</a> screenCoords)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#screenToLocalCoordinates(com.guidebee.math.Vector2)">screenToLocalCoordinates</a></span>(<a href="../../../../com/guidebee/math/Vector2.html">Vector2</a> screenCoords)
         
         <div class="jd-descrdiv">Transforms the specified point in screen coordinates to the actor's
  local coordinate system.</div>
@@ -3973,7 +4283,7 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">setBounds</span>(float x, float y, float width, float height)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#setBounds(float, float, float, float)">setBounds</a></span>(float x, float y, float width, float height)
         
         <div class="jd-descrdiv">Set bounds the x, y, width, and height.</div>
   
@@ -3991,9 +4301,9 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">setCenterPosition</span>(float x, float y)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#setCenterPosition(float, float)">setCenterPosition</a></span>(float x, float y)
         
-        <div class="jd-descrdiv">Set position of Actor centered on x, y
+        <div class="jd-descrdiv">Set position of UIComponent centered on x, y
 </div>
   
   </td></tr>
@@ -4010,7 +4320,7 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">setColor</span>(float r, float g, float b, float a)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#setColor(float, float, float, float)">setColor</a></span>(float r, float g, float b, float a)
         
   </td></tr>
 
@@ -4026,7 +4336,7 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">setColor</span>(<a href="../../../../com/guidebee/game/graphics/Color.html">Color</a> color)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#setColor(com.guidebee.game.graphics.Color)">setColor</a></span>(<a href="../../../../com/guidebee/game/graphics/Color.html">Color</a> color)
         
   </td></tr>
 
@@ -4042,9 +4352,9 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">setDebug</span>(boolean enabled)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#setDebug(boolean)">setDebug</a></span>(boolean enabled)
         
-        <div class="jd-descrdiv">If true, <code><a href="null#drawDebug(com.guidebee.game.graphics.ShapeRenderer)">drawDebug(ShapeRenderer)</a></code> will be called for this actor.</div>
+        <div class="jd-descrdiv">If true, <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#drawDebug(com.guidebee.game.graphics.ShapeRenderer)">drawDebug(ShapeRenderer)</a></code> will be called for this actor.</div>
   
   </td></tr>
 
@@ -4060,7 +4370,7 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">setHeight</span>(float height)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#setHeight(float)">setHeight</a></span>(float height)
         
   </td></tr>
 
@@ -4076,7 +4386,7 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">setName</span>(String name)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#setName(java.lang.String)">setName</a></span>(String name)
         
         <div class="jd-descrdiv">Sets a name for easier identification of the actor in application code.</div>
   
@@ -4094,7 +4404,7 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">setOrigin</span>(float originX, float originY)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#setOrigin(float, float)">setOrigin</a></span>(float originX, float originY)
         
         <div class="jd-descrdiv">Sets the origin X and origin Y.</div>
   
@@ -4112,7 +4422,7 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">setOriginX</span>(float originX)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#setOriginX(float)">setOriginX</a></span>(float originX)
         
   </td></tr>
 
@@ -4128,7 +4438,7 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">setOriginY</span>(float originY)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#setOriginY(float)">setOriginY</a></span>(float originY)
         
   </td></tr>
 
@@ -4144,9 +4454,9 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">setPosition</span>(float x, float y)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#setPosition(float, float)">setPosition</a></span>(float x, float y)
         
-        <div class="jd-descrdiv">Set position of Actor to x, y (using bottom left corner of Actor)
+        <div class="jd-descrdiv">Set position of UIComponent to x, y (using bottom left corner of UIComponent)
 </div>
   
   </td></tr>
@@ -4163,7 +4473,7 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">setRotation</span>(float degrees)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#setRotation(float)">setRotation</a></span>(float degrees)
         
   </td></tr>
 
@@ -4179,7 +4489,7 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">setScale</span>(float scaleXY)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#setScale(float)">setScale</a></span>(float scaleXY)
         
         <div class="jd-descrdiv">Sets the scale for both X and Y
 </div>
@@ -4198,7 +4508,7 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">setScale</span>(float scaleX, float scaleY)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#setScale(float, float)">setScale</a></span>(float scaleX, float scaleY)
         
         <div class="jd-descrdiv">Sets the scale X and scale Y.</div>
   
@@ -4216,7 +4526,7 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">setScaleX</span>(float scaleX)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#setScaleX(float)">setScaleX</a></span>(float scaleX)
         
   </td></tr>
 
@@ -4232,7 +4542,7 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">setScaleY</span>(float scaleY)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#setScaleY(float)">setScaleY</a></span>(float scaleY)
         
   </td></tr>
 
@@ -4248,7 +4558,7 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">setSize</span>(float width, float height)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#setSize(float, float)">setSize</a></span>(float width, float height)
         
         <div class="jd-descrdiv">Sets the width and height.</div>
   
@@ -4266,7 +4576,7 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">setTouchable</span>(<a href="../../../../com/guidebee/game/ui/Touchable.html">Touchable</a> touchable)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#setTouchable(com.guidebee.game.ui.Touchable)">setTouchable</a></span>(<a href="../../../../com/guidebee/game/ui/Touchable.html">Touchable</a> touchable)
         
         <div class="jd-descrdiv">Determines how touch events are distributed to this actor.</div>
   
@@ -4284,7 +4594,7 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">setUserObject</span>(Object userObject)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#setUserObject(java.lang.Object)">setUserObject</a></span>(Object userObject)
         
         <div class="jd-descrdiv">Sets an application specific object for convenience.</div>
   
@@ -4302,7 +4612,7 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">setVisible</span>(boolean visible)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#setVisible(boolean)">setVisible</a></span>(boolean visible)
         
         <div class="jd-descrdiv">If false, the actor will not be drawn and will not receive touch events.</div>
   
@@ -4320,7 +4630,7 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">setWidth</span>(float width)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#setWidth(float)">setWidth</a></span>(float width)
         
   </td></tr>
 
@@ -4336,7 +4646,7 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">setX</span>(float x)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#setX(float)">setX</a></span>(float x)
         
   </td></tr>
 
@@ -4352,7 +4662,7 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">setY</span>(float y)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#setY(float)">setY</a></span>(float y)
         
   </td></tr>
 
@@ -4368,7 +4678,7 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">setZIndex</span>(int index)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#setZIndex(int)">setZIndex</a></span>(int index)
         
         <div class="jd-descrdiv">Sets the z-index of this actor.</div>
   
@@ -4386,7 +4696,7 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">sizeBy</span>(float size)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#sizeBy(float)">sizeBy</a></span>(float size)
         
         <div class="jd-descrdiv">Adds the specified size to the current size.</div>
   
@@ -4404,7 +4714,7 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">sizeBy</span>(float width, float height)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#sizeBy(float, float)">sizeBy</a></span>(float width, float height)
         
         <div class="jd-descrdiv">Adds the specified size to the current size.</div>
   
@@ -4422,7 +4732,7 @@ From class
             <a href="../../../../com/guidebee/math/Vector2.html">Vector2</a>
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">stageToLocalCoordinates</span>(<a href="../../../../com/guidebee/math/Vector2.html">Vector2</a> stageCoords)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#stageToLocalCoordinates(com.guidebee.math.Vector2)">stageToLocalCoordinates</a></span>(<a href="../../../../com/guidebee/math/Vector2.html">Vector2</a> stageCoords)
         
         <div class="jd-descrdiv">Transforms the specified point in the stage's coordinates to the
  actor's local coordinate system.</div>
@@ -4441,7 +4751,7 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">toBack</span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#toBack()">toBack</a></span>()
         
         <div class="jd-descrdiv">Changes the z-order for this actor so it is in back of all siblings.</div>
   
@@ -4459,7 +4769,7 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">toFront</span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#toFront()">toFront</a></span>()
         
         <div class="jd-descrdiv">Changes the z-order for this actor so it is in front of all siblings.</div>
   
@@ -4477,7 +4787,7 @@ From class
             String
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">toString</span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#toString()">toString</a></span>()
         
   </td></tr>
 
@@ -5200,6 +5510,37 @@ From interface
 </div>
 
 
+<a id="add(com.guidebee.game.ui.UIComponent...)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">add</span>
+      <span class="normal">(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent...</a> actors)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
 <a id="add(java.lang.String, java.lang.String)"></a>
 
 <div class="jd-details api apilevel-"> 
@@ -5261,37 +5602,6 @@ From interface
   <div class="jd-tagdata jd-tagdescr"><p>Adds a new cell with a label. This may only be called if <code><a href="../../../../com/guidebee/game/ui/Table.html#Table(com.guidebee.game.ui.Skin)">Table(Skin)</a></code>
  or <code><a href="../../../../com/guidebee/game/ui/Table.html#setSkin(com.guidebee.game.ui.Skin)">setSkin(Skin)</a></code> was used.
 </p></div>
-
-    </div>
-</div>
-
-
-<a id="add(com.guidebee.game.ui.UIComponent...)"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">add</span>
-      <span class="normal">(Actor... actors)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     </div>
 </div>
@@ -5658,7 +5968,7 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Calls <code><a href="null#setDebug(boolean)">setDebug(boolean)</a></code> with <code>true</code>.
+  <div class="jd-tagdata jd-tagdescr"><p>Calls <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#setDebug(boolean)">setDebug(boolean)</a></code> with <code>true</code>.
 </p></div>
 
     </div>
@@ -5754,7 +6064,7 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Calls <code><a href="null#setDebug(boolean, boolean)">setDebug(boolean, boolean)</a></code> with <code>true, true</code>.
+  <div class="jd-tagdata jd-tagdescr"><p>Calls <code><a href="../../../../com/guidebee/game/ui/UIContainer.html#setDebug(boolean, boolean)">setDebug(boolean, boolean)</a></code> with <code>true, true</code>.
 </p></div>
 
     </div>
@@ -5883,7 +6193,7 @@ From interface
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>If this method is overridden, the super method or <code><a href="../../../../com/guidebee/game/ui/WidgetGroup.html#validate()">validate()</a></code>
- should be called to ensure the widget UIContainer is laid
+ should be called to ensure the widget group is laid
  out.
 </p></div>
   <div class="jd-tagdata">
@@ -5927,9 +6237,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Draws this actor's debug lines if <code><a href="null#getDebug()">getDebug()</a></code> is true and,
- regardless of <code><a href="null#getDebug()">getDebug()</a></code>, calls
- <code><a href="null#drawDebug(com.guidebee.game.graphics.ShapeRenderer)">drawDebug(ShapeRenderer)</a></code>
+  <div class="jd-tagdata jd-tagdescr"><p>Draws this actor's debug lines if <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#getDebug()">getDebug()</a></code> is true and,
+ regardless of <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#getDebug()">getDebug()</a></code>, calls
+ <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#drawDebug(com.guidebee.game.graphics.ShapeRenderer)">drawDebug(ShapeRenderer)</a></code>
  on each child.
 </p></div>
 
@@ -6674,7 +6984,7 @@ From interface
          
          
          
-        Actor
+        <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a>
       </span>
       <span class="sympad">hit</span>
       <span class="normal">(float x, float y, boolean touchable)</span>
@@ -6690,14 +7000,14 @@ From interface
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the deepest actor that contains the specified point and is
- <code><a href="null#getTouchable()">touchable</a></code> and
- <code><a href="null#isVisible()">visible</a></code>, or null if no actor was hit. The point
+ <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#getTouchable()">touchable</a></code> and
+ <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#isVisible()">visible</a></code>, or null if no actor was hit. The point
  is specified in the actor's local coordinate system (0,0
  is the bottom left of the actor and width,height is the upper right).
  <p>
  This method is used to delegate touchDown, mouse, and enter/exit events.
  If this method returns null, those events will not
- occur on this Actor.
+ occur on this UIComponent.
  <p>
  The default implementation returns this actor if the point is within this
  actor's bounds.</p></div>
@@ -6707,7 +7017,7 @@ From interface
         <tr>
           <th>touchable</th>
           <td>If true, the hit detection will respect
-                  the <code><a href="null#setTouchable(com.guidebee.game.ui.Touchable)">touchability</a></code>.</td>
+                  the <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#setTouchable(com.guidebee.game.ui.Touchable)">touchability</a></code>.</td>
         </tr>
       </table>
   </div>
@@ -7205,7 +7515,7 @@ From interface
 </div>
 
 
-<a id="removeActor(com.guidebee.game.engine.scene.Actor)"></a>
+<a id="removeActor(com.guidebee.game.ui.UIComponent)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -7218,7 +7528,7 @@ From interface
         boolean
       </span>
       <span class="sympad">removeActor</span>
-      <span class="normal">(Actor actor)</span>
+      <span class="normal">(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> actor)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -7230,9 +7540,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Removes an actor from this UIContainer. If the actor will not be used
+  <div class="jd-tagdata jd-tagdescr"><p>Removes an actor from this group. If the actor will not be used
  again and has actions, they should be
- <code><a href="null#clearActions()">cleared</a></code> so the actions will be returned
+ <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#clearActions()">cleared</a></code> so the actions will be returned
  to their
  <code><a href="../../../../com/guidebee/game/scene/actions/Action.html#setPool(com.guidebee.utils.Pool)">pool</a></code>,
  if any. This is not done automatically.
@@ -7267,7 +7577,7 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Removes all actors and cells from the table (same as <code><a href="null#clear()">clear()</a></code>)
+  <div class="jd-tagdata jd-tagdescr"><p>Removes all actors and cells from the table (same as <code><a href="../../../../com/guidebee/game/ui/UIContainer.html#clear()">clear()</a></code>)
  and additionally resets all table properties and
  cell, column, and row defaults.
 </p></div>
@@ -7489,7 +7799,7 @@ From interface
       
   <div class="jd-tagdata jd-tagdescr"><p>Causes the contents to be clipped if they exceed the table actor's bounds.
  Enabling clipping will set
- <code><a href="null#setTransform(boolean)">setTransform(boolean)</a></code> to true.
+ <code><a href="../../../../com/guidebee/game/ui/UIContainer.html#setTransform(boolean)">setTransform(boolean)</a></code> to true.
 </p></div>
 
     </div>
@@ -7521,7 +7831,7 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>If true, <code><a href="null#drawDebug(com.guidebee.game.graphics.ShapeRenderer)">drawDebug(ShapeRenderer)</a></code> will be called for this actor.
+  <div class="jd-tagdata jd-tagdescr"><p>If true, <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#drawDebug(com.guidebee.game.graphics.ShapeRenderer)">drawDebug(ShapeRenderer)</a></code> will be called for this actor.
 </p></div>
 
     </div>
@@ -7604,7 +7914,7 @@ From interface
         <a href="../../../../com/guidebee/game/ui/Cell.html">Cell</a>&lt;<a href="../../../../com/guidebee/game/ui/Stack.html">Stack</a>&gt;
       </span>
       <span class="sympad">stack</span>
-      <span class="normal">(Actor... actors)</span>
+      <span class="normal">(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent...</a> actors)</span>
     </h4>
       <div class="api-level">
         <div>

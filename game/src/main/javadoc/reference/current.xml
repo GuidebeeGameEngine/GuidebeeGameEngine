@@ -70038,6 +70038,2060 @@
 >
 </field>
 </class>
+<class name="UIComponent"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="UIComponent"
+ type="com.guidebee.game.ui.UIComponent"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+<constructor name="UIComponent"
+ type="com.guidebee.game.ui.UIComponent"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="name" type="java.lang.String">
+</parameter>
+</constructor>
+<method name="act"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="delta" type="float">
+</parameter>
+</method>
+<method name="addAction"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="action" type="com.guidebee.game.scene.actions.Action">
+</parameter>
+</method>
+<method name="addCaptureListener"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="listener" type="com.guidebee.game.ui.EventListener">
+</parameter>
+</method>
+<method name="addListener"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="listener" type="com.guidebee.game.ui.EventListener">
+</parameter>
+</method>
+<method name="clear"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="clearActions"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="clearListeners"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="clipBegin"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="clipBegin"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="x" type="float">
+</parameter>
+<parameter name="y" type="float">
+</parameter>
+<parameter name="width" type="float">
+</parameter>
+<parameter name="height" type="float">
+</parameter>
+</method>
+<method name="clipEnd"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="debug"
+ return="com.guidebee.game.ui.UIComponent"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="draw"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="batch" type="com.guidebee.game.graphics.Batch">
+</parameter>
+<parameter name="parentAlpha" type="float">
+</parameter>
+</method>
+<method name="drawDebug"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="shapes" type="com.guidebee.game.graphics.ShapeRenderer">
+</parameter>
+</method>
+<method name="fire"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="event" type="com.guidebee.game.ui.Event">
+</parameter>
+</method>
+<method name="getActions"
+ return="com.guidebee.utils.collections.Array&lt;com.guidebee.game.scene.actions.Action&gt;"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getCaptureListeners"
+ return="com.guidebee.utils.collections.Array&lt;com.guidebee.game.ui.EventListener&gt;"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getCenterX"
+ return="float"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getCenterY"
+ return="float"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getColor"
+ return="com.guidebee.game.graphics.Color"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getDebug"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getHeight"
+ return="float"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getListeners"
+ return="com.guidebee.utils.collections.Array&lt;com.guidebee.game.ui.EventListener&gt;"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getName"
+ return="java.lang.String"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getOriginX"
+ return="float"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getOriginY"
+ return="float"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getParent"
+ return="com.guidebee.game.ui.UIContainer"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getRight"
+ return="float"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getRotation"
+ return="float"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getScaleX"
+ return="float"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getScaleY"
+ return="float"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getStage"
+ return="com.guidebee.game.ui.UIWindow"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getTop"
+ return="float"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getTouchable"
+ return="com.guidebee.game.ui.Touchable"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getUserObject"
+ return="java.lang.Object"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getWidth"
+ return="float"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getX"
+ return="float"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getY"
+ return="float"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getZIndex"
+ return="int"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="hasParent"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="hit"
+ return="com.guidebee.game.ui.UIComponent"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="x" type="float">
+</parameter>
+<parameter name="y" type="float">
+</parameter>
+<parameter name="touchable" type="boolean">
+</parameter>
+</method>
+<method name="isAscendantOf"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="actor" type="com.guidebee.game.ui.UIComponent">
+</parameter>
+</method>
+<method name="isDescendantOf"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="actor" type="com.guidebee.game.ui.UIComponent">
+</parameter>
+</method>
+<method name="isTouchable"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="isVisible"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="localToAscendantCoordinates"
+ return="com.guidebee.math.Vector2"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="ascendant" type="com.guidebee.game.ui.UIComponent">
+</parameter>
+<parameter name="localCoords" type="com.guidebee.math.Vector2">
+</parameter>
+</method>
+<method name="localToParentCoordinates"
+ return="com.guidebee.math.Vector2"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="localCoords" type="com.guidebee.math.Vector2">
+</parameter>
+</method>
+<method name="localToStageCoordinates"
+ return="com.guidebee.math.Vector2"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="localCoords" type="com.guidebee.math.Vector2">
+</parameter>
+</method>
+<method name="moveBy"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="x" type="float">
+</parameter>
+<parameter name="y" type="float">
+</parameter>
+</method>
+<method name="notify"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="event" type="com.guidebee.game.ui.Event">
+</parameter>
+<parameter name="capture" type="boolean">
+</parameter>
+</method>
+<method name="parentToLocalCoordinates"
+ return="com.guidebee.math.Vector2"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="parentCoords" type="com.guidebee.math.Vector2">
+</parameter>
+</method>
+<method name="remove"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="removeAction"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="action" type="com.guidebee.game.scene.actions.Action">
+</parameter>
+</method>
+<method name="removeCaptureListener"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="listener" type="com.guidebee.game.ui.EventListener">
+</parameter>
+</method>
+<method name="removeListener"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="listener" type="com.guidebee.game.ui.EventListener">
+</parameter>
+</method>
+<method name="rotateBy"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="amountInDegrees" type="float">
+</parameter>
+</method>
+<method name="scaleBy"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="scale" type="float">
+</parameter>
+</method>
+<method name="scaleBy"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="scaleX" type="float">
+</parameter>
+<parameter name="scaleY" type="float">
+</parameter>
+</method>
+<method name="screenToLocalCoordinates"
+ return="com.guidebee.math.Vector2"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="screenCoords" type="com.guidebee.math.Vector2">
+</parameter>
+</method>
+<method name="setBounds"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="x" type="float">
+</parameter>
+<parameter name="y" type="float">
+</parameter>
+<parameter name="width" type="float">
+</parameter>
+<parameter name="height" type="float">
+</parameter>
+</method>
+<method name="setCenterPosition"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="x" type="float">
+</parameter>
+<parameter name="y" type="float">
+</parameter>
+</method>
+<method name="setColor"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="color" type="com.guidebee.game.graphics.Color">
+</parameter>
+</method>
+<method name="setColor"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="r" type="float">
+</parameter>
+<parameter name="g" type="float">
+</parameter>
+<parameter name="b" type="float">
+</parameter>
+<parameter name="a" type="float">
+</parameter>
+</method>
+<method name="setDebug"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="enabled" type="boolean">
+</parameter>
+</method>
+<method name="setHeight"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="height" type="float">
+</parameter>
+</method>
+<method name="setName"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="name" type="java.lang.String">
+</parameter>
+</method>
+<method name="setOrigin"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="originX" type="float">
+</parameter>
+<parameter name="originY" type="float">
+</parameter>
+</method>
+<method name="setOriginX"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="originX" type="float">
+</parameter>
+</method>
+<method name="setOriginY"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="originY" type="float">
+</parameter>
+</method>
+<method name="setPosition"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="x" type="float">
+</parameter>
+<parameter name="y" type="float">
+</parameter>
+</method>
+<method name="setRotation"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="degrees" type="float">
+</parameter>
+</method>
+<method name="setScale"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="scaleXY" type="float">
+</parameter>
+</method>
+<method name="setScale"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="scaleX" type="float">
+</parameter>
+<parameter name="scaleY" type="float">
+</parameter>
+</method>
+<method name="setScaleX"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="scaleX" type="float">
+</parameter>
+</method>
+<method name="setScaleY"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="scaleY" type="float">
+</parameter>
+</method>
+<method name="setSize"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="width" type="float">
+</parameter>
+<parameter name="height" type="float">
+</parameter>
+</method>
+<method name="setTouchable"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="touchable" type="com.guidebee.game.ui.Touchable">
+</parameter>
+</method>
+<method name="setUserObject"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="userObject" type="java.lang.Object">
+</parameter>
+</method>
+<method name="setVisible"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="visible" type="boolean">
+</parameter>
+</method>
+<method name="setWidth"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="width" type="float">
+</parameter>
+</method>
+<method name="setX"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="x" type="float">
+</parameter>
+</method>
+<method name="setY"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="y" type="float">
+</parameter>
+</method>
+<method name="setZIndex"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="index" type="int">
+</parameter>
+</method>
+<method name="sizeBy"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="size" type="float">
+</parameter>
+</method>
+<method name="sizeBy"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="width" type="float">
+</parameter>
+<parameter name="height" type="float">
+</parameter>
+</method>
+<method name="stageToLocalCoordinates"
+ return="com.guidebee.math.Vector2"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="stageCoords" type="com.guidebee.math.Vector2">
+</parameter>
+</method>
+<method name="toBack"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="toFront"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+</class>
+<class name="UIContainer"
+ extends="com.guidebee.game.ui.UIComponent"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<implements name="com.guidebee.game.ui.Cullable">
+</implements>
+<constructor name="UIContainer"
+ type="com.guidebee.game.ui.UIContainer"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+<constructor name="UIContainer"
+ type="com.guidebee.game.ui.UIContainer"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="name" type="java.lang.String">
+</parameter>
+</constructor>
+<method name="addActor"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="actor" type="com.guidebee.game.ui.UIComponent">
+</parameter>
+</method>
+<method name="addActorAfter"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="actorAfter" type="com.guidebee.game.ui.UIComponent">
+</parameter>
+<parameter name="actor" type="com.guidebee.game.ui.UIComponent">
+</parameter>
+</method>
+<method name="addActorAt"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="index" type="int">
+</parameter>
+<parameter name="actor" type="com.guidebee.game.ui.UIComponent">
+</parameter>
+</method>
+<method name="addActorBefore"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="actorBefore" type="com.guidebee.game.ui.UIComponent">
+</parameter>
+<parameter name="actor" type="com.guidebee.game.ui.UIComponent">
+</parameter>
+</method>
+<method name="clearChildren"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="debugAll"
+ return="com.guidebee.game.ui.UIContainer"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="findActor"
+ return="T"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="name" type="java.lang.String">
+</parameter>
+</method>
+<method name="getChildren"
+ return="com.guidebee.utils.collections.SnapshotArray&lt;com.guidebee.game.ui.UIComponent&gt;"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="hasChildren"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="isTransform"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="localToDescendantCoordinates"
+ return="com.guidebee.math.Vector2"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="descendant" type="com.guidebee.game.ui.UIComponent">
+</parameter>
+<parameter name="localCoords" type="com.guidebee.math.Vector2">
+</parameter>
+</method>
+<method name="print"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="removeActor"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="actor" type="com.guidebee.game.ui.UIComponent">
+</parameter>
+</method>
+<method name="setCullingArea"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="cullingArea" type="com.guidebee.math.geometry.Rectangle">
+</parameter>
+</method>
+<method name="setDebug"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="enabled" type="boolean">
+</parameter>
+<parameter name="recursively" type="boolean">
+</parameter>
+</method>
+<method name="setTransform"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="transform" type="boolean">
+</parameter>
+</method>
+<method name="swapActor"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="first" type="int">
+</parameter>
+<parameter name="second" type="int">
+</parameter>
+</method>
+<method name="swapActor"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="first" type="com.guidebee.game.ui.UIComponent">
+</parameter>
+<parameter name="second" type="com.guidebee.game.ui.UIComponent">
+</parameter>
+</method>
+</class>
+<class name="UIWindow"
+ extends="com.guidebee.game.InputAdapter"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<implements name="com.guidebee.utils.Disposable">
+</implements>
+<constructor name="UIWindow"
+ type="com.guidebee.game.ui.UIWindow"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+<constructor name="UIWindow"
+ type="com.guidebee.game.ui.UIWindow"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="viewport" type="com.guidebee.game.camera.viewports.Viewport">
+</parameter>
+</constructor>
+<constructor name="UIWindow"
+ type="com.guidebee.game.ui.UIWindow"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="viewport" type="com.guidebee.game.camera.viewports.Viewport">
+</parameter>
+<parameter name="batch" type="com.guidebee.game.graphics.Batch">
+</parameter>
+</constructor>
+<method name="act"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="act"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="delta" type="float">
+</parameter>
+</method>
+<method name="addAction"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="action" type="com.guidebee.game.scene.actions.Action">
+</parameter>
+</method>
+<method name="addActor"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="actor" type="com.guidebee.game.ui.UIComponent">
+</parameter>
+</method>
+<method name="addCaptureListener"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="listener" type="com.guidebee.game.ui.EventListener">
+</parameter>
+</method>
+<method name="addListener"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="listener" type="com.guidebee.game.ui.EventListener">
+</parameter>
+</method>
+<method name="addTouchFocus"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="listener" type="com.guidebee.game.ui.EventListener">
+</parameter>
+<parameter name="listenerActor" type="com.guidebee.game.ui.UIComponent">
+</parameter>
+<parameter name="target" type="com.guidebee.game.ui.UIComponent">
+</parameter>
+<parameter name="pointer" type="int">
+</parameter>
+<parameter name="button" type="int">
+</parameter>
+</method>
+<method name="calculateScissors"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="localRect" type="com.guidebee.math.geometry.Rectangle">
+</parameter>
+<parameter name="scissorRect" type="com.guidebee.math.geometry.Rectangle">
+</parameter>
+</method>
+<method name="cancelTouchFocus"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="cancelTouchFocus"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="listener" type="com.guidebee.game.ui.EventListener">
+</parameter>
+<parameter name="actor" type="com.guidebee.game.ui.UIComponent">
+</parameter>
+</method>
+<method name="clear"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="dispose"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="draw"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="drawExtra"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="batch" type="com.guidebee.game.graphics.Batch">
+</parameter>
+</method>
+<method name="findActor"
+ return="T"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="name" type="java.lang.String">
+</parameter>
+</method>
+<method name="getActors"
+ return="com.guidebee.utils.collections.Array&lt;com.guidebee.game.ui.UIComponent&gt;"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getBatch"
+ return="com.guidebee.game.graphics.Batch"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getCamera"
+ return="com.guidebee.game.camera.Camera"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getDebugColor"
+ return="com.guidebee.game.graphics.Color"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getHeight"
+ return="float"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getKeyboardFocus"
+ return="com.guidebee.game.ui.UIComponent"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getRoot"
+ return="com.guidebee.game.ui.UIContainer"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getScrollFocus"
+ return="com.guidebee.game.ui.UIComponent"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getUserObject"
+ return="java.lang.Object"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getViewport"
+ return="com.guidebee.game.camera.viewports.Viewport"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getWidth"
+ return="float"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="hit"
+ return="com.guidebee.game.ui.UIComponent"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="stageX" type="float">
+</parameter>
+<parameter name="stageY" type="float">
+</parameter>
+<parameter name="touchable" type="boolean">
+</parameter>
+</method>
+<method name="removeCaptureListener"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="listener" type="com.guidebee.game.ui.EventListener">
+</parameter>
+</method>
+<method name="removeListener"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="listener" type="com.guidebee.game.ui.EventListener">
+</parameter>
+</method>
+<method name="removeTouchFocus"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="listener" type="com.guidebee.game.ui.EventListener">
+</parameter>
+<parameter name="listenerActor" type="com.guidebee.game.ui.UIComponent">
+</parameter>
+<parameter name="target" type="com.guidebee.game.ui.UIComponent">
+</parameter>
+<parameter name="pointer" type="int">
+</parameter>
+<parameter name="button" type="int">
+</parameter>
+</method>
+<method name="resetCamera"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="screenToStageCoordinates"
+ return="com.guidebee.math.Vector2"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="screenCoords" type="com.guidebee.math.Vector2">
+</parameter>
+</method>
+<method name="setDebugAll"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="debugAll" type="boolean">
+</parameter>
+</method>
+<method name="setDebugInvisible"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="debugInvisible" type="boolean">
+</parameter>
+</method>
+<method name="setDebugParentUnderMouse"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="debugParentUnderMouse" type="boolean">
+</parameter>
+</method>
+<method name="setDebugTableUnderMouse"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="debugTableUnderMouse" type="com.guidebee.game.ui.Table.Debug">
+</parameter>
+</method>
+<method name="setDebugTableUnderMouse"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="debugTableUnderMouse" type="boolean">
+</parameter>
+</method>
+<method name="setDebugUnderMouse"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="debugUnderMouse" type="boolean">
+</parameter>
+</method>
+<method name="setKeyboardFocus"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="actor" type="com.guidebee.game.ui.UIComponent">
+</parameter>
+</method>
+<method name="setScrollFocus"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="actor" type="com.guidebee.game.ui.UIComponent">
+</parameter>
+</method>
+<method name="setUserObject"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="userObject" type="java.lang.Object">
+</parameter>
+</method>
+<method name="setViewport"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="viewport" type="com.guidebee.game.camera.viewports.Viewport">
+</parameter>
+</method>
+<method name="stageToScreenCoordinates"
+ return="com.guidebee.math.Vector2"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="stageCoords" type="com.guidebee.math.Vector2">
+</parameter>
+</method>
+<method name="toScreenCoordinates"
+ return="com.guidebee.math.Vector2"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="coords" type="com.guidebee.math.Vector2">
+</parameter>
+<parameter name="transformMatrix" type="com.guidebee.math.Matrix4">
+</parameter>
+</method>
+<method name="unfocus"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="actor" type="com.guidebee.game.ui.UIComponent">
+</parameter>
+</method>
+<method name="unfocusAll"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+</class>
+<class name="UIWindow.TouchFocus"
+ extends="java.lang.Object"
+ abstract="false"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<implements name="com.guidebee.utils.Pool.Poolable">
+</implements>
+<constructor name="UIWindow.TouchFocus"
+ type="com.guidebee.game.ui.UIWindow.TouchFocus"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+<method name="reset"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+</class>
 <class name="Utils"
  extends="java.lang.Object"
  abstract="false"
@@ -70921,6 +72975,182 @@
  visibility="public"
 >
 </constructor>
+<method name="addComponent"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="widget" type="com.guidebee.game.ui.Widget">
+</parameter>
+</method>
+<method name="addComponent"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="widget" type="com.guidebee.game.ui.WidgetGroup">
+</parameter>
+</method>
+<method name="addComponentAfter"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="widgetAfter" type="com.guidebee.game.ui.Widget">
+</parameter>
+<parameter name="widget" type="com.guidebee.game.ui.Widget">
+</parameter>
+</method>
+<method name="addComponentAfter"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="widgetAfter" type="com.guidebee.game.ui.Widget">
+</parameter>
+<parameter name="widget" type="com.guidebee.game.ui.WidgetGroup">
+</parameter>
+</method>
+<method name="addComponentAfter"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="widgetAfter" type="com.guidebee.game.ui.WidgetGroup">
+</parameter>
+<parameter name="widget" type="com.guidebee.game.ui.Widget">
+</parameter>
+</method>
+<method name="addComponentAfter"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="widgetAfter" type="com.guidebee.game.ui.WidgetGroup">
+</parameter>
+<parameter name="widget" type="com.guidebee.game.ui.WidgetGroup">
+</parameter>
+</method>
+<method name="addComponentAt"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="index" type="int">
+</parameter>
+<parameter name="widget" type="com.guidebee.game.ui.Widget">
+</parameter>
+</method>
+<method name="addComponentAt"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="index" type="int">
+</parameter>
+<parameter name="widget" type="com.guidebee.game.ui.WidgetGroup">
+</parameter>
+</method>
+<method name="addComponentBefore"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="widgetBefore" type="com.guidebee.game.ui.Widget">
+</parameter>
+<parameter name="widget" type="com.guidebee.game.ui.Widget">
+</parameter>
+</method>
+<method name="addComponentBefore"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="widgetBefore" type="com.guidebee.game.ui.Widget">
+</parameter>
+<parameter name="widget" type="com.guidebee.game.ui.WidgetGroup">
+</parameter>
+</method>
+<method name="addComponentBefore"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="widgetBefore" type="com.guidebee.game.ui.WidgetGroup">
+</parameter>
+<parameter name="widget" type="com.guidebee.game.ui.Widget">
+</parameter>
+</method>
+<method name="addComponentBefore"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="widgetBefore" type="com.guidebee.game.ui.WidgetGroup">
+</parameter>
+<parameter name="widget" type="com.guidebee.game.ui.WidgetGroup">
+</parameter>
+</method>
 <method name="getMaxHeight"
  return="float"
  abstract="false"
@@ -71042,6 +73272,32 @@
  visibility="public"
 >
 </method>
+<method name="removeComponent"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="widget" type="com.guidebee.game.ui.Widget">
+</parameter>
+</method>
+<method name="removeComponent"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="widget" type="com.guidebee.game.ui.WidgetGroup">
+</parameter>
+</method>
 <method name="setFillParent"
  return="void"
  abstract="false"
@@ -71066,6 +73322,81 @@
  visibility="public"
 >
 <parameter name="enabled" type="boolean">
+</parameter>
+</method>
+<method name="swapComponent"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="first" type="int">
+</parameter>
+<parameter name="second" type="int">
+</parameter>
+</method>
+<method name="swapComponent"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="first" type="com.guidebee.game.ui.Widget">
+</parameter>
+<parameter name="second" type="com.guidebee.game.ui.Widget">
+</parameter>
+</method>
+<method name="swapComponent"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="first" type="com.guidebee.game.ui.Widget">
+</parameter>
+<parameter name="second" type="com.guidebee.game.ui.WidgetGroup">
+</parameter>
+</method>
+<method name="swapComponent"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="first" type="com.guidebee.game.ui.WidgetGroup">
+</parameter>
+<parameter name="second" type="com.guidebee.game.ui.Widget">
+</parameter>
+</method>
+<method name="swapComponent"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="first" type="com.guidebee.game.ui.WidgetGroup">
+</parameter>
+<parameter name="second" type="com.guidebee.game.ui.WidgetGroup">
 </parameter>
 </method>
 <method name="validate"
@@ -71167,6 +73498,16 @@
  visibility="public"
 >
 </method>
+<field name="defaultSkin"
+ type="com.guidebee.game.ui.Skin"
+ transient="false"
+ volatile="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
 </class>
 </package>
 <package name="com.guidebee.game.ui.drawable"

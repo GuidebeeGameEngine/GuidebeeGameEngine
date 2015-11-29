@@ -243,7 +243,7 @@
         <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Button.html">Button</a></li>
         <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Button.ButtonStyle.html">Button.ButtonStyle</a></li>
         <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ButtonGroup.html">ButtonGroup</a></li>
-        <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Cell.html">Cell</a>&lt;T&nbsp;extends&nbsp;Actor&gt;</li>
+        <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Cell.html">Cell</a>&lt;T&nbsp;extends&nbsp;<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a>&gt;</li>
         <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ChangeListener.html">ChangeListener</a></li>
         <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ChangeListener.ChangeEvent.html">ChangeListener.ChangeEvent</a></li>
         <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/CheckBox.html">CheckBox</a></li>
@@ -251,7 +251,7 @@
         <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ChildWindow.html">ChildWindow</a></li>
         <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ChildWindow.WindowStyle.html">ChildWindow.WindowStyle</a></li>
         <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ClickListener.html">ClickListener</a></li>
-        <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Container.html">Container</a>&lt;T&nbsp;extends&nbsp;Actor&gt;</li>
+        <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Container.html">Container</a>&lt;T&nbsp;extends&nbsp;<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a>&gt;</li>
         <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Dialog.html">Dialog</a></li>
         <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/DragAndDrop.html">DragAndDrop</a></li>
         <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/DragAndDrop.Payload.html">DragAndDrop.Payload</a></li>
@@ -305,6 +305,10 @@
         <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Tree.html">Tree</a></li>
         <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Tree.Node.html">Tree.Node</a></li>
         <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Tree.TreeStyle.html">Tree.TreeStyle</a></li>
+        <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a></li>
+        <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/UIContainer.html">UIContainer</a></li>
+        <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/UIWindow.html">UIWindow</a></li>
+        <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/UIWindow.TouchFocus.html">UIWindow.TouchFocus</a></li>
         <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Utils.html">Utils</a></li>
         <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Value.html">Value</a></li>
         <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Value.Fixed.html">Value.Fixed</a></li>
@@ -482,11 +486,11 @@ For overviews, tutorials, examples, guides, and tool documentation, please see:
           </tr>
         <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../com/guidebee/game/ui/ButtonGroup.html">ButtonGroup</a></td>
-              <td class="jd-descrcol" width="100%">Manages a UIContainer of buttons to enforce a minimum and maximum number of checked
+              <td class="jd-descrcol" width="100%">Manages a group of buttons to enforce a minimum and maximum number of checked
  buttons.&nbsp;</td>
           </tr>
         <tr class="alt-color api apilevel-" >
-              <td class="jd-linkcol"><a href="../../../../com/guidebee/game/ui/Cell.html">Cell</a>&lt;T&nbsp;extends&nbsp;Actor&gt;</td>
+              <td class="jd-linkcol"><a href="../../../../com/guidebee/game/ui/Cell.html">Cell</a>&lt;T&nbsp;extends&nbsp;<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a>&gt;</td>
               <td class="jd-descrcol" width="100%">A cell for a <code><a href="../../../../com/guidebee/game/ui/Table.html">Table</a></code>.&nbsp;</td>
           </tr>
         <tr class=" api apilevel-" >
@@ -519,8 +523,8 @@ For overviews, tutorials, examples, guides, and tool documentation, please see:
               <td class="jd-descrcol" width="100%">Detects mouse over, mouse or finger touch presses, and clicks on an actor.&nbsp;</td>
           </tr>
         <tr class="alt-color api apilevel-" >
-              <td class="jd-linkcol"><a href="../../../../com/guidebee/game/ui/Container.html">Container</a>&lt;T&nbsp;extends&nbsp;Actor&gt;</td>
-              <td class="jd-descrcol" width="100%">A UIContainer with a single child that sizes and positions the child using
+              <td class="jd-linkcol"><a href="../../../../com/guidebee/game/ui/Container.html">Container</a>&lt;T&nbsp;extends&nbsp;<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a>&gt;</td>
+              <td class="jd-descrcol" width="100%">A group with a single child that sizes and positions the child using
  constraints.&nbsp;</td>
           </tr>
         <tr class=" api apilevel-" >
@@ -572,7 +576,7 @@ For overviews, tutorials, examples, guides, and tool documentation, please see:
           </tr>
         <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../com/guidebee/game/ui/HorizontalGroup.html">HorizontalGroup</a></td>
-              <td class="jd-descrcol" width="100%">A UIContainer that lays out its children side by side in a single row.&nbsp;</td>
+              <td class="jd-descrcol" width="100%">A group that lays out its children side by side in a single row.&nbsp;</td>
           </tr>
         <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../com/guidebee/game/ui/Image.html">Image</a></td>
@@ -630,7 +634,7 @@ For overviews, tutorials, examples, guides, and tool documentation, please see:
           </tr>
         <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../com/guidebee/game/ui/ScrollPane.html">ScrollPane</a></td>
-              <td class="jd-descrcol" width="100%">A UIContainer that scrolls a child widget using scrollbars and/or mouse or touch
+              <td class="jd-descrcol" width="100%">A group that scrolls a child widget using scrollbars and/or mouse or touch
  dragging.&nbsp;</td>
           </tr>
         <tr class=" api apilevel-" >
@@ -683,7 +687,7 @@ For overviews, tutorials, examples, guides, and tool documentation, please see:
           </tr>
         <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../com/guidebee/game/ui/Table.html">Table</a></td>
-              <td class="jd-descrcol" width="100%">A UIContainer that sizes and positions children using table constraints.&nbsp;</td>
+              <td class="jd-descrcol" width="100%">A group that sizes and positions children using table constraints.&nbsp;</td>
           </tr>
         <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../com/guidebee/game/ui/Table.DebugRect.html">Table.DebugRect</a></td>
@@ -749,6 +753,22 @@ For overviews, tutorials, examples, guides, and tool documentation, please see:
               <td class="jd-descrcol" width="100%">The style for a <code><a href="../../../../com/guidebee/game/ui/Tree.html">Tree</a></code>.&nbsp;</td>
           </tr>
         <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a></td>
+              <td class="jd-descrcol" width="100%">2D scene graph node.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../com/guidebee/game/ui/UIContainer.html">UIContainer</a></td>
+              <td class="jd-descrcol" width="100%">2D scene graph node that may contain other actors.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../com/guidebee/game/ui/UIWindow.html">UIWindow</a></td>
+              <td class="jd-descrcol" width="100%">A 2D scene graph containing hierarchies of <code><a href="../../../../com/guidebee/game/ui/UIComponent.html">actors</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../com/guidebee/game/ui/UIWindow.TouchFocus.html">UIWindow.TouchFocus</a></td>
+              <td class="jd-descrcol" width="100%">Internal class for managing touch focus.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../com/guidebee/game/ui/Utils.html">Utils</a></td>
               <td class="jd-descrcol" width="100%">some UI utility functions.&nbsp;</td>
           </tr>
@@ -762,16 +782,16 @@ For overviews, tutorials, examples, guides, and tool documentation, please see:
           </tr>
         <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../com/guidebee/game/ui/VerticalGroup.html">VerticalGroup</a></td>
-              <td class="jd-descrcol" width="100%">A UIContainer that lays out its children on top of each other in a single column.&nbsp;</td>
+              <td class="jd-descrcol" width="100%">A group that lays out its children on top of each other in a single column.&nbsp;</td>
           </tr>
         <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../com/guidebee/game/ui/Widget.html">Widget</a></td>
-              <td class="jd-descrcol" width="100%">An com.guidebee.game.engine.scene.Actor that participates in layout and provides a minimum, preferred,
+              <td class="jd-descrcol" width="100%">An <code><a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a></code> that participates in layout and provides a minimum, preferred,
  and maximum size.&nbsp;</td>
           </tr>
         <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../com/guidebee/game/ui/WidgetGroup.html">WidgetGroup</a></td>
-              <td class="jd-descrcol" width="100%">A com.guidebee.game.engine.scene.Group that participates in layout and
+              <td class="jd-descrcol" width="100%">A <code><a href="../../../../com/guidebee/game/ui/UIContainer.html">UIContainer</a></code> that participates in layout and
  provides a minimum, preferred, and maximum size.&nbsp;</td>
           </tr>
         <tr class="alt-color api apilevel-" >

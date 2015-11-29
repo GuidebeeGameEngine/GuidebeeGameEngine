@@ -243,7 +243,7 @@
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Button.html">Button</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Button.ButtonStyle.html">Button.ButtonStyle</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ButtonGroup.html">ButtonGroup</a></li>
-          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Cell.html">Cell</a>&lt;T&nbsp;extends&nbsp;Actor&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Cell.html">Cell</a>&lt;T&nbsp;extends&nbsp;<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a>&gt;</li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ChangeListener.html">ChangeListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ChangeListener.ChangeEvent.html">ChangeListener.ChangeEvent</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/CheckBox.html">CheckBox</a></li>
@@ -251,7 +251,7 @@
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ChildWindow.html">ChildWindow</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ChildWindow.WindowStyle.html">ChildWindow.WindowStyle</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ClickListener.html">ClickListener</a></li>
-          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Container.html">Container</a>&lt;T&nbsp;extends&nbsp;Actor&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Container.html">Container</a>&lt;T&nbsp;extends&nbsp;<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a>&gt;</li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Dialog.html">Dialog</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/DragAndDrop.html">DragAndDrop</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/DragAndDrop.Payload.html">DragAndDrop.Payload</a></li>
@@ -305,6 +305,10 @@
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Tree.html">Tree</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Tree.Node.html">Tree.Node</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Tree.TreeStyle.html">Tree.TreeStyle</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/UIContainer.html">UIContainer</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/UIWindow.html">UIWindow</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/UIWindow.TouchFocus.html">UIWindow.TouchFocus</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Utils.html">Utils</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Value.html">Value</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Value.Fixed.html">Value.Fixed</a></li>
@@ -534,7 +538,7 @@ Summary:
  <p/>
  An Event may be marked as "handled" which will end its propagation outside of
  the Stage (see <code><a href="../../../../com/guidebee/game/ui/Event.html#handle()">handle()</a></code>). The default
- <code><a href="null#fire(com.guidebee.game.ui.Event)">fire(Event)</a></code> will mark events handled if an <code><a href="../../../../com/guidebee/game/ui/EventListener.html">EventListener</a></code>
+ <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#fire(com.guidebee.game.ui.Event)">fire(Event)</a></code> will mark events handled if an <code><a href="../../../../com/guidebee/game/ui/EventListener.html">EventListener</a></code>
  returns true.
  <p/>
  A cancelled event will be stopped and handled. Additionally, many actors will
@@ -545,7 +549,7 @@ Summary:
 
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../../com/guidebee/game/ui/InputEvent.html">InputEvent</a></code></li><li><code><a href="../../../../null#fire(com.guidebee.game.ui.Event)">fire(Event)</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../../com/guidebee/game/ui/InputEvent.html">InputEvent</a></code></li><li><code><a href="../../../../com/guidebee/game/ui/UIComponent.html#fire(com.guidebee.game.ui.Event)">fire(Event)</a></code></li>
       </ul>
   </div>
 
@@ -670,7 +674,7 @@ Summary:
             
             
             
-            Actor
+            <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a>
         </td>
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/Event.html#getListenerActor()">getListenerActor</a></span>()
@@ -688,7 +692,7 @@ Summary:
             
             
             
-            Stage
+            <a href="../../../../com/guidebee/game/ui/UIWindow.html">UIWindow</a>
         </td>
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/Event.html#getStage()">getStage</a></span>()
@@ -706,7 +710,7 @@ Summary:
             
             
             
-            Actor
+            <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a>
         </td>
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/Event.html#getTarget()">getTarget</a></span>()
@@ -868,7 +872,7 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Event.html#setListenerActor(com.guidebee.game.ui.UIComponent)">setListenerActor</a></span>(Actor listenerActor)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Event.html#setListenerActor(com.guidebee.game.ui.UIComponent)">setListenerActor</a></span>(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> listenerActor)
         
   </td></tr>
 
@@ -884,7 +888,7 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Event.html#setStage(com.guidebee.game.engine.scene.Stage)">setStage</a></span>(Stage stage)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Event.html#setStage(com.guidebee.game.ui.UIWindow)">setStage</a></span>(<a href="../../../../com/guidebee/game/ui/UIWindow.html">UIWindow</a> stage)
         
   </td></tr>
 
@@ -900,7 +904,7 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Event.html#setTarget(com.guidebee.game.ui.UIComponent)">setTarget</a></span>(Actor targetActor)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Event.html#setTarget(com.guidebee.game.ui.UIComponent)">setTarget</a></span>(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> targetActor)
         
   </td></tr>
 
@@ -1308,7 +1312,7 @@ From interface
          
          
          
-        Actor
+        <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a>
       </span>
       <span class="sympad">getListenerActor</span>
       <span class="normal">()</span>
@@ -1340,7 +1344,7 @@ From interface
          
          
          
-        Stage
+        <a href="../../../../com/guidebee/game/ui/UIWindow.html">UIWindow</a>
       </span>
       <span class="sympad">getStage</span>
       <span class="normal">()</span>
@@ -1372,7 +1376,7 @@ From interface
          
          
          
-        Actor
+        <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a>
       </span>
       <span class="sympad">getTarget</span>
       <span class="normal">()</span>
@@ -1420,7 +1424,7 @@ From interface
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Marks this event as handled. This does not affect event propagation inside
- scene2d, but causes the Stage event
+ scene2d, but causes the <code><a href="../../../../com/guidebee/game/ui/UIWindow.html">UIWindow</a></code> event
  methods to return false, which will eat the event so it is not passed on
  to the application under the stage.
 </p></div>
@@ -1493,7 +1497,7 @@ From interface
   <div class="jd-tagdata jd-tagdescr"><p>If true, the event was fired during the capture phase.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../../null#fire(com.guidebee.game.ui.Event)">fire(Event)</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../../com/guidebee/game/ui/UIComponent.html#fire(com.guidebee.game.ui.Event)">fire(Event)</a></code></li>
       </ul>
   </div>
 
@@ -1666,7 +1670,7 @@ From interface
 </div>
 
 
-<a id="setListenerActor(com.guidebee.game.engine.scene.Actor)"></a>
+<a id="setListenerActor(com.guidebee.game.ui.UIComponent)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1679,7 +1683,7 @@ From interface
         void
       </span>
       <span class="sympad">setListenerActor</span>
-      <span class="normal">(Actor listenerActor)</span>
+      <span class="normal">(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> listenerActor)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1697,7 +1701,7 @@ From interface
 </div>
 
 
-<a id="setStage(com.guidebee.game.engine.scene.Stage)"></a>
+<a id="setStage(com.guidebee.game.ui.UIWindow)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1710,7 +1714,7 @@ From interface
         void
       </span>
       <span class="sympad">setStage</span>
-      <span class="normal">(Stage stage)</span>
+      <span class="normal">(<a href="../../../../com/guidebee/game/ui/UIWindow.html">UIWindow</a> stage)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1728,7 +1732,7 @@ From interface
 </div>
 
 
-<a id="setTarget(com.guidebee.game.engine.scene.Actor)"></a>
+<a id="setTarget(com.guidebee.game.ui.UIComponent)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1741,7 +1745,7 @@ From interface
         void
       </span>
       <span class="sympad">setTarget</span>
-      <span class="normal">(Actor targetActor)</span>
+      <span class="normal">(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> targetActor)</span>
     </h4>
       <div class="api-level">
         <div>
