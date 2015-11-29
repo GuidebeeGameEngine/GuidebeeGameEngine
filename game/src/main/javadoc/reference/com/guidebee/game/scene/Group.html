@@ -436,7 +436,7 @@ Summary:
 <h2>Class Overview</h2>
 <p>Container may contain other actors.
  <p>
- Actors have a z-order equal to the order they were inserted into the UIContainer.
+ Actors have a z-order equal to the order they were inserted into the group.
  Actors inserted later will be drawn on top of
  actors added earlier. Touch events that hit more than one actor are
  distributed to topmost actors first.</p>
@@ -702,7 +702,7 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/scene/Group.html#addActor(com.guidebee.game.scene.Actor)">addActor</a></span>(<a href="../../../../com/guidebee/game/scene/Actor.html">Actor</a> actor)
         
-        <div class="jd-descrdiv">Adds an actor as a child of this UIContainer.</div>
+        <div class="jd-descrdiv">Adds an actor as a child of this group.</div>
   
   </td></tr>
 
@@ -720,7 +720,7 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/scene/Group.html#addActorAt(int, com.guidebee.game.scene.Actor)">addActorAt</a></span>(int index, <a href="../../../../com/guidebee/game/scene/Actor.html">Actor</a> actor)
         
-        <div class="jd-descrdiv">Adds an actor as a child of this UIContainer, at a specific index.</div>
+        <div class="jd-descrdiv">Adds an actor as a child of this group, at a specific index.</div>
   
   </td></tr>
 
@@ -738,7 +738,7 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/scene/Group.html#addActorBefore(com.guidebee.game.scene.Actor, com.guidebee.game.scene.Actor)">addActorBefore</a></span>(<a href="../../../../com/guidebee/game/scene/Actor.html">Actor</a> actorBefore, <a href="../../../../com/guidebee/game/scene/Actor.html">Actor</a> actor)
         
-        <div class="jd-descrdiv">Adds an actor as a child of this UIContainer, immediately before
+        <div class="jd-descrdiv">Adds an actor as a child of this group, immediately before
  another child actor.</div>
   
   </td></tr>
@@ -757,7 +757,7 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/scene/Group.html#clear()">clear</a></span>()
         
-        <div class="jd-descrdiv">Removes all children, actions, and listeners from this UIContainer.</div>
+        <div class="jd-descrdiv">Removes all children, actions, and listeners from this group.</div>
   
   </td></tr>
 
@@ -793,7 +793,7 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/scene/Group.html#clearChildren()">clearChildren</a></span>()
         
-        <div class="jd-descrdiv">Removes all actors from this UIContainer.</div>
+        <div class="jd-descrdiv">Removes all actors from this group.</div>
   
   </td></tr>
 
@@ -885,7 +885,7 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/scene/Group.html#draw(com.guidebee.game.graphics.Batch, float)">draw</a></span>(<a href="../../../../com/guidebee/game/graphics/Batch.html">Batch</a> batch, float parentAlpha)
         
-        <div class="jd-descrdiv">Draws the UIContainer and its children.</div>
+        <div class="jd-descrdiv">Draws the group and its children.</div>
   
   </td></tr>
 
@@ -990,7 +990,7 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/scene/Group.html#getChildren()">getChildren</a></span>()
         
-        <div class="jd-descrdiv">Returns an ordered list of child actors in this UIContainer.</div>
+        <div class="jd-descrdiv">Returns an ordered list of child actors in this group.</div>
   
   </td></tr>
 
@@ -1110,7 +1110,7 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/scene/Group.html#getParent()">getParent</a></span>()
         
-        <div class="jd-descrdiv">Returns the parent actor, or null if not in a UIContainer.</div>
+        <div class="jd-descrdiv">Returns the parent actor, or null if not in a group.</div>
   
   </td></tr>
 
@@ -1521,7 +1521,7 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/scene/Group.html#removeActor(com.guidebee.game.scene.Actor)">removeActor</a></span>(<a href="../../../../com/guidebee/game/scene/Actor.html">Actor</a> actor)
         
-        <div class="jd-descrdiv">Removes an actor from this UIContainer.</div>
+        <div class="jd-descrdiv">Removes an actor from this group.</div>
   
   </td></tr>
 
@@ -1630,7 +1630,7 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/scene/Group.html#setCenterPosition(float, float)">setCenterPosition</a></span>(float x, float y)
         
-        <div class="jd-descrdiv">Set position of Actor centered on x, y
+        <div class="jd-descrdiv">Set position of UIComponent centered on x, y
 </div>
   
   </td></tr>
@@ -1697,7 +1697,7 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/scene/Group.html#setDebug(boolean, boolean)">setDebug</a></span>(boolean enabled, boolean recursively)
         
-        <div class="jd-descrdiv">If true, <code><a href="../../../../com/guidebee/game/scene/Group.html#drawDebug(com.guidebee.game.graphics.ShapeRenderer)">drawDebug(ShapeRenderer)</a></code> will be called for this UIContainer and,
+        <div class="jd-descrdiv">If true, <code><a href="../../../../com/guidebee/game/scene/Group.html#drawDebug(com.guidebee.game.graphics.ShapeRenderer)">drawDebug(ShapeRenderer)</a></code> will be called for this group and,
  optionally, all children recursively.</div>
   
   </td></tr>
@@ -1818,7 +1818,7 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/scene/Group.html#setPosition(float, float)">setPosition</a></span>(float x, float y)
         
-        <div class="jd-descrdiv">Set position of Actor to x, y (using bottom left corner of Actor)
+        <div class="jd-descrdiv">Set position of UIComponent to x, y (using bottom left corner of UIComponent)
 </div>
   
   </td></tr>
@@ -2737,7 +2737,7 @@ From class
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/scene/Actor.html#getParent()">getParent</a></span>()
         
-        <div class="jd-descrdiv">Returns the parent actor, or null if not in a UIContainer.</div>
+        <div class="jd-descrdiv">Returns the parent actor, or null if not in a group.</div>
   
   </td></tr>
 
@@ -3589,7 +3589,7 @@ From class
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/scene/Actor.html#setCenterPosition(float, float)">setCenterPosition</a></span>(float x, float y)
         
-        <div class="jd-descrdiv">Set position of Actor centered on x, y
+        <div class="jd-descrdiv">Set position of UIComponent centered on x, y
 </div>
   
   </td></tr>
@@ -3758,7 +3758,7 @@ From class
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/scene/Actor.html#setPosition(float, float)">setPosition</a></span>(float x, float y)
         
-        <div class="jd-descrdiv">Set position of Actor to x, y (using bottom left corner of Actor)
+        <div class="jd-descrdiv">Set position of UIComponent to x, y (using bottom left corner of UIComponent)
 </div>
   
   </td></tr>
@@ -4686,8 +4686,8 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Adds an actor as a child of this UIContainer. The actor is first
- removed from its parent UIContainer, if any.</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Adds an actor as a child of this group. The actor is first
+ removed from its parent group, if any.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
       <ul class="nolist"><li><code><a href="../../../../com/guidebee/game/scene/Group.html#remove()">remove()</a></code></li>
@@ -4723,8 +4723,8 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Adds an actor as a child of this UIContainer, at a specific index.
- The actor is first removed from its parent UIContainer, if any.</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Adds an actor as a child of this group, at a specific index.
+ The actor is first removed from its parent group, if any.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -4765,9 +4765,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Adds an actor as a child of this UIContainer, immediately before
+  <div class="jd-tagdata jd-tagdescr"><p>Adds an actor as a child of this group, immediately before
  another child actor. The actor is first removed from its parent
- UIContainer, if any.
+ group, if any.
 </p></div>
 
     </div>
@@ -4799,7 +4799,7 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Removes all children, actions, and listeners from this UIContainer.
+  <div class="jd-tagdata jd-tagdescr"><p>Removes all children, actions, and listeners from this group.
 </p></div>
 
     </div>
@@ -4863,7 +4863,7 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Removes all actors from this UIContainer.
+  <div class="jd-tagdata jd-tagdescr"><p>Removes all actors from this group.
 </p></div>
 
     </div>
@@ -5036,7 +5036,7 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Draws the UIContainer and its children. The default implementation
+  <div class="jd-tagdata jd-tagdescr"><p>Draws the group and its children. The default implementation
  calls #applyTransform(com.guidebee.game.graphics.Batch, Matrix4)
  if needed, then
  #drawChildren(com.guidebee.game.graphics.Batch, float),
@@ -5119,7 +5119,7 @@ From interface
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the first actor found with the specified name. Note this
- recursively compares the name of every actor in the UIContainer.
+ recursively compares the name of every actor in the group.
 </p></div>
 
     </div>
@@ -5244,7 +5244,7 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Returns an ordered list of child actors in this UIContainer.
+  <div class="jd-tagdata jd-tagdescr"><p>Returns an ordered list of child actors in this group.
 </p></div>
 
     </div>
@@ -5466,7 +5466,7 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Returns the parent actor, or null if not in a UIContainer.
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the parent actor, or null if not in a group.
 </p></div>
 
     </div>
@@ -5858,7 +5858,7 @@ From interface
  <p/>
  This method is used to delegate touchDown, mouse, and enter/exit events.
  If this method returns null, those events will not
- occur on this Actor.
+ occur on this UIComponent.
  <p/>
  The default implementation returns this actor if the point is within this
  actor's bounds.</p></div>
@@ -6223,7 +6223,7 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Removes an actor from this UIContainer. all the actor will remove itself.
+  <div class="jd-tagdata jd-tagdescr"><p>Removes an actor from this group. all the actor will remove itself.
  after removeActor, this actor is no longer useable.
  <code><a href="../../../../com/guidebee/game/scene/actions/Action.html#setPool(com.guidebee.utils.Pool)">pool</a></code>,
  if any. This is not done automatically.
@@ -6419,7 +6419,7 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Set position of Actor centered on x, y
+  <div class="jd-tagdata jd-tagdescr"><p>Set position of UIComponent centered on x, y
 </p></div>
 
     </div>
@@ -6544,7 +6544,7 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>If true, <code><a href="../../../../com/guidebee/game/scene/Group.html#drawDebug(com.guidebee.game.graphics.ShapeRenderer)">drawDebug(ShapeRenderer)</a></code> will be called for this UIContainer and,
+  <div class="jd-tagdata jd-tagdescr"><p>If true, <code><a href="../../../../com/guidebee/game/scene/Group.html#drawDebug(com.guidebee.game.graphics.ShapeRenderer)">drawDebug(ShapeRenderer)</a></code> will be called for this group and,
  optionally, all children recursively.
 </p></div>
 
@@ -6770,7 +6770,7 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Set position of Actor to x, y (using bottom left corner of Actor)
+  <div class="jd-tagdata jd-tagdescr"><p>Set position of UIComponent to x, y (using bottom left corner of UIComponent)
 </p></div>
 
     </div>
@@ -6994,10 +6994,10 @@ From interface
   <div class="jd-tagdata jd-tagdescr"><p>When true (the default), the Batch is transformed so children are
  drawn in their parent's coordinate system. This has a
  performance impact because <code><a href="../../../../com/guidebee/game/graphics/Batch.html#flush()">flush()</a></code> must be done before
- and after the transform. If the actors in a UIContainer are
- not rotated or scaled, then the transform for the UIContainer can be set to
+ and after the transform. If the actors in a group are
+ not rotated or scaled, then the transform for the group can be set to
  false. In this case, each child's position will be
- offset by the UIContainer's position for drawing, causing the children to
+ offset by the group's position for drawing, causing the children to
  appear in the correct location even though the Batch has
  not been transformed.
 </p></div>

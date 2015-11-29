@@ -243,7 +243,7 @@
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Button.html">Button</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Button.ButtonStyle.html">Button.ButtonStyle</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ButtonGroup.html">ButtonGroup</a></li>
-          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Cell.html">Cell</a>&lt;T&nbsp;extends&nbsp;Actor&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Cell.html">Cell</a>&lt;T&nbsp;extends&nbsp;<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a>&gt;</li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ChangeListener.html">ChangeListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ChangeListener.ChangeEvent.html">ChangeListener.ChangeEvent</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/CheckBox.html">CheckBox</a></li>
@@ -251,7 +251,7 @@
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ChildWindow.html">ChildWindow</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ChildWindow.WindowStyle.html">ChildWindow.WindowStyle</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ClickListener.html">ClickListener</a></li>
-          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Container.html">Container</a>&lt;T&nbsp;extends&nbsp;Actor&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Container.html">Container</a>&lt;T&nbsp;extends&nbsp;<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a>&gt;</li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Dialog.html">Dialog</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/DragAndDrop.html">DragAndDrop</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/DragAndDrop.Payload.html">DragAndDrop.Payload</a></li>
@@ -305,6 +305,10 @@
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Tree.html">Tree</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Tree.Node.html">Tree.Node</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Tree.TreeStyle.html">Tree.TreeStyle</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/UIContainer.html">UIContainer</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/UIWindow.html">UIWindow</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/UIWindow.TouchFocus.html">UIWindow.TouchFocus</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Utils.html">Utils</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Value.html">Value</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Value.Fixed.html">Value.Fixed</a></li>
@@ -677,7 +681,7 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/InputListener.html#enter(com.guidebee.game.ui.InputEvent, float, float, int, com.guidebee.game.ui.UIComponent)">enter</a></span>(<a href="../../../../com/guidebee/game/ui/InputEvent.html">InputEvent</a> event, float x, float y, int pointer, Actor fromActor)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/InputListener.html#enter(com.guidebee.game.ui.InputEvent, float, float, int, com.guidebee.game.ui.UIComponent)">enter</a></span>(<a href="../../../../com/guidebee/game/ui/InputEvent.html">InputEvent</a> event, float x, float y, int pointer, <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> fromActor)
         
         <div class="jd-descrdiv">Called any time the mouse cursor or a finger touch is moved over an actor.</div>
   
@@ -695,7 +699,7 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/InputListener.html#exit(com.guidebee.game.ui.InputEvent, float, float, int, com.guidebee.game.ui.UIComponent)">exit</a></span>(<a href="../../../../com/guidebee/game/ui/InputEvent.html">InputEvent</a> event, float x, float y, int pointer, Actor toActor)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/InputListener.html#exit(com.guidebee.game.ui.InputEvent, float, float, int, com.guidebee.game.ui.UIComponent)">exit</a></span>(<a href="../../../../com/guidebee/game/ui/InputEvent.html">InputEvent</a> event, float x, float y, int pointer, <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> toActor)
         
         <div class="jd-descrdiv">Called any time the mouse cursor or a finger touch is moved out of an actor.</div>
   
@@ -1176,7 +1180,7 @@ From interface
 
 
 
-<a id="enter(com.guidebee.game.ui.InputEvent, float, float, int, com.guidebee.game.engine.scene.Actor)"></a>
+<a id="enter(com.guidebee.game.ui.InputEvent, float, float, int, com.guidebee.game.ui.UIComponent)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1189,7 +1193,7 @@ From interface
         void
       </span>
       <span class="sympad">enter</span>
-      <span class="normal">(<a href="../../../../com/guidebee/game/ui/InputEvent.html">InputEvent</a> event, float x, float y, int pointer, Actor fromActor)</span>
+      <span class="normal">(<a href="../../../../com/guidebee/game/ui/InputEvent.html">InputEvent</a> event, float x, float y, int pointer, <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> fromActor)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1214,7 +1218,7 @@ From interface
 </div>
 
 
-<a id="exit(com.guidebee.game.ui.InputEvent, float, float, int, com.guidebee.game.engine.scene.Actor)"></a>
+<a id="exit(com.guidebee.game.ui.InputEvent, float, float, int, com.guidebee.game.ui.UIComponent)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1227,7 +1231,7 @@ From interface
         void
       </span>
       <span class="sympad">exit</span>
-      <span class="normal">(<a href="../../../../com/guidebee/game/ui/InputEvent.html">InputEvent</a> event, float x, float y, int pointer, Actor toActor)</span>
+      <span class="normal">(<a href="../../../../com/guidebee/game/ui/InputEvent.html">InputEvent</a> event, float x, float y, int pointer, <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> toActor)</span>
     </h4>
       <div class="api-level">
         <div>

@@ -243,7 +243,7 @@
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Button.html">Button</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Button.ButtonStyle.html">Button.ButtonStyle</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ButtonGroup.html">ButtonGroup</a></li>
-          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Cell.html">Cell</a>&lt;T&nbsp;extends&nbsp;Actor&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Cell.html">Cell</a>&lt;T&nbsp;extends&nbsp;<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a>&gt;</li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ChangeListener.html">ChangeListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ChangeListener.ChangeEvent.html">ChangeListener.ChangeEvent</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/CheckBox.html">CheckBox</a></li>
@@ -251,7 +251,7 @@
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ChildWindow.html">ChildWindow</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ChildWindow.WindowStyle.html">ChildWindow.WindowStyle</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ClickListener.html">ClickListener</a></li>
-          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Container.html">Container</a>&lt;T&nbsp;extends&nbsp;Actor&gt;</li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Container.html">Container</a>&lt;T&nbsp;extends&nbsp;<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a>&gt;</li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Dialog.html">Dialog</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/DragAndDrop.html">DragAndDrop</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/DragAndDrop.Payload.html">DragAndDrop.Payload</a></li>
@@ -305,6 +305,10 @@
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Tree.html">Tree</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Tree.Node.html">Tree.Node</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Tree.TreeStyle.html">Tree.TreeStyle</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/UIContainer.html">UIContainer</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/UIWindow.html">UIWindow</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/UIWindow.TouchFocus.html">UIWindow.TouchFocus</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Utils.html">Utils</a></li>
           <li class="selected api apilevel-"><a href="../../../../com/guidebee/game/ui/Value.html">Value</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Value.Fixed.html">Value.Fixed</a></li>
@@ -711,31 +715,13 @@ Summary:
             float
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Value.html#get(com.guidebee.game.ui.UIComponent)">get</a></span>(Actor context)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Value.html#get(com.guidebee.game.ui.UIComponent)">get</a></span>(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> context)
         
   </td></tr>
 
 
 	 
     <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            static
-            
-            <a href="../../../../com/guidebee/game/ui/Value.html">Value</a>
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Value.html#percentHeight(float, com.guidebee.game.ui.UIComponent)">percentHeight</a></span>(float percent, Actor actor)
-        
-        <div class="jd-descrdiv">Returns a value that is a percentage of the specified actor's height.</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -753,6 +739,24 @@ Summary:
 
 
 	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
+            <a href="../../../../com/guidebee/game/ui/Value.html">Value</a>
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Value.html#percentHeight(float, com.guidebee.game.ui.UIComponent)">percentHeight</a></span>(float percent, <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> actor)
+        
+        <div class="jd-descrdiv">Returns a value that is a percentage of the specified actor's height.</div>
+  
+  </td></tr>
+
+
+	 
     <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
@@ -763,9 +767,9 @@ Summary:
             <a href="../../../../com/guidebee/game/ui/Value.html">Value</a>
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Value.html#percentWidth(float)">percentWidth</a></span>(float percent)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Value.html#percentWidth(float, com.guidebee.game.ui.UIComponent)">percentWidth</a></span>(float percent, <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> actor)
         
-        <div class="jd-descrdiv">Returns a value that is a percentage of the actor's width.</div>
+        <div class="jd-descrdiv">Returns a value that is a percentage of the specified actor's width.</div>
   
   </td></tr>
 
@@ -781,9 +785,9 @@ Summary:
             <a href="../../../../com/guidebee/game/ui/Value.html">Value</a>
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Value.html#percentWidth(float, com.guidebee.game.ui.UIComponent)">percentWidth</a></span>(float percent, Actor actor)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Value.html#percentWidth(float)">percentWidth</a></span>(float percent)
         
-        <div class="jd-descrdiv">Returns a value that is a percentage of the specified actor's width.</div>
+        <div class="jd-descrdiv">Returns a value that is a percentage of the actor's width.</div>
   
   </td></tr>
 
@@ -1276,7 +1280,7 @@ From class
 
 
 
-<a id="get(com.guidebee.game.engine.scene.Actor)"></a>
+<a id="get(com.guidebee.game.ui.UIComponent)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1289,7 +1293,7 @@ From class
         float
       </span>
       <span class="sympad">get</span>
-      <span class="normal">(Actor context)</span>
+      <span class="normal">(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> context)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1312,39 +1316,6 @@ From class
         </tr>
       </table>
   </div>
-
-    </div>
-</div>
-
-
-<a id="percentHeight(float, com.guidebee.game.engine.scene.Actor)"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-        static 
-         
-         
-         
-        <a href="../../../../com/guidebee/game/ui/Value.html">Value</a>
-      </span>
-      <span class="sympad">percentHeight</span>
-      <span class="normal">(float percent, Actor actor)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Returns a value that is a percentage of the specified actor's height.
- The context actor is ignored.
-</p></div>
 
     </div>
 </div>
@@ -1382,6 +1353,72 @@ From class
 </div>
 
 
+<a id="percentHeight(float, com.guidebee.game.ui.UIComponent)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        <a href="../../../../com/guidebee/game/ui/Value.html">Value</a>
+      </span>
+      <span class="sympad">percentHeight</span>
+      <span class="normal">(float percent, <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> actor)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns a value that is a percentage of the specified actor's height.
+ The context actor is ignored.
+</p></div>
+
+    </div>
+</div>
+
+
+<a id="percentWidth(float, com.guidebee.game.ui.UIComponent)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        <a href="../../../../com/guidebee/game/ui/Value.html">Value</a>
+      </span>
+      <span class="sympad">percentWidth</span>
+      <span class="normal">(float percent, <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> actor)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns a value that is a percentage of the specified actor's width.
+ The context actor is ignored.
+</p></div>
+
+    </div>
+</div>
+
+
 <a id="percentWidth(float)"></a>
 
 <div class="jd-details api apilevel-"> 
@@ -1408,39 +1445,6 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns a value that is a percentage of the actor's width.
-</p></div>
-
-    </div>
-</div>
-
-
-<a id="percentWidth(float, com.guidebee.game.engine.scene.Actor)"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-        static 
-         
-         
-         
-        <a href="../../../../com/guidebee/game/ui/Value.html">Value</a>
-      </span>
-      <span class="sympad">percentWidth</span>
-      <span class="normal">(float percent, Actor actor)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Returns a value that is a percentage of the specified actor's width.
- The context actor is ignored.
 </p></div>
 
     </div>
