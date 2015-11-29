@@ -1,0 +1,17 @@
+{
+
+  com.guidebee.game.ui.Button$ButtonStyle: {
+  play: { down: button_play_down, up: button_play_up },
+  shop: { down: button_shop_down,  up: button_shop_up },
+  score: { down: button_score_down,  up: button_score_up },
+
+
+  },
+
+  com.guidebee.game.ui.Image: {
+        background : { drawable : background},
+        soundon: {drawable: soundon} ,
+        soundoff: {drawable: soundoff},
+        bird: {drawable: bird1},
+  }
+}

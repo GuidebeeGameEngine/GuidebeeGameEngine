@@ -277,7 +277,7 @@ public class Table extends WidgetGroup {
         }
         cell.merge(rowDefaults);
 
-        if (actor != null) addActor(actor);
+        if (actor != null) addComponent(actor);
 
         return cell;
     }
@@ -344,13 +344,13 @@ public class Table extends WidgetGroup {
         Stack stack = new Stack();
         if (actors != null) {
             for (int i = 0, n = actors.length; i < n; i++)
-                stack.addActor(actors[i]);
+                stack.addComponent(actors[i]);
         }
         return add(stack);
     }
 
-    public boolean removeActor(UIComponent actor) {
-        if (!super.removeActor(actor)) return false;
+    public boolean removeComponent(UIComponent actor) {
+        if (!super.removeComponent(actor)) return false;
         Cell cell = getCell(actor);
         if (cell != null) cell.actor = null;
         return true;

@@ -464,7 +464,7 @@ public class Tree extends WidgetGroup {
          * Called to add the actor to the tree when the node's parent is expanded.
          */
         protected void addToTree(Tree tree) {
-            tree.addActor(actor);
+            tree.addComponent(actor);
             if (!expanded) return;
             for (int i = 0, n = children.size; i < n; i++)
                 children.get(i).addToTree(tree);
@@ -474,7 +474,7 @@ public class Tree extends WidgetGroup {
          * Called to remove the actor from the tree when the node's parent is collapsed.
          */
         protected void removeFromTree(Tree tree) {
-            tree.removeActor(actor);
+            tree.removeComponent(actor);
             if (!expanded) return;
             for (int i = 0, n = children.size; i < n; i++)
                 children.get(i).removeFromTree(tree);

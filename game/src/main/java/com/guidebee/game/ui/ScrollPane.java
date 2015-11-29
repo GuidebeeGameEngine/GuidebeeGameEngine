@@ -702,9 +702,9 @@ public class ScrollPane extends WidgetGroup {
     public void setWidget(UIComponent widget) {
         if (widget == this)
             throw new IllegalArgumentException("widget cannot be the ScrollPane.");
-        if (this.widget != null) super.removeActor(this.widget);
+        if (this.widget != null) super.removeComponent(this.widget);
         this.widget = widget;
-        if (widget != null) super.addActor(widget);
+        if (widget != null) super.addComponent(widget);
     }
 
     /**
@@ -718,7 +718,7 @@ public class ScrollPane extends WidgetGroup {
      * @see #setWidget(UIComponent)
      * @deprecated ScrollPane may have only a single child.
      */
-    public void addActor(UIComponent actor) {
+    public void addComponent(UIComponent actor) {
         throw new UnsupportedOperationException("Use ScrollPane#setWidget.");
     }
 
@@ -726,7 +726,7 @@ public class ScrollPane extends WidgetGroup {
      * @see #setWidget(UIComponent)
      * @deprecated ScrollPane may have only a single child.
      */
-    public void addActorAt(int index, UIComponent actor) {
+    public void addComponentAt(int index, UIComponent actor) {
         throw new UnsupportedOperationException("Use ScrollPane#setWidget.");
     }
 
@@ -734,7 +734,7 @@ public class ScrollPane extends WidgetGroup {
      * @see #setWidget(UIComponent)
      * @deprecated ScrollPane may have only a single child.
      */
-    public void addActorBefore(UIComponent actorBefore, UIComponent actor) {
+    public void addComponentBefore(UIComponent actorBefore, UIComponent actor) {
         throw new UnsupportedOperationException("Use ScrollPane#setWidget.");
     }
 
@@ -742,11 +742,11 @@ public class ScrollPane extends WidgetGroup {
      * @see #setWidget(UIComponent)
      * @deprecated ScrollPane may have only a single child.
      */
-    public void addActorAfter(UIComponent actorAfter, UIComponent actor) {
+    public void addComponentAfter(UIComponent actorAfter, UIComponent actor) {
         throw new UnsupportedOperationException("Use ScrollPane#setWidget.");
     }
 
-    public boolean removeActor(UIComponent actor) {
+    public boolean removeComponent(UIComponent actor) {
         if (actor != widget) return false;
         setWidget(null);
         return true;

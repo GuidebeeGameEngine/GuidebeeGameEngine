@@ -96,7 +96,7 @@ public class Stack extends WidgetGroup {
     }
 
     public void add(UIComponent actor) {
-        addActor(actor);
+        addComponent(actor);
     }
 
     public void layout() {

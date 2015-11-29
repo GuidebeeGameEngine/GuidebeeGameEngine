@@ -49,7 +49,7 @@ public class Window extends ScreenAdapter {
      * @param actor
      */
     public void addComponent(Widget actor) {
-        table.addActor(actor);
+        table.addComponent(actor);
     }
 
     /**
@@ -57,7 +57,7 @@ public class Window extends ScreenAdapter {
      * @param actor
      */
     public void addComponent(WidgetGroup actor) {
-        table.addActor(actor);
+        table.addComponent(actor);
     }
 
 

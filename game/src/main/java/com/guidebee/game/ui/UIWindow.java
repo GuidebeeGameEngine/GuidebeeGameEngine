@@ -133,7 +133,7 @@ public class UIWindow extends InputAdapter implements Disposable {
         this.batch = batch;
 
         root = new UIContainer();
-        root.setStage(this);
+        root.setWindow(this);
 
         viewport.update(GameEngine.graphics.getWidth(),
                 GameEngine.graphics.getHeight(), true);
@@ -174,7 +174,7 @@ public class UIWindow extends InputAdapter implements Disposable {
      * recursively compares the name of every actor in the group.
      */
     public <T extends UIComponent> T findActor(String name) {
-        return root.findActor(name);
+        return root.findComponent(name);
     }
 
     private void drawDebug() {
@@ -615,11 +615,11 @@ public class UIWindow extends InputAdapter implements Disposable {
     /**
      * Adds an actor to the root of the stage.
      *
-     * @see UIContainer#addActor(UIComponent)
+     * @see UIContainer#addComponent(UIComponent)
      * @see UIComponent#remove()
      */
     public void addActor(UIComponent actor) {
-        root.addActor(actor);
+        root.addComponent(actor);
     }
 
     /**

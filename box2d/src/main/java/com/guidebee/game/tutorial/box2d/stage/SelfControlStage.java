@@ -47,7 +47,7 @@ public class SelfControlStage extends Box2DGameStage implements CollisionListene
         face=new Face();
         addActor(face);
         //animatedFaceGroup=new AnimatedFaceGroup();
-        //addActor(animatedFaceGroup);
+        //addComponent(animatedFaceGroup);
 
         player=new Player();
         addActor(player);

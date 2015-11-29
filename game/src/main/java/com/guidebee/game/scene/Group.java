@@ -164,8 +164,8 @@ class InternalGroup extends UIContainer {
         proxyGroup.childrenChanged();
     }
 
-    protected void setStage(UIWindow stage) {
-        super.setStage(stage);
+    protected void setWindow(UIWindow stage) {
+        super.setWindow(stage);
     }
 
     protected void setParent(UIContainer parent) {
@@ -394,7 +394,7 @@ public class Group extends Actor implements Cullable {
      * @see #remove()
      */
     public void addActor(Actor actor) {
-        internalGroup.addActor(actor.internalActor);
+        internalGroup.addComponent(actor.internalActor);
         actor.setParent(this);
         actor.setStage(getStage());
     }
@@ -435,7 +435,7 @@ public class Group extends Actor implements Cullable {
      * @param index May be greater than the number of children.
      */
     public void addActorAt(int index, Actor actor) {
-        internalGroup.addActorAt(index, actor.internalActor);
+        internalGroup.addComponentAt(index, actor.internalActor);
         actor.setParent(this);
         actor.setStage(getStage());
     }
@@ -446,7 +446,7 @@ public class Group extends Actor implements Cullable {
      * group, if any.
      */
     public void addActorBefore(Actor actorBefore, Actor actor) {
-        internalGroup.addActorBefore(actorBefore.internalActor, actor.internalActor);
+        internalGroup.addComponentBefore(actorBefore.internalActor, actor.internalActor);
         actor.setParent(this);
         actor.setStage(getStage());
     }
@@ -465,7 +465,7 @@ public class Group extends Actor implements Cullable {
 
     /**
      * Removes an actor from this group. all the actor will remove itself.
-     * after removeActor, this actor is no longer useable.
+     * after removeComponent, this actor is no longer useable.
      * {@link com.guidebee.game.ui.actions.Action#setPool(com.guidebee.utils.Pool) pool},
      * if any. This is not done automatically.
      */
@@ -473,7 +473,7 @@ public class Group extends Actor implements Cullable {
         actor.remove();
         actor.setParent(null);
         actor.setStage(null);
-        return internalGroup.removeActor(actor.internalActor);
+        return internalGroup.removeComponent(actor.internalActor);
     }
 
     /**
@@ -506,7 +506,7 @@ public class Group extends Actor implements Cullable {
      * recursively compares the name of every actor in the group.
      */
     public <T extends Actor> T findActor(String name) {
-        UIComponent actor = internalGroup.findActor(name);
+        UIComponent actor = internalGroup.findComponent(name);
         if (actor != null) {
             return (T) actor.getUserObject();
         }
@@ -516,7 +516,7 @@ public class Group extends Actor implements Cullable {
 
     protected void setStage(Stage stage) {
         super.setStage(stage);
-        internalGroup.setStage(stage.internalStage);
+        internalGroup.setWindow(stage.internalStage);
 
     }
 

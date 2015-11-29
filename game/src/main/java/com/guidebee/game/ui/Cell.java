@@ -110,7 +110,7 @@ public class Cell<T extends UIComponent> implements Pool.Poolable {
         if (actor != null) actor.remove();
         if (actor != newActor) {
             actor = newActor;
-            if (newActor != null) table.addActor(newActor);
+            if (newActor != null) table.addComponent(newActor);
         }
         return (Cell<A>) this;
     }

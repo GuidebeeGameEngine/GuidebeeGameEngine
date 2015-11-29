@@ -316,9 +316,9 @@ public class SplitPane extends WidgetGroup {
      * @param widget May be null.
      */
     public void setFirstWidget(UIComponent widget) {
-        if (firstWidget != null) super.removeActor(firstWidget);
+        if (firstWidget != null) super.removeComponent(firstWidget);
         firstWidget = widget;
-        if (widget != null) super.addActor(widget);
+        if (widget != null) super.addComponent(widget);
         invalidate();
     }
 
@@ -326,25 +326,25 @@ public class SplitPane extends WidgetGroup {
      * @param widget May be null.
      */
     public void setSecondWidget(UIComponent widget) {
-        if (secondWidget != null) super.removeActor(secondWidget);
+        if (secondWidget != null) super.removeComponent(secondWidget);
         secondWidget = widget;
-        if (widget != null) super.addActor(widget);
+        if (widget != null) super.addComponent(widget);
         invalidate();
     }
 
-    public void addActor(UIComponent actor) {
+    public void addComponent(UIComponent actor) {
         throw new UnsupportedOperationException("Use ScrollPane#setWidget.");
     }
 
-    public void addActorAt(int index, UIComponent actor) {
+    public void addComponentAt(int index, UIComponent actor) {
         throw new UnsupportedOperationException("Use ScrollPane#setWidget.");
     }
 
-    public void addActorBefore(UIComponent actorBefore, UIComponent actor) {
+    public void addComponentBefore(UIComponent actorBefore, UIComponent actor) {
         throw new UnsupportedOperationException("Use ScrollPane#setWidget.");
     }
 
-    public boolean removeActor(UIComponent actor) {
+    public boolean removeComponent(UIComponent actor) {
         throw new UnsupportedOperationException("Use ScrollPane#setWidget(null).");
     }
 

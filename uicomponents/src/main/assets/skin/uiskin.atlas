@@ -1,0 +1,95 @@
+uiskin.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+background
+  rotate: false
+  xy: 2, 2
+  size: 480, 392
+  orig: 480, 392
+  offset: 0, 0
+  index: -1
+bird1
+  rotate: false
+  xy: 660, 236
+  size: 64, 54
+  orig: 64, 54
+  offset: 0, 0
+  index: -1
+bird2
+  rotate: false
+  xy: 484, 334
+  size: 64, 54
+  orig: 64, 54
+  offset: 0, 0
+  index: -1
+bird3
+  rotate: false
+  xy: 550, 334
+  size: 64, 54
+  orig: 64, 54
+  offset: 0, 0
+  index: -1
+bird4
+  rotate: false
+  xy: 616, 334
+  size: 64, 54
+  orig: 64, 54
+  offset: 0, 0
+  index: -1
+button_play_down
+  rotate: false
+  xy: 484, 2
+  size: 174, 117
+  orig: 174, 117
+  offset: 0, 0
+  index: -1
+button_play_up
+  rotate: false
+  xy: 484, 121
+  size: 174, 117
+  orig: 174, 117
+  offset: 0, 0
+  index: -1
+button_score_down
+  rotate: false
+  xy: 484, 240
+  size: 135, 45
+  orig: 135, 45
+  offset: 0, 0
+  index: -1
+button_score_up
+  rotate: false
+  xy: 484, 287
+  size: 135, 45
+  orig: 135, 45
+  offset: 0, 0
+  index: -1
+button_shop_down
+  rotate: false
+  xy: 660, 119
+  size: 102, 115
+  orig: 102, 115
+  offset: 0, 0
+  index: -1
+button_shop_up
+  rotate: false
+  xy: 660, 2
+  size: 103, 115
+  orig: 103, 115
+  offset: 0, 0
+  index: -1
+soundoff
+  rotate: false
+  xy: 682, 292
+  size: 43, 43
+  orig: 43, 43
+  offset: 0, 0
+  index: -1
+soundon
+  rotate: false
+  xy: 682, 337
+  size: 43, 43
+  orig: 43, 43
+  offset: 0, 0
+  index: -1

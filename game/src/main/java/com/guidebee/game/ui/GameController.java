@@ -66,9 +66,9 @@ public class GameController extends WidgetGroup {
         touchpad.setBounds(0, 0, regionWidth, regionHeight);
         shootButton = new ImageButton(buttonA, buttonAPressed);
         powerButton = new ImageButton(buttonB, buttonBPressed);
-        addActor(touchpad);
-        addActor(shootButton);
-        addActor(powerButton);
+        addComponent(touchpad);
+        addComponent(shootButton);
+        addComponent(powerButton);
         addListener(new ChangeListener() {
 
             @Override

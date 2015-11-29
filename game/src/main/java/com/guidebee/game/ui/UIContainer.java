@@ -334,11 +334,11 @@ public class UIContainer extends UIComponent implements Cullable {
      *
      * @see #remove()
      */
-    public void addActor(UIComponent actor) {
+    public void addComponent(UIComponent actor) {
         actor.remove();
         children.add(actor);
         actor.setParent(this);
-        actor.setStage(getStage());
+        actor.setWindow(getStage());
         childrenChanged();
     }
 
@@ -348,14 +348,14 @@ public class UIContainer extends UIComponent implements Cullable {
      *
      * @param index May be greater than the number of children.
      */
-    public void addActorAt(int index, UIComponent actor) {
+    public void addComponentAt(int index, UIComponent actor) {
         actor.remove();
         if (index >= children.size)
             children.add(actor);
         else
             children.insert(index, actor);
         actor.setParent(this);
-        actor.setStage(getStage());
+        actor.setWindow(getStage());
         childrenChanged();
     }
 
@@ -364,12 +364,12 @@ public class UIContainer extends UIComponent implements Cullable {
      * another child actor. The actor is first removed from its parent
      * group, if any.
      */
-    public void addActorBefore(UIComponent actorBefore, UIComponent actor) {
+    public void addComponentBefore(UIComponent actorBefore, UIComponent actor) {
         actor.remove();
         int index = children.indexOf(actorBefore, true);
         children.insert(index, actor);
         actor.setParent(this);
-        actor.setStage(getStage());
+        actor.setWindow(getStage());
         childrenChanged();
     }
 
@@ -378,7 +378,7 @@ public class UIContainer extends UIComponent implements Cullable {
      * child actor. The actor is first removed from its parent
      * group, if any.
      */
-    public void addActorAfter(UIComponent actorAfter, UIComponent actor) {
+    public void addComponentAfter(UIComponent actorAfter, UIComponent actor) {
         actor.remove();
         int index = children.indexOf(actorAfter, true);
         if (index == children.size)
@@ -386,7 +386,7 @@ public class UIContainer extends UIComponent implements Cullable {
         else
             children.insert(index + 1, actor);
         actor.setParent(this);
-        actor.setStage(getStage());
+        actor.setWindow(getStage());
         childrenChanged();
     }
 
@@ -398,12 +398,12 @@ public class UIContainer extends UIComponent implements Cullable {
      * {@link com.guidebee.game.ui.actions.Action#setPool(com.guidebee.utils.Pool) pool},
      * if any. This is not done automatically.
      */
-    public boolean removeActor(UIComponent actor) {
+    public boolean removeComponent(UIComponent actor) {
         if (!children.removeValue(actor, true)) return false;
         UIWindow stage = getStage();
         if (stage != null) stage.unfocus(actor);
         actor.setParent(null);
-        actor.setStage(null);
+        actor.setWindow(null);
         childrenChanged();
         return true;
     }
@@ -415,7 +415,7 @@ public class UIContainer extends UIComponent implements Cullable {
         UIComponent[] actors = children.begin();
         for (int i = 0, n = children.size; i < n; i++) {
             UIComponent child = actors[i];
-            child.setStage(null);
+            child.setWindow(null);
             child.setParent(null);
         }
         children.end();
@@ -435,32 +435,32 @@ public class UIContainer extends UIComponent implements Cullable {
      * Returns the first actor found with the specified name. Note this
      * recursively compares the name of every actor in the group.
      */
-    public <T extends UIComponent> T findActor(String name) {
+    public <T extends UIComponent> T findComponent(String name) {
         Array<UIComponent> children = this.children;
         for (int i = 0, n = children.size; i < n; i++)
             if (name.equals(children.get(i).getName())) return (T) children.get(i);
         for (int i = 0, n = children.size; i < n; i++) {
             UIComponent child = children.get(i);
             if (child instanceof UIContainer) {
-                UIComponent actor = ((UIContainer) child).findActor(name);
+                UIComponent actor = ((UIContainer) child).findComponent(name);
                 if (actor != null) return (T) actor;
             }
         }
         return null;
     }
 
-    protected void setStage(UIWindow stage) {
-        super.setStage(stage);
+    protected void setWindow(UIWindow stage) {
+        super.setWindow(stage);
         UIComponent[] childrenArray = children.items;
         for (int i = 0, n = children.size; i < n; i++)
-            childrenArray[i].setStage(stage);
+            childrenArray[i].setWindow(stage);
     }
 
     /**
      * Swaps two actors by index. Returns false if the swap did not occur
      * because the indexes were out of bounds.
      */
-    public boolean swapActor(int first, int second) {
+    public boolean swapComponent(int first, int second) {
         int maxIndex = children.size;
         if (first < 0 || first >= maxIndex) return false;
         if (second < 0 || second >= maxIndex) return false;
@@ -472,7 +472,7 @@ public class UIContainer extends UIComponent implements Cullable {
      * Swaps two actors. Returns false if the swap did not occur because
      * the actors are not children of this group.
      */
-    public boolean swapActor(UIComponent first, UIComponent second) {
+    public boolean swapComponent(UIComponent first, UIComponent second) {
         int firstIndex = children.indexOf(first, true);
         int secondIndex = children.indexOf(second, true);
         if (firstIndex == -1 || secondIndex == -1) return false;

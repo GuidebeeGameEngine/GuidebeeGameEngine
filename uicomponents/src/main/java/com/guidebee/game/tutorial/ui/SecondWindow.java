@@ -1,34 +1,39 @@
 package com.guidebee.game.tutorial.ui;
 
-
 import com.guidebee.game.graphics.TextureAtlas;
 import com.guidebee.game.graphics.TextureRegion;
+import com.guidebee.game.tutorial.ui.component.BackgroundImage;
 import com.guidebee.game.ui.Button;
-import com.guidebee.game.ui.Event;
-import com.guidebee.game.ui.EventListener;
-import com.guidebee.game.ui.Image;
+import com.guidebee.game.ui.HorizontalGroup;
 import com.guidebee.game.ui.Table;
 import com.guidebee.game.ui.drawable.TextureRegionDrawable;
-
 import static com.guidebee.game.GameEngine.*;
 
-public class MainWindow extends BaseWindow{
 
+public class SecondWindow extends BaseWindow{
 
-
-    public MainWindow(final UIGamePlay gamePlay){
+    public SecondWindow(UIGamePlay gamePlay) {
         super(gamePlay);
-
-        Image image=new Image(uiskin,"background");
-        image.setFillParent(true);
-        stack.addComponent(image);
-
+        BackgroundImage backgroundImage=new BackgroundImage();
+        backgroundImage.setFillParent(true);
+        stack.add(backgroundImage);
         Table table=new Table();
-        table.setFillParent(true);
-        stack.addComponent(table);
+        stack.add(table);
+        HorizontalGroup horizontalGroup=new HorizontalGroup();
+
+        Button scoreButton=new Button(uiskin,"score");
+        Button shopButton=new Button(uiskin,"shop");
+
+        table.padLeft(10);
+
+        table.add(scoreButton);
+        table.row();
+
+        table.add(shopButton);
+        table.pack();
 
         TextureAtlas textureAtlas=assetManager.get("uidemo.atlas",TextureAtlas.class);
-        TextureRegion playButton=textureAtlas.findRegion("mainmenu_button_play");
+        TextureRegion playButton=textureAtlas.findRegion("back");
         TextureRegion playUpTextRegion=new TextureRegion(playButton,0,0,
                 playButton.getRegionWidth()/2,
                 playButton.getRegionHeight());
@@ -40,18 +45,10 @@ public class MainWindow extends BaseWindow{
         Button button=new Button(new TextureRegionDrawable(playUpTextRegion)
                 ,new TextureRegionDrawable(playDownTextRegion));
 
-        table.add(button);
 
-        button.addListener(new EventListener() {
-            @Override
-            public boolean handle(Event event) {
-                gamePlay.showSecondWindow();
-                return true;
-            }
-        });
+        horizontalGroup.addComponent(button);
 
 
     }
-
 
 }

@@ -109,9 +109,9 @@ public class SelectBox<T> extends Widget implements Disableable {
         return maxListCount;
     }
 
-    protected void setStage(UIWindow stage) {
+    protected void setWindow(UIWindow stage) {
         if (stage == null) hideList();
-        super.setStage(stage);
+        super.setWindow(stage);
     }
 
     public void setStyle(SelectBoxStyle style) {

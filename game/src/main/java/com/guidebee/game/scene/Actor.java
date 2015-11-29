@@ -135,8 +135,8 @@ class InternalActor extends UIComponent {
      *
      * @param stage May be null if the actor or any parent is no longer in a stage.
      */
-    protected void setStage(UIWindow stage) {
-        super.setStage(stage);
+    protected void setWindow(UIWindow stage) {
+        super.setWindow(stage);
 
 
     }
@@ -752,10 +752,10 @@ public class Actor implements Collidable {
      */
     protected void setStage(Stage stage) {
         if(stage!=null) {
-            internalActor.setStage(stage.internalStage);
+            internalActor.setWindow(stage.internalStage);
 
         }else{
-            internalActor.setStage(null);
+            internalActor.setWindow(null);
         }
     }
 

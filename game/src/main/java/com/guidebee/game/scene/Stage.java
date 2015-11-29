@@ -262,7 +262,7 @@ public class Stage extends InputAdapter implements Disposable {
     }
 
     public void setGameController(GameController gameController){
-        tableGameControl.addActor(gameController);
+        tableGameControl.addComponent(gameController);
     }
 
     public void removeGameController(){

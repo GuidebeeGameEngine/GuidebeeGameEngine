@@ -279,10 +279,10 @@ public class UIComponent {
     /**
      * Removes this actor from its parent, if it has a parent.
      *
-     * @see UIContainer#removeActor(UIComponent)
+     * @see UIContainer#removeComponent(UIComponent)
      */
     public boolean remove() {
-        if (parent != null) return parent.removeActor(this);
+        if (parent != null) return parent.removeComponent(this);
         return false;
     }
 
@@ -378,7 +378,7 @@ public class UIComponent {
      *
      * @param stage May be null if the actor or any parent is no longer in a stage.
      */
-    protected void setStage(UIWindow stage) {
+    protected void setWindow(UIWindow stage) {
         this.stage = stage;
     }
 
@@ -753,7 +753,7 @@ public class UIComponent {
     /**
      * Sets a name for easier identification of the actor in application code.
      *
-     * @see UIContainer#findActor(String)
+     * @see UIContainer#findComponent(String)
      */
     public void setName(String name) {
         this.name = name;

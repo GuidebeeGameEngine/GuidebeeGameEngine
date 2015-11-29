@@ -195,9 +195,9 @@ public class Container<T extends UIComponent> extends WidgetGroup {
     public void setActor(T actor) {
         if (actor == this)
             throw new IllegalArgumentException("actor cannot be the Container.");
-        if (this.actor != null) super.removeActor(this.actor);
+        if (this.actor != null) super.removeComponent(this.actor);
         this.actor = actor;
-        if (actor != null) super.addActor(actor);
+        if (actor != null) super.addComponent(actor);
     }
 
     /**
@@ -211,7 +211,7 @@ public class Container<T extends UIComponent> extends WidgetGroup {
      * @see #setActor(UIComponent)
      * @deprecated Container may have only a single child.
      */
-    public void addActor(UIComponent actor) {
+    public void addComponent(UIComponent actor) {
         throw new UnsupportedOperationException("Use Container#setActor.");
     }
 
@@ -219,7 +219,7 @@ public class Container<T extends UIComponent> extends WidgetGroup {
      * @see #setActor(UIComponent)
      * @deprecated Container may have only a single child.
      */
-    public void addActorAt(int index, UIComponent actor) {
+    public void addComponentAt(int index, UIComponent actor) {
         throw new UnsupportedOperationException("Use Container#setActor.");
     }
 
@@ -227,7 +227,7 @@ public class Container<T extends UIComponent> extends WidgetGroup {
      * @see #setActor(UIComponent)
      * @deprecated Container may have only a single child.
      */
-    public void addActorBefore(UIComponent actorBefore, UIComponent actor) {
+    public void addComponentBefore(UIComponent actorBefore, UIComponent actor) {
         throw new UnsupportedOperationException("Use Container#setActor.");
     }
 
@@ -235,11 +235,11 @@ public class Container<T extends UIComponent> extends WidgetGroup {
      * @see #setActor(UIComponent)
      * @deprecated Container may have only a single child.
      */
-    public void addActorAfter(UIComponent actorAfter, UIComponent actor) {
+    public void addComponentAfter(UIComponent actorAfter, UIComponent actor) {
         throw new UnsupportedOperationException("Use Container#setActor.");
     }
 
-    public boolean removeActor(UIComponent actor) {
+    public boolean removeComponent(UIComponent actor) {
         if (actor != this.actor) return false;
         setActor(null);
         return true;

@@ -76,7 +76,7 @@ public class ChildWindow extends Table {
         setTitle(title);
 
         buttonTable = new Table();
-        addActor(buttonTable);
+        addComponent(buttonTable);
 
         addCaptureListener(new InputListener() {
             public boolean touchDown(InputEvent event, float x, float y,
