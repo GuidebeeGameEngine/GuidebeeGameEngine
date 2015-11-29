@@ -191,19 +191,19 @@
     <li class="api apilevel-">
   <a href="../../../../com/guidebee/game/scene/package-summary.html">com.guidebee.game.scene</a></li>
     <li class="api apilevel-">
-  <a href="../../../../com/guidebee/game/scene/actions/package-summary.html">com.guidebee.game.scene.actions</a></li>
-    <li class="api apilevel-">
   <a href="../../../../com/guidebee/game/scene/collision/package-summary.html">com.guidebee.game.scene.collision</a></li>
-    <li class="api apilevel-">
-  <a href="../../../../com/guidebee/game/tween/package-summary.html">com.guidebee.game.tween</a></li>
-    <li class="api apilevel-">
-  <a href="../../../../com/guidebee/game/tween/equations/package-summary.html">com.guidebee.game.tween.equations</a></li>
-    <li class="api apilevel-">
-  <a href="../../../../com/guidebee/game/tween/paths/package-summary.html">com.guidebee.game.tween.paths</a></li>
-    <li class="api apilevel-">
-  <a href="../../../../com/guidebee/game/tween/primitives/package-summary.html">com.guidebee.game.tween.primitives</a></li>
     <li class="selected api apilevel-">
   <a href="../../../../com/guidebee/game/ui/package-summary.html">com.guidebee.game.ui</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/ui/action/package-summary.html">com.guidebee.game.ui.action</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/ui/action/tween/package-summary.html">com.guidebee.game.ui.action.tween</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/ui/action/tween/equations/package-summary.html">com.guidebee.game.ui.action.tween.equations</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/ui/action/tween/paths/package-summary.html">com.guidebee.game.ui.action.tween.paths</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/guidebee/game/ui/action/tween/primitives/package-summary.html">com.guidebee.game.ui.action.tween.primitives</a></li>
     <li class="api apilevel-">
   <a href="../../../../com/guidebee/game/ui/drawable/package-summary.html">com.guidebee.game.ui.drawable</a></li>
     <li class="api apilevel-">
@@ -738,10 +738,10 @@ Summary:
  origin is relative to the position and is used for scale and rotation.
  <p>
  An actor has a list of in progress
- <code><a href="../../../../com/guidebee/game/scene/actions/Action.html">actions</a></code> that are applied
+ <code><a href="../../../../com/guidebee/game/ui/action/Action.html">actions</a></code> that are applied
  to the actor (often over time). These are generally
  used to change the presentation of the actor (moving it, resizing it, etc).
- See <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#act(float)">act(float)</a></code>, <code><a href="../../../../com/guidebee/game/scene/actions/Action.html">Action</a></code> and its
+ See <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#act(float)">act(float)</a></code>, <code><a href="../../../../com/guidebee/game/ui/action/Action.html">Action</a></code> and its
  many subclasses.
  <p>
  An actor has two kinds of listeners associated with it: "capture" and regular.
@@ -891,7 +891,7 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#addAction(com.guidebee.game.scene.actions.Action)">addAction</a></span>(<a href="../../../../com/guidebee/game/scene/actions/Action.html">Action</a> action)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#addAction(com.guidebee.game.ui.action.Action)">addAction</a></span>(<a href="../../../../com/guidebee/game/ui/action/Action.html">Action</a> action)
         
   </td></tr>
 
@@ -1125,7 +1125,7 @@ Summary:
             
             
             
-            <a href="../../../../com/guidebee/utils/collections/Array.html">Array</a>&lt;<a href="../../../../com/guidebee/game/scene/actions/Action.html">Action</a>&gt;
+            <a href="../../../../com/guidebee/utils/collections/Array.html">Array</a>&lt;<a href="../../../../com/guidebee/game/ui/action/Action.html">Action</a>&gt;
         </td>
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#getActions()">getActions</a></span>()
@@ -1775,7 +1775,7 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#removeAction(com.guidebee.game.scene.actions.Action)">removeAction</a></span>(<a href="../../../../com/guidebee/game/scene/actions/Action.html">Action</a> action)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#removeAction(com.guidebee.game.ui.action.Action)">removeAction</a></span>(<a href="../../../../com/guidebee/game/ui/action/Action.html">Action</a> action)
         
   </td></tr>
 
@@ -2739,7 +2739,7 @@ From class
   <div class="jd-tagdata jd-tagdescr"><p>Updates the actor based on time. Typically this is called each frame
  by <code><a href="../../../../com/guidebee/game/ui/UIWindow.html#act(float)">act(float)</a></code>.
  <p>
- The default implementation calls <code><a href="../../../../com/guidebee/game/scene/actions/Action.html#act(float)">act(float)</a></code> on
+ The default implementation calls <code><a href="../../../../com/guidebee/game/ui/action/Action.html#act(float)">act(float)</a></code> on
  each action and removes actions that are complete.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -2756,7 +2756,7 @@ From class
 </div>
 
 
-<a id="addAction(com.guidebee.game.scene.actions.Action)"></a>
+<a id="addAction(com.guidebee.game.ui.action.Action)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2769,7 +2769,7 @@ From class
         void
       </span>
       <span class="sympad">addAction</span>
-      <span class="normal">(<a href="../../../../com/guidebee/game/scene/actions/Action.html">Action</a> action)</span>
+      <span class="normal">(<a href="../../../../com/guidebee/game/ui/action/Action.html">Action</a> action)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -3241,7 +3241,7 @@ From class
          
          
          
-        <a href="../../../../com/guidebee/utils/collections/Array.html">Array</a>&lt;<a href="../../../../com/guidebee/game/scene/actions/Action.html">Action</a>&gt;
+        <a href="../../../../com/guidebee/utils/collections/Array.html">Array</a>&lt;<a href="../../../../com/guidebee/game/ui/action/Action.html">Action</a>&gt;
       </span>
       <span class="sympad">getActions</span>
       <span class="normal">()</span>
@@ -4463,7 +4463,7 @@ From class
 </div>
 
 
-<a id="removeAction(com.guidebee.game.scene.actions.Action)"></a>
+<a id="removeAction(com.guidebee.game.ui.action.Action)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -4476,7 +4476,7 @@ From class
         void
       </span>
       <span class="sympad">removeAction</span>
-      <span class="normal">(<a href="../../../../com/guidebee/game/scene/actions/Action.html">Action</a> action)</span>
+      <span class="normal">(<a href="../../../../com/guidebee/game/ui/action/Action.html">Action</a> action)</span>
     </h4>
       <div class="api-level">
         <div>
