@@ -18,15 +18,12 @@ package com.guidebee.game.ui;
 
 //--------------------------------- IMPORTS ------------------------------------
 
-import com.guidebee.game.engine.scene.Actor;
-import com.guidebee.game.engine.scene.Group;
-import com.guidebee.game.engine.scene.Stage;
 import com.guidebee.game.graphics.Batch;
 
 //[------------------------------ MAIN CLASS ----------------------------------]
 
 /**
- * An {@link com.guidebee.game.engine.scene.Actor} that participates in layout and provides a minimum, preferred,
+ * An {@link UIComponent} that participates in layout and provides a minimum, preferred,
  * and maximum size.
  * <p/>
  * The default preferred size of a widget is 0 and this is almost always overridden
@@ -42,7 +39,7 @@ import com.guidebee.game.graphics.Batch;
  * @author mzechner
  * @author Nathan Sweet
  */
-public class Widget extends Actor implements Layout {
+public class Widget extends UIComponent implements Layout {
     private boolean needsLayout = true;
     private boolean fillParent;
     private boolean layoutEnabled = true;
@@ -79,10 +76,10 @@ public class Widget extends Actor implements Layout {
     public void validate() {
         if (!layoutEnabled) return;
 
-        Group parent = getParent();
+        UIContainer parent = getParent();
         if (fillParent && parent != null) {
             float parentWidth, parentHeight;
-            Stage stage = getStage();
+            UIWindow stage = getStage();
             if (stage != null && parent == stage.getRoot()) {
                 parentWidth = stage.getWidth();
                 parentHeight = stage.getHeight();
@@ -112,7 +109,7 @@ public class Widget extends Actor implements Layout {
     public void invalidateHierarchy() {
         if (!layoutEnabled) return;
         invalidate();
-        Group parent = getParent();
+        UIContainer parent = getParent();
         if (parent instanceof Layout) ((Layout) parent).invalidateHierarchy();
     }
 

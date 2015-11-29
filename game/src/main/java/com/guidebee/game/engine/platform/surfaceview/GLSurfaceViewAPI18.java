@@ -858,7 +858,7 @@ public class GLSurfaceViewAPI18 extends SurfaceView implements SurfaceHolder.Cal
 //         * Choose a configuration from the list. Implementors typically
 //         * implement this method by calling
 //         * {@link EGL10#eglChooseConfig} and iterating through the results. Please consult the
-//         * EGL specification available from The Khronos Group to learn how to call eglChooseConfig.
+//         * EGL specification available from The Khronos UIContainer to learn how to call eglChooseConfig.
 //         * @param egl the EGL10 for the current display.
 //         * @param display the current display.
 //         * @return the chosen configuration.

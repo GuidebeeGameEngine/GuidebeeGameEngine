@@ -18,7 +18,6 @@ package com.guidebee.game.ui;
 
 //--------------------------------- IMPORTS ------------------------------------
 
-import com.guidebee.game.engine.scene.Actor;
 import com.guidebee.game.graphics.Batch;
 import com.guidebee.game.ui.drawable.Drawable;
 import com.guidebee.utils.Pools;
@@ -62,11 +61,11 @@ public class Button extends Table implements Disableable {
         setSize(getPrefWidth(), getPrefHeight());
     }
 
-    public Button(Actor child, Skin skin, String styleName) {
+    public Button(UIComponent child, Skin skin, String styleName) {
         this(child, skin.get(styleName, ButtonStyle.class));
     }
 
-    public Button(Actor child, ButtonStyle style) {
+    public Button(UIComponent child, ButtonStyle style) {
         initialize();
         add(child);
         setStyle(style);
@@ -109,7 +108,7 @@ public class Button extends Table implements Disableable {
         this(new ButtonStyle(up, down, checked));
     }
 
-    public Button(Actor child, Skin skin) {
+    public Button(UIComponent child, Skin skin) {
         this(child, skin.get(ButtonStyle.class));
     }
 
@@ -212,7 +211,7 @@ public class Button extends Table implements Disableable {
         }
         setBackground(background, false);
 
-        Array<Actor> children = getChildren();
+        Array<UIComponent> children = getChildren();
         for (int i = 0; i < children.size; i++)
             children.get(i).moveBy(offsetX, offsetY);
         super.draw(batch, parentAlpha);

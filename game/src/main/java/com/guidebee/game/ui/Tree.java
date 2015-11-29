@@ -18,8 +18,6 @@ package com.guidebee.game.ui;
 
 //--------------------------------- IMPORTS ------------------------------------
 
-import com.guidebee.game.engine.scene.Actor;
-import com.guidebee.game.engine.scene.Group;
 import com.guidebee.game.graphics.Batch;
 import com.guidebee.game.graphics.Color;
 import com.guidebee.game.ui.drawable.Drawable;
@@ -102,7 +100,7 @@ public class Tree extends WidgetGroup {
                 return false;
             }
 
-            public void exit(InputEvent event, float x, float y, int pointer, Actor toActor) {
+            public void exit(InputEvent event, float x, float y, int pointer, UIComponent toActor) {
                 super.exit(event, x, y, pointer, toActor);
                 if (toActor == null || !toActor.isDescendantOf(Tree.this)) setOverNode(null);
             }
@@ -173,7 +171,7 @@ public class Tree extends WidgetGroup {
         for (int i = 0, n = nodes.size; i < n; i++) {
             Node node = nodes.get(i);
             float rowWidth = indent + iconSpacingRight;
-            Actor actor = node.actor;
+            UIComponent actor = node.actor;
             if (actor instanceof Layout) {
                 Layout layout = (Layout) actor;
                 rowWidth += layout.getPrefWidth();
@@ -203,7 +201,7 @@ public class Tree extends WidgetGroup {
         float ySpacing = this.ySpacing;
         for (int i = 0, n = nodes.size; i < n; i++) {
             Node node = nodes.get(i);
-            Actor actor = node.actor;
+            UIComponent actor = node.actor;
             float x = indent;
             if (node.icon != null) x += node.icon.getMinWidth();
             y -= node.height;
@@ -231,7 +229,7 @@ public class Tree extends WidgetGroup {
         float x = getX(), y = getY();
         for (int i = 0, n = nodes.size; i < n; i++) {
             Node node = nodes.get(i);
-            Actor actor = node.actor;
+            UIComponent actor = node.actor;
 
             if (selection.contains(node) && style.selection != null) {
                 style.selection.draw(batch, x, y + actor.getY() - ySpacing / 2,
@@ -431,7 +429,7 @@ public class Tree extends WidgetGroup {
      * Tree node.
      */
     static public class Node {
-        Actor actor;
+        UIComponent actor;
         Node parent;
         final Array<Node> children = new Array(0);
         boolean selectable = true;
@@ -440,7 +438,7 @@ public class Tree extends WidgetGroup {
         float height;
         Object object;
 
-        public Node(Actor actor) {
+        public Node(UIComponent actor) {
             if (actor == null)
                 throw new IllegalArgumentException("actor cannot be null.");
             this.actor = actor;
@@ -527,12 +525,12 @@ public class Tree extends WidgetGroup {
          * Returns the tree this node is currently in, or null.
          */
         public Tree getTree() {
-            Group parent = actor.getParent();
+            UIContainer parent = actor.getParent();
             if (!(parent instanceof Tree)) return null;
             return (Tree) parent;
         }
 
-        public Actor getActor() {
+        public UIComponent getActor() {
             return actor;
         }
 

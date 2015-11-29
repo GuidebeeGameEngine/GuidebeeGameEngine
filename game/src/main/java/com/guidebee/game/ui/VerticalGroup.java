@@ -18,7 +18,6 @@ package com.guidebee.game.ui;
 
 //--------------------------------- IMPORTS ------------------------------------
 
-import com.guidebee.game.engine.scene.Actor;
 import com.guidebee.utils.collections.SnapshotArray;
 
 //[------------------------------ MAIN CLASS ----------------------------------]
@@ -55,12 +54,12 @@ public class VerticalGroup extends WidgetGroup {
 
     private void computeSize() {
         sizeInvalid = false;
-        SnapshotArray<Actor> children = getChildren();
+        SnapshotArray<UIComponent> children = getChildren();
         int n = children.size;
         prefWidth = 0;
         prefHeight = padTop + padBottom + spacing * (n - 1);
         for (int i = 0; i < n; i++) {
-            Actor child = children.get(i);
+            UIComponent child = children.get(i);
             if (child instanceof Layout) {
                 Layout layout = (Layout) child;
                 prefWidth = Math.max(prefWidth, layout.getPrefWidth());
@@ -84,9 +83,9 @@ public class VerticalGroup extends WidgetGroup {
 
         float groupWidth = getWidth() - padLeft - padRight;
         float y = reverse ? padBottom : getHeight() - padTop + spacing;
-        SnapshotArray<Actor> children = getChildren();
+        SnapshotArray<UIComponent> children = getChildren();
         for (int i = 0, n = children.size; i < n; i++) {
-            Actor child = children.get(i);
+            UIComponent child = children.get(i);
             float width, height;
             if (child instanceof Layout) {
                 Layout layout = (Layout) child;

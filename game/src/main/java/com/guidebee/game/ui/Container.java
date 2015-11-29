@@ -18,7 +18,6 @@ package com.guidebee.game.ui;
 
 //--------------------------------- IMPORTS ------------------------------------
 
-import com.guidebee.game.engine.scene.Actor;
 import com.guidebee.game.graphics.Batch;
 import com.guidebee.game.graphics.Color;
 import com.guidebee.game.graphics.ShapeRenderer;
@@ -33,7 +32,7 @@ import com.guidebee.game.ui.drawable.Drawable;
  *
  * @author Nathan Sweet
  */
-public class Container<T extends Actor> extends WidgetGroup {
+public class Container<T extends UIComponent> extends WidgetGroup {
     private T actor;
     private Value minWidth = Value.minWidth, minHeight = Value.minHeight;
     private Value prefWidth = Value.prefWidth, prefHeight = Value.prefHeight;
@@ -209,38 +208,38 @@ public class Container<T extends Actor> extends WidgetGroup {
     }
 
     /**
-     * @see #setActor(Actor)
+     * @see #setActor(UIComponent)
      * @deprecated Container may have only a single child.
      */
-    public void addActor(Actor actor) {
+    public void addActor(UIComponent actor) {
         throw new UnsupportedOperationException("Use Container#setActor.");
     }
 
     /**
-     * @see #setActor(Actor)
+     * @see #setActor(UIComponent)
      * @deprecated Container may have only a single child.
      */
-    public void addActorAt(int index, Actor actor) {
+    public void addActorAt(int index, UIComponent actor) {
         throw new UnsupportedOperationException("Use Container#setActor.");
     }
 
     /**
-     * @see #setActor(Actor)
+     * @see #setActor(UIComponent)
      * @deprecated Container may have only a single child.
      */
-    public void addActorBefore(Actor actorBefore, Actor actor) {
+    public void addActorBefore(UIComponent actorBefore, UIComponent actor) {
         throw new UnsupportedOperationException("Use Container#setActor.");
     }
 
     /**
-     * @see #setActor(Actor)
+     * @see #setActor(UIComponent)
      * @deprecated Container may have only a single child.
      */
-    public void addActorAfter(Actor actorAfter, Actor actor) {
+    public void addActorAfter(UIComponent actorAfter, UIComponent actor) {
         throw new UnsupportedOperationException("Use Container#setActor.");
     }
 
-    public boolean removeActor(Actor actor) {
+    public boolean removeActor(UIComponent actor) {
         if (actor != this.actor) return false;
         setActor(null);
         return true;
@@ -850,7 +849,7 @@ public class Container<T extends Actor> extends WidgetGroup {
         return clip;
     }
 
-    public Actor hit(float x, float y, boolean touchable) {
+    public UIComponent hit(float x, float y, boolean touchable) {
         if (clip) {
             if (touchable && getTouchable() == Touchable.disabled) return null;
             if (x < 0 || x >= getWidth() || y < 0 || y >= getHeight()) return null;

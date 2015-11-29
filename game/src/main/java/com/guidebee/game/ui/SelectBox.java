@@ -18,8 +18,6 @@ package com.guidebee.game.ui;
 
 //--------------------------------- IMPORTS ------------------------------------
 
-import com.guidebee.game.engine.scene.Actor;
-import com.guidebee.game.engine.scene.Stage;
 import com.guidebee.game.graphics.Batch;
 import com.guidebee.game.graphics.BitmapFont;
 import com.guidebee.game.graphics.Color;
@@ -62,7 +60,7 @@ public class SelectBox<T> extends Widget implements Disableable {
     private final Font.TextBounds bounds = new Font.TextBounds();
     ListScroll scroll;
     Selection<T> selection;
-    Actor previousScrollFocus;
+    UIComponent previousScrollFocus;
     private float prefWidth, prefHeight;
     private ClickListener clickListener;
     int maxListCount;
@@ -111,7 +109,7 @@ public class SelectBox<T> extends Widget implements Disableable {
         return maxListCount;
     }
 
-    protected void setStage(Stage stage) {
+    protected void setStage(UIWindow stage) {
         if (stage == null) hideList();
         super.setStage(stage);
     }
@@ -305,11 +303,11 @@ public class SelectBox<T> extends Widget implements Disableable {
         if (!scroll.hasParent()) return;
         selected = null;
         scroll.list.setTouchable(Touchable.disabled);
-        Stage stage = scroll.getStage();
+        UIWindow stage = scroll.getStage();
         if (stage != null) {
             if (previousScrollFocus != null && previousScrollFocus.getStage() == null)
                 previousScrollFocus = null;
-            Actor actor = stage.getScrollFocus();
+            UIComponent actor = stage.getScrollFocus();
             if (actor == null || actor.isDescendantOf(scroll))
                 stage.setScrollFocus(previousScrollFocus);
         }
@@ -374,7 +372,7 @@ public class SelectBox<T> extends Widget implements Disableable {
             });
         }
 
-        public void show(Stage stage) {
+        public void show(UIWindow stage) {
             stage.addActor(this);
 
             SelectBox.this.localToStageCoordinates(tmpCoords.set(0, 0));
@@ -423,15 +421,15 @@ public class SelectBox<T> extends Widget implements Disableable {
             Actions.addAction(Actions.fadeIn(0.3f, Interpolation.fade));
 
             previousScrollFocus = null;
-            Actor actor = stage.getScrollFocus();
+            UIComponent actor = stage.getScrollFocus();
             if (actor != null && !actor.isDescendantOf(this)) previousScrollFocus = actor;
 
             stage.setScrollFocus(this);
         }
 
         @Override
-        public Actor hit(float x, float y, boolean touchable) {
-            Actor actor = super.hit(x, y, touchable);
+        public UIComponent hit(float x, float y, boolean touchable) {
+            UIComponent actor = super.hit(x, y, touchable);
             return actor != null ? actor : this;
         }
 

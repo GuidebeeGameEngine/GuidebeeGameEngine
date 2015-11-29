@@ -18,7 +18,6 @@ package com.guidebee.game.ui;
 
 //--------------------------------- IMPORTS ------------------------------------
 
-import com.guidebee.game.engine.scene.Actor;
 import com.guidebee.game.input.GestureDetector;
 import com.guidebee.game.input.GestureDetector.GestureAdapter;
 import com.guidebee.math.Vector2;
@@ -38,7 +37,7 @@ public class ActorGestureListener implements EventListener {
 
     private final GestureDetector detector;
     InputEvent event;
-    Actor actor, touchDownTarget;
+    UIComponent actor, touchDownTarget;
 
     /**
      * @see GestureDetector#GestureDetector
@@ -154,7 +153,7 @@ public class ActorGestureListener implements EventListener {
      * provided because this event is triggered by time
      * passing, not by an InputEvent.
      */
-    public boolean longPress(Actor actor, float x, float y) {
+    public boolean longPress(UIComponent actor, float x, float y) {
         return false;
     }
 
@@ -178,7 +177,7 @@ public class ActorGestureListener implements EventListener {
         return detector;
     }
 
-    public Actor getTouchDownTarget() {
+    public UIComponent getTouchDownTarget() {
         return touchDownTarget;
     }
 }

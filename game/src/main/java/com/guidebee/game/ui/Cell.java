@@ -17,7 +17,6 @@
 package com.guidebee.game.ui;
 
 //--------------------------------- IMPORTS ------------------------------------
-import com.guidebee.game.engine.scene.Actor;
 import com.guidebee.utils.Pool;
 
 //[------------------------------ MAIN CLASS ----------------------------------]
@@ -26,7 +25,7 @@ import com.guidebee.utils.Pool;
  *
  * @author Nathan Sweet
  */
-public class Cell<T extends Actor> implements Pool.Poolable {
+public class Cell<T extends UIComponent> implements Pool.Poolable {
     Value minWidth, minHeight;
     Value prefWidth, prefHeight;
     Value maxWidth, maxHeight;
@@ -38,7 +37,7 @@ public class Cell<T extends Actor> implements Pool.Poolable {
     Integer colspan;
     Boolean uniformX, uniformY;
 
-    Actor actor;
+    UIComponent actor;
     float actorX, actorY;
     float actorWidth, actorHeight;
 
@@ -107,7 +106,7 @@ public class Cell<T extends Actor> implements Pool.Poolable {
      * Sets the actor in this cell and adds the actor to the cell's table.
      * If null, removes any current actor.
      */
-    public <A extends Actor> Cell<A> setActor(A newActor) {
+    public <A extends UIComponent> Cell<A> setActor(A newActor) {
         if (actor != null) actor.remove();
         if (actor != newActor) {
             actor = newActor;

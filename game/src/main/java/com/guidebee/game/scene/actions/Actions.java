@@ -18,7 +18,7 @@ package com.guidebee.game.scene.actions;
 
 //--------------------------------- IMPORTS ------------------------------------
 
-import com.guidebee.game.engine.scene.Actor;
+import com.guidebee.game.ui.UIComponent;
 import com.guidebee.game.graphics.Color;
 import com.guidebee.game.ui.EventListener;
 import com.guidebee.game.ui.Touchable;
@@ -50,7 +50,7 @@ public class Actions {
         return addAction;
     }
 
-    static public AddAction addAction(Action action, Actor targetActor) {
+    static public AddAction addAction(Action action, UIComponent targetActor) {
         AddAction addAction = action(AddAction.class);
         addAction.setTargetActor(targetActor);
         addAction.setAction(action);
@@ -63,7 +63,7 @@ public class Actions {
         return removeAction;
     }
 
-    static public RemoveAction removeAction(Action action, Actor targetActor) {
+    static public RemoveAction removeAction(Action action, UIComponent targetActor) {
         RemoveAction removeAction = action(RemoveAction.class);
         removeAction.setTargetActor(targetActor);
         removeAction.setAction(action);
@@ -346,7 +346,7 @@ public class Actions {
         return action(RemoveActorAction.class);
     }
 
-    static public RemoveActorAction removeActor(Actor removeActor) {
+    static public RemoveActorAction removeActor(UIComponent removeActor) {
         RemoveActorAction action = action(RemoveActorAction.class);
         action.setRemoveActor(removeActor);
         return action;
@@ -524,7 +524,7 @@ public class Actions {
 
     static public AddListenerAction addListener(EventListener listener,
                                                 boolean capture,
-                                                Actor targetActor) {
+                                                UIComponent targetActor) {
         AddListenerAction addAction = action(AddListenerAction.class);
         addAction.setTargetActor(targetActor);
         addAction.setListener(listener);
@@ -542,7 +542,7 @@ public class Actions {
 
     static public RemoveListenerAction removeListener(EventListener listener,
                                                       boolean capture,
-                                                      Actor targetActor) {
+                                                      UIComponent targetActor) {
         RemoveListenerAction addAction = action(RemoveListenerAction.class);
         addAction.setTargetActor(targetActor);
         addAction.setListener(listener);

@@ -17,11 +17,12 @@
 package com.guidebee.game.scene.actions;
 
 //--------------------------------- IMPORTS ------------------------------------
+import com.guidebee.game.ui.UIComponent;
 import com.guidebee.utils.Pool;
 
 //[------------------------------ MAIN CLASS ----------------------------------]
 /**
- * Actions attach to an {@link com.guidebee.game.engine.scene.Actor} and perform some task, often over time.
+ * Actions attach to an {@link UIComponent} and perform some task, often over time.
  *
  * @author Nathan Sweet
  */
@@ -29,13 +30,13 @@ abstract public class Action implements Pool.Poolable {
     /**
      * The actor this action is attached to, or null if it is not attached.
      */
-    protected com.guidebee.game.engine.scene.Actor actor;
+    protected UIComponent actor;
 
     private Pool pool;
 
     /**
      * Updates the action based on time. Typically this is called each
-     * frame by {@link com.guidebee.game.engine.scene.Actor#act(float)}.
+     * frame by {@link UIComponent#act(float)}.
      *
      * @param delta Time in seconds since the last frame.
      * @return true if the action is done. This method may continue to
@@ -52,7 +53,7 @@ abstract public class Action implements Pool.Poolable {
     /**
      * @return null if the action is not attached to an actor.
      */
-    public com.guidebee.game.engine.scene.Actor getActor() {
+    public UIComponent getActor() {
         return actor;
     }
 
@@ -74,7 +75,7 @@ abstract public class Action implements Pool.Poolable {
      * {@link com.guidebee.game.scene.actions.TemporalAction},
      * use TemporalAction#begin().
      */
-    public void setActor(com.guidebee.game.engine.scene.Actor actor) {
+    public void setActor(UIComponent actor) {
         this.actor = actor;
         if (actor == null) {
             if (pool != null) {
@@ -108,7 +109,7 @@ abstract public class Action implements Pool.Poolable {
      * removed from the actor.
      *
      * @param pool May be null.
-     * @see #setActor(com.guidebee.game.engine.scene.Actor)
+     * @see #setActor(UIComponent)
      */
     public void setPool(Pool pool) {
         this.pool = pool;

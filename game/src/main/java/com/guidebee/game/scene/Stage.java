@@ -28,6 +28,9 @@ import com.guidebee.game.camera.viewports.ScalingViewport;
 import com.guidebee.game.camera.viewports.Viewport;
 import com.guidebee.game.engine.maps.tiled.renderers.IsometricTiledMapRenderer;
 import com.guidebee.game.engine.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+import com.guidebee.game.ui.UIComponent;
+import com.guidebee.game.ui.UIContainer;
+import com.guidebee.game.ui.UIWindow;
 import com.guidebee.game.entity.Entity;
 import com.guidebee.game.entity.EntityEngine;
 import com.guidebee.game.entity.Role;
@@ -63,7 +66,7 @@ import com.guidebee.utils.collections.Array;
 import com.guidebee.utils.collections.SnapshotArray;
 
 
-class InternalStage extends com.guidebee.game.engine.scene.Stage {
+class InternalStage extends UIWindow {
 
 
     private final Stage proxyStage;
@@ -334,7 +337,7 @@ public class Stage extends InputAdapter implements Disposable {
      * recursively compares the name of every actor in the group.
      */
     public <T extends Actor> T findActor(String name) {
-        com.guidebee.game.engine.scene.Actor actor = internalStage.findActor(name);
+        UIComponent actor = internalStage.findActor(name);
         if (actor != null) {
             return (T) actor.getUserObject();
         } else {
@@ -600,12 +603,12 @@ public class Stage extends InputAdapter implements Disposable {
      * @see Group#getChildren()
      */
     public Array<Actor> getActors() {
-        Array<com.guidebee.game.engine.scene.Actor>
+        Array<UIComponent>
                 internalActors = internalStage.getActors();
         Array<Actor> actors = null;
         if (internalActors != null) {
             actors = new Array<Actor>();
-            for (com.guidebee.game.engine.scene.Actor actor : internalActors) {
+            for (UIComponent actor : internalActors) {
                 actors.add((Actor) actor.getUserObject());
             }
 
@@ -733,7 +736,7 @@ public class Stage extends InputAdapter implements Disposable {
      * @return May be null.
      */
     public Actor getKeyboardFocus() {
-        com.guidebee.game.engine.scene.Actor
+        UIComponent
                 actor = internalStage.getKeyboardFocus();
         if (actor != null) {
             return (Actor) actor.getUserObject();
@@ -756,7 +759,7 @@ public class Stage extends InputAdapter implements Disposable {
      * @return May be null.
      */
     public Actor getScrollFocus() {
-        com.guidebee.game.engine.scene.Actor
+        UIComponent
                 actor = internalStage.getScrollFocus();
         if (actor != null) {
             return (Actor) actor.getUserObject();
@@ -801,9 +804,9 @@ public class Stage extends InputAdapter implements Disposable {
      * Returns the root group which holds all actors in the stage.
      */
     public Group getRoot() {
-        com.guidebee.game.engine.scene.Group group = internalStage.getRoot();
-        if (group != null) {
-            return (Group) group.getUserObject();
+        UIContainer UIContainer = internalStage.getRoot();
+        if (UIContainer != null) {
+            return (Group) UIContainer.getUserObject();
         }
         return null;
     }
@@ -818,7 +821,7 @@ public class Stage extends InputAdapter implements Disposable {
      * @return May be null if no actor was hit.
      */
     public Actor hit(float stageX, float stageY) {
-        com.guidebee.game.engine.scene.Actor actor
+        UIComponent actor
                 = internalStage.hit(stageX, stageY, true);
         if (actor != null) {
             return (Actor) actor.getUserObject();

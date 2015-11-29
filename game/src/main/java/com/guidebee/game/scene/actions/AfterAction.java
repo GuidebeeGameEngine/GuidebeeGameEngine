@@ -17,7 +17,7 @@
 package com.guidebee.game.scene.actions;
 
 //--------------------------------- IMPORTS ------------------------------------
-import com.guidebee.game.engine.scene.Actor;
+import com.guidebee.game.ui.UIComponent;
 import com.guidebee.utils.collections.Array;
 
 //[------------------------------ MAIN CLASS ----------------------------------]
@@ -30,7 +30,7 @@ import com.guidebee.utils.collections.Array;
 public class AfterAction extends DelegateAction {
     private Array<Action> waitForActions = new Array(false, 4);
 
-    public void setActor(Actor actor) {
+    public void setActor(UIComponent actor) {
         if (actor != null) waitForActions.addAll(actor.getActions());
         super.setActor(actor);
     }

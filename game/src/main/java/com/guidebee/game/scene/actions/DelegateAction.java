@@ -17,7 +17,7 @@
 package com.guidebee.game.scene.actions;
 
 //--------------------------------- IMPORTS ------------------------------------
-import com.guidebee.game.engine.scene.Actor;
+import com.guidebee.game.ui.UIComponent;
 import com.guidebee.utils.Pool;
 
 //[------------------------------ MAIN CLASS ----------------------------------]
@@ -62,7 +62,7 @@ abstract public class DelegateAction extends Action {
         action = null;
     }
 
-    public void setActor(Actor actor) {
+    public void setActor(UIComponent actor) {
         if (action != null) action.setActor(actor);
         super.setActor(actor);
     }

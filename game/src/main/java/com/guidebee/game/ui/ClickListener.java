@@ -20,7 +20,6 @@ package com.guidebee.game.ui;
 
 import com.guidebee.game.GameEngine;
 import com.guidebee.game.Input.Buttons;
-import com.guidebee.game.engine.scene.Actor;
 import com.guidebee.utils.TimeUtils;
 
 //[------------------------------ MAIN CLASS ----------------------------------]
@@ -117,11 +116,11 @@ public class ClickListener extends InputListener {
     }
 
     public void enter(InputEvent event, float x, float y,
-                      int pointer, Actor fromActor) {
+                      int pointer, UIComponent fromActor) {
         if (pointer == -1 && !cancelled) over = true;
     }
 
-    public void exit(InputEvent event, float x, float y, int pointer, Actor toActor) {
+    public void exit(InputEvent event, float x, float y, int pointer, UIComponent toActor) {
         if (pointer == -1 && !cancelled) over = false;
     }
 
@@ -142,8 +141,8 @@ public class ClickListener extends InputListener {
      * Returns true if the specified position is over the
      * specified actor or within the tap square.
      */
-    public boolean isOver(Actor actor, float x, float y) {
-        Actor hit = actor.hit(x, y, true);
+    public boolean isOver(UIComponent actor, float x, float y) {
+        UIComponent hit = actor.hit(x, y, true);
         if (hit == null || !hit.isDescendantOf(actor))
             return inTapSquare(x, y);
         return true;

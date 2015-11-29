@@ -18,7 +18,6 @@ package com.guidebee.game.ui;
 
 //--------------------------------- IMPORTS ------------------------------------
 
-import com.guidebee.game.engine.scene.Actor;
 import com.guidebee.utils.Pools;
 import com.guidebee.utils.collections.Array;
 import com.guidebee.utils.collections.OrderedSet;
@@ -36,7 +35,7 @@ import java.util.Iterator;
  * @author Nathan Sweet
  */
 public class Selection<T> implements Disableable, Iterable<T> {
-    private Actor actor;
+    private UIComponent actor;
     final OrderedSet<T> selected = new OrderedSet();
     private final OrderedSet<T> old = new OrderedSet();
     boolean isDisabled;
@@ -51,7 +50,7 @@ public class Selection<T> implements Disableable, Iterable<T> {
      *              {@link com.guidebee.game.ui.ChangeListener.ChangeEvent}
      *              on when the selection changes, or null.
      */
-    public void setActor(Actor actor) {
+    public void setActor(UIComponent actor) {
         this.actor = actor;
     }
 

@@ -18,8 +18,6 @@ package com.guidebee.game.ui;
 
 //--------------------------------- IMPORTS ------------------------------------
 
-import com.guidebee.game.engine.scene.Actor;
-import com.guidebee.game.engine.scene.Stage;
 import com.guidebee.game.scene.actions.Action;
 import com.guidebee.game.scene.actions.Actions;
 import com.guidebee.math.Interpolation;
@@ -39,9 +37,9 @@ import com.guidebee.utils.collections.ObjectMap;
 public class Dialog extends ChildWindow {
     Table contentTable, buttonTable;
     private Skin skin;
-    ObjectMap<Actor, Object> values = new ObjectMap();
+    ObjectMap<UIComponent, Object> values = new ObjectMap();
     boolean cancelHide;
-    Actor previousKeyboardFocus, previousScrollFocus;
+    UIComponent previousKeyboardFocus, previousScrollFocus;
 
     InputListener ignoreTouchDown = new InputListener() {
         public boolean touchDown(InputEvent event, float x, float y,
@@ -81,7 +79,7 @@ public class Dialog extends ChildWindow {
         buttonTable.defaults().space(6);
 
         buttonTable.addListener(new ChangeListener() {
-            public void changed(ChangeEvent event, Actor actor) {
+            public void changed(ChangeEvent event, UIComponent actor) {
                 if (!values.containsKey(actor)) return;
                 while (actor.getParent() != buttonTable)
                     actor = actor.getParent();
@@ -92,22 +90,22 @@ public class Dialog extends ChildWindow {
         });
 
         addListener(new FocusListener() {
-            public void keyboardFocusChanged(FocusEvent event, Actor actor,
+            public void keyboardFocusChanged(FocusEvent event, UIComponent actor,
                                              boolean focused) {
                 if (!focused) focusChanged(event);
             }
 
-            public void scrollFocusChanged(FocusEvent event, Actor actor,
+            public void scrollFocusChanged(FocusEvent event, UIComponent actor,
                                            boolean focused) {
                 if (!focused) focusChanged(event);
             }
 
             private void focusChanged(FocusEvent event) {
-                Stage stage = getStage();
+                UIWindow stage = getStage();
                 if (isModal && stage != null && stage.getRoot().getChildren().size > 0
                         && stage.getRoot().getChildren().peek() == Dialog.this) {
                     // Dialog is top most actor.
-                    Actor newFocusedActor = event.getRelatedActor();
+                    UIComponent newFocusedActor = event.getRelatedActor();
                     if (newFocusedActor != null
                             && !newFocusedActor.isDescendantOf(Dialog.this)) event.cancel();
                 }
@@ -205,12 +203,12 @@ public class Dialog extends ChildWindow {
      * {@link #pack() Packs} the dialog and adds it to the stage with custom action
      * which can be null for instant show
      */
-    public Dialog show(Stage stage, Action action) {
+    public Dialog show(UIWindow stage, Action action) {
         clearActions();
         removeCaptureListener(ignoreTouchDown);
 
         previousKeyboardFocus = null;
-        Actor actor = stage.getKeyboardFocus();
+        UIComponent actor = stage.getKeyboardFocus();
         if (actor != null && !actor.isDescendantOf(this)) previousKeyboardFocus = actor;
 
         previousScrollFocus = null;
@@ -231,7 +229,7 @@ public class Dialog extends ChildWindow {
      * {@link #pack() Packs} the dialog and adds it to the stage, centered with
      * default fadeIn action
      */
-    public Dialog show(Stage stage) {
+    public Dialog show(UIWindow stage) {
         show(stage, Actions.sequence(Actions.alpha(0),
                 Actions.fadeIn(0.4f, Interpolation.fade)));
         setPosition(Math.round((stage.getWidth() - getWidth()) / 2),
@@ -243,11 +241,11 @@ public class Dialog extends ChildWindow {
      * Hides the dialog with the given action and then removes it from the stage.
      */
     public void hide(Action action) {
-        Stage stage = getStage();
+        UIWindow stage = getStage();
         if (stage != null) {
             if (previousKeyboardFocus != null
                     && previousKeyboardFocus.getStage() == null) previousKeyboardFocus = null;
-            Actor actor = stage.getKeyboardFocus();
+            UIComponent actor = stage.getKeyboardFocus();
             if (actor == null || actor.isDescendantOf(this))
                 stage.setKeyboardFocus(previousKeyboardFocus);
 
@@ -277,7 +275,7 @@ public class Dialog extends ChildWindow {
                 Actions.removeListener(ignoreTouchDown, true), Actions.removeActor()));
     }
 
-    public void setObject(Actor actor, Object object) {
+    public void setObject(UIComponent actor, Object object) {
         values.put(actor, object);
     }
 

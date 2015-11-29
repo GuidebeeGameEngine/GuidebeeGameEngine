@@ -20,7 +20,6 @@ package com.guidebee.game.ui;
 
 import com.guidebee.game.GameEngine;
 import com.guidebee.game.Input;
-import com.guidebee.game.engine.scene.Stage;
 import com.guidebee.game.graphics.Batch;
 import com.guidebee.game.graphics.BitmapFont;
 import com.guidebee.game.graphics.Font;
@@ -440,7 +439,7 @@ public class TextArea extends TextField {
         @Override
         public boolean keyDown(InputEvent event, int keycode) {
             super.keyDown(event, keycode);
-            Stage stage = getStage();
+            UIWindow stage = getStage();
             if (stage != null && stage.getKeyboardFocus() == TextArea.this) {
                 boolean repeat = false;
                 boolean shift = GameEngine.input.isKeyPressed(Input.Keys.SHIFT_LEFT)

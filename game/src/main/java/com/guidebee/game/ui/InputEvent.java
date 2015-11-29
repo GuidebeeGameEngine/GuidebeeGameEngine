@@ -32,7 +32,7 @@ public class InputEvent extends Event {
     private float stageX, stageY;
     private int pointer, button, keyCode, scrollAmount;
     private char character;
-    private com.guidebee.game.engine.scene.Actor relatedActor;
+    private UIComponent relatedActor;
 
     public void reset() {
         super.reset();
@@ -140,14 +140,14 @@ public class InputEvent extends Event {
      * this is the actor being exited, or null. For exit,
      * this is the actor being entered, or null.
      */
-    public com.guidebee.game.engine.scene.Actor getRelatedActor() {
+    public UIComponent getRelatedActor() {
         return relatedActor;
     }
 
     /**
      * @param relatedActor May be null.
      */
-    public void setRelatedActor(com.guidebee.game.engine.scene.Actor relatedActor) {
+    public void setRelatedActor(UIComponent relatedActor) {
         this.relatedActor = relatedActor;
     }
 
@@ -156,14 +156,14 @@ public class InputEvent extends Event {
      *
      * @param actorCoords Output for resulting coordinates.
      */
-    public Vector2 toCoordinates(com.guidebee.game.engine.scene.Actor actor, Vector2 actorCoords) {
+    public Vector2 toCoordinates(UIComponent actor, Vector2 actorCoords) {
         actorCoords.set(stageX, stageY);
         actor.stageToLocalCoordinates(actorCoords);
         return actorCoords;
     }
 
     /**
-     * Returns true of this event is a touchUp triggered by {@link com.guidebee.game.engine.scene.Stage#cancelTouchFocus()}.
+     * Returns true of this event is a touchUp triggered by {@link UIWindow#cancelTouchFocus()}.
      */
     public boolean isTouchFocusCancel() {
         return stageX == Integer.MIN_VALUE || stageY == Integer.MIN_VALUE;
@@ -195,7 +195,7 @@ public class InputEvent extends Event {
         mouseMoved,
         /**
          * The mouse pointer or an active touch have entered (i.e.,
-         * {@link com.guidebee.game.engine.scene.Actor#hit(float, float, boolean) hit}) an actor.
+         * {@link UIComponent#hit(float, float, boolean) hit}) an actor.
          */
         enter,
         /**

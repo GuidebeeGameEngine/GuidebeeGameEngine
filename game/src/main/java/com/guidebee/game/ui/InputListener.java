@@ -139,7 +139,7 @@ public class InputListener implements EventListener {
      *
      * @see InputEvent
      */
-    public void enter(InputEvent event, float x, float y, int pointer, com.guidebee.game.engine.scene.Actor fromActor) {
+    public void enter(InputEvent event, float x, float y, int pointer, UIComponent fromActor) {
     }
 
     /**
@@ -149,7 +149,7 @@ public class InputListener implements EventListener {
      *
      * @see InputEvent
      */
-    public void exit(InputEvent event, float x, float y, int pointer, com.guidebee.game.engine.scene.Actor toActor) {
+    public void exit(InputEvent event, float x, float y, int pointer, UIComponent toActor) {
     }
 
     /**

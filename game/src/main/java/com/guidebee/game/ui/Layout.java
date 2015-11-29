@@ -62,7 +62,7 @@ public interface Layout {
      * {@link #invalidate()} has called since the last time
      * {@link #validate()} was called, or if the actor otherwise needs to be laid out.
      * This method is usually called in
-     * {@link com.guidebee.game.engine.scene.Actor#draw(com.guidebee.game.graphics.Batch, float)}
+     * {@link UIComponent#draw(com.guidebee.game.graphics.Batch, float)}
      * before drawing is performed.
      */
     public void validate();

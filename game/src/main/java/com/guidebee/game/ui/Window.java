@@ -23,7 +23,6 @@ import com.guidebee.game.InputProcessor;
 import com.guidebee.game.ScreenAdapter;
 import com.guidebee.game.camera.viewports.ScalingViewport;
 import com.guidebee.game.camera.viewports.ScreenViewport;
-import com.guidebee.game.engine.scene.Stage;
 import com.guidebee.game.graphics.Batch;
 import com.guidebee.game.graphics.SpriteBatch;
 import com.guidebee.game.graphics.TextureAtlas;
@@ -35,7 +34,7 @@ import com.guidebee.game.graphics.TextureAtlas;
  */
 public class Window extends ScreenAdapter {
     private SpriteBatch batch;
-    private Stage stage;
+    private UIWindow stage;
     private Table table = new Table();
 
     private static final String TEXTURE_SKIN_UI= "skin/default/uiskin.atlas";
@@ -69,7 +68,7 @@ public class Window extends ScreenAdapter {
      */
     public Window(int width, int height) {
 
-        stage = new Stage(new ScalingViewport(width, height));
+        stage = new UIWindow(new ScalingViewport(width, height));
         table.setFillParent(true);
         stage.addActor(table);
         batch = new SpriteBatch();
@@ -79,7 +78,7 @@ public class Window extends ScreenAdapter {
      * Constructor.
      */
     public Window() {
-        stage = new Stage(new ScreenViewport());
+        stage = new UIWindow(new ScreenViewport());
         batch = new SpriteBatch();
 
     }

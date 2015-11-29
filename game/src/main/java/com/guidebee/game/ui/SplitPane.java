@@ -19,7 +19,6 @@ package com.guidebee.game.ui;
 //--------------------------------- IMPORTS ------------------------------------
 
 import com.guidebee.game.GameEngineRuntimeException;
-import com.guidebee.game.engine.scene.Actor;
 import com.guidebee.game.graphics.Batch;
 import com.guidebee.game.graphics.Color;
 import com.guidebee.game.scene.ScissorStack;
@@ -45,7 +44,7 @@ import com.guidebee.math.geometry.Rectangle;
  */
 public class SplitPane extends WidgetGroup {
     SplitPaneStyle style;
-    private Actor firstWidget, secondWidget;
+    private UIComponent firstWidget, secondWidget;
     boolean vertical;
     float splitAmount = 0.5f, minAmount, maxAmount = 1;
     private float oldSplitAmount;
@@ -63,7 +62,7 @@ public class SplitPane extends WidgetGroup {
      * @param firstWidget  May be null.
      * @param secondWidget May be null.
      */
-    public SplitPane(Actor firstWidget, Actor secondWidget, boolean vertical,
+    public SplitPane(UIComponent firstWidget, UIComponent secondWidget, boolean vertical,
                      Skin skin) {
         this(firstWidget, secondWidget, vertical, skin, "default-"
                 + (vertical ? "vertical" : "horizontal"));
@@ -73,7 +72,7 @@ public class SplitPane extends WidgetGroup {
      * @param firstWidget  May be null.
      * @param secondWidget May be null.
      */
-    public SplitPane(Actor firstWidget, Actor secondWidget,
+    public SplitPane(UIComponent firstWidget, UIComponent secondWidget,
                      boolean vertical, Skin skin, String styleName) {
         this(firstWidget, secondWidget, vertical,
                 skin.get(styleName, SplitPaneStyle.class));
@@ -83,7 +82,7 @@ public class SplitPane extends WidgetGroup {
      * @param firstWidget  May be null.
      * @param secondWidget May be null.
      */
-    public SplitPane(Actor firstWidget, Actor secondWidget,
+    public SplitPane(UIComponent firstWidget, UIComponent secondWidget,
                      boolean vertical, SplitPaneStyle style) {
         this.firstWidget = firstWidget;
         this.secondWidget = secondWidget;
@@ -170,14 +169,14 @@ public class SplitPane extends WidgetGroup {
         else
             calculateVertBoundsAndPositions();
 
-        Actor firstWidget = this.firstWidget;
+        UIComponent firstWidget = this.firstWidget;
         if (firstWidget != null) {
             Rectangle firstWidgetBounds = this.firstWidgetBounds;
             firstWidget.setBounds(firstWidgetBounds.x, firstWidgetBounds.y,
                     firstWidgetBounds.width, firstWidgetBounds.height);
             if (firstWidget instanceof Layout) ((Layout) firstWidget).validate();
         }
-        Actor secondWidget = this.secondWidget;
+        UIComponent secondWidget = this.secondWidget;
         if (secondWidget != null) {
             Rectangle secondWidgetBounds = this.secondWidgetBounds;
             secondWidget.setBounds(secondWidgetBounds.x, secondWidgetBounds.y,
@@ -316,7 +315,7 @@ public class SplitPane extends WidgetGroup {
     /**
      * @param widget May be null.
      */
-    public void setFirstWidget(Actor widget) {
+    public void setFirstWidget(UIComponent widget) {
         if (firstWidget != null) super.removeActor(firstWidget);
         firstWidget = widget;
         if (widget != null) super.addActor(widget);
@@ -326,26 +325,26 @@ public class SplitPane extends WidgetGroup {
     /**
      * @param widget May be null.
      */
-    public void setSecondWidget(Actor widget) {
+    public void setSecondWidget(UIComponent widget) {
         if (secondWidget != null) super.removeActor(secondWidget);
         secondWidget = widget;
         if (widget != null) super.addActor(widget);
         invalidate();
     }
 
-    public void addActor(Actor actor) {
+    public void addActor(UIComponent actor) {
         throw new UnsupportedOperationException("Use ScrollPane#setWidget.");
     }
 
-    public void addActorAt(int index, Actor actor) {
+    public void addActorAt(int index, UIComponent actor) {
         throw new UnsupportedOperationException("Use ScrollPane#setWidget.");
     }
 
-    public void addActorBefore(Actor actorBefore, Actor actor) {
+    public void addActorBefore(UIComponent actorBefore, UIComponent actor) {
         throw new UnsupportedOperationException("Use ScrollPane#setWidget.");
     }
 
-    public boolean removeActor(Actor actor) {
+    public boolean removeActor(UIComponent actor) {
         throw new UnsupportedOperationException("Use ScrollPane#setWidget(null).");
     }
 

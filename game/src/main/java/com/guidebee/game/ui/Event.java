@@ -18,7 +18,6 @@ package com.guidebee.game.ui;
 
 //--------------------------------- IMPORTS ------------------------------------
 
-import com.guidebee.game.engine.scene.Stage;
 import com.guidebee.utils.Pool;
 
 /**
@@ -32,7 +31,7 @@ import com.guidebee.utils.Pool;
  * <p/>
  * An Event may be marked as "handled" which will end its propagation outside of
  * the Stage (see {@link #handle()}). The default
- * {@link com.guidebee.game.engine.scene.Actor#fire(Event)} will mark events handled if an {@link EventListener}
+ * {@link UIComponent#fire(Event)} will mark events handled if an {@link EventListener}
  * returns true.
  * <p/>
  * A cancelled event will be stopped and handled. Additionally, many actors will
@@ -40,12 +39,12 @@ import com.guidebee.utils.Pool;
  * {@link #cancel()}.)
  *
  * @see InputEvent
- * @see com.guidebee.game.engine.scene.Actor#fire(Event)
+ * @see UIComponent#fire(Event)
  */
 public class Event implements Pool.Poolable {
-    private Stage stage;
-    private com.guidebee.game.engine.scene.Actor targetActor;
-    private com.guidebee.game.engine.scene.Actor listenerActor;
+    private UIWindow stage;
+    private UIComponent targetActor;
+    private UIComponent listenerActor;
     private boolean capture; // true means event occurred during the
     // capture phase
     private boolean bubbles = true; // true means propagate to target's parents
@@ -57,7 +56,7 @@ public class Event implements Pool.Poolable {
 
     /**
      * Marks this event as handled. This does not affect event propagation inside
-     * scene2d, but causes the {@link Stage} event
+     * scene2d, but causes the {@link UIWindow} event
      * methods to return false, which will eat the event so it is not passed on
      * to the application under the stage.
      */
@@ -101,22 +100,22 @@ public class Event implements Pool.Poolable {
     /**
      * Returns the actor that the event originated from.
      */
-    public com.guidebee.game.engine.scene.Actor getTarget() {
+    public UIComponent getTarget() {
         return targetActor;
     }
 
-    public void setTarget(com.guidebee.game.engine.scene.Actor targetActor) {
+    public void setTarget(UIComponent targetActor) {
         this.targetActor = targetActor;
     }
 
     /**
      * Returns the actor that this listener is attached to.
      */
-    public com.guidebee.game.engine.scene.Actor getListenerActor() {
+    public UIComponent getListenerActor() {
         return listenerActor;
     }
 
-    public void setListenerActor(com.guidebee.game.engine.scene.Actor listenerActor) {
+    public void setListenerActor(UIComponent listenerActor) {
         this.listenerActor = listenerActor;
     }
 
@@ -161,20 +160,20 @@ public class Event implements Pool.Poolable {
     /**
      * If true, the event was fired during the capture phase.
      *
-     * @see com.guidebee.game.engine.scene.Actor#fire(Event)
+     * @see UIComponent#fire(Event)
      */
     public boolean isCapture() {
         return capture;
     }
 
-    public void setStage(Stage stage) {
+    public void setStage(UIWindow stage) {
         this.stage = stage;
     }
 
     /**
      * The stage for the actor the event was fired on.
      */
-    public Stage getStage() {
+    public UIWindow getStage() {
         return stage;
     }
 }

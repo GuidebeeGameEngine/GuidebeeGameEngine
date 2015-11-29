@@ -18,8 +18,6 @@ package com.guidebee.game.ui;
 
 //--------------------------------- IMPORTS ------------------------------------
 
-import com.guidebee.game.engine.scene.Actor;
-
 //[------------------------------ MAIN CLASS ----------------------------------]
 
 /**
@@ -38,7 +36,7 @@ abstract public class ChangeListener implements EventListener {
      * @param actor The event target, which is the actor that emitted the
      *              change event.
      */
-    abstract public void changed(ChangeEvent event, Actor actor);
+    abstract public void changed(ChangeEvent event, UIComponent actor);
 
     /**
      * Fired when something in an actor has changed. This is a generic event,

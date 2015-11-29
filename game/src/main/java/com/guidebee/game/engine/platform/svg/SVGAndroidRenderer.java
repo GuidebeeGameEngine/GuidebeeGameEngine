@@ -560,7 +560,7 @@ public class SVGAndroidRenderer {
 
 
     private void render(SVG.Group obj) {
-        debug("Group render");
+        debug("UIContainer render");
 
         updateStyleForElement(state, obj);
 

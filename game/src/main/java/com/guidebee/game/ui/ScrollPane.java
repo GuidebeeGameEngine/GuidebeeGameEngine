@@ -18,8 +18,6 @@ package com.guidebee.game.ui;
 
 //--------------------------------- IMPORTS ------------------------------------
 
-import com.guidebee.game.engine.scene.Actor;
-import com.guidebee.game.engine.scene.Stage;
 import com.guidebee.game.graphics.Batch;
 import com.guidebee.game.graphics.Color;
 import com.guidebee.game.graphics.ShapeRenderer;
@@ -51,7 +49,7 @@ import com.guidebee.math.geometry.Rectangle;
  */
 public class ScrollPane extends WidgetGroup {
     private ScrollPaneStyle style;
-    private Actor widget;
+    private UIComponent widget;
 
     final Rectangle hScrollBounds = new Rectangle();
     final Rectangle vScrollBounds = new Rectangle();
@@ -92,28 +90,28 @@ public class ScrollPane extends WidgetGroup {
     /**
      * @param widget May be null.
      */
-    public ScrollPane(Actor widget) {
+    public ScrollPane(UIComponent widget) {
         this(widget, new ScrollPaneStyle());
     }
 
     /**
      * @param widget May be null.
      */
-    public ScrollPane(Actor widget, Skin skin) {
+    public ScrollPane(UIComponent widget, Skin skin) {
         this(widget, skin.get(ScrollPaneStyle.class));
     }
 
     /**
      * @param widget May be null.
      */
-    public ScrollPane(Actor widget, Skin skin, String styleName) {
+    public ScrollPane(UIComponent widget, Skin skin, String styleName) {
         this(widget, skin.get(styleName, ScrollPaneStyle.class));
     }
 
     /**
      * @param widget May be null.
      */
-    public ScrollPane(Actor widget, ScrollPaneStyle style) {
+    public ScrollPane(UIComponent widget, ScrollPaneStyle style) {
         if (style == null)
             throw new IllegalArgumentException("style cannot be null.");
         this.style = style;
@@ -252,7 +250,7 @@ public class ScrollPane extends WidgetGroup {
 
     void cancelTouchFocusedChild(InputEvent event) {
         if (!cancelTouchFocus) return;
-        Stage stage = getStage();
+        UIWindow stage = getStage();
         if (stage != null) stage.cancelTouchFocus(flickScrollListener, this);
     }
 
@@ -697,11 +695,11 @@ public class ScrollPane extends WidgetGroup {
     }
 
     /**
-     * Sets the {@link Actor} embedded in this scroll pane.
+     * Sets the {@link UIComponent} embedded in this scroll pane.
      *
      * @param widget May be null to remove any current actor.
      */
-    public void setWidget(Actor widget) {
+    public void setWidget(UIComponent widget) {
         if (widget == this)
             throw new IllegalArgumentException("widget cannot be the ScrollPane.");
         if (this.widget != null) super.removeActor(this.widget);
@@ -712,49 +710,49 @@ public class ScrollPane extends WidgetGroup {
     /**
      * Returns the actor embedded in this scroll pane, or null.
      */
-    public Actor getWidget() {
+    public UIComponent getWidget() {
         return widget;
     }
 
     /**
-     * @see #setWidget(Actor)
+     * @see #setWidget(UIComponent)
      * @deprecated ScrollPane may have only a single child.
      */
-    public void addActor(Actor actor) {
+    public void addActor(UIComponent actor) {
         throw new UnsupportedOperationException("Use ScrollPane#setWidget.");
     }
 
     /**
-     * @see #setWidget(Actor)
+     * @see #setWidget(UIComponent)
      * @deprecated ScrollPane may have only a single child.
      */
-    public void addActorAt(int index, Actor actor) {
+    public void addActorAt(int index, UIComponent actor) {
         throw new UnsupportedOperationException("Use ScrollPane#setWidget.");
     }
 
     /**
-     * @see #setWidget(Actor)
+     * @see #setWidget(UIComponent)
      * @deprecated ScrollPane may have only a single child.
      */
-    public void addActorBefore(Actor actorBefore, Actor actor) {
+    public void addActorBefore(UIComponent actorBefore, UIComponent actor) {
         throw new UnsupportedOperationException("Use ScrollPane#setWidget.");
     }
 
     /**
-     * @see #setWidget(Actor)
+     * @see #setWidget(UIComponent)
      * @deprecated ScrollPane may have only a single child.
      */
-    public void addActorAfter(Actor actorAfter, Actor actor) {
+    public void addActorAfter(UIComponent actorAfter, UIComponent actor) {
         throw new UnsupportedOperationException("Use ScrollPane#setWidget.");
     }
 
-    public boolean removeActor(Actor actor) {
+    public boolean removeActor(UIComponent actor) {
         if (actor != widget) return false;
         setWidget(null);
         return true;
     }
 
-    public Actor hit(float x, float y, boolean touchable) {
+    public UIComponent hit(float x, float y, boolean touchable) {
         if (x < 0 || x >= getWidth() || y < 0 || y >= getHeight()) return null;
         if (scrollX && hScrollBounds.contains(x, y)) return this;
         if (scrollY && vScrollBounds.contains(x, y)) return this;
@@ -1114,7 +1112,7 @@ public class ScrollPane extends WidgetGroup {
     }
 
     /**
-     * When true (default), the {@link Stage#cancelTouchFocus()} touch focus}
+     * When true (default), the {@link UIWindow#cancelTouchFocus()} touch focus}
      * is cancelled when flick scrolling begins. This causes
      * widgets inside the scrollpane that have received touchDown to receive
      * touchUp when flick scrolling begins.

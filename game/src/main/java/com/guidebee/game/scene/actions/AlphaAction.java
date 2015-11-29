@@ -18,7 +18,7 @@ package com.guidebee.game.scene.actions;
 
 //--------------------------------- IMPORTS ------------------------------------
 
-import com.guidebee.game.engine.scene.Actor;
+import com.guidebee.game.ui.UIComponent;
 import com.guidebee.game.graphics.Color;
 
 //[------------------------------ MAIN CLASS ----------------------------------]
@@ -53,7 +53,7 @@ public class AlphaAction extends TemporalAction {
 
     /**
      * Sets the color to modify. If null (the default), the
-     * {@link #getActor() actor's} {@link Actor#getColor() color} will be
+     * {@link #getActor() actor's} {@link UIComponent#getColor() color} will be
      * used.
      */
     public void setColor(Color color) {

@@ -14,7 +14,7 @@
  * limitations under the License.
  ******************************************************************************/
 //--------------------------------- PACKAGE ------------------------------------
-package com.guidebee.game.engine.scene;
+package com.guidebee.game.ui;
 
 //--------------------------------- IMPORTS ------------------------------------
 
@@ -30,11 +30,7 @@ import com.guidebee.game.graphics.Color;
 import com.guidebee.game.graphics.ShapeRenderer;
 import com.guidebee.game.graphics.SpriteBatch;
 import com.guidebee.game.scene.actions.Action;
-import com.guidebee.game.ui.EventListener;
-import com.guidebee.game.ui.FocusListener;
-import com.guidebee.game.ui.InputEvent;
 import com.guidebee.game.ui.InputEvent.Type;
-import com.guidebee.game.ui.Table;
 import com.guidebee.game.ui.Table.Debug;
 import com.guidebee.math.Matrix4;
 import com.guidebee.math.Vector2;
@@ -48,7 +44,7 @@ import com.guidebee.utils.collections.SnapshotArray;
 
 //[------------------------------ MAIN CLASS ----------------------------------]
 /**
- * A 2D scene graph containing hierarchies of {@link Actor actors}. Stage handles
+ * A 2D scene graph containing hierarchies of {@link UIComponent actors}. Stage handles
  * the viewport and distributes input events.
  * <p>
  * {@link #setViewport(Viewport)} controls the coordinates used within the stage
@@ -73,22 +69,22 @@ import com.guidebee.utils.collections.SnapshotArray;
  * @author mzechner
  * @author Nathan Sweet
  */
-public class Stage extends InputAdapter implements Disposable {
+public class UIWindow extends InputAdapter implements Disposable {
     static private final Vector2 actorCoords = new Vector2();
     static boolean debug;
 
     private Viewport viewport;
     private final Batch batch;
     private boolean ownsBatch;
-    private final Group root;
+    private final UIContainer root;
     private final Vector2 stageCoords = new Vector2();
-    private final Actor[] pointerOverActors = new Actor[20];
+    private final UIComponent[] pointerOverActors = new UIComponent[20];
     private final boolean[] pointerTouched = new boolean[20];
     private final int[] pointerScreenX = new int[20];
     private final int[] pointerScreenY = new int[20];
     private int mouseScreenX, mouseScreenY;
-    private Actor mouseOverActor;
-    private Actor keyboardFocus, scrollFocus;
+    private UIComponent mouseOverActor;
+    private UIComponent keyboardFocus, scrollFocus;
     private final SnapshotArray<TouchFocus>
             touchFocuses = new SnapshotArray(true, 4, TouchFocus.class);
 
@@ -103,7 +99,7 @@ public class Stage extends InputAdapter implements Disposable {
      * set to {@link com.guidebee.utils.Scaling#fill}. The stage will use its own {@link Batch} which
      * will be disposed when the stage is disposed.
      */
-    public Stage() {
+    public UIWindow() {
         this(new ScalingViewport(Scaling.stretch, GameEngine.graphics.getWidth(),
                         GameEngine.graphics.getHeight(), new OrthographicCamera()),
                 new SpriteBatch());
@@ -115,7 +111,7 @@ public class Stage extends InputAdapter implements Disposable {
      * {@link com.guidebee.game.graphics.Batch} which will be disposed when the stage
      * is disposed.
      */
-    public Stage(Viewport viewport) {
+    public UIWindow(Viewport viewport) {
         this(viewport, new SpriteBatch());
         ownsBatch = true;
     }
@@ -128,7 +124,7 @@ public class Stage extends InputAdapter implements Disposable {
      * @param batch Will not be disposed if {@link #dispose()} is called, handle
      *              disposal yourself.
      */
-    public Stage(Viewport viewport, Batch batch) {
+    public UIWindow(Viewport viewport, Batch batch) {
         if (viewport == null)
             throw new IllegalArgumentException("viewport cannot be null.");
         if (batch == null)
@@ -136,7 +132,7 @@ public class Stage extends InputAdapter implements Disposable {
         this.viewport = viewport;
         this.batch = batch;
 
-        root = new Group();
+        root = new UIContainer();
         root.setStage(this);
 
         viewport.update(GameEngine.graphics.getWidth(),
@@ -177,7 +173,7 @@ public class Stage extends InputAdapter implements Disposable {
      * Returns the first actor found with the specified name. Note this
      * recursively compares the name of every actor in the group.
      */
-    public <T extends Actor> T findActor(String name) {
+    public <T extends UIComponent> T findActor(String name) {
         return root.findActor(name);
     }
 
@@ -191,7 +187,7 @@ public class Stage extends InputAdapter implements Disposable {
                 || debugTableUnderMouse != Debug.none) {
             screenToStageCoordinates(stageCoords.set(GameEngine.input.getX(),
                     GameEngine.input.getY()));
-            Actor actor = hit(stageCoords.x, stageCoords.y, true);
+            UIComponent actor = hit(stageCoords.x, stageCoords.y, true);
             if (actor == null) return;
 
             if (debugParentUnderMouse && actor.parent != null) actor = actor.parent;
@@ -207,7 +203,7 @@ public class Stage extends InputAdapter implements Disposable {
                 ((Table) actor).debug(debugTableUnderMouse);
             }
 
-            if (debugAll && actor instanceof Group) ((Group) actor).debugAll();
+            if (debugAll && actor instanceof UIContainer) ((UIContainer) actor).debugAll();
 
             disableDebug(root, actor);
         } else {
@@ -224,11 +220,11 @@ public class Stage extends InputAdapter implements Disposable {
     /**
      * Disables debug on all actors recursively except the specified actor and any children.
      */
-    private void disableDebug(Actor actor, Actor except) {
+    private void disableDebug(UIComponent actor, UIComponent except) {
         if (actor == except) return;
         actor.setDebug(false);
-        if (actor instanceof Group) {
-            SnapshotArray<Actor> children = ((Group) actor).children;
+        if (actor instanceof UIContainer) {
+            SnapshotArray<UIComponent> children = ((UIContainer) actor).children;
             for (int i = 0, n = children.size; i < n; i++)
                 disableDebug(children.get(i), except);
         }
@@ -242,7 +238,7 @@ public class Stage extends InputAdapter implements Disposable {
     }
 
     /**
-     * Calls the {@link Actor#act(float)} method on each actor in the stage.
+     * Calls the {@link UIComponent#act(float)} method on each actor in the stage.
      * Typically called each frame. This method also fires
      * enter and exit events.
      *
@@ -252,7 +248,7 @@ public class Stage extends InputAdapter implements Disposable {
         // Update over actors. Done in act() because actors may change position,
         // which can fire enter/exit without an input event.
         for (int pointer = 0, n = pointerOverActors.length; pointer < n; pointer++) {
-            Actor overLast = pointerOverActors[pointer];
+            UIComponent overLast = pointerOverActors[pointer];
             // Check if pointer is gone.
             if (!pointerTouched[pointer]) {
                 if (overLast != null) {
@@ -280,10 +276,10 @@ public class Stage extends InputAdapter implements Disposable {
         root.act(delta);
     }
 
-    private Actor fireEnterAndExit(Actor overLast, int screenX, int screenY, int pointer) {
+    private UIComponent fireEnterAndExit(UIComponent overLast, int screenX, int screenY, int pointer) {
         // Find the actor under the point.
         screenToStageCoordinates(stageCoords.set(screenX, screenY));
-        Actor over = hit(stageCoords.x, stageCoords.y, true);
+        UIComponent over = hit(stageCoords.x, stageCoords.y, true);
         if (over == overLast) return overLast;
 
         InputEvent event = Pools.obtain(InputEvent.class);
@@ -334,7 +330,7 @@ public class Stage extends InputAdapter implements Disposable {
         event.setPointer(pointer);
         event.setButton(button);
 
-        Actor target = hit(stageCoords.x, stageCoords.y, true);
+        UIComponent target = hit(stageCoords.x, stageCoords.y, true);
         if (target == null) target = root;
 
         target.fire(event);
@@ -448,7 +444,7 @@ public class Stage extends InputAdapter implements Disposable {
         event.setStageX(stageCoords.x);
         event.setStageY(stageCoords.y);
 
-        Actor target = hit(stageCoords.x, stageCoords.y, true);
+        UIComponent target = hit(stageCoords.x, stageCoords.y, true);
         if (target == null) target = root;
 
         target.fire(event);
@@ -463,7 +459,7 @@ public class Stage extends InputAdapter implements Disposable {
      * event. This event only occurs on the desktop.
      */
     public boolean scrolled(int amount) {
-        Actor target = scrollFocus == null ? root : scrollFocus;
+        UIComponent target = scrollFocus == null ? root : scrollFocus;
 
         screenToStageCoordinates(stageCoords.set(mouseScreenX, mouseScreenY));
 
@@ -481,11 +477,11 @@ public class Stage extends InputAdapter implements Disposable {
 
     /**
      * Applies a key down event to the actor that has
-     * {@link Stage#setKeyboardFocus(Actor) keyboard focus}, if any, and returns
+     * {@link UIWindow#setKeyboardFocus(UIComponent) keyboard focus}, if any, and returns
      * true if the event was {@link com.guidebee.game.ui.Event#handle() handled}.
      */
     public boolean keyDown(int keyCode) {
-        Actor target = keyboardFocus == null ? root : keyboardFocus;
+        UIComponent target = keyboardFocus == null ? root : keyboardFocus;
         InputEvent event = Pools.obtain(InputEvent.class);
         event.setStage(this);
         event.setType(InputEvent.Type.keyDown);
@@ -498,11 +494,11 @@ public class Stage extends InputAdapter implements Disposable {
 
     /**
      * Applies a key up event to the actor that has
-     * {@link Stage#setKeyboardFocus(Actor) keyboard focus}, if any, and returns true
+     * {@link UIWindow#setKeyboardFocus(UIComponent) keyboard focus}, if any, and returns true
      * if the event was {@link com.guidebee.game.ui.Event#handle() handled}.
      */
     public boolean keyUp(int keyCode) {
-        Actor target = keyboardFocus == null ? root : keyboardFocus;
+        UIComponent target = keyboardFocus == null ? root : keyboardFocus;
         InputEvent event = Pools.obtain(InputEvent.class);
         event.setStage(this);
         event.setType(InputEvent.Type.keyUp);
@@ -515,11 +511,11 @@ public class Stage extends InputAdapter implements Disposable {
 
     /**
      * Applies a key typed event to the actor that has
-     * {@link Stage#setKeyboardFocus(Actor) keyboard focus}, if any, and returns
+     * {@link UIWindow#setKeyboardFocus(UIComponent) keyboard focus}, if any, and returns
      * true if the event was {@link com.guidebee.game.ui.Event#handle() handled}.
      */
     public boolean keyTyped(char character) {
-        Actor target = keyboardFocus == null ? root : keyboardFocus;
+        UIComponent target = keyboardFocus == null ? root : keyboardFocus;
         InputEvent event = Pools.obtain(InputEvent.class);
         event.setStage(this);
         event.setType(InputEvent.Type.keyTyped);
@@ -536,8 +532,8 @@ public class Stage extends InputAdapter implements Disposable {
      * will be used as the {@link com.guidebee.game.ui.Event#getListenerActor() listener actor}
      * and {@link com.guidebee.game.ui.Event#getTarget() target}.
      */
-    public void addTouchFocus(EventListener listener, Actor listenerActor,
-                              Actor target, int pointer, int button) {
+    public void addTouchFocus(EventListener listener, UIComponent listenerActor,
+                              UIComponent target, int pointer, int button) {
         TouchFocus focus = Pools.obtain(TouchFocus.class);
         focus.listenerActor = listenerActor;
         focus.target = target;
@@ -552,8 +548,8 @@ public class Stage extends InputAdapter implements Disposable {
      * events for the specified pointer and button. Note
      * the listener may never receive a touchUp event if this method is used.
      */
-    public void removeTouchFocus(EventListener listener, Actor listenerActor,
-                                 Actor target, int pointer, int button) {
+    public void removeTouchFocus(EventListener listener, UIComponent listenerActor,
+                                 UIComponent target, int pointer, int button) {
         SnapshotArray<TouchFocus> touchFocuses = this.touchFocuses;
         for (int i = touchFocuses.size - 1; i >= 0; i--) {
             TouchFocus focus = touchFocuses.get(i);
@@ -585,7 +581,7 @@ public class Stage extends InputAdapter implements Disposable {
      *
      * @see #cancelTouchFocus()
      */
-    public void cancelTouchFocus(EventListener listener, Actor actor) {
+    public void cancelTouchFocus(EventListener listener, UIComponent actor) {
         InputEvent event = Pools.obtain(InputEvent.class);
         event.setStage(this);
         event.setType(InputEvent.Type.touchUp);
@@ -619,17 +615,17 @@ public class Stage extends InputAdapter implements Disposable {
     /**
      * Adds an actor to the root of the stage.
      *
-     * @see Group#addActor(Actor)
-     * @see Actor#remove()
+     * @see UIContainer#addActor(UIComponent)
+     * @see UIComponent#remove()
      */
-    public void addActor(Actor actor) {
+    public void addActor(UIComponent actor) {
         root.addActor(actor);
     }
 
     /**
      * Adds an action to the root of the stage.
      *
-     * @see Group#addAction(com.guidebee.game.scene.actions.Action)
+     * @see UIContainer#addAction(com.guidebee.game.scene.actions.Action)
      */
     public void addAction(Action action) {
         root.addAction(action);
@@ -638,16 +634,16 @@ public class Stage extends InputAdapter implements Disposable {
     /**
      * Returns the root's child actors.
      *
-     * @see Group#getChildren()
+     * @see UIContainer#getChildren()
      */
-    public Array<Actor> getActors() {
+    public Array<UIComponent> getActors() {
         return root.children;
     }
 
     /**
      * Adds a listener to the root.
      *
-     * @see Actor#addListener(EventListener)
+     * @see UIComponent#addListener(EventListener)
      */
     public boolean addListener(EventListener listener) {
         return root.addListener(listener);
@@ -656,7 +652,7 @@ public class Stage extends InputAdapter implements Disposable {
     /**
      * Removes a listener from the root.
      *
-     * @see Actor#removeListener(EventListener)
+     * @see UIComponent#removeListener(EventListener)
      */
     public boolean removeListener(EventListener listener) {
         return root.removeListener(listener);
@@ -665,7 +661,7 @@ public class Stage extends InputAdapter implements Disposable {
     /**
      * Adds a capture listener to the root.
      *
-     * @see Actor#addCaptureListener(EventListener)
+     * @see UIComponent#addCaptureListener(EventListener)
      */
     public boolean addCaptureListener(EventListener listener) {
         return root.addCaptureListener(listener);
@@ -674,7 +670,7 @@ public class Stage extends InputAdapter implements Disposable {
     /**
      * Removes a listener from the root.
      *
-     * @see Actor#removeCaptureListener(EventListener)
+     * @see UIComponent#removeCaptureListener(EventListener)
      */
     public boolean removeCaptureListener(EventListener listener) {
         return root.removeCaptureListener(listener);
@@ -700,7 +696,7 @@ public class Stage extends InputAdapter implements Disposable {
     /**
      * Removes the touch, keyboard, and scroll focus for the specified actor and any descendants.
      */
-    public void unfocus(Actor actor) {
+    public void unfocus(UIComponent actor) {
         if (scrollFocus != null && scrollFocus.isDescendantOf(actor))
             scrollFocus = null;
         if (keyboardFocus != null && keyboardFocus.isDescendantOf(actor))
@@ -712,12 +708,12 @@ public class Stage extends InputAdapter implements Disposable {
      *
      * @param actor May be null.
      */
-    public void setKeyboardFocus(Actor actor) {
+    public void setKeyboardFocus(UIComponent actor) {
         if (keyboardFocus == actor) return;
         FocusListener.FocusEvent event = Pools.obtain(FocusListener.FocusEvent.class);
         event.setStage(this);
         event.setType(FocusListener.FocusEvent.Type.keyboard);
-        Actor oldKeyboardFocus = keyboardFocus;
+        UIComponent oldKeyboardFocus = keyboardFocus;
         if (oldKeyboardFocus != null) {
             event.setFocused(false);
             event.setRelatedActor(actor);
@@ -740,7 +736,7 @@ public class Stage extends InputAdapter implements Disposable {
      *
      * @return May be null.
      */
-    public Actor getKeyboardFocus() {
+    public UIComponent getKeyboardFocus() {
         return keyboardFocus;
     }
 
@@ -749,12 +745,12 @@ public class Stage extends InputAdapter implements Disposable {
      *
      * @param actor May be null.
      */
-    public void setScrollFocus(Actor actor) {
+    public void setScrollFocus(UIComponent actor) {
         if (scrollFocus == actor) return;
         FocusListener.FocusEvent event = Pools.obtain(FocusListener.FocusEvent.class);
         event.setStage(this);
         event.setType(FocusListener.FocusEvent.Type.scroll);
-        Actor oldScrollFocus = keyboardFocus;
+        UIComponent oldScrollFocus = keyboardFocus;
         if (oldScrollFocus != null) {
             event.setFocused(false);
             event.setRelatedActor(actor);
@@ -777,7 +773,7 @@ public class Stage extends InputAdapter implements Disposable {
      *
      * @return May be null.
      */
-    public Actor getScrollFocus() {
+    public UIComponent getScrollFocus() {
         return scrollFocus;
     }
 
@@ -817,22 +813,22 @@ public class Stage extends InputAdapter implements Disposable {
     /**
      * Returns the root group which holds all actors in the stage.
      */
-    public Group getRoot() {
+    public UIContainer getRoot() {
         return root;
     }
 
     /**
-     * Returns the {@link Actor} at the specified location in stage coordinates.
+     * Returns the {@link UIComponent} at the specified location in stage coordinates.
      * Hit testing is performed in the order the actors
      * were inserted into the stage, last inserted actors being tested first.
      * To get stage coordinates from screen coordinates, use
      * {@link #screenToStageCoordinates(Vector2)}.
      *
      * @param touchable If true, the hit detection will respect the
-     * {@link Actor#setTouchable(com.guidebee.game.ui.Touchable) touchability}.
+     * {@link UIComponent#setTouchable(com.guidebee.game.ui.Touchable) touchability}.
      * @return May be null if no actor was hit.
      */
-    public Actor hit(float stageX, float stageY, boolean touchable) {
+    public UIComponent hit(float stageX, float stageY, boolean touchable) {
         root.parentToLocalCoordinates(actorCoords.set(stageX, stageY));
         return root.hit(actorCoords.x, actorCoords.y, touchable);
     }
@@ -865,9 +861,9 @@ public class Stage extends InputAdapter implements Disposable {
      * anywhere in the stage since the transform matrix
      * describes how to convert them. The transform matrix is typically
      * obtained from {@link Batch#getTransformMatrix()} during
-     * {@link Actor#draw(Batch, float)}.
+     * {@link UIComponent#draw(Batch, float)}.
      *
-     * @see Actor#localToStageCoordinates(Vector2)
+     * @see UIComponent#localToStageCoordinates(Vector2)
      */
     public Vector2 toScreenCoordinates(Vector2 coords, Matrix4 transformMatrix) {
         return viewport.toScreenCoordinates(coords, transformMatrix);
@@ -898,7 +894,7 @@ public class Stage extends InputAdapter implements Disposable {
     }
 
     /**
-     * If true, debug lines are shown for actors even when {@link Actor#isVisible()} is false.
+     * If true, debug lines are shown for actors even when {@link UIComponent#isVisible()} is false.
      */
     public void setDebugInvisible(boolean debugInvisible) {
         this.debugInvisible = debugInvisible;
@@ -981,7 +977,7 @@ public class Stage extends InputAdapter implements Disposable {
      */
     public static final class TouchFocus implements Pool.Poolable {
         EventListener listener;
-        Actor listenerActor, target;
+        UIComponent listenerActor, target;
         int pointer, button;
 
         public void reset() {

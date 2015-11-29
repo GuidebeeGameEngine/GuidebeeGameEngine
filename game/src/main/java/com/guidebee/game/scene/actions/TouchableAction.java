@@ -17,11 +17,12 @@
 package com.guidebee.game.scene.actions;
 
 //--------------------------------- IMPORTS ------------------------------------
+import com.guidebee.game.ui.UIComponent;
 import com.guidebee.game.ui.Touchable;
 
 //[------------------------------ MAIN CLASS ----------------------------------]
 /**
- * Sets the actor's {@link com.guidebee.game.engine.scene.Actor#setTouchable
+ * Sets the actor's {@link UIComponent#setTouchable
  * (com.guidebee.game.ui.Touchable) touchability}.
  *
  * @author Nathan Sweet

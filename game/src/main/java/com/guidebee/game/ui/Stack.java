@@ -29,7 +29,6 @@ package com.guidebee.game.ui;
 
 //--------------------------------- IMPORTS ------------------------------------
 
-import com.guidebee.game.engine.scene.Actor;
 import com.guidebee.utils.collections.Array;
 import com.guidebee.utils.collections.SnapshotArray;
 
@@ -69,9 +68,9 @@ public class Stack extends WidgetGroup {
         minHeight = 0;
         maxWidth = 0;
         maxHeight = 0;
-        SnapshotArray<Actor> children = getChildren();
+        SnapshotArray<UIComponent> children = getChildren();
         for (int i = 0, n = children.size; i < n; i++) {
-            Actor child = children.get(i);
+            UIComponent child = children.get(i);
             float childMaxWidth, childMaxHeight;
             if (child instanceof Layout) {
                 Layout layout = (Layout) child;
@@ -96,16 +95,16 @@ public class Stack extends WidgetGroup {
         }
     }
 
-    public void add(Actor actor) {
+    public void add(UIComponent actor) {
         addActor(actor);
     }
 
     public void layout() {
         if (sizeInvalid) computeSize();
         float width = getWidth(), height = getHeight();
-        Array<Actor> children = getChildren();
+        Array<UIComponent> children = getChildren();
         for (int i = 0, n = children.size; i < n; i++) {
-            Actor child = children.get(i);
+            UIComponent child = children.get(i);
             child.setBounds(0, 0, width, height);
             if (child instanceof Layout) ((Layout) child).validate();
         }

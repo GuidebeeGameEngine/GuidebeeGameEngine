@@ -18,8 +18,6 @@ package com.guidebee.game.ui;
 
 //--------------------------------- IMPORTS ------------------------------------
 
-import com.guidebee.game.engine.scene.Actor;
-
 //[------------------------------ MAIN CLASS ----------------------------------]
 
 /**
@@ -47,13 +45,13 @@ abstract public class FocusListener implements EventListener {
     /**
      * @param actor The event target, which is the actor that emitted the focus event.
      */
-    public void keyboardFocusChanged(FocusEvent event, Actor actor, boolean focused) {
+    public void keyboardFocusChanged(FocusEvent event, UIComponent actor, boolean focused) {
     }
 
     /**
      * @param actor The event target, which is the actor that emitted the focus event.
      */
-    public void scrollFocusChanged(FocusEvent event, Actor actor, boolean focused) {
+    public void scrollFocusChanged(FocusEvent event, UIComponent actor, boolean focused) {
     }
 
     /**
@@ -65,7 +63,7 @@ abstract public class FocusListener implements EventListener {
     static public class FocusEvent extends Event {
         private boolean focused;
         private Type type;
-        private Actor relatedActor;
+        private UIComponent relatedActor;
 
         public void reset() {
             super.reset();
@@ -93,14 +91,14 @@ abstract public class FocusListener implements EventListener {
          * actor being focused, or null. When focus is gained,
          * this is the previous actor that was focused, or null.
          */
-        public Actor getRelatedActor() {
+        public UIComponent getRelatedActor() {
             return relatedActor;
         }
 
         /**
          * @param relatedActor May be null.
          */
-        public void setRelatedActor(Actor relatedActor) {
+        public void setRelatedActor(UIComponent relatedActor) {
             this.relatedActor = relatedActor;
         }
 

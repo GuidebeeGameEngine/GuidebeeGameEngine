@@ -18,7 +18,6 @@ package com.guidebee.game.ui;
 
 //--------------------------------- IMPORTS ------------------------------------
 
-import com.guidebee.game.engine.scene.Actor;
 import com.guidebee.game.graphics.Batch;
 import com.guidebee.game.graphics.Color;
 import com.guidebee.game.graphics.ShapeRenderer;
@@ -204,7 +203,7 @@ public class Table extends WidgetGroup {
         return background;
     }
 
-    public Actor hit(float x, float y, boolean touchable) {
+    public UIComponent hit(float x, float y, boolean touchable) {
         if (clip) {
             if (touchable && getTouchable() == Touchable.disabled) return null;
             if (x < 0 || x >= getWidth() || y < 0 || y >= getHeight()) return null;
@@ -235,7 +234,7 @@ public class Table extends WidgetGroup {
     /**
      * Adds a new cell to the table with the specified actor.
      */
-    public <T extends Actor> Cell<T> add(T actor) {
+    public <T extends UIComponent> Cell<T> add(T actor) {
         Cell<T> cell = obtainCell();
         cell.actor = actor;
 
@@ -283,7 +282,7 @@ public class Table extends WidgetGroup {
         return cell;
     }
 
-    public void add(Actor... actors) {
+    public void add(UIComponent... actors) {
         for (int i = 0, n = actors.length; i < n; i++)
             add(actors[i]);
     }
@@ -333,7 +332,7 @@ public class Table extends WidgetGroup {
      * Adds a cell without an actor.
      */
     public Cell add() {
-        return add((Actor) null);
+        return add((UIComponent) null);
     }
 
     /**
@@ -341,7 +340,7 @@ public class Table extends WidgetGroup {
      *
      * @param actors May be null to add a stack without any actors.
      */
-    public Cell<Stack> stack(Actor... actors) {
+    public Cell<Stack> stack(UIComponent... actors) {
         Stack stack = new Stack();
         if (actors != null) {
             for (int i = 0, n = actors.length; i < n; i++)
@@ -350,7 +349,7 @@ public class Table extends WidgetGroup {
         return add(stack);
     }
 
-    public boolean removeActor(Actor actor) {
+    public boolean removeActor(UIComponent actor) {
         if (!super.removeActor(actor)) return false;
         Cell cell = getCell(actor);
         if (cell != null) cell.actor = null;
@@ -364,7 +363,7 @@ public class Table extends WidgetGroup {
         Array<Cell> cells = this.cells;
         for (int i = cells.size - 1; i >= 0; i--) {
             Cell cell = cells.get(i);
-            Actor actor = cell.actor;
+            UIComponent actor = cell.actor;
             if (actor != null) actor.remove();
         }
         cellPool.freeAll(cells);
@@ -450,7 +449,7 @@ public class Table extends WidgetGroup {
     /**
      * Returns the cell for the specified actor in this table, or null.
      */
-    public <T extends Actor> Cell<T> getCell(T actor) {
+    public <T extends UIComponent> Cell<T> getCell(T actor) {
         Array<Cell> cells = this.cells;
         for (int i = 0, n = cells.size; i < n; i++) {
             Cell c = cells.get(i);
@@ -855,7 +854,7 @@ public class Table extends WidgetGroup {
                 float actorX = Math.round(c.actorX);
                 float actorY = height - Math.round(c.actorY) - actorHeight;
                 c.setActorBounds(actorX, actorY, actorWidth, actorHeight);
-                Actor actor = c.actor;
+                UIComponent actor = c.actor;
                 if (actor != null) actor.setBounds(actorX, actorY, actorWidth, actorHeight);
             }
         } else {
@@ -864,16 +863,16 @@ public class Table extends WidgetGroup {
                 float actorHeight = c.actorHeight;
                 float actorY = height - c.actorY - actorHeight;
                 c.setActorY(actorY);
-                Actor actor = c.actor;
+                UIComponent actor = c.actor;
                 if (actor != null) actor.setBounds(c.actorX, actorY, c.actorWidth,
                         actorHeight);
             }
         }
         // Validate children separately from sizing actors to ensure actors without a
         // cell are validated.
-        Array<Actor> children = getChildren();
+        Array<UIComponent> children = getChildren();
         for (int i = 0, n = children.size; i < n; i++) {
-            Actor child = children.get(i);
+            UIComponent child = children.get(i);
             if (child instanceof Layout) ((Layout) child).validate();
         }
     }
@@ -908,7 +907,7 @@ public class Table extends WidgetGroup {
         for (int i = 0; i < cellCount; i++) {
             Cell c = cells.get(i);
             int column = c.column, row = c.row, colspan = c.colspan;
-            Actor a = c.actor;
+            UIComponent a = c.actor;
 
             // Collect columns/rows that expand.
             if (c.expandY != 0 && expandHeight[row] == 0)
@@ -983,7 +982,7 @@ public class Table extends WidgetGroup {
             if (colspan == 1) continue;
             int column = c.column;
 
-            Actor a = c.actor;
+            UIComponent a = c.actor;
             float minWidth = c.minWidth.get(a);
             float prefWidth = c.prefWidth.get(a);
             float maxWidth = c.maxWidth.get(a);
@@ -1143,7 +1142,7 @@ public class Table extends WidgetGroup {
         for (int i = 0; i < cellCount; i++) {
             Cell c = cells.get(i);
             int column = c.column, row = c.row;
-            Actor a = c.actor;
+            UIComponent a = c.actor;
 
             float spannedWeightedWidth = 0;
             for (int ii = column, nn = ii + c.colspan; ii < nn; ii++)
@@ -1299,7 +1298,7 @@ public class Table extends WidgetGroup {
         for (int i = 0; i < cellCount; i++) {
             Cell c = cells.get(i);
 
-            // Actor bounds.
+            // UIComponent bounds.
             if (debug == Debug.actor || debug == Debug.all)
                 addDebugRect(c.actorX, c.actorY, c.actorWidth, c.actorHeight, debugActorColor);
 

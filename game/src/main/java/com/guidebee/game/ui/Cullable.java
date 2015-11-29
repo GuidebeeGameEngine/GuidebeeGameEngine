@@ -28,7 +28,7 @@ import com.guidebee.math.geometry.Rectangle;
  * child to cull when drawing itself. This must only
  * be used for actors that are not rotated or scaled.
  * <p/>
- * When Group is given a culling rectangle with {@link com.guidebee.game.engine.scene.Group#setCullingArea(Rectangle)},
+ * When UIContainer is given a culling rectangle with {@link UIContainer#setCullingArea(Rectangle)},
  * it will automatically call
  * {@link #setCullingArea(Rectangle)} on its children.
  *

@@ -18,7 +18,6 @@ package com.guidebee.game.ui;
 
 //--------------------------------- IMPORTS ------------------------------------
 
-import com.guidebee.game.engine.scene.Actor;
 import com.guidebee.utils.collections.SnapshotArray;
 
 //[------------------------------ MAIN CLASS ----------------------------------]
@@ -60,12 +59,12 @@ public class HorizontalGroup extends WidgetGroup {
 
     private void computeSize() {
         sizeInvalid = false;
-        SnapshotArray<Actor> children = getChildren();
+        SnapshotArray<UIComponent> children = getChildren();
         int n = children.size;
         prefWidth = padLeft + padRight + spacing * (n - 1);
         prefHeight = 0;
         for (int i = 0; i < n; i++) {
-            Actor child = children.get(i);
+            UIComponent child = children.get(i);
             if (child instanceof Layout) {
                 Layout layout = (Layout) child;
                 prefWidth += layout.getPrefWidth();
@@ -89,9 +88,9 @@ public class HorizontalGroup extends WidgetGroup {
 
         float groupHeight = getHeight() - padTop - padBottom;
         float x = !reverse ? padLeft : getWidth() - padRight + spacing;
-        SnapshotArray<Actor> children = getChildren();
+        SnapshotArray<UIComponent> children = getChildren();
         for (int i = 0, n = children.size; i < n; i++) {
-            Actor child = children.get(i);
+            UIComponent child = children.get(i);
             float width, height;
             if (child instanceof Layout) {
                 Layout layout = (Layout) child;

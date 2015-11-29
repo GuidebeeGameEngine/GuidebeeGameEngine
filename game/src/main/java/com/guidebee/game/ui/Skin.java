@@ -20,7 +20,6 @@ package com.guidebee.game.ui;
 
 import com.guidebee.game.GameEngine;
 import com.guidebee.game.GameEngineRuntimeException;
-import com.guidebee.game.engine.scene.Actor;
 import com.guidebee.game.engine.utils.reflect.ClassReflection;
 import com.guidebee.game.engine.utils.reflect.Method;
 import com.guidebee.game.engine.utils.reflect.ReflectionException;
@@ -467,7 +466,7 @@ public class Skin implements Disposable {
      * doesn't have a "getStyle" method or the style was
      * not found in the skin, no exception is thrown and the actor is left unchanged.
      */
-    public void setEnabled(Actor actor, boolean enabled) {
+    public void setEnabled(UIComponent actor, boolean enabled) {
         // Get current style.
         Method method = findMethod(actor.getClass(), "getStyle");
         if (method == null) return;

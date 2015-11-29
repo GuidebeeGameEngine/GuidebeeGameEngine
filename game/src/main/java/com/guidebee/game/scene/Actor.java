@@ -21,6 +21,9 @@ package com.guidebee.game.scene;
 
 import com.guidebee.game.Collidable;
 import com.guidebee.game.GameEngine;
+import com.guidebee.game.ui.UIComponent;
+import com.guidebee.game.ui.UIContainer;
+import com.guidebee.game.ui.UIWindow;
 import com.guidebee.game.entity.DataTrait;
 import com.guidebee.game.entity.Entity;
 import com.guidebee.game.entity.EntityEngine;
@@ -49,9 +52,9 @@ import com.guidebee.math.geometry.Rectangle;
 import com.guidebee.utils.collections.Array;
 
 /**
- * Internal Actor act as a bridge to engine.sence.Actor.
+ * Internal UIComponent act as a bridge to engine.sence.UIComponent.
  */
-class InternalActor extends com.guidebee.game.engine.scene.Actor {
+class InternalActor extends UIComponent {
 
     Actor proxyActor;
 
@@ -132,7 +135,7 @@ class InternalActor extends com.guidebee.game.engine.scene.Actor {
      *
      * @param stage May be null if the actor or any parent is no longer in a stage.
      */
-    protected void setStage(com.guidebee.game.engine.scene.Stage stage) {
+    protected void setStage(UIWindow stage) {
         super.setStage(stage);
 
 
@@ -143,7 +146,7 @@ class InternalActor extends com.guidebee.game.engine.scene.Actor {
      *
      * @param parent May be null if the actor has been removed from the parent.
      */
-    protected void setParent(com.guidebee.game.engine.scene.Group parent) {
+    protected void setParent(UIContainer parent) {
         super.setParent(parent);
     }
 
@@ -308,7 +311,7 @@ public class Actor implements Collidable {
      * <p/>
      * This method is used to delegate touchDown, mouse, and enter/exit events.
      * If this method returns null, those events will not
-     * occur on this Actor.
+     * occur on this UIComponent.
      * <p/>
      * The default implementation returns this actor if the point is within this
      * actor's bounds.
@@ -316,7 +319,7 @@ public class Actor implements Collidable {
      * @see com.guidebee.game.ui.Touchable
      */
     public Actor hit(float x, float y) {
-        com.guidebee.game.engine.scene.Actor actor = internalActor.hit(x, y, true);
+        UIComponent actor = internalActor.hit(x, y, true);
         if (actor != null) {
             return (Actor) actor.getUserObject();
         }
@@ -733,7 +736,7 @@ public class Actor implements Collidable {
      * Returns the stage that this actor is currently in, or null if not in a stage.
      */
     public Stage getStage() {
-        com.guidebee.game.engine.scene.Stage stage = internalActor.getStage();
+        UIWindow stage = internalActor.getStage();
         if (stage != null) {
             return (Stage) stage.getUserObject();
         }
@@ -790,9 +793,9 @@ public class Actor implements Collidable {
      * Returns the parent actor, or null if not in a group.
      */
     public Group getParent() {
-        com.guidebee.game.engine.scene.Group group = internalActor.getParent();
-        if (group != null) {
-            return (Group) group.getUserObject();
+        UIContainer UIContainer = internalActor.getParent();
+        if (UIContainer != null) {
+            return (Group) UIContainer.getUserObject();
         }
         return null;
     }
@@ -936,7 +939,7 @@ public class Actor implements Collidable {
 
 
     /**
-     * Set position of Actor centered on x, y
+     * Set position of UIComponent centered on x, y
      */
     public void setCenterPosition(float x, float y) {
         internalActor.setCenterPosition(x, y);
@@ -1084,7 +1087,7 @@ public class Actor implements Collidable {
     }
 
     /**
-     * Set position of Actor to x, y (using bottom left corner of Actor)
+     * Set position of UIComponent to x, y (using bottom left corner of UIComponent)
      */
     public void setPosition(float x, float y) {
         internalActor.setPosition(x, y);
@@ -1306,7 +1309,7 @@ public class Actor implements Collidable {
      * Calls {@link #setDebug(boolean)} with {@code true}.
      */
     public Actor debug() {
-        com.guidebee.game.engine.scene.Actor actor = internalActor.debug();
+        UIComponent actor = internalActor.debug();
         if (actor != null) {
             return (Actor) actor.getUserObject();
         }

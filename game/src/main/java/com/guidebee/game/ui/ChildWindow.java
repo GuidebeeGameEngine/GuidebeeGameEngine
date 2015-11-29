@@ -18,8 +18,6 @@ package com.guidebee.game.ui;
 
 //--------------------------------- IMPORTS ------------------------------------
 
-import com.guidebee.game.engine.scene.Actor;
-import com.guidebee.game.engine.scene.Stage;
 import com.guidebee.game.graphics.Batch;
 import com.guidebee.game.graphics.BitmapFont;
 import com.guidebee.game.graphics.BitmapFontCache;
@@ -139,7 +137,7 @@ public class ChildWindow extends Table {
 
                 float minWidth = getMinWidth(), maxWidth = getMaxWidth();
                 float minHeight = getMinHeight(), maxHeight = getMaxHeight();
-                Stage stage = getStage();
+                UIWindow stage = getStage();
                 boolean clampPosition = keepWithinStage && getParent() == stage.getRoot();
 
                 if ((edge & MOVE) != 0) {
@@ -225,7 +223,7 @@ public class ChildWindow extends Table {
 
     void keepWithinStage() {
         if (!keepWithinStage) return;
-        Stage stage = getStage();
+        UIWindow stage = getStage();
         if (getParent() == stage.getRoot()) {
             float parentWidth = stage.getWidth();
             float parentHeight = stage.getHeight();
@@ -237,7 +235,7 @@ public class ChildWindow extends Table {
     }
 
     public void draw(Batch batch, float parentAlpha) {
-        Stage stage = getStage();
+        UIWindow stage = getStage();
         if (stage.getKeyboardFocus() == null) stage.setKeyboardFocus(this);
 
         keepWithinStage();
@@ -293,8 +291,8 @@ public class ChildWindow extends Table {
         titleCache.draw(batch, parentAlpha);
     }
 
-    public Actor hit(float x, float y, boolean touchable) {
-        Actor hit = super.hit(x, y, touchable);
+    public UIComponent hit(float x, float y, boolean touchable) {
+        UIComponent hit = super.hit(x, y, touchable);
         if (hit == null && isModal
                 && (!touchable || getTouchable() == Touchable.enabled))
             return this;
@@ -302,7 +300,7 @@ public class ChildWindow extends Table {
         if (hit == null || hit == this) return hit;
         if (y <= height && y >= height - getPadTop() && x >= 0 && x <= getWidth()) {
             // Hit the title bar, don't use the hit child if it is in the Window's table.
-            Actor current = hit;
+            UIComponent current = hit;
             while (current.getParent() != this)
                 current = current.getParent();
             if (getCell(current) != null) return this;

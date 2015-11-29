@@ -14,14 +14,12 @@
  * limitations under the License.
  ******************************************************************************/
 //--------------------------------- PACKAGE ------------------------------------
-package com.guidebee.game.engine.scene;
+package com.guidebee.game.ui;
 
 //--------------------------------- IMPORTS ------------------------------------
 
 import com.guidebee.game.graphics.Batch;
 import com.guidebee.game.graphics.ShapeRenderer;
-import com.guidebee.game.ui.Cullable;
-import com.guidebee.game.ui.Touchable;
 import com.guidebee.math.Matrix3;
 import com.guidebee.math.Matrix4;
 import com.guidebee.math.Vector2;
@@ -41,10 +39,10 @@ import com.guidebee.utils.collections.SnapshotArray;
  * @author mzechner
  * @author Nathan Sweet
  */
-public class Group extends Actor implements Cullable {
+public class UIContainer extends UIComponent implements Cullable {
     static private final Vector2 tmp = new Vector2();
 
-    final SnapshotArray<Actor> children = new SnapshotArray(true, 4, Actor.class);
+    final SnapshotArray<UIComponent> children = new SnapshotArray(true, 4, UIComponent.class);
     private final Matrix3 localTransform = new Matrix3();
     private final Matrix3 worldTransform = new Matrix3();
     private final Matrix4 computedTransform = new Matrix4();
@@ -53,17 +51,17 @@ public class Group extends Actor implements Cullable {
     private Rectangle cullingArea;
 
 
-    public Group(){
-        this(Group.class.getName());
+    public UIContainer(){
+        this(UIContainer.class.getName());
     }
 
-    public Group(String name){
+    public UIContainer(String name){
         super(name);
     }
 
     public void act(float delta) {
         super.act(delta);
-        Actor[] actors = children.begin();
+        UIComponent[] actors = children.begin();
         for (int i = 0, n = children.size; i < n; i++)
             actors[i].act(delta);
         children.end();
@@ -94,8 +92,8 @@ public class Group extends Actor implements Cullable {
      */
     protected void drawChildren(Batch batch, float parentAlpha) {
         parentAlpha *= this.color.a;
-        SnapshotArray<Actor> children = this.children;
-        Actor[] actors = children.begin();
+        SnapshotArray<UIComponent> children = this.children;
+        UIComponent[] actors = children.begin();
         Rectangle cullingArea = this.cullingArea;
         if (cullingArea != null) {
             // Draw children only if inside culling area.
@@ -105,7 +103,7 @@ public class Group extends Actor implements Cullable {
             float cullTop = cullBottom + cullingArea.height;
             if (transform) {
                 for (int i = 0, n = children.size; i < n; i++) {
-                    Actor child = actors[i];
+                    UIComponent child = actors[i];
                     if (!child.isVisible()) continue;
                     float cx = child.x, cy = child.y;
                     if (cx <= cullRight && cy <= cullTop && cx + child.width
@@ -119,7 +117,7 @@ public class Group extends Actor implements Cullable {
                 x = 0;
                 y = 0;
                 for (int i = 0, n = children.size; i < n; i++) {
-                    Actor child = actors[i];
+                    UIComponent child = actors[i];
                     if (!child.isVisible()) continue;
                     float cx = child.x, cy = child.y;
                     if (cx <= cullRight && cy <= cullTop && cx + child.width
@@ -138,7 +136,7 @@ public class Group extends Actor implements Cullable {
             // No culling, draw all children.
             if (transform) {
                 for (int i = 0, n = children.size; i < n; i++) {
-                    Actor child = actors[i];
+                    UIComponent child = actors[i];
                     if (!child.isVisible()) continue;
                     child.draw(batch, parentAlpha);
                 }
@@ -149,7 +147,7 @@ public class Group extends Actor implements Cullable {
                 x = 0;
                 y = 0;
                 for (int i = 0, n = children.size; i < n; i++) {
-                    Actor child = actors[i];
+                    UIComponent child = actors[i];
                     if (!child.isVisible()) continue;
                     float cx = child.x, cy = child.y;
                     child.x = cx + offsetX;
@@ -168,7 +166,7 @@ public class Group extends Actor implements Cullable {
     /**
      * Draws this actor's debug lines if {@link #getDebug()} is true and,
      * regardless of {@link #getDebug()}, calls
-     * {@link Actor#drawDebug(ShapeRenderer)}
+     * {@link UIComponent#drawDebug(ShapeRenderer)}
      * on each child.
      */
     public void drawDebug(ShapeRenderer shapes) {
@@ -189,12 +187,12 @@ public class Group extends Actor implements Cullable {
      * culling area}, if set.
      */
     protected void drawDebugChildren(ShapeRenderer shapes) {
-        SnapshotArray<Actor> children = this.children;
-        Actor[] actors = children.begin();
+        SnapshotArray<UIComponent> children = this.children;
+        UIComponent[] actors = children.begin();
         // No culling, draw all children.
         if (transform) {
             for (int i = 0, n = children.size; i < n; i++) {
-                Actor child = actors[i];
+                UIComponent child = actors[i];
                 if (!child.isVisible()) continue;
                 child.drawDebug(shapes);
             }
@@ -205,7 +203,7 @@ public class Group extends Actor implements Cullable {
             x = 0;
             y = 0;
             for (int i = 0, n = children.size; i < n; i++) {
-                Actor child = actors[i];
+                UIComponent child = actors[i];
                 if (!child.isVisible()) continue;
                 float cx = child.x, cy = child.y;
                 child.x = cx + offsetX;
@@ -243,14 +241,14 @@ public class Group extends Actor implements Cullable {
         localTransform.trn(x, y);
 
         // Find the first parent that transforms.
-        Group parentGroup = parent;
-        while (parentGroup != null) {
-            if (parentGroup.transform) break;
-            parentGroup = parentGroup.parent;
+        UIContainer parentUIContainer = parent;
+        while (parentUIContainer != null) {
+            if (parentUIContainer.transform) break;
+            parentUIContainer = parentUIContainer.parent;
         }
 
-        if (parentGroup != null) {
-            worldTransform.set(parentGroup.worldTransform);
+        if (parentUIContainer != null) {
+            worldTransform.set(parentUIContainer.worldTransform);
             worldTransform.mul(localTransform);
         } else {
             worldTransform.set(localTransform);
@@ -310,15 +308,15 @@ public class Group extends Actor implements Cullable {
         this.cullingArea = cullingArea;
     }
 
-    public Actor hit(float x, float y, boolean touchable) {
+    public UIComponent hit(float x, float y, boolean touchable) {
         if (touchable && getTouchable() == Touchable.disabled) return null;
         Vector2 point = tmp;
-        Actor[] childrenArray = children.items;
+        UIComponent[] childrenArray = children.items;
         for (int i = children.size - 1; i >= 0; i--) {
-            Actor child = childrenArray[i];
+            UIComponent child = childrenArray[i];
             if (!child.isVisible()) continue;
             child.parentToLocalCoordinates(point.set(x, y));
-            Actor hit = child.hit(point.x, point.y, touchable);
+            UIComponent hit = child.hit(point.x, point.y, touchable);
             if (hit != null) return hit;
         }
         return super.hit(x, y, touchable);
@@ -336,7 +334,7 @@ public class Group extends Actor implements Cullable {
      *
      * @see #remove()
      */
-    public void addActor(Actor actor) {
+    public void addActor(UIComponent actor) {
         actor.remove();
         children.add(actor);
         actor.setParent(this);
@@ -350,7 +348,7 @@ public class Group extends Actor implements Cullable {
      *
      * @param index May be greater than the number of children.
      */
-    public void addActorAt(int index, Actor actor) {
+    public void addActorAt(int index, UIComponent actor) {
         actor.remove();
         if (index >= children.size)
             children.add(actor);
@@ -366,7 +364,7 @@ public class Group extends Actor implements Cullable {
      * another child actor. The actor is first removed from its parent
      * group, if any.
      */
-    public void addActorBefore(Actor actorBefore, Actor actor) {
+    public void addActorBefore(UIComponent actorBefore, UIComponent actor) {
         actor.remove();
         int index = children.indexOf(actorBefore, true);
         children.insert(index, actor);
@@ -380,7 +378,7 @@ public class Group extends Actor implements Cullable {
      * child actor. The actor is first removed from its parent
      * group, if any.
      */
-    public void addActorAfter(Actor actorAfter, Actor actor) {
+    public void addActorAfter(UIComponent actorAfter, UIComponent actor) {
         actor.remove();
         int index = children.indexOf(actorAfter, true);
         if (index == children.size)
@@ -395,14 +393,14 @@ public class Group extends Actor implements Cullable {
     /**
      * Removes an actor from this group. If the actor will not be used
      * again and has actions, they should be
-     * {@link Actor#clearActions() cleared} so the actions will be returned
+     * {@link UIComponent#clearActions() cleared} so the actions will be returned
      * to their
      * {@link com.guidebee.game.scene.actions.Action#setPool(com.guidebee.utils.Pool) pool},
      * if any. This is not done automatically.
      */
-    public boolean removeActor(Actor actor) {
+    public boolean removeActor(UIComponent actor) {
         if (!children.removeValue(actor, true)) return false;
-        Stage stage = getStage();
+        UIWindow stage = getStage();
         if (stage != null) stage.unfocus(actor);
         actor.setParent(null);
         actor.setStage(null);
@@ -414,9 +412,9 @@ public class Group extends Actor implements Cullable {
      * Removes all actors from this group.
      */
     public void clearChildren() {
-        Actor[] actors = children.begin();
+        UIComponent[] actors = children.begin();
         for (int i = 0, n = children.size; i < n; i++) {
-            Actor child = actors[i];
+            UIComponent child = actors[i];
             child.setStage(null);
             child.setParent(null);
         }
@@ -437,23 +435,23 @@ public class Group extends Actor implements Cullable {
      * Returns the first actor found with the specified name. Note this
      * recursively compares the name of every actor in the group.
      */
-    public <T extends Actor> T findActor(String name) {
-        Array<Actor> children = this.children;
+    public <T extends UIComponent> T findActor(String name) {
+        Array<UIComponent> children = this.children;
         for (int i = 0, n = children.size; i < n; i++)
             if (name.equals(children.get(i).getName())) return (T) children.get(i);
         for (int i = 0, n = children.size; i < n; i++) {
-            Actor child = children.get(i);
-            if (child instanceof Group) {
-                Actor actor = ((Group) child).findActor(name);
+            UIComponent child = children.get(i);
+            if (child instanceof UIContainer) {
+                UIComponent actor = ((UIContainer) child).findActor(name);
                 if (actor != null) return (T) actor;
             }
         }
         return null;
     }
 
-    protected void setStage(Stage stage) {
+    protected void setStage(UIWindow stage) {
         super.setStage(stage);
-        Actor[] childrenArray = children.items;
+        UIComponent[] childrenArray = children.items;
         for (int i = 0, n = children.size; i < n; i++)
             childrenArray[i].setStage(stage);
     }
@@ -474,7 +472,7 @@ public class Group extends Actor implements Cullable {
      * Swaps two actors. Returns false if the swap did not occur because
      * the actors are not children of this group.
      */
-    public boolean swapActor(Actor first, Actor second) {
+    public boolean swapActor(UIComponent first, UIComponent second) {
         int firstIndex = children.indexOf(first, true);
         int secondIndex = children.indexOf(second, true);
         if (firstIndex == -1 || secondIndex == -1) return false;
@@ -485,7 +483,7 @@ public class Group extends Actor implements Cullable {
     /**
      * Returns an ordered list of child actors in this group.
      */
-    public SnapshotArray<Actor> getChildren() {
+    public SnapshotArray<UIComponent> getChildren() {
         return children;
     }
 
@@ -519,8 +517,8 @@ public class Group extends Actor implements Cullable {
      * @throws IllegalArgumentException if the specified actor is not a
      * descendant of this group.
      */
-    public Vector2 localToDescendantCoordinates(Actor descendant, Vector2 localCoords) {
-        Group parent = descendant.parent;
+    public Vector2 localToDescendantCoordinates(UIComponent descendant, Vector2 localCoords) {
+        UIContainer parent = descendant.parent;
         if (parent == null)
             throw new IllegalArgumentException("Child is not a descendant: " + descendant);
         // First convert to the actor's parent coordinates.
@@ -537,9 +535,9 @@ public class Group extends Actor implements Cullable {
     public void setDebug(boolean enabled, boolean recursively) {
         setDebug(enabled);
         if (recursively) {
-            for (Actor child : children) {
-                if (child instanceof Group) {
-                    ((Group) child).setDebug(enabled, recursively);
+            for (UIComponent child : children) {
+                if (child instanceof UIContainer) {
+                    ((UIContainer) child).setDebug(enabled, recursively);
                 } else {
                     child.setDebug(enabled);
                 }
@@ -550,7 +548,7 @@ public class Group extends Actor implements Cullable {
     /**
      * Calls {@link #setDebug(boolean, boolean)} with {@code true, true}.
      */
-    public Group debugAll() {
+    public UIContainer debugAll() {
         setDebug(true, true);
         return this;
     }
@@ -563,10 +561,10 @@ public class Group extends Actor implements Cullable {
     }
 
     private void print(String indent) {
-        Actor[] actors = children.begin();
+        UIComponent[] actors = children.begin();
         for (int i = 0, n = children.size; i < n; i++) {
             System.out.println(indent + actors[i]);
-            if (actors[i] instanceof Group) ((Group) actors[i]).print(indent + "|  ");
+            if (actors[i] instanceof UIContainer) ((UIContainer) actors[i]).print(indent + "|  ");
         }
         children.end();
     }

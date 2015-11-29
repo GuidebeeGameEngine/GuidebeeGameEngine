@@ -19,7 +19,7 @@ package com.guidebee.game.scene.actions;
 //--------------------------------- IMPORTS ------------------------------------
 
 import com.guidebee.game.GameEngineRuntimeException;
-import com.guidebee.game.engine.scene.Actor;
+import com.guidebee.game.ui.UIComponent;
 import com.guidebee.game.ui.Layout;
 
 //[------------------------------ MAIN CLASS ----------------------------------]
@@ -34,9 +34,9 @@ import com.guidebee.game.ui.Layout;
 public class LayoutAction extends Action {
     private boolean enabled;
 
-    public void setActor(Actor actor) {
+    public void setActor(UIComponent actor) {
         if (actor != null && !(actor instanceof Layout))
-            throw new GameEngineRuntimeException("Actor must implement layout: "
+            throw new GameEngineRuntimeException("UIComponent must implement layout: "
                     + actor);
         super.setActor(actor);
     }

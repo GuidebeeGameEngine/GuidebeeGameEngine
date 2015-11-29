@@ -18,7 +18,6 @@ package com.guidebee.game.ui;
 
 //--------------------------------- IMPORTS ------------------------------------
 
-import com.guidebee.game.engine.scene.Actor;
 import com.guidebee.game.ui.drawable.TextureRegionDrawable;
 import com.guidebee.math.MathUtils;
 import com.guidebee.utils.collections.DelayedRemovalArray;
@@ -73,7 +72,7 @@ public class GameController extends WidgetGroup {
         addListener(new ChangeListener() {
 
             @Override
-            public void changed(ChangeEvent event, Actor actor) {
+            public void changed(ChangeEvent event, UIComponent actor) {
                 for (GameControllerListener listener : listeners) {
                     if (actor == touchpad) {
                         GameControllerListener.Direction direction = getDirection(touchpad);

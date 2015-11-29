@@ -14,7 +14,7 @@
  * limitations under the License.
  ******************************************************************************/
 //--------------------------------- PACKAGE ------------------------------------
-package com.guidebee.game.engine.scene;
+package com.guidebee.game.ui;
 
 //--------------------------------- IMPORTS ------------------------------------
 
@@ -23,10 +23,6 @@ import com.guidebee.game.graphics.Color;
 import com.guidebee.game.graphics.ShapeRenderer;
 import com.guidebee.game.scene.ScissorStack;
 import com.guidebee.game.scene.actions.Action;
-import com.guidebee.game.ui.Event;
-import com.guidebee.game.ui.EventListener;
-import com.guidebee.game.ui.InputEvent;
-import com.guidebee.game.ui.Touchable;
 import com.guidebee.math.MathUtils;
 import com.guidebee.math.Vector2;
 import com.guidebee.math.geometry.Rectangle;
@@ -67,9 +63,9 @@ import com.guidebee.utils.collections.DelayedRemovalArray;
  * @author mzechner
  * @author Nathan Sweet
  */
-public class Actor {
-    private Stage stage;
-    Group parent;
+public class UIComponent {
+    private UIWindow stage;
+    UIContainer parent;
     private final DelayedRemovalArray<EventListener>
             listeners = new DelayedRemovalArray(0);
     private final DelayedRemovalArray<EventListener>
@@ -91,15 +87,15 @@ public class Actor {
     /**
      * Construct ,default name is class name
      */
-    public Actor(){
-        this(Actor.class.getName());
+    public UIComponent(){
+        this(UIComponent.class.getName());
     }
 
     /**
      * constructor
      * @param name  name of the actor.
      */
-    public Actor(String name){
+    public UIComponent(String name){
         setName(name);
     }
 
@@ -125,7 +121,7 @@ public class Actor {
 
     /**
      * Updates the actor based on time. Typically this is called each frame
-     * by {@link Stage#act(float)}.
+     * by {@link UIWindow#act(float)}.
      * <p>
      * The default implementation calls {@link Action#act(float)} on
      * each action and removes actions that are complete.
@@ -149,7 +145,7 @@ public class Actor {
     }
 
     /**
-     * Sets this actor as the event {@link Event#setTarget(Actor) target}
+     * Sets this actor as the event {@link Event#setTarget(UIComponent) target}
      * and propagates the event to this actor and ancestor
      * actors as necessary. If this actor is not in the stage, the stage
      * must be set before calling this method.
@@ -173,8 +169,8 @@ public class Actor {
         event.setTarget(this);
 
         // Collect ancestors so event propagation is unaffected by hierarchy changes.
-        Array<Group> ancestors = Pools.obtain(Array.class);
-        Group parent = this.parent;
+        Array<UIContainer> ancestors = Pools.obtain(Array.class);
+        UIContainer parent = this.parent;
         while (parent != null) {
             ancestors.add(parent);
             parent = parent.parent;
@@ -185,7 +181,7 @@ public class Actor {
             // Ancestors may stop an event before children receive it.
             Object[] ancestorsArray = ancestors.items;
             for (int i = ancestors.size - 1; i >= 0; i--) {
-                Group currentTarget = (Group) ancestorsArray[i];
+                UIContainer currentTarget = (UIContainer) ancestorsArray[i];
                 currentTarget.notify(event, true);
                 if (event.isStopped()) return event.isCancelled();
             }
@@ -202,7 +198,7 @@ public class Actor {
             // Notify all parent listeners, starting at the target. Children
             // may stop an event before ancestors receive it.
             for (int i = 0, n = ancestors.size; i < n; i++) {
-                ((Group) ancestorsArray[i]).notify(event, false);
+                ((UIContainer) ancestorsArray[i]).notify(event, false);
                 if (event.isStopped()) return event.isCancelled();
             }
 
@@ -217,7 +213,7 @@ public class Actor {
      * Notifies this actor's listeners of the event. The event is not
      * propagated to any parents. Before notifying the listeners,
      * this actor is set as the {@link com.guidebee.game.ui.Event#getListenerActor() listener actor}.
-     * The event {@link Event#setTarget(Actor) target}
+     * The event {@link Event#setTarget(UIComponent) target}
      * must be set before calling this method. If this actor is not in the stage,
      * the stage must be set before calling this method.
      *
@@ -266,7 +262,7 @@ public class Actor {
      * <p>
      * This method is used to delegate touchDown, mouse, and enter/exit events.
      * If this method returns null, those events will not
-     * occur on this Actor.
+     * occur on this UIComponent.
      * <p>
      * The default implementation returns this actor if the point is within this
      * actor's bounds.
@@ -275,7 +271,7 @@ public class Actor {
      *                  the {@link #setTouchable(Touchable) touchability}.
      * @see Touchable
      */
-    public Actor hit(float x, float y, boolean touchable) {
+    public UIComponent hit(float x, float y, boolean touchable) {
         if (touchable && this.touchable != Touchable.enabled) return null;
         return x >= 0 && x < width && y >= 0 && y < height ? this : null;
     }
@@ -283,7 +279,7 @@ public class Actor {
     /**
      * Removes this actor from its parent, if it has a parent.
      *
-     * @see Group#removeActor(Actor)
+     * @see UIContainer#removeActor(UIComponent)
      */
     public boolean remove() {
         if (parent != null) return parent.removeActor(this);
@@ -372,7 +368,7 @@ public class Actor {
     /**
      * Returns the stage that this actor is currently in, or null if not in a stage.
      */
-    public Stage getStage() {
+    public UIWindow getStage() {
         return stage;
     }
 
@@ -382,7 +378,7 @@ public class Actor {
      *
      * @param stage May be null if the actor or any parent is no longer in a stage.
      */
-    protected void setStage(Stage stage) {
+    protected void setStage(UIWindow stage) {
         this.stage = stage;
     }
 
@@ -390,10 +386,10 @@ public class Actor {
      * Returns true if this actor is the same as or is the descendant of the
      * specified actor.
      */
-    public boolean isDescendantOf(Actor actor) {
+    public boolean isDescendantOf(UIComponent actor) {
         if (actor == null)
             throw new IllegalArgumentException("actor cannot be null.");
-        Actor parent = this;
+        UIComponent parent = this;
         while (true) {
             if (parent == null) return false;
             if (parent == actor) return true;
@@ -404,7 +400,7 @@ public class Actor {
     /**
      * Returns true if this actor is the same as or is the ascendant of the specified actor.
      */
-    public boolean isAscendantOf(Actor actor) {
+    public boolean isAscendantOf(UIComponent actor) {
         if (actor == null) throw new IllegalArgumentException("actor cannot be null.");
         while (true) {
             if (actor == null) return false;
@@ -423,7 +419,7 @@ public class Actor {
     /**
      * Returns the parent actor, or null if not in a group.
      */
-    public Group getParent() {
+    public UIContainer getParent() {
         return parent;
     }
 
@@ -432,7 +428,7 @@ public class Actor {
      *
      * @param parent May be null if the actor has been removed from the parent.
      */
-    protected void setParent(Group parent) {
+    protected void setParent(UIContainer parent) {
         this.parent = parent;
     }
 
@@ -510,7 +506,7 @@ public class Actor {
     }
 
     /**
-     * Set position of Actor to x, y (using bottom left corner of Actor)
+     * Set position of UIComponent to x, y (using bottom left corner of UIComponent)
      */
     public void setPosition(float x, float y) {
         if (this.x != x || this.y != y) {
@@ -521,7 +517,7 @@ public class Actor {
     }
 
     /**
-     * Set position of Actor centered on x, y
+     * Set position of UIComponent centered on x, y
      */
     public void setCenterPosition(float x, float y) {
         float newX = x - width / 2;
@@ -747,7 +743,7 @@ public class Actor {
     }
 
     /**
-     * Retrieve custom actor name set with {@link Actor#setName(String)},
+     * Retrieve custom actor name set with {@link UIComponent#setName(String)},
      * used for easier identification
      */
     public String getName() {
@@ -757,7 +753,7 @@ public class Actor {
     /**
      * Sets a name for easier identification of the actor in application code.
      *
-     * @see Group#findActor(String)
+     * @see UIContainer#findActor(String)
      */
     public void setName(String name) {
         this.name = name;
@@ -779,16 +775,16 @@ public class Actor {
 
     /**
      * Sets the z-index of this actor. The z-index is the index into the
-     * parent's {@link Group#getChildren() children}, where a
+     * parent's {@link UIContainer#getChildren() children}, where a
      * lower index is below a higher index. Setting a z-index higher than
      * the number of children will move the child to the front.
      * Setting a z-index less than zero is invalid.
      */
     public void setZIndex(int index) {
         if (index < 0) throw new IllegalArgumentException("ZIndex cannot be < 0.");
-        Group parent = this.parent;
+        UIContainer parent = this.parent;
         if (parent == null) return;
-        Array<Actor> children = parent.children;
+        Array<UIComponent> children = parent.children;
         if (children.size == 1) return;
         if (!children.removeValue(this, true)) return;
         if (index >= children.size)
@@ -803,7 +799,7 @@ public class Actor {
      * @see #setZIndex(int)
      */
     public int getZIndex() {
-        Group parent = this.parent;
+        UIContainer parent = this.parent;
         if (parent == null) return -1;
         return parent.children.indexOf(this, true);
     }
@@ -833,7 +829,7 @@ public class Actor {
         tableBounds.y = y;
         tableBounds.width = width;
         tableBounds.height = height;
-        Stage stage = this.stage;
+        UIWindow stage = this.stage;
         Rectangle scissorBounds = Pools.obtain(Rectangle.class);
         stage.calculateScissors(tableBounds, scissorBounds);
         if (ScissorStack.pushScissors(scissorBounds)) return true;
@@ -853,7 +849,7 @@ public class Actor {
      * local coordinate system.
      */
     public Vector2 screenToLocalCoordinates(Vector2 screenCoords) {
-        Stage stage = this.stage;
+        UIWindow stage = this.stage;
         if (stage == null) return screenCoords;
         return stageToLocalCoordinates(stage.screenToStageCoordinates(screenCoords));
     }
@@ -873,7 +869,7 @@ public class Actor {
      * Transforms the specified point in the actor's coordinates to be
      * in the stage's coordinates.
      *
-     * @see Stage#toScreenCoordinates(Vector2, com.guidebee.math.Matrix4)
+     * @see UIWindow#toScreenCoordinates(Vector2, com.guidebee.math.Matrix4)
      */
     public Vector2 localToStageCoordinates(Vector2 localCoords) {
         return localToAscendantCoordinates(null, localCoords);
@@ -916,8 +912,8 @@ public class Actor {
      * Converts coordinates for this actor to those of a parent actor. The
      * ascendant does not need to be a direct parent.
      */
-    public Vector2 localToAscendantCoordinates(Actor ascendant, Vector2 localCoords) {
-        Actor actor = this;
+    public Vector2 localToAscendantCoordinates(UIComponent ascendant, Vector2 localCoords) {
+        UIComponent actor = this;
         while (actor != null) {
             actor.localToParentCoordinates(localCoords);
             actor = actor.parent;
@@ -982,7 +978,7 @@ public class Actor {
      */
     public void setDebug(boolean enabled) {
         debug = enabled;
-        if (enabled) Stage.debug = true;
+        if (enabled) UIWindow.debug = true;
     }
 
     public boolean getDebug() {
@@ -992,7 +988,7 @@ public class Actor {
     /**
      * Calls {@link #setDebug(boolean)} with {@code true}.
      */
-    public Actor debug() {
+    public UIComponent debug() {
         setDebug(true);
         return this;
     }

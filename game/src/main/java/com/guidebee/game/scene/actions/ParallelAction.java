@@ -18,7 +18,7 @@ package com.guidebee.game.scene.actions;
 
 //--------------------------------- IMPORTS ------------------------------------
 
-import com.guidebee.game.engine.scene.Actor;
+import com.guidebee.game.ui.UIComponent;
 import com.guidebee.utils.Pool;
 import com.guidebee.utils.collections.Array;
 
@@ -102,7 +102,7 @@ public class ParallelAction extends Action {
         if (actor != null) action.setActor(actor);
     }
 
-    public void setActor(Actor actor) {
+    public void setActor(UIComponent actor) {
         Array<Action> actions = this.actions;
         for (int i = 0, n = actions.size; i < n; i++)
             actions.get(i).setActor(actor);

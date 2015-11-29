@@ -18,16 +18,13 @@ package com.guidebee.game.ui;
 
 //--------------------------------- IMPORTS ------------------------------------
 
-import com.guidebee.game.engine.scene.Actor;
-import com.guidebee.game.engine.scene.Group;
-import com.guidebee.game.engine.scene.Stage;
 import com.guidebee.game.graphics.Batch;
 import com.guidebee.utils.collections.SnapshotArray;
 
 //[------------------------------ MAIN CLASS ----------------------------------]
 
 /**
- * A {@link com.guidebee.game.engine.scene.Group} that participates in layout and
+ * A {@link UIContainer} that participates in layout and
  * provides a minimum, preferred, and maximum size.
  * <p/>
  * The default preferred size of a widget group is 0 and this is almost always
@@ -45,7 +42,7 @@ import com.guidebee.utils.collections.SnapshotArray;
  *
  * @author Nathan Sweet
  */
-public class WidgetGroup extends Group implements Layout {
+public class WidgetGroup extends UIContainer implements Layout {
     private boolean needsLayout = true;
     private boolean fillParent;
     private boolean layoutEnabled = true;
@@ -80,22 +77,22 @@ public class WidgetGroup extends Group implements Layout {
         setLayoutEnabled(this, enabled);
     }
 
-    private void setLayoutEnabled(Group parent, boolean enabled) {
-        SnapshotArray<Actor> children = getChildren();
+    private void setLayoutEnabled(UIContainer parent, boolean enabled) {
+        SnapshotArray<UIComponent> children = getChildren();
         for (int i = 0, n = children.size; i < n; i++) {
-            Actor actor = children.get(i);
+            UIComponent actor = children.get(i);
             if (actor instanceof Layout)
                 ((Layout) actor).setLayoutEnabled(enabled);
-            else if (actor instanceof Group) //
-                setLayoutEnabled((Group) actor, enabled);
+            else if (actor instanceof UIContainer) //
+                setLayoutEnabled((UIContainer) actor, enabled);
         }
     }
 
     public void validate() {
         if (!layoutEnabled) return;
-        Group parent = getParent();
+        UIContainer parent = getParent();
         if (fillParent && parent != null) {
-            Stage stage = getStage();
+            UIWindow stage = getStage();
 
             float parentWidth, parentHeight;
             if (stage != null && parent == stage.getRoot()) {
@@ -130,7 +127,7 @@ public class WidgetGroup extends Group implements Layout {
 
     public void invalidateHierarchy() {
         invalidate();
-        Group parent = getParent();
+        UIContainer parent = getParent();
         if (parent instanceof Layout) ((Layout) parent).invalidateHierarchy();
     }
 

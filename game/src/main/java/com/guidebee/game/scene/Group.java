@@ -18,6 +18,9 @@ package com.guidebee.game.scene;
 
 //--------------------------------- IMPORTS ------------------------------------
 
+import com.guidebee.game.ui.UIComponent;
+import com.guidebee.game.ui.UIContainer;
+import com.guidebee.game.ui.UIWindow;
 import com.guidebee.game.entity.EntityEngine;
 import com.guidebee.game.graphics.Batch;
 import com.guidebee.game.graphics.Color;
@@ -33,9 +36,9 @@ import com.guidebee.utils.collections.Array;
 import com.guidebee.utils.collections.SnapshotArray;
 
 /**
- * internal group as a bridge to engine.scene.Group
+ * internal group as a bridge to engine.scene.UIContainer
  */
-class InternalGroup extends com.guidebee.game.engine.scene.Group {
+class InternalGroup extends UIContainer {
     Group proxyGroup;
 
 
@@ -161,11 +164,11 @@ class InternalGroup extends com.guidebee.game.engine.scene.Group {
         proxyGroup.childrenChanged();
     }
 
-    protected void setStage(com.guidebee.game.engine.scene.Stage stage) {
+    protected void setStage(UIWindow stage) {
         super.setStage(stage);
     }
 
-    protected void setParent(com.guidebee.game.engine.scene.Group parent) {
+    protected void setParent(UIContainer parent) {
         super.setParent(parent);
     }
 
@@ -187,7 +190,7 @@ class InternalGroup extends com.guidebee.game.engine.scene.Group {
 public class Group extends Actor implements Cullable {
 
     /**
-     * internal group as a bridge to sence.Group.
+     * internal group as a bridge to sence.UIContainer.
      */
     protected InternalGroup internalGroup;
 
@@ -238,12 +241,12 @@ public class Group extends Actor implements Cullable {
      */
     public SnapshotArray<Actor> getChildren() {
 
-        SnapshotArray<com.guidebee.game.engine.scene.Actor>
+        SnapshotArray<UIComponent>
                 internalActors = internalGroup.getChildren();
         SnapshotArray<Actor> actors = null;
         if (internalActors != null) {
             actors = new SnapshotArray<Actor>();
-            for (com.guidebee.game.engine.scene.Actor actor : internalActors) {
+            for (UIComponent actor : internalActors) {
                 actors.add((Actor) actor.getUserObject());
             }
 
@@ -359,7 +362,7 @@ public class Group extends Actor implements Cullable {
     }
 
     public Actor hit(float x, float y) {
-        com.guidebee.game.engine.scene.Actor actor = internalGroup.hit(x, y, true);
+        UIComponent actor = internalGroup.hit(x, y, true);
         if (actor != null) {
             return (Actor) actor.getUserObject();
         }
@@ -452,7 +455,7 @@ public class Group extends Actor implements Cullable {
      * Returns the stage that this actor is currently in, or null if not in a stage.
      */
     public Stage getStage() {
-        com.guidebee.game.engine.scene.Stage stage = internalGroup.getStage();
+        UIWindow stage = internalGroup.getStage();
         if (stage != null) {
             return (Stage) stage.getUserObject();
         }
@@ -503,7 +506,7 @@ public class Group extends Actor implements Cullable {
      * recursively compares the name of every actor in the group.
      */
     public <T extends Actor> T findActor(String name) {
-        com.guidebee.game.engine.scene.Actor actor = internalGroup.findActor(name);
+        UIComponent actor = internalGroup.findActor(name);
         if (actor != null) {
             return (T) actor.getUserObject();
         }
@@ -557,9 +560,9 @@ public class Group extends Actor implements Cullable {
      * Returns the parent actor, or null if not in a group.
      */
     public Group getParent() {
-        com.guidebee.game.engine.scene.Group group = internalGroup.getParent();
-        if (group != null) {
-            return (Group) group.getUserObject();
+        UIContainer UIContainer = internalGroup.getParent();
+        if (UIContainer != null) {
+            return (Group) UIContainer.getUserObject();
         }
         return null;
     }
@@ -668,7 +671,7 @@ public class Group extends Actor implements Cullable {
 
 
     /**
-     * Set position of Actor centered on x, y
+     * Set position of UIComponent centered on x, y
      */
     public void setCenterPosition(float x, float y) {
         internalGroup.setCenterPosition(x, y);
@@ -768,7 +771,7 @@ public class Group extends Actor implements Cullable {
     }
 
     /**
-     * Set position of Actor to x, y (using bottom left corner of Actor)
+     * Set position of UIComponent to x, y (using bottom left corner of UIComponent)
      */
     public void setPosition(float x, float y) {
         internalGroup.setPosition(x, y);
@@ -989,7 +992,7 @@ public class Group extends Actor implements Cullable {
      * Calls {@link #setDebug(boolean)} with {@code true}.
      */
     public Actor debug() {
-        com.guidebee.game.engine.scene.Actor actor = internalGroup.debug();
+        UIComponent actor = internalGroup.debug();
         if (actor != null) {
             return (Actor) actor.getUserObject();
         }

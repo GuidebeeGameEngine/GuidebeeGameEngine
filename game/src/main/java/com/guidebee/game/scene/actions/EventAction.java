@@ -18,7 +18,7 @@ package com.guidebee.game.scene.actions;
 
 //--------------------------------- IMPORTS ------------------------------------
 
-import com.guidebee.game.engine.scene.Actor;
+import com.guidebee.game.ui.UIComponent;
 import com.guidebee.game.engine.utils.reflect.ClassReflection;
 import com.guidebee.game.ui.Event;
 import com.guidebee.game.ui.EventListener;
@@ -53,7 +53,7 @@ abstract public class EventAction<T extends Event> extends Action {
         active = false;
     }
 
-    public void setActor(Actor actor) {
+    public void setActor(UIComponent actor) {
         if (getActor() != null) getActor().removeListener(listener);
         super.setActor(actor);
         if (actor != null) actor.addListener(listener);

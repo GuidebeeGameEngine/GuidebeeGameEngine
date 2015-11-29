@@ -17,11 +17,11 @@
 package com.guidebee.game.scene.actions;
 
 //--------------------------------- IMPORTS ------------------------------------
-import com.guidebee.game.engine.scene.Actor;
+import com.guidebee.game.ui.UIComponent;
 
 //[------------------------------ MAIN CLASS ----------------------------------]
 /**
- * Sets the actor's {@link Actor#setVisible(boolean) visibility}.
+ * Sets the actor's {@link UIComponent#setVisible(boolean) visibility}.
  *
  * @author Nathan Sweet
  */

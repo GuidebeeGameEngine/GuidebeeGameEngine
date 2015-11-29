@@ -18,7 +18,6 @@ package com.guidebee.game.ui;
 
 //--------------------------------- IMPORTS ------------------------------------
 
-import com.guidebee.game.engine.scene.Actor;
 import com.guidebee.game.graphics.Batch;
 import com.guidebee.game.graphics.Color;
 import com.guidebee.game.ui.drawable.Drawable;
@@ -157,7 +156,7 @@ public class Touchpad extends Widget {
     }
 
     @Override
-    public Actor hit(float x, float y, boolean touchable) {
+    public UIComponent hit(float x, float y, boolean touchable) {
         return touchBounds.contains(x, y) ? this : null;
     }
 

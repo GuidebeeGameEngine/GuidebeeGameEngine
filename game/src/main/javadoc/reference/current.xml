@@ -49374,7 +49374,7 @@
 </parameter>
 </method>
 <method name="getActor"
- return="com.guidebee.game.engine.scene.Actor"
+ return="com.guidebee.game.ui.UIComponent"
  abstract="false"
  native="false"
  synchronized="false"
@@ -49427,7 +49427,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="actor" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="actor" type="com.guidebee.game.ui.UIComponent">
 </parameter>
 </method>
 <method name="setPool"
@@ -49498,7 +49498,7 @@
 >
 <parameter name="action" type="com.guidebee.game.scene.actions.Action">
 </parameter>
-<parameter name="targetActor" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="targetActor" type="com.guidebee.game.ui.UIComponent">
 </parameter>
 </method>
 <method name="addListener"
@@ -49530,7 +49530,7 @@
 </parameter>
 <parameter name="capture" type="boolean">
 </parameter>
-<parameter name="targetActor" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="targetActor" type="com.guidebee.game.ui.UIComponent">
 </parameter>
 </method>
 <method name="after"
@@ -49993,7 +49993,7 @@
 >
 <parameter name="action" type="com.guidebee.game.scene.actions.Action">
 </parameter>
-<parameter name="targetActor" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="targetActor" type="com.guidebee.game.ui.UIComponent">
 </parameter>
 </method>
 <method name="removeActor"
@@ -50017,7 +50017,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="removeActor" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="removeActor" type="com.guidebee.game.ui.UIComponent">
 </parameter>
 </method>
 <method name="removeListener"
@@ -50049,7 +50049,7 @@
 </parameter>
 <parameter name="capture" type="boolean">
 </parameter>
-<parameter name="targetActor" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="targetActor" type="com.guidebee.game.ui.UIComponent">
 </parameter>
 </method>
 <method name="repeat"
@@ -50577,7 +50577,7 @@
 >
 </method>
 <method name="getTargetActor"
- return="com.guidebee.game.engine.scene.Actor"
+ return="com.guidebee.game.ui.UIComponent"
  abstract="false"
  native="false"
  synchronized="false"
@@ -50610,7 +50610,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="actor" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="actor" type="com.guidebee.game.ui.UIComponent">
 </parameter>
 </method>
 </class>
@@ -50666,7 +50666,7 @@
 >
 </method>
 <method name="getTargetActor"
- return="com.guidebee.game.engine.scene.Actor"
+ return="com.guidebee.game.ui.UIComponent"
  abstract="false"
  native="false"
  synchronized="false"
@@ -50712,7 +50712,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="actor" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="actor" type="com.guidebee.game.ui.UIComponent">
 </parameter>
 </method>
 </class>
@@ -51704,7 +51704,7 @@
 >
 </method>
 <method name="getTargetActor"
- return="com.guidebee.game.engine.scene.Actor"
+ return="com.guidebee.game.ui.UIComponent"
  abstract="false"
  native="false"
  synchronized="false"
@@ -51737,7 +51737,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="actor" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="actor" type="com.guidebee.game.ui.UIComponent">
 </parameter>
 </method>
 </class>
@@ -51771,7 +51771,7 @@
 </parameter>
 </method>
 <method name="getRemoveActor"
- return="com.guidebee.game.engine.scene.Actor"
+ return="com.guidebee.game.ui.UIComponent"
  abstract="false"
  native="false"
  synchronized="false"
@@ -51791,7 +51791,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="removeActor" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="removeActor" type="com.guidebee.game.ui.UIComponent">
 </parameter>
 </method>
 </class>
@@ -51847,7 +51847,7 @@
 >
 </method>
 <method name="getTargetActor"
- return="com.guidebee.game.engine.scene.Actor"
+ return="com.guidebee.game.ui.UIComponent"
  abstract="false"
  native="false"
  synchronized="false"
@@ -51893,7 +51893,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="actor" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="actor" type="com.guidebee.game.ui.UIComponent">
 </parameter>
 </method>
 </class>
@@ -55897,7 +55897,7 @@
 >
 </method>
 <method name="getTouchDownTarget"
- return="com.guidebee.game.engine.scene.Actor"
+ return="com.guidebee.game.ui.UIComponent"
  abstract="false"
  native="false"
  synchronized="false"
@@ -55930,7 +55930,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="actor" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="actor" type="com.guidebee.game.ui.UIComponent">
 </parameter>
 <parameter name="x" type="float">
 </parameter>
@@ -56214,7 +56214,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="child" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="child" type="com.guidebee.game.ui.UIComponent">
 </parameter>
 <parameter name="skin" type="com.guidebee.game.ui.Skin">
 </parameter>
@@ -56228,7 +56228,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="child" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="child" type="com.guidebee.game.ui.UIComponent">
 </parameter>
 <parameter name="style" type="com.guidebee.game.ui.Button.ButtonStyle">
 </parameter>
@@ -56294,7 +56294,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="child" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="child" type="com.guidebee.game.ui.UIComponent">
 </parameter>
 <parameter name="skin" type="com.guidebee.game.ui.Skin">
 </parameter>
@@ -58519,7 +58519,7 @@
 >
 <parameter name="event" type="com.guidebee.game.ui.ChangeListener.ChangeEvent">
 </parameter>
-<parameter name="actor" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="actor" type="com.guidebee.game.ui.UIComponent">
 </parameter>
 </method>
 <method name="handle"
@@ -59213,7 +59213,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="actor" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="actor" type="com.guidebee.game.ui.UIComponent">
 </parameter>
 <parameter name="x" type="float">
 </parameter>
@@ -60596,7 +60596,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="actor" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="actor" type="com.guidebee.game.ui.UIComponent">
 </parameter>
 <parameter name="object" type="java.lang.Object">
 </parameter>
@@ -60611,7 +60611,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="stage" type="com.guidebee.game.engine.scene.Stage">
+<parameter name="stage" type="com.guidebee.game.ui.UIWindow">
 </parameter>
 <parameter name="action" type="com.guidebee.game.scene.actions.Action">
 </parameter>
@@ -60626,7 +60626,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="stage" type="com.guidebee.game.engine.scene.Stage">
+<parameter name="stage" type="com.guidebee.game.ui.UIWindow">
 </parameter>
 </method>
 <method name="text"
@@ -60746,7 +60746,7 @@
 >
 </method>
 <method name="getDragActor"
- return="com.guidebee.game.engine.scene.Actor"
+ return="com.guidebee.game.ui.UIComponent"
  abstract="false"
  native="false"
  synchronized="false"
@@ -60880,7 +60880,7 @@
 >
 </constructor>
 <method name="getDragActor"
- return="com.guidebee.game.engine.scene.Actor"
+ return="com.guidebee.game.ui.UIComponent"
  abstract="false"
  native="false"
  synchronized="false"
@@ -60891,7 +60891,7 @@
 >
 </method>
 <method name="getInvalidDragActor"
- return="com.guidebee.game.engine.scene.Actor"
+ return="com.guidebee.game.ui.UIComponent"
  abstract="false"
  native="false"
  synchronized="false"
@@ -60913,7 +60913,7 @@
 >
 </method>
 <method name="getValidDragActor"
- return="com.guidebee.game.engine.scene.Actor"
+ return="com.guidebee.game.ui.UIComponent"
  abstract="false"
  native="false"
  synchronized="false"
@@ -60933,7 +60933,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="dragActor" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="dragActor" type="com.guidebee.game.ui.UIComponent">
 </parameter>
 </method>
 <method name="setInvalidDragActor"
@@ -60946,7 +60946,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="invalidDragActor" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="invalidDragActor" type="com.guidebee.game.ui.UIComponent">
 </parameter>
 </method>
 <method name="setObject"
@@ -60972,7 +60972,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="validDragActor" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="validDragActor" type="com.guidebee.game.ui.UIComponent">
 </parameter>
 </method>
 </class>
@@ -60991,7 +60991,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="actor" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="actor" type="com.guidebee.game.ui.UIComponent">
 </parameter>
 </constructor>
 <method name="dragStart"
@@ -61037,7 +61037,7 @@
 </parameter>
 </method>
 <method name="getActor"
- return="com.guidebee.game.engine.scene.Actor"
+ return="com.guidebee.game.ui.UIComponent"
  abstract="false"
  native="false"
  synchronized="false"
@@ -61063,7 +61063,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="actor" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="actor" type="com.guidebee.game.ui.UIComponent">
 </parameter>
 </constructor>
 <method name="drag"
@@ -61109,7 +61109,7 @@
 </parameter>
 </method>
 <method name="getActor"
- return="com.guidebee.game.engine.scene.Actor"
+ return="com.guidebee.game.ui.UIComponent"
  abstract="false"
  native="false"
  synchronized="false"
@@ -61402,7 +61402,7 @@
 >
 </method>
 <method name="getListenerActor"
- return="com.guidebee.game.engine.scene.Actor"
+ return="com.guidebee.game.ui.UIComponent"
  abstract="false"
  native="false"
  synchronized="false"
@@ -61413,7 +61413,7 @@
 >
 </method>
 <method name="getStage"
- return="com.guidebee.game.engine.scene.Stage"
+ return="com.guidebee.game.ui.UIWindow"
  abstract="false"
  native="false"
  synchronized="false"
@@ -61424,7 +61424,7 @@
 >
 </method>
 <method name="getTarget"
- return="com.guidebee.game.engine.scene.Actor"
+ return="com.guidebee.game.ui.UIComponent"
  abstract="false"
  native="false"
  synchronized="false"
@@ -61536,7 +61536,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="listenerActor" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="listenerActor" type="com.guidebee.game.ui.UIComponent">
 </parameter>
 </method>
 <method name="setStage"
@@ -61549,7 +61549,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="stage" type="com.guidebee.game.engine.scene.Stage">
+<parameter name="stage" type="com.guidebee.game.ui.UIWindow">
 </parameter>
 </method>
 <method name="setTarget"
@@ -61562,7 +61562,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="targetActor" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="targetActor" type="com.guidebee.game.ui.UIComponent">
 </parameter>
 </method>
 <method name="stop"
@@ -61641,7 +61641,7 @@
 >
 <parameter name="event" type="com.guidebee.game.ui.FocusListener.FocusEvent">
 </parameter>
-<parameter name="actor" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="actor" type="com.guidebee.game.ui.UIComponent">
 </parameter>
 <parameter name="focused" type="boolean">
 </parameter>
@@ -61658,7 +61658,7 @@
 >
 <parameter name="event" type="com.guidebee.game.ui.FocusListener.FocusEvent">
 </parameter>
-<parameter name="actor" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="actor" type="com.guidebee.game.ui.UIComponent">
 </parameter>
 <parameter name="focused" type="boolean">
 </parameter>
@@ -61681,7 +61681,7 @@
 >
 </constructor>
 <method name="getRelatedActor"
- return="com.guidebee.game.engine.scene.Actor"
+ return="com.guidebee.game.ui.UIComponent"
  abstract="false"
  native="false"
  synchronized="false"
@@ -61736,7 +61736,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="relatedActor" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="relatedActor" type="com.guidebee.game.ui.UIComponent">
 </parameter>
 </method>
 <method name="setType"
@@ -63090,7 +63090,7 @@
 >
 </method>
 <method name="getRelatedActor"
- return="com.guidebee.game.engine.scene.Actor"
+ return="com.guidebee.game.ui.UIComponent"
  abstract="false"
  native="false"
  synchronized="false"
@@ -63217,7 +63217,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="relatedActor" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="relatedActor" type="com.guidebee.game.ui.UIComponent">
 </parameter>
 </method>
 <method name="setScrollAmount"
@@ -63282,7 +63282,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="actor" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="actor" type="com.guidebee.game.ui.UIComponent">
 </parameter>
 <parameter name="actorCoords" type="com.guidebee.math.Vector2">
 </parameter>
@@ -63357,7 +63357,7 @@
 </parameter>
 <parameter name="pointer" type="int">
 </parameter>
-<parameter name="fromActor" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="fromActor" type="com.guidebee.game.ui.UIComponent">
 </parameter>
 </method>
 <method name="exit"
@@ -63378,7 +63378,7 @@
 </parameter>
 <parameter name="pointer" type="int">
 </parameter>
-<parameter name="toActor" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="toActor" type="com.guidebee.game.ui.UIComponent">
 </parameter>
 </method>
 <method name="handle"
@@ -64695,7 +64695,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="widget" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="widget" type="com.guidebee.game.ui.UIComponent">
 </parameter>
 </constructor>
 <constructor name="ScrollPane"
@@ -64705,7 +64705,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="widget" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="widget" type="com.guidebee.game.ui.UIComponent">
 </parameter>
 <parameter name="skin" type="com.guidebee.game.ui.Skin">
 </parameter>
@@ -64717,7 +64717,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="widget" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="widget" type="com.guidebee.game.ui.UIComponent">
 </parameter>
 <parameter name="skin" type="com.guidebee.game.ui.Skin">
 </parameter>
@@ -64731,7 +64731,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="widget" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="widget" type="com.guidebee.game.ui.UIComponent">
 </parameter>
 <parameter name="style" type="com.guidebee.game.ui.ScrollPane.ScrollPaneStyle">
 </parameter>
@@ -64963,7 +64963,7 @@
 >
 </method>
 <method name="getWidget"
- return="com.guidebee.game.engine.scene.Actor"
+ return="com.guidebee.game.ui.UIComponent"
  abstract="false"
  native="false"
  synchronized="false"
@@ -65353,7 +65353,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="widget" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="widget" type="com.guidebee.game.ui.UIComponent">
 </parameter>
 </method>
 <method name="setupFadeScrollBars"
@@ -66137,7 +66137,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="actor" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="actor" type="com.guidebee.game.ui.UIComponent">
 </parameter>
 </method>
 <method name="setAll"
@@ -66682,7 +66682,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="actor" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="actor" type="com.guidebee.game.ui.UIComponent">
 </parameter>
 <parameter name="enabled" type="boolean">
 </parameter>
@@ -66868,9 +66868,9 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="firstWidget" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="firstWidget" type="com.guidebee.game.ui.UIComponent">
 </parameter>
-<parameter name="secondWidget" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="secondWidget" type="com.guidebee.game.ui.UIComponent">
 </parameter>
 <parameter name="vertical" type="boolean">
 </parameter>
@@ -66884,9 +66884,9 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="firstWidget" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="firstWidget" type="com.guidebee.game.ui.UIComponent">
 </parameter>
-<parameter name="secondWidget" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="secondWidget" type="com.guidebee.game.ui.UIComponent">
 </parameter>
 <parameter name="vertical" type="boolean">
 </parameter>
@@ -66902,9 +66902,9 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="firstWidget" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="firstWidget" type="com.guidebee.game.ui.UIComponent">
 </parameter>
-<parameter name="secondWidget" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="secondWidget" type="com.guidebee.game.ui.UIComponent">
 </parameter>
 <parameter name="vertical" type="boolean">
 </parameter>
@@ -66943,7 +66943,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="widget" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="widget" type="com.guidebee.game.ui.UIComponent">
 </parameter>
 </method>
 <method name="setMaxSplitAmount"
@@ -66982,7 +66982,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="widget" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="widget" type="com.guidebee.game.ui.UIComponent">
 </parameter>
 </method>
 <method name="setSplitAmount"
@@ -67098,7 +67098,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="actor" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="actor" type="com.guidebee.game.ui.UIComponent">
 </parameter>
 </method>
 </class>
@@ -67151,7 +67151,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="actors" type="com.guidebee.game.engine.scene.Actor...">
+<parameter name="actors" type="com.guidebee.game.ui.UIComponent...">
 </parameter>
 </method>
 <method name="add"
@@ -67873,7 +67873,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="actors" type="com.guidebee.game.engine.scene.Actor...">
+<parameter name="actors" type="com.guidebee.game.ui.UIComponent...">
 </parameter>
 </method>
 <method name="top"
@@ -69644,7 +69644,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="actor" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="actor" type="com.guidebee.game.ui.UIComponent">
 </parameter>
 </constructor>
 <method name="add"
@@ -69733,7 +69733,7 @@
 </parameter>
 </method>
 <method name="getActor"
- return="com.guidebee.game.engine.scene.Actor"
+ return="com.guidebee.game.ui.UIComponent"
  abstract="false"
  native="false"
  synchronized="false"
@@ -70255,7 +70255,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="context" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="context" type="com.guidebee.game.ui.UIComponent">
 </parameter>
 </method>
 <method name="percentHeight"
@@ -70283,7 +70283,7 @@
 >
 <parameter name="percent" type="float">
 </parameter>
-<parameter name="actor" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="actor" type="com.guidebee.game.ui.UIComponent">
 </parameter>
 </method>
 <method name="percentWidth"
@@ -70311,7 +70311,7 @@
 >
 <parameter name="percent" type="float">
 </parameter>
-<parameter name="actor" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="actor" type="com.guidebee.game.ui.UIComponent">
 </parameter>
 </method>
 <field name="maxHeight"
@@ -70413,7 +70413,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="context" type="com.guidebee.game.engine.scene.Actor">
+<parameter name="context" type="com.guidebee.game.ui.UIComponent">
 </parameter>
 </method>
 </class>
@@ -70727,7 +70727,7 @@
 </method>
 </class>
 <class name="Widget"
- extends="com.guidebee.game.engine.scene.Actor"
+ extends="com.guidebee.game.ui.UIComponent"
  abstract="false"
  static="false"
  final="false"
@@ -70904,7 +70904,7 @@
 </method>
 </class>
 <class name="WidgetGroup"
- extends="com.guidebee.game.engine.scene.Group"
+ extends="com.guidebee.game.ui.UIContainer"
  abstract="false"
  static="false"
  final="false"

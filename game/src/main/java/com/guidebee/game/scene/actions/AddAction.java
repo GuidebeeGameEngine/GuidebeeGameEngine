@@ -17,7 +17,7 @@
 package com.guidebee.game.scene.actions;
 
 //--------------------------------- IMPORTS ------------------------------------
-import com.guidebee.game.engine.scene.Actor;
+import com.guidebee.game.ui.UIComponent;
 
 //[------------------------------ MAIN CLASS ----------------------------------]
 /**
@@ -26,7 +26,7 @@ import com.guidebee.game.engine.scene.Actor;
  * @author Nathan Sweet
  */
 public class AddAction extends Action {
-    private Actor targetActor;
+    private UIComponent targetActor;
     private Action action;
 
     public boolean act(float delta) {
@@ -34,7 +34,7 @@ public class AddAction extends Action {
         return true;
     }
 
-    public Actor getTargetActor() {
+    public UIComponent getTargetActor() {
         return targetActor;
     }
 
@@ -42,7 +42,7 @@ public class AddAction extends Action {
      * Sets the actor to add an action to. If null (the default),
      * the {@link #getActor() actor} will be used.
      */
-    public void setTargetActor(Actor actor) {
+    public void setTargetActor(UIComponent actor) {
         this.targetActor = actor;
     }
 

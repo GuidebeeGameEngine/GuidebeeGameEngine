@@ -18,8 +18,6 @@ package com.guidebee.game.ui;
 
 //--------------------------------- IMPORTS ------------------------------------
 
-import com.guidebee.game.engine.scene.Actor;
-import com.guidebee.game.engine.scene.Stage;
 import com.guidebee.math.Vector2;
 import com.guidebee.utils.collections.Array;
 import com.guidebee.utils.collections.ObjectMap;
@@ -36,7 +34,7 @@ public class DragAndDrop {
     static final Vector2 tmpVector = new Vector2();
 
     Payload payload;
-    Actor dragActor;
+    UIComponent dragActor;
     Target target;
     boolean isValidTarget;
     Array<Target> targets = new Array();
@@ -70,7 +68,7 @@ public class DragAndDrop {
                 if (payload == null) return;
                 if (pointer != activePointer) return;
 
-                Stage stage = event.getStage();
+                UIWindow stage = event.getStage();
 
                 Touchable dragActorTouchable = null;
                 if (dragActor != null) {
@@ -83,7 +81,7 @@ public class DragAndDrop {
                 isValidTarget = false;
                 float stageX = event.getStageX() + touchOffsetX,
                         stageY = event.getStageY() + touchOffsetY;
-                Actor hit = event.getStage().hit(stageX, stageY, true);
+                UIComponent hit = event.getStage().hit(stageX, stageY, true);
                 // Prefer touchable actors.
                 if (hit == null) hit = event.getStage().hit(stageX, stageY, false);
                 if (hit != null) {
@@ -105,7 +103,7 @@ public class DragAndDrop {
                 if (dragActor != null) dragActor.setTouchable(dragActorTouchable);
 
                 // Add/remove and position the drag actor.
-                Actor actor = null;
+                UIComponent actor = null;
                 if (target != null) actor = isValidTarget
                         ? payload.validDragActor : payload.invalidDragActor;
                 if (actor == null) actor = payload.dragActor;
@@ -213,7 +211,7 @@ public class DragAndDrop {
     /**
      * Returns the current drag actor, or null.
      */
-    public Actor getDragActor() {
+    public UIComponent getDragActor() {
         return dragActor;
     }
 
@@ -232,9 +230,9 @@ public class DragAndDrop {
      * @author Nathan Sweet
      */
     static abstract public class Source {
-        final Actor actor;
+        final UIComponent actor;
 
-        public Source(Actor actor) {
+        public Source(UIComponent actor) {
             if (actor == null)
                 throw new IllegalArgumentException("actor cannot be null.");
             this.actor = actor;
@@ -253,7 +251,7 @@ public class DragAndDrop {
                              Payload payload, Target target) {
         }
 
-        public Actor getActor() {
+        public UIComponent getActor() {
             return actor;
         }
     }
@@ -264,13 +262,13 @@ public class DragAndDrop {
      * @author Nathan Sweet
      */
     static abstract public class Target {
-        final Actor actor;
+        final UIComponent actor;
 
-        public Target(Actor actor) {
+        public Target(UIComponent actor) {
             if (actor == null)
                 throw new IllegalArgumentException("actor cannot be null.");
             this.actor = actor;
-            Stage stage = actor.getStage();
+            UIWindow stage = actor.getStage();
             if (stage != null && actor == stage.getRoot())
                 throw new IllegalArgumentException(
                         "The stage root cannot be a drag and drop target.");
@@ -295,7 +293,7 @@ public class DragAndDrop {
         abstract public void drop(Source source, Payload payload, float x,
                                   float y, int pointer);
 
-        public Actor getActor() {
+        public UIComponent getActor() {
             return actor;
         }
     }
@@ -306,30 +304,30 @@ public class DragAndDrop {
      * target.
      */
     static public class Payload {
-        Actor dragActor, validDragActor, invalidDragActor;
+        UIComponent dragActor, validDragActor, invalidDragActor;
         Object object;
 
-        public void setDragActor(Actor dragActor) {
+        public void setDragActor(UIComponent dragActor) {
             this.dragActor = dragActor;
         }
 
-        public Actor getDragActor() {
+        public UIComponent getDragActor() {
             return dragActor;
         }
 
-        public void setValidDragActor(Actor validDragActor) {
+        public void setValidDragActor(UIComponent validDragActor) {
             this.validDragActor = validDragActor;
         }
 
-        public Actor getValidDragActor() {
+        public UIComponent getValidDragActor() {
             return validDragActor;
         }
 
-        public void setInvalidDragActor(Actor invalidDragActor) {
+        public void setInvalidDragActor(UIComponent invalidDragActor) {
             this.invalidDragActor = invalidDragActor;
         }
 
-        public Actor getInvalidDragActor() {
+        public UIComponent getInvalidDragActor() {
             return invalidDragActor;
         }
 

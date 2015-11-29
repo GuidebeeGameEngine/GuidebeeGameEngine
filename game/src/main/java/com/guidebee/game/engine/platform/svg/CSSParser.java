@@ -799,7 +799,7 @@ public class CSSParser {
     private static boolean selectorMatch(SimpleSelector sel, List<SVG.SvgContainer> ancestors, int ancestorsPos, SVG.SvgElementBase obj) {
         // Check tag name. tag==null means tag is "*" which matches everything.
         if (sel.tag != null) {
-            // The Group object does not match its tag ("<g>"), so we have to handle it as a special case.
+            // The UIContainer object does not match its tag ("<g>"), so we have to handle it as a special case.
             if (sel.tag.equalsIgnoreCase("G")) {
                 if (!(obj instanceof SVG.Group))
                     return false;

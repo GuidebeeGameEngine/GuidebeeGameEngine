@@ -20,9 +20,6 @@ package com.guidebee.game.ui;
 
 import com.guidebee.game.GameEngine;
 import com.guidebee.game.Input;
-import com.guidebee.game.engine.scene.Actor;
-import com.guidebee.game.engine.scene.Group;
-import com.guidebee.game.engine.scene.Stage;
 import com.guidebee.game.graphics.Batch;
 import com.guidebee.game.graphics.BitmapFont;
 import com.guidebee.game.graphics.Color;
@@ -276,7 +273,7 @@ public class TextField extends Widget implements Disableable {
 
     @Override
     public void draw(Batch batch, float parentAlpha) {
-        Stage stage = getStage();
+        UIWindow stage = getStage();
         boolean focused = stage != null && stage.getKeyboardFocus() == this;
 
         final BitmapFont font = style.font;
@@ -490,7 +487,7 @@ public class TextField extends Widget implements Disableable {
      *           is found, else the next highest.
      */
     public void next(boolean up) {
-        Stage stage = getStage();
+        UIWindow stage = getStage();
         if (stage == null) return;
         getParent().localToStageCoordinates(tmp1.set(getX(), getY()));
         TextField textField = findNextTextField(stage.getActors(), null, tmp2, tmp1, up);
@@ -507,10 +504,10 @@ public class TextField extends Widget implements Disableable {
             GameEngine.input.setOnscreenKeyboardVisible(false);
     }
 
-    private TextField findNextTextField(Array<Actor> actors, TextField best, Vector2 bestCoords,
+    private TextField findNextTextField(Array<UIComponent> actors, TextField best, Vector2 bestCoords,
                                         Vector2 currentCoords, boolean up) {
         for (int i = 0, n = actors.size; i < n; i++) {
-            Actor actor = actors.get(i);
+            UIComponent actor = actors.get(i);
             if (actor == this) continue;
             if (actor instanceof TextField) {
                 TextField textField = (TextField) actor;
@@ -528,8 +525,8 @@ public class TextField extends Widget implements Disableable {
                         bestCoords.set(actorCoords);
                     }
                 }
-            } else if (actor instanceof Group)
-                best = findNextTextField(((Group) actor).getChildren(), best,
+            } else if (actor instanceof UIContainer)
+                best = findNextTextField(((UIContainer) actor).getChildren(), best,
                         bestCoords, currentCoords, up);
         }
         return best;
@@ -817,7 +814,7 @@ public class TextField extends Widget implements Disableable {
             if (disabled) return true;
             setCursorPosition(x, y);
             selectionStart = cursor;
-            Stage stage = getStage();
+            UIWindow stage = getStage();
             if (stage != null) stage.setKeyboardFocus(TextField.this);
             keyboard.show(true);
             hasSelection = true;
@@ -856,7 +853,7 @@ public class TextField extends Widget implements Disableable {
             lastBlink = 0;
             cursorOn = false;
 
-            Stage stage = getStage();
+            UIWindow stage = getStage();
             if (stage == null || stage.getKeyboardFocus() != TextField.this)
                 return false;
 
@@ -965,7 +962,7 @@ public class TextField extends Widget implements Disableable {
         public boolean keyTyped(InputEvent event, char character) {
             if (disabled) return false;
 
-            Stage stage = getStage();
+            UIWindow stage = getStage();
             if (stage == null || stage.getKeyboardFocus() != TextField.this) return false;
 
             if ((character == TAB || character == ENTER_ANDROID) && focusTraversal) {
