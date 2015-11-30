@@ -64,7 +64,7 @@ import com.guidebee.utils.collections.DelayedRemovalArray;
  * @author Nathan Sweet
  */
 public class UIComponent {
-    private UIWindow stage;
+    private UIWindow window;
     UIContainer parent;
     private final DelayedRemovalArray<EventListener>
             listeners = new DelayedRemovalArray(0);
@@ -148,7 +148,7 @@ public class UIComponent {
     /**
      * Sets this component as the event {@link Event#setTarget(UIComponent) target}
      * and propagates the event to this component and ancestor
-     * components as necessary. If this component is not in the stage, the stage
+     * components as necessary. If this component is not in the window, the window
      * must be set before calling this method.
      * <p>
      * Events are fired in 2 phases.
@@ -166,7 +166,7 @@ public class UIComponent {
      * @return true if the event was {@link com.guidebee.game.ui.Event#cancel() cancelled}.
      */
     public boolean fire(Event event) {
-        if (event.getStage() == null) event.setStage(getStage());
+        if (event.getWindow() == null) event.setWindow(getWindow());
         event.setTarget(this);
 
         // Collect ancestors so event propagation is unaffected by hierarchy changes.
@@ -215,8 +215,8 @@ public class UIComponent {
      * propagated to any parents. Before notifying the listeners,
      * this component is set as the {@link com.guidebee.game.ui.Event#getListenerComponent() listener component}.
      * The event {@link Event#setTarget(UIComponent) target}
-     * must be set before calling this method. If this component is not in the stage,
-     * the stage must be set before calling this method.
+     * must be set before calling this method. If this component is not in the window,
+     * the window must be set before calling this method.
      *
      * @param capture If true, the capture listeners will be notified instead of
      *                the regular listeners.
@@ -232,7 +232,7 @@ public class UIComponent {
 
         event.setListenerComponent(this);
         event.setCapture(capture);
-        if (event.getStage() == null) event.setStage(stage);
+        if (event.getWindow() == null) event.setWindow(window);
 
         listeners.begin();
         for (int i = 0, n = listeners.size; i < n; i++) {
@@ -242,7 +242,7 @@ public class UIComponent {
                 if (event instanceof InputEvent) {
                     InputEvent inputEvent = (InputEvent) event;
                     if (inputEvent.getType() == InputEvent.Type.touchDown) {
-                        event.getStage().addTouchFocus(listener, this,
+                        event.getWindow().addTouchFocus(listener, this,
                                 inputEvent.getTarget(), inputEvent.getPointer(),
                                 inputEvent.getButton());
                     }
@@ -367,20 +367,20 @@ public class UIComponent {
     }
 
     /**
-     * Returns the stage that this component is currently in, or null if not in a stage.
+     * Returns the window that this component is currently in, or null if not in a window.
      */
-    public UIWindow getStage() {
-        return stage;
+    public UIWindow getWindow() {
+        return window;
     }
 
     /**
      * Called by the framework when this component or any parent is added to a
-     * group that is in the stage.
+     * group that is in the window.
      *
-     * @param stage May be null if the component or any parent is no longer in a stage.
+     * @param window May be null if the component or any parent is no longer in a window.
      */
-    protected void setWindow(UIWindow stage) {
-        this.stage = stage;
+    protected void setWindow(UIWindow window) {
+        this.window = window;
     }
 
     /**
@@ -823,8 +823,8 @@ public class UIComponent {
 
     /**
      * Clips the specified screen aligned rectangle, specified relative to the
-     * transform matrix of the stage's Batch. The transform
-     * matrix and the stage's camera must not have rotational components.
+     * transform matrix of the window's Batch. The transform
+     * matrix and the window's camera must not have rotational components.
      * Calling this method must be followed by a call to
      * {@link #clipEnd()} if true is returned.
      *
@@ -838,9 +838,9 @@ public class UIComponent {
         tableBounds.y = y;
         tableBounds.width = width;
         tableBounds.height = height;
-        UIWindow stage = this.stage;
+        UIWindow window = this.window;
         Rectangle scissorBounds = Pools.obtain(Rectangle.class);
-        stage.calculateScissors(tableBounds, scissorBounds);
+        window.calculateScissors(tableBounds, scissorBounds);
         if (ScissorStack.pushScissors(scissorBounds)) return true;
         Pools.free(scissorBounds);
         return false;
@@ -858,29 +858,29 @@ public class UIComponent {
      * local coordinate system.
      */
     public Vector2 screenToLocalCoordinates(Vector2 screenCoords) {
-        UIWindow stage = this.stage;
-        if (stage == null) return screenCoords;
-        return stageToLocalCoordinates(stage.screenToStageCoordinates(screenCoords));
+        UIWindow window = this.window;
+        if (window == null) return screenCoords;
+        return windowToLocalCoordinates(window.screenToWindowCoordinates(screenCoords));
     }
 
     /**
-     * Transforms the specified point in the stage's coordinates to the
+     * Transforms the specified point in the window's coordinates to the
      * component's local coordinate system.
      */
-    public Vector2 stageToLocalCoordinates(Vector2 stageCoords) {
-        if (parent == null) return stageCoords;
-        parent.stageToLocalCoordinates(stageCoords);
-        parentToLocalCoordinates(stageCoords);
-        return stageCoords;
+    public Vector2 windowToLocalCoordinates(Vector2 windowCoords) {
+        if (parent == null) return windowCoords;
+        parent.windowToLocalCoordinates(windowCoords);
+        parentToLocalCoordinates(windowCoords);
+        return windowCoords;
     }
 
     /**
      * Transforms the specified point in the component's coordinates to be
-     * in the stage's coordinates.
+     * in the window's coordinates.
      *
      * @see UIWindow#toScreenCoordinates(Vector2, com.guidebee.math.Matrix4)
      */
-    public Vector2 localToStageCoordinates(Vector2 localCoords) {
+    public Vector2 localToWindowCoordinates(Vector2 localCoords) {
         return localToAscendantCoordinates(null, localCoords);
     }
 
@@ -977,7 +977,7 @@ public class UIComponent {
     protected void drawDebugBounds(ShapeRenderer shapes) {
         if (!getDebug()) return;
         shapes.set(ShapeRenderer.ShapeType.Line);
-        shapes.setColor(getStage().getDebugColor());
+        shapes.setColor(getWindow().getDebugColor());
         shapes.rect(getX(), getY(), getOriginX(), getOriginY(), getWidth(),
                 getHeight(), getScaleX(), getScaleY(), getRotation());
     }

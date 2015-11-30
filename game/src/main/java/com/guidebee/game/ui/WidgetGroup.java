@@ -92,12 +92,12 @@ public class WidgetGroup extends UIContainer implements Layout {
         if (!layoutEnabled) return;
         UIContainer parent = getParent();
         if (fillParent && parent != null) {
-            UIWindow stage = getStage();
+            UIWindow window = getWindow();
 
             float parentWidth, parentHeight;
-            if (stage != null && parent == stage.getRoot()) {
-                parentWidth = stage.getWidth();
-                parentHeight = stage.getHeight();
+            if (window != null && parent == window.getRoot()) {
+                parentWidth = window.getWidth();
+                parentHeight = window.getHeight();
             } else {
                 parentWidth = parent.getWidth();
                 parentHeight = parent.getHeight();

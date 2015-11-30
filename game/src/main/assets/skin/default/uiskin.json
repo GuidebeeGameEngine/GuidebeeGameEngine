@@ -33,7 +33,7 @@ com.guidebee.game.ui.SplitPane$SplitPaneStyle: {
 },
 com.guidebee.game.ui.ChildWindow$WindowStyle: {
 	default: { titleFont: default-font, background: default-window, titleFontColor: white },
-	dialog: { titleFont: default-font, background: default-window, titleFontColor: white, stageBackground: dialogDim }
+	dialog: { titleFont: default-font, background: default-window, titleFontColor: white, windowBackground: dialogDim }
 },
 com.guidebee.game.ui.ProgressBar$ProgressBarStyle: {
 	default-horizontal: { background: default-slider, knob: default-slider-knob },

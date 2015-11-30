@@ -29,7 +29,7 @@ import com.guidebee.math.Vector2;
  */
 public class InputEvent extends Event {
     private Type type;
-    private float stageX, stageY;
+    private float windowX, windowY;
     private int pointer, button, keyCode, scrollAmount;
     private char character;
     private UIComponent relatedComponent;
@@ -41,27 +41,27 @@ public class InputEvent extends Event {
     }
 
     /**
-     * The stage x coordinate where the event occurred. Valid for: touchDown,
+     * The window x coordinate where the event occurred. Valid for: touchDown,
      * touchDragged, touchUp, mouseMoved, enter, and exit.
      */
-    public float getStageX() {
-        return stageX;
+    public float getWindowX() {
+        return windowX;
     }
 
-    public void setStageX(float stageX) {
-        this.stageX = stageX;
+    public void setWindowX(float windowX) {
+        this.windowX = windowX;
     }
 
     /**
-     * The stage x coordinate where the event occurred. Valid for: touchDown,
+     * The window x coordinate where the event occurred. Valid for: touchDown,
      * touchDragged, touchUp, mouseMoved, enter, and exit.
      */
-    public float getStageY() {
-        return stageY;
+    public float getWindowY() {
+        return windowY;
     }
 
-    public void setStageY(float stageY) {
-        this.stageY = stageY;
+    public void setWindowY(float windowY) {
+        this.windowY = windowY;
     }
 
     /**
@@ -157,8 +157,8 @@ public class InputEvent extends Event {
      * @param componentCoords Output for resulting coordinates.
      */
     public Vector2 toCoordinates(UIComponent component, Vector2 componentCoords) {
-        componentCoords.set(stageX, stageY);
-        component.stageToLocalCoordinates(componentCoords);
+        componentCoords.set(windowX, windowY);
+        component.windowToLocalCoordinates(componentCoords);
         return componentCoords;
     }
 
@@ -166,7 +166,7 @@ public class InputEvent extends Event {
      * Returns true of this event is a touchUp triggered by {@link UIWindow#cancelTouchFocus()}.
      */
     public boolean isTouchFocusCancel() {
-        return stageX == Integer.MIN_VALUE || stageY == Integer.MIN_VALUE;
+        return windowX == Integer.MIN_VALUE || windowY == Integer.MIN_VALUE;
     }
 
     public String toString() {
@@ -174,19 +174,19 @@ public class InputEvent extends Event {
     }
 
     /**
-     * Types of low-level input events supported by stage2d.
+     * Types of low-level input events supported by window2d.
      */
     static public enum Type {
         /**
-         * A new touch for a pointer on the stage was detected
+         * A new touch for a pointer on the window was detected
          */
         touchDown,
         /**
-         * A pointer has stopped touching the stage.
+         * A pointer has stopped touching the window.
          */
         touchUp,
         /**
-         * A pointer that is touching the stage has moved.
+         * A pointer that is touching the window has moved.
          */
         touchDragged,
         /**

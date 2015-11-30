@@ -338,7 +338,7 @@ public class UIContainer extends UIComponent implements Cullable {
         component.remove();
         children.add(component);
         component.setParent(this);
-        component.setWindow(getStage());
+        component.setWindow(getWindow());
         childrenChanged();
     }
 
@@ -355,7 +355,7 @@ public class UIContainer extends UIComponent implements Cullable {
         else
             children.insert(index, component);
         component.setParent(this);
-        component.setWindow(getStage());
+        component.setWindow(getWindow());
         childrenChanged();
     }
 
@@ -369,7 +369,7 @@ public class UIContainer extends UIComponent implements Cullable {
         int index = children.indexOf(componentBefore, true);
         children.insert(index, component);
         component.setParent(this);
-        component.setWindow(getStage());
+        component.setWindow(getWindow());
         childrenChanged();
     }
 
@@ -386,7 +386,7 @@ public class UIContainer extends UIComponent implements Cullable {
         else
             children.insert(index + 1, component);
         component.setParent(this);
-        component.setWindow(getStage());
+        component.setWindow(getWindow());
         childrenChanged();
     }
 
@@ -400,8 +400,8 @@ public class UIContainer extends UIComponent implements Cullable {
      */
     public boolean removeComponent(UIComponent component) {
         if (!children.removeValue(component, true)) return false;
-        UIWindow stage = getStage();
-        if (stage != null) stage.unfocus(component);
+        UIWindow window = getWindow();
+        if (window != null) window.unfocus(component);
         component.setParent(null);
         component.setWindow(null);
         childrenChanged();
@@ -449,11 +449,11 @@ public class UIContainer extends UIComponent implements Cullable {
         return null;
     }
 
-    protected void setWindow(UIWindow stage) {
-        super.setWindow(stage);
+    protected void setWindow(UIWindow window) {
+        super.setWindow(window);
         UIComponent[] childrenArray = children.items;
         for (int i = 0, n = children.size; i < n; i++)
-            childrenArray[i].setWindow(stage);
+            childrenArray[i].setWindow(window);
     }
 
     /**

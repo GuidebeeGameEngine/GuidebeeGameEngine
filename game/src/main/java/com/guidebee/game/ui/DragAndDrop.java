@@ -68,7 +68,7 @@ public class DragAndDrop {
                 if (payload == null) return;
                 if (pointer != activePointer) return;
 
-                UIWindow stage = event.getStage();
+                UIWindow window = event.getWindow();
 
                 Touchable dragComponentTouchable = null;
                 if (dragComponent != null) {
@@ -79,17 +79,17 @@ public class DragAndDrop {
                 // Find target.
                 Target newTarget = null;
                 isValidTarget = false;
-                float stageX = event.getStageX() + touchOffsetX,
-                        stageY = event.getStageY() + touchOffsetY;
-                UIComponent hit = event.getStage().hit(stageX, stageY, true);
+                float windowX = event.getWindowX() + touchOffsetX,
+                        windowY = event.getWindowY() + touchOffsetY;
+                UIComponent hit = event.getWindow().hit(windowX, windowY, true);
                 // Prefer touchable components.
-                if (hit == null) hit = event.getStage().hit(stageX, stageY, false);
+                if (hit == null) hit = event.getWindow().hit(windowX, windowY, false);
                 if (hit != null) {
                     for (int i = 0, n = targets.size; i < n; i++) {
                         Target target = targets.get(i);
                         if (!target.component.isAscendantOf(hit)) continue;
                         newTarget = target;
-                        target.component.stageToLocalCoordinates(tmpVector.set(stageX, stageY));
+                        target.component.windowToLocalCoordinates(tmpVector.set(windowX, windowY));
                         isValidTarget = target.drag(source, payload, tmpVector.x,
                                 tmpVector.y, pointer);
                         break;
@@ -111,16 +111,16 @@ public class DragAndDrop {
                 if (dragComponent != component) {
                     if (dragComponent != null) dragComponent.remove();
                     dragComponent = component;
-                    stage.addComponent(component);
+                    window.addComponent(component);
                 }
-                float componentX = event.getStageX() + dragComponentX;
-                float componentY = event.getStageY() + dragComponentY - component.getHeight();
+                float componentX = event.getWindowX() + dragComponentX;
+                float componentY = event.getWindowY() + dragComponentY - component.getHeight();
                 if (componentX < 0) componentX = 0;
                 if (componentY < 0) componentY = 0;
-                if (componentX + component.getWidth() > stage.getWidth())
-                    componentX = stage.getWidth() - component.getWidth();
-                if (componentY + component.getHeight() > stage.getHeight())
-                    componentY = stage.getHeight() - component.getHeight();
+                if (componentX + component.getWidth() > window.getWidth())
+                    componentX = window.getWidth() - component.getWidth();
+                if (componentY + component.getHeight() > window.getHeight())
+                    componentY = window.getHeight() - component.getHeight();
                 component.setPosition(componentX, componentY);
             }
 
@@ -133,9 +133,9 @@ public class DragAndDrop {
                     isValidTarget = false;
                 if (dragComponent != null) dragComponent.remove();
                 if (isValidTarget) {
-                    float stageX = event.getStageX() + touchOffsetX,
-                            stageY = event.getStageY() + touchOffsetY;
-                    target.component.stageToLocalCoordinates(tmpVector.set(stageX, stageY));
+                    float windowX = event.getWindowX() + touchOffsetX,
+                            windowY = event.getWindowY() + touchOffsetY;
+                    target.component.windowToLocalCoordinates(tmpVector.set(windowX, windowY));
                     target.drop(source, payload, tmpVector.x, tmpVector.y, pointer);
                 }
                 source.dragStop(event, x, y, pointer, payload, isValidTarget ? target : null);
@@ -196,7 +196,7 @@ public class DragAndDrop {
     }
 
     /**
-     * Sets an offset in stage coordinates from the touch position which
+     * Sets an offset in window coordinates from the touch position which
      * is used to determine the drop location. Default is 0,0.
      */
     public void setTouchOffset(float touchOffsetX, float touchOffsetY) {
@@ -268,10 +268,10 @@ public class DragAndDrop {
             if (component == null)
                 throw new IllegalArgumentException("component cannot be null.");
             this.component = component;
-            UIWindow stage = component.getStage();
-            if (stage != null && component == stage.getRoot())
+            UIWindow window = component.getWindow();
+            if (window != null && component == window.getRoot())
                 throw new IllegalArgumentException(
-                        "The stage root cannot be a drag and drop target.");
+                        "The window root cannot be a drag and drop target.");
         }
 
         /**

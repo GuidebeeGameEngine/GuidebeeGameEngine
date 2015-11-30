@@ -79,10 +79,10 @@ public class Widget extends UIComponent implements Layout {
         UIContainer parent = getParent();
         if (fillParent && parent != null) {
             float parentWidth, parentHeight;
-            UIWindow stage = getStage();
-            if (stage != null && parent == stage.getRoot()) {
-                parentWidth = stage.getWidth();
-                parentHeight = stage.getHeight();
+            UIWindow window = getWindow();
+            if (window != null && parent == window.getRoot()) {
+                parentWidth = window.getWidth();
+                parentHeight = window.getHeight();
             } else {
                 parentWidth = parent.getWidth();
                 parentHeight = parent.getHeight();

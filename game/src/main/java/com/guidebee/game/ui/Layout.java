@@ -83,8 +83,8 @@ public interface Layout {
 
     /**
      * If true, this component will be sized to the parent in {@link #validate()}. If the
-     * parent is the stage, the component will be sized
-     * to the stage.
+     * parent is the window, the component will be sized
+     * to the window.
      */
     public void setFillParent(boolean fillParent);
 

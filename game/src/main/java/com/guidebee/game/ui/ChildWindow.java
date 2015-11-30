@@ -51,7 +51,7 @@ public class ChildWindow extends Table {
     int resizeBorder = 8;
     boolean dragging;
     private int titleAlignment = Align.center;
-    boolean keepWithinStage = true;
+    boolean keepWithinWindow = true;
     Table buttonTable;
 
     public ChildWindow(String title, Skin skin) {
@@ -137,8 +137,8 @@ public class ChildWindow extends Table {
 
                 float minWidth = getMinWidth(), maxWidth = getMaxWidth();
                 float minHeight = getMinHeight(), maxHeight = getMaxHeight();
-                UIWindow stage = getStage();
-                boolean clampPosition = keepWithinStage && getParent() == stage.getRoot();
+                UIWindow window = getWindow();
+                boolean clampPosition = keepWithinWindow && getParent() == window.getRoot();
 
                 if ((edge & MOVE) != 0) {
                     float amountX = x - startX, amountY = y - startY;
@@ -162,15 +162,15 @@ public class ChildWindow extends Table {
                 if ((edge & Align.right) != 0) {
                     float amountX = x - lastX;
                     if (width + amountX < minWidth) amountX = minWidth - width;
-                    if (clampPosition && windowX + width + amountX > stage.getWidth())
-                        amountX = stage.getWidth() - windowX - width;
+                    if (clampPosition && windowX + width + amountX > window.getWidth())
+                        amountX = window.getWidth() - windowX - width;
                     width += amountX;
                 }
                 if ((edge & Align.top) != 0) {
                     float amountY = y - lastY;
                     if (height + amountY < minHeight) amountY = minHeight - height;
-                    if (clampPosition && windowY + height + amountY > stage.getHeight())
-                        amountY = stage.getHeight() - windowY - height;
+                    if (clampPosition && windowY + height + amountY > window.getHeight())
+                        amountY = window.getHeight() - windowY - height;
                     height += amountY;
                 }
                 lastX = x;
@@ -221,12 +221,12 @@ public class ChildWindow extends Table {
         return style;
     }
 
-    void keepWithinStage() {
-        if (!keepWithinStage) return;
-        UIWindow stage = getStage();
-        if (getParent() == stage.getRoot()) {
-            float parentWidth = stage.getWidth();
-            float parentHeight = stage.getHeight();
+    void keepWithinWindow() {
+        if (!keepWithinWindow) return;
+        UIWindow window = getWindow();
+        if (getParent() == window.getRoot()) {
+            float parentWidth = window.getWidth();
+            float parentHeight = window.getHeight();
             if (getX() < 0) setX(0);
             if (getRight() > parentWidth) setX(parentWidth - getWidth());
             if (getY() < 0) setY(0);
@@ -235,15 +235,15 @@ public class ChildWindow extends Table {
     }
 
     public void draw(Batch batch, float parentAlpha) {
-        UIWindow stage = getStage();
-        if (stage.getKeyboardFocus() == null) stage.setKeyboardFocus(this);
+        UIWindow window = getWindow();
+        if (window.getKeyboardFocus() == null) window.setKeyboardFocus(this);
 
-        keepWithinStage();
+        keepWithinWindow();
 
-        if (style.stageBackground != null) {
-            stageToLocalCoordinates(tmpPosition.set(0, 0));
-            stageToLocalCoordinates(tmpSize.set(stage.getWidth(), stage.getHeight()));
-            drawStageBackground(batch, parentAlpha, getX() + tmpPosition.x,
+        if (style.windowBackground != null) {
+            windowToLocalCoordinates(tmpPosition.set(0, 0));
+            windowToLocalCoordinates(tmpSize.set(window.getWidth(), window.getHeight()));
+            drawWindowBackground(batch, parentAlpha, getX() + tmpPosition.x,
                     getY() + tmpPosition.y, getX() + tmpSize.x, getY()
                             + tmpSize.y);
         }
@@ -251,11 +251,11 @@ public class ChildWindow extends Table {
         super.draw(batch, parentAlpha);
     }
 
-    protected void drawStageBackground(Batch batch, float parentAlpha, float x,
+    protected void drawWindowBackground(Batch batch, float parentAlpha, float x,
                                        float y, float width, float height) {
         Color color = getColor();
         batch.setColor(color.r, color.g, color.b, color.a * parentAlpha);
-        style.stageBackground.draw(batch, x, y, width, height);
+        style.windowBackground.draw(batch, x, y, width, height);
     }
 
     protected void drawBackground(Batch batch, float parentAlpha, float x, float y) {
@@ -340,8 +340,8 @@ public class ChildWindow extends Table {
         this.isModal = isModal;
     }
 
-    public void setKeepWithinStage(boolean keepWithinStage) {
-        this.keepWithinStage = keepWithinStage;
+    public void setKeepWithinWindow(boolean keepWithinWindow) {
+        this.keepWithinWindow = keepWithinWindow;
     }
 
     public boolean isResizable() {
@@ -390,7 +390,7 @@ public class ChildWindow extends Table {
         /**
          * Optional.
          */
-        public Drawable stageBackground;
+        public Drawable windowBackground;
 
         public WindowStyle() {
         }

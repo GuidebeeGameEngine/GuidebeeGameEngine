@@ -736,7 +736,7 @@ public class Actor implements Collidable {
      * Returns the stage that this actor is currently in, or null if not in a stage.
      */
     public Stage getStage() {
-        UIWindow stage = internalActor.getStage();
+        UIWindow stage = internalActor.getWindow();
         if (stage != null) {
             return (Stage) stage.getUserObject();
         }
@@ -1250,7 +1250,7 @@ public class Actor implements Collidable {
      * actor's local coordinate system.
      */
     public Vector2 stageToLocalCoordinates(Vector2 stageCoords) {
-        return internalActor.stageToLocalCoordinates(stageCoords);
+        return internalActor.windowToLocalCoordinates(stageCoords);
     }
 
     /**
@@ -1260,7 +1260,7 @@ public class Actor implements Collidable {
      * @see Stage#toScreenCoordinates(Vector2, com.guidebee.math.Matrix4)
      */
     public Vector2 localToStageCoordinates(Vector2 localCoords) {
-        return internalActor.localToStageCoordinates(localCoords);
+        return internalActor.localToWindowCoordinates(localCoords);
     }
 
     /**

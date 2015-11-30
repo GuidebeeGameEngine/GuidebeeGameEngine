@@ -455,7 +455,7 @@ public class Group extends Actor implements Cullable {
      * Returns the stage that this actor is currently in, or null if not in a stage.
      */
     public Stage getStage() {
-        UIWindow stage = internalGroup.getStage();
+        UIWindow stage = internalGroup.getWindow();
         if (stage != null) {
             return (Stage) stage.getUserObject();
         }
@@ -934,7 +934,7 @@ public class Group extends Actor implements Cullable {
      * actor's local coordinate system.
      */
     public Vector2 stageToLocalCoordinates(Vector2 stageCoords) {
-        return internalGroup.stageToLocalCoordinates(stageCoords);
+        return internalGroup.windowToLocalCoordinates(stageCoords);
     }
 
     /**
@@ -944,7 +944,7 @@ public class Group extends Actor implements Cullable {
      * @see Stage#toScreenCoordinates(Vector2, com.guidebee.math.Matrix4)
      */
     public Vector2 localToStageCoordinates(Vector2 localCoords) {
-        return internalGroup.localToStageCoordinates(localCoords);
+        return internalGroup.localToWindowCoordinates(localCoords);
     }
 
     /**
@@ -1039,10 +1039,6 @@ public class Group extends Actor implements Cullable {
         internalGroup.toFront();
         dataTrait.zIndex = internalGroup.getZIndex();
     }
-
-
-
-
 
 
 

@@ -30,7 +30,7 @@ import com.guidebee.utils.collections.ObjectMap;
  * button table underneath it. Methods are provided
  * to add a label to the content table and buttons to the button table, but any
  * widgets can be added. When a button is clicked,
- * {@link #result(Object)} is called and the dialog is removed from the stage.
+ * {@link #result(Object)} is called and the dialog is removed from the window.
  *
  * @author Nathan Sweet
  */
@@ -101,9 +101,9 @@ public class Dialog extends ChildWindow {
             }
 
             private void focusChanged(FocusEvent event) {
-                UIWindow stage = getStage();
-                if (isModal && stage != null && stage.getRoot().getChildren().size > 0
-                        && stage.getRoot().getChildren().peek() == Dialog.this) {
+                UIWindow window = getWindow();
+                if (isModal && window != null && window.getRoot().getChildren().size > 0
+                        && window.getRoot().getChildren().peek() == Dialog.this) {
                     // Dialog is top most component.
                     UIComponent newFocusedComponent = event.getRelatedComponent();
                     if (newFocusedComponent != null
@@ -200,25 +200,25 @@ public class Dialog extends ChildWindow {
     }
 
     /**
-     * {@link #pack() Packs} the dialog and adds it to the stage with custom action
+     * {@link #pack() Packs} the dialog and adds it to the window with custom action
      * which can be null for instant show
      */
-    public Dialog show(UIWindow stage, Action action) {
+    public Dialog show(UIWindow window, Action action) {
         clearActions();
         removeCaptureListener(ignoreTouchDown);
 
         previousKeyboardFocus = null;
-        UIComponent component = stage.getKeyboardFocus();
+        UIComponent component = window.getKeyboardFocus();
         if (component != null && !component.isDescendantOf(this)) previousKeyboardFocus = component;
 
         previousScrollFocus = null;
-        component = stage.getScrollFocus();
+        component = window.getScrollFocus();
         if (component != null && !component.isDescendantOf(this)) previousScrollFocus = component;
 
         pack();
-        stage.addComponent(this);
-        stage.setKeyboardFocus(this);
-        stage.setScrollFocus(this);
+        window.addComponent(this);
+        window.setKeyboardFocus(this);
+        window.setScrollFocus(this);
         if (action != null)
             addAction(action);
 
@@ -226,35 +226,35 @@ public class Dialog extends ChildWindow {
     }
 
     /**
-     * {@link #pack() Packs} the dialog and adds it to the stage, centered with
+     * {@link #pack() Packs} the dialog and adds it to the window, centered with
      * default fadeIn action
      */
-    public Dialog show(UIWindow stage) {
-        show(stage, Actions.sequence(Actions.alpha(0),
+    public Dialog show(UIWindow window) {
+        show(window, Actions.sequence(Actions.alpha(0),
                 Actions.fadeIn(0.4f, Interpolation.fade)));
-        setPosition(Math.round((stage.getWidth() - getWidth()) / 2),
-                Math.round((stage.getHeight() - getHeight()) / 2));
+        setPosition(Math.round((window.getWidth() - getWidth()) / 2),
+                Math.round((window.getHeight() - getHeight()) / 2));
         return this;
     }
 
     /**
-     * Hides the dialog with the given action and then removes it from the stage.
+     * Hides the dialog with the given action and then removes it from the window.
      */
     public void hide(Action action) {
-        UIWindow stage = getStage();
-        if (stage != null) {
+        UIWindow window = getWindow();
+        if (window != null) {
             if (previousKeyboardFocus != null
-                    && previousKeyboardFocus.getStage() == null) previousKeyboardFocus = null;
-            UIComponent component = stage.getKeyboardFocus();
+                    && previousKeyboardFocus.getWindow() == null) previousKeyboardFocus = null;
+            UIComponent component = window.getKeyboardFocus();
             if (component == null || component.isDescendantOf(this))
-                stage.setKeyboardFocus(previousKeyboardFocus);
+                window.setKeyboardFocus(previousKeyboardFocus);
 
             if (previousScrollFocus != null
-                    && previousScrollFocus.getStage() == null)
+                    && previousScrollFocus.getWindow() == null)
                 previousScrollFocus = null;
-            component = stage.getScrollFocus();
+            component = window.getScrollFocus();
             if (component == null || component.isDescendantOf(this))
-                stage.setScrollFocus(previousScrollFocus);
+                window.setScrollFocus(previousScrollFocus);
         }
         if (action != null) {
             addCaptureListener(ignoreTouchDown);
@@ -268,7 +268,7 @@ public class Dialog extends ChildWindow {
     /**
      * Hides the dialog. Called automatically when a button is clicked. The default
      * implementation fades out the dialog over 400
-     * milliseconds and then removes it from the stage.
+     * milliseconds and then removes it from the window.
      */
     public void hide() {
         hide(Actions.sequence(Actions.fadeOut(0.4f, Interpolation.fade),

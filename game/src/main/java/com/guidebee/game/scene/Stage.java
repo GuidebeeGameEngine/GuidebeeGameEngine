@@ -836,7 +836,7 @@ public class Stage extends InputAdapter implements Disposable {
      *                     resulting stage coordinates.
      */
     public Vector2 screenToStageCoordinates(Vector2 screenCoords) {
-        return internalStage.screenToStageCoordinates(screenCoords);
+        return internalStage.screenToWindowCoordinates(screenCoords);
     }
 
     /**
@@ -846,7 +846,7 @@ public class Stage extends InputAdapter implements Disposable {
      *                    resulting screen coordinates.
      */
     public Vector2 stageToScreenCoordinates(Vector2 stageCoords) {
-        return internalStage.stageToScreenCoordinates(stageCoords);
+        return internalStage.windowToScreenCoordinates(stageCoords);
     }
 
     /**

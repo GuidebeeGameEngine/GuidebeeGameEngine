@@ -125,7 +125,7 @@ public class ScrollPane extends WidgetGroup {
                                      int pointer, int button) {
                 if (draggingPointer != -1) return false;
                 if (pointer == 0 && button != 0) return false;
-                getStage().setScrollFocus(ScrollPane.this);
+                getWindow().setScrollFocus(ScrollPane.this);
 
                 if (!flickScroll) resetFade();
 
@@ -250,8 +250,8 @@ public class ScrollPane extends WidgetGroup {
 
     void cancelTouchFocusedChild(InputEvent event) {
         if (!cancelTouchFocus) return;
-        UIWindow stage = getStage();
-        if (stage != null) stage.cancelTouchFocus(flickScrollListener, this);
+        UIWindow window = getWindow();
+        if (window != null) window.cancelTouchFocus(flickScrollListener, this);
     }
 
     /**
@@ -614,7 +614,7 @@ public class ScrollPane extends WidgetGroup {
         // Caculate the scissor bounds based on the batch transform, the
         // available widget area and the camera transform. We need to
         // project those to screen coordinates for OpenGL ES to consume.
-        getStage().calculateScissors(widgetAreaBounds, scissorBounds);
+        getWindow().calculateScissors(widgetAreaBounds, scissorBounds);
 
         // Enable scissors for widget area and draw the widget.
         if (ScissorStack.pushScissors(scissorBounds)) {

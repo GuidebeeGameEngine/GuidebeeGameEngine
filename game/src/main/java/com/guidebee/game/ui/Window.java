@@ -34,7 +34,7 @@ import com.guidebee.game.graphics.TextureAtlas;
  */
 public class Window extends ScreenAdapter {
 
-    private UIWindow stage;
+    private UIWindow window;
     private Table table = new Table();
 
 
@@ -70,9 +70,9 @@ public class Window extends ScreenAdapter {
      */
     public Window(int width, int height) {
 
-        stage = new UIWindow(new ScalingViewport(width, height));
+        window = new UIWindow(new ScalingViewport(width, height));
         table.setFillParent(true);
-        stage.addComponent(table);
+        window.addComponent(table);
 
     }
 
@@ -80,7 +80,7 @@ public class Window extends ScreenAdapter {
      * Constructor.
      */
     public Window() {
-        stage = new UIWindow(new ScreenViewport());
+        window = new UIWindow(new ScreenViewport());
 
 
     }
@@ -88,7 +88,7 @@ public class Window extends ScreenAdapter {
     @Override
     public void show() {
         savedInputProcessor = GameEngine.input.getInputProcessor();
-        GameEngine.input.setInputProcessor(stage);
+        GameEngine.input.setInputProcessor(window);
 
     }
 
@@ -99,7 +99,7 @@ public class Window extends ScreenAdapter {
 
 
     public Batch getBatch() {
-        return stage.getBatch();
+        return window.getBatch();
     }
 
     /**
@@ -107,7 +107,7 @@ public class Window extends ScreenAdapter {
      * @return
      */
     public float getWidth() {
-        return stage.getWidth();
+        return window.getWidth();
     }
 
 
@@ -116,22 +116,22 @@ public class Window extends ScreenAdapter {
      * @return
      */
     public float getHeight() {
-        return stage.getHeight();
+        return window.getHeight();
     }
 
 
     @Override
     public void render(float delta) {
        GameEngine.graphics.clearScreen(0, 0, 0, 1f);
-       stage.act();
-       stage.draw();
+       window.act();
+       window.draw();
 
     }
 
     @Override
     public void dispose() {
 
-        stage.dispose();
+        window.dispose();
 
     }
 

@@ -95,7 +95,7 @@ public class SelectBox<T> extends Widget implements Disableable {
     /**
      * Set the max number of items to display when the select box is opened.
      * Set to 0 (the default) to display as many as fit in
-     * the stage height.
+     * the window height.
      */
     public void setMaxListCount(int maxListCount) {
         this.maxListCount = maxListCount;
@@ -109,9 +109,9 @@ public class SelectBox<T> extends Widget implements Disableable {
         return maxListCount;
     }
 
-    protected void setWindow(UIWindow stage) {
-        if (stage == null) hideList();
-        super.setWindow(stage);
+    protected void setWindow(UIWindow window) {
+        if (window == null) hideList();
+        super.setWindow(window);
     }
 
     public void setStyle(SelectBoxStyle style) {
@@ -296,20 +296,20 @@ public class SelectBox<T> extends Widget implements Disableable {
     public void showList() {
         selected = selection.first();
         scroll.list.setTouchable(Touchable.enabled);
-        scroll.show(getStage());
+        scroll.show(getWindow());
     }
 
     public void hideList() {
         if (!scroll.hasParent()) return;
         selected = null;
         scroll.list.setTouchable(Touchable.disabled);
-        UIWindow stage = scroll.getStage();
-        if (stage != null) {
-            if (previousScrollFocus != null && previousScrollFocus.getStage() == null)
+        UIWindow window = scroll.getWindow();
+        if (window != null) {
+            if (previousScrollFocus != null && previousScrollFocus.getWindow() == null)
                 previousScrollFocus = null;
-            UIComponent component = stage.getScrollFocus();
+            UIComponent component = window.getScrollFocus();
             if (component == null || component.isDescendantOf(scroll))
-                stage.setScrollFocus(previousScrollFocus);
+                window.setScrollFocus(previousScrollFocus);
         }
         scroll.addAction(sequence(Actions.fadeOut(0.15f, Interpolation.fade),
                 Actions.removeComponent()));
@@ -372,14 +372,14 @@ public class SelectBox<T> extends Widget implements Disableable {
             });
         }
 
-        public void show(UIWindow stage) {
-            stage.addComponent(this);
+        public void show(UIWindow window) {
+            window.addComponent(this);
 
-            SelectBox.this.localToStageCoordinates(tmpCoords.set(0, 0));
+            SelectBox.this.localToWindowCoordinates(tmpCoords.set(0, 0));
             screenCoords.set(tmpCoords);
 
             // Show the list above or below the select box, limited to a number
-            // of items and the available height in the stage.
+            // of items and the available height in the window.
             float itemHeight = list.getItemHeight();
             float height = itemHeight * (maxListCount <= 0
                     ? items.size : Math.min(maxListCount, items.size));
@@ -392,7 +392,7 @@ public class SelectBox<T> extends Widget implements Disableable {
                     + listBackground.getBottomHeight();
 
             float heightBelow = tmpCoords.y;
-            float heightAbove = stage.getCamera().viewportHeight - tmpCoords.y
+            float heightAbove = window.getCamera().viewportHeight - tmpCoords.y
                     - SelectBox.this.getHeight();
             boolean below = true;
             if (height > heightBelow) {
@@ -421,10 +421,10 @@ public class SelectBox<T> extends Widget implements Disableable {
             Actions.addAction(Actions.fadeIn(0.3f, Interpolation.fade));
 
             previousScrollFocus = null;
-            UIComponent component = stage.getScrollFocus();
+            UIComponent component = window.getScrollFocus();
             if (component != null && !component.isDescendantOf(this)) previousScrollFocus = component;
 
-            stage.setScrollFocus(this);
+            window.setScrollFocus(this);
         }
 
         @Override
@@ -435,7 +435,7 @@ public class SelectBox<T> extends Widget implements Disableable {
 
         public void act(float delta) {
             super.act(delta);
-            SelectBox.this.localToStageCoordinates(tmpCoords.set(0, 0));
+            SelectBox.this.localToWindowCoordinates(tmpCoords.set(0, 0));
             if (tmpCoords.x != screenCoords.x || tmpCoords.y != screenCoords.y) hideList();
         }
     }

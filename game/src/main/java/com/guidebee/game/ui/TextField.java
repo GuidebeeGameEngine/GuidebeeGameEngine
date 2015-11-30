@@ -273,8 +273,8 @@ public class TextField extends Widget implements Disableable {
 
     @Override
     public void draw(Batch batch, float parentAlpha) {
-        UIWindow stage = getStage();
-        boolean focused = stage != null && stage.getKeyboardFocus() == this;
+        UIWindow window = getWindow();
+        boolean focused = window != null && window.getKeyboardFocus() == this;
 
         final BitmapFont font = style.font;
         final Color fontColor = (disabled && style.disabledFontColor != null)
@@ -481,25 +481,25 @@ public class TextField extends Widget implements Disableable {
 
     /**
      * Focuses the next TextField. If none is found, the keyboard is hidden. Does
-     * nothing if the text field is not in a stage.
+     * nothing if the text field is not in a window.
      *
      * @param up If true, the TextField with the same or next smallest y coordinate
      *           is found, else the next highest.
      */
     public void next(boolean up) {
-        UIWindow stage = getStage();
-        if (stage == null) return;
-        getParent().localToStageCoordinates(tmp1.set(getX(), getY()));
-        TextField textField = findNextTextField(stage.getComponents(), null, tmp2, tmp1, up);
+        UIWindow window = getWindow();
+        if (window == null) return;
+        getParent().localToWindowCoordinates(tmp1.set(getX(), getY()));
+        TextField textField = findNextTextField(window.getComponents(), null, tmp2, tmp1, up);
         if (textField == null) { // Try to wrap around.
             if (up)
                 tmp1.set(Float.MIN_VALUE, Float.MIN_VALUE);
             else
                 tmp1.set(Float.MAX_VALUE, Float.MAX_VALUE);
-            textField = findNextTextField(getStage().getComponents(), null, tmp2, tmp1, up);
+            textField = findNextTextField(getWindow().getComponents(), null, tmp2, tmp1, up);
         }
         if (textField != null)
-            stage.setKeyboardFocus(textField);
+            window.setKeyboardFocus(textField);
         else
             GameEngine.input.setOnscreenKeyboardVisible(false);
     }
@@ -512,7 +512,7 @@ public class TextField extends Widget implements Disableable {
             if (component instanceof TextField) {
                 TextField textField = (TextField) component;
                 if (textField.isDisabled() || !textField.focusTraversal) continue;
-                Vector2 componentCoords = component.getParent().localToStageCoordinates(tmp3.set(component.getX(),
+                Vector2 componentCoords = component.getParent().localToWindowCoordinates(tmp3.set(component.getX(),
                         component.getY()));
                 if ((componentCoords.y < currentCoords.y
                         || (componentCoords.y == currentCoords.y
@@ -814,8 +814,8 @@ public class TextField extends Widget implements Disableable {
             if (disabled) return true;
             setCursorPosition(x, y);
             selectionStart = cursor;
-            UIWindow stage = getStage();
-            if (stage != null) stage.setKeyboardFocus(TextField.this);
+            UIWindow window = getWindow();
+            if (window != null) window.setKeyboardFocus(TextField.this);
             keyboard.show(true);
             hasSelection = true;
             return true;
@@ -853,8 +853,8 @@ public class TextField extends Widget implements Disableable {
             lastBlink = 0;
             cursorOn = false;
 
-            UIWindow stage = getStage();
-            if (stage == null || stage.getKeyboardFocus() != TextField.this)
+            UIWindow window = getWindow();
+            if (window == null || window.getKeyboardFocus() != TextField.this)
                 return false;
 
             boolean repeat = false;
@@ -962,8 +962,8 @@ public class TextField extends Widget implements Disableable {
         public boolean keyTyped(InputEvent event, char character) {
             if (disabled) return false;
 
-            UIWindow stage = getStage();
-            if (stage == null || stage.getKeyboardFocus() != TextField.this) return false;
+            UIWindow window = getWindow();
+            if (window == null || window.getKeyboardFocus() != TextField.this) return false;
 
             if ((character == TAB || character == ENTER_ANDROID) && focusTraversal) {
                 next(Utils.shift());

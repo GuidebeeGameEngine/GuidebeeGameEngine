@@ -44,26 +44,26 @@ import com.guidebee.utils.collections.SnapshotArray;
 
 //[------------------------------ MAIN CLASS ----------------------------------]
 /**
- * A 2D scene graph containing hierarchies of {@link UIComponent components}. Stage handles
+ * A 2D scene graph containing hierarchies of {@link UIComponent components}. Window handles
  * the viewport and distributes input events.
  * <p>
- * {@link #setViewport(Viewport)} controls the coordinates used within the stage
+ * {@link #setViewport(Viewport)} controls the coordinates used within the window
  * and sets up the camera used to convert between
- * stage coordinates and screen coordinates.
+ * window coordinates and screen coordinates.
  * <p>
- * A stage must receive input events so it can distribute them to components. This is
- * typically done by passing the stage to
+ * A window must receive input events so it can distribute them to components. This is
+ * typically done by passing the window to
  * {@link com.guidebee.game.Input#setInputProcessor(com.guidebee.game.InputProcessor)
  * GameEngine.input.setInputProcessor}. An {@link com.guidebee.game.InputMultiplexer} may be
- * used to handle input events before or after the stage does. If an component handles
+ * used to handle input events before or after the window does. If an component handles
  * an event by returning true from the input
- * method, then the stage's input method will also return true, causing subsequent
+ * method, then the window's input method will also return true, causing subsequent
  * InputProcessors to not receive the event.
  * <p>
- * The Stage and its constituents (like Components and Listeners) are not thread-safe
+ * The Window and its constituents (like Components and Listeners) are not thread-safe
  * and should only be updated and queried from a
  * single thread (presumably the main render thread). Methods should be reentrant,
- * so you can update Components and Stages from within
+ * so you can update Components and Windows from within
  * callbacks and handlers.
  *
  * @author mzechner
@@ -77,7 +77,7 @@ public class UIWindow extends InputAdapter implements Disposable {
     private final Batch batch;
     private boolean ownsBatch;
     private final UIContainer root;
-    private final Vector2 stageCoords = new Vector2();
+    private final Vector2 windowCoords = new Vector2();
     private final UIComponent[] pointerOverComponents = new UIComponent[20];
     private final boolean[] pointerTouched = new boolean[20];
     private final int[] pointerScreenX = new int[20];
@@ -95,9 +95,9 @@ public class UIWindow extends InputAdapter implements Disposable {
     private Object userObject;
 
     /**
-     * Creates a stage with a {@link com.guidebee.game.camera.viewports.ScalingViewport}
-     * set to {@link com.guidebee.utils.Scaling#fill}. The stage will use its own {@link Batch} which
-     * will be disposed when the stage is disposed.
+     * Creates a window with a {@link com.guidebee.game.camera.viewports.ScalingViewport}
+     * set to {@link com.guidebee.utils.Scaling#fill}. The window will use its own {@link Batch} which
+     * will be disposed when the window is disposed.
      */
     public UIWindow() {
         this(new ScalingViewport(Scaling.stretch, GameEngine.graphics.getWidth(),
@@ -107,8 +107,8 @@ public class UIWindow extends InputAdapter implements Disposable {
     }
 
     /**
-     * Creates a stage with the specified viewport. The stage will use its own
-     * {@link com.guidebee.game.graphics.Batch} which will be disposed when the stage
+     * Creates a window with the specified viewport. The window will use its own
+     * {@link com.guidebee.game.graphics.Batch} which will be disposed when the window
      * is disposed.
      */
     public UIWindow(Viewport viewport) {
@@ -117,9 +117,9 @@ public class UIWindow extends InputAdapter implements Disposable {
     }
 
     /**
-     * Creates a stage with the specified viewport and batch. This can be used to
+     * Creates a window with the specified viewport and batch. This can be used to
      * avoid creating a new batch (which can be somewhat
-     * slow) if multiple stages are used during an application's life time.
+     * slow) if multiple windows are used during an application's life time.
      *
      * @param batch Will not be disposed if {@link #dispose()} is called, handle
      *              disposal yourself.
@@ -185,9 +185,9 @@ public class UIWindow extends InputAdapter implements Disposable {
 
         if (debugUnderMouse || debugParentUnderMouse
                 || debugTableUnderMouse != Debug.none) {
-            screenToStageCoordinates(stageCoords.set(GameEngine.input.getX(),
+            screenToWindowCoordinates(windowCoords.set(GameEngine.input.getX(),
                     GameEngine.input.getY()));
-            UIComponent component = hit(stageCoords.x, stageCoords.y, true);
+            UIComponent component = hit(windowCoords.x, windowCoords.y, true);
             if (component == null) return;
 
             if (debugParentUnderMouse && component.parent != null) component = component.parent;
@@ -238,7 +238,7 @@ public class UIWindow extends InputAdapter implements Disposable {
     }
 
     /**
-     * Calls the {@link UIComponent#act(float)} method on each component in the stage.
+     * Calls the {@link UIComponent#act(float)} method on each component in the window.
      * Typically called each frame. This method also fires
      * enter and exit events.
      *
@@ -253,14 +253,14 @@ public class UIWindow extends InputAdapter implements Disposable {
             if (!pointerTouched[pointer]) {
                 if (overLast != null) {
                     pointerOverComponents[pointer] = null;
-                    screenToStageCoordinates(stageCoords.set(pointerScreenX[pointer],
+                    screenToWindowCoordinates(windowCoords.set(pointerScreenX[pointer],
                             pointerScreenY[pointer]));
                     // Exit over last.
                     InputEvent event = Pools.obtain(InputEvent.class);
                     event.setType(InputEvent.Type.exit);
-                    event.setStage(this);
-                    event.setStageX(stageCoords.x);
-                    event.setStageY(stageCoords.y);
+                    event.setWindow(this);
+                    event.setWindowX(windowCoords.x);
+                    event.setWindowY(windowCoords.y);
                     event.setRelatedComponent(overLast);
                     event.setPointer(pointer);
                     overLast.fire(event);
@@ -278,14 +278,14 @@ public class UIWindow extends InputAdapter implements Disposable {
 
     private UIComponent fireEnterAndExit(UIComponent overLast, int screenX, int screenY, int pointer) {
         // Find the component under the point.
-        screenToStageCoordinates(stageCoords.set(screenX, screenY));
-        UIComponent over = hit(stageCoords.x, stageCoords.y, true);
+        screenToWindowCoordinates(windowCoords.set(screenX, screenY));
+        UIComponent over = hit(windowCoords.x, windowCoords.y, true);
         if (over == overLast) return overLast;
 
         InputEvent event = Pools.obtain(InputEvent.class);
-        event.setStage(this);
-        event.setStageX(stageCoords.x);
-        event.setStageY(stageCoords.y);
+        event.setWindow(this);
+        event.setWindowX(windowCoords.x);
+        event.setWindowY(windowCoords.y);
         event.setPointer(pointer);
         // Exit overLast.
         if (overLast != null) {
@@ -304,7 +304,7 @@ public class UIWindow extends InputAdapter implements Disposable {
     }
 
     /**
-     * Applies a touch down event to the stage and returns true if an
+     * Applies a touch down event to the window and returns true if an
      * component in the scene {@link com.guidebee.game.ui.Event#handle() handled} the event.
      */
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
@@ -320,17 +320,17 @@ public class UIWindow extends InputAdapter implements Disposable {
         pointerScreenX[pointer] = screenX;
         pointerScreenY[pointer] = screenY;
 
-        screenToStageCoordinates(stageCoords.set(screenX, screenY));
+        screenToWindowCoordinates(windowCoords.set(screenX, screenY));
 
         InputEvent event = Pools.obtain(InputEvent.class);
         event.setType(Type.touchDown);
-        event.setStage(this);
-        event.setStageX(stageCoords.x);
-        event.setStageY(stageCoords.y);
+        event.setWindow(this);
+        event.setWindowX(windowCoords.x);
+        event.setWindowY(windowCoords.y);
         event.setPointer(pointer);
         event.setButton(button);
 
-        UIComponent target = hit(stageCoords.x, stageCoords.y, true);
+        UIComponent target = hit(windowCoords.x, windowCoords.y, true);
         if (target == null) target = root;
 
         target.fire(event);
@@ -340,7 +340,7 @@ public class UIWindow extends InputAdapter implements Disposable {
     }
 
     /**
-     * Applies a touch moved event to the stage and returns true if an component
+     * Applies a touch moved event to the window and returns true if an component
      * in the scene {@link com.guidebee.game.ui.Event#handle() handled} the event.
      * Only {@link com.guidebee.game.ui.InputListener listeners} that returned true for touchDown
      * will receive this event.
@@ -353,13 +353,13 @@ public class UIWindow extends InputAdapter implements Disposable {
 
         if (touchFocuses.size == 0) return false;
 
-        screenToStageCoordinates(stageCoords.set(screenX, screenY));
+        screenToWindowCoordinates(windowCoords.set(screenX, screenY));
 
         InputEvent event = Pools.obtain(InputEvent.class);
         event.setType(Type.touchDragged);
-        event.setStage(this);
-        event.setStageX(stageCoords.x);
-        event.setStageY(stageCoords.y);
+        event.setWindow(this);
+        event.setWindowX(windowCoords.x);
+        event.setWindowY(windowCoords.y);
         event.setPointer(pointer);
 
         SnapshotArray<TouchFocus> touchFocuses = this.touchFocuses;
@@ -379,7 +379,7 @@ public class UIWindow extends InputAdapter implements Disposable {
     }
 
     /**
-     * Applies a touch up event to the stage and returns true if an component in
+     * Applies a touch up event to the window and returns true if an component in
      * the scene {@link com.guidebee.game.ui.Event#handle() handled} the event.
      * Only {@link com.guidebee.game.ui.InputListener listeners} that returned true for touchDown
      * will receive this event.
@@ -391,13 +391,13 @@ public class UIWindow extends InputAdapter implements Disposable {
 
         if (touchFocuses.size == 0) return false;
 
-        screenToStageCoordinates(stageCoords.set(screenX, screenY));
+        screenToWindowCoordinates(windowCoords.set(screenX, screenY));
 
         InputEvent event = Pools.obtain(InputEvent.class);
         event.setType(Type.touchUp);
-        event.setStage(this);
-        event.setStageX(stageCoords.x);
-        event.setStageY(stageCoords.y);
+        event.setWindow(this);
+        event.setWindowX(windowCoords.x);
+        event.setWindowY(windowCoords.y);
         event.setPointer(pointer);
         event.setButton(button);
 
@@ -420,7 +420,7 @@ public class UIWindow extends InputAdapter implements Disposable {
     }
 
     /**
-     * Applies a mouse moved event to the stage and returns true if an component in
+     * Applies a mouse moved event to the window and returns true if an component in
      * the scene {@link com.guidebee.game.ui.Event#handle() handled} the event.
      * This event only occurs on the desktop.
      */
@@ -436,15 +436,15 @@ public class UIWindow extends InputAdapter implements Disposable {
         mouseScreenX = screenX;
         mouseScreenY = screenY;
 
-        screenToStageCoordinates(stageCoords.set(screenX, screenY));
+        screenToWindowCoordinates(windowCoords.set(screenX, screenY));
 
         InputEvent event = Pools.obtain(InputEvent.class);
-        event.setStage(this);
+        event.setWindow(this);
         event.setType(Type.mouseMoved);
-        event.setStageX(stageCoords.x);
-        event.setStageY(stageCoords.y);
+        event.setWindowX(windowCoords.x);
+        event.setWindowY(windowCoords.y);
 
-        UIComponent target = hit(stageCoords.x, stageCoords.y, true);
+        UIComponent target = hit(windowCoords.x, windowCoords.y, true);
         if (target == null) target = root;
 
         target.fire(event);
@@ -454,21 +454,21 @@ public class UIWindow extends InputAdapter implements Disposable {
     }
 
     /**
-     * Applies a mouse scroll event to the stage and returns true if an component
+     * Applies a mouse scroll event to the window and returns true if an component
      * in the scene {@link com.guidebee.game.ui.Event#handle() handled} the
      * event. This event only occurs on the desktop.
      */
     public boolean scrolled(int amount) {
         UIComponent target = scrollFocus == null ? root : scrollFocus;
 
-        screenToStageCoordinates(stageCoords.set(mouseScreenX, mouseScreenY));
+        screenToWindowCoordinates(windowCoords.set(mouseScreenX, mouseScreenY));
 
         InputEvent event = Pools.obtain(InputEvent.class);
-        event.setStage(this);
+        event.setWindow(this);
         event.setType(InputEvent.Type.scrolled);
         event.setScrollAmount(amount);
-        event.setStageX(stageCoords.x);
-        event.setStageY(stageCoords.y);
+        event.setWindowX(windowCoords.x);
+        event.setWindowY(windowCoords.y);
         target.fire(event);
         boolean handled = event.isHandled();
         Pools.free(event);
@@ -483,7 +483,7 @@ public class UIWindow extends InputAdapter implements Disposable {
     public boolean keyDown(int keyCode) {
         UIComponent target = keyboardFocus == null ? root : keyboardFocus;
         InputEvent event = Pools.obtain(InputEvent.class);
-        event.setStage(this);
+        event.setWindow(this);
         event.setType(InputEvent.Type.keyDown);
         event.setKeyCode(keyCode);
         target.fire(event);
@@ -500,7 +500,7 @@ public class UIWindow extends InputAdapter implements Disposable {
     public boolean keyUp(int keyCode) {
         UIComponent target = keyboardFocus == null ? root : keyboardFocus;
         InputEvent event = Pools.obtain(InputEvent.class);
-        event.setStage(this);
+        event.setWindow(this);
         event.setType(InputEvent.Type.keyUp);
         event.setKeyCode(keyCode);
         target.fire(event);
@@ -517,7 +517,7 @@ public class UIWindow extends InputAdapter implements Disposable {
     public boolean keyTyped(char character) {
         UIComponent target = keyboardFocus == null ? root : keyboardFocus;
         InputEvent event = Pools.obtain(InputEvent.class);
-        event.setStage(this);
+        event.setWindow(this);
         event.setType(InputEvent.Type.keyTyped);
         event.setCharacter(character);
         target.fire(event);
@@ -583,10 +583,10 @@ public class UIWindow extends InputAdapter implements Disposable {
      */
     public void cancelTouchFocus(EventListener listener, UIComponent component) {
         InputEvent event = Pools.obtain(InputEvent.class);
-        event.setStage(this);
+        event.setWindow(this);
         event.setType(InputEvent.Type.touchUp);
-        event.setStageX(Integer.MIN_VALUE);
-        event.setStageY(Integer.MIN_VALUE);
+        event.setWindowX(Integer.MIN_VALUE);
+        event.setWindowY(Integer.MIN_VALUE);
 
         // Cancel all current touch focuses except for the specified listener,
         // allowing for concurrent modification, and never
@@ -613,7 +613,7 @@ public class UIWindow extends InputAdapter implements Disposable {
     }
 
     /**
-     * Adds an component to the root of the stage.
+     * Adds an component to the root of the window.
      *
      * @see UIContainer#addComponent(UIComponent)
      * @see UIComponent#remove()
@@ -623,7 +623,7 @@ public class UIWindow extends InputAdapter implements Disposable {
     }
 
     /**
-     * Adds an action to the root of the stage.
+     * Adds an action to the root of the window.
      *
      * @see UIContainer#addAction(com.guidebee.game.ui.actions.Action)
      */
@@ -711,7 +711,7 @@ public class UIWindow extends InputAdapter implements Disposable {
     public void setKeyboardFocus(UIComponent component) {
         if (keyboardFocus == component) return;
         FocusListener.FocusEvent event = Pools.obtain(FocusListener.FocusEvent.class);
-        event.setStage(this);
+        event.setWindow(this);
         event.setType(FocusListener.FocusEvent.Type.keyboard);
         UIComponent oldKeyboardFocus = keyboardFocus;
         if (oldKeyboardFocus != null) {
@@ -748,7 +748,7 @@ public class UIWindow extends InputAdapter implements Disposable {
     public void setScrollFocus(UIComponent component) {
         if (scrollFocus == component) return;
         FocusListener.FocusEvent event = Pools.obtain(FocusListener.FocusEvent.class);
-        event.setStage(this);
+        event.setWindow(this);
         event.setType(FocusListener.FocusEvent.Type.scroll);
         UIComponent oldScrollFocus = keyboardFocus;
         if (oldScrollFocus != null) {
@@ -811,59 +811,59 @@ public class UIWindow extends InputAdapter implements Disposable {
     }
 
     /**
-     * Returns the root group which holds all components in the stage.
+     * Returns the root group which holds all components in the window.
      */
     public UIContainer getRoot() {
         return root;
     }
 
     /**
-     * Returns the {@link UIComponent} at the specified location in stage coordinates.
+     * Returns the {@link UIComponent} at the specified location in window coordinates.
      * Hit testing is performed in the order the components
-     * were inserted into the stage, last inserted components being tested first.
-     * To get stage coordinates from screen coordinates, use
-     * {@link #screenToStageCoordinates(Vector2)}.
+     * were inserted into the window, last inserted components being tested first.
+     * To get window coordinates from screen coordinates, use
+     * {@link #screenToWindowCoordinates(Vector2)}.
      *
      * @param touchable If true, the hit detection will respect the
      * {@link UIComponent#setTouchable(com.guidebee.game.ui.Touchable) touchability}.
      * @return May be null if no component was hit.
      */
-    public UIComponent hit(float stageX, float stageY, boolean touchable) {
-        root.parentToLocalCoordinates(componentCoords.set(stageX, stageY));
+    public UIComponent hit(float windowX, float windowY, boolean touchable) {
+        root.parentToLocalCoordinates(componentCoords.set(windowX, windowY));
         return root.hit(componentCoords.x, componentCoords.y, touchable);
     }
 
     /**
-     * Transforms the screen coordinates to stage coordinates.
+     * Transforms the screen coordinates to window coordinates.
      *
      * @param screenCoords IInput screen coordinates and output for
-     *                     resulting stage coordinates.
+     *                     resulting window coordinates.
      */
-    public Vector2 screenToStageCoordinates(Vector2 screenCoords) {
+    public Vector2 screenToWindowCoordinates(Vector2 screenCoords) {
         viewport.unproject(screenCoords);
         return screenCoords;
     }
 
     /**
-     * Transforms the stage coordinates to screen coordinates.
+     * Transforms the window coordinates to screen coordinates.
      *
-     * @param stageCoords IInput stage coordinates and output for
+     * @param windowCoords IInput window coordinates and output for
      *                    resulting screen coordinates.
      */
-    public Vector2 stageToScreenCoordinates(Vector2 stageCoords) {
-        viewport.project(stageCoords);
-        stageCoords.y = viewport.getScreenHeight() - stageCoords.y;
-        return stageCoords;
+    public Vector2 windowToScreenCoordinates(Vector2 windowCoords) {
+        viewport.project(windowCoords);
+        windowCoords.y = viewport.getScreenHeight() - windowCoords.y;
+        return windowCoords;
     }
 
     /**
      * Transforms the coordinates to screen coordinates. The coordinates can be
-     * anywhere in the stage since the transform matrix
+     * anywhere in the window since the transform matrix
      * describes how to convert them. The transform matrix is typically
      * obtained from {@link Batch#getTransformMatrix()} during
      * {@link UIComponent#draw(Batch, float)}.
      *
-     * @see UIComponent#localToStageCoordinates(Vector2)
+     * @see UIComponent#localToWindowCoordinates(Vector2)
      */
     public Vector2 toScreenCoordinates(Vector2 coords, Matrix4 transformMatrix) {
         return viewport.toScreenCoordinates(coords, transformMatrix);

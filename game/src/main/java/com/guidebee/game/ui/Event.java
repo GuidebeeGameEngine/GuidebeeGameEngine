@@ -30,7 +30,7 @@ import com.guidebee.utils.Pool;
  * components from seeing it.
  * <p/>
  * An Event may be marked as "handled" which will end its propagation outside of
- * the Stage (see {@link #handle()}). The default
+ * the Window (see {@link #handle()}). The default
  * {@link UIComponent#fire(Event)} will mark events handled if an {@link EventListener}
  * returns true.
  * <p/>
@@ -42,14 +42,14 @@ import com.guidebee.utils.Pool;
  * @see UIComponent#fire(Event)
  */
 public class Event implements Pool.Poolable {
-    private UIWindow stage;
+    private UIWindow window;
     private UIComponent targetComponent;
     private UIComponent listenerComponent;
     private boolean capture; // true means event occurred during the
     // capture phase
     private boolean bubbles = true; // true means propagate to target's parents
     private boolean handled; // true means the event was handled
-    // (the stage will eat the input)
+    // (the window will eat the input)
     private boolean stopped; // true means event propagation was stopped
     private boolean cancelled; // true means propagation was stopped and any
     // action that this event would cause should not happen
@@ -58,7 +58,7 @@ public class Event implements Pool.Poolable {
      * Marks this event as handled. This does not affect event propagation inside
      * scene2d, but causes the {@link UIWindow} event
      * methods to return false, which will eat the event so it is not passed on
-     * to the application under the stage.
+     * to the application under the window.
      */
     public void handle() {
         handled = true;
@@ -87,7 +87,7 @@ public class Event implements Pool.Poolable {
     }
 
     public void reset() {
-        stage = null;
+        window = null;
         targetComponent = null;
         listenerComponent = null;
         capture = false;
@@ -166,14 +166,14 @@ public class Event implements Pool.Poolable {
         return capture;
     }
 
-    public void setStage(UIWindow stage) {
-        this.stage = stage;
+    public void setWindow(UIWindow window) {
+        this.window = window;
     }
 
     /**
-     * The stage for the component the event was fired on.
+     * The window for the component the event was fired on.
      */
-    public UIWindow getStage() {
-        return stage;
+    public UIWindow getWindow() {
+        return window;
     }
 }

@@ -62,14 +62,14 @@ public class GestureListener implements EventListener {
                     ,
                     pointer2 = new Vector2();
 
-            public boolean tap(float stageX, float stageY, int count, int button) {
-                component.stageToLocalCoordinates(tmpCoords.set(stageX, stageY));
+            public boolean tap(float windowX, float windowY, int count, int button) {
+                component.windowToLocalCoordinates(tmpCoords.set(windowX, windowY));
                 GestureListener.this.tap(event, tmpCoords.x, tmpCoords.y, count, button);
                 return true;
             }
 
-            public boolean longPress(float stageX, float stageY) {
-                component.stageToLocalCoordinates(tmpCoords.set(stageX, stageY));
+            public boolean longPress(float windowX, float windowY) {
+                component.windowToLocalCoordinates(tmpCoords.set(windowX, windowY));
                 return GestureListener.this.longPress(component, tmpCoords.x, tmpCoords.y);
             }
 
@@ -78,8 +78,8 @@ public class GestureListener implements EventListener {
                 return true;
             }
 
-            public boolean pan(float stageX, float stageY, float deltaX, float deltaY) {
-                component.stageToLocalCoordinates(tmpCoords.set(stageX, stageY));
+            public boolean pan(float windowX, float windowY, float deltaX, float deltaY) {
+                component.windowToLocalCoordinates(tmpCoords.set(windowX, windowY));
                 GestureListener.this.pan(event, tmpCoords.x, tmpCoords.y, deltaX, deltaY);
                 return true;
             }
@@ -89,13 +89,13 @@ public class GestureListener implements EventListener {
                 return true;
             }
 
-            public boolean pinch(Vector2 stageInitialPointer1, Vector2 stageInitialPointer2,
-                                 Vector2 stagePointer1,
-                                 Vector2 stagePointer2) {
-                component.stageToLocalCoordinates(initialPointer1.set(stageInitialPointer1));
-                component.stageToLocalCoordinates(initialPointer2.set(stageInitialPointer2));
-                component.stageToLocalCoordinates(pointer1.set(stagePointer1));
-                component.stageToLocalCoordinates(pointer2.set(stagePointer2));
+            public boolean pinch(Vector2 windowInitialPointer1, Vector2 windowInitialPointer2,
+                                 Vector2 windowPointer1,
+                                 Vector2 windowPointer2) {
+                component.windowToLocalCoordinates(initialPointer1.set(windowInitialPointer1));
+                component.windowToLocalCoordinates(initialPointer2.set(windowInitialPointer2));
+                component.windowToLocalCoordinates(pointer1.set(windowPointer1));
+                component.windowToLocalCoordinates(pointer2.set(windowPointer2));
                 GestureListener.this.pinch(event, initialPointer1, initialPointer2,
                         pointer1, pointer2);
                 return true;
@@ -111,10 +111,10 @@ public class GestureListener implements EventListener {
             case touchDown:
                 component = event.getListenerComponent();
                 touchDownTarget = event.getTarget();
-                detector.touchDown(event.getStageX(), event.getStageY(),
+                detector.touchDown(event.getWindowX(), event.getWindowY(),
                         event.getPointer(), event.getButton());
-                component.stageToLocalCoordinates(tmpCoords.set(event.getStageX(),
-                        event.getStageY()));
+                component.windowToLocalCoordinates(tmpCoords.set(event.getWindowX(),
+                        event.getWindowY()));
                 touchDown(event, tmpCoords.x, tmpCoords.y, event.getPointer(),
                         event.getButton());
                 return true;
@@ -122,17 +122,17 @@ public class GestureListener implements EventListener {
                 if (event.isTouchFocusCancel()) return false;
                 this.event = event;
                 component = event.getListenerComponent();
-                detector.touchUp(event.getStageX(), event.getStageY(), event.getPointer(),
+                detector.touchUp(event.getWindowX(), event.getWindowY(), event.getPointer(),
                         event.getButton());
-                component.stageToLocalCoordinates(tmpCoords.set(event.getStageX(),
-                        event.getStageY()));
+                component.windowToLocalCoordinates(tmpCoords.set(event.getWindowX(),
+                        event.getWindowY()));
                 touchUp(event, tmpCoords.x, tmpCoords.y, event.getPointer(),
                         event.getButton());
                 return true;
             case touchDragged:
                 this.event = event;
                 component = event.getListenerComponent();
-                detector.touchDragged(event.getStageX(), event.getStageY(),
+                detector.touchDragged(event.getWindowX(), event.getWindowY(),
                         event.getPointer());
                 return true;
         }
@@ -161,7 +161,7 @@ public class GestureListener implements EventListener {
     }
 
     /**
-     * The delta is the difference in stage coordinates since the last pan.
+     * The delta is the difference in window coordinates since the last pan.
      */
     public void pan(InputEvent event, float x, float y, float deltaX, float deltaY) {
     }

@@ -1368,7 +1368,7 @@ public class Table extends WidgetGroup {
     private void drawDebugRects(ShapeRenderer shapes) {
         if (debugRects == null || !getDebug()) return;
         shapes.set(ShapeRenderer.ShapeType.Line);
-        shapes.setColor(getStage().getDebugColor());
+        shapes.setColor(getWindow().getDebugColor());
         float x = 0, y = 0;
         if (!isTransform()) {
             x = getX();

@@ -21,7 +21,7 @@ import com.guidebee.game.ui.UIComponent;
 
 //[------------------------------ MAIN CLASS ----------------------------------]
 /**
- * Removes an component from the stage.
+ * Removes an component from the window.
  *
  * @author Nathan Sweet
  */
