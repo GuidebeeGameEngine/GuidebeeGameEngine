@@ -42,7 +42,7 @@ uploadArchives {
     repositories.mavenDeployer {
         pom.groupId = 'com.guidebee'
         pom.artifactId = 'game-engine'
-        pom.version = '0.9.10'
+        pom.version = '1.0.0'
         // Add other pom properties here if you want (developer details / licenses)
         repository(url: "file:///workspace/GuidebeeGameEngine/release")
     }
