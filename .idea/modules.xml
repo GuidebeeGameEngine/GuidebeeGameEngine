@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/GuidebeeGameEngine.iml" filepath="$PROJECT_DIR$/GuidebeeGameEngine.iml" />
+      <module fileurl="file://$PROJECT_DIR$/actiondemo/actiondemo.iml" filepath="$PROJECT_DIR$/actiondemo/actiondemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/box2d/box2d.iml" filepath="$PROJECT_DIR$/box2d/box2d.iml" />
       <module fileurl="file://$PROJECT_DIR$/game/game.iml" filepath="$PROJECT_DIR$/game/game.iml" />

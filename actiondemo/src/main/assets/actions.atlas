@@ -1,0 +1,124 @@
+actions.png
+size: 995, 501
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+background
+  rotate: false
+  xy: 1, 1
+  size: 480, 392
+  orig: 480, 392
+  offset: 0, 0
+  index: -1
+bird1
+  rotate: false
+  xy: 930, 281
+  size: 64, 54
+  orig: 64, 54
+  offset: 0, 0
+  index: -1
+bird2
+  rotate: false
+  xy: 917, 386
+  size: 64, 54
+  orig: 64, 54
+  offset: 0, 0
+  index: -1
+bird3
+  rotate: false
+  xy: 833, 442
+  size: 64, 54
+  orig: 64, 54
+  offset: 0, 0
+  index: -1
+bird4
+  rotate: false
+  xy: 899, 442
+  size: 64, 54
+  orig: 64, 54
+  offset: 0, 0
+  index: -1
+bomb
+  rotate: false
+  xy: 848, 281
+  size: 80, 45
+  orig: 80, 45
+  offset: 0, 0
+  index: -1
+bomb_arrow
+  rotate: false
+  xy: 573, 381
+  size: 258, 104
+  orig: 258, 104
+  offset: 0, 0
+  index: -1
+bunny_dance
+  rotate: false
+  xy: 1, 395
+  size: 570, 105
+  orig: 570, 105
+  offset: 0, 0
+  index: -1
+bunny_laugh
+  rotate: false
+  xy: 483, 1
+  size: 475, 105
+  orig: 475, 105
+  offset: 0, 0
+  index: -1
+obj_anvil
+  rotate: false
+  xy: 917, 337
+  size: 65, 47
+  orig: 65, 47
+  offset: 0, 0
+  index: -1
+obj_ball
+  rotate: false
+  xy: 848, 328
+  size: 67, 67
+  orig: 67, 67
+  offset: 0, 0
+  index: -1
+obj_balloon
+  rotate: false
+  xy: 483, 108
+  size: 448, 119
+  orig: 448, 119
+  offset: 0, 0
+  index: -1
+obj_obstacle
+  rotate: false
+  xy: 483, 359
+  size: 110, 20
+  orig: 110, 20
+  offset: 0, 0
+  index: -1
+objw1_plataforma
+  rotate: false
+  xy: 833, 229
+  size: 140, 50
+  orig: 140, 50
+  offset: 0, 0
+  index: -1
+objw3_flower0
+  rotate: false
+  xy: 741, 229
+  size: 85, 55
+  orig: 85, 55
+  offset: 0, 0
+  index: -1
+objw3_turtle0
+  rotate: false
+  xy: 741, 286
+  size: 105, 75
+  orig: 105, 75
+  offset: 0, 0
+  index: -1
+w1_ground
+  rotate: false
+  xy: 483, 229
+  size: 256, 128
+  orig: 256, 128
+  offset: 0, 0
+  index: -1
