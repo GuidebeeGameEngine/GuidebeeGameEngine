@@ -20,7 +20,7 @@ package com.guidebee.game.ui.actions;
 
 //[------------------------------ MAIN CLASS ----------------------------------]
 /**
- * Moves an actor from its current size to a relative size.
+ * Moves an component from its current size to a relative size.
  *
  * @author Nathan Sweet
  */
@@ -28,7 +28,7 @@ public class SizeByAction extends RelativeTemporalAction {
     private float amountWidth, amountHeight;
 
     protected void updateRelative(float percentDelta) {
-        actor.sizeBy(amountWidth * percentDelta, amountHeight * percentDelta);
+        component.sizeBy(amountWidth * percentDelta, amountHeight * percentDelta);
     }
 
     public void setAmount(float width, float height) {

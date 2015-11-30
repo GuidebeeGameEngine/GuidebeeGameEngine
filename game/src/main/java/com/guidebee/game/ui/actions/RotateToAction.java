@@ -20,7 +20,7 @@ package com.guidebee.game.ui.actions;
 
 //[------------------------------ MAIN CLASS ----------------------------------]
 /**
- * Sets the actor's rotation from its current value to a specific value.
+ * Sets the component's rotation from its current value to a specific value.
  *
  * @author Nathan Sweet
  */
@@ -28,11 +28,11 @@ public class RotateToAction extends TemporalAction {
     private float start, end;
 
     protected void begin() {
-        start = actor.getRotation();
+        start = component.getRotation();
     }
 
     protected void update(float percent) {
-        actor.setRotation(start + (end - start) * percent);
+        component.setRotation(start + (end - start) * percent);
     }
 
     public float getRotation() {

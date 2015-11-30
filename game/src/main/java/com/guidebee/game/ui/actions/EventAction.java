@@ -25,7 +25,7 @@ import com.guidebee.game.ui.UIComponent;
 
 //[------------------------------ MAIN CLASS ----------------------------------]
 /**
- * Adds a listener to the actor for a specific event type and does not
+ * Adds a listener to the component for a specific event type and does not
  * complete until {@link #handle(Event)} returns true.
  *
  * @author JavadocMD
@@ -53,14 +53,14 @@ abstract public class EventAction<T extends Event> extends Action {
         active = false;
     }
 
-    public void setActor(UIComponent actor) {
+    public void setActor(UIComponent component) {
         if (getActor() != null) getActor().removeListener(listener);
-        super.setActor(actor);
-        if (actor != null) actor.addListener(listener);
+        super.setActor(component);
+        if (component != null) component.addListener(listener);
     }
 
     /**
-     * Called when the specific type of event occurs on the actor.
+     * Called when the specific type of event occurs on the component.
      *
      * @return true if the event should be considered
      * {@link Event#handle() handled} and this EventAction considered complete.

@@ -22,7 +22,7 @@ package com.guidebee.game.ui;
 
 /**
  * Value placeholder, allowing the value to be computed on request. Values are
- * provided an actor for context which reduces the
+ * provided an component for context which reduces the
  * number of value instances that need to be created and reduces verbosity
  * in code that specifies values.
  *
@@ -57,7 +57,7 @@ abstract public class Value {
     }
 
     /**
-     * Value that is the minWidth of the actor in the cell.
+     * Value that is the minWidth of the component in the cell.
      */
     static public Value minWidth = new Value() {
         public float get(UIComponent context) {
@@ -67,7 +67,7 @@ abstract public class Value {
     };
 
     /**
-     * Value that is the minHeight of the actor in the cell.
+     * Value that is the minHeight of the component in the cell.
      */
     static public Value minHeight = new Value() {
         public float get(UIComponent context) {
@@ -77,7 +77,7 @@ abstract public class Value {
     };
 
     /**
-     * Value that is the prefWidth of the actor in the cell.
+     * Value that is the prefWidth of the component in the cell.
      */
     static public Value prefWidth = new Value() {
         public float get(UIComponent context) {
@@ -88,7 +88,7 @@ abstract public class Value {
     };
 
     /**
-     * Value that is the prefHeight of the actor in the cell.
+     * Value that is the prefHeight of the component in the cell.
      */
     static public Value prefHeight = new Value() {
         public float get(UIComponent context) {
@@ -98,7 +98,7 @@ abstract public class Value {
     };
 
     /**
-     * Value that is the maxWidth of the actor in the cell.
+     * Value that is the maxWidth of the component in the cell.
      */
     static public Value maxWidth = new Value() {
         public float get(UIComponent context) {
@@ -108,7 +108,7 @@ abstract public class Value {
     };
 
     /**
-     * Value that is the maxHeight of the actor in the cell.
+     * Value that is the maxHeight of the component in the cell.
      */
     static public Value maxHeight = new Value() {
         public float get(UIComponent context) {
@@ -118,51 +118,51 @@ abstract public class Value {
     };
 
     /**
-     * Returns a value that is a percentage of the actor's width.
+     * Returns a value that is a percentage of the component's width.
      */
     static public Value percentWidth(final float percent) {
         return new Value() {
-            public float get(UIComponent actor) {
-                return actor.getWidth() * percent;
+            public float get(UIComponent component) {
+                return component.getWidth() * percent;
             }
         };
     }
 
     /**
-     * Returns a value that is a percentage of the actor's height.
+     * Returns a value that is a percentage of the component's height.
      */
     static public Value percentHeight(final float percent) {
         return new Value() {
-            public float get(UIComponent actor) {
-                return actor.getHeight() * percent;
+            public float get(UIComponent component) {
+                return component.getHeight() * percent;
             }
         };
     }
 
     /**
-     * Returns a value that is a percentage of the specified actor's width.
-     * The context actor is ignored.
+     * Returns a value that is a percentage of the specified component's width.
+     * The context component is ignored.
      */
-    static public Value percentWidth(final float percent, final UIComponent actor) {
-        if (actor == null)
-            throw new IllegalArgumentException("actor cannot be null.");
+    static public Value percentWidth(final float percent, final UIComponent component) {
+        if (component == null)
+            throw new IllegalArgumentException("component cannot be null.");
         return new Value() {
             public float get(UIComponent context) {
-                return actor.getWidth() * percent;
+                return component.getWidth() * percent;
             }
         };
     }
 
     /**
-     * Returns a value that is a percentage of the specified actor's height.
-     * The context actor is ignored.
+     * Returns a value that is a percentage of the specified component's height.
+     * The context component is ignored.
      */
-    static public Value percentHeight(final float percent, final UIComponent actor) {
-        if (actor == null)
-            throw new IllegalArgumentException("actor cannot be null.");
+    static public Value percentHeight(final float percent, final UIComponent component) {
+        if (component == null)
+            throw new IllegalArgumentException("component cannot be null.");
         return new Value() {
             public float get(UIComponent context) {
-                return actor.getHeight() * percent;
+                return component.getHeight() * percent;
             }
         };
     }

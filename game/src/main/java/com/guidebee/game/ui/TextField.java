@@ -504,29 +504,29 @@ public class TextField extends Widget implements Disableable {
             GameEngine.input.setOnscreenKeyboardVisible(false);
     }
 
-    private TextField findNextTextField(Array<UIComponent> actors, TextField best, Vector2 bestCoords,
+    private TextField findNextTextField(Array<UIComponent> components, TextField best, Vector2 bestCoords,
                                         Vector2 currentCoords, boolean up) {
-        for (int i = 0, n = actors.size; i < n; i++) {
-            UIComponent actor = actors.get(i);
-            if (actor == this) continue;
-            if (actor instanceof TextField) {
-                TextField textField = (TextField) actor;
+        for (int i = 0, n = components.size; i < n; i++) {
+            UIComponent component = components.get(i);
+            if (component == this) continue;
+            if (component instanceof TextField) {
+                TextField textField = (TextField) component;
                 if (textField.isDisabled() || !textField.focusTraversal) continue;
-                Vector2 actorCoords = actor.getParent().localToStageCoordinates(tmp3.set(actor.getX(),
-                        actor.getY()));
-                if ((actorCoords.y < currentCoords.y
-                        || (actorCoords.y == currentCoords.y
-                        && actorCoords.x > currentCoords.x)) ^ up) {
+                Vector2 componentCoords = component.getParent().localToStageCoordinates(tmp3.set(component.getX(),
+                        component.getY()));
+                if ((componentCoords.y < currentCoords.y
+                        || (componentCoords.y == currentCoords.y
+                        && componentCoords.x > currentCoords.x)) ^ up) {
                     if (best == null
-                            || (actorCoords.y > bestCoords.y
-                            || (actorCoords.y == bestCoords.y
-                            && actorCoords.x < bestCoords.x)) ^ up) {
-                        best = (TextField) actor;
-                        bestCoords.set(actorCoords);
+                            || (componentCoords.y > bestCoords.y
+                            || (componentCoords.y == bestCoords.y
+                            && componentCoords.x < bestCoords.x)) ^ up) {
+                        best = (TextField) component;
+                        bestCoords.set(componentCoords);
                     }
                 }
-            } else if (actor instanceof UIContainer)
-                best = findNextTextField(((UIContainer) actor).getChildren(), best,
+            } else if (component instanceof UIContainer)
+                best = findNextTextField(((UIContainer) component).getChildren(), best,
                         bestCoords, currentCoords, up);
         }
         return best;

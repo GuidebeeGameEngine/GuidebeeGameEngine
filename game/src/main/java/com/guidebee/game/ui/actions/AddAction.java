@@ -21,7 +21,7 @@ import com.guidebee.game.ui.UIComponent;
 
 //[------------------------------ MAIN CLASS ----------------------------------]
 /**
- * Adds an action to an actor.
+ * Adds an action to an component.
  *
  * @author Nathan Sweet
  */
@@ -30,7 +30,7 @@ public class AddAction extends Action {
     private Action action;
 
     public boolean act(float delta) {
-        (targetActor != null ? targetActor : actor).addAction(action);
+        (targetActor != null ? targetActor : component).addAction(action);
         return true;
     }
 
@@ -39,11 +39,11 @@ public class AddAction extends Action {
     }
 
     /**
-     * Sets the actor to add an action to. If null (the default),
-     * the {@link #getActor() actor} will be used.
+     * Sets the component to add an action to. If null (the default),
+     * the {@link #getActor() component} will be used.
      */
-    public void setTargetActor(UIComponent actor) {
-        this.targetActor = actor;
+    public void setTargetActor(UIComponent component) {
+        this.targetActor = component;
     }
 
     public Action getAction() {

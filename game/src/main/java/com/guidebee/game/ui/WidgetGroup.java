@@ -80,11 +80,11 @@ public class WidgetGroup extends UIContainer implements Layout {
     private void setLayoutEnabled(UIContainer parent, boolean enabled) {
         SnapshotArray<UIComponent> children = getChildren();
         for (int i = 0, n = children.size; i < n; i++) {
-            UIComponent actor = children.get(i);
-            if (actor instanceof Layout)
-                ((Layout) actor).setLayoutEnabled(enabled);
-            else if (actor instanceof UIContainer) //
-                setLayoutEnabled((UIContainer) actor, enabled);
+            UIComponent component = children.get(i);
+            if (component instanceof Layout)
+                ((Layout) component).setLayoutEnabled(enabled);
+            else if (component instanceof UIContainer) //
+                setLayoutEnabled((UIContainer) component, enabled);
         }
     }
 

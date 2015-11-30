@@ -82,14 +82,14 @@ public class DragAndDrop {
                 float stageX = event.getStageX() + touchOffsetX,
                         stageY = event.getStageY() + touchOffsetY;
                 UIComponent hit = event.getStage().hit(stageX, stageY, true);
-                // Prefer touchable actors.
+                // Prefer touchable components.
                 if (hit == null) hit = event.getStage().hit(stageX, stageY, false);
                 if (hit != null) {
                     for (int i = 0, n = targets.size; i < n; i++) {
                         Target target = targets.get(i);
-                        if (!target.actor.isAscendantOf(hit)) continue;
+                        if (!target.component.isAscendantOf(hit)) continue;
                         newTarget = target;
-                        target.actor.stageToLocalCoordinates(tmpVector.set(stageX, stageY));
+                        target.component.stageToLocalCoordinates(tmpVector.set(stageX, stageY));
                         isValidTarget = target.drag(source, payload, tmpVector.x,
                                 tmpVector.y, pointer);
                         break;
@@ -102,26 +102,26 @@ public class DragAndDrop {
 
                 if (dragActor != null) dragActor.setTouchable(dragActorTouchable);
 
-                // Add/remove and position the drag actor.
-                UIComponent actor = null;
-                if (target != null) actor = isValidTarget
+                // Add/remove and position the drag component.
+                UIComponent component = null;
+                if (target != null) component = isValidTarget
                         ? payload.validDragActor : payload.invalidDragActor;
-                if (actor == null) actor = payload.dragActor;
-                if (actor == null) return;
-                if (dragActor != actor) {
+                if (component == null) component = payload.dragActor;
+                if (component == null) return;
+                if (dragActor != component) {
                     if (dragActor != null) dragActor.remove();
-                    dragActor = actor;
-                    stage.addActor(actor);
+                    dragActor = component;
+                    stage.addActor(component);
                 }
-                float actorX = event.getStageX() + dragActorX;
-                float actorY = event.getStageY() + dragActorY - actor.getHeight();
-                if (actorX < 0) actorX = 0;
-                if (actorY < 0) actorY = 0;
-                if (actorX + actor.getWidth() > stage.getWidth())
-                    actorX = stage.getWidth() - actor.getWidth();
-                if (actorY + actor.getHeight() > stage.getHeight())
-                    actorY = stage.getHeight() - actor.getHeight();
-                actor.setPosition(actorX, actorY);
+                float componentX = event.getStageX() + dragActorX;
+                float componentY = event.getStageY() + dragActorY - component.getHeight();
+                if (componentX < 0) componentX = 0;
+                if (componentY < 0) componentY = 0;
+                if (componentX + component.getWidth() > stage.getWidth())
+                    componentX = stage.getWidth() - component.getWidth();
+                if (componentY + component.getHeight() > stage.getHeight())
+                    componentY = stage.getHeight() - component.getHeight();
+                component.setPosition(componentX, componentY);
             }
 
             public void dragStop(InputEvent event, float x, float y, int pointer) {
@@ -135,7 +135,7 @@ public class DragAndDrop {
                 if (isValidTarget) {
                     float stageX = event.getStageX() + touchOffsetX,
                             stageY = event.getStageY() + touchOffsetY;
-                    target.actor.stageToLocalCoordinates(tmpVector.set(stageX, stageY));
+                    target.component.stageToLocalCoordinates(tmpVector.set(stageX, stageY));
                     target.drop(source, payload, tmpVector.x, tmpVector.y, pointer);
                 }
                 source.dragStop(event, x, y, pointer, payload, isValidTarget ? target : null);
@@ -148,13 +148,13 @@ public class DragAndDrop {
         };
         listener.setTapSquareSize(tapSquareSize);
         listener.setButton(button);
-        source.actor.addCaptureListener(listener);
+        source.component.addCaptureListener(listener);
         sourceListeners.put(source, listener);
     }
 
     public void removeSource(Source source) {
         DragListener dragListener = sourceListeners.remove(source);
-        source.actor.removeCaptureListener(dragListener);
+        source.component.removeCaptureListener(dragListener);
     }
 
     public void addTarget(Target target) {
@@ -171,7 +171,7 @@ public class DragAndDrop {
     public void clear() {
         targets.clear();
         for (ObjectMap.Entry<Source, DragListener> entry : sourceListeners.entries())
-            entry.key.actor.removeCaptureListener(entry.value);
+            entry.key.component.removeCaptureListener(entry.value);
         sourceListeners.clear();
     }
 
@@ -209,7 +209,7 @@ public class DragAndDrop {
     }
 
     /**
-     * Returns the current drag actor, or null.
+     * Returns the current drag component, or null.
      */
     public UIComponent getDragActor() {
         return dragActor;
@@ -230,12 +230,12 @@ public class DragAndDrop {
      * @author Nathan Sweet
      */
     static abstract public class Source {
-        final UIComponent actor;
+        final UIComponent component;
 
-        public Source(UIComponent actor) {
-            if (actor == null)
-                throw new IllegalArgumentException("actor cannot be null.");
-            this.actor = actor;
+        public Source(UIComponent component) {
+            if (component == null)
+                throw new IllegalArgumentException("component cannot be null.");
+            this.component = component;
         }
 
         /**
@@ -252,7 +252,7 @@ public class DragAndDrop {
         }
 
         public UIComponent getActor() {
-            return actor;
+            return component;
         }
     }
 
@@ -262,14 +262,14 @@ public class DragAndDrop {
      * @author Nathan Sweet
      */
     static abstract public class Target {
-        final UIComponent actor;
+        final UIComponent component;
 
-        public Target(UIComponent actor) {
-            if (actor == null)
-                throw new IllegalArgumentException("actor cannot be null.");
-            this.actor = actor;
-            UIWindow stage = actor.getStage();
-            if (stage != null && actor == stage.getRoot())
+        public Target(UIComponent component) {
+            if (component == null)
+                throw new IllegalArgumentException("component cannot be null.");
+            this.component = component;
+            UIWindow stage = component.getStage();
+            if (stage != null && component == stage.getRoot())
                 throw new IllegalArgumentException(
                         "The stage root cannot be a drag and drop target.");
         }
@@ -294,7 +294,7 @@ public class DragAndDrop {
                                   float y, int pointer);
 
         public UIComponent getActor() {
-            return actor;
+            return component;
         }
     }
 

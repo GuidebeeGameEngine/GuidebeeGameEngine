@@ -23,7 +23,7 @@ import com.guidebee.game.ui.UIComponent;
 
 //[------------------------------ MAIN CLASS ----------------------------------]
 /**
- * Adds a listener to an actor.
+ * Adds a listener to an component.
  *
  * @author Nathan Sweet
  */
@@ -33,11 +33,11 @@ public class AddListenerAction extends Action {
     private boolean capture;
 
     public boolean act(float delta) {
-        UIComponent actor = (targetActor != null ? targetActor : this.actor);
+        UIComponent component = (targetActor != null ? targetActor : this.component);
         if (capture)
-            actor.addCaptureListener(listener);
+            component.addCaptureListener(listener);
         else
-            actor.addListener(listener);
+            component.addListener(listener);
         return true;
     }
 
@@ -46,11 +46,11 @@ public class AddListenerAction extends Action {
     }
 
     /**
-     * Sets the actor to add a listener to. If null (the default), the
-     * {@link #getActor() actor} will be used.
+     * Sets the component to add a listener to. If null (the default), the
+     * {@link #getActor() component} will be used.
      */
-    public void setTargetActor(UIComponent actor) {
-        this.targetActor = actor;
+    public void setTargetActor(UIComponent component) {
+        this.targetActor = component;
     }
 
     public EventListener getListener() {

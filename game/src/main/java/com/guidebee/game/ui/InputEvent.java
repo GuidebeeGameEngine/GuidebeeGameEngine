@@ -23,7 +23,7 @@ import com.guidebee.math.Vector2;
 //[------------------------------ MAIN CLASS ----------------------------------]
 
 /**
- * Event for actor input: touch, mouse, keyboard, and scroll.
+ * Event for component input: touch, mouse, keyboard, and scroll.
  *
  * @see InputListener
  */
@@ -136,9 +136,9 @@ public class InputEvent extends Event {
     }
 
     /**
-     * The actor related to the event. Valid for: enter and exit. For enter,
-     * this is the actor being exited, or null. For exit,
-     * this is the actor being entered, or null.
+     * The component related to the event. Valid for: enter and exit. For enter,
+     * this is the component being exited, or null. For exit,
+     * this is the component being entered, or null.
      */
     public UIComponent getRelatedActor() {
         return relatedActor;
@@ -152,14 +152,14 @@ public class InputEvent extends Event {
     }
 
     /**
-     * Sets actorCoords to this event's coordinates relative to the specified actor.
+     * Sets componentCoords to this event's coordinates relative to the specified component.
      *
-     * @param actorCoords Output for resulting coordinates.
+     * @param componentCoords Output for resulting coordinates.
      */
-    public Vector2 toCoordinates(UIComponent actor, Vector2 actorCoords) {
-        actorCoords.set(stageX, stageY);
-        actor.stageToLocalCoordinates(actorCoords);
-        return actorCoords;
+    public Vector2 toCoordinates(UIComponent component, Vector2 componentCoords) {
+        componentCoords.set(stageX, stageY);
+        component.stageToLocalCoordinates(componentCoords);
+        return componentCoords;
     }
 
     /**
@@ -195,11 +195,11 @@ public class InputEvent extends Event {
         mouseMoved,
         /**
          * The mouse pointer or an active touch have entered (i.e.,
-         * {@link UIComponent#hit(float, float, boolean) hit}) an actor.
+         * {@link UIComponent#hit(float, float, boolean) hit}) an component.
          */
         enter,
         /**
-         * The mouse pointer or an active touch have exited an actor.
+         * The mouse pointer or an active touch have exited an component.
          */
         exit,
         /**

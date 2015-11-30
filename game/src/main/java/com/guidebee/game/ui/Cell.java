@@ -37,9 +37,9 @@ public class Cell<T extends UIComponent> implements Pool.Poolable {
     Integer colspan;
     Boolean uniformX, uniformY;
 
-    UIComponent actor;
-    float actorX, actorY;
-    float actorWidth, actorHeight;
+    UIComponent component;
+    float componentX, componentY;
+    float componentWidth, componentHeight;
 
     private Table table;
     boolean endRow;
@@ -103,30 +103,30 @@ public class Cell<T extends UIComponent> implements Pool.Poolable {
     }
 
     /**
-     * Sets the actor in this cell and adds the actor to the cell's table.
-     * If null, removes any current actor.
+     * Sets the component in this cell and adds the component to the cell's table.
+     * If null, removes any current component.
      */
     public <A extends UIComponent> Cell<A> setActor(A newActor) {
-        if (actor != null) actor.remove();
-        if (actor != newActor) {
-            actor = newActor;
+        if (component != null) component.remove();
+        if (component != newActor) {
+            component = newActor;
             if (newActor != null) table.addComponent(newActor);
         }
         return (Cell<A>) this;
     }
 
     /**
-     * Returns the actor for this cell, or null.
+     * Returns the component for this cell, or null.
      */
     public T getActor() {
-        return (T) actor;
+        return (T) component;
     }
 
     /**
-     * Returns true if the cell's actor is not null.
+     * Returns true if the cell's component is not null.
      */
     public boolean hasActor() {
-        return actor != null;
+        return component != null;
     }
 
     /**
@@ -628,7 +628,7 @@ public class Cell<T extends UIComponent> implements Pool.Poolable {
     }
 
     /**
-     * Sets the alignment of the actor within the cell. Set to {@link Align#center},
+     * Sets the alignment of the component within the cell. Set to {@link Align#center},
      * {@link Align#top}, {@link Align#bottom},
      * {@link Align#left}, {@link Align#right}, or any combination of those.
      */
@@ -638,7 +638,7 @@ public class Cell<T extends UIComponent> implements Pool.Poolable {
     }
 
     /**
-     * Sets the alignment of the actor within the cell to {@link Align#center}.
+     * Sets the alignment of the component within the cell to {@link Align#center}.
      * This clears any other alignment.
      */
     public Cell<T> center() {
@@ -648,7 +648,7 @@ public class Cell<T extends UIComponent> implements Pool.Poolable {
 
     /**
      * Adds {@link Align#top} and clears {@link Align#bottom} for the alignment
-     * of the actor within the cell.
+     * of the component within the cell.
      */
     public Cell<T> top() {
         if (align == null)
@@ -662,7 +662,7 @@ public class Cell<T extends UIComponent> implements Pool.Poolable {
 
     /**
      * Adds {@link Align#left} and clears {@link Align#right} for the alignment
-     * of the actor within the cell.
+     * of the component within the cell.
      */
     public Cell<T> left() {
         if (align == null)
@@ -676,7 +676,7 @@ public class Cell<T extends UIComponent> implements Pool.Poolable {
 
     /**
      * Adds {@link Align#bottom} and clears {@link Align#top} for the alignment
-     * of the actor within the cell.
+     * of the component within the cell.
      */
     public Cell<T> bottom() {
         if (align == null)
@@ -690,7 +690,7 @@ public class Cell<T extends UIComponent> implements Pool.Poolable {
 
     /**
      * Adds {@link Align#right} and clears {@link Align#left} for the alignment
-     * of the actor within the cell.
+     * of the component within the cell.
      */
     public Cell<T> right() {
         if (align == null)
@@ -779,42 +779,42 @@ public class Cell<T extends UIComponent> implements Pool.Poolable {
     }
 
     public void setActorBounds(float x, float y, float width, float height) {
-        actorX = x;
-        actorY = y;
-        actorWidth = width;
-        actorHeight = height;
+        componentX = x;
+        componentY = y;
+        componentWidth = width;
+        componentHeight = height;
     }
 
     public float getActorX() {
-        return actorX;
+        return componentX;
     }
 
-    public void setActorX(float actorX) {
-        this.actorX = actorX;
+    public void setActorX(float componentX) {
+        this.componentX = componentX;
     }
 
     public float getActorY() {
-        return actorY;
+        return componentY;
     }
 
-    public void setActorY(float actorY) {
-        this.actorY = actorY;
+    public void setActorY(float componentY) {
+        this.componentY = componentY;
     }
 
     public float getActorWidth() {
-        return actorWidth;
+        return componentWidth;
     }
 
-    public void setActorWidth(float actorWidth) {
-        this.actorWidth = actorWidth;
+    public void setActorWidth(float componentWidth) {
+        this.componentWidth = componentWidth;
     }
 
     public float getActorHeight() {
-        return actorHeight;
+        return componentHeight;
     }
 
-    public void setActorHeight(float actorHeight) {
-        this.actorHeight = actorHeight;
+    public void setActorHeight(float componentHeight) {
+        this.componentHeight = componentHeight;
     }
 
     public int getColumn() {
@@ -833,7 +833,7 @@ public class Cell<T extends UIComponent> implements Pool.Poolable {
     }
 
     public float getMinWidth() {
-        return minWidth.get(actor);
+        return minWidth.get(component);
     }
 
     /**
@@ -844,7 +844,7 @@ public class Cell<T extends UIComponent> implements Pool.Poolable {
     }
 
     public float getMinHeight() {
-        return minHeight.get(actor);
+        return minHeight.get(component);
     }
 
     /**
@@ -855,7 +855,7 @@ public class Cell<T extends UIComponent> implements Pool.Poolable {
     }
 
     public float getPrefWidth() {
-        return prefWidth.get(actor);
+        return prefWidth.get(component);
     }
 
     /**
@@ -866,7 +866,7 @@ public class Cell<T extends UIComponent> implements Pool.Poolable {
     }
 
     public float getPrefHeight() {
-        return prefHeight.get(actor);
+        return prefHeight.get(component);
     }
 
     /**
@@ -877,7 +877,7 @@ public class Cell<T extends UIComponent> implements Pool.Poolable {
     }
 
     public float getMaxWidth() {
-        return maxWidth.get(actor);
+        return maxWidth.get(component);
     }
 
     /**
@@ -888,7 +888,7 @@ public class Cell<T extends UIComponent> implements Pool.Poolable {
     }
 
     public float getMaxHeight() {
-        return maxHeight.get(actor);
+        return maxHeight.get(component);
     }
 
     /**
@@ -899,7 +899,7 @@ public class Cell<T extends UIComponent> implements Pool.Poolable {
     }
 
     public float getSpaceTop() {
-        return spaceTop.get(actor);
+        return spaceTop.get(component);
     }
 
     /**
@@ -910,7 +910,7 @@ public class Cell<T extends UIComponent> implements Pool.Poolable {
     }
 
     public float getSpaceLeft() {
-        return spaceLeft.get(actor);
+        return spaceLeft.get(component);
     }
 
     /**
@@ -921,7 +921,7 @@ public class Cell<T extends UIComponent> implements Pool.Poolable {
     }
 
     public float getSpaceBottom() {
-        return spaceBottom.get(actor);
+        return spaceBottom.get(component);
     }
 
     /**
@@ -932,7 +932,7 @@ public class Cell<T extends UIComponent> implements Pool.Poolable {
     }
 
     public float getSpaceRight() {
-        return spaceRight.get(actor);
+        return spaceRight.get(component);
     }
 
     /**
@@ -943,7 +943,7 @@ public class Cell<T extends UIComponent> implements Pool.Poolable {
     }
 
     public float getPadTop() {
-        return padTop.get(actor);
+        return padTop.get(component);
     }
 
     /**
@@ -954,7 +954,7 @@ public class Cell<T extends UIComponent> implements Pool.Poolable {
     }
 
     public float getPadLeft() {
-        return padLeft.get(actor);
+        return padLeft.get(component);
     }
 
     /**
@@ -965,7 +965,7 @@ public class Cell<T extends UIComponent> implements Pool.Poolable {
     }
 
     public float getPadBottom() {
-        return padBottom.get(actor);
+        return padBottom.get(component);
     }
 
     /**
@@ -976,21 +976,21 @@ public class Cell<T extends UIComponent> implements Pool.Poolable {
     }
 
     public float getPadRight() {
-        return padRight.get(actor);
+        return padRight.get(component);
     }
 
     /**
      * Returns {@link #getPadLeft()} plus {@link #getPadRight()}.
      */
     public float getPadX() {
-        return padLeft.get(actor) + padRight.get(actor);
+        return padLeft.get(component) + padRight.get(component);
     }
 
     /**
      * Returns {@link #getPadTop()} plus {@link #getPadBottom()}.
      */
     public float getPadY() {
-        return padTop.get(actor) + padBottom.get(actor);
+        return padTop.get(component) + padBottom.get(component);
     }
 
     /**
@@ -1124,7 +1124,7 @@ public class Cell<T extends UIComponent> implements Pool.Poolable {
      * Reset state so the cell can be reused. Doesn't reset the constraint fields.
      */
     public void reset() {
-        actor = null;
+        component = null;
         table = null;
         endRow = false;
         cellAboveIndex = -1;

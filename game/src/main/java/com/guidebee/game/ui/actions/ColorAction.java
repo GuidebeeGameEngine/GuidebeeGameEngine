@@ -23,7 +23,7 @@ import com.guidebee.game.ui.UIComponent;
 
 //[------------------------------ MAIN CLASS ----------------------------------]
 /**
- * Sets the actor's color (or a specified color), from the current to the new
+ * Sets the component's color (or a specified color), from the current to the new
  * color. Note this action transitions from the color
  * at the time the action starts to the specified color.
  *
@@ -35,7 +35,7 @@ public class ColorAction extends TemporalAction {
     private final Color end = new Color();
 
     protected void begin() {
-        if (color == null) color = actor.getColor();
+        if (color == null) color = component.getColor();
         startR = color.r;
         startG = color.g;
         startB = color.b;
@@ -61,7 +61,7 @@ public class ColorAction extends TemporalAction {
 
     /**
      * Sets the color to modify. If null (the default), the
-     * {@link #getActor() actor's} {@link UIComponent#getColor() color} will be
+     * {@link #getActor() component's} {@link UIComponent#getColor() color} will be
      * used.
      */
     public void setColor(Color color) {

@@ -35,7 +35,7 @@ import com.guidebee.utils.Scaling;
 /**
  * Displays a {@link com.guidebee.game.ui.drawable.Drawable}, scaled various way within the widgets bounds.
  * The preferred size is the min size of the drawable.
- * Only when using a {@link com.guidebee.game.ui.drawable.TextureRegionDrawable} will the actor's scale, rotation,
+ * Only when using a {@link com.guidebee.game.ui.drawable.TextureRegionDrawable} will the component's scale, rotation,
  * and origin be used when drawing.
  *
  * @author Nathan Sweet

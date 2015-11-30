@@ -72,18 +72,18 @@ public class GameController extends WidgetGroup {
         addListener(new ChangeListener() {
 
             @Override
-            public void changed(ChangeEvent event, UIComponent actor) {
+            public void changed(ChangeEvent event, UIComponent component) {
                 for (GameControllerListener listener : listeners) {
-                    if (actor == touchpad) {
+                    if (component == touchpad) {
                         GameControllerListener.Direction direction = getDirection(touchpad);
                         if (direction != GameControllerListener.Direction.NONE) {
                             listener.KnobMoved(touchpad, getDirection(touchpad));
                         }
 
-                    } else if (actor == shootButton) {
+                    } else if (component == shootButton) {
                         listener.ButtonPressed(GameControllerListener.GameButton.BUTTON_A);
 
-                    } else if (actor == powerButton) {
+                    } else if (component == powerButton) {
                         listener.ButtonPressed(GameControllerListener.GameButton.BUTTON_B);
 
                     }
@@ -161,7 +161,7 @@ public class GameController extends WidgetGroup {
 
     /**
      * Add a listener to receive events that {@link #hit(float, float, boolean) hit}
-     * this actor. See {@link #fire(com.guidebee.game.ui.Event)}.
+     * this component. See {@link #fire(com.guidebee.game.ui.Event)}.
      *
      * @see com.guidebee.game.ui.InputListener
      * @see com.guidebee.game.ui.ClickListener

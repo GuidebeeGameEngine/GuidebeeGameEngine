@@ -70,7 +70,7 @@ public class SequenceAction extends ParallelAction {
         // pool while executings.
         try {
             if (actions.get(index).act(delta)) {
-                if (actor == null) return true; // This action was removed.
+                if (component == null) return true; // This action was removed.
                 index++;
                 if (index >= actions.size) return true;
             }

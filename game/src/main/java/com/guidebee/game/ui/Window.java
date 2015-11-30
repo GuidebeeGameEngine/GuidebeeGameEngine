@@ -48,18 +48,18 @@ public class Window extends ScreenAdapter {
 
     /**
      * add UI component
-     * @param actor
+     * @param component
      */
-    public void addComponent(Widget actor) {
-        table.addComponent(actor);
+    public void addComponent(Widget component) {
+        table.addComponent(component);
     }
 
     /**
      * add UI component
-     * @param actor
+     * @param component
      */
-    public void addComponent(WidgetGroup actor) {
-        table.addComponent(actor);
+    public void addComponent(WidgetGroup component) {
+        table.addComponent(component);
     }
 
 

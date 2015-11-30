@@ -29,12 +29,12 @@ import com.guidebee.utils.collections.SnapshotArray;
 
 //[------------------------------ MAIN CLASS ----------------------------------]
 /**
- * 2D scene graph node that may contain other actors.
+ * 2D scene graph node that may contain other components.
  * <p>
  * Actors have a z-order equal to the order they were inserted into the group.
  * Actors inserted later will be drawn on top of
- * actors added earlier. Touch events that hit more than one component are
- * distributed to topmost actors first.
+ * components added earlier. Touch events that hit more than one component are
+ * distributed to topmost components first.
  *
  * @author mzechner
  * @author Nathan Sweet
@@ -61,9 +61,9 @@ public class UIContainer extends UIComponent implements Cullable {
 
     public void act(float delta) {
         super.act(delta);
-        UIComponent[] actors = children.begin();
+        UIComponent[] components = children.begin();
         for (int i = 0, n = children.size; i < n; i++)
-            actors[i].act(delta);
+            components[i].act(delta);
         children.end();
     }
 
@@ -93,7 +93,7 @@ public class UIContainer extends UIComponent implements Cullable {
     protected void drawChildren(Batch batch, float parentAlpha) {
         parentAlpha *= this.color.a;
         SnapshotArray<UIComponent> children = this.children;
-        UIComponent[] actors = children.begin();
+        UIComponent[] components = children.begin();
         Rectangle cullingArea = this.cullingArea;
         if (cullingArea != null) {
             // Draw children only if inside culling area.
@@ -103,7 +103,7 @@ public class UIContainer extends UIComponent implements Cullable {
             float cullTop = cullBottom + cullingArea.height;
             if (transform) {
                 for (int i = 0, n = children.size; i < n; i++) {
-                    UIComponent child = actors[i];
+                    UIComponent child = components[i];
                     if (!child.isVisible()) continue;
                     float cx = child.x, cy = child.y;
                     if (cx <= cullRight && cy <= cullTop && cx + child.width
@@ -117,7 +117,7 @@ public class UIContainer extends UIComponent implements Cullable {
                 x = 0;
                 y = 0;
                 for (int i = 0, n = children.size; i < n; i++) {
-                    UIComponent child = actors[i];
+                    UIComponent child = components[i];
                     if (!child.isVisible()) continue;
                     float cx = child.x, cy = child.y;
                     if (cx <= cullRight && cy <= cullTop && cx + child.width
@@ -136,7 +136,7 @@ public class UIContainer extends UIComponent implements Cullable {
             // No culling, draw all children.
             if (transform) {
                 for (int i = 0, n = children.size; i < n; i++) {
-                    UIComponent child = actors[i];
+                    UIComponent child = components[i];
                     if (!child.isVisible()) continue;
                     child.draw(batch, parentAlpha);
                 }
@@ -147,7 +147,7 @@ public class UIContainer extends UIComponent implements Cullable {
                 x = 0;
                 y = 0;
                 for (int i = 0, n = children.size; i < n; i++) {
-                    UIComponent child = actors[i];
+                    UIComponent child = components[i];
                     if (!child.isVisible()) continue;
                     float cx = child.x, cy = child.y;
                     child.x = cx + offsetX;
@@ -188,11 +188,11 @@ public class UIContainer extends UIComponent implements Cullable {
      */
     protected void drawDebugChildren(ShapeRenderer shapes) {
         SnapshotArray<UIComponent> children = this.children;
-        UIComponent[] actors = children.begin();
+        UIComponent[] components = children.begin();
         // No culling, draw all children.
         if (transform) {
             for (int i = 0, n = children.size; i < n; i++) {
-                UIComponent child = actors[i];
+                UIComponent child = components[i];
                 if (!child.isVisible()) continue;
                 child.drawDebug(shapes);
             }
@@ -203,7 +203,7 @@ public class UIContainer extends UIComponent implements Cullable {
             x = 0;
             y = 0;
             for (int i = 0, n = children.size; i < n; i++) {
-                UIComponent child = actors[i];
+                UIComponent child = components[i];
                 if (!child.isVisible()) continue;
                 float cx = child.x, cy = child.y;
                 child.x = cx + offsetX;
@@ -302,7 +302,7 @@ public class UIContainer extends UIComponent implements Cullable {
     /**
      * Children completely outside of this rectangle will not be drawn.
      * This is only valid for use with unrotated and unscaled
-     * actors!
+     * components!
      */
     public void setCullingArea(Rectangle cullingArea) {
         this.cullingArea = cullingArea;
@@ -323,7 +323,7 @@ public class UIContainer extends UIComponent implements Cullable {
     }
 
     /**
-     * Called when actors are added to or removed from the group.
+     * Called when components are added to or removed from the group.
      */
     protected void childrenChanged() {
     }
@@ -364,9 +364,9 @@ public class UIContainer extends UIComponent implements Cullable {
      * another child component. The component is first removed from its parent
      * group, if any.
      */
-    public void addComponentBefore(UIComponent actorBefore, UIComponent component) {
+    public void addComponentBefore(UIComponent componentBefore, UIComponent component) {
         component.remove();
-        int index = children.indexOf(actorBefore, true);
+        int index = children.indexOf(componentBefore, true);
         children.insert(index, component);
         component.setParent(this);
         component.setWindow(getStage());
@@ -378,9 +378,9 @@ public class UIContainer extends UIComponent implements Cullable {
      * child component. The component is first removed from its parent
      * group, if any.
      */
-    public void addComponentAfter(UIComponent actorAfter, UIComponent component) {
+    public void addComponentAfter(UIComponent componentAfter, UIComponent component) {
         component.remove();
-        int index = children.indexOf(actorAfter, true);
+        int index = children.indexOf(componentAfter, true);
         if (index == children.size)
             children.add(component);
         else
@@ -409,12 +409,12 @@ public class UIContainer extends UIComponent implements Cullable {
     }
 
     /**
-     * Removes all actors from this group.
+     * Removes all components from this group.
      */
     public void clearChildren() {
-        UIComponent[] actors = children.begin();
+        UIComponent[] components = children.begin();
         for (int i = 0, n = children.size; i < n; i++) {
-            UIComponent child = actors[i];
+            UIComponent child = components[i];
             child.setWindow(null);
             child.setParent(null);
         }
@@ -457,7 +457,7 @@ public class UIContainer extends UIComponent implements Cullable {
     }
 
     /**
-     * Swaps two actors by index. Returns false if the swap did not occur
+     * Swaps two components by index. Returns false if the swap did not occur
      * because the indexes were out of bounds.
      */
     public boolean swapComponent(int first, int second) {
@@ -469,8 +469,8 @@ public class UIContainer extends UIComponent implements Cullable {
     }
 
     /**
-     * Swaps two actors. Returns false if the swap did not occur because
-     * the actors are not children of this group.
+     * Swaps two components. Returns false if the swap did not occur because
+     * the components are not children of this group.
      */
     public boolean swapComponent(UIComponent first, UIComponent second) {
         int firstIndex = children.indexOf(first, true);
@@ -481,7 +481,7 @@ public class UIContainer extends UIComponent implements Cullable {
     }
 
     /**
-     * Returns an ordered list of child actors in this group.
+     * Returns an ordered list of child components in this group.
      */
     public SnapshotArray<UIComponent> getChildren() {
         return children;
@@ -495,7 +495,7 @@ public class UIContainer extends UIComponent implements Cullable {
      * When true (the default), the Batch is transformed so children are
      * drawn in their parent's coordinate system. This has a
      * performance impact because {@link Batch#flush()} must be done before
-     * and after the transform. If the actors in a group are
+     * and after the transform. If the components in a group are
      * not rotated or scaled, then the transform for the group can be set to
      * false. In this case, each child's position will be
      * offset by the group's position for drawing, causing the children to
@@ -561,10 +561,10 @@ public class UIContainer extends UIComponent implements Cullable {
     }
 
     private void print(String indent) {
-        UIComponent[] actors = children.begin();
+        UIComponent[] components = children.begin();
         for (int i = 0, n = children.size; i < n; i++) {
-            System.out.println(indent + actors[i]);
-            if (actors[i] instanceof UIContainer) ((UIContainer) actors[i]).print(indent + "|  ");
+            System.out.println(indent + components[i]);
+            if (components[i] instanceof UIContainer) ((UIContainer) components[i]).print(indent + "|  ");
         }
         children.end();
     }

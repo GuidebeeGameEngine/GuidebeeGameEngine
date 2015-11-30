@@ -23,18 +23,18 @@ import com.guidebee.utils.Pool;
 /**
  * The base class for all events.
  * <p/>
- * By default an event will "bubble" up through an actor's parent's handlers
+ * By default an event will "bubble" up through an component's parent's handlers
  * (see {@link #setBubbles(boolean)}).
  * <p/>
- * An actor's capture listeners can {@link #stop()} an event to prevent child
- * actors from seeing it.
+ * An component's capture listeners can {@link #stop()} an event to prevent child
+ * components from seeing it.
  * <p/>
  * An Event may be marked as "handled" which will end its propagation outside of
  * the Stage (see {@link #handle()}). The default
  * {@link UIComponent#fire(Event)} will mark events handled if an {@link EventListener}
  * returns true.
  * <p/>
- * A cancelled event will be stopped and handled. Additionally, many actors will
+ * A cancelled event will be stopped and handled. Additionally, many components will
  * undo the side-effects of a canceled event. (See
  * {@link #cancel()}.)
  *
@@ -80,7 +80,7 @@ public class Event implements Pool.Poolable {
     /**
      * Marks this event has being stopped. This halts event propagation.
      * Any other listeners on the {@link #getListenerActor()
-     * listener actor} are notified, but after that no other listeners are notified.
+     * listener component} are notified, but after that no other listeners are notified.
      */
     public void stop() {
         stopped = true;
@@ -98,7 +98,7 @@ public class Event implements Pool.Poolable {
     }
 
     /**
-     * Returns the actor that the event originated from.
+     * Returns the component that the event originated from.
      */
     public UIComponent getTarget() {
         return targetActor;
@@ -109,7 +109,7 @@ public class Event implements Pool.Poolable {
     }
 
     /**
-     * Returns the actor that this listener is attached to.
+     * Returns the component that this listener is attached to.
      */
     public UIComponent getListenerActor() {
         return listenerActor;
@@ -124,8 +124,8 @@ public class Event implements Pool.Poolable {
     }
 
     /**
-     * If true, after the event is fired on the target actor, it will also
-     * be fired on each of the parent actors, all the way to
+     * If true, after the event is fired on the target component, it will also
+     * be fired on each of the parent components, all the way to
      * the root.
      */
     public void setBubbles(boolean bubbles) {
@@ -171,7 +171,7 @@ public class Event implements Pool.Poolable {
     }
 
     /**
-     * The stage for the actor the event was fired on.
+     * The stage for the component the event was fired on.
      */
     public UIWindow getStage() {
         return stage;

@@ -50,12 +50,12 @@ import com.guidebee.utils.collections.DelayedRemovalArray;
  * or its children receive. The regular listeners are designed to allow an
  * component to respond to events that have been delivered.
  * The capture listeners are designed to allow a parent or container component to
- * handle events before child actors. See {@link #fire}
+ * handle events before child components. See {@link #fire}
  * for more details.
  * <p>
  * An {@link com.guidebee.game.ui.InputListener} can receive all the basic input events. More complex
  * listeners (like {@link com.guidebee.game.ui.ClickListener} and
- * {@link com.guidebee.game.ui.ActorGestureListener}) can listen
+ * {@link GestureListener}) can listen
  * for and combine primitive events and recognize complex interactions
  * like multi-touch
  * or pinch.
@@ -147,7 +147,7 @@ public class UIComponent {
     /**
      * Sets this component as the event {@link Event#setTarget(UIComponent) target}
      * and propagates the event to this component and ancestor
-     * actors as necessary. If this component is not in the stage, the stage
+     * components as necessary. If this component is not in the stage, the stage
      * must be set before calling this method.
      * <p>
      * Events are fired in 2 phases.

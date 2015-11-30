@@ -20,7 +20,7 @@ package com.guidebee.game.ui.actions;
 
 //[------------------------------ MAIN CLASS ----------------------------------]
 /**
- * Scales an actor's scale to a relative size.
+ * Scales an component's scale to a relative size.
  *
  * @author Nathan Sweet
  */
@@ -28,7 +28,7 @@ public class ScaleByAction extends RelativeTemporalAction {
     private float amountX, amountY;
 
     protected void updateRelative(float percentDelta) {
-        actor.scaleBy(amountX * percentDelta, amountY * percentDelta);
+        component.scaleBy(amountX * percentDelta, amountY * percentDelta);
     }
 
     public void setAmount(float x, float y) {

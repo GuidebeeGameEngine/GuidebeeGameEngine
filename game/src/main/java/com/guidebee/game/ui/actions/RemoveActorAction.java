@@ -21,7 +21,7 @@ import com.guidebee.game.ui.UIComponent;
 
 //[------------------------------ MAIN CLASS ----------------------------------]
 /**
- * Removes an actor from the stage.
+ * Removes an component from the stage.
  *
  * @author Nathan Sweet
  */
@@ -32,7 +32,7 @@ public class RemoveActorAction extends Action {
     public boolean act(float delta) {
         if (!removed) {
             removed = true;
-            UIComponent toRemove=(removeActor != null ? removeActor : actor);
+            UIComponent toRemove=(removeActor != null ? removeActor : component);
             Object userObject=toRemove.getUserObject();
             if(userObject instanceof com.guidebee.game.scene.Actor){
                 ((com.guidebee.game.scene.Actor)userObject).remove();
@@ -58,8 +58,8 @@ public class RemoveActorAction extends Action {
     }
 
     /**
-     * Sets the actor to remove. If null (the default),
-     * the {@link #getActor() actor} will be used.
+     * Sets the component to remove. If null (the default),
+     * the {@link #getActor() component} will be used.
      */
     public void setRemoveActor(UIComponent removeActor) {
         this.removeActor = removeActor;

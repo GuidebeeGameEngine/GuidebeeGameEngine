@@ -22,7 +22,7 @@ import com.guidebee.utils.collections.Array;
 
 //[------------------------------ MAIN CLASS ----------------------------------]
 /**
- * Executes an action only after all other actions on the actor at the time
+ * Executes an action only after all other actions on the component at the time
  * this action was added have finished.
  *
  * @author Nathan Sweet
@@ -30,9 +30,9 @@ import com.guidebee.utils.collections.Array;
 public class AfterAction extends DelegateAction {
     private Array<Action> waitForActions = new Array(false, 4);
 
-    public void setActor(UIComponent actor) {
-        if (actor != null) waitForActions.addAll(actor.getActions());
-        super.setActor(actor);
+    public void setActor(UIComponent component) {
+        if (component != null) waitForActions.addAll(component.getActions());
+        super.setActor(component);
     }
 
     public void restart() {
@@ -41,7 +41,7 @@ public class AfterAction extends DelegateAction {
     }
 
     protected boolean delegate(float delta) {
-        Array<Action> currentActions = actor.getActions();
+        Array<Action> currentActions = component.getActions();
         if (currentActions.size == 1) waitForActions.clear();
         for (int i = waitForActions.size - 1; i >= 0; i--) {
             Action action = waitForActions.get(i);

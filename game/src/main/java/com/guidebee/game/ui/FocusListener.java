@@ -43,19 +43,19 @@ abstract public class FocusListener implements EventListener {
     }
 
     /**
-     * @param actor The event target, which is the actor that emitted the focus event.
+     * @param component The event target, which is the component that emitted the focus event.
      */
-    public void keyboardFocusChanged(FocusEvent event, UIComponent actor, boolean focused) {
+    public void keyboardFocusChanged(FocusEvent event, UIComponent component, boolean focused) {
     }
 
     /**
-     * @param actor The event target, which is the actor that emitted the focus event.
+     * @param component The event target, which is the component that emitted the focus event.
      */
-    public void scrollFocusChanged(FocusEvent event, UIComponent actor, boolean focused) {
+    public void scrollFocusChanged(FocusEvent event, UIComponent component, boolean focused) {
     }
 
     /**
-     * Fired when an actor gains or loses keyboard or scroll focus. Can be
+     * Fired when an component gains or loses keyboard or scroll focus. Can be
      * cancelled to prevent losing or gaining focus.
      *
      * @author Nathan Sweet
@@ -87,9 +87,9 @@ abstract public class FocusListener implements EventListener {
         }
 
         /**
-         * The actor related to the event. When focus is lost, this is the new
-         * actor being focused, or null. When focus is gained,
-         * this is the previous actor that was focused, or null.
+         * The component related to the event. When focus is lost, this is the new
+         * component being focused, or null. When focus is gained,
+         * this is the previous component that was focused, or null.
          */
         public UIComponent getRelatedActor() {
             return relatedActor;

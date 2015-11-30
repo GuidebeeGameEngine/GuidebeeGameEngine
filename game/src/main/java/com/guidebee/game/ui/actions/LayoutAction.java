@@ -24,9 +24,9 @@ import com.guidebee.game.ui.UIComponent;
 
 //[------------------------------ MAIN CLASS ----------------------------------]
 /**
- * Sets an actor's
+ * Sets an component's
  * {@link com.guidebee.game.ui.Layout#setLayoutEnabled(boolean) layout}
- * to enabled or disabled. The actor must implements
+ * to enabled or disabled. The component must implements
  * {@link com.guidebee.game.ui.Layout}.
  *
  * @author Nathan Sweet
@@ -34,15 +34,15 @@ import com.guidebee.game.ui.UIComponent;
 public class LayoutAction extends Action {
     private boolean enabled;
 
-    public void setActor(UIComponent actor) {
-        if (actor != null && !(actor instanceof Layout))
+    public void setActor(UIComponent component) {
+        if (component != null && !(component instanceof Layout))
             throw new GameEngineRuntimeException("UIComponent must implement layout: "
-                    + actor);
-        super.setActor(actor);
+                    + component);
+        super.setActor(component);
     }
 
     public boolean act(float delta) {
-        ((Layout) actor).setLayoutEnabled(enabled);
+        ((Layout) component).setLayoutEnabled(enabled);
         return true;
     }
 

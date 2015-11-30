@@ -26,10 +26,10 @@ import com.guidebee.utils.collections.Array;
 //[------------------------------ MAIN CLASS ----------------------------------]
 
 /**
- * A tree widget where each node has an icon, actor, and child nodes.
+ * A tree widget where each node has an icon, component, and child nodes.
  * <p/>
  * The preferred size of the tree is determined by the preferred size of the
- * actors for the expanded nodes.
+ * components for the expanded nodes.
  * <p/>
  * {@link com.guidebee.game.ui.ChangeListener.ChangeEvent} is
  * fired when the selected node changes.
@@ -72,8 +72,8 @@ public class Tree extends WidgetGroup {
                 if (node != getNodeAt(getTouchDownY())) return;
                 if (selection.getMultiple() && selection.hasItems() && Utils.shift()) {
                     // Select range (shift).
-                    float low = selection.getLastSelected().actor.getY();
-                    float high = node.actor.getY();
+                    float low = selection.getLastSelected().component.getY();
+                    float high = node.component.getY();
                     if (!Utils.ctrl()) selection.clear();
                     if (low > high)
                         selectNodes(rootNodes, high, low);
@@ -84,7 +84,7 @@ public class Tree extends WidgetGroup {
                 }
                 if (node.children.size > 0 && (!selection.getMultiple() || !Utils.ctrl())) {
                     // Toggle expanded.
-                    float rowX = node.actor.getX();
+                    float rowX = node.component.getX();
                     if (node.icon != null) rowX -= iconSpacingRight + node.icon.getMinWidth();
                     if (x < rowX) {
                         node.setExpanded(!node.expanded);
@@ -171,15 +171,15 @@ public class Tree extends WidgetGroup {
         for (int i = 0, n = nodes.size; i < n; i++) {
             Node node = nodes.get(i);
             float rowWidth = indent + iconSpacingRight;
-            UIComponent actor = node.actor;
-            if (actor instanceof Layout) {
-                Layout layout = (Layout) actor;
+            UIComponent component = node.component;
+            if (component instanceof Layout) {
+                Layout layout = (Layout) component;
                 rowWidth += layout.getPrefWidth();
                 node.height = layout.getPrefHeight();
                 layout.pack();
             } else {
-                rowWidth += actor.getWidth();
-                node.height = actor.getHeight();
+                rowWidth += component.getWidth();
+                node.height = component.getHeight();
             }
             if (node.icon != null) {
                 rowWidth += spacing + node.icon.getMinWidth();
@@ -201,11 +201,11 @@ public class Tree extends WidgetGroup {
         float ySpacing = this.ySpacing;
         for (int i = 0, n = nodes.size; i < n; i++) {
             Node node = nodes.get(i);
-            UIComponent actor = node.actor;
+            UIComponent component = node.component;
             float x = indent;
             if (node.icon != null) x += node.icon.getMinWidth();
             y -= node.height;
-            node.actor.setPosition(x, y);
+            node.component.setPosition(x, y);
             y -= ySpacing;
             if (node.expanded) y = layout(node.children, indent + indentSpacing, y);
         }
@@ -218,7 +218,7 @@ public class Tree extends WidgetGroup {
         if (style.background != null) style.background.draw(batch, getX(), getY(),
                 getWidth(), getHeight());
         draw(batch, rootNodes, leftColumnWidth);
-        super.draw(batch, parentAlpha); // Draw actors.
+        super.draw(batch, parentAlpha); // Draw components.
     }
 
     /**
@@ -229,21 +229,21 @@ public class Tree extends WidgetGroup {
         float x = getX(), y = getY();
         for (int i = 0, n = nodes.size; i < n; i++) {
             Node node = nodes.get(i);
-            UIComponent actor = node.actor;
+            UIComponent component = node.component;
 
             if (selection.contains(node) && style.selection != null) {
-                style.selection.draw(batch, x, y + actor.getY() - ySpacing / 2,
+                style.selection.draw(batch, x, y + component.getY() - ySpacing / 2,
                         getWidth(), node.height + ySpacing);
             } else if (node == overNode && style.over != null) {
-                style.over.draw(batch, x, y + actor.getY() - ySpacing / 2,
+                style.over.draw(batch, x, y + component.getY() - ySpacing / 2,
                         getWidth(), node.height + ySpacing);
             }
 
             if (node.icon != null) {
-                float iconY = actor.getY()
+                float iconY = component.getY()
                         + Math.round((node.height - node.icon.getMinHeight()) / 2);
-                batch.setColor(actor.getColor());
-                node.icon.draw(batch, x + node.actor.getX() - iconSpacingRight
+                batch.setColor(component.getColor());
+                node.icon.draw(batch, x + node.component.getX() - iconSpacingRight
                                 - node.icon.getMinWidth(), y + iconY,
                         node.icon.getMinWidth(), node.icon.getMinHeight());
                 batch.setColor(Color.WHITE);
@@ -252,7 +252,7 @@ public class Tree extends WidgetGroup {
             if (node.children.size == 0) continue;
 
             Drawable expandIcon = node.expanded ? minus : plus;
-            float iconY = actor.getY()
+            float iconY = component.getY()
                     + Math.round((node.height - expandIcon.getMinHeight()) / 2);
             expandIcon.draw(batch, x + indent - iconSpacingLeft,
                     y + iconY, expandIcon.getMinWidth(), expandIcon.getMinHeight());
@@ -289,9 +289,9 @@ public class Tree extends WidgetGroup {
     void selectNodes(Array<Node> nodes, float low, float high) {
         for (int i = 0, n = nodes.size; i < n; i++) {
             Node node = nodes.get(i);
-            if (node.actor.getY() < low) break;
+            if (node.component.getY() < low) break;
             if (!node.isSelectable()) continue;
-            if (node.actor.getY() <= high) selection.add(node);
+            if (node.component.getY() <= high) selection.add(node);
             if (node.expanded) selectNodes(node.children, low, high);
         }
     }
@@ -332,7 +332,7 @@ public class Tree extends WidgetGroup {
     }
 
     /**
-     * Sets the amount of horizontal space between the node actors and icons.
+     * Sets the amount of horizontal space between the node components and icons.
      */
     public void setIconSpacing(float left, float right) {
         this.iconSpacingLeft = left;
@@ -429,7 +429,7 @@ public class Tree extends WidgetGroup {
      * Tree node.
      */
     static public class Node {
-        UIComponent actor;
+        UIComponent component;
         Node parent;
         final Array<Node> children = new Array(0);
         boolean selectable = true;
@@ -438,10 +438,10 @@ public class Tree extends WidgetGroup {
         float height;
         Object object;
 
-        public Node(UIComponent actor) {
-            if (actor == null)
-                throw new IllegalArgumentException("actor cannot be null.");
-            this.actor = actor;
+        public Node(UIComponent component) {
+            if (component == null)
+                throw new IllegalArgumentException("component cannot be null.");
+            this.component = component;
         }
 
         public void setExpanded(boolean expanded) {
@@ -461,20 +461,20 @@ public class Tree extends WidgetGroup {
         }
 
         /**
-         * Called to add the actor to the tree when the node's parent is expanded.
+         * Called to add the component to the tree when the node's parent is expanded.
          */
         protected void addToTree(Tree tree) {
-            tree.addComponent(actor);
+            tree.addComponent(component);
             if (!expanded) return;
             for (int i = 0, n = children.size; i < n; i++)
                 children.get(i).addToTree(tree);
         }
 
         /**
-         * Called to remove the actor from the tree when the node's parent is collapsed.
+         * Called to remove the component from the tree when the node's parent is collapsed.
          */
         protected void removeFromTree(Tree tree) {
-            tree.removeComponent(actor);
+            tree.removeComponent(component);
             if (!expanded) return;
             for (int i = 0, n = children.size; i < n; i++)
                 children.get(i).removeFromTree(tree);
@@ -525,13 +525,13 @@ public class Tree extends WidgetGroup {
          * Returns the tree this node is currently in, or null.
          */
         public Tree getTree() {
-            UIContainer parent = actor.getParent();
+            UIContainer parent = component.getParent();
             if (!(parent instanceof Tree)) return null;
             return (Tree) parent;
         }
 
         public UIComponent getActor() {
-            return actor;
+            return component;
         }
 
         public boolean isExpanded() {
@@ -561,7 +561,7 @@ public class Tree extends WidgetGroup {
         }
 
         /**
-         * Sets an icon that will be drawn to the left of the actor.
+         * Sets an icon that will be drawn to the left of the component.
          */
         public void setIcon(Drawable icon) {
             this.icon = icon;

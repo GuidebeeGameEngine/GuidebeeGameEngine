@@ -29,13 +29,13 @@ import java.util.Iterator;
 /**
  * Manages selected objects. Optionally fires a
  * {@link com.guidebee.game.ui.ChangeListener.ChangeEvent} on an
- * actor. Selection changes can be vetoed via
+ * component. Selection changes can be vetoed via
  * {@link com.guidebee.game.ui.ChangeListener.ChangeEvent#cancel()}.
  *
  * @author Nathan Sweet
  */
 public class Selection<T> implements Disableable, Iterable<T> {
-    private UIComponent actor;
+    private UIComponent component;
     final OrderedSet<T> selected = new OrderedSet();
     private final OrderedSet<T> old = new OrderedSet();
     boolean isDisabled;
@@ -46,12 +46,12 @@ public class Selection<T> implements Disableable, Iterable<T> {
     T lastSelected;
 
     /**
-     * @param actor An actor to fire
+     * @param component An component to fire
      *              {@link com.guidebee.game.ui.ChangeListener.ChangeEvent}
      *              on when the selection changes, or null.
      */
-    public void setActor(UIComponent actor) {
-        this.actor = actor;
+    public void setActor(UIComponent component) {
+        this.component = component;
     }
 
     /**
@@ -219,11 +219,11 @@ public class Selection<T> implements Disableable, Iterable<T> {
      * @return true if the change should be undone.
      */
     public boolean fireChangeEvent() {
-        if (actor == null) return false;
+        if (component == null) return false;
         ChangeListener.ChangeEvent changeEvent
                 = Pools.obtain(ChangeListener.ChangeEvent.class);
         try {
-            return actor.fire(changeEvent);
+            return component.fire(changeEvent);
         } finally {
             Pools.free(changeEvent);
         }

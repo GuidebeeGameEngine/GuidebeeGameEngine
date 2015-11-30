@@ -23,7 +23,7 @@ import com.guidebee.game.ui.UIComponent;
 
 //[------------------------------ MAIN CLASS ----------------------------------]
 /**
- * Sets the actor's {@link UIComponent#setTouchable
+ * Sets the component's {@link UIComponent#setTouchable
  * (com.guidebee.game.ui.Touchable) touchability}.
  *
  * @author Nathan Sweet
@@ -32,7 +32,7 @@ public class TouchableAction extends Action {
     private Touchable touchable;
 
     public boolean act(float delta) {
-        actor.setTouchable(touchable);
+        component.setTouchable(touchable);
         return true;
     }
 

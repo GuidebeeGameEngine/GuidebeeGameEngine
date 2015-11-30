@@ -332,19 +332,19 @@ public class SplitPane extends WidgetGroup {
         invalidate();
     }
 
-    public void addComponent(UIComponent actor) {
+    public void addComponent(UIComponent component) {
         throw new UnsupportedOperationException("Use ScrollPane#setWidget.");
     }
 
-    public void addComponentAt(int index, UIComponent actor) {
+    public void addComponentAt(int index, UIComponent component) {
         throw new UnsupportedOperationException("Use ScrollPane#setWidget.");
     }
 
-    public void addComponentBefore(UIComponent actorBefore, UIComponent actor) {
+    public void addComponentBefore(UIComponent componentBefore, UIComponent component) {
         throw new UnsupportedOperationException("Use ScrollPane#setWidget.");
     }
 
-    public boolean removeComponent(UIComponent actor) {
+    public boolean removeComponent(UIComponent component) {
         throw new UnsupportedOperationException("Use ScrollPane#setWidget(null).");
     }
 

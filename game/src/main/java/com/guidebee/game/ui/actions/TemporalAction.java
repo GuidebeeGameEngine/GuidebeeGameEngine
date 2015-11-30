@@ -71,7 +71,7 @@ abstract public class TemporalAction extends Action {
 
     /**
      * Called the first time {@link #act(float)} is called. This is a good place
-     * to query the {@link #actor actor's} starting
+     * to query the {@link #component component's} starting
      * state.
      */
     protected void begin() {

@@ -43,9 +43,9 @@ import java.util.Map;
  * animated through this engine.
  * <p/>
  * <p/>
- * This class contains many static factory methods to create and instantiate
+ * This class contains many static fcomponenty methods to create and instantiate
  * new interpolations easily. The common way to create a Tween is by using one
- * of these factories:
+ * of these fcomponenties:
  * <p/>
  * <p/>
  * - Tween.to(...)<br/>
@@ -204,11 +204,11 @@ public final class Tween extends BaseTween<Tween> {
     }
 
     // -------------------------------------------------------------------------
-    // Static -- factories
+    // Static -- fcomponenties
     // -------------------------------------------------------------------------
 
     /**
-     * Factory creating a new standard interpolation. This is the most common
+     * Fcomponenty creating a new standard interpolation. This is the most common
      * type of interpolation. The starting values are retrieved automatically
      * after the delay (if any).
      * <br/><br/>
@@ -247,7 +247,7 @@ public final class Tween extends BaseTween<Tween> {
     }
 
     /**
-     * Factory creating a new reversed interpolation. The ending values are
+     * Fcomponenty creating a new reversed interpolation. The ending values are
      * retrieved automatically after the delay (if any).
      * <br/><br/>
      * <p/>
@@ -286,7 +286,7 @@ public final class Tween extends BaseTween<Tween> {
     }
 
     /**
-     * Factory creating a new instantaneous interpolation (thus this is not
+     * Fcomponenty creating a new instantaneous interpolation (thus this is not
      * really an interpolation).
      * <br/><br/>
      * <p/>
@@ -322,7 +322,7 @@ public final class Tween extends BaseTween<Tween> {
     }
 
     /**
-     * Factory creating a new timer. The given callback will be triggered on
+     * Fcomponenty creating a new timer. The given callback will be triggered on
      * each iteration start, after the delay.
      * <br/><br/>
      * <p/>

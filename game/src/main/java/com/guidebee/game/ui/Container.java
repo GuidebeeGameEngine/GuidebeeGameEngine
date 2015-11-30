@@ -33,7 +33,7 @@ import com.guidebee.game.ui.drawable.Drawable;
  * @author Nathan Sweet
  */
 public class Container<T extends UIComponent> extends WidgetGroup {
-    private T actor;
+    private T component;
     private Value minWidth = Value.minWidth, minHeight = Value.minHeight;
     private Value prefWidth = Value.prefWidth, prefHeight = Value.prefHeight;
     private Value maxWidth = Value.zero, maxHeight = Value.zero;
@@ -46,16 +46,16 @@ public class Container<T extends UIComponent> extends WidgetGroup {
     private boolean round = true;
 
     /**
-     * Creates a container with no actor.
+     * Creates a container with no component.
      */
     public Container() {
         setTouchable(Touchable.childrenOnly);
         setTransform(false);
     }
 
-    public Container(T actor) {
+    public Container(T component) {
         this();
-        setActor(actor);
+        setActor(component);
     }
 
     public void draw(Batch batch, float parentAlpha) {
@@ -141,14 +141,14 @@ public class Container<T extends UIComponent> extends WidgetGroup {
     }
 
     public void layout() {
-        if (actor == null) return;
+        if (component == null) return;
 
         float padLeft = this.padLeft.get(this), padBottom = this.padBottom.get(this);
         float containerWidth = getWidth() - padLeft - padRight.get(this);
         float containerHeight = getHeight() - padBottom - padTop.get(this);
-        float minWidth = this.minWidth.get(actor), minHeight = this.minHeight.get(actor);
-        float prefWidth = this.prefWidth.get(actor), prefHeight = this.prefHeight.get(actor);
-        float maxWidth = this.maxWidth.get(actor), maxHeight = this.maxHeight.get(actor);
+        float minWidth = this.minWidth.get(component), minHeight = this.minHeight.get(component);
+        float prefWidth = this.prefWidth.get(component), prefHeight = this.prefHeight.get(component);
+        float maxWidth = this.maxWidth.get(component), maxHeight = this.maxHeight.get(component);
 
         float width;
         if (fillX > 0)
@@ -185,33 +185,33 @@ public class Container<T extends UIComponent> extends WidgetGroup {
             height = Math.round(height);
         }
 
-        actor.setBounds(x, y, width, height);
-        if (actor instanceof Layout) ((Layout) actor).validate();
+        component.setBounds(x, y, width, height);
+        if (component instanceof Layout) ((Layout) component).validate();
     }
 
     /**
-     * @param actor May be null.
+     * @param component May be null.
      */
-    public void setActor(T actor) {
-        if (actor == this)
-            throw new IllegalArgumentException("actor cannot be the Container.");
-        if (this.actor != null) super.removeComponent(this.actor);
-        this.actor = actor;
-        if (actor != null) super.addComponent(actor);
+    public void setActor(T component) {
+        if (component == this)
+            throw new IllegalArgumentException("component cannot be the Container.");
+        if (this.component != null) super.removeComponent(this.component);
+        this.component = component;
+        if (component != null) super.addComponent(component);
     }
 
     /**
      * @return May be null.
      */
     public T getActor() {
-        return actor;
+        return component;
     }
 
     /**
      * @see #setActor(UIComponent)
      * @deprecated Container may have only a single child.
      */
-    public void addComponent(UIComponent actor) {
+    public void addComponent(UIComponent component) {
         throw new UnsupportedOperationException("Use Container#setActor.");
     }
 
@@ -219,7 +219,7 @@ public class Container<T extends UIComponent> extends WidgetGroup {
      * @see #setActor(UIComponent)
      * @deprecated Container may have only a single child.
      */
-    public void addComponentAt(int index, UIComponent actor) {
+    public void addComponentAt(int index, UIComponent component) {
         throw new UnsupportedOperationException("Use Container#setActor.");
     }
 
@@ -227,7 +227,7 @@ public class Container<T extends UIComponent> extends WidgetGroup {
      * @see #setActor(UIComponent)
      * @deprecated Container may have only a single child.
      */
-    public void addComponentBefore(UIComponent actorBefore, UIComponent actor) {
+    public void addComponentBefore(UIComponent componentBefore, UIComponent component) {
         throw new UnsupportedOperationException("Use Container#setActor.");
     }
 
@@ -235,12 +235,12 @@ public class Container<T extends UIComponent> extends WidgetGroup {
      * @see #setActor(UIComponent)
      * @deprecated Container may have only a single child.
      */
-    public void addComponentAfter(UIComponent actorAfter, UIComponent actor) {
+    public void addComponentAfter(UIComponent componentAfter, UIComponent component) {
         throw new UnsupportedOperationException("Use Container#setActor.");
     }
 
-    public boolean removeComponent(UIComponent actor) {
-        if (actor != this.actor) return false;
+    public boolean removeComponent(UIComponent component) {
+        if (component != this.component) return false;
         setActor(null);
         return true;
     }
@@ -647,7 +647,7 @@ public class Container<T extends UIComponent> extends WidgetGroup {
     }
 
     /**
-     * Sets the alignment of the actor within the container. Set to {@link Align#center},
+     * Sets the alignment of the component within the container. Set to {@link Align#center},
      * {@link Align#top}, {@link Align#bottom},
      * {@link Align#left}, {@link Align#right}, or any combination of those.
      */
@@ -657,7 +657,7 @@ public class Container<T extends UIComponent> extends WidgetGroup {
     }
 
     /**
-     * Sets the alignment of the actor within the container to {@link Align#center}.
+     * Sets the alignment of the component within the container to {@link Align#center}.
      * This clears any other alignment.
      */
     public Container<T> center() {
@@ -667,7 +667,7 @@ public class Container<T extends UIComponent> extends WidgetGroup {
 
     /**
      * Sets {@link Align#top} and clears {@link Align#bottom} for the alignment of
-     * the actor within the container.
+     * the component within the container.
      */
     public Container<T> top() {
         align |= Align.top;
@@ -677,7 +677,7 @@ public class Container<T extends UIComponent> extends WidgetGroup {
 
     /**
      * Sets {@link Align#left} and clears {@link Align#right} for the alignment of the
-     * actor within the container.
+     * component within the container.
      */
     public Container<T> left() {
         align |= Align.left;
@@ -687,7 +687,7 @@ public class Container<T extends UIComponent> extends WidgetGroup {
 
     /**
      * Sets {@link Align#bottom} and clears {@link Align#top} for the alignment of the
-     * actor within the container.
+     * component within the container.
      */
     public Container<T> bottom() {
         align |= Align.bottom;
@@ -697,7 +697,7 @@ public class Container<T extends UIComponent> extends WidgetGroup {
 
     /**
      * Sets {@link Align#right} and clears {@link Align#left} for the alignment of
-     * the actor within the container.
+     * the component within the container.
      */
     public Container<T> right() {
         align |= Align.right;
@@ -706,7 +706,7 @@ public class Container<T extends UIComponent> extends WidgetGroup {
     }
 
     public float getMinWidth() {
-        return minWidth.get(actor) + padLeft.get(this) + padRight.get(this);
+        return minWidth.get(component) + padLeft.get(this) + padRight.get(this);
     }
 
     public Value getMinHeightValue() {
@@ -714,7 +714,7 @@ public class Container<T extends UIComponent> extends WidgetGroup {
     }
 
     public float getMinHeight() {
-        return minHeight.get(actor) + padTop.get(this) + padBottom.get(this);
+        return minHeight.get(component) + padTop.get(this) + padBottom.get(this);
     }
 
     public Value getPrefWidthValue() {
@@ -722,7 +722,7 @@ public class Container<T extends UIComponent> extends WidgetGroup {
     }
 
     public float getPrefWidth() {
-        float v = prefWidth.get(actor);
+        float v = prefWidth.get(component);
         if (background != null) v = Math.max(v, background.getMinWidth());
         return v + padLeft.get(this) + padRight.get(this);
     }
@@ -732,7 +732,7 @@ public class Container<T extends UIComponent> extends WidgetGroup {
     }
 
     public float getPrefHeight() {
-        float v = prefHeight.get(actor);
+        float v = prefHeight.get(component);
         if (background != null) v = Math.max(v, background.getMinHeight());
         return v + padTop.get(this) + padBottom.get(this);
     }
@@ -742,7 +742,7 @@ public class Container<T extends UIComponent> extends WidgetGroup {
     }
 
     public float getMaxWidth() {
-        float v = maxWidth.get(actor);
+        float v = maxWidth.get(component);
         if (v > 0) v += padLeft.get(this) + padRight.get(this);
         return v;
     }
@@ -752,7 +752,7 @@ public class Container<T extends UIComponent> extends WidgetGroup {
     }
 
     public float getMaxHeight() {
-        float v = maxHeight.get(actor);
+        float v = maxHeight.get(component);
         if (v > 0) v += padTop.get(this) + padBottom.get(this);
         return v;
     }

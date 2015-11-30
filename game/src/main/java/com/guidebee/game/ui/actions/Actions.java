@@ -71,7 +71,7 @@ public class Actions {
     }
 
     /**
-     * Moves the actor instantly.
+     * Moves the component instantly.
      */
     static public MoveToAction moveTo(float x, float y) {
         return moveTo(x, y, 0, null);
@@ -91,7 +91,7 @@ public class Actions {
     }
 
     /**
-     * Moves the actor instantly.
+     * Moves the component instantly.
      */
     static public MoveByAction moveBy(float amountX, float amountY) {
         return moveBy(amountX, amountY, 0, null);
@@ -111,7 +111,7 @@ public class Actions {
     }
 
     /**
-     * Sizes the actor instantly.
+     * Sizes the component instantly.
      */
     static public SizeToAction sizeTo(float x, float y) {
         return sizeTo(x, y, 0, null);
@@ -131,7 +131,7 @@ public class Actions {
     }
 
     /**
-     * Sizes the actor instantly.
+     * Sizes the component instantly.
      */
     static public SizeByAction sizeBy(float amountX, float amountY) {
         return sizeBy(amountX, amountY, 0, null);
@@ -151,7 +151,7 @@ public class Actions {
     }
 
     /**
-     * Scales the actor instantly.
+     * Scales the component instantly.
      */
     static public ScaleToAction scaleTo(float x, float y) {
         return scaleTo(x, y, 0, null);
@@ -171,7 +171,7 @@ public class Actions {
     }
 
     /**
-     * Scales the actor instantly.
+     * Scales the component instantly.
      */
     static public ScaleByAction scaleBy(float amountX, float amountY) {
         return scaleBy(amountX, amountY, 0, null);
@@ -191,7 +191,7 @@ public class Actions {
     }
 
     /**
-     * Rotates the actor instantly.
+     * Rotates the component instantly.
      */
     static public RotateToAction rotateTo(float rotation) {
         return rotateTo(rotation, 0, null);
@@ -211,7 +211,7 @@ public class Actions {
     }
 
     /**
-     * Rotates the actor instantly.
+     * Rotates the component instantly.
      */
     static public RotateByAction rotateBy(float rotationAmount) {
         return rotateBy(rotationAmount, 0, null);
@@ -231,7 +231,7 @@ public class Actions {
     }
 
     /**
-     * Sets the actor's color instantly.
+     * Sets the component's color instantly.
      */
     static public ColorAction color(Color color) {
         return color(color, 0, null);
@@ -257,7 +257,7 @@ public class Actions {
     }
 
     /**
-     * Sets the actor's alpha instantly.
+     * Sets the component's alpha instantly.
      */
     static public AlphaAction alpha(float a) {
         return alpha(a, 0, null);

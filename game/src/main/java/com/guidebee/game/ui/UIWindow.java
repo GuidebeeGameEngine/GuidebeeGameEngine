@@ -44,18 +44,18 @@ import com.guidebee.utils.collections.SnapshotArray;
 
 //[------------------------------ MAIN CLASS ----------------------------------]
 /**
- * A 2D scene graph containing hierarchies of {@link UIComponent actors}. Stage handles
+ * A 2D scene graph containing hierarchies of {@link UIComponent components}. Stage handles
  * the viewport and distributes input events.
  * <p>
  * {@link #setViewport(Viewport)} controls the coordinates used within the stage
  * and sets up the camera used to convert between
  * stage coordinates and screen coordinates.
  * <p>
- * A stage must receive input events so it can distribute them to actors. This is
+ * A stage must receive input events so it can distribute them to components. This is
  * typically done by passing the stage to
  * {@link com.guidebee.game.Input#setInputProcessor(com.guidebee.game.InputProcessor)
  * GameEngine.input.setInputProcessor}. An {@link com.guidebee.game.InputMultiplexer} may be
- * used to handle input events before or after the stage does. If an actor handles
+ * used to handle input events before or after the stage does. If an component handles
  * an event by returning true from the input
  * method, then the stage's input method will also return true, causing subsequent
  * InputProcessors to not receive the event.
@@ -70,7 +70,7 @@ import com.guidebee.utils.collections.SnapshotArray;
  * @author Nathan Sweet
  */
 public class UIWindow extends InputAdapter implements Disposable {
-    static private final Vector2 actorCoords = new Vector2();
+    static private final Vector2 componentCoords = new Vector2();
     static boolean debug;
 
     private Viewport viewport;
@@ -170,8 +170,8 @@ public class UIWindow extends InputAdapter implements Disposable {
 
 
     /**
-     * Returns the first actor found with the specified name. Note this
-     * recursively compares the name of every actor in the group.
+     * Returns the first component found with the specified name. Note this
+     * recursively compares the name of every component in the group.
      */
     public <T extends UIComponent> T findActor(String name) {
         return root.findComponent(name);
@@ -187,25 +187,25 @@ public class UIWindow extends InputAdapter implements Disposable {
                 || debugTableUnderMouse != Debug.none) {
             screenToStageCoordinates(stageCoords.set(GameEngine.input.getX(),
                     GameEngine.input.getY()));
-            UIComponent actor = hit(stageCoords.x, stageCoords.y, true);
-            if (actor == null) return;
+            UIComponent component = hit(stageCoords.x, stageCoords.y, true);
+            if (component == null) return;
 
-            if (debugParentUnderMouse && actor.parent != null) actor = actor.parent;
+            if (debugParentUnderMouse && component.parent != null) component = component.parent;
 
             if (debugTableUnderMouse == Debug.none)
-                actor.setDebug(true);
+                component.setDebug(true);
             else {
-                while (actor != null) {
-                    if (actor instanceof Table) break;
-                    actor = actor.parent;
+                while (component != null) {
+                    if (component instanceof Table) break;
+                    component = component.parent;
                 }
-                if (actor == null) return;
-                ((Table) actor).debug(debugTableUnderMouse);
+                if (component == null) return;
+                ((Table) component).debug(debugTableUnderMouse);
             }
 
-            if (debugAll && actor instanceof UIContainer) ((UIContainer) actor).debugAll();
+            if (debugAll && component instanceof UIContainer) ((UIContainer) component).debugAll();
 
-            disableDebug(root, actor);
+            disableDebug(root, component);
         } else {
             if (debugAll) root.debugAll();
         }
@@ -218,13 +218,13 @@ public class UIWindow extends InputAdapter implements Disposable {
     }
 
     /**
-     * Disables debug on all actors recursively except the specified actor and any children.
+     * Disables debug on all components recursively except the specified component and any children.
      */
-    private void disableDebug(UIComponent actor, UIComponent except) {
-        if (actor == except) return;
-        actor.setDebug(false);
-        if (actor instanceof UIContainer) {
-            SnapshotArray<UIComponent> children = ((UIContainer) actor).children;
+    private void disableDebug(UIComponent component, UIComponent except) {
+        if (component == except) return;
+        component.setDebug(false);
+        if (component instanceof UIContainer) {
+            SnapshotArray<UIComponent> children = ((UIContainer) component).children;
             for (int i = 0, n = children.size; i < n; i++)
                 disableDebug(children.get(i), except);
         }
@@ -238,14 +238,14 @@ public class UIWindow extends InputAdapter implements Disposable {
     }
 
     /**
-     * Calls the {@link UIComponent#act(float)} method on each actor in the stage.
+     * Calls the {@link UIComponent#act(float)} method on each component in the stage.
      * Typically called each frame. This method also fires
      * enter and exit events.
      *
      * @param delta Time in seconds since the last frame.
      */
     public void act(float delta) {
-        // Update over actors. Done in act() because actors may change position,
+        // Update over components. Done in act() because components may change position,
         // which can fire enter/exit without an input event.
         for (int pointer = 0, n = pointerOverActors.length; pointer < n; pointer++) {
             UIComponent overLast = pointerOverActors[pointer];
@@ -268,7 +268,7 @@ public class UIWindow extends InputAdapter implements Disposable {
                 }
                 continue;
             }
-            // Update over actor for the pointer.
+            // Update over component for the pointer.
             pointerOverActors[pointer] = fireEnterAndExit(overLast, pointerScreenX[pointer],
                     pointerScreenY[pointer], pointer);
         }
@@ -277,7 +277,7 @@ public class UIWindow extends InputAdapter implements Disposable {
     }
 
     private UIComponent fireEnterAndExit(UIComponent overLast, int screenX, int screenY, int pointer) {
-        // Find the actor under the point.
+        // Find the component under the point.
         screenToStageCoordinates(stageCoords.set(screenX, screenY));
         UIComponent over = hit(stageCoords.x, stageCoords.y, true);
         if (over == overLast) return overLast;
@@ -305,7 +305,7 @@ public class UIWindow extends InputAdapter implements Disposable {
 
     /**
      * Applies a touch down event to the stage and returns true if an
-     * actor in the scene {@link com.guidebee.game.ui.Event#handle() handled} the event.
+     * component in the scene {@link com.guidebee.game.ui.Event#handle() handled} the event.
      */
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
         if (screenX < viewport.getScreenX()
@@ -340,7 +340,7 @@ public class UIWindow extends InputAdapter implements Disposable {
     }
 
     /**
-     * Applies a touch moved event to the stage and returns true if an actor
+     * Applies a touch moved event to the stage and returns true if an component
      * in the scene {@link com.guidebee.game.ui.Event#handle() handled} the event.
      * Only {@link com.guidebee.game.ui.InputListener listeners} that returned true for touchDown
      * will receive this event.
@@ -379,7 +379,7 @@ public class UIWindow extends InputAdapter implements Disposable {
     }
 
     /**
-     * Applies a touch up event to the stage and returns true if an actor in
+     * Applies a touch up event to the stage and returns true if an component in
      * the scene {@link com.guidebee.game.ui.Event#handle() handled} the event.
      * Only {@link com.guidebee.game.ui.InputListener listeners} that returned true for touchDown
      * will receive this event.
@@ -420,7 +420,7 @@ public class UIWindow extends InputAdapter implements Disposable {
     }
 
     /**
-     * Applies a mouse moved event to the stage and returns true if an actor in
+     * Applies a mouse moved event to the stage and returns true if an component in
      * the scene {@link com.guidebee.game.ui.Event#handle() handled} the event.
      * This event only occurs on the desktop.
      */
@@ -454,7 +454,7 @@ public class UIWindow extends InputAdapter implements Disposable {
     }
 
     /**
-     * Applies a mouse scroll event to the stage and returns true if an actor
+     * Applies a mouse scroll event to the stage and returns true if an component
      * in the scene {@link com.guidebee.game.ui.Event#handle() handled} the
      * event. This event only occurs on the desktop.
      */
@@ -476,7 +476,7 @@ public class UIWindow extends InputAdapter implements Disposable {
     }
 
     /**
-     * Applies a key down event to the actor that has
+     * Applies a key down event to the component that has
      * {@link UIWindow#setKeyboardFocus(UIComponent) keyboard focus}, if any, and returns
      * true if the event was {@link com.guidebee.game.ui.Event#handle() handled}.
      */
@@ -493,7 +493,7 @@ public class UIWindow extends InputAdapter implements Disposable {
     }
 
     /**
-     * Applies a key up event to the actor that has
+     * Applies a key up event to the component that has
      * {@link UIWindow#setKeyboardFocus(UIComponent) keyboard focus}, if any, and returns true
      * if the event was {@link com.guidebee.game.ui.Event#handle() handled}.
      */
@@ -510,7 +510,7 @@ public class UIWindow extends InputAdapter implements Disposable {
     }
 
     /**
-     * Applies a key typed event to the actor that has
+     * Applies a key typed event to the component that has
      * {@link UIWindow#setKeyboardFocus(UIComponent) keyboard focus}, if any, and returns
      * true if the event was {@link com.guidebee.game.ui.Event#handle() handled}.
      */
@@ -528,8 +528,8 @@ public class UIWindow extends InputAdapter implements Disposable {
 
     /**
      * Adds the listener to be notified for all touchDragged and touchUp
-     * events for the specified pointer and button. The actor
-     * will be used as the {@link com.guidebee.game.ui.Event#getListenerActor() listener actor}
+     * events for the specified pointer and button. The component
+     * will be used as the {@link com.guidebee.game.ui.Event#getListenerActor() listener component}
      * and {@link com.guidebee.game.ui.Event#getTarget() target}.
      */
     public void addTouchFocus(EventListener listener, UIComponent listenerActor,
@@ -581,7 +581,7 @@ public class UIWindow extends InputAdapter implements Disposable {
      *
      * @see #cancelTouchFocus()
      */
-    public void cancelTouchFocus(EventListener listener, UIComponent actor) {
+    public void cancelTouchFocus(EventListener listener, UIComponent component) {
         InputEvent event = Pools.obtain(InputEvent.class);
         event.setStage(this);
         event.setType(InputEvent.Type.touchUp);
@@ -595,7 +595,7 @@ public class UIWindow extends InputAdapter implements Disposable {
         TouchFocus[] items = touchFocuses.begin();
         for (int i = 0, n = touchFocuses.size; i < n; i++) {
             TouchFocus focus = items[i];
-            if (focus.listener == listener && focus.listenerActor == actor)
+            if (focus.listener == listener && focus.listenerActor == component)
                 continue;
             if (!touchFocuses.removeValue(focus, true)) continue;
              // Touch focus already gone.
@@ -613,13 +613,13 @@ public class UIWindow extends InputAdapter implements Disposable {
     }
 
     /**
-     * Adds an actor to the root of the stage.
+     * Adds an component to the root of the stage.
      *
      * @see UIContainer#addComponent(UIComponent)
      * @see UIComponent#remove()
      */
-    public void addActor(UIComponent actor) {
-        root.addComponent(actor);
+    public void addActor(UIComponent component) {
+        root.addComponent(component);
     }
 
     /**
@@ -632,7 +632,7 @@ public class UIWindow extends InputAdapter implements Disposable {
     }
 
     /**
-     * Returns the root's child actors.
+     * Returns the root's child components.
      *
      * @see UIContainer#getChildren()
      */
@@ -685,7 +685,7 @@ public class UIWindow extends InputAdapter implements Disposable {
     }
 
     /**
-     * Removes the touch, keyboard, and scroll focused actors.
+     * Removes the touch, keyboard, and scroll focused components.
      */
     public void unfocusAll() {
         scrollFocus = null;
@@ -694,37 +694,37 @@ public class UIWindow extends InputAdapter implements Disposable {
     }
 
     /**
-     * Removes the touch, keyboard, and scroll focus for the specified actor and any descendants.
+     * Removes the touch, keyboard, and scroll focus for the specified component and any descendants.
      */
-    public void unfocus(UIComponent actor) {
-        if (scrollFocus != null && scrollFocus.isDescendantOf(actor))
+    public void unfocus(UIComponent component) {
+        if (scrollFocus != null && scrollFocus.isDescendantOf(component))
             scrollFocus = null;
-        if (keyboardFocus != null && keyboardFocus.isDescendantOf(actor))
+        if (keyboardFocus != null && keyboardFocus.isDescendantOf(component))
             keyboardFocus = null;
     }
 
     /**
-     * Sets the actor that will receive key events.
+     * Sets the component that will receive key events.
      *
-     * @param actor May be null.
+     * @param component May be null.
      */
-    public void setKeyboardFocus(UIComponent actor) {
-        if (keyboardFocus == actor) return;
+    public void setKeyboardFocus(UIComponent component) {
+        if (keyboardFocus == component) return;
         FocusListener.FocusEvent event = Pools.obtain(FocusListener.FocusEvent.class);
         event.setStage(this);
         event.setType(FocusListener.FocusEvent.Type.keyboard);
         UIComponent oldKeyboardFocus = keyboardFocus;
         if (oldKeyboardFocus != null) {
             event.setFocused(false);
-            event.setRelatedActor(actor);
+            event.setRelatedActor(component);
             oldKeyboardFocus.fire(event);
         }
         if (!event.isCancelled()) {
-            keyboardFocus = actor;
-            if (actor != null) {
+            keyboardFocus = component;
+            if (component != null) {
                 event.setFocused(true);
                 event.setRelatedActor(oldKeyboardFocus);
-                actor.fire(event);
+                component.fire(event);
                 if (event.isCancelled()) setKeyboardFocus(oldKeyboardFocus);
             }
         }
@@ -732,7 +732,7 @@ public class UIWindow extends InputAdapter implements Disposable {
     }
 
     /**
-     * Gets the actor that will receive key events.
+     * Gets the component that will receive key events.
      *
      * @return May be null.
      */
@@ -741,27 +741,27 @@ public class UIWindow extends InputAdapter implements Disposable {
     }
 
     /**
-     * Sets the actor that will receive scroll events.
+     * Sets the component that will receive scroll events.
      *
-     * @param actor May be null.
+     * @param component May be null.
      */
-    public void setScrollFocus(UIComponent actor) {
-        if (scrollFocus == actor) return;
+    public void setScrollFocus(UIComponent component) {
+        if (scrollFocus == component) return;
         FocusListener.FocusEvent event = Pools.obtain(FocusListener.FocusEvent.class);
         event.setStage(this);
         event.setType(FocusListener.FocusEvent.Type.scroll);
         UIComponent oldScrollFocus = keyboardFocus;
         if (oldScrollFocus != null) {
             event.setFocused(false);
-            event.setRelatedActor(actor);
+            event.setRelatedActor(component);
             oldScrollFocus.fire(event);
         }
         if (!event.isCancelled()) {
-            scrollFocus = actor;
-            if (actor != null) {
+            scrollFocus = component;
+            if (component != null) {
                 event.setFocused(true);
                 event.setRelatedActor(oldScrollFocus);
-                actor.fire(event);
+                component.fire(event);
                 if (event.isCancelled()) setScrollFocus(oldScrollFocus);
             }
         }
@@ -769,7 +769,7 @@ public class UIWindow extends InputAdapter implements Disposable {
     }
 
     /**
-     * Gets the actor that will receive scroll events.
+     * Gets the component that will receive scroll events.
      *
      * @return May be null.
      */
@@ -811,7 +811,7 @@ public class UIWindow extends InputAdapter implements Disposable {
     }
 
     /**
-     * Returns the root group which holds all actors in the stage.
+     * Returns the root group which holds all components in the stage.
      */
     public UIContainer getRoot() {
         return root;
@@ -819,18 +819,18 @@ public class UIWindow extends InputAdapter implements Disposable {
 
     /**
      * Returns the {@link UIComponent} at the specified location in stage coordinates.
-     * Hit testing is performed in the order the actors
-     * were inserted into the stage, last inserted actors being tested first.
+     * Hit testing is performed in the order the components
+     * were inserted into the stage, last inserted components being tested first.
      * To get stage coordinates from screen coordinates, use
      * {@link #screenToStageCoordinates(Vector2)}.
      *
      * @param touchable If true, the hit detection will respect the
      * {@link UIComponent#setTouchable(com.guidebee.game.ui.Touchable) touchability}.
-     * @return May be null if no actor was hit.
+     * @return May be null if no component was hit.
      */
     public UIComponent hit(float stageX, float stageY, boolean touchable) {
-        root.parentToLocalCoordinates(actorCoords.set(stageX, stageY));
-        return root.hit(actorCoords.x, actorCoords.y, touchable);
+        root.parentToLocalCoordinates(componentCoords.set(stageX, stageY));
+        return root.hit(componentCoords.x, componentCoords.y, touchable);
     }
 
     /**
@@ -887,21 +887,21 @@ public class UIWindow extends InputAdapter implements Disposable {
     }
 
     /**
-     * The default color that can be used by actors to draw debug lines.
+     * The default color that can be used by components to draw debug lines.
      */
     public Color getDebugColor() {
         return debugColor;
     }
 
     /**
-     * If true, debug lines are shown for actors even when {@link UIComponent#isVisible()} is false.
+     * If true, debug lines are shown for components even when {@link UIComponent#isVisible()} is false.
      */
     public void setDebugInvisible(boolean debugInvisible) {
         this.debugInvisible = debugInvisible;
     }
 
     /**
-     * If true, debug lines are shown for all actors.
+     * If true, debug lines are shown for all components.
      */
     public void setDebugAll(boolean debugAll) {
         if (this.debugAll == debugAll) return;
@@ -913,7 +913,7 @@ public class UIWindow extends InputAdapter implements Disposable {
     }
 
     /**
-     * If true, debug is enabled only for the actor under the mouse. Can be
+     * If true, debug is enabled only for the component under the mouse. Can be
      * combined with {@link #setDebugAll(boolean)}.
      */
     public void setDebugUnderMouse(boolean debugUnderMouse) {
@@ -926,7 +926,7 @@ public class UIWindow extends InputAdapter implements Disposable {
     }
 
     /**
-     * If true, debug is enabled only for the parent of the actor under the
+     * If true, debug is enabled only for the parent of the component under the
      * mouse. Can be combined with
      * {@link #setDebugAll(boolean)}.
      */
@@ -941,7 +941,7 @@ public class UIWindow extends InputAdapter implements Disposable {
 
     /**
      * If not {@link Debug#none}, debug is enabled only for the first ascendant
-     * of the actor under the mouse that is a table. Can
+     * of the component under the mouse that is a table. Can
      * be combined with {@link #setDebugAll(boolean)}.
      *
      * @param debugTableUnderMouse May be null for {@link Debug#none}.
@@ -957,7 +957,7 @@ public class UIWindow extends InputAdapter implements Disposable {
     }
 
     /**
-     * If true, debug is enabled only for the first ascendant of the actor under
+     * If true, debug is enabled only for the first ascendant of the component under
      * the mouse that is a table. Can be combined with
      * {@link #setDebugAll(boolean)}.
      */

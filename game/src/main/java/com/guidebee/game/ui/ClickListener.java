@@ -25,12 +25,12 @@ import com.guidebee.utils.TimeUtils;
 //[------------------------------ MAIN CLASS ----------------------------------]
 
 /**
- * Detects mouse over, mouse or finger touch presses, and clicks on an actor.
- * A touch must go down over the actor and is
- * considered pressed as long as it is over the actor or within the
+ * Detects mouse over, mouse or finger touch presses, and clicks on an component.
+ * A touch must go down over the component and is
+ * considered pressed as long as it is over the component or within the
  * {@link #setTapSquareSize(float) tap square}. This behavior
  * makes it easier to press buttons on a touch interface when the initial touch
- * happens near the edge of the actor. Double clicks
+ * happens near the edge of the component. Double clicks
  * can be detected using {@link #getTapCount()}. Any touch (not just the first)
  * will trigger this listener. While pressed, other
  * touch downs are ignored.
@@ -139,11 +139,11 @@ public class ClickListener extends InputListener {
 
     /**
      * Returns true if the specified position is over the
-     * specified actor or within the tap square.
+     * specified component or within the tap square.
      */
-    public boolean isOver(UIComponent actor, float x, float y) {
-        UIComponent hit = actor.hit(x, y, true);
-        if (hit == null || !hit.isDescendantOf(actor))
+    public boolean isOver(UIComponent component, float x, float y) {
+        UIComponent hit = component.hit(x, y, true);
+        if (hit == null || !hit.isDescendantOf(component))
             return inTapSquare(x, y);
         return true;
     }
@@ -170,14 +170,14 @@ public class ClickListener extends InputListener {
     }
 
     /**
-     * Returns true if a touch is over the actor or within the tap square.
+     * Returns true if a touch is over the component or within the tap square.
      */
     public boolean isPressed() {
         return pressed;
     }
 
     /**
-     * Returns true if a touch is over the actor or within the tap square
+     * Returns true if a touch is over the component or within the tap square
      * or has been very recently. This allows the UI to show a
      * press and release that was so fast it occurred within a single frame.
      */
@@ -191,7 +191,7 @@ public class ClickListener extends InputListener {
     }
 
     /**
-     * Returns true if the mouse or touch is over the actor or pressed
+     * Returns true if the mouse or touch is over the component or pressed
      * and within the tap square.
      */
     public boolean isOver() {

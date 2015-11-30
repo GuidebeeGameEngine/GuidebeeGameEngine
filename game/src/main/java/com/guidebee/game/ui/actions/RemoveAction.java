@@ -21,7 +21,7 @@ import com.guidebee.game.ui.UIComponent;
 
 //[------------------------------ MAIN CLASS ----------------------------------]
 /**
- * Removes an action from an actor.
+ * Removes an action from an component.
  *
  * @author Nathan Sweet
  */
@@ -30,7 +30,7 @@ public class RemoveAction extends Action {
     private Action action;
 
     public boolean act(float delta) {
-        (targetActor != null ? targetActor : actor).removeAction(action);
+        (targetActor != null ? targetActor : component).removeAction(action);
         return true;
     }
 
@@ -39,11 +39,11 @@ public class RemoveAction extends Action {
     }
 
     /**
-     * Sets the actor to remove an action from. If null (the default),
-     * the {@link #getActor() actor} will be used.
+     * Sets the component to remove an action from. If null (the default),
+     * the {@link #getActor() component} will be used.
      */
-    public void setTargetActor(UIComponent actor) {
-        this.targetActor = actor;
+    public void setTargetActor(UIComponent component) {
+        this.targetActor = component;
     }
 
     public Action getAction() {

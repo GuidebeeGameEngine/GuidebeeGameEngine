@@ -79,23 +79,23 @@ public class Dialog extends ChildWindow {
         buttonTable.defaults().space(6);
 
         buttonTable.addListener(new ChangeListener() {
-            public void changed(ChangeEvent event, UIComponent actor) {
-                if (!values.containsKey(actor)) return;
-                while (actor.getParent() != buttonTable)
-                    actor = actor.getParent();
-                result(values.get(actor));
+            public void changed(ChangeEvent event, UIComponent component) {
+                if (!values.containsKey(component)) return;
+                while (component.getParent() != buttonTable)
+                    component = component.getParent();
+                result(values.get(component));
                 if (!cancelHide) hide();
                 cancelHide = false;
             }
         });
 
         addListener(new FocusListener() {
-            public void keyboardFocusChanged(FocusEvent event, UIComponent actor,
+            public void keyboardFocusChanged(FocusEvent event, UIComponent component,
                                              boolean focused) {
                 if (!focused) focusChanged(event);
             }
 
-            public void scrollFocusChanged(FocusEvent event, UIComponent actor,
+            public void scrollFocusChanged(FocusEvent event, UIComponent component,
                                            boolean focused) {
                 if (!focused) focusChanged(event);
             }
@@ -104,7 +104,7 @@ public class Dialog extends ChildWindow {
                 UIWindow stage = getStage();
                 if (isModal && stage != null && stage.getRoot().getChildren().size > 0
                         && stage.getRoot().getChildren().peek() == Dialog.this) {
-                    // Dialog is top most actor.
+                    // Dialog is top most component.
                     UIComponent newFocusedActor = event.getRelatedActor();
                     if (newFocusedActor != null
                             && !newFocusedActor.isDescendantOf(Dialog.this)) event.cancel();
@@ -208,12 +208,12 @@ public class Dialog extends ChildWindow {
         removeCaptureListener(ignoreTouchDown);
 
         previousKeyboardFocus = null;
-        UIComponent actor = stage.getKeyboardFocus();
-        if (actor != null && !actor.isDescendantOf(this)) previousKeyboardFocus = actor;
+        UIComponent component = stage.getKeyboardFocus();
+        if (component != null && !component.isDescendantOf(this)) previousKeyboardFocus = component;
 
         previousScrollFocus = null;
-        actor = stage.getScrollFocus();
-        if (actor != null && !actor.isDescendantOf(this)) previousScrollFocus = actor;
+        component = stage.getScrollFocus();
+        if (component != null && !component.isDescendantOf(this)) previousScrollFocus = component;
 
         pack();
         stage.addActor(this);
@@ -245,15 +245,15 @@ public class Dialog extends ChildWindow {
         if (stage != null) {
             if (previousKeyboardFocus != null
                     && previousKeyboardFocus.getStage() == null) previousKeyboardFocus = null;
-            UIComponent actor = stage.getKeyboardFocus();
-            if (actor == null || actor.isDescendantOf(this))
+            UIComponent component = stage.getKeyboardFocus();
+            if (component == null || component.isDescendantOf(this))
                 stage.setKeyboardFocus(previousKeyboardFocus);
 
             if (previousScrollFocus != null
                     && previousScrollFocus.getStage() == null)
                 previousScrollFocus = null;
-            actor = stage.getScrollFocus();
-            if (actor == null || actor.isDescendantOf(this))
+            component = stage.getScrollFocus();
+            if (component == null || component.isDescendantOf(this))
                 stage.setScrollFocus(previousScrollFocus);
         }
         if (action != null) {
@@ -275,8 +275,8 @@ public class Dialog extends ChildWindow {
                 Actions.removeListener(ignoreTouchDown, true), Actions.removeActor()));
     }
 
-    public void setObject(UIComponent actor, Object object) {
-        values.put(actor, object);
+    public void setObject(UIComponent component, Object object) {
+        values.put(component, object);
     }
 
     /**

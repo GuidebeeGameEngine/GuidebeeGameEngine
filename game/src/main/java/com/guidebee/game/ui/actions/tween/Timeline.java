@@ -103,7 +103,7 @@ public final class Timeline extends BaseTween<Timeline> {
     }
 
     // -------------------------------------------------------------------------
-    // Static -- factories
+    // Static -- fcomponenties
     // -------------------------------------------------------------------------
 
     /**

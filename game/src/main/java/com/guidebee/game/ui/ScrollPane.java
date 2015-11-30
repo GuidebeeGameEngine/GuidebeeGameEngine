@@ -58,7 +58,7 @@ public class ScrollPane extends WidgetGroup {
     private final Rectangle widgetAreaBounds = new Rectangle();
     private final Rectangle widgetCullingArea = new Rectangle();
     private final Rectangle scissorBounds = new Rectangle();
-    private ActorGestureListener flickScrollListener;
+    private GestureListener flickScrollListener;
 
     boolean scrollX, scrollY;
     boolean vScrollOnRight = true;
@@ -196,7 +196,7 @@ public class ScrollPane extends WidgetGroup {
             }
         });
 
-        flickScrollListener = new ActorGestureListener() {
+        flickScrollListener = new GestureListener() {
             public void pan(InputEvent event, float x, float y, float deltaX, float deltaY) {
                 resetFade();
                 amountX -= deltaX;
@@ -697,7 +697,7 @@ public class ScrollPane extends WidgetGroup {
     /**
      * Sets the {@link UIComponent} embedded in this scroll pane.
      *
-     * @param widget May be null to remove any current actor.
+     * @param widget May be null to remove any current component.
      */
     public void setWidget(UIComponent widget) {
         if (widget == this)
@@ -708,7 +708,7 @@ public class ScrollPane extends WidgetGroup {
     }
 
     /**
-     * Returns the actor embedded in this scroll pane, or null.
+     * Returns the component embedded in this scroll pane, or null.
      */
     public UIComponent getWidget() {
         return widget;
@@ -718,7 +718,7 @@ public class ScrollPane extends WidgetGroup {
      * @see #setWidget(UIComponent)
      * @deprecated ScrollPane may have only a single child.
      */
-    public void addComponent(UIComponent actor) {
+    public void addComponent(UIComponent component) {
         throw new UnsupportedOperationException("Use ScrollPane#setWidget.");
     }
 
@@ -726,7 +726,7 @@ public class ScrollPane extends WidgetGroup {
      * @see #setWidget(UIComponent)
      * @deprecated ScrollPane may have only a single child.
      */
-    public void addComponentAt(int index, UIComponent actor) {
+    public void addComponentAt(int index, UIComponent component) {
         throw new UnsupportedOperationException("Use ScrollPane#setWidget.");
     }
 
@@ -734,7 +734,7 @@ public class ScrollPane extends WidgetGroup {
      * @see #setWidget(UIComponent)
      * @deprecated ScrollPane may have only a single child.
      */
-    public void addComponentBefore(UIComponent actorBefore, UIComponent actor) {
+    public void addComponentBefore(UIComponent componentBefore, UIComponent component) {
         throw new UnsupportedOperationException("Use ScrollPane#setWidget.");
     }
 
@@ -742,12 +742,12 @@ public class ScrollPane extends WidgetGroup {
      * @see #setWidget(UIComponent)
      * @deprecated ScrollPane may have only a single child.
      */
-    public void addComponentAfter(UIComponent actorAfter, UIComponent actor) {
+    public void addComponentAfter(UIComponent componentAfter, UIComponent component) {
         throw new UnsupportedOperationException("Use ScrollPane#setWidget.");
     }
 
-    public boolean removeComponent(UIComponent actor) {
-        if (actor != widget) return false;
+    public boolean removeComponent(UIComponent component) {
+        if (component != widget) return false;
         setWidget(null);
         return true;
     }

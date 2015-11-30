@@ -20,7 +20,7 @@ package com.guidebee.game.ui.actions;
 
 //[------------------------------ MAIN CLASS ----------------------------------]
 /**
- * Moves an actor from its current position to a specific position.
+ * Moves an component from its current position to a specific position.
  *
  * @author Nathan Sweet
  */
@@ -29,12 +29,12 @@ public class MoveToAction extends TemporalAction {
     private float endX, endY;
 
     protected void begin() {
-        startX = actor.getX();
-        startY = actor.getY();
+        startX = component.getX();
+        startY = component.getY();
     }
 
     protected void update(float percent) {
-        actor.setPosition(startX + (endX - startX) * percent,
+        component.setPosition(startX + (endX - startX) * percent,
                 startY + (endY - startY) * percent);
     }
 

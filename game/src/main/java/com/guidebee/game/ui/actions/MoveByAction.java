@@ -20,7 +20,7 @@ package com.guidebee.game.ui.actions;
 
 //[------------------------------ MAIN CLASS ----------------------------------]
 /**
- * Moves an actor to a relative position.
+ * Moves an component to a relative position.
  *
  * @author Nathan Sweet
  */
@@ -28,7 +28,7 @@ public class MoveByAction extends RelativeTemporalAction {
     private float amountX, amountY;
 
     protected void updateRelative(float percentDelta) {
-        actor.moveBy(amountX * percentDelta, amountY * percentDelta);
+        component.moveBy(amountX * percentDelta, amountY * percentDelta);
     }
 
     public void setAmount(float x, float y) {

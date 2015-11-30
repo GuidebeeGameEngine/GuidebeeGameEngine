@@ -307,8 +307,8 @@ public class SelectBox<T> extends Widget implements Disableable {
         if (stage != null) {
             if (previousScrollFocus != null && previousScrollFocus.getStage() == null)
                 previousScrollFocus = null;
-            UIComponent actor = stage.getScrollFocus();
-            if (actor == null || actor.isDescendantOf(scroll))
+            UIComponent component = stage.getScrollFocus();
+            if (component == null || component.isDescendantOf(scroll))
                 stage.setScrollFocus(previousScrollFocus);
         }
         scroll.addAction(sequence(Actions.fadeOut(0.15f, Interpolation.fade),
@@ -421,16 +421,16 @@ public class SelectBox<T> extends Widget implements Disableable {
             Actions.addAction(Actions.fadeIn(0.3f, Interpolation.fade));
 
             previousScrollFocus = null;
-            UIComponent actor = stage.getScrollFocus();
-            if (actor != null && !actor.isDescendantOf(this)) previousScrollFocus = actor;
+            UIComponent component = stage.getScrollFocus();
+            if (component != null && !component.isDescendantOf(this)) previousScrollFocus = component;
 
             stage.setScrollFocus(this);
         }
 
         @Override
         public UIComponent hit(float x, float y, boolean touchable) {
-            UIComponent actor = super.hit(x, y, touchable);
-            return actor != null ? actor : this;
+            UIComponent component = super.hit(x, y, touchable);
+            return component != null ? component : this;
         }
 
         public void act(float delta) {

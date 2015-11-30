@@ -75,9 +75,9 @@ public class ParallelAction extends Action {
         // to the pool while executing.
         try {
             Array<Action> actions = this.actions;
-            for (int i = 0, n = actions.size; i < n && actor != null; i++) {
+            for (int i = 0, n = actions.size; i < n && component != null; i++) {
                 if (!actions.get(i).act(delta)) complete = false;
-                if (actor == null) return true; // This action was removed.
+                if (component == null) return true; // This action was removed.
             }
             return complete;
         } finally {
@@ -99,14 +99,14 @@ public class ParallelAction extends Action {
 
     public void addAction(Action action) {
         actions.add(action);
-        if (actor != null) action.setActor(actor);
+        if (component != null) action.setActor(component);
     }
 
-    public void setActor(UIComponent actor) {
+    public void setActor(UIComponent component) {
         Array<Action> actions = this.actions;
         for (int i = 0, n = actions.size; i < n; i++)
-            actions.get(i).setActor(actor);
-        super.setActor(actor);
+            actions.get(i).setActor(component);
+        super.setActor(component);
     }
 
     public Array<Action> getActions() {

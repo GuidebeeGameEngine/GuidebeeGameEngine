@@ -33,14 +33,14 @@ abstract public class ChangeListener implements EventListener {
     }
 
     /**
-     * @param actor The event target, which is the actor that emitted the
+     * @param component The event target, which is the component that emitted the
      *              change event.
      */
-    abstract public void changed(ChangeEvent event, UIComponent actor);
+    abstract public void changed(ChangeEvent event, UIComponent component);
 
     /**
-     * Fired when something in an actor has changed. This is a generic event,
-     * exactly what changed in an actor will vary.
+     * Fired when something in an component has changed. This is a generic event,
+     * exactly what changed in an component will vary.
      *
      * @author Nathan Sweet
      */

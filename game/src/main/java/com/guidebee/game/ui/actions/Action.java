@@ -28,9 +28,9 @@ import com.guidebee.utils.Pool;
  */
 abstract public class Action implements Pool.Poolable {
     /**
-     * The actor this action is attached to, or null if it is not attached.
+     * The component this action is attached to, or null if it is not attached.
      */
-    protected UIComponent actor;
+    protected UIComponent component;
 
     private Pool pool;
 
@@ -51,33 +51,33 @@ abstract public class Action implements Pool.Poolable {
     }
 
     /**
-     * @return null if the action is not attached to an actor.
+     * @return null if the action is not attached to an component.
      */
     public UIComponent getActor() {
-        return actor;
+        return component;
     }
 
     /**
-     * Sets the actor this action will be used for. This is called
-     * automatically when an action is added to an actor. This is also
-     * called with null when an action is removed from an actor. When
+     * Sets the component this action will be used for. This is called
+     * automatically when an action is added to an component. This is also
+     * called with null when an action is removed from an component. When
      * set to null, if the action has a {@link #setPool(Pool) pool}
      * then the action is {@link Pool#free(Object) returned} to the pool
      * (which calls {@link #reset()}) and the pool is set to null.
      * If the action does not have a pool, {@link #reset()} is not called.
      * <p>
      * This method is not typically a good place for a subclass to query
-     * the actor's state because the action may not be executed
+     * the component's state because the action may not be executed
      * for some time, eg it may be
      * {@link com.guidebee.game.ui.actions.DelayAction delayed}.
-     * The actor's state is best queried in the first call to
+     * The component's state is best queried in the first call to
      * {@link #act(float)}. For a
      * {@link com.guidebee.game.ui.actions.TemporalAction},
      * use TemporalAction#begin().
      */
-    public void setActor(UIComponent actor) {
-        this.actor = actor;
-        if (actor == null) {
+    public void setActor(UIComponent component) {
+        this.component = component;
+        if (component == null) {
             if (pool != null) {
                 pool.free(this);
                 pool = null;
@@ -106,7 +106,7 @@ abstract public class Action implements Pool.Poolable {
 
     /**
      * Sets the pool that the action will be returned to when
-     * removed from the actor.
+     * removed from the component.
      *
      * @param pool May be null.
      * @see #setActor(UIComponent)

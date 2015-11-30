@@ -458,21 +458,21 @@ public class Skin implements Disposable {
     }
 
     /**
-     * Sets the style on the actor to disabled or enabled. This is done by appending
+     * Sets the style on the component to disabled or enabled. This is done by appending
      * "-disabled" to the style name when enabled is
      * false, and removing "-disabled" from the style name when enabled is true.
-     * A method named "getStyle" is called the actor via
-     * reflection and the name of that style is found in the skin. If the actor
+     * A method named "getStyle" is called the component via
+     * reflection and the name of that style is found in the skin. If the component
      * doesn't have a "getStyle" method or the style was
-     * not found in the skin, no exception is thrown and the actor is left unchanged.
+     * not found in the skin, no exception is thrown and the component is left unchanged.
      */
-    public void setEnabled(UIComponent actor, boolean enabled) {
+    public void setEnabled(UIComponent component, boolean enabled) {
         // Get current style.
-        Method method = findMethod(actor.getClass(), "getStyle");
+        Method method = findMethod(component.getClass(), "getStyle");
         if (method == null) return;
         Object style;
         try {
-            style = method.invoke(actor);
+            style = method.invoke(component);
         } catch (Exception ignored) {
             return;
         }
@@ -482,10 +482,10 @@ public class Skin implements Disposable {
         name = name.replace("-disabled", "") + (enabled ? "" : "-disabled");
         style = get(name, style.getClass());
         // Set new style.
-        method = findMethod(actor.getClass(), "setStyle");
+        method = findMethod(component.getClass(), "setStyle");
         if (method == null) return;
         try {
-            method.invoke(actor, style);
+            method.invoke(component, style);
         } catch (Exception ignored) {
         }
     }

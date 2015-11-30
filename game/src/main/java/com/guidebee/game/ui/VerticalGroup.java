@@ -25,7 +25,7 @@ import com.guidebee.utils.collections.SnapshotArray;
 /**
  * A group that lays out its children on top of each other in a single column.
  * This can be easier than using {@link Table} when
- * actors need to be inserted in the middle of the group.
+ * components need to be inserted in the middle of the group.
  * <p/>
  * The preferred width is the largest preferred width of any child. The preferred
  * height is the sum of the children's preferred

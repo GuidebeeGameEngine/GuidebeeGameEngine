@@ -23,7 +23,7 @@ import com.guidebee.game.ui.UIComponent;
 
 //[------------------------------ MAIN CLASS ----------------------------------]
 /**
- * Sets the alpha for an actor's color (or a specified color), from the current
+ * Sets the alpha for an component's color (or a specified color), from the current
  * alpha to the new alpha. Note this action
  * transitions from the alpha at the time the action starts to the specified alpha.
  *
@@ -34,7 +34,7 @@ public class AlphaAction extends TemporalAction {
     private Color color;
 
     protected void begin() {
-        if (color == null) color = actor.getColor();
+        if (color == null) color = component.getColor();
         start = color.a;
     }
 
@@ -53,7 +53,7 @@ public class AlphaAction extends TemporalAction {
 
     /**
      * Sets the color to modify. If null (the default), the
-     * {@link #getActor() actor's} {@link UIComponent#getColor() color} will be
+     * {@link #getActor() component's} {@link UIComponent#getColor() color} will be
      * used.
      */
     public void setColor(Color color) {

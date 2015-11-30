@@ -20,7 +20,7 @@ package com.guidebee.game.ui.actions;
 
 //[------------------------------ MAIN CLASS ----------------------------------]
 /**
- * Sets the actor's scale from its current value to a specific value.
+ * Sets the component's scale from its current value to a specific value.
  *
  * @author Nathan Sweet
  */
@@ -29,12 +29,12 @@ public class ScaleToAction extends TemporalAction {
     private float endX, endY;
 
     protected void begin() {
-        startX = actor.getScaleX();
-        startY = actor.getScaleY();
+        startX = component.getScaleX();
+        startY = component.getScaleY();
     }
 
     protected void update(float percent) {
-        actor.setScale(startX + (endX - startX) * percent,
+        component.setScale(startX + (endX - startX) * percent,
                 startY + (endY - startY) * percent);
     }
 

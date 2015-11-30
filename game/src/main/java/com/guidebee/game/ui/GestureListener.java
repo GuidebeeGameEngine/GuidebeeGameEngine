@@ -25,25 +25,25 @@ import com.guidebee.math.Vector2;
 //[------------------------------ MAIN CLASS ----------------------------------]
 
 /**
- * Detects tap, long press, fling, pan, zoom, and pinch gestures on an actor. If
+ * Detects tap, long press, fling, pan, zoom, and pinch gestures on an component. If
  * there is only a need to detect tap, use
  * {@link ClickListener}.
  *
  * @author Nathan Sweet
  * @see GestureDetector
  */
-public class ActorGestureListener implements EventListener {
+public class GestureListener implements EventListener {
     static final Vector2 tmpCoords = new Vector2();
 
     private final GestureDetector detector;
     InputEvent event;
-    UIComponent actor, touchDownTarget;
+    UIComponent component, touchDownTarget;
 
     /**
      * @see GestureDetector#GestureDetector
      * (com.guidebee.game.input.GestureDetector.GestureListener)
      */
-    public ActorGestureListener() {
+    public GestureListener() {
         this(20, 0.4f, 1.1f, 0.15f);
     }
 
@@ -51,8 +51,8 @@ public class ActorGestureListener implements EventListener {
      * @see GestureDetector#GestureDetector(float, float, float, float,
      * com.guidebee.game.input.GestureDetector.GestureListener)
      */
-    public ActorGestureListener(float halfTapSquareSize, float tapCountInterval,
-                                float longPressDuration, float maxFlingDelay) {
+    public GestureListener(float halfTapSquareSize, float tapCountInterval,
+                           float longPressDuration, float maxFlingDelay) {
         detector = new GestureDetector(halfTapSquareSize, tapCountInterval,
                 longPressDuration, maxFlingDelay, new GestureAdapter() {
             private final Vector2 initialPointer1 = new Vector2()
@@ -63,40 +63,40 @@ public class ActorGestureListener implements EventListener {
                     pointer2 = new Vector2();
 
             public boolean tap(float stageX, float stageY, int count, int button) {
-                actor.stageToLocalCoordinates(tmpCoords.set(stageX, stageY));
-                ActorGestureListener.this.tap(event, tmpCoords.x, tmpCoords.y, count, button);
+                component.stageToLocalCoordinates(tmpCoords.set(stageX, stageY));
+                GestureListener.this.tap(event, tmpCoords.x, tmpCoords.y, count, button);
                 return true;
             }
 
             public boolean longPress(float stageX, float stageY) {
-                actor.stageToLocalCoordinates(tmpCoords.set(stageX, stageY));
-                return ActorGestureListener.this.longPress(actor, tmpCoords.x, tmpCoords.y);
+                component.stageToLocalCoordinates(tmpCoords.set(stageX, stageY));
+                return GestureListener.this.longPress(component, tmpCoords.x, tmpCoords.y);
             }
 
             public boolean fling(float velocityX, float velocityY, int button) {
-                ActorGestureListener.this.fling(event, velocityX, velocityY, button);
+                GestureListener.this.fling(event, velocityX, velocityY, button);
                 return true;
             }
 
             public boolean pan(float stageX, float stageY, float deltaX, float deltaY) {
-                actor.stageToLocalCoordinates(tmpCoords.set(stageX, stageY));
-                ActorGestureListener.this.pan(event, tmpCoords.x, tmpCoords.y, deltaX, deltaY);
+                component.stageToLocalCoordinates(tmpCoords.set(stageX, stageY));
+                GestureListener.this.pan(event, tmpCoords.x, tmpCoords.y, deltaX, deltaY);
                 return true;
             }
 
             public boolean zoom(float initialDistance, float distance) {
-                ActorGestureListener.this.zoom(event, initialDistance, distance);
+                GestureListener.this.zoom(event, initialDistance, distance);
                 return true;
             }
 
             public boolean pinch(Vector2 stageInitialPointer1, Vector2 stageInitialPointer2,
                                  Vector2 stagePointer1,
                                  Vector2 stagePointer2) {
-                actor.stageToLocalCoordinates(initialPointer1.set(stageInitialPointer1));
-                actor.stageToLocalCoordinates(initialPointer2.set(stageInitialPointer2));
-                actor.stageToLocalCoordinates(pointer1.set(stagePointer1));
-                actor.stageToLocalCoordinates(pointer2.set(stagePointer2));
-                ActorGestureListener.this.pinch(event, initialPointer1, initialPointer2,
+                component.stageToLocalCoordinates(initialPointer1.set(stageInitialPointer1));
+                component.stageToLocalCoordinates(initialPointer2.set(stageInitialPointer2));
+                component.stageToLocalCoordinates(pointer1.set(stagePointer1));
+                component.stageToLocalCoordinates(pointer2.set(stagePointer2));
+                GestureListener.this.pinch(event, initialPointer1, initialPointer2,
                         pointer1, pointer2);
                 return true;
             }
@@ -109,11 +109,11 @@ public class ActorGestureListener implements EventListener {
 
         switch (event.getType()) {
             case touchDown:
-                actor = event.getListenerActor();
+                component = event.getListenerActor();
                 touchDownTarget = event.getTarget();
                 detector.touchDown(event.getStageX(), event.getStageY(),
                         event.getPointer(), event.getButton());
-                actor.stageToLocalCoordinates(tmpCoords.set(event.getStageX(),
+                component.stageToLocalCoordinates(tmpCoords.set(event.getStageX(),
                         event.getStageY()));
                 touchDown(event, tmpCoords.x, tmpCoords.y, event.getPointer(),
                         event.getButton());
@@ -121,17 +121,17 @@ public class ActorGestureListener implements EventListener {
             case touchUp:
                 if (event.isTouchFocusCancel()) return false;
                 this.event = event;
-                actor = event.getListenerActor();
+                component = event.getListenerActor();
                 detector.touchUp(event.getStageX(), event.getStageY(), event.getPointer(),
                         event.getButton());
-                actor.stageToLocalCoordinates(tmpCoords.set(event.getStageX(),
+                component.stageToLocalCoordinates(tmpCoords.set(event.getStageX(),
                         event.getStageY()));
                 touchUp(event, tmpCoords.x, tmpCoords.y, event.getPointer(),
                         event.getButton());
                 return true;
             case touchDragged:
                 this.event = event;
-                actor = event.getListenerActor();
+                component = event.getListenerActor();
                 detector.touchDragged(event.getStageX(), event.getStageY(),
                         event.getPointer());
                 return true;
@@ -153,7 +153,7 @@ public class ActorGestureListener implements EventListener {
      * provided because this event is triggered by time
      * passing, not by an InputEvent.
      */
-    public boolean longPress(UIComponent actor, float x, float y) {
+    public boolean longPress(UIComponent component, float x, float y) {
         return false;
     }
 

@@ -20,7 +20,7 @@ package com.guidebee.game.ui.actions;
 
 //[------------------------------ MAIN CLASS ----------------------------------]
 /**
- * Sets the actor's rotation from its current value to a relative value.
+ * Sets the component's rotation from its current value to a relative value.
  *
  * @author Nathan Sweet
  */
@@ -28,7 +28,7 @@ public class RotateByAction extends RelativeTemporalAction {
     private float amount;
 
     protected void updateRelative(float percentDelta) {
-        actor.rotateBy(amount * percentDelta);
+        component.rotateBy(amount * percentDelta);
     }
 
     public float getAmount() {

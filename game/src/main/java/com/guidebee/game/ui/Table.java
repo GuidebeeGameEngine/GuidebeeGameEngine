@@ -212,7 +212,7 @@ public class Table extends WidgetGroup {
     }
 
     /**
-     * Causes the contents to be clipped if they exceed the table actor's bounds.
+     * Causes the contents to be clipped if they exceed the table component's bounds.
      * Enabling clipping will set
      * {@link #setTransform(boolean)} to true.
      */
@@ -232,11 +232,11 @@ public class Table extends WidgetGroup {
     }
 
     /**
-     * Adds a new cell to the table with the specified actor.
+     * Adds a new cell to the table with the specified component.
      */
-    public <T extends UIComponent> Cell<T> add(T actor) {
+    public <T extends UIComponent> Cell<T> add(T component) {
         Cell<T> cell = obtainCell();
-        cell.actor = actor;
+        cell.component = component;
 
         Array<Cell> cells = this.cells;
         int cellCount = cells.size;
@@ -277,14 +277,14 @@ public class Table extends WidgetGroup {
         }
         cell.merge(rowDefaults);
 
-        if (actor != null) addComponent(actor);
+        if (component != null) addComponent(component);
 
         return cell;
     }
 
-    public void add(UIComponent... actors) {
-        for (int i = 0, n = actors.length; i < n; i++)
-            add(actors[i]);
+    public void add(UIComponent... components) {
+        for (int i = 0, n = components.length; i < n; i++)
+            add(components[i]);
     }
 
     /**
@@ -329,42 +329,42 @@ public class Table extends WidgetGroup {
     }
 
     /**
-     * Adds a cell without an actor.
+     * Adds a cell without an component.
      */
     public Cell add() {
         return add((UIComponent) null);
     }
 
     /**
-     * Adds a new cell to the table with the specified actors in a {@link com.guidebee.game.ui.Stack}.
+     * Adds a new cell to the table with the specified components in a {@link com.guidebee.game.ui.Stack}.
      *
-     * @param actors May be null to add a stack without any actors.
+     * @param components May be null to add a stack without any components.
      */
-    public Cell<Stack> stack(UIComponent... actors) {
+    public Cell<Stack> stack(UIComponent... components) {
         Stack stack = new Stack();
-        if (actors != null) {
-            for (int i = 0, n = actors.length; i < n; i++)
-                stack.addComponent(actors[i]);
+        if (components != null) {
+            for (int i = 0, n = components.length; i < n; i++)
+                stack.addComponent(components[i]);
         }
         return add(stack);
     }
 
-    public boolean removeComponent(UIComponent actor) {
-        if (!super.removeComponent(actor)) return false;
-        Cell cell = getCell(actor);
-        if (cell != null) cell.actor = null;
+    public boolean removeComponent(UIComponent component) {
+        if (!super.removeComponent(component)) return false;
+        Cell cell = getCell(component);
+        if (cell != null) cell.component = null;
         return true;
     }
 
     /**
-     * Removes all actors and cells from the table.
+     * Removes all components and cells from the table.
      */
     public void clearChildren() {
         Array<Cell> cells = this.cells;
         for (int i = cells.size - 1; i >= 0; i--) {
             Cell cell = cells.get(i);
-            UIComponent actor = cell.actor;
-            if (actor != null) actor.remove();
+            UIComponent component = cell.component;
+            if (component != null) component.remove();
         }
         cellPool.freeAll(cells);
         cells.clear();
@@ -377,7 +377,7 @@ public class Table extends WidgetGroup {
     }
 
     /**
-     * Removes all actors and cells from the table (same as {@link #clear()})
+     * Removes all components and cells from the table (same as {@link #clear()})
      * and additionally resets all table properties and
      * cell, column, and row defaults.
      */
@@ -447,13 +447,13 @@ public class Table extends WidgetGroup {
     }
 
     /**
-     * Returns the cell for the specified actor in this table, or null.
+     * Returns the cell for the specified component in this table, or null.
      */
-    public <T extends UIComponent> Cell<T> getCell(T actor) {
+    public <T extends UIComponent> Cell<T> getCell(T component) {
         Array<Cell> cells = this.cells;
         for (int i = 0, n = cells.size; i < n; i++) {
             Cell c = cells.get(i);
-            if (c.actor == actor) return c;
+            if (c.component == component) return c;
         }
         return null;
     }
@@ -616,7 +616,7 @@ public class Table extends WidgetGroup {
     }
 
     /**
-     * Alignment of the logical table within the table actor. Set to {@link Align#center},
+     * Alignment of the logical table within the table component. Set to {@link Align#center},
      * {@link Align#top}, {@link Align#bottom}
      * , {@link Align#left}, {@link Align#right}, or any combination of those.
      */
@@ -626,7 +626,7 @@ public class Table extends WidgetGroup {
     }
 
     /**
-     * Sets the alignment of the logical table within the table actor to {@link Align#center}.
+     * Sets the alignment of the logical table within the table component to {@link Align#center}.
      * This clears any other alignment.
      */
     public Table center() {
@@ -636,7 +636,7 @@ public class Table extends WidgetGroup {
 
     /**
      * Adds {@link Align#top} and clears {@link Align#bottom} for the alignment of the
-     * logical table within the table actor.
+     * logical table within the table component.
      */
     public Table top() {
         align |= Align.top;
@@ -646,7 +646,7 @@ public class Table extends WidgetGroup {
 
     /**
      * Adds {@link Align#left} and clears {@link Align#right} for the alignment of the
-     * logical table within the table actor.
+     * logical table within the table component.
      */
     public Table left() {
         align |= Align.left;
@@ -656,7 +656,7 @@ public class Table extends WidgetGroup {
 
     /**
      * Adds {@link Align#bottom} and clears {@link Align#top} for the alignment of th
-     * e logical table within the table actor.
+     * e logical table within the table component.
      */
     public Table bottom() {
         align |= Align.bottom;
@@ -666,7 +666,7 @@ public class Table extends WidgetGroup {
 
     /**
      * Adds {@link Align#right} and clears {@link Align#left} for the alignment of
-     * the logical table within the table actor.
+     * the logical table within the table component.
      */
     public Table right() {
         align |= Align.right;
@@ -713,12 +713,12 @@ public class Table extends WidgetGroup {
     }
 
     /**
-     * Turns on actor debug lines.
+     * Turns on component debug lines.
      */
     public Table debugActor() {
         super.setDebug(true);
-        if (debug != Debug.actor) {
-            this.debug = Debug.actor;
+        if (debug != Debug.component) {
+            this.debug = Debug.component;
             invalidate();
         }
         return this;
@@ -807,7 +807,7 @@ public class Table extends WidgetGroup {
         if (n == 1) return 0;
         while (i < n) {
             Cell c = cells.get(i++);
-            if (c.actorY + c.computedPadTop < y) break;
+            if (c.componentY + c.computedPadTop < y) break;
             if (c.endRow) row++;
         }
         return row;
@@ -849,26 +849,26 @@ public class Table extends WidgetGroup {
         if (round) {
             for (int i = 0, n = cells.size; i < n; i++) {
                 Cell c = cells.get(i);
-                float actorWidth = Math.round(c.actorWidth);
-                float actorHeight = Math.round(c.actorHeight);
-                float actorX = Math.round(c.actorX);
-                float actorY = height - Math.round(c.actorY) - actorHeight;
-                c.setActorBounds(actorX, actorY, actorWidth, actorHeight);
-                UIComponent actor = c.actor;
-                if (actor != null) actor.setBounds(actorX, actorY, actorWidth, actorHeight);
+                float componentWidth = Math.round(c.componentWidth);
+                float componentHeight = Math.round(c.componentHeight);
+                float componentX = Math.round(c.componentX);
+                float componentY = height - Math.round(c.componentY) - componentHeight;
+                c.setActorBounds(componentX, componentY, componentWidth, componentHeight);
+                UIComponent component = c.component;
+                if (component != null) component.setBounds(componentX, componentY, componentWidth, componentHeight);
             }
         } else {
             for (int i = 0, n = cells.size; i < n; i++) {
                 Cell c = cells.get(i);
-                float actorHeight = c.actorHeight;
-                float actorY = height - c.actorY - actorHeight;
-                c.setActorY(actorY);
-                UIComponent actor = c.actor;
-                if (actor != null) actor.setBounds(c.actorX, actorY, c.actorWidth,
-                        actorHeight);
+                float componentHeight = c.componentHeight;
+                float componentY = height - c.componentY - componentHeight;
+                c.setActorY(componentY);
+                UIComponent component = c.component;
+                if (component != null) component.setBounds(c.componentX, componentY, c.componentWidth,
+                        componentHeight);
             }
         }
-        // Validate children separately from sizing actors to ensure actors without a
+        // Validate children separately from sizing components to ensure components without a
         // cell are validated.
         Array<UIComponent> children = getChildren();
         for (int i = 0, n = children.size; i < n; i++) {
@@ -907,7 +907,7 @@ public class Table extends WidgetGroup {
         for (int i = 0; i < cellCount; i++) {
             Cell c = cells.get(i);
             int column = c.column, row = c.row, colspan = c.colspan;
-            UIComponent a = c.actor;
+            UIComponent a = c.component;
 
             // Collect columns/rows that expand.
             if (c.expandY != 0 && expandHeight[row] == 0)
@@ -916,7 +916,7 @@ public class Table extends WidgetGroup {
                 expandWidth[column] = c.expandX;
 
             // Compute combined padding/spacing for cells.
-            // Spacing between actors isn't additive, the larger is used.
+            // Spacing between components isn't additive, the larger is used.
             // Also, no spacing around edges.
             c.computedPadLeft = c.padLeft.get(a) + (column == 0 ? 0
                     : Math.max(0, c.spaceLeft.get(a) - spaceRightLast));
@@ -982,7 +982,7 @@ public class Table extends WidgetGroup {
             if (colspan == 1) continue;
             int column = c.column;
 
-            UIComponent a = c.actor;
+            UIComponent a = c.component;
             float minWidth = c.minWidth.get(a);
             float prefWidth = c.prefWidth.get(a);
             float maxWidth = c.maxWidth.get(a);
@@ -1138,11 +1138,11 @@ public class Table extends WidgetGroup {
             }
         }
 
-        // Determine actor and cell sizes (before expand or fill).
+        // Determine component and cell sizes (before expand or fill).
         for (int i = 0; i < cellCount; i++) {
             Cell c = cells.get(i);
             int column = c.column, row = c.row;
-            UIComponent a = c.actor;
+            UIComponent a = c.component;
 
             float spannedWeightedWidth = 0;
             for (int ii = column, nn = ii + c.colspan; ii < nn; ii++)
@@ -1160,9 +1160,9 @@ public class Table extends WidgetGroup {
             if (maxWidth > 0 && prefWidth > maxWidth) prefWidth = maxWidth;
             if (maxHeight > 0 && prefHeight > maxHeight) prefHeight = maxHeight;
 
-            c.actorWidth = Math.min(spannedWeightedWidth - c.computedPadLeft
+            c.componentWidth = Math.min(spannedWeightedWidth - c.computedPadLeft
                     - c.computedPadRight, prefWidth);
-            c.actorHeight = Math.min(weightedHeight - c.computedPadTop
+            c.componentHeight = Math.min(weightedHeight - c.computedPadTop
                     - c.computedPadBottom, prefHeight);
 
             if (c.colspan == 1) columnWidth[column]
@@ -1241,7 +1241,7 @@ public class Table extends WidgetGroup {
         else if ((align & Align.top) == 0) // Center
             y += (layoutHeight - tableHeight) / 2;
 
-        // Position actors within cells.
+        // Position components within cells.
         float currentX = x, currentY = y;
         for (int i = 0; i < cellCount; i++) {
             Cell c = cells.get(i);
@@ -1254,29 +1254,29 @@ public class Table extends WidgetGroup {
             currentX += c.computedPadLeft;
 
             if (c.fillX > 0) {
-                c.actorWidth = spannedCellWidth * c.fillX;
-                float maxWidth = c.maxWidth.get(c.actor);
-                if (maxWidth > 0) c.actorWidth = Math.min(c.actorWidth, maxWidth);
+                c.componentWidth = spannedCellWidth * c.fillX;
+                float maxWidth = c.maxWidth.get(c.component);
+                if (maxWidth > 0) c.componentWidth = Math.min(c.componentWidth, maxWidth);
             }
             if (c.fillY > 0) {
-                c.actorHeight = rowHeight[c.row] * c.fillY - c.computedPadTop - c.computedPadBottom;
-                float maxHeight = c.maxHeight.get(c.actor);
-                if (maxHeight > 0) c.actorHeight = Math.min(c.actorHeight, maxHeight);
+                c.componentHeight = rowHeight[c.row] * c.fillY - c.computedPadTop - c.computedPadBottom;
+                float maxHeight = c.maxHeight.get(c.component);
+                if (maxHeight > 0) c.componentHeight = Math.min(c.componentHeight, maxHeight);
             }
 
             if ((c.align & Align.left) != 0)
-                c.actorX = currentX;
+                c.componentX = currentX;
             else if ((c.align & Align.right) != 0)
-                c.actorX = currentX + spannedCellWidth - c.actorWidth;
+                c.componentX = currentX + spannedCellWidth - c.componentWidth;
             else
-                c.actorX = currentX + (spannedCellWidth - c.actorWidth) / 2;
+                c.componentX = currentX + (spannedCellWidth - c.componentWidth) / 2;
 
             if ((c.align & Align.top) != 0)
-                c.actorY = currentY + c.computedPadTop;
+                c.componentY = currentY + c.computedPadTop;
             else if ((c.align & Align.bottom) != 0)
-                c.actorY = currentY + rowHeight[c.row] - c.actorHeight - c.computedPadBottom;
+                c.componentY = currentY + rowHeight[c.row] - c.componentHeight - c.computedPadBottom;
             else
-                c.actorY = currentY + (rowHeight[c.row] - c.actorHeight
+                c.componentY = currentY + (rowHeight[c.row] - c.componentHeight
                         + c.computedPadTop - c.computedPadBottom) / 2;
 
             if (c.endRow) {
@@ -1299,8 +1299,8 @@ public class Table extends WidgetGroup {
             Cell c = cells.get(i);
 
             // UIComponent bounds.
-            if (debug == Debug.actor || debug == Debug.all)
-                addDebugRect(c.actorX, c.actorY, c.actorWidth, c.actorHeight, debugActorColor);
+            if (debug == Debug.component || debug == Debug.all)
+                addDebugRect(c.componentX, c.componentY, c.componentWidth, c.componentHeight, debugActorColor);
 
             // Cell bounds.
             float spannedCellWidth = 0;
@@ -1396,6 +1396,6 @@ public class Table extends WidgetGroup {
      * @author Nathan Sweet
      */
     static public enum Debug {
-        none, all, table, cell, actor
+        none, all, table, cell, component
     }
 }

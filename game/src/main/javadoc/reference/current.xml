@@ -55843,7 +55843,7 @@
 <implements name="com.guidebee.game.ui.EventListener">
 </implements>
 <constructor name="ActorGestureListener"
- type="com.guidebee.game.ui.ActorGestureListener"
+ type="com.guidebee.game.ui.GestureListener"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -55851,7 +55851,7 @@
 >
 </constructor>
 <constructor name="ActorGestureListener"
- type="com.guidebee.game.ui.ActorGestureListener"
+ type="com.guidebee.game.ui.GestureListener"
  static="false"
  final="false"
  deprecated="not deprecated"

@@ -29,7 +29,7 @@ import com.guidebee.math.Vector2;
  * are interested in, like this:
  * <p/>
  * <pre>
- * actor.addListener(new InputListener() {
+ * component.addListener(new InputListener() {
  * 	public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
  * 		GameEngine.app.log(&quot;Example&quot;, &quot;touch started at (&quot; + x + &quot;,
  * 		&quot; + y + &quot;)&quot;);
@@ -89,9 +89,9 @@ public class InputListener implements EventListener {
     }
 
     /**
-     * Called when a mouse button or a finger touch goes down on the actor.
+     * Called when a mouse button or a finger touch goes down on the component.
      * If true is returned, this listener will receive all
-     * touchDragged and touchUp events, even those not over this actor,
+     * touchDragged and touchUp events, even those not over this component,
      * until touchUp is received. Also when true is returned, the
      * event is {@link Event#handle() handled}.
      *
@@ -133,7 +133,7 @@ public class InputListener implements EventListener {
     }
 
     /**
-     * Called any time the mouse cursor or a finger touch is moved over an actor. On
+     * Called any time the mouse cursor or a finger touch is moved over an component. On
      * the desktop, this event occurs even when no
      * mouse buttons are pressed (pointer will be -1).
      *
@@ -143,7 +143,7 @@ public class InputListener implements EventListener {
     }
 
     /**
-     * Called any time the mouse cursor or a finger touch is moved out of an actor.
+     * Called any time the mouse cursor or a finger touch is moved out of an component.
      * On the desktop, this event occurs even when no
      * mouse buttons are pressed (pointer will be -1).
      *

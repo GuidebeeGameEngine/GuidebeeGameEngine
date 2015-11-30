@@ -23,7 +23,7 @@ import com.guidebee.game.ui.UIComponent;
 
 //[------------------------------ MAIN CLASS ----------------------------------]
 /**
- * Removes a listener from an actor.
+ * Removes a listener from an component.
  *
  * @author Nathan Sweet
  */
@@ -33,11 +33,11 @@ public class RemoveListenerAction extends Action {
     private boolean capture;
 
     public boolean act(float delta) {
-        UIComponent actor = (targetActor != null ? targetActor : this.actor);
+        UIComponent component = (targetActor != null ? targetActor : this.component);
         if (capture)
-            actor.removeCaptureListener(listener);
+            component.removeCaptureListener(listener);
         else
-            actor.removeListener(listener);
+            component.removeListener(listener);
         return true;
     }
 
@@ -46,11 +46,11 @@ public class RemoveListenerAction extends Action {
     }
 
     /**
-     * Sets the actor to remove a listener from. If null (the default),
-     * the {@link #getActor() actor} will be used.
+     * Sets the component to remove a listener from. If null (the default),
+     * the {@link #getActor() component} will be used.
      */
-    public void setTargetActor(UIComponent actor) {
-        this.targetActor = actor;
+    public void setTargetActor(UIComponent component) {
+        this.targetActor = component;
     }
 
     public EventListener getListener() {

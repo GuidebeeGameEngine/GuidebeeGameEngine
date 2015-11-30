@@ -24,7 +24,7 @@ import com.guidebee.utils.collections.SnapshotArray;
 
 /**
  * A group that lays out its children side by side in a single row. This can be
- * easier than using {@link Table} when actors need
+ * easier than using {@link Table} when components need
  * to be inserted in the middle of the group.
  * <p/>
  * The preferred width is the sum of the children's preferred widths, plus spacing
@@ -33,7 +33,7 @@ import com.guidebee.utils.collections.SnapshotArray;
  * size is 0 as <code>HorizontalGroup</code> can be
  * stretched to cover any area.
  * <p/>
- * This UI widget does not support <code>Layout</code>able actors that return 0
+ * This UI widget does not support <code>Layout</code>able components that return 0
  * as their preferred width. A fine example is
  * {@link Label} class with text wrapping turned on.
  *

@@ -21,7 +21,7 @@ import com.guidebee.game.ui.UIComponent;
 
 //[------------------------------ MAIN CLASS ----------------------------------]
 /**
- * Sets the actor's {@link UIComponent#setVisible(boolean) visibility}.
+ * Sets the component's {@link UIComponent#setVisible(boolean) visibility}.
  *
  * @author Nathan Sweet
  */
@@ -29,7 +29,7 @@ public class VisibleAction extends Action {
     private boolean visible;
 
     public boolean act(float delta) {
-        actor.setVisible(visible);
+        component.setVisible(visible);
         return true;
     }
 
