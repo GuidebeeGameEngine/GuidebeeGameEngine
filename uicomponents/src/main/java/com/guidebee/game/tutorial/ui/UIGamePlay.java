@@ -9,15 +9,12 @@ import static com.guidebee.game.GameEngine.assetManager;
 
 public class UIGamePlay extends GamePlay {
 
-    private MainWindow mainWindow;
-    private  SecondWindow secondWindow;
 
     @Override
     public void create() {
         loadAssets();
-        mainWindow=new MainWindow(this);
-        secondWindow=new SecondWindow(this);
-        setScreen(mainWindow);
+
+        setScreen(new MainWindow(this));
     }
 
     @Override

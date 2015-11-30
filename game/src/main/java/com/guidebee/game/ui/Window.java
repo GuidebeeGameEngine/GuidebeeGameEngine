@@ -37,7 +37,7 @@ public class Window extends ScreenAdapter {
     private UIWindow stage;
     private Table table = new Table();
 
-    private final static Batch batch=new SpriteBatch();
+
 
     private static final String TEXTURE_SKIN_UI= "skin/default/uiskin.atlas";
     private static final String SKIN_UI="skin/default/uiskin.json";
@@ -70,7 +70,7 @@ public class Window extends ScreenAdapter {
      */
     public Window(int width, int height) {
 
-        stage = new UIWindow(new ScalingViewport(width, height),batch);
+        stage = new UIWindow(new ScalingViewport(width, height));
         table.setFillParent(true);
         stage.addActor(table);
 
@@ -80,7 +80,7 @@ public class Window extends ScreenAdapter {
      * Constructor.
      */
     public Window() {
-        stage = new UIWindow(new ScreenViewport(),batch);
+        stage = new UIWindow(new ScreenViewport());
 
 
     }
