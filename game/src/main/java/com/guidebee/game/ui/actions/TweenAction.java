@@ -180,7 +180,7 @@ public class TweenAction extends Action {
                     target.setScaleY(newValues[1]);
                     break;
                 case ALPHA:
-                    //target.setAlpha(newValues[0]);
+                    target.setAlpha(newValues[0]);
                     break;
                 case ROTATION:
                     target.setRotation(newValues[0]);

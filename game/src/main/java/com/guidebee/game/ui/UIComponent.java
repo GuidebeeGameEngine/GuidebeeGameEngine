@@ -82,6 +82,7 @@ public class UIComponent {
     float rotation;
     final Color color = new Color(1, 1, 1, 1);
     private Object userObject;
+    float alpha;
 
 
     /**
@@ -482,6 +483,14 @@ public class UIComponent {
      */
     public float getX() {
         return x;
+    }
+
+    public void setAlpha(float alpha){
+        this.alpha=alpha;
+    }
+
+    public float getAlpha(){
+        return alpha;
     }
 
     public void setX(float x) {

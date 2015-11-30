@@ -1387,6 +1387,7 @@ public class Actor implements Collidable {
     public void setAlpha(float a) {
         if (sprite != null) {
             sprite.setAlpha(a);
+            internalActor.setAlpha(a);
         }
         dataTrait.alpha = a;
 
