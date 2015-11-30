@@ -18,7 +18,7 @@ package com.guidebee.game.ui.actions;
 
 //--------------------------------- IMPORTS ------------------------------------
 
-import com.guidebee.game.scene.Actor;
+import com.guidebee.game.ui.UIComponent;
 import com.guidebee.game.ui.actions.tween.BaseTween;
 import com.guidebee.game.ui.actions.tween.Tween;
 import com.guidebee.game.ui.actions.tween.TweenAccessor;
@@ -73,7 +73,7 @@ public class TweenAction extends Action {
     public static final int ROTATION = 8;
 
 
-    private final BaseTween<Actor> tween;
+    private final BaseTween<UIComponent> tween;
     private final TweenManager tweenManager;
 
     /**
@@ -111,7 +111,7 @@ public class TweenAction extends Action {
 
 
     static {
-        Tween.registerAccessor(Actor.class, new ActorAccessor());
+        Tween.registerAccessor(UIComponent.class, new ActorAccessor());
     }
 
     @Override
@@ -120,9 +120,9 @@ public class TweenAction extends Action {
         return tween.isFinished();
     }
 
-    static class ActorAccessor implements TweenAccessor<Actor> {
+    static class ActorAccessor implements TweenAccessor<UIComponent> {
         @Override
-        public int getValues(Actor target, int tweenType, float[] returnValues) {
+        public int getValues(UIComponent target, int tweenType, float[] returnValues) {
             switch (tweenType) {
                 case POSITION_X:
                     returnValues[0] = target.getX();
@@ -156,7 +156,7 @@ public class TweenAction extends Action {
         }
 
         @Override
-        public void setValues(Actor target, int tweenType, float[] newValues) {
+        public void setValues(UIComponent target, int tweenType, float[] newValues) {
             switch (tweenType) {
                 case POSITION_X:
                     target.setX(newValues[0]);
@@ -180,7 +180,7 @@ public class TweenAction extends Action {
                     target.setScaleY(newValues[1]);
                     break;
                 case ALPHA:
-                    target.setAlpha(newValues[0]);
+                    //target.setAlpha(newValues[0]);
                     break;
                 case ROTATION:
                     target.setRotation(newValues[0]);
