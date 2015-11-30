@@ -195,15 +195,15 @@
     <li class="selected api apilevel-">
   <a href="../../../../com/guidebee/game/ui/package-summary.html">com.guidebee.game.ui</a></li>
     <li class="api apilevel-">
-  <a href="../../../../com/guidebee/game/ui/action/package-summary.html">com.guidebee.game.ui.action</a></li>
+  <a href="../../../../com/guidebee/game/ui/actions/package-summary.html">com.guidebee.game.ui.actions</a></li>
     <li class="api apilevel-">
-  <a href="../../../../com/guidebee/game/ui/action/tween/package-summary.html">com.guidebee.game.ui.action.tween</a></li>
+  <a href="../../../../com/guidebee/game/ui/actions/tween/package-summary.html">com.guidebee.game.ui.actions.tween</a></li>
     <li class="api apilevel-">
-  <a href="../../../../com/guidebee/game/ui/action/tween/equations/package-summary.html">com.guidebee.game.ui.action.tween.equations</a></li>
+  <a href="../../../../com/guidebee/game/ui/actions/tween/equations/package-summary.html">com.guidebee.game.ui.actions.tween.equations</a></li>
     <li class="api apilevel-">
-  <a href="../../../../com/guidebee/game/ui/action/tween/paths/package-summary.html">com.guidebee.game.ui.action.tween.paths</a></li>
+  <a href="../../../../com/guidebee/game/ui/actions/tween/paths/package-summary.html">com.guidebee.game.ui.actions.tween.paths</a></li>
     <li class="api apilevel-">
-  <a href="../../../../com/guidebee/game/ui/action/tween/primitives/package-summary.html">com.guidebee.game.ui.action.tween.primitives</a></li>
+  <a href="../../../../com/guidebee/game/ui/actions/tween/primitives/package-summary.html">com.guidebee.game.ui.actions.tween.primitives</a></li>
     <li class="api apilevel-">
   <a href="../../../../com/guidebee/game/ui/drawable/package-summary.html">com.guidebee.game.ui.drawable</a></li>
     <li class="api apilevel-">
@@ -237,7 +237,6 @@
               
     <li><h2>Classes</h2>
       <ul>
-          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ActorGestureListener.html">ActorGestureListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Align.html">Align</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ArraySelection.html">ArraySelection</a>&lt;T&gt;</li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Button.html">Button</a></li>
@@ -263,6 +262,7 @@
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/FocusListener.html">FocusListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/FocusListener.FocusEvent.html">FocusListener.FocusEvent</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/GameController.html">GameController</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/GestureListener.html">GestureListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/HorizontalGroup.html">HorizontalGroup</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Image.html">Image</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ImageButton.html">ImageButton</a></li>
@@ -473,7 +473,7 @@ Summary:
 
 
 <h2>Class Overview</h2>
-<p>The payload of a drag and drop operation. Actors can be optionally provided
+<p>The payload of a drag and drop operation. Components can be optionally provided
  to follow the cursor and change when over a
  target.
 </p>
@@ -571,7 +571,7 @@ Summary:
             <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a>
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/DragAndDrop.Payload.html#getDragActor()">getDragActor</a></span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/DragAndDrop.Payload.html#getDragComponent()">getDragComponent</a></span>()
         
   </td></tr>
 
@@ -587,7 +587,7 @@ Summary:
             <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a>
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/DragAndDrop.Payload.html#getInvalidDragActor()">getInvalidDragActor</a></span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/DragAndDrop.Payload.html#getInvalidDragComponent()">getInvalidDragComponent</a></span>()
         
   </td></tr>
 
@@ -619,7 +619,7 @@ Summary:
             <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a>
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/DragAndDrop.Payload.html#getValidDragActor()">getValidDragActor</a></span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/DragAndDrop.Payload.html#getValidDragComponent()">getValidDragComponent</a></span>()
         
   </td></tr>
 
@@ -635,7 +635,7 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/DragAndDrop.Payload.html#setDragActor(com.guidebee.game.ui.UIComponent)">setDragActor</a></span>(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> dragActor)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/DragAndDrop.Payload.html#setDragComponent(com.guidebee.game.ui.UIComponent)">setDragComponent</a></span>(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> dragComponent)
         
   </td></tr>
 
@@ -651,7 +651,7 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/DragAndDrop.Payload.html#setInvalidDragActor(com.guidebee.game.ui.UIComponent)">setInvalidDragActor</a></span>(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> invalidDragActor)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/DragAndDrop.Payload.html#setInvalidDragComponent(com.guidebee.game.ui.UIComponent)">setInvalidDragComponent</a></span>(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> invalidDragComponent)
         
   </td></tr>
 
@@ -683,7 +683,7 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/DragAndDrop.Payload.html#setValidDragActor(com.guidebee.game.ui.UIComponent)">setValidDragActor</a></span>(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> validDragActor)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/DragAndDrop.Payload.html#setValidDragComponent(com.guidebee.game.ui.UIComponent)">setValidDragComponent</a></span>(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> validDragComponent)
         
   </td></tr>
 
@@ -952,7 +952,7 @@ From class
 
 
 
-<a id="getDragActor()"></a>
+<a id="getDragComponent()"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -964,7 +964,7 @@ From class
          
         <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a>
       </span>
-      <span class="sympad">getDragActor</span>
+      <span class="sympad">getDragComponent</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -983,7 +983,7 @@ From class
 </div>
 
 
-<a id="getInvalidDragActor()"></a>
+<a id="getInvalidDragComponent()"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -995,7 +995,7 @@ From class
          
         <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a>
       </span>
-      <span class="sympad">getInvalidDragActor</span>
+      <span class="sympad">getInvalidDragComponent</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -1045,7 +1045,7 @@ From class
 </div>
 
 
-<a id="getValidDragActor()"></a>
+<a id="getValidDragComponent()"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1057,7 +1057,7 @@ From class
          
         <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a>
       </span>
-      <span class="sympad">getValidDragActor</span>
+      <span class="sympad">getValidDragComponent</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -1076,7 +1076,7 @@ From class
 </div>
 
 
-<a id="setDragActor(com.guidebee.game.ui.UIComponent)"></a>
+<a id="setDragComponent(com.guidebee.game.ui.UIComponent)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1088,8 +1088,8 @@ From class
          
         void
       </span>
-      <span class="sympad">setDragActor</span>
-      <span class="normal">(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> dragActor)</span>
+      <span class="sympad">setDragComponent</span>
+      <span class="normal">(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> dragComponent)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1107,7 +1107,7 @@ From class
 </div>
 
 
-<a id="setInvalidDragActor(com.guidebee.game.ui.UIComponent)"></a>
+<a id="setInvalidDragComponent(com.guidebee.game.ui.UIComponent)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1119,8 +1119,8 @@ From class
          
         void
       </span>
-      <span class="sympad">setInvalidDragActor</span>
-      <span class="normal">(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> invalidDragActor)</span>
+      <span class="sympad">setInvalidDragComponent</span>
+      <span class="normal">(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> invalidDragComponent)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1169,7 +1169,7 @@ From class
 </div>
 
 
-<a id="setValidDragActor(com.guidebee.game.ui.UIComponent)"></a>
+<a id="setValidDragComponent(com.guidebee.game.ui.UIComponent)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1181,8 +1181,8 @@ From class
          
         void
       </span>
-      <span class="sympad">setValidDragActor</span>
-      <span class="normal">(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> validDragActor)</span>
+      <span class="sympad">setValidDragComponent</span>
+      <span class="normal">(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> validDragComponent)</span>
     </h4>
       <div class="api-level">
         <div>

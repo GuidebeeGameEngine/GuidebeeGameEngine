@@ -195,15 +195,15 @@
     <li class="selected api apilevel-">
   <a href="../../../../com/guidebee/game/ui/package-summary.html">com.guidebee.game.ui</a></li>
     <li class="api apilevel-">
-  <a href="../../../../com/guidebee/game/ui/action/package-summary.html">com.guidebee.game.ui.action</a></li>
+  <a href="../../../../com/guidebee/game/ui/actions/package-summary.html">com.guidebee.game.ui.actions</a></li>
     <li class="api apilevel-">
-  <a href="../../../../com/guidebee/game/ui/action/tween/package-summary.html">com.guidebee.game.ui.action.tween</a></li>
+  <a href="../../../../com/guidebee/game/ui/actions/tween/package-summary.html">com.guidebee.game.ui.actions.tween</a></li>
     <li class="api apilevel-">
-  <a href="../../../../com/guidebee/game/ui/action/tween/equations/package-summary.html">com.guidebee.game.ui.action.tween.equations</a></li>
+  <a href="../../../../com/guidebee/game/ui/actions/tween/equations/package-summary.html">com.guidebee.game.ui.actions.tween.equations</a></li>
     <li class="api apilevel-">
-  <a href="../../../../com/guidebee/game/ui/action/tween/paths/package-summary.html">com.guidebee.game.ui.action.tween.paths</a></li>
+  <a href="../../../../com/guidebee/game/ui/actions/tween/paths/package-summary.html">com.guidebee.game.ui.actions.tween.paths</a></li>
     <li class="api apilevel-">
-  <a href="../../../../com/guidebee/game/ui/action/tween/primitives/package-summary.html">com.guidebee.game.ui.action.tween.primitives</a></li>
+  <a href="../../../../com/guidebee/game/ui/actions/tween/primitives/package-summary.html">com.guidebee.game.ui.actions.tween.primitives</a></li>
     <li class="api apilevel-">
   <a href="../../../../com/guidebee/game/ui/drawable/package-summary.html">com.guidebee.game.ui.drawable</a></li>
     <li class="api apilevel-">
@@ -237,7 +237,6 @@
               
     <li><h2>Classes</h2>
       <ul>
-          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ActorGestureListener.html">ActorGestureListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Align.html">Align</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ArraySelection.html">ArraySelection</a>&lt;T&gt;</li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Button.html">Button</a></li>
@@ -263,6 +262,7 @@
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/FocusListener.html">FocusListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/FocusListener.FocusEvent.html">FocusListener.FocusEvent</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/GameController.html">GameController</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/GestureListener.html">GestureListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/HorizontalGroup.html">HorizontalGroup</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Image.html">Image</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ImageButton.html">ImageButton</a></li>
@@ -533,8 +533,8 @@ Summary:
 
 
 <h2>Class Overview</h2>
-<p>Detects mouse or finger touch drags on an actor. A touch must go down over the
- actor and a drag won't start until it is moved
+<p>Detects mouse or finger touch drags on an component. A touch must go down over the
+ component and a drag won't start until it is moved
  outside the <code><a href="../../../../com/guidebee/game/ui/DragListener.html#setTapSquareSize(float)">tap square</a></code>. Any touch
  (not just the first) will trigger this listener. While
  pressed, other touch downs are ignored.</p>
@@ -852,7 +852,7 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/DragListener.html#touchDown(com.guidebee.game.ui.InputEvent, float, float, int, int)">touchDown</a></span>(<a href="../../../../com/guidebee/game/ui/InputEvent.html">InputEvent</a> event, float x, float y, int pointer, int button)
         
-        <div class="jd-descrdiv">Called when a mouse button or a finger touch goes down on the actor.</div>
+        <div class="jd-descrdiv">Called when a mouse button or a finger touch goes down on the component.</div>
   
   </td></tr>
 
@@ -942,9 +942,9 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/InputListener.html#enter(com.guidebee.game.ui.InputEvent, float, float, int, com.guidebee.game.ui.UIComponent)">enter</a></span>(<a href="../../../../com/guidebee/game/ui/InputEvent.html">InputEvent</a> event, float x, float y, int pointer, <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> fromActor)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/InputListener.html#enter(com.guidebee.game.ui.InputEvent, float, float, int, com.guidebee.game.ui.UIComponent)">enter</a></span>(<a href="../../../../com/guidebee/game/ui/InputEvent.html">InputEvent</a> event, float x, float y, int pointer, <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> fromComponent)
         
-        <div class="jd-descrdiv">Called any time the mouse cursor or a finger touch is moved over an actor.</div>
+        <div class="jd-descrdiv">Called any time the mouse cursor or a finger touch is moved over an component.</div>
   
   </td></tr>
 
@@ -960,9 +960,9 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/InputListener.html#exit(com.guidebee.game.ui.InputEvent, float, float, int, com.guidebee.game.ui.UIComponent)">exit</a></span>(<a href="../../../../com/guidebee/game/ui/InputEvent.html">InputEvent</a> event, float x, float y, int pointer, <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> toActor)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/InputListener.html#exit(com.guidebee.game.ui.InputEvent, float, float, int, com.guidebee.game.ui.UIComponent)">exit</a></span>(<a href="../../../../com/guidebee/game/ui/InputEvent.html">InputEvent</a> event, float x, float y, int pointer, <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> toComponent)
         
-        <div class="jd-descrdiv">Called any time the mouse cursor or a finger touch is moved out of an actor.</div>
+        <div class="jd-descrdiv">Called any time the mouse cursor or a finger touch is moved out of an component.</div>
   
   </td></tr>
 
@@ -1088,7 +1088,7 @@ From class
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/InputListener.html#touchDown(com.guidebee.game.ui.InputEvent, float, float, int, int)">touchDown</a></span>(<a href="../../../../com/guidebee/game/ui/InputEvent.html">InputEvent</a> event, float x, float y, int pointer, int button)
         
-        <div class="jd-descrdiv">Called when a mouse button or a finger touch goes down on the actor.</div>
+        <div class="jd-descrdiv">Called when a mouse button or a finger touch goes down on the component.</div>
   
   </td></tr>
 
@@ -1868,9 +1868,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Called when a mouse button or a finger touch goes down on the actor.
+  <div class="jd-tagdata jd-tagdescr"><p>Called when a mouse button or a finger touch goes down on the component.
  If true is returned, this listener will receive all
- touchDragged and touchUp events, even those not over this actor,
+ touchDragged and touchUp events, even those not over this component,
  until touchUp is received. Also when true is returned, the
  event is <code><a href="../../../../com/guidebee/game/ui/Event.html#handle()">handled</a></code>.</p></div>
 

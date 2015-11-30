@@ -195,15 +195,15 @@
     <li class="selected api apilevel-">
   <a href="../../../../com/guidebee/game/ui/package-summary.html">com.guidebee.game.ui</a></li>
     <li class="api apilevel-">
-  <a href="../../../../com/guidebee/game/ui/action/package-summary.html">com.guidebee.game.ui.action</a></li>
+  <a href="../../../../com/guidebee/game/ui/actions/package-summary.html">com.guidebee.game.ui.actions</a></li>
     <li class="api apilevel-">
-  <a href="../../../../com/guidebee/game/ui/action/tween/package-summary.html">com.guidebee.game.ui.action.tween</a></li>
+  <a href="../../../../com/guidebee/game/ui/actions/tween/package-summary.html">com.guidebee.game.ui.actions.tween</a></li>
     <li class="api apilevel-">
-  <a href="../../../../com/guidebee/game/ui/action/tween/equations/package-summary.html">com.guidebee.game.ui.action.tween.equations</a></li>
+  <a href="../../../../com/guidebee/game/ui/actions/tween/equations/package-summary.html">com.guidebee.game.ui.actions.tween.equations</a></li>
     <li class="api apilevel-">
-  <a href="../../../../com/guidebee/game/ui/action/tween/paths/package-summary.html">com.guidebee.game.ui.action.tween.paths</a></li>
+  <a href="../../../../com/guidebee/game/ui/actions/tween/paths/package-summary.html">com.guidebee.game.ui.actions.tween.paths</a></li>
     <li class="api apilevel-">
-  <a href="../../../../com/guidebee/game/ui/action/tween/primitives/package-summary.html">com.guidebee.game.ui.action.tween.primitives</a></li>
+  <a href="../../../../com/guidebee/game/ui/actions/tween/primitives/package-summary.html">com.guidebee.game.ui.actions.tween.primitives</a></li>
     <li class="api apilevel-">
   <a href="../../../../com/guidebee/game/ui/drawable/package-summary.html">com.guidebee.game.ui.drawable</a></li>
     <li class="api apilevel-">
@@ -237,7 +237,6 @@
               
     <li><h2>Classes</h2>
       <ul>
-          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ActorGestureListener.html">ActorGestureListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Align.html">Align</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ArraySelection.html">ArraySelection</a>&lt;T&gt;</li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Button.html">Button</a></li>
@@ -263,6 +262,7 @@
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/FocusListener.html">FocusListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/FocusListener.FocusEvent.html">FocusListener.FocusEvent</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/GameController.html">GameController</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/GestureListener.html">GestureListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/HorizontalGroup.html">HorizontalGroup</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Image.html">Image</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ImageButton.html">ImageButton</a></li>
@@ -506,7 +506,7 @@ Summary:
 
 
 <h2>Class Overview</h2>
-<p>Determines how touch input events are distributed to an actor and any children.</p>
+<p>Determines how touch input events are distributed to an component and any children.</p>
 
 
 
@@ -551,7 +551,7 @@ Summary:
     <tr class="alt-color api apilevel-" >
         <td class="jd-descrcol"><a href="../../../../com/guidebee/game/ui/Touchable.html">Touchable</a>&nbsp;</td>
         <td class="jd-linkcol">childrenOnly&nbsp;</td>
-        <td class="jd-descrcol" width="100%">No touch input events will be received by the actor, but children will
+        <td class="jd-descrcol" width="100%">No touch input events will be received by the component, but children will
  still receive events.&nbsp;</td>
     </tr>
     
@@ -559,14 +559,14 @@ Summary:
     <tr class=" api apilevel-" >
         <td class="jd-descrcol"><a href="../../../../com/guidebee/game/ui/Touchable.html">Touchable</a>&nbsp;</td>
         <td class="jd-linkcol">disabled&nbsp;</td>
-        <td class="jd-descrcol" width="100%">No touch input events will be received by the actor or any children.&nbsp;</td>
+        <td class="jd-descrcol" width="100%">No touch input events will be received by the component or any children.&nbsp;</td>
     </tr>
     
     
     <tr class="alt-color api apilevel-" >
         <td class="jd-descrcol"><a href="../../../../com/guidebee/game/ui/Touchable.html">Touchable</a>&nbsp;</td>
         <td class="jd-linkcol">enabled&nbsp;</td>
-        <td class="jd-descrcol" width="100%">All touch input events will be received by the actor and any children.&nbsp;</td>
+        <td class="jd-descrcol" width="100%">All touch input events will be received by the component and any children.&nbsp;</td>
     </tr>
     
     
@@ -1072,7 +1072,7 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>No touch input events will be received by the actor, but children will
+  <div class="jd-tagdata jd-tagdescr"><p>No touch input events will be received by the component, but children will
  still receive events. Note that events on the
  children will still bubble to the parent.
 </p></div>
@@ -1105,7 +1105,7 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>No touch input events will be received by the actor or any children.
+  <div class="jd-tagdata jd-tagdescr"><p>No touch input events will be received by the component or any children.
 </p></div>
 
     
@@ -1136,7 +1136,7 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>All touch input events will be received by the actor and any children.
+  <div class="jd-tagdata jd-tagdescr"><p>All touch input events will be received by the component and any children.
 </p></div>
 
     

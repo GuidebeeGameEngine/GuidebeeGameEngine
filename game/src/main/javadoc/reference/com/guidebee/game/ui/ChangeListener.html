@@ -195,15 +195,15 @@
     <li class="selected api apilevel-">
   <a href="../../../../com/guidebee/game/ui/package-summary.html">com.guidebee.game.ui</a></li>
     <li class="api apilevel-">
-  <a href="../../../../com/guidebee/game/ui/action/package-summary.html">com.guidebee.game.ui.action</a></li>
+  <a href="../../../../com/guidebee/game/ui/actions/package-summary.html">com.guidebee.game.ui.actions</a></li>
     <li class="api apilevel-">
-  <a href="../../../../com/guidebee/game/ui/action/tween/package-summary.html">com.guidebee.game.ui.action.tween</a></li>
+  <a href="../../../../com/guidebee/game/ui/actions/tween/package-summary.html">com.guidebee.game.ui.actions.tween</a></li>
     <li class="api apilevel-">
-  <a href="../../../../com/guidebee/game/ui/action/tween/equations/package-summary.html">com.guidebee.game.ui.action.tween.equations</a></li>
+  <a href="../../../../com/guidebee/game/ui/actions/tween/equations/package-summary.html">com.guidebee.game.ui.actions.tween.equations</a></li>
     <li class="api apilevel-">
-  <a href="../../../../com/guidebee/game/ui/action/tween/paths/package-summary.html">com.guidebee.game.ui.action.tween.paths</a></li>
+  <a href="../../../../com/guidebee/game/ui/actions/tween/paths/package-summary.html">com.guidebee.game.ui.actions.tween.paths</a></li>
     <li class="api apilevel-">
-  <a href="../../../../com/guidebee/game/ui/action/tween/primitives/package-summary.html">com.guidebee.game.ui.action.tween.primitives</a></li>
+  <a href="../../../../com/guidebee/game/ui/actions/tween/primitives/package-summary.html">com.guidebee.game.ui.actions.tween.primitives</a></li>
     <li class="api apilevel-">
   <a href="../../../../com/guidebee/game/ui/drawable/package-summary.html">com.guidebee.game.ui.drawable</a></li>
     <li class="api apilevel-">
@@ -237,7 +237,6 @@
               
     <li><h2>Classes</h2>
       <ul>
-          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ActorGestureListener.html">ActorGestureListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Align.html">Align</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ArraySelection.html">ArraySelection</a>&lt;T&gt;</li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Button.html">Button</a></li>
@@ -263,6 +262,7 @@
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/FocusListener.html">FocusListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/FocusListener.FocusEvent.html">FocusListener.FocusEvent</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/GameController.html">GameController</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/GestureListener.html">GestureListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/HorizontalGroup.html">HorizontalGroup</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Image.html">Image</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ImageButton.html">ImageButton</a></li>
@@ -531,7 +531,7 @@ Summary:
         
         class</td>
       <td class="jd-linkcol"><a href="../../../../com/guidebee/game/ui/ChangeListener.ChangeEvent.html">ChangeListener.ChangeEvent</a></td>
-      <td class="jd-descrcol" width="100%">Fired when something in an actor has changed.&nbsp;</td>
+      <td class="jd-descrcol" width="100%">Fired when something in an component has changed.&nbsp;</td>
     </tr>
     
     
@@ -604,7 +604,7 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/ChangeListener.html#changed(com.guidebee.game.ui.ChangeListener.ChangeEvent, com.guidebee.game.ui.UIComponent)">changed</a></span>(<a href="../../../../com/guidebee/game/ui/ChangeListener.ChangeEvent.html">ChangeListener.ChangeEvent</a> event, <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> actor)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/ChangeListener.html#changed(com.guidebee.game.ui.ChangeListener.ChangeEvent, com.guidebee.game.ui.UIComponent)">changed</a></span>(<a href="../../../../com/guidebee/game/ui/ChangeListener.ChangeEvent.html">ChangeListener.ChangeEvent</a> event, <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> component)
         
   </td></tr>
 
@@ -948,7 +948,7 @@ From interface
         void
       </span>
       <span class="sympad">changed</span>
-      <span class="normal">(<a href="../../../../com/guidebee/game/ui/ChangeListener.ChangeEvent.html">ChangeListener.ChangeEvent</a> event, <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> actor)</span>
+      <span class="normal">(<a href="../../../../com/guidebee/game/ui/ChangeListener.ChangeEvent.html">ChangeListener.ChangeEvent</a> event, <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> component)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -965,8 +965,8 @@ From interface
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
-          <th>actor</th>
-          <td>The event target, which is the actor that emitted the
+          <th>component</th>
+          <td>The event target, which is the component that emitted the
               change event.
 </td>
         </tr>

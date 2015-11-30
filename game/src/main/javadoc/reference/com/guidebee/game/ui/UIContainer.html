@@ -195,15 +195,15 @@
     <li class="selected api apilevel-">
   <a href="../../../../com/guidebee/game/ui/package-summary.html">com.guidebee.game.ui</a></li>
     <li class="api apilevel-">
-  <a href="../../../../com/guidebee/game/ui/action/package-summary.html">com.guidebee.game.ui.action</a></li>
+  <a href="../../../../com/guidebee/game/ui/actions/package-summary.html">com.guidebee.game.ui.actions</a></li>
     <li class="api apilevel-">
-  <a href="../../../../com/guidebee/game/ui/action/tween/package-summary.html">com.guidebee.game.ui.action.tween</a></li>
+  <a href="../../../../com/guidebee/game/ui/actions/tween/package-summary.html">com.guidebee.game.ui.actions.tween</a></li>
     <li class="api apilevel-">
-  <a href="../../../../com/guidebee/game/ui/action/tween/equations/package-summary.html">com.guidebee.game.ui.action.tween.equations</a></li>
+  <a href="../../../../com/guidebee/game/ui/actions/tween/equations/package-summary.html">com.guidebee.game.ui.actions.tween.equations</a></li>
     <li class="api apilevel-">
-  <a href="../../../../com/guidebee/game/ui/action/tween/paths/package-summary.html">com.guidebee.game.ui.action.tween.paths</a></li>
+  <a href="../../../../com/guidebee/game/ui/actions/tween/paths/package-summary.html">com.guidebee.game.ui.actions.tween.paths</a></li>
     <li class="api apilevel-">
-  <a href="../../../../com/guidebee/game/ui/action/tween/primitives/package-summary.html">com.guidebee.game.ui.action.tween.primitives</a></li>
+  <a href="../../../../com/guidebee/game/ui/actions/tween/primitives/package-summary.html">com.guidebee.game.ui.actions.tween.primitives</a></li>
     <li class="api apilevel-">
   <a href="../../../../com/guidebee/game/ui/drawable/package-summary.html">com.guidebee.game.ui.drawable</a></li>
     <li class="api apilevel-">
@@ -237,7 +237,6 @@
               
     <li><h2>Classes</h2>
       <ul>
-          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ActorGestureListener.html">ActorGestureListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Align.html">Align</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ArraySelection.html">ArraySelection</a>&lt;T&gt;</li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Button.html">Button</a></li>
@@ -263,6 +262,7 @@
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/FocusListener.html">FocusListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/FocusListener.FocusEvent.html">FocusListener.FocusEvent</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/GameController.html">GameController</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/GestureListener.html">GestureListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/HorizontalGroup.html">HorizontalGroup</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Image.html">Image</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ImageButton.html">ImageButton</a></li>
@@ -651,7 +651,7 @@ Summary:
           </tr>
         <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../com/guidebee/game/ui/Tree.html">Tree</a></td>
-              <td class="jd-descrcol" width="100%">A tree widget where each node has an icon, actor, and child nodes.&nbsp;</td>
+              <td class="jd-descrcol" width="100%">A tree widget where each node has an icon, component, and child nodes.&nbsp;</td>
           </tr>
         <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../com/guidebee/game/ui/VerticalGroup.html">VerticalGroup</a></td>
@@ -667,12 +667,12 @@ Summary:
 
 
 <h2>Class Overview</h2>
-<p>2D scene graph node that may contain other actors.
+<p>2D scene graph node that may contain other components.
  <p>
- Actors have a z-order equal to the order they were inserted into the group.
- Actors inserted later will be drawn on top of
- actors added earlier. Touch events that hit more than one actor are
- distributed to topmost actors first.</p>
+ Components have a z-order equal to the order they were inserted into the group.
+ Components inserted later will be drawn on top of
+ components added earlier. Touch events that hit more than one component are
+ distributed to topmost components first.</p>
 
 
 
@@ -785,7 +785,7 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIContainer.html#act(float)">act</a></span>(float delta)
         
-        <div class="jd-descrdiv">Updates the actor based on time.</div>
+        <div class="jd-descrdiv">Updates the component based on time.</div>
   
   </td></tr>
 
@@ -801,9 +801,9 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIContainer.html#addActor(com.guidebee.game.ui.UIComponent)">addActor</a></span>(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> actor)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIContainer.html#addComponent(com.guidebee.game.ui.UIComponent)">addComponent</a></span>(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> component)
         
-        <div class="jd-descrdiv">Adds an actor as a child of this group.</div>
+        <div class="jd-descrdiv">Adds an component as a child of this group.</div>
   
   </td></tr>
 
@@ -819,10 +819,10 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIContainer.html#addActorAfter(com.guidebee.game.ui.UIComponent, com.guidebee.game.ui.UIComponent)">addActorAfter</a></span>(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> actorAfter, <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> actor)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIContainer.html#addComponentAfter(com.guidebee.game.ui.UIComponent, com.guidebee.game.ui.UIComponent)">addComponentAfter</a></span>(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> componentAfter, <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> component)
         
-        <div class="jd-descrdiv">Adds an actor as a child of this group, immediately after another
- child actor.</div>
+        <div class="jd-descrdiv">Adds an component as a child of this group, immediately after another
+ child component.</div>
   
   </td></tr>
 
@@ -838,9 +838,9 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIContainer.html#addActorAt(int, com.guidebee.game.ui.UIComponent)">addActorAt</a></span>(int index, <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> actor)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIContainer.html#addComponentAt(int, com.guidebee.game.ui.UIComponent)">addComponentAt</a></span>(int index, <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> component)
         
-        <div class="jd-descrdiv">Adds an actor as a child of this group, at a specific index.</div>
+        <div class="jd-descrdiv">Adds an component as a child of this group, at a specific index.</div>
   
   </td></tr>
 
@@ -856,10 +856,10 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIContainer.html#addActorBefore(com.guidebee.game.ui.UIComponent, com.guidebee.game.ui.UIComponent)">addActorBefore</a></span>(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> actorBefore, <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> actor)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIContainer.html#addComponentBefore(com.guidebee.game.ui.UIComponent, com.guidebee.game.ui.UIComponent)">addComponentBefore</a></span>(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> componentBefore, <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> component)
         
-        <div class="jd-descrdiv">Adds an actor as a child of this group, immediately before
- another child actor.</div>
+        <div class="jd-descrdiv">Adds an component as a child of this group, immediately before
+ another child component.</div>
   
   </td></tr>
 
@@ -895,7 +895,7 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIContainer.html#clearChildren()">clearChildren</a></span>()
         
-        <div class="jd-descrdiv">Removes all actors from this group.</div>
+        <div class="jd-descrdiv">Removes all components from this group.</div>
   
   </td></tr>
 
@@ -949,7 +949,7 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIContainer.html#drawDebug(com.guidebee.game.graphics.ShapeRenderer)">drawDebug</a></span>(<a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html">ShapeRenderer</a> shapes)
         
-        <div class="jd-descrdiv">Draws this actor's debug lines if <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#getDebug()">getDebug()</a></code> is true and,
+        <div class="jd-descrdiv">Draws this component's debug lines if <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#getDebug()">getDebug()</a></code> is true and,
  regardless of <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#getDebug()">getDebug()</a></code>, calls
  <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#drawDebug(com.guidebee.game.graphics.ShapeRenderer)">drawDebug(ShapeRenderer)</a></code>
  on each child.</div>
@@ -968,9 +968,9 @@ Summary:
             T
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIContainer.html#findActor(java.lang.String)">findActor</a></span>(String name)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIContainer.html#findComponent(java.lang.String)">findComponent</a></span>(String name)
         
-        <div class="jd-descrdiv">Returns the first actor found with the specified name.</div>
+        <div class="jd-descrdiv">Returns the first component found with the specified name.</div>
   
   </td></tr>
 
@@ -988,7 +988,7 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIContainer.html#getChildren()">getChildren</a></span>()
         
-        <div class="jd-descrdiv">Returns an ordered list of child actors in this group.</div>
+        <div class="jd-descrdiv">Returns an ordered list of child components in this group.</div>
   
   </td></tr>
 
@@ -1022,9 +1022,9 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIContainer.html#hit(float, float, boolean)">hit</a></span>(float x, float y, boolean touchable)
         
-        <div class="jd-descrdiv">Returns the deepest actor that contains the specified point and is
+        <div class="jd-descrdiv">Returns the deepest component that contains the specified point and is
  <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#getTouchable()">touchable</a></code> and
- <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#isVisible()">visible</a></code>, or null if no actor was hit.</div>
+ <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#isVisible()">visible</a></code>, or null if no component was hit.</div>
   
   </td></tr>
 
@@ -1058,7 +1058,7 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIContainer.html#localToDescendantCoordinates(com.guidebee.game.ui.UIComponent, com.guidebee.math.Vector2)">localToDescendantCoordinates</a></span>(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> descendant, <a href="../../../../com/guidebee/math/Vector2.html">Vector2</a> localCoords)
         
-        <div class="jd-descrdiv">Converts coordinates for this group to those of a descendant actor.</div>
+        <div class="jd-descrdiv">Converts coordinates for this group to those of a descendant component.</div>
   
   </td></tr>
 
@@ -1076,7 +1076,7 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIContainer.html#print()">print</a></span>()
         
-        <div class="jd-descrdiv">Prints the actor hierarchy recursively for debugging purposes.</div>
+        <div class="jd-descrdiv">Prints the component hierarchy recursively for debugging purposes.</div>
   
   </td></tr>
 
@@ -1092,9 +1092,9 @@ Summary:
             boolean
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIContainer.html#removeActor(com.guidebee.game.ui.UIComponent)">removeActor</a></span>(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> actor)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIContainer.html#removeComponent(com.guidebee.game.ui.UIComponent)">removeComponent</a></span>(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> component)
         
-        <div class="jd-descrdiv">Removes an actor from this group.</div>
+        <div class="jd-descrdiv">Removes an component from this group.</div>
   
   </td></tr>
 
@@ -1166,9 +1166,9 @@ Summary:
             boolean
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIContainer.html#swapActor(com.guidebee.game.ui.UIComponent, com.guidebee.game.ui.UIComponent)">swapActor</a></span>(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> first, <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> second)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIContainer.html#swapComponent(com.guidebee.game.ui.UIComponent, com.guidebee.game.ui.UIComponent)">swapComponent</a></span>(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> first, <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> second)
         
-        <div class="jd-descrdiv">Swaps two actors.</div>
+        <div class="jd-descrdiv">Swaps two components.</div>
   
   </td></tr>
 
@@ -1184,9 +1184,9 @@ Summary:
             boolean
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIContainer.html#swapActor(int, int)">swapActor</a></span>(int first, int second)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIContainer.html#swapComponent(int, int)">swapComponent</a></span>(int first, int second)
         
-        <div class="jd-descrdiv">Swaps two actors by index.</div>
+        <div class="jd-descrdiv">Swaps two components by index.</div>
   
   </td></tr>
 
@@ -1238,7 +1238,7 @@ From class
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#act(float)">act</a></span>(float delta)
         
-        <div class="jd-descrdiv">Updates the actor based on time.</div>
+        <div class="jd-descrdiv">Updates the component based on time.</div>
   
   </td></tr>
 
@@ -1254,7 +1254,7 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#addAction(com.guidebee.game.ui.action.Action)">addAction</a></span>(<a href="../../../../com/guidebee/game/ui/action/Action.html">Action</a> action)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#addAction(com.guidebee.game.ui.actions.Action)">addAction</a></span>(<a href="../../../../com/guidebee/game/ui/actions/Action.html">Action</a> action)
         
   </td></tr>
 
@@ -1291,7 +1291,7 @@ From class
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#addListener(com.guidebee.game.ui.EventListener)">addListener</a></span>(<a href="../../../../com/guidebee/game/ui/EventListener.html">EventListener</a> listener)
         
         <div class="jd-descrdiv">Add a listener to receive events that <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#hit(float, float, boolean)">hit</a></code>
- this actor.</div>
+ this component.</div>
   
   </td></tr>
 
@@ -1309,7 +1309,7 @@ From class
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#clear()">clear</a></span>()
         
-        <div class="jd-descrdiv">Removes all actions and listeners on this actor.</div>
+        <div class="jd-descrdiv">Removes all actions and listeners on this component.</div>
   
   </td></tr>
 
@@ -1327,7 +1327,7 @@ From class
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#clearActions()">clearActions</a></span>()
         
-        <div class="jd-descrdiv">Removes all actions on this actor.</div>
+        <div class="jd-descrdiv">Removes all actions on this component.</div>
   
   </td></tr>
 
@@ -1345,7 +1345,7 @@ From class
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#clearListeners()">clearListeners</a></span>()
         
-        <div class="jd-descrdiv">Removes all listeners on this actor.</div>
+        <div class="jd-descrdiv">Removes all listeners on this component.</div>
   
   </td></tr>
 
@@ -1364,7 +1364,7 @@ From class
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#clipBegin()">clipBegin</a></span>()
         
         <div class="jd-descrdiv">Calls <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#clipBegin(float, float, float, float)">clipBegin(float, float, float, float)</a></code>
- to clip this actor's bounds.</div>
+ to clip this component's bounds.</div>
   
   </td></tr>
 
@@ -1383,7 +1383,7 @@ From class
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#clipBegin(float, float, float, float)">clipBegin</a></span>(float x, float y, float width, float height)
         
         <div class="jd-descrdiv">Clips the specified screen aligned rectangle, specified relative to the
- transform matrix of the stage's Batch.</div>
+ transform matrix of the window's Batch.</div>
   
   </td></tr>
 
@@ -1437,7 +1437,7 @@ From class
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#draw(com.guidebee.game.graphics.Batch, float)">draw</a></span>(<a href="../../../../com/guidebee/game/graphics/Batch.html">Batch</a> batch, float parentAlpha)
         
-        <div class="jd-descrdiv">Draws the actor.</div>
+        <div class="jd-descrdiv">Draws the component.</div>
   
   </td></tr>
 
@@ -1455,7 +1455,7 @@ From class
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#drawDebug(com.guidebee.game.graphics.ShapeRenderer)">drawDebug</a></span>(<a href="../../../../com/guidebee/game/graphics/ShapeRenderer.html">ShapeRenderer</a> shapes)
         
-        <div class="jd-descrdiv">Draws this actor's debug lines if <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#getDebug()">getDebug()</a></code> is true.</div>
+        <div class="jd-descrdiv">Draws this component's debug lines if <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#getDebug()">getDebug()</a></code> is true.</div>
   
   </td></tr>
 
@@ -1473,9 +1473,9 @@ From class
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#fire(com.guidebee.game.ui.Event)">fire</a></span>(<a href="../../../../com/guidebee/game/ui/Event.html">Event</a> event)
         
-        <div class="jd-descrdiv">Sets this actor as the event <code><a href="../../../../com/guidebee/game/ui/Event.html#setTarget(com.guidebee.game.ui.UIComponent)">target</a></code>
- and propagates the event to this actor and ancestor
- actors as necessary.</div>
+        <div class="jd-descrdiv">Sets this component as the event <code><a href="../../../../com/guidebee/game/ui/Event.html#setTarget(com.guidebee.game.ui.UIComponent)">target</a></code>
+ and propagates the event to this component and ancestor
+ components as necessary.</div>
   
   </td></tr>
 
@@ -1488,7 +1488,7 @@ From class
             
             
             
-            <a href="../../../../com/guidebee/utils/collections/Array.html">Array</a>&lt;<a href="../../../../com/guidebee/game/ui/action/Action.html">Action</a>&gt;
+            <a href="../../../../com/guidebee/utils/collections/Array.html">Array</a>&lt;<a href="../../../../com/guidebee/game/ui/actions/Action.html">Action</a>&gt;
         </td>
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#getActions()">getActions</a></span>()
@@ -1504,6 +1504,22 @@ From class
             
             
             
+            float
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#getAlpha()">getAlpha</a></span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
             <a href="../../../../com/guidebee/utils/collections/Array.html">Array</a>&lt;<a href="../../../../com/guidebee/game/ui/EventListener.html">EventListener</a>&gt;
         </td>
         <td class="jd-linkcol" width="100%">
@@ -1513,7 +1529,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1529,7 +1545,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1545,7 +1561,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1557,13 +1573,13 @@ From class
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#getColor()">getColor</a></span>()
         
-        <div class="jd-descrdiv">Returns the color the actor will be tinted when drawn.</div>
+        <div class="jd-descrdiv">Returns the color the component will be tinted when drawn.</div>
   
   </td></tr>
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1579,7 +1595,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1595,7 +1611,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1611,7 +1627,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1623,7 +1639,7 @@ From class
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#getName()">getName</a></span>()
         
-        <div class="jd-descrdiv">Retrieve custom actor name set with <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#setName(java.lang.String)">setName(String)</a></code>,
+        <div class="jd-descrdiv">Retrieve custom component name set with <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#setName(java.lang.String)">setName(String)</a></code>,
  used for easier identification
 </div>
   
@@ -1631,7 +1647,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1647,7 +1663,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1663,7 +1679,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1675,13 +1691,13 @@ From class
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#getParent()">getParent</a></span>()
         
-        <div class="jd-descrdiv">Returns the parent actor, or null if not in a group.</div>
+        <div class="jd-descrdiv">Returns the parent component, or null if not in a group.</div>
   
   </td></tr>
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1699,7 +1715,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1715,7 +1731,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1731,7 +1747,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1743,24 +1759,6 @@ From class
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#getScaleY()">getScaleY</a></span>()
         
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            <a href="../../../../com/guidebee/game/ui/UIWindow.html">UIWindow</a>
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#getStage()">getStage</a></span>()
-        
-        <div class="jd-descrdiv">Returns the stage that this actor is currently in, or null if not in a stage.</div>
-  
   </td></tr>
 
 
@@ -1840,19 +1838,37 @@ From class
             
             
             
-            float
+            <a href="../../../../com/guidebee/game/ui/UIWindow.html">UIWindow</a>
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#getX()">getX</a></span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#getWindow()">getWindow</a></span>()
         
-        <div class="jd-descrdiv">Get the X position of the actor (left edge of actor)
-</div>
+        <div class="jd-descrdiv">Returns the window that this component is currently in, or null if not in a window.</div>
   
   </td></tr>
 
 
 	 
     <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            float
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#getX()">getX</a></span>()
+        
+        <div class="jd-descrdiv">Get the X position of the component (left edge of component)
+</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1864,14 +1880,14 @@ From class
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#getY()">getY</a></span>()
         
-        <div class="jd-descrdiv">Get the Y position of the actor (bottom edge of actor)
+        <div class="jd-descrdiv">Get the Y position of the component (bottom edge of component)
 </div>
   
   </td></tr>
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1883,13 +1899,13 @@ From class
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#getZIndex()">getZIndex</a></span>()
         
-        <div class="jd-descrdiv">Returns the z-index of this actor.</div>
+        <div class="jd-descrdiv">Returns the z-index of this component.</div>
   
   </td></tr>
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1901,13 +1917,13 @@ From class
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#hasParent()">hasParent</a></span>()
         
-        <div class="jd-descrdiv">Returns true if the actor's parent is not null.</div>
+        <div class="jd-descrdiv">Returns true if the component's parent is not null.</div>
   
   </td></tr>
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1919,27 +1935,9 @@ From class
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#hit(float, float, boolean)">hit</a></span>(float x, float y, boolean touchable)
         
-        <div class="jd-descrdiv">Returns the deepest actor that contains the specified point and is
+        <div class="jd-descrdiv">Returns the deepest component that contains the specified point and is
  <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#getTouchable()">touchable</a></code> and
- <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#isVisible()">visible</a></code>, or null if no actor was hit.</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            boolean
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#isAscendantOf(com.guidebee.game.ui.UIComponent)">isAscendantOf</a></span>(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> actor)
-        
-        <div class="jd-descrdiv">Returns true if this actor is the same as or is the ascendant of the specified actor.</div>
+ <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#isVisible()">visible</a></code>, or null if no component was hit.</div>
   
   </td></tr>
 
@@ -1955,16 +1953,34 @@ From class
             boolean
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#isDescendantOf(com.guidebee.game.ui.UIComponent)">isDescendantOf</a></span>(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> actor)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#isAscendantOf(com.guidebee.game.ui.UIComponent)">isAscendantOf</a></span>(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> component)
         
-        <div class="jd-descrdiv">Returns true if this actor is the same as or is the descendant of the
- specified actor.</div>
+        <div class="jd-descrdiv">Returns true if this component is the same as or is the ascendant of the specified component.</div>
   
   </td></tr>
 
 
 	 
     <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#isDescendantOf(com.guidebee.game.ui.UIComponent)">isDescendantOf</a></span>(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> component)
+        
+        <div class="jd-descrdiv">Returns true if this component is the same as or is the descendant of the
+ specified component.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1976,13 +1992,13 @@ From class
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#isTouchable()">isTouchable</a></span>()
         
-        <div class="jd-descrdiv">Returns true if input events are processed by this actor.</div>
+        <div class="jd-descrdiv">Returns true if input events are processed by this component.</div>
   
   </td></tr>
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1998,7 +2014,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -2010,26 +2026,7 @@ From class
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#localToAscendantCoordinates(com.guidebee.game.ui.UIComponent, com.guidebee.math.Vector2)">localToAscendantCoordinates</a></span>(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> ascendant, <a href="../../../../com/guidebee/math/Vector2.html">Vector2</a> localCoords)
         
-        <div class="jd-descrdiv">Converts coordinates for this actor to those of a parent actor.</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            <a href="../../../../com/guidebee/math/Vector2.html">Vector2</a>
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#localToParentCoordinates(com.guidebee.math.Vector2)">localToParentCoordinates</a></span>(<a href="../../../../com/guidebee/math/Vector2.html">Vector2</a> localCoords)
-        
-        <div class="jd-descrdiv">Transforms the specified point in the actor's coordinates to be
- in the parent's coordinates.</div>
+        <div class="jd-descrdiv">Converts coordinates for this component to those of a parent component.</div>
   
   </td></tr>
 
@@ -2045,16 +2042,35 @@ From class
             <a href="../../../../com/guidebee/math/Vector2.html">Vector2</a>
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#localToStageCoordinates(com.guidebee.math.Vector2)">localToStageCoordinates</a></span>(<a href="../../../../com/guidebee/math/Vector2.html">Vector2</a> localCoords)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#localToParentCoordinates(com.guidebee.math.Vector2)">localToParentCoordinates</a></span>(<a href="../../../../com/guidebee/math/Vector2.html">Vector2</a> localCoords)
         
-        <div class="jd-descrdiv">Transforms the specified point in the actor's coordinates to be
- in the stage's coordinates.</div>
+        <div class="jd-descrdiv">Transforms the specified point in the component's coordinates to be
+ in the parent's coordinates.</div>
   
   </td></tr>
 
 
 	 
     <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            <a href="../../../../com/guidebee/math/Vector2.html">Vector2</a>
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#localToWindowCoordinates(com.guidebee.math.Vector2)">localToWindowCoordinates</a></span>(<a href="../../../../com/guidebee/math/Vector2.html">Vector2</a> localCoords)
+        
+        <div class="jd-descrdiv">Transforms the specified point in the component's coordinates to be
+ in the window's coordinates.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -2073,7 +2089,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -2085,13 +2101,13 @@ From class
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#notify(com.guidebee.game.ui.Event, boolean)">notify</a></span>(<a href="../../../../com/guidebee/game/ui/Event.html">Event</a> event, boolean capture)
         
-        <div class="jd-descrdiv">Notifies this actor's listeners of the event.</div>
+        <div class="jd-descrdiv">Notifies this component's listeners of the event.</div>
   
   </td></tr>
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -2104,25 +2120,7 @@ From class
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#parentToLocalCoordinates(com.guidebee.math.Vector2)">parentToLocalCoordinates</a></span>(<a href="../../../../com/guidebee/math/Vector2.html">Vector2</a> parentCoords)
         
         <div class="jd-descrdiv">Converts the coordinates given in the parent's coordinate system to
- this actor's coordinate system.</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            boolean
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#remove()">remove</a></span>()
-        
-        <div class="jd-descrdiv">Removes this actor from its parent, if it has a parent.</div>
+ this component's coordinate system.</div>
   
   </td></tr>
 
@@ -2135,16 +2133,34 @@ From class
             
             
             
-            void
+            boolean
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#removeAction(com.guidebee.game.ui.action.Action)">removeAction</a></span>(<a href="../../../../com/guidebee/game/ui/action/Action.html">Action</a> action)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#remove()">remove</a></span>()
         
+        <div class="jd-descrdiv">Removes this component from its parent, if it has a parent.</div>
+  
   </td></tr>
 
 
 	 
     <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#removeAction(com.guidebee.game.ui.actions.Action)">removeAction</a></span>(<a href="../../../../com/guidebee/game/ui/actions/Action.html">Action</a> action)
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -2160,7 +2176,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -2176,7 +2192,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -2194,7 +2210,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -2212,7 +2228,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -2230,7 +2246,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -2242,9 +2258,25 @@ From class
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#screenToLocalCoordinates(com.guidebee.math.Vector2)">screenToLocalCoordinates</a></span>(<a href="../../../../com/guidebee/math/Vector2.html">Vector2</a> screenCoords)
         
-        <div class="jd-descrdiv">Transforms the specified point in screen coordinates to the actor's
+        <div class="jd-descrdiv">Transforms the specified point in screen coordinates to the component's
  local coordinate system.</div>
   
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#setAlpha(float)">setAlpha</a></span>(float alpha)
+        
   </td></tr>
 
 
@@ -2330,7 +2362,7 @@ From class
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#setDebug(boolean)">setDebug</a></span>(boolean enabled)
         
-        <div class="jd-descrdiv">If true, <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#drawDebug(com.guidebee.game.graphics.ShapeRenderer)">drawDebug(ShapeRenderer)</a></code> will be called for this actor.</div>
+        <div class="jd-descrdiv">If true, <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#drawDebug(com.guidebee.game.graphics.ShapeRenderer)">drawDebug(ShapeRenderer)</a></code> will be called for this component.</div>
   
   </td></tr>
 
@@ -2364,7 +2396,7 @@ From class
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#setName(java.lang.String)">setName</a></span>(String name)
         
-        <div class="jd-descrdiv">Sets a name for easier identification of the actor in application code.</div>
+        <div class="jd-descrdiv">Sets a name for easier identification of the component in application code.</div>
   
   </td></tr>
 
@@ -2554,7 +2586,7 @@ From class
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#setTouchable(com.guidebee.game.ui.Touchable)">setTouchable</a></span>(<a href="../../../../com/guidebee/game/ui/Touchable.html">Touchable</a> touchable)
         
-        <div class="jd-descrdiv">Determines how touch events are distributed to this actor.</div>
+        <div class="jd-descrdiv">Determines how touch events are distributed to this component.</div>
   
   </td></tr>
 
@@ -2590,7 +2622,7 @@ From class
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#setVisible(boolean)">setVisible</a></span>(boolean visible)
         
-        <div class="jd-descrdiv">If false, the actor will not be drawn and will not receive touch events.</div>
+        <div class="jd-descrdiv">If false, the component will not be drawn and will not receive touch events.</div>
   
   </td></tr>
 
@@ -2656,7 +2688,7 @@ From class
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#setZIndex(int)">setZIndex</a></span>(int index)
         
-        <div class="jd-descrdiv">Sets the z-index of this actor.</div>
+        <div class="jd-descrdiv">Sets the z-index of this component.</div>
   
   </td></tr>
 
@@ -2705,13 +2737,12 @@ From class
             
             
             
-            <a href="../../../../com/guidebee/math/Vector2.html">Vector2</a>
+            void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#stageToLocalCoordinates(com.guidebee.math.Vector2)">stageToLocalCoordinates</a></span>(<a href="../../../../com/guidebee/math/Vector2.html">Vector2</a> stageCoords)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#toBack()">toBack</a></span>()
         
-        <div class="jd-descrdiv">Transforms the specified point in the stage's coordinates to the
- actor's local coordinate system.</div>
+        <div class="jd-descrdiv">Changes the z-order for this component so it is in back of all siblings.</div>
   
   </td></tr>
 
@@ -2727,9 +2758,9 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#toBack()">toBack</a></span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#toFront()">toFront</a></span>()
         
-        <div class="jd-descrdiv">Changes the z-order for this actor so it is in back of all siblings.</div>
+        <div class="jd-descrdiv">Changes the z-order for this component so it is in front of all siblings.</div>
   
   </td></tr>
 
@@ -2742,13 +2773,11 @@ From class
             
             
             
-            void
+            String
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#toFront()">toFront</a></span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#toString()">toString</a></span>()
         
-        <div class="jd-descrdiv">Changes the z-order for this actor so it is in front of all siblings.</div>
-  
   </td></tr>
 
 
@@ -2760,11 +2789,14 @@ From class
             
             
             
-            String
+            <a href="../../../../com/guidebee/math/Vector2.html">Vector2</a>
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#toString()">toString</a></span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/UIComponent.html#windowToLocalCoordinates(com.guidebee.math.Vector2)">windowToLocalCoordinates</a></span>(<a href="../../../../com/guidebee/math/Vector2.html">Vector2</a> windowCoords)
         
+        <div class="jd-descrdiv">Transforms the specified point in the window's coordinates to the
+ component's local coordinate system.</div>
+  
   </td></tr>
 
 
@@ -3122,10 +3154,10 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Updates the actor based on time. Typically this is called each frame
+  <div class="jd-tagdata jd-tagdescr"><p>Updates the component based on time. Typically this is called each frame
  by <code><a href="../../../../com/guidebee/game/ui/UIWindow.html#act(float)">act(float)</a></code>.
  <p>
- The default implementation calls <code><a href="../../../../com/guidebee/game/ui/action/Action.html#act(float)">act(float)</a></code> on
+ The default implementation calls <code><a href="../../../../com/guidebee/game/ui/actions/Action.html#act(float)">act(float)</a></code> on
  each action and removes actions that are complete.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -3142,7 +3174,7 @@ From interface
 </div>
 
 
-<a id="addActor(com.guidebee.game.ui.UIComponent)"></a>
+<a id="addComponent(com.guidebee.game.ui.UIComponent)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -3154,8 +3186,8 @@ From interface
          
         void
       </span>
-      <span class="sympad">addActor</span>
-      <span class="normal">(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> actor)</span>
+      <span class="sympad">addComponent</span>
+      <span class="normal">(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> component)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -3167,7 +3199,7 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Adds an actor as a child of this group. The actor is first
+  <div class="jd-tagdata jd-tagdescr"><p>Adds an component as a child of this group. The component is first
  removed from its parent group, if any.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
@@ -3179,7 +3211,7 @@ From interface
 </div>
 
 
-<a id="addActorAfter(com.guidebee.game.ui.UIComponent, com.guidebee.game.ui.UIComponent)"></a>
+<a id="addComponentAfter(com.guidebee.game.ui.UIComponent, com.guidebee.game.ui.UIComponent)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -3191,8 +3223,8 @@ From interface
          
         void
       </span>
-      <span class="sympad">addActorAfter</span>
-      <span class="normal">(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> actorAfter, <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> actor)</span>
+      <span class="sympad">addComponentAfter</span>
+      <span class="normal">(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> componentAfter, <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> component)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -3204,8 +3236,8 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Adds an actor as a child of this group, immediately after another
- child actor. The actor is first removed from its parent
+  <div class="jd-tagdata jd-tagdescr"><p>Adds an component as a child of this group, immediately after another
+ child component. The component is first removed from its parent
  group, if any.
 </p></div>
 
@@ -3213,7 +3245,7 @@ From interface
 </div>
 
 
-<a id="addActorAt(int, com.guidebee.game.ui.UIComponent)"></a>
+<a id="addComponentAt(int, com.guidebee.game.ui.UIComponent)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -3225,8 +3257,8 @@ From interface
          
         void
       </span>
-      <span class="sympad">addActorAt</span>
-      <span class="normal">(int index, <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> actor)</span>
+      <span class="sympad">addComponentAt</span>
+      <span class="normal">(int index, <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> component)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -3238,8 +3270,8 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Adds an actor as a child of this group, at a specific index.
- The actor is first removed from its parent group, if any.</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Adds an component as a child of this group, at a specific index.
+ The component is first removed from its parent group, if any.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -3255,7 +3287,7 @@ From interface
 </div>
 
 
-<a id="addActorBefore(com.guidebee.game.ui.UIComponent, com.guidebee.game.ui.UIComponent)"></a>
+<a id="addComponentBefore(com.guidebee.game.ui.UIComponent, com.guidebee.game.ui.UIComponent)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -3267,8 +3299,8 @@ From interface
          
         void
       </span>
-      <span class="sympad">addActorBefore</span>
-      <span class="normal">(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> actorBefore, <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> actor)</span>
+      <span class="sympad">addComponentBefore</span>
+      <span class="normal">(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> componentBefore, <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> component)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -3280,8 +3312,8 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Adds an actor as a child of this group, immediately before
- another child actor. The actor is first removed from its parent
+  <div class="jd-tagdata jd-tagdescr"><p>Adds an component as a child of this group, immediately before
+ another child component. The component is first removed from its parent
  group, if any.
 </p></div>
 
@@ -3346,7 +3378,7 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Removes all actors from this group.
+  <div class="jd-tagdata jd-tagdescr"><p>Removes all components from this group.
 </p></div>
 
     </div>
@@ -3421,7 +3453,7 @@ From interface
       <table class="jd-tagtable">
         <tr>
           <th>parentAlpha</th>
-          <td>Should be multiplied with the actor's alpha, allowing
+          <td>Should be multiplied with the component's alpha, allowing
                     a parent's alpha to affect all children.
 </td>
         </tr>
@@ -3457,7 +3489,7 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Draws this actor's debug lines if <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#getDebug()">getDebug()</a></code> is true and,
+  <div class="jd-tagdata jd-tagdescr"><p>Draws this component's debug lines if <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#getDebug()">getDebug()</a></code> is true and,
  regardless of <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#getDebug()">getDebug()</a></code>, calls
  <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#drawDebug(com.guidebee.game.graphics.ShapeRenderer)">drawDebug(ShapeRenderer)</a></code>
  on each child.
@@ -3467,7 +3499,7 @@ From interface
 </div>
 
 
-<a id="findActor(java.lang.String)"></a>
+<a id="findComponent(java.lang.String)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -3479,7 +3511,7 @@ From interface
          
         T
       </span>
-      <span class="sympad">findActor</span>
+      <span class="sympad">findComponent</span>
       <span class="normal">(String name)</span>
     </h4>
       <div class="api-level">
@@ -3492,8 +3524,8 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Returns the first actor found with the specified name. Note this
- recursively compares the name of every actor in the group.
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the first component found with the specified name. Note this
+ recursively compares the name of every component in the group.
 </p></div>
 
     </div>
@@ -3525,7 +3557,7 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Returns an ordered list of child actors in this group.
+  <div class="jd-tagdata jd-tagdescr"><p>Returns an ordered list of child components in this group.
 </p></div>
 
     </div>
@@ -3588,18 +3620,18 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Returns the deepest actor that contains the specified point and is
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the deepest component that contains the specified point and is
  <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#getTouchable()">touchable</a></code> and
- <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#isVisible()">visible</a></code>, or null if no actor was hit. The point
- is specified in the actor's local coordinate system (0,0
- is the bottom left of the actor and width,height is the upper right).
+ <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#isVisible()">visible</a></code>, or null if no component was hit. The point
+ is specified in the component's local coordinate system (0,0
+ is the bottom left of the component and width,height is the upper right).
  <p>
  This method is used to delegate touchDown, mouse, and enter/exit events.
  If this method returns null, those events will not
  occur on this UIComponent.
  <p>
- The default implementation returns this actor if the point is within this
- actor's bounds.</p></div>
+ The default implementation returns this component if the point is within this
+ component's bounds.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -3671,14 +3703,14 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Converts coordinates for this group to those of a descendant actor.
+  <div class="jd-tagdata jd-tagdescr"><p>Converts coordinates for this group to those of a descendant component.
  The descendant does not need to be a direct child.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
       <table class="jd-tagtable">  
         <tr>
             <th>IllegalArgumentException</td>
-            <td>if the specified actor is not a
+            <td>if the specified component is not a
  descendant of this group.
 </td>
         </tr>
@@ -3714,14 +3746,14 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Prints the actor hierarchy recursively for debugging purposes.
+  <div class="jd-tagdata jd-tagdescr"><p>Prints the component hierarchy recursively for debugging purposes.
 </p></div>
 
     </div>
 </div>
 
 
-<a id="removeActor(com.guidebee.game.ui.UIComponent)"></a>
+<a id="removeComponent(com.guidebee.game.ui.UIComponent)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -3733,8 +3765,8 @@ From interface
          
         boolean
       </span>
-      <span class="sympad">removeActor</span>
-      <span class="normal">(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> actor)</span>
+      <span class="sympad">removeComponent</span>
+      <span class="normal">(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> component)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -3746,11 +3778,11 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Removes an actor from this group. If the actor will not be used
+  <div class="jd-tagdata jd-tagdescr"><p>Removes an component from this group. If the component will not be used
  again and has actions, they should be
  <code><a href="../../../../com/guidebee/game/ui/UIComponent.html#clearActions()">cleared</a></code> so the actions will be returned
  to their
- <code><a href="../../../../com/guidebee/game/ui/action/Action.html#setPool(com.guidebee.utils.Pool)">pool</a></code>,
+ <code><a href="../../../../com/guidebee/game/ui/actions/Action.html#setPool(com.guidebee.utils.Pool)">pool</a></code>,
  if any. This is not done automatically.
 </p></div>
 
@@ -3785,7 +3817,7 @@ From interface
       
   <div class="jd-tagdata jd-tagdescr"><p>Children completely outside of this rectangle will not be drawn.
  This is only valid for use with unrotated and unscaled
- actors!
+ components!
 </p></div>
 
     </div>
@@ -3853,7 +3885,7 @@ From interface
   <div class="jd-tagdata jd-tagdescr"><p>When true (the default), the Batch is transformed so children are
  drawn in their parent's coordinate system. This has a
  performance impact because <code><a href="../../../../com/guidebee/game/graphics/Batch.html#flush()">flush()</a></code> must be done before
- and after the transform. If the actors in a group are
+ and after the transform. If the components in a group are
  not rotated or scaled, then the transform for the group can be set to
  false. In this case, each child's position will be
  offset by the group's position for drawing, causing the children to
@@ -3865,7 +3897,7 @@ From interface
 </div>
 
 
-<a id="swapActor(com.guidebee.game.ui.UIComponent, com.guidebee.game.ui.UIComponent)"></a>
+<a id="swapComponent(com.guidebee.game.ui.UIComponent, com.guidebee.game.ui.UIComponent)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -3877,7 +3909,7 @@ From interface
          
         boolean
       </span>
-      <span class="sympad">swapActor</span>
+      <span class="sympad">swapComponent</span>
       <span class="normal">(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> first, <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> second)</span>
     </h4>
       <div class="api-level">
@@ -3890,15 +3922,15 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Swaps two actors. Returns false if the swap did not occur because
- the actors are not children of this group.
+  <div class="jd-tagdata jd-tagdescr"><p>Swaps two components. Returns false if the swap did not occur because
+ the components are not children of this group.
 </p></div>
 
     </div>
 </div>
 
 
-<a id="swapActor(int, int)"></a>
+<a id="swapComponent(int, int)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -3910,7 +3942,7 @@ From interface
          
         boolean
       </span>
-      <span class="sympad">swapActor</span>
+      <span class="sympad">swapComponent</span>
       <span class="normal">(int first, int second)</span>
     </h4>
       <div class="api-level">
@@ -3923,7 +3955,7 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Swaps two actors by index. Returns false if the swap did not occur
+  <div class="jd-tagdata jd-tagdescr"><p>Swaps two components by index. Returns false if the swap did not occur
  because the indexes were out of bounds.
 </p></div>
 

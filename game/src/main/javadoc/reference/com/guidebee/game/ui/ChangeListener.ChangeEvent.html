@@ -195,15 +195,15 @@
     <li class="selected api apilevel-">
   <a href="../../../../com/guidebee/game/ui/package-summary.html">com.guidebee.game.ui</a></li>
     <li class="api apilevel-">
-  <a href="../../../../com/guidebee/game/ui/action/package-summary.html">com.guidebee.game.ui.action</a></li>
+  <a href="../../../../com/guidebee/game/ui/actions/package-summary.html">com.guidebee.game.ui.actions</a></li>
     <li class="api apilevel-">
-  <a href="../../../../com/guidebee/game/ui/action/tween/package-summary.html">com.guidebee.game.ui.action.tween</a></li>
+  <a href="../../../../com/guidebee/game/ui/actions/tween/package-summary.html">com.guidebee.game.ui.actions.tween</a></li>
     <li class="api apilevel-">
-  <a href="../../../../com/guidebee/game/ui/action/tween/equations/package-summary.html">com.guidebee.game.ui.action.tween.equations</a></li>
+  <a href="../../../../com/guidebee/game/ui/actions/tween/equations/package-summary.html">com.guidebee.game.ui.actions.tween.equations</a></li>
     <li class="api apilevel-">
-  <a href="../../../../com/guidebee/game/ui/action/tween/paths/package-summary.html">com.guidebee.game.ui.action.tween.paths</a></li>
+  <a href="../../../../com/guidebee/game/ui/actions/tween/paths/package-summary.html">com.guidebee.game.ui.actions.tween.paths</a></li>
     <li class="api apilevel-">
-  <a href="../../../../com/guidebee/game/ui/action/tween/primitives/package-summary.html">com.guidebee.game.ui.action.tween.primitives</a></li>
+  <a href="../../../../com/guidebee/game/ui/actions/tween/primitives/package-summary.html">com.guidebee.game.ui.actions.tween.primitives</a></li>
     <li class="api apilevel-">
   <a href="../../../../com/guidebee/game/ui/drawable/package-summary.html">com.guidebee.game.ui.drawable</a></li>
     <li class="api apilevel-">
@@ -237,7 +237,6 @@
               
     <li><h2>Classes</h2>
       <ul>
-          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ActorGestureListener.html">ActorGestureListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Align.html">Align</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ArraySelection.html">ArraySelection</a>&lt;T&gt;</li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Button.html">Button</a></li>
@@ -263,6 +262,7 @@
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/FocusListener.html">FocusListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/FocusListener.FocusEvent.html">FocusListener.FocusEvent</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/GameController.html">GameController</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/GestureListener.html">GestureListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/HorizontalGroup.html">HorizontalGroup</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Image.html">Image</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ImageButton.html">ImageButton</a></li>
@@ -498,8 +498,8 @@ Summary:
 
 
 <h2>Class Overview</h2>
-<p>Fired when something in an actor has changed. This is a generic event,
- exactly what changed in an actor will vary.</p>
+<p>Fired when something in an component has changed. This is a generic event,
+ exactly what changed in an component will vary.</p>
 
 
 
@@ -653,9 +653,9 @@ From class
             <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a>
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Event.html#getListenerActor()">getListenerActor</a></span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Event.html#getListenerComponent()">getListenerComponent</a></span>()
         
-        <div class="jd-descrdiv">Returns the actor that this listener is attached to.</div>
+        <div class="jd-descrdiv">Returns the component that this listener is attached to.</div>
   
   </td></tr>
 
@@ -668,12 +668,12 @@ From class
             
             
             
-            <a href="../../../../com/guidebee/game/ui/UIWindow.html">UIWindow</a>
+            <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a>
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Event.html#getStage()">getStage</a></span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Event.html#getTarget()">getTarget</a></span>()
         
-        <div class="jd-descrdiv">The stage for the actor the event was fired on.</div>
+        <div class="jd-descrdiv">Returns the component that the event originated from.</div>
   
   </td></tr>
 
@@ -686,12 +686,12 @@ From class
             
             
             
-            <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a>
+            <a href="../../../../com/guidebee/game/ui/UIWindow.html">UIWindow</a>
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Event.html#getTarget()">getTarget</a></span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Event.html#getWindow()">getWindow</a></span>()
         
-        <div class="jd-descrdiv">Returns the actor that the event originated from.</div>
+        <div class="jd-descrdiv">The window for the component the event was fired on.</div>
   
   </td></tr>
 
@@ -814,8 +814,8 @@ From class
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/Event.html#setBubbles(boolean)">setBubbles</a></span>(boolean bubbles)
         
-        <div class="jd-descrdiv">If true, after the event is fired on the target actor, it will also
- be fired on each of the parent actors, all the way to
+        <div class="jd-descrdiv">If true, after the event is fired on the target component, it will also
+ be fired on each of the parent components, all the way to
  the root.</div>
   
   </td></tr>
@@ -848,7 +848,7 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Event.html#setListenerActor(com.guidebee.game.ui.UIComponent)">setListenerActor</a></span>(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> listenerActor)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Event.html#setListenerComponent(com.guidebee.game.ui.UIComponent)">setListenerComponent</a></span>(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> listenerComponent)
         
   </td></tr>
 
@@ -864,7 +864,7 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Event.html#setStage(com.guidebee.game.ui.UIWindow)">setStage</a></span>(<a href="../../../../com/guidebee/game/ui/UIWindow.html">UIWindow</a> stage)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Event.html#setTarget(com.guidebee.game.ui.UIComponent)">setTarget</a></span>(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> targetComponent)
         
   </td></tr>
 
@@ -880,7 +880,7 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Event.html#setTarget(com.guidebee.game.ui.UIComponent)">setTarget</a></span>(<a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a> targetActor)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Event.html#setWindow(com.guidebee.game.ui.UIWindow)">setWindow</a></span>(<a href="../../../../com/guidebee/game/ui/UIWindow.html">UIWindow</a> window)
         
   </td></tr>
 

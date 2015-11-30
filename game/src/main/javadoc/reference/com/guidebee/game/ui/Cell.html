@@ -195,15 +195,15 @@
     <li class="selected api apilevel-">
   <a href="../../../../com/guidebee/game/ui/package-summary.html">com.guidebee.game.ui</a></li>
     <li class="api apilevel-">
-  <a href="../../../../com/guidebee/game/ui/action/package-summary.html">com.guidebee.game.ui.action</a></li>
+  <a href="../../../../com/guidebee/game/ui/actions/package-summary.html">com.guidebee.game.ui.actions</a></li>
     <li class="api apilevel-">
-  <a href="../../../../com/guidebee/game/ui/action/tween/package-summary.html">com.guidebee.game.ui.action.tween</a></li>
+  <a href="../../../../com/guidebee/game/ui/actions/tween/package-summary.html">com.guidebee.game.ui.actions.tween</a></li>
     <li class="api apilevel-">
-  <a href="../../../../com/guidebee/game/ui/action/tween/equations/package-summary.html">com.guidebee.game.ui.action.tween.equations</a></li>
+  <a href="../../../../com/guidebee/game/ui/actions/tween/equations/package-summary.html">com.guidebee.game.ui.actions.tween.equations</a></li>
     <li class="api apilevel-">
-  <a href="../../../../com/guidebee/game/ui/action/tween/paths/package-summary.html">com.guidebee.game.ui.action.tween.paths</a></li>
+  <a href="../../../../com/guidebee/game/ui/actions/tween/paths/package-summary.html">com.guidebee.game.ui.actions.tween.paths</a></li>
     <li class="api apilevel-">
-  <a href="../../../../com/guidebee/game/ui/action/tween/primitives/package-summary.html">com.guidebee.game.ui.action.tween.primitives</a></li>
+  <a href="../../../../com/guidebee/game/ui/actions/tween/primitives/package-summary.html">com.guidebee.game.ui.actions.tween.primitives</a></li>
     <li class="api apilevel-">
   <a href="../../../../com/guidebee/game/ui/drawable/package-summary.html">com.guidebee.game.ui.drawable</a></li>
     <li class="api apilevel-">
@@ -237,7 +237,6 @@
               
     <li><h2>Classes</h2>
       <ul>
-          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ActorGestureListener.html">ActorGestureListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Align.html">Align</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ArraySelection.html">ArraySelection</a>&lt;T&gt;</li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Button.html">Button</a></li>
@@ -263,6 +262,7 @@
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/FocusListener.html">FocusListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/FocusListener.FocusEvent.html">FocusListener.FocusEvent</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/GameController.html">GameController</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/GestureListener.html">GestureListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/HorizontalGroup.html">HorizontalGroup</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Image.html">Image</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ImageButton.html">ImageButton</a></li>
@@ -582,7 +582,7 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/Cell.html#align(java.lang.Integer)">align</a></span>(Integer align)
         
-        <div class="jd-descrdiv">Sets the alignment of the actor within the cell.</div>
+        <div class="jd-descrdiv">Sets the alignment of the component within the cell.</div>
   
   </td></tr>
 
@@ -601,7 +601,7 @@ Summary:
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/Cell.html#bottom()">bottom</a></span>()
         
         <div class="jd-descrdiv">Adds <code><a href="../../../../com/guidebee/game/ui/Align.html#bottom">bottom</a></code> and clears <code><a href="../../../../com/guidebee/game/ui/Align.html#top">top</a></code> for the alignment
- of the actor within the cell.</div>
+ of the component within the cell.</div>
   
   </td></tr>
 
@@ -619,7 +619,7 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/Cell.html#center()">center</a></span>()
         
-        <div class="jd-descrdiv">Sets the alignment of the actor within the cell to <code><a href="../../../../com/guidebee/game/ui/Align.html#center">center</a></code>.</div>
+        <div class="jd-descrdiv">Sets the alignment of the component within the cell to <code><a href="../../../../com/guidebee/game/ui/Align.html#center">center</a></code>.</div>
   
   </td></tr>
 
@@ -860,88 +860,6 @@ Summary:
             
             
             
-            T
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Cell.html#getActor()">getActor</a></span>()
-        
-        <div class="jd-descrdiv">Returns the actor for this cell, or null.</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            float
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Cell.html#getActorHeight()">getActorHeight</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            float
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Cell.html#getActorWidth()">getActorWidth</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            float
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Cell.html#getActorX()">getActorX</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            float
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Cell.html#getActorY()">getActorY</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
             Integer
         </td>
         <td class="jd-linkcol" width="100%">
@@ -951,7 +869,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -967,7 +885,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -978,6 +896,88 @@ Summary:
         </td>
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/Cell.html#getColumn()">getColumn</a></span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            T
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Cell.html#getComponent()">getComponent</a></span>()
+        
+        <div class="jd-descrdiv">Returns the component for this cell, or null.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            float
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Cell.html#getComponentHeight()">getComponentHeight</a></span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            float
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Cell.html#getComponentWidth()">getComponentWidth</a></span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            float
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Cell.html#getComponentX()">getComponentX</a></span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            float
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Cell.html#getComponentY()">getComponentY</a></span>()
         
   </td></tr>
 
@@ -1677,9 +1677,9 @@ Summary:
             boolean
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Cell.html#hasActor()">hasActor</a></span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Cell.html#hasComponent()">hasComponent</a></span>()
         
-        <div class="jd-descrdiv">Returns true if the cell's actor is not null.</div>
+        <div class="jd-descrdiv">Returns true if the cell's component is not null.</div>
   
   </td></tr>
 
@@ -1752,7 +1752,7 @@ Summary:
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/Cell.html#left()">left</a></span>()
         
         <div class="jd-descrdiv">Adds <code><a href="../../../../com/guidebee/game/ui/Align.html#left">left</a></code> and clears <code><a href="../../../../com/guidebee/game/ui/Align.html#right">right</a></code> for the alignment
- of the actor within the cell.</div>
+ of the component within the cell.</div>
   
   </td></tr>
 
@@ -2393,7 +2393,7 @@ Summary:
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/Cell.html#right()">right</a></span>()
         
         <div class="jd-descrdiv">Adds <code><a href="../../../../com/guidebee/game/ui/Align.html#right">right</a></code> and clears <code><a href="../../../../com/guidebee/game/ui/Align.html#left">left</a></code> for the alignment
- of the actor within the cell.</div>
+ of the component within the cell.</div>
   
   </td></tr>
 
@@ -2425,9 +2425,9 @@ Summary:
             <a href="../../../../com/guidebee/game/ui/Cell.html">Cell</a>&lt;A&gt;
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Cell.html#setActor(A)">setActor</a></span>(A newActor)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Cell.html#setComponent(A)">setComponent</a></span>(A newComponent)
         
-        <div class="jd-descrdiv">Sets the actor in this cell and adds the actor to the cell's table.</div>
+        <div class="jd-descrdiv">Sets the component in this cell and adds the component to the cell's table.</div>
   
   </td></tr>
 
@@ -2443,7 +2443,7 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Cell.html#setActorBounds(float, float, float, float)">setActorBounds</a></span>(float x, float y, float width, float height)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Cell.html#setComponentBounds(float, float, float, float)">setComponentBounds</a></span>(float x, float y, float width, float height)
         
   </td></tr>
 
@@ -2459,7 +2459,7 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Cell.html#setActorHeight(float)">setActorHeight</a></span>(float actorHeight)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Cell.html#setComponentHeight(float)">setComponentHeight</a></span>(float componentHeight)
         
   </td></tr>
 
@@ -2475,7 +2475,7 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Cell.html#setActorWidth(float)">setActorWidth</a></span>(float actorWidth)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Cell.html#setComponentWidth(float)">setComponentWidth</a></span>(float componentWidth)
         
   </td></tr>
 
@@ -2491,7 +2491,7 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Cell.html#setActorX(float)">setActorX</a></span>(float actorX)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Cell.html#setComponentX(float)">setComponentX</a></span>(float componentX)
         
   </td></tr>
 
@@ -2507,7 +2507,7 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Cell.html#setActorY(float)">setActorY</a></span>(float actorY)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/Cell.html#setComponentY(float)">setComponentY</a></span>(float componentY)
         
   </td></tr>
 
@@ -2814,7 +2814,7 @@ Summary:
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/Cell.html#top()">top</a></span>()
         
         <div class="jd-descrdiv">Adds <code><a href="../../../../com/guidebee/game/ui/Align.html#top">top</a></code> and clears <code><a href="../../../../com/guidebee/game/ui/Align.html#bottom">bottom</a></code> for the alignment
- of the actor within the cell.</div>
+ of the component within the cell.</div>
   
   </td></tr>
 
@@ -3258,7 +3258,7 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Sets the alignment of the actor within the cell. Set to <code><a href="../../../../com/guidebee/game/ui/Align.html#center">center</a></code>,
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the alignment of the component within the cell. Set to <code><a href="../../../../com/guidebee/game/ui/Align.html#center">center</a></code>,
  <code><a href="../../../../com/guidebee/game/ui/Align.html#top">top</a></code>, <code><a href="../../../../com/guidebee/game/ui/Align.html#bottom">bottom</a></code>,
  <code><a href="../../../../com/guidebee/game/ui/Align.html#left">left</a></code>, <code><a href="../../../../com/guidebee/game/ui/Align.html#right">right</a></code>, or any combination of those.
 </p></div>
@@ -3293,7 +3293,7 @@ From interface
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Adds <code><a href="../../../../com/guidebee/game/ui/Align.html#bottom">bottom</a></code> and clears <code><a href="../../../../com/guidebee/game/ui/Align.html#top">top</a></code> for the alignment
- of the actor within the cell.
+ of the component within the cell.
 </p></div>
 
     </div>
@@ -3325,7 +3325,7 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Sets the alignment of the actor within the cell to <code><a href="../../../../com/guidebee/game/ui/Align.html#center">center</a></code>.
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the alignment of the component within the cell to <code><a href="../../../../com/guidebee/game/ui/Align.html#center">center</a></code>.
  This clears any other alignment.
 </p></div>
 
@@ -3746,162 +3746,6 @@ From interface
 </div>
 
 
-<a id="getActor()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        T
-      </span>
-      <span class="sympad">getActor</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Returns the actor for this cell, or null.
-</p></div>
-
-    </div>
-</div>
-
-
-<a id="getActorHeight()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        float
-      </span>
-      <span class="sympad">getActorHeight</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="getActorWidth()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        float
-      </span>
-      <span class="sympad">getActorWidth</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="getActorX()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        float
-      </span>
-      <span class="sympad">getActorX</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="getActorY()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        float
-      </span>
-      <span class="sympad">getActorY</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
 <a id="getAlign()"></a>
 
 <div class="jd-details api apilevel-"> 
@@ -3987,6 +3831,162 @@ From interface
         int
       </span>
       <span class="sympad">getColumn</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="getComponent()"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        T
+      </span>
+      <span class="sympad">getComponent</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the component for this cell, or null.
+</p></div>
+
+    </div>
+</div>
+
+
+<a id="getComponentHeight()"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        float
+      </span>
+      <span class="sympad">getComponentHeight</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="getComponentWidth()"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        float
+      </span>
+      <span class="sympad">getComponentWidth</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="getComponentX()"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        float
+      </span>
+      <span class="sympad">getComponentX</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="getComponentY()"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        float
+      </span>
+      <span class="sympad">getComponentY</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -5413,7 +5413,7 @@ From interface
 </div>
 
 
-<a id="hasActor()"></a>
+<a id="hasComponent()"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -5425,7 +5425,7 @@ From interface
          
         boolean
       </span>
-      <span class="sympad">hasActor</span>
+      <span class="sympad">hasComponent</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -5438,7 +5438,7 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Returns true if the cell's actor is not null.
+  <div class="jd-tagdata jd-tagdescr"><p>Returns true if the cell's component is not null.
 </p></div>
 
     </div>
@@ -5567,7 +5567,7 @@ From interface
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Adds <code><a href="../../../../com/guidebee/game/ui/Align.html#left">left</a></code> and clears <code><a href="../../../../com/guidebee/game/ui/Align.html#right">right</a></code> for the alignment
- of the actor within the cell.
+ of the component within the cell.
 </p></div>
 
     </div>
@@ -6762,7 +6762,7 @@ From interface
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Adds <code><a href="../../../../com/guidebee/game/ui/Align.html#right">right</a></code> and clears <code><a href="../../../../com/guidebee/game/ui/Align.html#left">left</a></code> for the alignment
- of the actor within the cell.
+ of the component within the cell.
 </p></div>
 
     </div>
@@ -6800,7 +6800,7 @@ From interface
 </div>
 
 
-<a id="setActor(A)"></a>
+<a id="setComponent(A)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -6812,8 +6812,8 @@ From interface
          
         <a href="../../../../com/guidebee/game/ui/Cell.html">Cell</a>&lt;A&gt;
       </span>
-      <span class="sympad">setActor</span>
-      <span class="normal">(A newActor)</span>
+      <span class="sympad">setComponent</span>
+      <span class="normal">(A newComponent)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -6825,15 +6825,15 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Sets the actor in this cell and adds the actor to the cell's table.
- If null, removes any current actor.
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the component in this cell and adds the component to the cell's table.
+ If null, removes any current component.
 </p></div>
 
     </div>
 </div>
 
 
-<a id="setActorBounds(float, float, float, float)"></a>
+<a id="setComponentBounds(float, float, float, float)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -6845,7 +6845,7 @@ From interface
          
         void
       </span>
-      <span class="sympad">setActorBounds</span>
+      <span class="sympad">setComponentBounds</span>
       <span class="normal">(float x, float y, float width, float height)</span>
     </h4>
       <div class="api-level">
@@ -6864,7 +6864,7 @@ From interface
 </div>
 
 
-<a id="setActorHeight(float)"></a>
+<a id="setComponentHeight(float)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -6876,8 +6876,8 @@ From interface
          
         void
       </span>
-      <span class="sympad">setActorHeight</span>
-      <span class="normal">(float actorHeight)</span>
+      <span class="sympad">setComponentHeight</span>
+      <span class="normal">(float componentHeight)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -6895,7 +6895,7 @@ From interface
 </div>
 
 
-<a id="setActorWidth(float)"></a>
+<a id="setComponentWidth(float)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -6907,8 +6907,8 @@ From interface
          
         void
       </span>
-      <span class="sympad">setActorWidth</span>
-      <span class="normal">(float actorWidth)</span>
+      <span class="sympad">setComponentWidth</span>
+      <span class="normal">(float componentWidth)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -6926,7 +6926,7 @@ From interface
 </div>
 
 
-<a id="setActorX(float)"></a>
+<a id="setComponentX(float)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -6938,8 +6938,8 @@ From interface
          
         void
       </span>
-      <span class="sympad">setActorX</span>
-      <span class="normal">(float actorX)</span>
+      <span class="sympad">setComponentX</span>
+      <span class="normal">(float componentX)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -6957,7 +6957,7 @@ From interface
 </div>
 
 
-<a id="setActorY(float)"></a>
+<a id="setComponentY(float)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -6969,8 +6969,8 @@ From interface
          
         void
       </span>
-      <span class="sympad">setActorY</span>
-      <span class="normal">(float actorY)</span>
+      <span class="sympad">setComponentY</span>
+      <span class="normal">(float componentY)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -7551,7 +7551,7 @@ From interface
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Adds <code><a href="../../../../com/guidebee/game/ui/Align.html#top">top</a></code> and clears <code><a href="../../../../com/guidebee/game/ui/Align.html#bottom">bottom</a></code> for the alignment
- of the actor within the cell.
+ of the component within the cell.
 </p></div>
 
     </div>

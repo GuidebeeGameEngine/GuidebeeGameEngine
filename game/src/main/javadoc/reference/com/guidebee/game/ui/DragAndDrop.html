@@ -195,15 +195,15 @@
     <li class="selected api apilevel-">
   <a href="../../../../com/guidebee/game/ui/package-summary.html">com.guidebee.game.ui</a></li>
     <li class="api apilevel-">
-  <a href="../../../../com/guidebee/game/ui/action/package-summary.html">com.guidebee.game.ui.action</a></li>
+  <a href="../../../../com/guidebee/game/ui/actions/package-summary.html">com.guidebee.game.ui.actions</a></li>
     <li class="api apilevel-">
-  <a href="../../../../com/guidebee/game/ui/action/tween/package-summary.html">com.guidebee.game.ui.action.tween</a></li>
+  <a href="../../../../com/guidebee/game/ui/actions/tween/package-summary.html">com.guidebee.game.ui.actions.tween</a></li>
     <li class="api apilevel-">
-  <a href="../../../../com/guidebee/game/ui/action/tween/equations/package-summary.html">com.guidebee.game.ui.action.tween.equations</a></li>
+  <a href="../../../../com/guidebee/game/ui/actions/tween/equations/package-summary.html">com.guidebee.game.ui.actions.tween.equations</a></li>
     <li class="api apilevel-">
-  <a href="../../../../com/guidebee/game/ui/action/tween/paths/package-summary.html">com.guidebee.game.ui.action.tween.paths</a></li>
+  <a href="../../../../com/guidebee/game/ui/actions/tween/paths/package-summary.html">com.guidebee.game.ui.actions.tween.paths</a></li>
     <li class="api apilevel-">
-  <a href="../../../../com/guidebee/game/ui/action/tween/primitives/package-summary.html">com.guidebee.game.ui.action.tween.primitives</a></li>
+  <a href="../../../../com/guidebee/game/ui/actions/tween/primitives/package-summary.html">com.guidebee.game.ui.actions.tween.primitives</a></li>
     <li class="api apilevel-">
   <a href="../../../../com/guidebee/game/ui/drawable/package-summary.html">com.guidebee.game.ui.drawable</a></li>
     <li class="api apilevel-">
@@ -237,7 +237,6 @@
               
     <li><h2>Classes</h2>
       <ul>
-          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ActorGestureListener.html">ActorGestureListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Align.html">Align</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ArraySelection.html">ArraySelection</a>&lt;T&gt;</li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Button.html">Button</a></li>
@@ -263,6 +262,7 @@
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/FocusListener.html">FocusListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/FocusListener.FocusEvent.html">FocusListener.FocusEvent</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/GameController.html">GameController</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/GestureListener.html">GestureListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/HorizontalGroup.html">HorizontalGroup</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Image.html">Image</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ImageButton.html">ImageButton</a></li>
@@ -667,9 +667,9 @@ Summary:
             <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a>
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/DragAndDrop.html#getDragActor()">getDragActor</a></span>()
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/DragAndDrop.html#getDragComponent()">getDragComponent</a></span>()
         
-        <div class="jd-descrdiv">Returns the current drag actor, or null.</div>
+        <div class="jd-descrdiv">Returns the current drag component, or null.</div>
   
   </td></tr>
 
@@ -751,7 +751,7 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/guidebee/game/ui/DragAndDrop.html#setDragActorPosition(float, float)">setDragActorPosition</a></span>(float dragActorX, float dragActorY)
+        <span class="sympad"><a href="../../../../com/guidebee/game/ui/DragAndDrop.html#setDragComponentPosition(float, float)">setDragComponentPosition</a></span>(float dragComponentX, float dragComponentY)
         
   </td></tr>
 
@@ -806,7 +806,7 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/guidebee/game/ui/DragAndDrop.html#setTouchOffset(float, float)">setTouchOffset</a></span>(float touchOffsetX, float touchOffsetY)
         
-        <div class="jd-descrdiv">Sets an offset in stage coordinates from the touch position which
+        <div class="jd-descrdiv">Sets an offset in window coordinates from the touch position which
  is used to determine the drop location.</div>
   
   </td></tr>
@@ -1170,7 +1170,7 @@ From class
 </div>
 
 
-<a id="getDragActor()"></a>
+<a id="getDragComponent()"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1182,7 +1182,7 @@ From class
          
         <a href="../../../../com/guidebee/game/ui/UIComponent.html">UIComponent</a>
       </span>
-      <span class="sympad">getDragActor</span>
+      <span class="sympad">getDragComponent</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -1195,7 +1195,7 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Returns the current drag actor, or null.
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the current drag component, or null.
 </p></div>
 
     </div>
@@ -1328,7 +1328,7 @@ From class
 </div>
 
 
-<a id="setDragActorPosition(float, float)"></a>
+<a id="setDragComponentPosition(float, float)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1340,8 +1340,8 @@ From class
          
         void
       </span>
-      <span class="sympad">setDragActorPosition</span>
-      <span class="normal">(float dragActorX, float dragActorY)</span>
+      <span class="sympad">setDragComponentPosition</span>
+      <span class="normal">(float dragComponentX, float dragComponentY)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1450,7 +1450,7 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Sets an offset in stage coordinates from the touch position which
+  <div class="jd-tagdata jd-tagdescr"><p>Sets an offset in window coordinates from the touch position which
  is used to determine the drop location. Default is 0,0.
 </p></div>
 

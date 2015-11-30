@@ -195,15 +195,15 @@
     <li class="selected api apilevel-">
   <a href="../../../../com/guidebee/game/ui/package-summary.html">com.guidebee.game.ui</a></li>
     <li class="api apilevel-">
-  <a href="../../../../com/guidebee/game/ui/action/package-summary.html">com.guidebee.game.ui.action</a></li>
+  <a href="../../../../com/guidebee/game/ui/actions/package-summary.html">com.guidebee.game.ui.actions</a></li>
     <li class="api apilevel-">
-  <a href="../../../../com/guidebee/game/ui/action/tween/package-summary.html">com.guidebee.game.ui.action.tween</a></li>
+  <a href="../../../../com/guidebee/game/ui/actions/tween/package-summary.html">com.guidebee.game.ui.actions.tween</a></li>
     <li class="api apilevel-">
-  <a href="../../../../com/guidebee/game/ui/action/tween/equations/package-summary.html">com.guidebee.game.ui.action.tween.equations</a></li>
+  <a href="../../../../com/guidebee/game/ui/actions/tween/equations/package-summary.html">com.guidebee.game.ui.actions.tween.equations</a></li>
     <li class="api apilevel-">
-  <a href="../../../../com/guidebee/game/ui/action/tween/paths/package-summary.html">com.guidebee.game.ui.action.tween.paths</a></li>
+  <a href="../../../../com/guidebee/game/ui/actions/tween/paths/package-summary.html">com.guidebee.game.ui.actions.tween.paths</a></li>
     <li class="api apilevel-">
-  <a href="../../../../com/guidebee/game/ui/action/tween/primitives/package-summary.html">com.guidebee.game.ui.action.tween.primitives</a></li>
+  <a href="../../../../com/guidebee/game/ui/actions/tween/primitives/package-summary.html">com.guidebee.game.ui.actions.tween.primitives</a></li>
     <li class="api apilevel-">
   <a href="../../../../com/guidebee/game/ui/drawable/package-summary.html">com.guidebee.game.ui.drawable</a></li>
     <li class="api apilevel-">
@@ -237,7 +237,6 @@
               
     <li><h2>Classes</h2>
       <ul>
-          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ActorGestureListener.html">ActorGestureListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Align.html">Align</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ArraySelection.html">ArraySelection</a>&lt;T&gt;</li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Button.html">Button</a></li>
@@ -263,6 +262,7 @@
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/FocusListener.html">FocusListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/FocusListener.FocusEvent.html">FocusListener.FocusEvent</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/GameController.html">GameController</a></li>
+          <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/GestureListener.html">GestureListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/HorizontalGroup.html">HorizontalGroup</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/Image.html">Image</a></li>
           <li class="api apilevel-"><a href="../../../../com/guidebee/game/ui/ImageButton.html">ImageButton</a></li>
@@ -539,9 +539,9 @@ Summary:
           public
           
           
-          <a href="../../../../com/guidebee/game/ui/drawable/Drawable.html">Drawable</a></td>
-          <td class="jd-linkcol"><a href="../../../../com/guidebee/game/ui/ChildWindow.WindowStyle.html#stageBackground">stageBackground</a></td>
-          <td class="jd-descrcol" width="100%">Optional.</td>
+          <a href="../../../../com/guidebee/game/graphics/BitmapFont.html">BitmapFont</a></td>
+          <td class="jd-linkcol"><a href="../../../../com/guidebee/game/ui/ChildWindow.WindowStyle.html#titleFont">titleFont</a></td>
+          <td class="jd-descrcol" width="100%"></td>
       </tr>
       
     
@@ -550,9 +550,9 @@ Summary:
           public
           
           
-          <a href="../../../../com/guidebee/game/graphics/BitmapFont.html">BitmapFont</a></td>
-          <td class="jd-linkcol"><a href="../../../../com/guidebee/game/ui/ChildWindow.WindowStyle.html#titleFont">titleFont</a></td>
-          <td class="jd-descrcol" width="100%"></td>
+          <a href="../../../../com/guidebee/game/graphics/Color.html">Color</a></td>
+          <td class="jd-linkcol"><a href="../../../../com/guidebee/game/ui/ChildWindow.WindowStyle.html#titleFontColor">titleFontColor</a></td>
+          <td class="jd-descrcol" width="100%">Optional.</td>
       </tr>
       
     
@@ -561,8 +561,8 @@ Summary:
           public
           
           
-          <a href="../../../../com/guidebee/game/graphics/Color.html">Color</a></td>
-          <td class="jd-linkcol"><a href="../../../../com/guidebee/game/ui/ChildWindow.WindowStyle.html#titleFontColor">titleFontColor</a></td>
+          <a href="../../../../com/guidebee/game/ui/drawable/Drawable.html">Drawable</a></td>
+          <td class="jd-linkcol"><a href="../../../../com/guidebee/game/ui/ChildWindow.WindowStyle.html#windowBackground">windowBackground</a></td>
           <td class="jd-descrcol" width="100%">Optional.</td>
       </tr>
       
@@ -880,37 +880,6 @@ From class
 
 
 
-<a id="stageBackground"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-        <a href="../../../../com/guidebee/game/ui/drawable/Drawable.html">Drawable</a>
-      </span>
-        stageBackground
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Optional.
-</p></div>
-
-    
-    </div>
-</div>
-
-
-
 <a id="titleFont"></a>
 
 <div class="jd-details api apilevel-"> 
@@ -952,6 +921,37 @@ From class
         <a href="../../../../com/guidebee/game/graphics/Color.html">Color</a>
       </span>
         titleFontColor
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Optional.
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<a id="windowBackground"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        <a href="../../../../com/guidebee/game/ui/drawable/Drawable.html">Drawable</a>
+      </span>
+        windowBackground
     </h4>
       <div class="api-level">
         
