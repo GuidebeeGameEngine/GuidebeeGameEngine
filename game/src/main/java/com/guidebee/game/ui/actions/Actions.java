@@ -50,9 +50,9 @@ public class Actions {
         return addAction;
     }
 
-    static public AddAction addAction(Action action, UIComponent targetActor) {
+    static public AddAction addAction(Action action, UIComponent targetComponent) {
         AddAction addAction = action(AddAction.class);
-        addAction.setTargetActor(targetActor);
+        addAction.setTargetComponent(targetComponent);
         addAction.setAction(action);
         return addAction;
     }
@@ -63,9 +63,9 @@ public class Actions {
         return removeAction;
     }
 
-    static public RemoveAction removeAction(Action action, UIComponent targetActor) {
+    static public RemoveAction removeAction(Action action, UIComponent targetComponent) {
         RemoveAction removeAction = action(RemoveAction.class);
-        removeAction.setTargetActor(targetActor);
+        removeAction.setTargetComponent(targetComponent);
         removeAction.setAction(action);
         return removeAction;
     }
@@ -342,13 +342,13 @@ public class Actions {
         return action;
     }
 
-    static public RemoveActorAction removeActor() {
-        return action(RemoveActorAction.class);
+    static public RemoveComponentAction removeComponent() {
+        return action(RemoveComponentAction.class);
     }
 
-    static public RemoveActorAction removeActor(UIComponent removeActor) {
-        RemoveActorAction action = action(RemoveActorAction.class);
-        action.setRemoveActor(removeActor);
+    static public RemoveComponentAction removeComponent(UIComponent removeComponent) {
+        RemoveComponentAction action = action(RemoveComponentAction.class);
+        action.setRemoveComponent(removeComponent);
         return action;
     }
 
@@ -524,9 +524,9 @@ public class Actions {
 
     static public AddListenerAction addListener(EventListener listener,
                                                 boolean capture,
-                                                UIComponent targetActor) {
+                                                UIComponent targetComponent) {
         AddListenerAction addAction = action(AddListenerAction.class);
-        addAction.setTargetActor(targetActor);
+        addAction.setTargetComponent(targetComponent);
         addAction.setListener(listener);
         addAction.setCapture(capture);
         return addAction;
@@ -542,9 +542,9 @@ public class Actions {
 
     static public RemoveListenerAction removeListener(EventListener listener,
                                                       boolean capture,
-                                                      UIComponent targetActor) {
+                                                      UIComponent targetComponent) {
         RemoveListenerAction addAction = action(RemoveListenerAction.class);
-        addAction.setTargetActor(targetActor);
+        addAction.setTargetComponent(targetComponent);
         addAction.setListener(listener);
         addAction.setCapture(capture);
         return addAction;

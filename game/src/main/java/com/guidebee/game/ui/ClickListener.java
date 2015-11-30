@@ -84,7 +84,7 @@ public class ClickListener extends InputListener {
 
     public void touchDragged(InputEvent event, float x, float y, int pointer) {
         if (pointer != pressedPointer || cancelled) return;
-        pressed = isOver(event.getListenerActor(), x, y);
+        pressed = isOver(event.getListenerComponent(), x, y);
         if (pressed && pointer == 0 && button != -1
                 && !GameEngine.input.isButtonPressed(button)) pressed = false;
         if (!pressed) {
@@ -96,7 +96,7 @@ public class ClickListener extends InputListener {
     public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
         if (pointer == pressedPointer) {
             if (!cancelled) {
-                boolean touchUpOver = isOver(event.getListenerActor(), x, y);
+                boolean touchUpOver = isOver(event.getListenerComponent(), x, y);
                 // Ignore touch up if the wrong mouse button.
                 if (touchUpOver && pointer == 0 && this.button != -1
                         && button != this.button) touchUpOver = false;
@@ -116,11 +116,11 @@ public class ClickListener extends InputListener {
     }
 
     public void enter(InputEvent event, float x, float y,
-                      int pointer, UIComponent fromActor) {
+                      int pointer, UIComponent fromComponent) {
         if (pointer == -1 && !cancelled) over = true;
     }
 
-    public void exit(InputEvent event, float x, float y, int pointer, UIComponent toActor) {
+    public void exit(InputEvent event, float x, float y, int pointer, UIComponent toComponent) {
         if (pointer == -1 && !cancelled) over = false;
     }
 

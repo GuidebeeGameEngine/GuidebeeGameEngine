@@ -34,14 +34,14 @@ public class DragAndDrop {
     static final Vector2 tmpVector = new Vector2();
 
     Payload payload;
-    UIComponent dragActor;
+    UIComponent dragComponent;
     Target target;
     boolean isValidTarget;
     Array<Target> targets = new Array();
     ObjectMap<Source, DragListener> sourceListeners = new ObjectMap();
     private float tapSquareSize = 8;
     private int button;
-    float dragActorX = 14, dragActorY = -20;
+    float dragComponentX = 14, dragComponentY = -20;
     float touchOffsetX, touchOffsetY;
     long dragStartTime;
     int dragTime = 250;
@@ -70,10 +70,10 @@ public class DragAndDrop {
 
                 UIWindow stage = event.getStage();
 
-                Touchable dragActorTouchable = null;
-                if (dragActor != null) {
-                    dragActorTouchable = dragActor.getTouchable();
-                    dragActor.setTouchable(Touchable.disabled);
+                Touchable dragComponentTouchable = null;
+                if (dragComponent != null) {
+                    dragComponentTouchable = dragComponent.getTouchable();
+                    dragComponent.setTouchable(Touchable.disabled);
                 }
 
                 // Find target.
@@ -100,21 +100,21 @@ public class DragAndDrop {
                     target = newTarget;
                 }
 
-                if (dragActor != null) dragActor.setTouchable(dragActorTouchable);
+                if (dragComponent != null) dragComponent.setTouchable(dragComponentTouchable);
 
                 // Add/remove and position the drag component.
                 UIComponent component = null;
                 if (target != null) component = isValidTarget
-                        ? payload.validDragActor : payload.invalidDragActor;
-                if (component == null) component = payload.dragActor;
+                        ? payload.validDragComponent : payload.invalidDragComponent;
+                if (component == null) component = payload.dragComponent;
                 if (component == null) return;
-                if (dragActor != component) {
-                    if (dragActor != null) dragActor.remove();
-                    dragActor = component;
-                    stage.addActor(component);
+                if (dragComponent != component) {
+                    if (dragComponent != null) dragComponent.remove();
+                    dragComponent = component;
+                    stage.addComponent(component);
                 }
-                float componentX = event.getStageX() + dragActorX;
-                float componentY = event.getStageY() + dragActorY - component.getHeight();
+                float componentX = event.getStageX() + dragComponentX;
+                float componentY = event.getStageY() + dragComponentY - component.getHeight();
                 if (componentX < 0) componentX = 0;
                 if (componentY < 0) componentY = 0;
                 if (componentX + component.getWidth() > stage.getWidth())
@@ -131,7 +131,7 @@ public class DragAndDrop {
 
                 if (System.currentTimeMillis() - dragStartTime < dragTime)
                     isValidTarget = false;
-                if (dragActor != null) dragActor.remove();
+                if (dragComponent != null) dragComponent.remove();
                 if (isValidTarget) {
                     float stageX = event.getStageX() + touchOffsetX,
                             stageY = event.getStageY() + touchOffsetY;
@@ -143,7 +143,7 @@ public class DragAndDrop {
                 payload = null;
                 target = null;
                 isValidTarget = false;
-                dragActor = null;
+                dragComponent = null;
             }
         };
         listener.setTapSquareSize(tapSquareSize);
@@ -190,9 +190,9 @@ public class DragAndDrop {
         this.button = button;
     }
 
-    public void setDragActorPosition(float dragActorX, float dragActorY) {
-        this.dragActorX = dragActorX;
-        this.dragActorY = dragActorY;
+    public void setDragComponentPosition(float dragComponentX, float dragComponentY) {
+        this.dragComponentX = dragComponentX;
+        this.dragComponentY = dragComponentY;
     }
 
     /**
@@ -211,8 +211,8 @@ public class DragAndDrop {
     /**
      * Returns the current drag component, or null.
      */
-    public UIComponent getDragActor() {
-        return dragActor;
+    public UIComponent getDragComponent() {
+        return dragComponent;
     }
 
     /**
@@ -251,7 +251,7 @@ public class DragAndDrop {
                              Payload payload, Target target) {
         }
 
-        public UIComponent getActor() {
+        public UIComponent getComponent() {
             return component;
         }
     }
@@ -293,42 +293,42 @@ public class DragAndDrop {
         abstract public void drop(Source source, Payload payload, float x,
                                   float y, int pointer);
 
-        public UIComponent getActor() {
+        public UIComponent getComponent() {
             return component;
         }
     }
 
     /**
-     * The payload of a drag and drop operation. Actors can be optionally provided
+     * The payload of a drag and drop operation. Components can be optionally provided
      * to follow the cursor and change when over a
      * target.
      */
     static public class Payload {
-        UIComponent dragActor, validDragActor, invalidDragActor;
+        UIComponent dragComponent, validDragComponent, invalidDragComponent;
         Object object;
 
-        public void setDragActor(UIComponent dragActor) {
-            this.dragActor = dragActor;
+        public void setDragComponent(UIComponent dragComponent) {
+            this.dragComponent = dragComponent;
         }
 
-        public UIComponent getDragActor() {
-            return dragActor;
+        public UIComponent getDragComponent() {
+            return dragComponent;
         }
 
-        public void setValidDragActor(UIComponent validDragActor) {
-            this.validDragActor = validDragActor;
+        public void setValidDragComponent(UIComponent validDragComponent) {
+            this.validDragComponent = validDragComponent;
         }
 
-        public UIComponent getValidDragActor() {
-            return validDragActor;
+        public UIComponent getValidDragComponent() {
+            return validDragComponent;
         }
 
-        public void setInvalidDragActor(UIComponent invalidDragActor) {
-            this.invalidDragActor = invalidDragActor;
+        public void setInvalidDragComponent(UIComponent invalidDragComponent) {
+            this.invalidDragComponent = invalidDragComponent;
         }
 
-        public UIComponent getInvalidDragActor() {
-            return invalidDragActor;
+        public UIComponent getInvalidDragComponent() {
+            return invalidDragComponent;
         }
 
         public Object getObject() {

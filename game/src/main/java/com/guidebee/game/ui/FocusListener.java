@@ -63,11 +63,11 @@ abstract public class FocusListener implements EventListener {
     static public class FocusEvent extends Event {
         private boolean focused;
         private Type type;
-        private UIComponent relatedActor;
+        private UIComponent relatedComponent;
 
         public void reset() {
             super.reset();
-            relatedActor = null;
+            relatedComponent = null;
         }
 
         public boolean isFocused() {
@@ -91,15 +91,15 @@ abstract public class FocusListener implements EventListener {
          * component being focused, or null. When focus is gained,
          * this is the previous component that was focused, or null.
          */
-        public UIComponent getRelatedActor() {
-            return relatedActor;
+        public UIComponent getRelatedComponent() {
+            return relatedComponent;
         }
 
         /**
-         * @param relatedActor May be null.
+         * @param relatedComponent May be null.
          */
-        public void setRelatedActor(UIComponent relatedActor) {
-            this.relatedActor = relatedActor;
+        public void setRelatedComponent(UIComponent relatedComponent) {
+            this.relatedComponent = relatedComponent;
         }
 
         /**

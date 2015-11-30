@@ -26,24 +26,24 @@ import com.guidebee.game.ui.UIComponent;
  * @author Nathan Sweet
  */
 public class AddAction extends Action {
-    private UIComponent targetActor;
+    private UIComponent targetComponent;
     private Action action;
 
     public boolean act(float delta) {
-        (targetActor != null ? targetActor : component).addAction(action);
+        (targetComponent != null ? targetComponent : component).addAction(action);
         return true;
     }
 
-    public UIComponent getTargetActor() {
-        return targetActor;
+    public UIComponent getTargetComponent() {
+        return targetComponent;
     }
 
     /**
      * Sets the component to add an action to. If null (the default),
-     * the {@link #getActor() component} will be used.
+     * the {@link #getComponent() component} will be used.
      */
-    public void setTargetActor(UIComponent component) {
-        this.targetActor = component;
+    public void setTargetComponent(UIComponent component) {
+        this.targetComponent = component;
     }
 
     public Action getAction() {
@@ -60,7 +60,7 @@ public class AddAction extends Action {
 
     public void reset() {
         super.reset();
-        targetActor = null;
+        targetComponent = null;
         action = null;
     }
 }

@@ -55,7 +55,7 @@ public class Container<T extends UIComponent> extends WidgetGroup {
 
     public Container(T component) {
         this();
-        setActor(component);
+        setComponent(component);
     }
 
     public void draw(Batch batch, float parentAlpha) {
@@ -192,7 +192,7 @@ public class Container<T extends UIComponent> extends WidgetGroup {
     /**
      * @param component May be null.
      */
-    public void setActor(T component) {
+    public void setComponent(T component) {
         if (component == this)
             throw new IllegalArgumentException("component cannot be the Container.");
         if (this.component != null) super.removeComponent(this.component);
@@ -203,45 +203,45 @@ public class Container<T extends UIComponent> extends WidgetGroup {
     /**
      * @return May be null.
      */
-    public T getActor() {
+    public T getComponent() {
         return component;
     }
 
     /**
-     * @see #setActor(UIComponent)
+     * @see #setComponent(UIComponent)
      * @deprecated Container may have only a single child.
      */
     public void addComponent(UIComponent component) {
-        throw new UnsupportedOperationException("Use Container#setActor.");
+        throw new UnsupportedOperationException("Use Container#setComponent.");
     }
 
     /**
-     * @see #setActor(UIComponent)
+     * @see #setComponent(UIComponent)
      * @deprecated Container may have only a single child.
      */
     public void addComponentAt(int index, UIComponent component) {
-        throw new UnsupportedOperationException("Use Container#setActor.");
+        throw new UnsupportedOperationException("Use Container#setComponent.");
     }
 
     /**
-     * @see #setActor(UIComponent)
+     * @see #setComponent(UIComponent)
      * @deprecated Container may have only a single child.
      */
     public void addComponentBefore(UIComponent componentBefore, UIComponent component) {
-        throw new UnsupportedOperationException("Use Container#setActor.");
+        throw new UnsupportedOperationException("Use Container#setComponent.");
     }
 
     /**
-     * @see #setActor(UIComponent)
+     * @see #setComponent(UIComponent)
      * @deprecated Container may have only a single child.
      */
     public void addComponentAfter(UIComponent componentAfter, UIComponent component) {
-        throw new UnsupportedOperationException("Use Container#setActor.");
+        throw new UnsupportedOperationException("Use Container#setComponent.");
     }
 
     public boolean removeComponent(UIComponent component) {
         if (component != this.component) return false;
-        setActor(null);
+        setComponent(null);
         return true;
     }
 

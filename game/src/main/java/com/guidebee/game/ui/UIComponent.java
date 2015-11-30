@@ -137,7 +137,7 @@ public class UIComponent {
                 int actionIndex = current == action ? i : actions.indexOf(action, true);
                 if (actionIndex != -1) {
                     actions.removeIndex(actionIndex);
-                    action.setActor(null);
+                    action.setComponent(null);
                     i--;
                 }
             }
@@ -212,7 +212,7 @@ public class UIComponent {
     /**
      * Notifies this component's listeners of the event. The event is not
      * propagated to any parents. Before notifying the listeners,
-     * this component is set as the {@link com.guidebee.game.ui.Event#getListenerActor() listener component}.
+     * this component is set as the {@link com.guidebee.game.ui.Event#getListenerComponent() listener component}.
      * The event {@link Event#setTarget(UIComponent) target}
      * must be set before calling this method. If this component is not in the stage,
      * the stage must be set before calling this method.
@@ -229,7 +229,7 @@ public class UIComponent {
                 ? captureListeners : this.listeners;
         if (listeners.size == 0) return event.isCancelled();
 
-        event.setListenerActor(this);
+        event.setListenerComponent(this);
         event.setCapture(capture);
         if (event.getStage() == null) event.setStage(stage);
 
@@ -328,12 +328,12 @@ public class UIComponent {
     }
 
     public void addAction(Action action) {
-        action.setActor(this);
+        action.setComponent(this);
         actions.add(action);
     }
 
     public void removeAction(Action action) {
-        if (actions.removeValue(action, true)) action.setActor(null);
+        if (actions.removeValue(action, true)) action.setComponent(null);
     }
 
     public Array<Action> getActions() {
@@ -345,7 +345,7 @@ public class UIComponent {
      */
     public void clearActions() {
         for (int i = actions.size - 1; i >= 0; i--)
-            actions.get(i).setActor(null);
+            actions.get(i).setComponent(null);
         actions.clear();
     }
 

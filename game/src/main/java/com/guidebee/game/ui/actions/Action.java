@@ -53,7 +53,7 @@ abstract public class Action implements Pool.Poolable {
     /**
      * @return null if the action is not attached to an component.
      */
-    public UIComponent getActor() {
+    public UIComponent getComponent() {
         return component;
     }
 
@@ -75,7 +75,7 @@ abstract public class Action implements Pool.Poolable {
      * {@link com.guidebee.game.ui.actions.TemporalAction},
      * use TemporalAction#begin().
      */
-    public void setActor(UIComponent component) {
+    public void setComponent(UIComponent component) {
         this.component = component;
         if (component == null) {
             if (pool != null) {
@@ -109,7 +109,7 @@ abstract public class Action implements Pool.Poolable {
      * removed from the component.
      *
      * @param pool May be null.
-     * @see #setActor(UIComponent)
+     * @see #setComponent(UIComponent)
      */
     public void setPool(Pool pool) {
         this.pool = pool;

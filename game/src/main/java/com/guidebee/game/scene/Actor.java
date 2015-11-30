@@ -700,7 +700,7 @@ public class Actor implements Collidable {
     public void addAction(Action action) {
         internalActor.addAction(action);
         if(action instanceof TweenAction){
-            if(action.getActor()!=internalActor){
+            if(action.getComponent()!=internalActor){
                 throw new IllegalArgumentException("Tween action target mismatch");
             }
             TweenAction tweenAction=(TweenAction)action;

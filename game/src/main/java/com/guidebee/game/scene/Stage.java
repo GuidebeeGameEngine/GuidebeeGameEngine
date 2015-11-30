@@ -250,7 +250,7 @@ public class Stage extends InputAdapter implements Disposable {
         internalStage.setUserObject(this);
         entityEngine.setUserObject(this);
         stack.setFillParent(true);
-        internalStageHUD.addActor(stack);
+        internalStageHUD.addComponent(stack);
         tableGameControl.setFillParent(true);
         stack.add(tableGameControl);
         tableGameControl.toFront();
@@ -337,7 +337,7 @@ public class Stage extends InputAdapter implements Disposable {
      * recursively compares the name of every actor in the group.
      */
     public <T extends Actor> T findActor(String name) {
-        UIComponent actor = internalStage.findActor(name);
+        UIComponent actor = internalStage.findComponent(name);
         if (actor != null) {
             return (T) actor.getUserObject();
         } else {
@@ -350,7 +350,7 @@ public class Stage extends InputAdapter implements Disposable {
      * @param widget
      */
     public void addHUDComponent(Widget widget){
-        internalStageHUD.addActor(widget);
+        internalStageHUD.addComponent(widget);
     }
 
     /**
@@ -358,7 +358,7 @@ public class Stage extends InputAdapter implements Disposable {
      * @param widgetGroup
      */
     public void addHUDComponent(WidgetGroup widgetGroup){
-        internalStageHUD.addActor(widgetGroup);
+        internalStageHUD.addComponent(widgetGroup);
     }
 
 
@@ -577,12 +577,12 @@ public class Stage extends InputAdapter implements Disposable {
     public void addActor(Actor actor) {
         if (actor instanceof Group) {
             Group group = (Group) actor;
-            internalStage.addActor(group.internalGroup);
+            internalStage.addComponent(group.internalGroup);
 
         } else {
 
 
-            internalStage.addActor(actor.internalActor);
+            internalStage.addComponent(actor.internalActor);
         }
 
         entityEngine.addEntity(actor.entity);
@@ -604,7 +604,7 @@ public class Stage extends InputAdapter implements Disposable {
      */
     public Array<Actor> getActors() {
         Array<UIComponent>
-                internalActors = internalStage.getActors();
+                internalActors = internalStage.getComponents();
         Array<Actor> actors = null;
         if (internalActors != null) {
             actors = new Array<Actor>();

@@ -62,9 +62,9 @@ abstract public class DelegateAction extends Action {
         action = null;
     }
 
-    public void setActor(UIComponent component) {
-        if (action != null) action.setActor(component);
-        super.setActor(component);
+    public void setComponent(UIComponent component) {
+        if (action != null) action.setComponent(component);
+        super.setComponent(component);
     }
 
     public String toString() {

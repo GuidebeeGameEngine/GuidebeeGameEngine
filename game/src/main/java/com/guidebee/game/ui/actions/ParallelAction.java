@@ -99,14 +99,14 @@ public class ParallelAction extends Action {
 
     public void addAction(Action action) {
         actions.add(action);
-        if (component != null) action.setActor(component);
+        if (component != null) action.setComponent(component);
     }
 
-    public void setActor(UIComponent component) {
+    public void setComponent(UIComponent component) {
         Array<Action> actions = this.actions;
         for (int i = 0, n = actions.size; i < n; i++)
-            actions.get(i).setActor(component);
-        super.setActor(component);
+            actions.get(i).setComponent(component);
+        super.setComponent(component);
     }
 
     public Array<Action> getActions() {

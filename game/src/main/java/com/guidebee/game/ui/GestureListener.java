@@ -109,7 +109,7 @@ public class GestureListener implements EventListener {
 
         switch (event.getType()) {
             case touchDown:
-                component = event.getListenerActor();
+                component = event.getListenerComponent();
                 touchDownTarget = event.getTarget();
                 detector.touchDown(event.getStageX(), event.getStageY(),
                         event.getPointer(), event.getButton());
@@ -121,7 +121,7 @@ public class GestureListener implements EventListener {
             case touchUp:
                 if (event.isTouchFocusCancel()) return false;
                 this.event = event;
-                component = event.getListenerActor();
+                component = event.getListenerComponent();
                 detector.touchUp(event.getStageX(), event.getStageY(), event.getPointer(),
                         event.getButton());
                 component.stageToLocalCoordinates(tmpCoords.set(event.getStageX(),
@@ -131,7 +131,7 @@ public class GestureListener implements EventListener {
                 return true;
             case touchDragged:
                 this.event = event;
-                component = event.getListenerActor();
+                component = event.getListenerComponent();
                 detector.touchDragged(event.getStageX(), event.getStageY(),
                         event.getPointer());
                 return true;

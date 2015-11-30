@@ -490,13 +490,13 @@ public class TextField extends Widget implements Disableable {
         UIWindow stage = getStage();
         if (stage == null) return;
         getParent().localToStageCoordinates(tmp1.set(getX(), getY()));
-        TextField textField = findNextTextField(stage.getActors(), null, tmp2, tmp1, up);
+        TextField textField = findNextTextField(stage.getComponents(), null, tmp2, tmp1, up);
         if (textField == null) { // Try to wrap around.
             if (up)
                 tmp1.set(Float.MIN_VALUE, Float.MIN_VALUE);
             else
                 tmp1.set(Float.MAX_VALUE, Float.MAX_VALUE);
-            textField = findNextTextField(getStage().getActors(), null, tmp2, tmp1, up);
+            textField = findNextTextField(getStage().getComponents(), null, tmp2, tmp1, up);
         }
         if (textField != null)
             stage.setKeyboardFocus(textField);

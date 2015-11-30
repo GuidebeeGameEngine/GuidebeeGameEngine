@@ -34,11 +34,11 @@ import com.guidebee.game.ui.UIComponent;
 public class LayoutAction extends Action {
     private boolean enabled;
 
-    public void setActor(UIComponent component) {
+    public void setComponent(UIComponent component) {
         if (component != null && !(component instanceof Layout))
             throw new GameEngineRuntimeException("UIComponent must implement layout: "
                     + component);
-        super.setActor(component);
+        super.setComponent(component);
     }
 
     public boolean act(float delta) {

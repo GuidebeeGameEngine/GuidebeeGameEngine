@@ -402,7 +402,7 @@ public class Group extends Actor implements Cullable {
     public void addAction(Action action) {
         internalGroup.addAction(action);
         if(action instanceof TweenAction){
-            if(action.getActor()!=internalGroup){
+            if(action.getComponent()!=internalGroup){
                 throw new IllegalArgumentException("Tween action target mismatch");
             }
             TweenAction tweenAction=(TweenAction)action;

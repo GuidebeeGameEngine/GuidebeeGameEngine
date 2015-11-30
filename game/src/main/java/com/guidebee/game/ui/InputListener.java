@@ -58,7 +58,7 @@ public class InputListener implements EventListener {
                 return keyTyped(event, event.getCharacter());
         }
 
-        event.toCoordinates(event.getListenerActor(), tmpCoords);
+        event.toCoordinates(event.getListenerComponent(), tmpCoords);
 
         switch (event.getType()) {
             case touchDown:
@@ -78,11 +78,11 @@ public class InputListener implements EventListener {
                         event.getScrollAmount());
             case enter:
                 enter(event, tmpCoords.x, tmpCoords.y,
-                        event.getPointer(), event.getRelatedActor());
+                        event.getPointer(), event.getRelatedComponent());
                 return false;
             case exit:
                 exit(event, tmpCoords.x, tmpCoords.y,
-                        event.getPointer(), event.getRelatedActor());
+                        event.getPointer(), event.getRelatedComponent());
                 return false;
         }
         return false;
@@ -139,7 +139,7 @@ public class InputListener implements EventListener {
      *
      * @see InputEvent
      */
-    public void enter(InputEvent event, float x, float y, int pointer, UIComponent fromActor) {
+    public void enter(InputEvent event, float x, float y, int pointer, UIComponent fromComponent) {
     }
 
     /**
@@ -149,7 +149,7 @@ public class InputListener implements EventListener {
      *
      * @see InputEvent
      */
-    public void exit(InputEvent event, float x, float y, int pointer, UIComponent toActor) {
+    public void exit(InputEvent event, float x, float y, int pointer, UIComponent toComponent) {
     }
 
     /**

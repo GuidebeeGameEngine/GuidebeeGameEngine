@@ -32,11 +32,11 @@ public class InputEvent extends Event {
     private float stageX, stageY;
     private int pointer, button, keyCode, scrollAmount;
     private char character;
-    private UIComponent relatedActor;
+    private UIComponent relatedComponent;
 
     public void reset() {
         super.reset();
-        relatedActor = null;
+        relatedComponent = null;
         button = -1;
     }
 
@@ -140,15 +140,15 @@ public class InputEvent extends Event {
      * this is the component being exited, or null. For exit,
      * this is the component being entered, or null.
      */
-    public UIComponent getRelatedActor() {
-        return relatedActor;
+    public UIComponent getRelatedComponent() {
+        return relatedComponent;
     }
 
     /**
-     * @param relatedActor May be null.
+     * @param relatedComponent May be null.
      */
-    public void setRelatedActor(UIComponent relatedActor) {
-        this.relatedActor = relatedActor;
+    public void setRelatedComponent(UIComponent relatedComponent) {
+        this.relatedComponent = relatedComponent;
     }
 
     /**

@@ -30,9 +30,9 @@ import com.guidebee.utils.collections.Array;
 public class AfterAction extends DelegateAction {
     private Array<Action> waitForActions = new Array(false, 4);
 
-    public void setActor(UIComponent component) {
+    public void setComponent(UIComponent component) {
         if (component != null) waitForActions.addAll(component.getActions());
-        super.setActor(component);
+        super.setComponent(component);
     }
 
     public void restart() {

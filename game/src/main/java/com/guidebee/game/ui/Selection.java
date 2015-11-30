@@ -50,7 +50,7 @@ public class Selection<T> implements Disableable, Iterable<T> {
      *              {@link com.guidebee.game.ui.ChangeListener.ChangeEvent}
      *              on when the selection changes, or null.
      */
-    public void setActor(UIComponent component) {
+    public void setComponent(UIComponent component) {
         this.component = component;
     }
 

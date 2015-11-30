@@ -53,9 +53,9 @@ abstract public class EventAction<T extends Event> extends Action {
         active = false;
     }
 
-    public void setActor(UIComponent component) {
-        if (getActor() != null) getActor().removeListener(listener);
-        super.setActor(component);
+    public void setComponent(UIComponent component) {
+        if (getComponent() != null) getComponent().removeListener(listener);
+        super.setComponent(component);
         if (component != null) component.addListener(listener);
     }
 

@@ -61,7 +61,7 @@ public class ColorAction extends TemporalAction {
 
     /**
      * Sets the color to modify. If null (the default), the
-     * {@link #getActor() component's} {@link UIComponent#getColor() color} will be
+     * {@link #getComponent() component's} {@link UIComponent#getColor() color} will be
      * used.
      */
     public void setColor(Color color) {

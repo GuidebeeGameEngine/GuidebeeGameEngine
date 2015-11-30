@@ -312,7 +312,7 @@ public class SelectBox<T> extends Widget implements Disableable {
                 stage.setScrollFocus(previousScrollFocus);
         }
         scroll.addAction(sequence(Actions.fadeOut(0.15f, Interpolation.fade),
-                Actions.removeActor()));
+                Actions.removeComponent()));
     }
 
     /**
@@ -373,7 +373,7 @@ public class SelectBox<T> extends Widget implements Disableable {
         }
 
         public void show(UIWindow stage) {
-            stage.addActor(this);
+            stage.addComponent(this);
 
             SelectBox.this.localToStageCoordinates(tmpCoords.set(0, 0));
             screenCoords.set(tmpCoords);

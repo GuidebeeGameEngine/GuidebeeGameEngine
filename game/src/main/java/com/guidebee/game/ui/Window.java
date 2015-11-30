@@ -72,7 +72,7 @@ public class Window extends ScreenAdapter {
 
         stage = new UIWindow(new ScalingViewport(width, height));
         table.setFillParent(true);
-        stage.addActor(table);
+        stage.addComponent(table);
 
     }
 

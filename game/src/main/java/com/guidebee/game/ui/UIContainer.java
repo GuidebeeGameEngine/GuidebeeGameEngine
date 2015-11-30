@@ -31,8 +31,8 @@ import com.guidebee.utils.collections.SnapshotArray;
 /**
  * 2D scene graph node that may contain other components.
  * <p>
- * Actors have a z-order equal to the order they were inserted into the group.
- * Actors inserted later will be drawn on top of
+ * Components have a z-order equal to the order they were inserted into the group.
+ * Components inserted later will be drawn on top of
  * components added earlier. Touch events that hit more than one component are
  * distributed to topmost components first.
  *

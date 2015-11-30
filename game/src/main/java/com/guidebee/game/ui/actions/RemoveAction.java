@@ -26,24 +26,24 @@ import com.guidebee.game.ui.UIComponent;
  * @author Nathan Sweet
  */
 public class RemoveAction extends Action {
-    private UIComponent targetActor;
+    private UIComponent targetComponent;
     private Action action;
 
     public boolean act(float delta) {
-        (targetActor != null ? targetActor : component).removeAction(action);
+        (targetComponent != null ? targetComponent : component).removeAction(action);
         return true;
     }
 
-    public UIComponent getTargetActor() {
-        return targetActor;
+    public UIComponent getTargetComponent() {
+        return targetComponent;
     }
 
     /**
      * Sets the component to remove an action from. If null (the default),
-     * the {@link #getActor() component} will be used.
+     * the {@link #getComponent() component} will be used.
      */
-    public void setTargetActor(UIComponent component) {
-        this.targetActor = component;
+    public void setTargetComponent(UIComponent component) {
+        this.targetComponent = component;
     }
 
     public Action getAction() {
@@ -56,7 +56,7 @@ public class RemoveAction extends Action {
 
     public void reset() {
         super.reset();
-        targetActor = null;
+        targetComponent = null;
         action = null;
     }
 }

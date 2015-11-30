@@ -58,7 +58,7 @@ public class Tree extends WidgetGroup {
 
     public Tree(TreeStyle style) {
         selection = new Selection();
-        selection.setActor(this);
+        selection.setComponent(this);
         selection.setMultiple(true);
         setStyle(style);
         initialize();
@@ -100,9 +100,9 @@ public class Tree extends WidgetGroup {
                 return false;
             }
 
-            public void exit(InputEvent event, float x, float y, int pointer, UIComponent toActor) {
-                super.exit(event, x, y, pointer, toActor);
-                if (toActor == null || !toActor.isDescendantOf(Tree.this)) setOverNode(null);
+            public void exit(InputEvent event, float x, float y, int pointer, UIComponent toComponent) {
+                super.exit(event, x, y, pointer, toComponent);
+                if (toComponent == null || !toComponent.isDescendantOf(Tree.this)) setOverNode(null);
             }
         });
     }
@@ -530,7 +530,7 @@ public class Tree extends WidgetGroup {
             return (Tree) parent;
         }
 
-        public UIComponent getActor() {
+        public UIComponent getComponent() {
             return component;
         }
 

@@ -61,7 +61,7 @@ public class List<T> extends Widget implements Cullable {
 
     public List(ListStyle style) {
         selection = new ArraySelection(items);
-        selection.setActor(this);
+        selection.setComponent(this);
         selection.setRequired(true);
 
         setStyle(style);

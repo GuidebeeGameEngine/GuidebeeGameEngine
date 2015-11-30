@@ -42,7 +42,7 @@ import com.guidebee.utils.collections.Array;
 public class Table extends WidgetGroup {
     static public Color debugTableColor = new Color(0, 0, 1, 1);
     static public Color debugCellColor = new Color(1, 0, 0, 1);
-    static public Color debugActorColor = new Color(0, 1, 0, 1);
+    static public Color debugComponentColor = new Color(0, 1, 0, 1);
 
     static final Pool<Cell> cellPool = new Pool<Cell>() {
         protected Cell newObject() {
@@ -715,7 +715,7 @@ public class Table extends WidgetGroup {
     /**
      * Turns on component debug lines.
      */
-    public Table debugActor() {
+    public Table debugComponent() {
         super.setDebug(true);
         if (debug != Debug.component) {
             this.debug = Debug.component;
@@ -853,7 +853,7 @@ public class Table extends WidgetGroup {
                 float componentHeight = Math.round(c.componentHeight);
                 float componentX = Math.round(c.componentX);
                 float componentY = height - Math.round(c.componentY) - componentHeight;
-                c.setActorBounds(componentX, componentY, componentWidth, componentHeight);
+                c.setComponentBounds(componentX, componentY, componentWidth, componentHeight);
                 UIComponent component = c.component;
                 if (component != null) component.setBounds(componentX, componentY, componentWidth, componentHeight);
             }
@@ -862,7 +862,7 @@ public class Table extends WidgetGroup {
                 Cell c = cells.get(i);
                 float componentHeight = c.componentHeight;
                 float componentY = height - c.componentY - componentHeight;
-                c.setActorY(componentY);
+                c.setComponentY(componentY);
                 UIComponent component = c.component;
                 if (component != null) component.setBounds(c.componentX, componentY, c.componentWidth,
                         componentHeight);
@@ -1300,7 +1300,7 @@ public class Table extends WidgetGroup {
 
             // UIComponent bounds.
             if (debug == Debug.component || debug == Debug.all)
-                addDebugRect(c.componentX, c.componentY, c.componentWidth, c.componentHeight, debugActorColor);
+                addDebugRect(c.componentX, c.componentY, c.componentWidth, c.componentHeight, debugComponentColor);
 
             // Cell bounds.
             float spannedCellWidth = 0;

@@ -43,8 +43,8 @@ import com.guidebee.utils.Pool;
  */
 public class Event implements Pool.Poolable {
     private UIWindow stage;
-    private UIComponent targetActor;
-    private UIComponent listenerActor;
+    private UIComponent targetComponent;
+    private UIComponent listenerComponent;
     private boolean capture; // true means event occurred during the
     // capture phase
     private boolean bubbles = true; // true means propagate to target's parents
@@ -79,7 +79,7 @@ public class Event implements Pool.Poolable {
 
     /**
      * Marks this event has being stopped. This halts event propagation.
-     * Any other listeners on the {@link #getListenerActor()
+     * Any other listeners on the {@link #getListenerComponent()
      * listener component} are notified, but after that no other listeners are notified.
      */
     public void stop() {
@@ -88,8 +88,8 @@ public class Event implements Pool.Poolable {
 
     public void reset() {
         stage = null;
-        targetActor = null;
-        listenerActor = null;
+        targetComponent = null;
+        listenerComponent = null;
         capture = false;
         bubbles = true;
         handled = false;
@@ -101,22 +101,22 @@ public class Event implements Pool.Poolable {
      * Returns the component that the event originated from.
      */
     public UIComponent getTarget() {
-        return targetActor;
+        return targetComponent;
     }
 
-    public void setTarget(UIComponent targetActor) {
-        this.targetActor = targetActor;
+    public void setTarget(UIComponent targetComponent) {
+        this.targetComponent = targetComponent;
     }
 
     /**
      * Returns the component that this listener is attached to.
      */
-    public UIComponent getListenerActor() {
-        return listenerActor;
+    public UIComponent getListenerComponent() {
+        return listenerComponent;
     }
 
-    public void setListenerActor(UIComponent listenerActor) {
-        this.listenerActor = listenerActor;
+    public void setListenerComponent(UIComponent listenerComponent) {
+        this.listenerComponent = listenerComponent;
     }
 
     public boolean getBubbles() {

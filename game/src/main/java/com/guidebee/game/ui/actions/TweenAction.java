@@ -111,7 +111,7 @@ public class TweenAction extends Action {
 
 
     static {
-        Tween.registerAccessor(UIComponent.class, new ActorAccessor());
+        Tween.registerAccessor(UIComponent.class, new ComponentAccessor());
     }
 
     @Override
@@ -120,7 +120,7 @@ public class TweenAction extends Action {
         return tween.isFinished();
     }
 
-    static class ActorAccessor implements TweenAccessor<UIComponent> {
+    static class ComponentAccessor implements TweenAccessor<UIComponent> {
         @Override
         public int getValues(UIComponent target, int tweenType, float[] returnValues) {
             switch (tweenType) {

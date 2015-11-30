@@ -106,11 +106,11 @@ public class Cell<T extends UIComponent> implements Pool.Poolable {
      * Sets the component in this cell and adds the component to the cell's table.
      * If null, removes any current component.
      */
-    public <A extends UIComponent> Cell<A> setActor(A newActor) {
+    public <A extends UIComponent> Cell<A> setComponent(A newComponent) {
         if (component != null) component.remove();
-        if (component != newActor) {
-            component = newActor;
-            if (newActor != null) table.addComponent(newActor);
+        if (component != newComponent) {
+            component = newComponent;
+            if (newComponent != null) table.addComponent(newComponent);
         }
         return (Cell<A>) this;
     }
@@ -118,14 +118,14 @@ public class Cell<T extends UIComponent> implements Pool.Poolable {
     /**
      * Returns the component for this cell, or null.
      */
-    public T getActor() {
+    public T getComponent() {
         return (T) component;
     }
 
     /**
      * Returns true if the cell's component is not null.
      */
-    public boolean hasActor() {
+    public boolean hasComponent() {
         return component != null;
     }
 
@@ -778,42 +778,42 @@ public class Cell<T extends UIComponent> implements Pool.Poolable {
         return this;
     }
 
-    public void setActorBounds(float x, float y, float width, float height) {
+    public void setComponentBounds(float x, float y, float width, float height) {
         componentX = x;
         componentY = y;
         componentWidth = width;
         componentHeight = height;
     }
 
-    public float getActorX() {
+    public float getComponentX() {
         return componentX;
     }
 
-    public void setActorX(float componentX) {
+    public void setComponentX(float componentX) {
         this.componentX = componentX;
     }
 
-    public float getActorY() {
+    public float getComponentY() {
         return componentY;
     }
 
-    public void setActorY(float componentY) {
+    public void setComponentY(float componentY) {
         this.componentY = componentY;
     }
 
-    public float getActorWidth() {
+    public float getComponentWidth() {
         return componentWidth;
     }
 
-    public void setActorWidth(float componentWidth) {
+    public void setComponentWidth(float componentWidth) {
         this.componentWidth = componentWidth;
     }
 
-    public float getActorHeight() {
+    public float getComponentHeight() {
         return componentHeight;
     }
 
-    public void setActorHeight(float componentHeight) {
+    public void setComponentHeight(float componentHeight) {
         this.componentHeight = componentHeight;
     }
 

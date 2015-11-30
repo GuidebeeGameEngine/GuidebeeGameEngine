@@ -105,9 +105,9 @@ public class Dialog extends ChildWindow {
                 if (isModal && stage != null && stage.getRoot().getChildren().size > 0
                         && stage.getRoot().getChildren().peek() == Dialog.this) {
                     // Dialog is top most component.
-                    UIComponent newFocusedActor = event.getRelatedActor();
-                    if (newFocusedActor != null
-                            && !newFocusedActor.isDescendantOf(Dialog.this)) event.cancel();
+                    UIComponent newFocusedComponent = event.getRelatedComponent();
+                    if (newFocusedComponent != null
+                            && !newFocusedComponent.isDescendantOf(Dialog.this)) event.cancel();
                 }
             }
         });
@@ -216,7 +216,7 @@ public class Dialog extends ChildWindow {
         if (component != null && !component.isDescendantOf(this)) previousScrollFocus = component;
 
         pack();
-        stage.addActor(this);
+        stage.addComponent(this);
         stage.setKeyboardFocus(this);
         stage.setScrollFocus(this);
         if (action != null)
@@ -260,7 +260,7 @@ public class Dialog extends ChildWindow {
             addCaptureListener(ignoreTouchDown);
             addAction(Actions.sequence(action,
                     Actions.removeListener(ignoreTouchDown, true),
-                    Actions.removeActor()));
+                    Actions.removeComponent()));
         } else
             remove();
     }
@@ -272,7 +272,7 @@ public class Dialog extends ChildWindow {
      */
     public void hide() {
         hide(Actions.sequence(Actions.fadeOut(0.4f, Interpolation.fade),
-                Actions.removeListener(ignoreTouchDown, true), Actions.removeActor()));
+                Actions.removeListener(ignoreTouchDown, true), Actions.removeComponent()));
     }
 
     public void setObject(UIComponent component, Object object) {
