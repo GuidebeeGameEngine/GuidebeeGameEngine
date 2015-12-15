@@ -7,6 +7,8 @@ public class GraphicsWindow extends Window {
 
     private final GraphicsGamePlay gamePlay;
 
+
+
     public GraphicsWindow(GraphicsGamePlay graphicsGamePlay){
         super(800,480);
         gamePlay=graphicsGamePlay;

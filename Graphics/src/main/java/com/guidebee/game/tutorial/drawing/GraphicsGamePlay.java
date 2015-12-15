@@ -9,7 +9,7 @@ public class GraphicsGamePlay extends GamePlay {
     @Override
     public void create() {
         loadAssets();
-        setScreen(new GraphicsWindow(this));
+        setScreen(new DrawingWindow());
 
 
     }

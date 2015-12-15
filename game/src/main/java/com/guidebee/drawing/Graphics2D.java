@@ -27,6 +27,7 @@ import com.guidebee.drawing.geometry.Point;
 import com.guidebee.drawing.geometry.Polygon;
 import com.guidebee.drawing.geometry.Polyline;
 import com.guidebee.drawing.geometry.Rectangle;
+import com.guidebee.game.GameEngineRuntimeException;
 import com.guidebee.game.engine.drawing.core.GraphicsFP;
 import com.guidebee.game.engine.drawing.core.GraphicsPathDasherFP;
 import com.guidebee.game.engine.drawing.core.GraphicsPathFP;
@@ -35,6 +36,8 @@ import com.guidebee.game.engine.drawing.core.PenFP;
 import com.guidebee.game.engine.drawing.core.PointFP;
 import com.guidebee.game.engine.drawing.core.SingleFP;
 import com.guidebee.game.engine.drawing.core.SolidBrushFP;
+import com.guidebee.game.graphics.Pixmap;
+import com.guidebee.game.graphics.TextureData;
 
 //[------------------------------ MAIN CLASS ----------------------------------]
 
@@ -46,7 +49,8 @@ import com.guidebee.game.engine.drawing.core.SolidBrushFP;
  *
  * @author James Shen.
  */
-public final class Graphics2D {
+public final class Graphics2D implements TextureData {
+
 
 
     /**
@@ -80,6 +84,7 @@ public final class Graphics2D {
      *
      * @return the width of the graphics object.
      */
+    @Override
     public int getWidth() {
         return graphicsWidth;
     }
@@ -90,8 +95,67 @@ public final class Graphics2D {
      *
      * @return the height of the graphics object.
      */
+    @Override
     public int getHeight() {
         return graphicsHeight;
+    }
+
+
+    @Override
+    public TextureDataType getType() {
+        return TextureDataType.Pixmap;
+    }
+
+    @Override
+    public boolean isPrepared() {
+        return isPrepared;
+    }
+
+    @Override
+    public void prepare() {
+        if (isPrepared) throw new GameEngineRuntimeException("Already prepared");
+        isPrepared = true;
+    }
+
+
+
+    @Override
+    public void consumeCustomData(int target) {
+
+        throw new GameEngineRuntimeException(
+                "This TextureData implementation does not upload data itself");
+    }
+
+    @Override
+    public Pixmap consumePixmap() {
+        if(pixMap!=null){
+            pixMap.dispose();
+        }
+        pixMap = new Pixmap(graphicsWidth, graphicsHeight, Pixmap.Format.RGBA8888);
+        pixMap.drawRGB(getRGB(), graphicsWidth, graphicsHeight);
+        return pixMap;
+    }
+
+    @Override
+    public boolean disposePixmap() {
+        return true;
+    }
+
+
+
+    @Override
+    public Pixmap.Format getFormat() {
+        return Pixmap.Format.RGBA8888; // it's not true,
+    }
+
+    @Override
+    public boolean useMipMaps() {
+        return false;
+    }
+
+    @Override
+    public boolean isManaged() {
+        return true;
     }
 
 
@@ -864,6 +928,9 @@ public final class Graphics2D {
         }
     }
 
+    private boolean isPrepared = false;
+
+    private Pixmap pixMap=null;
     /**
      * graphics width
      */
