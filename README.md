@@ -1,4 +1,4 @@
-Guidebee Game Engine
+Guidebee Android Game Engine
 =================
 
  Guidebee Game Engine(GGE), whose core is based on libgdx ,but instead of trying to be a cross-platform game 
@@ -14,7 +14,7 @@ Guidebee Game Engine
 ```
 dependencies {
     ...
-    compile 'com.guidebee:game-engine:0.9.9'
+    compile 'com.guidebee:game-engine:1.0.0'
 }
 
 ```
@@ -43,6 +43,8 @@ Guidebee Android Game Engine Tutorials
 1. [Bring Physics to your Game World](https://github.com/GuidebeeGameEngine/Raindrop/wiki/Bring-Physics-to-your-Game-World)
 1. [UI Components and HUD Components](https://github.com/GuidebeeGameEngine/Raindrop/wiki/UI-Components-and-HUD-Components)
 1. [Camera and Viewport basics](https://github.com/GuidebeeGameEngine/Raindrop/wiki/Camera-and-Viewport-basics)
+1. [User Interface and UI Components](https://github.com/GuidebeeGameEngine/UIComponents/wiki)
+1. [Animate With Actions](https://github.com/GuidebeeGameEngine/ActionDemo/wiki)
 
 
 # Box2D
@@ -54,7 +56,7 @@ add the following
 ```
 dependencies {
     ...
-    compile 'com.guidebee:game-engine:0.9.9'
+    compile 'com.guidebee:game-engine:1.0.0'
 }
 
 ```
