@@ -34,16 +34,16 @@ import com.guidebee.game.graphics.TextureAtlas;
  */
 public class Window extends ScreenAdapter {
 
-    private UIWindow window;
-    private Table table = new Table();
+    protected UIWindow window;
+    protected Table table = new Table();
 
 
 
-    private static final String TEXTURE_SKIN_UI= "skin/default/uiskin.atlas";
-    private static final String SKIN_UI="skin/default/uiskin.json";
+    protected static final String TEXTURE_SKIN_UI= "skin/default/uiskin.atlas";
+    protected static final String SKIN_UI="skin/default/uiskin.json";
     public static Skin defaultSkin;
 
-    private InputProcessor savedInputProcessor = null;
+    protected InputProcessor savedInputProcessor = null;
 
 
     /**

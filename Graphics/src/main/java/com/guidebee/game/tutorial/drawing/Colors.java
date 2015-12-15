@@ -4,6 +4,7 @@ import com.guidebee.drawing.Color;
 import com.guidebee.drawing.Graphics2D;
 import com.guidebee.drawing.Pen;
 import com.guidebee.drawing.SolidBrush;
+import com.guidebee.drawing.VectorFont;
 import com.guidebee.drawing.geometry.AffineTransform;
 import com.guidebee.drawing.geometry.Rectangle;
 import com.guidebee.game.graphics.Pixmap;
@@ -55,7 +56,8 @@ public class Colors implements Disposable {
         AffineTransform matrix = new AffineTransform();
         graphics2D.setAffineTransform(matrix);
         Pen pen = new Pen(Color.white);
-        graphics2D.drawRectangle(pen,new Rectangle(0,0,width,height));
+        graphics2D.drawRectangle(pen, new Rectangle(0, 0, width, height));
+        graphics2D.drawChars(VectorFont.getSystemFont(), 50, "Circle".toCharArray(), 0, 150);
 
         SolidBrush brush = new SolidBrush(redColor);
         graphics2D.fillOval(brush, 30, 60, 80, 80);
@@ -70,6 +72,9 @@ public class Colors implements Disposable {
 
         graphics2D.fillOval(null, 90, 60, 80, 80);
         graphics2D.drawOval(null, 90, 60, 80, 80);
+
+
+
 
 
         if (texture != null) texture.dispose();
