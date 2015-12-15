@@ -18,6 +18,8 @@ package com.guidebee.drawing;
 
 //--------------------------------- IMPORTS ------------------------------------
 
+import android.util.Log;
+
 import com.guidebee.drawing.geometry.AffineTransform;
 import com.guidebee.drawing.geometry.Area;
 import com.guidebee.drawing.geometry.IPathIterator;
@@ -138,10 +140,9 @@ public final class Graphics2D implements TextureData {
 
     @Override
     public boolean disposePixmap() {
+
         return true;
     }
-
-
 
     @Override
     public Pixmap.Format getFormat() {
