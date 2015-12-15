@@ -10,6 +10,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/Graphics" />
             <option value="$PROJECT_DIR$/actiondemo" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/box2d" />
