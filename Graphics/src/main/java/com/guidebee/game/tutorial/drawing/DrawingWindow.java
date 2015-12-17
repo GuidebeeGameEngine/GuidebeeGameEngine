@@ -5,6 +5,7 @@ import com.guidebee.game.camera.viewports.ScreenViewport;
 import com.guidebee.game.scene.Scene;
 import com.guidebee.game.tutorial.drawing.actor.BezierActor;
 import com.guidebee.game.tutorial.drawing.actor.CircleActor;
+import com.guidebee.game.tutorial.drawing.actor.FontList;
 import com.guidebee.game.tutorial.drawing.actor.GuidebeeIT;
 import com.guidebee.game.tutorial.drawing.actor.GuidebeeWebsite;
 
@@ -13,8 +14,9 @@ public class DrawingWindow extends Scene {
 
     private CircleActor circleActor;
 
-    private BezierActor bezierActor;
 
+
+    private FontList fontList;
 
     private GuidebeeIT guidebeeIT;
 
@@ -25,8 +27,7 @@ public class DrawingWindow extends Scene {
                 FontCanvas.HEIGHT));
         circleActor=new CircleActor();
         sceneStage.addActor(circleActor);
-        bezierActor = new BezierActor();
-        sceneStage.addActor(bezierActor);
+
         guidebeeIT =new GuidebeeIT();
 
         sceneStage.addActor(guidebeeIT);
@@ -34,6 +35,9 @@ public class DrawingWindow extends Scene {
         guidebeeWebsite =new GuidebeeWebsite();
 
         sceneStage.addActor(guidebeeWebsite);
+
+        fontList=new FontList();
+        sceneStage.addActor(fontList);
 
     }
 }

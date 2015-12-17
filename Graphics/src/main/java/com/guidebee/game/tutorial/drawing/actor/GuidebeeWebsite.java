@@ -19,7 +19,7 @@ public class GuidebeeWebsite extends Actor{
         TextureRegion textureRegion
                 = FontCanvas.fontTexturePacker.getTextRegion(1);
         setTextureRegion(textureRegion);
-        setPosition(30,350);
+        setPosition(30,700);
 
 
 

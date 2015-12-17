@@ -19,7 +19,7 @@ public class GuidebeeIT extends Actor{
         TextureRegion textureRegion
                 = FontCanvas.fontTexturePacker.getTextRegion(0);
         setTextureRegion(textureRegion);
-        setPosition(0,400);
+        setPosition(0,750);
 
 
 
