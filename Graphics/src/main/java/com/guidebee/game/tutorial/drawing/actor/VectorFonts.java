@@ -32,7 +32,7 @@ public class VectorFonts extends Actor{
         fontTexturePacker=new FontTexturePacker(800,480);
         Pen pen=new Pen(Color.GREEN);
         SolidBrush brush=new SolidBrush(Color.WHITE);
-        int id=fontTexturePacker.drawChars(vectorFont, 64, "Guidebee IT Consulting".toCharArray(), pen, brush);
+        int id=fontTexturePacker.drawChars(vectorFont, 48, "Guidebee IT Consulting Service".toCharArray(), pen, brush);
         fontTexturePacker.renderTexture();
         TextureRegion textureRegion = fontTexturePacker.getTextRegion(id);
         setTextureRegion(textureRegion);

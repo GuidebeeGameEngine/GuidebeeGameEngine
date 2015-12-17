@@ -22,7 +22,7 @@ public final class BinSortPacker {
      */
     private float usedHeight;
 
-    private boolean resized=false;
+
 
 
     /**
@@ -77,15 +77,15 @@ public final class BinSortPacker {
      */
     public Vector2 addRectangle(float width, float height) {
         Vector2 Coords = recursiveFindCoords(root, width, height);
-        resized=false;
+
         if (Coords != null) {
             if (usedWidth < Coords.x + width) {
                 usedWidth = Coords.x + width;
-                resized=true;
+
             }
             if (usedHeight < Coords.y + height){
                 usedHeight = Coords.y + height;
-                resized=true;
+
             }
         }
 
@@ -93,13 +93,6 @@ public final class BinSortPacker {
     }
 
 
-    /**
-     * Check to see if resized.
-     * @return
-     */
-    public boolean isResized(){
-        return resized;
-    }
 
     private Vector2 recursiveFindCoords(BinSortNode node, float width, float height) {
         // if we are not at a leaf then go deeper

@@ -24,16 +24,30 @@ public class FontTexturePacker {
     private Texture texture;
 
 
+    /**
+     * Constructor
+     * @param width initial canvas size
+     * @param height initial canvas height
+     */
     public FontTexturePacker(int width, int height){
-        binSortPacker=new BinSortPacker(width,height);
-        graphics2D=new Graphics2D(width,height);
-        graphics2D.clear();
+        int newWidth=(width/64+1)*64;
+        int newHeight=(height/64+1)*64;
+        binSortPacker=new BinSortPacker(newWidth,newHeight);
         textInfos=new ArrayList<TextInfo>();
         textureRegions=new ArrayList<TextureRegion>();
 
     }
 
 
+    /**
+     * draw text in give vector font.
+     * @param font
+     * @param fontSize
+     * @param data
+     * @param pen
+     * @param brush
+     * @return
+     */
     public int drawChars (VectorFont font, int fontSize, char[] data,Pen pen, Brush brush){
         int height=fontSize;
         int width=font.charsWidth(data,0,data.length,fontSize);
@@ -48,31 +62,26 @@ public class FontTexturePacker {
         Rectangle rect=binSortPacker.getDemensions();
         textInfos.add(textInfo);
         if(rect.width<width || rect.height<height){
-            binSortPacker.reset(width,height);
-            recalculateRectangle();
+
+            float maxWidth=Math.max(rect.width, width);
+            float maxHeight=Math.max(rect.height, height);
+            int newWidth=(int)(maxWidth/64+1)*64;
+            int newHeight=(int)(maxHeight/64+1)*64;
+            binSortPacker.reset(newWidth,
+                    newHeight);
         }
         Vector2 pos=binSortPacker.addRectangle(width, height);
-
-
         if(pos!=null) {
-            if (binSortPacker.isResized()) {
-
-                recalculateRectangle();
-            } else {
-                textInfo.location = pos;
-                graphics2D.setPenAndBrush(textInfo.pen, textInfo.brush);
-                graphics2D.drawChars(textInfo.font,
-                        textInfo.fontSize,
-                        textInfo.data,
-                        (int) pos.x,
-                        (int) pos.y);
-
-            }
             return textInfos.size() - 1;
         }
         return -1;
     }
 
+    /**
+     * get text textregion
+     * @param id
+     * @return
+     */
     public TextureRegion getTextRegion(int id){
         if(id<textInfos.size()){
             return textureRegions.get(id);
@@ -80,7 +89,11 @@ public class FontTexturePacker {
        return null;
     }
 
+    /**
+     * render all text
+     */
     public void renderTexture(){
+        recalculateRectangle();
         if(texture!=null){
             texture.dispose();
         }
@@ -94,10 +107,7 @@ public class FontTexturePacker {
 
         }
 
-
     }
-
-
 
 
     private void recalculateRectangle(){
