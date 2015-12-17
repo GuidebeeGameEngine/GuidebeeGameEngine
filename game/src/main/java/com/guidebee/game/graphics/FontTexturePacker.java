@@ -45,22 +45,32 @@ public class FontTexturePacker {
         textInfo.data=data;
         textInfo.width=width;
         textInfo.height=height;
-        Vector2 pos=binSortPacker.addRectangle(width, height);
+        Rectangle rect=binSortPacker.getDemensions();
         textInfos.add(textInfo);
-        if(binSortPacker.isResized()){
-
+        if(rect.width<width || rect.height<height){
+            binSortPacker.reset(width,height);
             recalculateRectangle();
-        }else{
-            textInfo.location=pos;
-            graphics2D.setPenAndBrush(textInfo.pen, textInfo.brush);
-            graphics2D.drawChars(textInfo.font,
-                    textInfo.fontSize,
-                    textInfo.data,
-                    (int) pos.x,
-                    (int) pos.y);
-
         }
-        return textInfos.size()-1;
+        Vector2 pos=binSortPacker.addRectangle(width, height);
+
+
+        if(pos!=null) {
+            if (binSortPacker.isResized()) {
+
+                recalculateRectangle();
+            } else {
+                textInfo.location = pos;
+                graphics2D.setPenAndBrush(textInfo.pen, textInfo.brush);
+                graphics2D.drawChars(textInfo.font,
+                        textInfo.fontSize,
+                        textInfo.data,
+                        (int) pos.x,
+                        (int) pos.y);
+
+            }
+            return textInfos.size() - 1;
+        }
+        return -1;
     }
 
     public TextureRegion getTextRegion(int id){
