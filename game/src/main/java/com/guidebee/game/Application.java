@@ -18,6 +18,8 @@ package com.guidebee.game;
 
 //--------------------------------- IMPORTS ------------------------------------
 
+import android.app.Activity;
+
 import com.guidebee.utils.Clipboard;
 
 //[------------------------------ MAIN CLASS ----------------------------------]
@@ -170,6 +172,9 @@ public interface Application {
      * @return the {@link Net} instance
      */
     public Net getNet();
+
+
+    public Activity getActivity();
 
     /**
      * Logs a message to the console or logcat

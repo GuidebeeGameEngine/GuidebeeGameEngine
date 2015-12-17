@@ -7,9 +7,14 @@ import com.guidebee.drawing.SolidBrush;
 import com.guidebee.drawing.VectorFont;
 import com.guidebee.drawing.geometry.AffineTransform;
 import com.guidebee.drawing.geometry.Rectangle;
+import com.guidebee.game.Configuration;
+import com.guidebee.game.GameEngine;
 import com.guidebee.game.graphics.Pixmap;
 import com.guidebee.game.graphics.Texture;
 import com.guidebee.utils.Disposable;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * Created by James on 15/12/15.
@@ -45,6 +50,8 @@ public class Colors implements Disposable {
 
     private int height = 200;
 
+    private VectorFont vectorFont;
+
 
 
     public Colors( ) {
@@ -53,11 +60,23 @@ public class Colors implements Disposable {
         //Clear the canvas with black color.
         graphics2D.clear();
 
+        try {
+            InputStream inputStream= GameEngine.app.getActivity().getAssets().open("font/phillysans.fon");
+            vectorFont=new VectorFont(inputStream);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
         AffineTransform matrix = new AffineTransform();
         graphics2D.setAffineTransform(matrix);
         Pen pen = new Pen(Color.white);
         graphics2D.drawRectangle(pen, new Rectangle(0, 0, width, height));
-        graphics2D.drawChars(VectorFont.getSystemFont(), 50, "Circle".toCharArray(), 0, 150);
+        if(vectorFont!=null){
+            graphics2D.setDefaultPen(new Pen(Color.GREEN,2));
+            graphics2D.drawChars(vectorFont, 64, "Circle".toCharArray(), 0,150);
+        }
+        //graphics2D.drawChars(VectorFont.getSystemFont(), 50, "Circle".toCharArray(), 0, 150);
 
         SolidBrush brush = new SolidBrush(redColor);
         graphics2D.fillOval(brush, 30, 60, 80, 80);
@@ -77,8 +96,11 @@ public class Colors implements Disposable {
 
 
 
+
         if (texture != null) texture.dispose();
         texture = new Texture(graphics2D);
+
+
     }
 
     public Texture getTexture() {

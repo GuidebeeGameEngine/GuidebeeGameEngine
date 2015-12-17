@@ -305,6 +305,10 @@ public class GameActivityWrapper implements BaseActivity {
         return net;
     }
 
+    @Override
+    public Activity getActivity() {
+        return this.activity;
+    }
 
 
     @Override

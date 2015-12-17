@@ -189,6 +189,11 @@ public class BaseGameActivity extends Activity implements BaseActivity {
         return wrapper.getNet();
     }
 
+    @Override
+    public Activity getActivity() {
+        return this;
+    }
+
 
     @Override
     public int getVersion() {

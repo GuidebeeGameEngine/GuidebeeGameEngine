@@ -597,10 +597,8 @@ public class VectorFont {
             ex.printStackTrace();
         }
 
-            /* Read glyph data and fill the glyph table for this TinyFont. */
+        /* Read glyph data and fill the glyph table for this TinyFont. */
         for (int i = 0; i < 256; i++) {
-
-
             Glyph glyph = new Glyph();
             glyph.path = pathParser.parsePath(GLYPH_PATHDATA[i]);
             glyph.width = 136;
