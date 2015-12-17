@@ -50,7 +50,7 @@ public class Colors implements Disposable {
 
     private int height = 200;
 
-    private VectorFont vectorFont;
+
 
 
 
@@ -60,23 +60,13 @@ public class Colors implements Disposable {
         //Clear the canvas with black color.
         graphics2D.clear();
 
-        try {
-            InputStream inputStream= GameEngine.app.getActivity().getAssets().open("font/phillysans.fon");
-            vectorFont=new VectorFont(inputStream);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
 
         AffineTransform matrix = new AffineTransform();
         graphics2D.setAffineTransform(matrix);
         Pen pen = new Pen(Color.white);
         graphics2D.drawRectangle(pen, new Rectangle(0, 0, width, height));
-        if(vectorFont!=null){
-            graphics2D.setDefaultPen(new Pen(Color.GREEN,2));
-            graphics2D.drawChars(vectorFont, 64, "Circle".toCharArray(), 0,150);
-        }
-        //graphics2D.drawChars(VectorFont.getSystemFont(), 50, "Circle".toCharArray(), 0, 150);
+
+        graphics2D.drawChars(VectorFont.getSystemFont(), 50, "Circle".toCharArray(), 0, 150);
 
         SolidBrush brush = new SolidBrush(redColor);
         graphics2D.fillOval(brush, 30, 60, 80, 80);
