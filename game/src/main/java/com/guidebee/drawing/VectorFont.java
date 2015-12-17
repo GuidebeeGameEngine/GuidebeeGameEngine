@@ -253,8 +253,8 @@ public class VectorFont implements Disposable{
 
     private static int FONT_HEAD_SIZE = 128;
 
-    private static VectorFont systemFont;
-    private static String[] GLYPH_PATHDATA = {
+    protected static VectorFont systemFont;
+    protected static String[] GLYPH_PATHDATA = {
             "M 12 0L 12 160L 140 160L 140 0L 12 0ZM 16 4L 136 4L 136 156L 16 156L 16 4Z",
             "M 12 0L 12 160L 140 160L 140 0L 12 0ZM 16 4L 136 4L 136 156L 16 156L 16 4Z",
             "M 12 0L 12 160L 140 160L 140 0L 12 0ZM 16 4L 136 4L 136 156L 16 156L 16 4Z",

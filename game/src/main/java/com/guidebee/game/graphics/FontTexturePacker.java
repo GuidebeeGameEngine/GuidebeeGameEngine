@@ -1,5 +1,7 @@
 package com.guidebee.game.graphics;
 
+import android.util.Log;
+
 import com.guidebee.drawing.Brush;
 import com.guidebee.drawing.Graphics2D;
 import com.guidebee.drawing.Pen;
@@ -101,6 +103,7 @@ public class FontTexturePacker {
         textureRegions.clear();
         for (int i=0;i<textInfos.size();i++) {
             TextInfo textInfo = textInfos.get(i);
+
             TextureRegion textureRegion=new TextureRegion(texture,(int)textInfo.location.x,
                     (int)textInfo.location.y,textInfo.width,textInfo.height);
             textureRegions.add(textureRegion);
@@ -119,6 +122,7 @@ public class FontTexturePacker {
 
         for (int i=0;i<textInfos.size();i++) {
             TextInfo textInfo=textInfos.get(i);
+            Log.d("Text",new String(textInfo.data));
             Vector2 pos = binSortPacker.addRectangle(textInfo.width, textInfo.height);
             graphics2D.setPenAndBrush(textInfo.pen,textInfo.brush);
             graphics2D.drawChars(textInfo.font,
