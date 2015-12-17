@@ -23,6 +23,7 @@ import com.guidebee.drawing.geometry.IShape;
 import com.guidebee.drawing.geometry.Path;
 import com.guidebee.game.engine.collections.Hashtable;
 import com.guidebee.game.engine.drawing.parser.PathParser;
+import com.guidebee.utils.Disposable;
 
 import java.io.DataInputStream;
 import java.io.IOException;
@@ -36,7 +37,7 @@ import java.io.InputStream;
  *
  * @author James Shen.
  */
-public class VectorFont {
+public class VectorFont implements Disposable{
 
     /**
      * Sets the text direction to left-to-right, as is common in most
@@ -242,13 +243,16 @@ public class VectorFont {
         return retVal;
     }
 
+    protected static int CACHE_SIZE = 256;
+    protected final static PathParser pathParser = new PathParser();
+    protected final Hashtable glyphs = new Hashtable(CACHE_SIZE);
+
     private InputStream fontStream;
     private FontHeader fontHeader;
     private DataInputStream dis;
-    private static int CACHE_SIZE = 256;
+
     private static int FONT_HEAD_SIZE = 128;
-    private final static PathParser pathParser = new PathParser();
-    private final Hashtable glyphs = new Hashtable(CACHE_SIZE);
+
     private static VectorFont systemFont;
     private static String[] GLYPH_PATHDATA = {
             "M 12 0L 12 160L 140 160L 140 0L 12 0ZM 16 4L 136 4L 136 156L 16 156L 16 4Z",
@@ -509,7 +513,8 @@ public class VectorFont {
             "M 12 0L 12 160L 140 160L 140 0L 12 0ZM 16 4L 136 4L 136 156L 16 156L 16 4Z"
     };
 
-    private void loadGlyph(int unicode) {
+
+    protected void loadGlyph(int unicode) {
         switch (fontHeader.type) {
             case 1:
                 loadEnglishGlyph(unicode);
@@ -606,6 +611,18 @@ public class VectorFont {
 
         }
 
+    }
+
+    @Override
+    public void dispose() {
+        if(dis!=null){
+            try {
+                dis.close();
+                fontStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
 
