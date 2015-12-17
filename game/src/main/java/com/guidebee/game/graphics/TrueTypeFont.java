@@ -7,7 +7,7 @@ import java.io.IOException;
 
 
 /**
- * Created by James on 17/12/15.
+ * True type font.
  */
 public class TrueTypeFont extends VectorFont {
 
