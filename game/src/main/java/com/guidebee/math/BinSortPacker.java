@@ -65,7 +65,7 @@ public final class BinSortPacker {
      * @return
      */
     public Rectangle getDemensions() {
-        return new Rectangle(0, 0, usedWidth, usedHeight);
+        return new Rectangle(0, 0, root.width, root.height);
     }
 
 
