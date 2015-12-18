@@ -67,7 +67,9 @@ public class SipdroidEngine implements RegisterAgentListener {
 
 	public SipProvider[] sip_providers;
 	
-	public static PowerManager.WakeLock[] wl,pwl;
+	static PowerManager.WakeLock[] wl;
+	public static PowerManager.WakeLock[] pwl;
+	static WifiManager.WifiLock[] wwl;
 	
 	UserAgentProfile getUserAgentProfile(String suffix) {
 		UserAgentProfile user_profile = new UserAgentProfile(null);
@@ -97,23 +99,17 @@ public class SipdroidEngine implements RegisterAgentListener {
 
 	public boolean StartEngine() {
 			PowerManager pm = (PowerManager) getUIContext().getSystemService(Context.POWER_SERVICE);
+			WifiManager wm = (WifiManager) getUIContext().getSystemService(Context.WIFI_SERVICE);
 			if (wl == null) {
 				if (!PreferenceManager.getDefaultSharedPreferences(getUIContext()).contains(org.sipdroid.sipua.ui.Settings.PREF_KEEPON)) {
 					Editor edit = PreferenceManager.getDefaultSharedPreferences(getUIContext()).edit();
 	
-					edit.putBoolean(org.sipdroid.sipua.ui.Settings.PREF_KEEPON, Build.MODEL.equals("Nexus One") ||
-							Build.MODEL.equals("Nexus S") ||
-							Build.MODEL.equals("Archos5") ||
-							Build.MODEL.equals("ADR6300") ||
-							Build.MODEL.equals("PC36100") ||
-							Build.MODEL.equals("HTC Desire") ||
-							Build.MODEL.equals("HTC Incredible S") ||
-							Build.MODEL.equals("HTC Wildfire") ||
-							Build.MODEL.equals("GT-I9100"));
+					edit.putBoolean(org.sipdroid.sipua.ui.Settings.PREF_KEEPON, true);
 					edit.commit();
 				}
 				wl = new PowerManager.WakeLock[LINES];
 				pwl = new PowerManager.WakeLock[LINES];
+				wwl = new WifiManager.WifiLock[LINES];
 			}
 			pref = ChangeAccount.getPref(Receiver.mContext);
 
@@ -129,11 +125,15 @@ public class SipdroidEngine implements RegisterAgentListener {
 			
 			SipStack.init(null);
 			int i = 0;
+			
 			for (UserAgentProfile user_profile : user_profiles) {
 				if (wl[i] == null) {
 					wl[i] = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "Sipdroid.SipdroidEngine");
-					if (PreferenceManager.getDefaultSharedPreferences(getUIContext()).getBoolean(org.sipdroid.sipua.ui.Settings.PREF_KEEPON, org.sipdroid.sipua.ui.Settings.DEFAULT_KEEPON))
-						pwl[i] = pm.newWakeLock(PowerManager.SCREEN_DIM_WAKE_LOCK | PowerManager.ACQUIRE_CAUSES_WAKEUP, "Sipdroid.SipdroidEngine");
+					pwl[i] = pm.newWakeLock(PowerManager.SCREEN_DIM_WAKE_LOCK | PowerManager.ACQUIRE_CAUSES_WAKEUP, "Sipdroid.SipdroidEngine");
+					if (!PreferenceManager.getDefaultSharedPreferences(getUIContext()).getBoolean(org.sipdroid.sipua.ui.Settings.PREF_KEEPON, org.sipdroid.sipua.ui.Settings.DEFAULT_KEEPON)) {
+						wwl[i] = wm.createWifiLock(3, "Sipdroid.SipdroidEngine");
+						wwl[i].setReferenceCounted(false);
+					}
 				}
 				
 				try {
@@ -144,6 +144,8 @@ public class SipdroidEngine implements RegisterAgentListener {
 					SipStack.default_transport_protocols[0] = PreferenceManager.getDefaultSharedPreferences(getUIContext()).getString(Settings.PREF_PROTOCOL+(i!=0?i:""),
 							user_profile.realm.equals(Settings.DEFAULT_SERVER)?"tcp":"udp");
 					
+					if (SipStack.default_transport_protocols[0].equals("tls"))
+						SipStack.default_transport_protocols[0] = "tcp";
 					String version = "Sipdroid/" + Sipdroid.getVersion() + "/" + Build.MODEL;
 					SipStack.ua_info = version;
 					SipStack.server_info = version;
@@ -171,7 +173,7 @@ public class SipdroidEngine implements RegisterAgentListener {
 							user_profile.contact_url, user_profile.username,
 							user_profile.realm, user_profile.passwd, this, user_profile,
 							user_profile.qvalue, icsi, user_profile.pub); // added by mandrajg
-					kas[i] = new KeepAliveSip(sip_providers[i],100000);
+					kas[i] = new KeepAliveSip(sip_providers[i]);
 				} catch (Exception E) {
 				}
 				i++;
@@ -197,9 +199,14 @@ public class SipdroidEngine implements RegisterAgentListener {
 	
 	void setOutboundProxy(SipProvider sip_provider,int i) {
 		try {
+			String host = PreferenceManager.getDefaultSharedPreferences(getUIContext()).getString(Settings.PREF_PROTOCOL+(i!=0?i:""), Settings.DEFAULT_PROTOCOL).equals("tls")?
+					PreferenceManager.getDefaultSharedPreferences(getUIContext()).getString(Settings.PREF_SERVER+(i!=0?i:""), Settings.DEFAULT_SERVER):null;
+			if (host != null && host.equals(Settings.DEFAULT_SERVER))
+				host = "www1.pbxes.com";	
 			if (sip_provider != null) sip_provider.setOutboundProxy(new SocketAddress(
 					IpAddress.getByName(PreferenceManager.getDefaultSharedPreferences(getUIContext()).getString(Settings.PREF_DNS+i, Settings.DEFAULT_DNS)),
-					Integer.valueOf(PreferenceManager.getDefaultSharedPreferences(getUIContext()).getString(Settings.PREF_PORT+(i!=0?i:""), Settings.DEFAULT_PORT))));
+					Integer.valueOf(PreferenceManager.getDefaultSharedPreferences(getUIContext()).getString(Settings.PREF_PORT+(i!=0?i:""), Settings.DEFAULT_PORT))),
+					host);
 		} catch (Exception e) {
 		}
 	}
@@ -349,10 +356,10 @@ public class SipdroidEngine implements RegisterAgentListener {
 			if (wl[i].isHeld()) {
 				wl[i].release();
 				if (pwl[i] != null && pwl[i].isHeld()) pwl[i].release();
+				if (wwl[i] != null && wwl[i].isHeld()) wwl[i].release();
 			}
 			if (kas[i] != null) {
 				Receiver.alarm(0, LoopAlarm.class);
-				kas[i].halt();
 			}
 			Receiver.onText(Receiver.REGISTER_NOTIFICATION+i, null, 0, 0);
 			if (ra != null)
@@ -382,6 +389,13 @@ public class SipdroidEngine implements RegisterAgentListener {
 		return ras[i].isRegistered();
 	}
 	
+	int getKeepaliveInterval(int i) {
+			if (sip_providers[i].getDefaultTransport().equals("udp")) {
+				return 60;
+			} else
+				return 5 * 60;
+	}
+	
 	public void onUaRegistrationSuccess(RegisterAgent reg_ra, NameAddress target,
 			NameAddress contact, String result) {
     	int i = 0;
@@ -391,7 +405,7 @@ public class SipdroidEngine implements RegisterAgentListener {
     	}
 		if (isRegistered(i)) {
 			if (Receiver.on_wlan)
-				Receiver.alarm(60, LoopAlarm.class);
+				Receiver.alarm(getKeepaliveInterval(i), LoopAlarm.class);
 			Receiver.onText(Receiver.REGISTER_NOTIFICATION+i,getUIContext().getString(i == pref?R.string.regpref:R.string.regclick),R.drawable.sym_presence_available,0);
 			reg_ra.subattempts = 0;
 			reg_ra.startMWI();
@@ -401,6 +415,7 @@ public class SipdroidEngine implements RegisterAgentListener {
 		if (wl[i].isHeld()) {
 			wl[i].release();
 			if (pwl[i] != null && pwl[i].isHeld()) pwl[i].release();
+			if (wwl[i] != null && wwl[i].isHeld()) wwl[i].release();
 		}
 	}
 
@@ -447,16 +462,33 @@ public class SipdroidEngine implements RegisterAgentListener {
     		retry = true;
     		Receiver.onText(Receiver.REGISTER_NOTIFICATION+i,getUIContext().getString(R.string.regfailed)+" ("+result+")",R.drawable.sym_presence_away,0);
     	}
-    	if (retry && SystemClock.uptimeMillis() > lastpwl + 45000 && pwl[i] != null && !pwl[i].isHeld() && Receiver.on_wlan) {
+    	if (retry) {
+    		retry = false;
+    		if (SystemClock.uptimeMillis() > lastpwl + 45000) {
+				if (pwl[i] != null && !pwl[i].isHeld()) {
+					if ((!Receiver.on_wlan && Build.MODEL.contains("HTC One")) || (Receiver.on_wlan && wwl[i] == null)) {
+						pwl[i].acquire();
+						retry = true;
+					}
+				}
+				if (wwl[i] != null && !wwl[i].isHeld() && Receiver.on_wlan) {
+					wwl[i].acquire();
+					retry = true;
+				}
+    		}
+    	}
+		if (retry) {
 			lastpwl = SystemClock.uptimeMillis();
-			if (wl[i].isHeld())
+			if (wl[i].isHeld()) {
 				wl[i].release();
-			pwl[i].acquire();
+			}
 			register();
-			if (!wl[i].isHeld() && pwl[i].isHeld()) pwl[i].release();
+			if (!wl[i].isHeld() && pwl[i] != null && pwl[i].isHeld()) pwl[i].release();
+			if (!wl[i].isHeld() && wwl[i] != null && wwl[i].isHeld()) wwl[i].release();
 		} else if (wl[i].isHeld()) {
 			wl[i].release();
 			if (pwl[i] != null && pwl[i].isHeld()) pwl[i].release();
+			if (wwl[i] != null && wwl[i].isHeld()) wwl[i].release();
 		}
 		if (SystemClock.uptimeMillis() > lasthalt + 45000) {
 			lasthalt = SystemClock.uptimeMillis();
@@ -534,7 +566,7 @@ public class SipdroidEngine implements RegisterAgentListener {
 		if (!found || (ua = uas[p]) == null) {
 			if (PreferenceManager.getDefaultSharedPreferences(getUIContext()).getBoolean(Settings.PREF_CALLBACK, Settings.DEFAULT_CALLBACK) &&
 					PreferenceManager.getDefaultSharedPreferences(getUIContext()).getString(Settings.PREF_POSURL, Settings.DEFAULT_POSURL).length() > 0) {
-				Receiver.url("n="+Uri.decode(target_url));
+				Receiver.url("n="+Uri.encode(target_url));
 				return true;
 			}
 			return false;
@@ -592,7 +624,7 @@ public class SipdroidEngine implements RegisterAgentListener {
 			if (ka != null && Receiver.on_wlan && isRegistered(i))
 				try {
 					ka.sendToken();
-					Receiver.alarm(60, LoopAlarm.class);
+					Receiver.alarm(getKeepaliveInterval(i), LoopAlarm.class);
 				} catch (IOException e) {
 					if (!Sipdroid.release) e.printStackTrace();
 				}

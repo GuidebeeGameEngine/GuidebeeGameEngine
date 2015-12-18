@@ -10,7 +10,8 @@ import android.net.Uri;
 import android.os.SystemClock;
 import android.provider.CallLog;
 import android.provider.CallLog.Calls;
-import android.provider.Contacts.People;
+import android.provider.ContactsContract;
+import android.provider.ContactsContract.Data;
 import android.text.TextUtils;
 
 /*
@@ -63,8 +64,6 @@ public class Connection
     "de.ub0r.android.callmeter.SAVE_SIPCALL";
     /** Extra holding uri of done call. */
     private static final String EXTRA_SIP_URI = "uri";
-    /** Extra holding name of provider. */
-    private static final String EXTRA_SIP_PROVIDER = "provider";
 
     Object userData;
 
@@ -188,15 +187,28 @@ public class Connection
         values.put(Calls.NEW, Integer.valueOf(1));
         if (ci != null) {
             values.put(Calls.CACHED_NAME, ci.name);
+            values.put("cname", ci.name);
+            if (ci.person_id > 0)
+            	values.put(Data.RAW_CONTACT_ID, ci.person_id);
             values.put(Calls.CACHED_NUMBER_TYPE, ci.numberType);
             values.put(Calls.CACHED_NUMBER_LABEL, ci.numberLabel);
         }
 
         if ((ci != null) && (ci.person_id > 0)) {
-            People.markAsContacted(resolver, ci.person_id);
+            ContactsContract.Contacts.markAsContacted(resolver, ci.person_id);
         }
 
-        Uri result = resolver.insert(Calls.CONTENT_URI, values);
+        Uri result;
+        try {
+        	result = resolver.insert(Calls.CONTENT_URI, values);
+        } catch (IllegalArgumentException e) {
+        	if (ci != null) {
+	        	values.remove("cname");
+	            if (ci.person_id > 0)
+	            	values.remove(Data.RAW_CONTACT_ID);
+        	}
+        	result = resolver.insert(Calls.CONTENT_URI, values);
+        }
         
         if (result != null) { // send info about call to call meter
         	final Intent intent = new Intent(ACTION_CM_SIP);

@@ -56,6 +56,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
 import android.os.PowerManager;
+import android.os.StrictMode;
 import android.os.SystemClock;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
@@ -100,8 +101,10 @@ import org.zoolu.sip.provider.SipProvider;
 		public final static int AUTO_ANSWER_NOTIFICATION = 4;
 		public final static int REGISTER_NOTIFICATION = 5;
 		
-		final int MSG_SCAN = 1;
-		final int MSG_ENABLE = 2;
+		final static int MSG_SCAN = 1;
+		final static int MSG_ENABLE = 2;
+		final static int MSG_HOLD = 3;
+		final static int MSG_HANGUP = 4;
 		
 		final static long[] vibratePattern = {0,1000,1000};
 		
@@ -121,8 +124,12 @@ import org.zoolu.sip.provider.SipProvider;
 		private static String laststate,lastnumber;	
 		
 		public static synchronized SipdroidEngine engine(Context context) {
-			mContext = context;
+			if (mContext == null || !context.getClass().getName().contains("ReceiverRestrictedContext"))
+				mContext = context;
 			if (mSipdroidEngine == null) {
+				if (android.os.Build.VERSION.SDK_INT > 9) {
+					ReceiverNew.setPolicy();
+				}
 				mSipdroidEngine = new SipdroidEngine();
 				mSipdroidEngine.StartEngine();
 				if (Integer.parseInt(Build.VERSION.SDK) >= 8)
@@ -217,7 +224,7 @@ import org.zoolu.sip.provider.SipProvider;
 					RtpStreamReceiver.speakermode = speakermode();
 					bluetooth = -1;
 					onText(MISSED_CALL_NOTIFICATION, null, 0,0);
-					engine(mContext).registerUdp();
+					engine(mContext).register();
 					broadcastCallStateChanged("OFFHOOK", caller);
 					ccCall.setState(Call.State.DIALING);
 					ccConn.setUserData(null);
@@ -257,7 +264,7 @@ import org.zoolu.sip.provider.SipProvider;
 				case UserAgent.UA_STATE_HOLD:
 					onText(CALL_NOTIFICATION, mContext.getString(R.string.card_title_on_hold), android.R.drawable.stat_sys_phone_call_on_hold,ccCall.base);
 					ccCall.setState(Call.State.HOLDING);
-			        if (InCallScreen.started) mContext.startActivity(createIntent(InCallScreen.class));
+			        if (InCallScreen.started && (pstn_state == null || !pstn_state.equals("RINGING"))) mContext.startActivity(createIntent(InCallScreen.class));
 					break;
 				}
 				pos(true);
@@ -283,7 +290,7 @@ import org.zoolu.sip.provider.SipProvider;
 				if (type == MISSED_CALL_NOTIFICATION) {
 			        	notification.flags |= Notification.FLAG_AUTO_CANCEL;
 			        	//notification.setLatestEventInfo(mContext, text, mContext.getString(R.string.app_name),
-			        			//PendingIntent.getActivity(mContext, 0, createCallLogIntent(), 0));
+			        	//		PendingIntent.getActivity(mContext, 0, createCallLogIntent(), 0));
 			        	if (PreferenceManager.getDefaultSharedPreferences(Receiver.mContext).getBoolean(org.sipdroid.sipua.ui.Settings.PREF_NOTIFY, org.sipdroid.sipua.ui.Settings.DEFAULT_NOTIFY)) {
 				        	notification.flags |= Notification.FLAG_SHOW_LIGHTS;
 				        	notification.ledARGB = 0xff0000ff; /* blue */
@@ -387,23 +394,38 @@ import org.zoolu.sip.provider.SipProvider;
 		static AlarmManager am;
 		static PendingIntent gps_sender,net_sender;
 		static boolean net_enabled;
+		static long loctrydate;
 		
 		static final int GPS_UPDATES = 4000*1000;
 		static final int NET_UPDATES = 600*1000;
 		
 		public static void pos(boolean enable) {
+			
+			if (!PreferenceManager.getDefaultSharedPreferences(mContext).getBoolean(org.sipdroid.sipua.ui.Settings.PREF_POS, org.sipdroid.sipua.ui.Settings.DEFAULT_POS) ||
+			PreferenceManager.getDefaultSharedPreferences(mContext).getString(org.sipdroid.sipua.ui.Settings.PREF_POSURL, org.sipdroid.sipua.ui.Settings.DEFAULT_POSURL).length() < 1) {
+				if (lm != null && am != null) {
+					pos_gps(false);
+					pos_net(false);
+					lm = null;
+					am = null;
+				}
+				return;
+			}
+			
 	        if (lm == null) lm = (LocationManager) mContext.getSystemService(Context.LOCATION_SERVICE);
 			if (am == null) am = (AlarmManager)mContext.getSystemService(Context.ALARM_SERVICE);
 			pos_gps(false);
 			if (enable) {
 				if (call_state == UserAgent.UA_STATE_IDLE && Sipdroid.on(mContext) &&
 						PreferenceManager.getDefaultSharedPreferences(mContext).getBoolean(org.sipdroid.sipua.ui.Settings.PREF_POS, org.sipdroid.sipua.ui.Settings.DEFAULT_POS) &&
-						PreferenceManager.getDefaultSharedPreferences(mContext).getString(org.sipdroid.sipua.ui.Settings.PREF_POSURL, org.sipdroid.sipua.ui.Settings.DEFAULT_POSURL).length() > 0) {
+						PreferenceManager.getDefaultSharedPreferences(mContext).getString(org.sipdroid.sipua.ui.Settings.PREF_POSURL, org.sipdroid.sipua.ui.Settings.DEFAULT_POSURL).length()>0) {
 					Location last = lm.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-					if (last == null || System.currentTimeMillis() - last.getTime() > GPS_UPDATES) {
+					if (System.currentTimeMillis() - loctrydate > GPS_UPDATES && (last == null || System.currentTimeMillis() - last.getTime() > GPS_UPDATES)) {
+						loctrydate = System.currentTimeMillis();
 						pos_gps(true);
 						pos_net(false);
-					}
+					} else if (last != null)
+			    		Receiver.url("lat="+last.getLatitude()+"&lon="+last.getLongitude()+"&rad="+last.getAccuracy());
 					pos_net(true);
 				} else
 					pos_net(false);
@@ -454,11 +476,13 @@ import org.zoolu.sip.provider.SipProvider;
     		
     		edit.putBoolean(org.sipdroid.sipua.ui.Settings.PREF_WIFI_DISABLED,!enable);
     		edit.commit();
+    		/*
     		if (enable) {
                 Intent intent = new Intent(WifiManager.WIFI_STATE_CHANGED_ACTION);
                 intent.putExtra(WifiManager.EXTRA_NEW_STATE, wm.getWifiState());
                 mContext.sendBroadcast(intent);
     		}
+    		*/
     		wm.setWifiEnabled(enable);
 		}
 			    
@@ -486,12 +510,14 @@ import org.zoolu.sip.provider.SipProvider;
 				state = laststate;
 				number = lastnumber;
 			}
-			Intent intent = new Intent(ACTION_PHONE_STATE_CHANGED);
-			intent.putExtra("state",state);
-			if (number != null)
-				intent.putExtra("incoming_number", number);
-			intent.putExtra(mContext.getString(R.string.app_name), true);
-			mContext.sendBroadcast(intent, android.Manifest.permission.READ_PHONE_STATE);
+			if (android.os.Build.VERSION.SDK_INT < 19) {
+				Intent intent = new Intent(ACTION_PHONE_STATE_CHANGED);
+				intent.putExtra("state",state);
+				if (number != null)
+					intent.putExtra("incoming_number", number);
+				intent.putExtra(mContext.getString(R.string.app_name), true);
+				mContext.sendBroadcast(intent, android.Manifest.permission.READ_PHONE_STATE);
+			}
 			if (state.equals("IDLE")) {
 				if (was_playing) {
 					if (pstn_state == null || pstn_state.equals("IDLE"))
@@ -604,8 +630,17 @@ import org.zoolu.sip.provider.SipProvider;
 				Receiver.onText(Receiver.CALL_NOTIFICATION, mContext.getString(R.string.menu_speaker), android.R.drawable.stat_sys_speakerphone,Receiver.ccCall.base);
 			else if (bluetooth > 0)
 				Receiver.onText(Receiver.CALL_NOTIFICATION, mContext.getString(R.string.menu_bluetooth), R.drawable.stat_sys_phone_call_bluetooth,Receiver.ccCall.base);
-			else
+			else switch (call_state) {
+			case UserAgent.UA_STATE_INCALL:
 				Receiver.onText(Receiver.CALL_NOTIFICATION, mContext.getString(R.string.card_title_in_progress), R.drawable.stat_sys_phone_call,Receiver.ccCall.base);
+				break;
+			case UserAgent.UA_STATE_OUTGOING_CALL:
+				Receiver.onText(Receiver.CALL_NOTIFICATION, mContext.getString(R.string.card_title_dialing), R.drawable.stat_sys_phone_call,Receiver.ccCall.base);
+				break;
+			case UserAgent.UA_STATE_INCOMING_CALL:
+				Receiver.onText(Receiver.CALL_NOTIFICATION, mContext.getString(R.string.card_title_incoming_call), R.drawable.stat_sys_phone_call,Receiver.ccCall.base);
+				break;
+			}
 		}
 
 		public static boolean on_wlan;
@@ -632,7 +667,8 @@ import org.zoolu.sip.provider.SipProvider;
         		if (!Sipdroid.release) Log.i("SipUA:","isFastWifi() "+WifiInfo.getDetailedStateOf(wi.getSupplicantState())
         				+" "+wi.getIpAddress());
 	        	if (wi.getIpAddress() != 0 && (WifiInfo.getDetailedStateOf(wi.getSupplicantState()) == DetailedState.OBTAINING_IPADDR
-	        			|| WifiInfo.getDetailedStateOf(wi.getSupplicantState()) == DetailedState.CONNECTED)) {
+	        			|| WifiInfo.getDetailedStateOf(wi.getSupplicantState()) == DetailedState.CONNECTED)
+	        			|| WifiInfo.getDetailedStateOf(wi.getSupplicantState()) == DetailedState.CONNECTING) {
 	        		on_wlan = true;
 	        		if (!on_vpn())
 	        			return PreferenceManager.getDefaultSharedPreferences(mContext).getBoolean(org.sipdroid.sipua.ui.Settings.PREF_WLAN+(i!=0?i:""), org.sipdroid.sipua.ui.Settings.DEFAULT_WLAN);
@@ -665,7 +701,7 @@ import org.zoolu.sip.provider.SipProvider;
         			return AudioManager.MODE_IN_CALL;
 		}
 		
-	    Handler mHandler = new Handler() {
+	    static Handler mHandler = new Handler() {
 	    	public void handleMessage(Message msg) {
 	    		switch (msg.what) {
 	    		case MSG_SCAN:
@@ -674,6 +710,12 @@ import org.zoolu.sip.provider.SipProvider;
 	    			break;
 	    		case MSG_ENABLE:
 	    			enable_wifi(true);
+	    			break;
+	    		case MSG_HOLD:
+	    			engine(mContext).togglehold();
+	    			break;
+	    		case MSG_HANGUP:
+	    			engine(mContext).rejectcall();
 	    			break;
 	    		}
 	    	}
@@ -684,6 +726,8 @@ import org.zoolu.sip.provider.SipProvider;
 	    		return 0;
 	    	return Math.round((scan.level + 113f) / 2f);
 	    }
+	    
+	    static long lastscan;
 	    
 	    @Override
 		public void onReceive(Context context, Intent intent) {
@@ -721,12 +765,19 @@ import org.zoolu.sip.provider.SipProvider;
 	    		pstn_time = SystemClock.elapsedRealtime();
 	    		if (pstn_state.equals("IDLE") && call_state != UserAgent.UA_STATE_IDLE)
 	    			broadcastCallStateChanged(null,null);
-	    		if ((pstn_state.equals("OFFHOOK") && call_state == UserAgent.UA_STATE_INCALL) ||
-		    			(pstn_state.equals("IDLE") && call_state == UserAgent.UA_STATE_HOLD))
-		    			engine(context).togglehold();
+	    		if (!pstn_state.equals("IDLE") && call_state == UserAgent.UA_STATE_INCALL)
+	    			mHandler.sendEmptyMessageDelayed(MSG_HOLD, 5000);
+	    		else if (!pstn_state.equals("IDLE") && (call_state == UserAgent.UA_STATE_INCOMING_CALL || call_state == UserAgent.UA_STATE_OUTGOING_CALL))
+	    			mHandler.sendEmptyMessageDelayed(MSG_HANGUP, 5000);
+	    		else if (pstn_state.equals("IDLE")) {
+	    			mHandler.removeMessages(MSG_HOLD);
+	    			mHandler.removeMessages(MSG_HANGUP);
+	    			if (call_state == UserAgent.UA_STATE_HOLD)
+	    				mHandler.sendEmptyMessageDelayed(MSG_HOLD, 1000);
+	    		}
 	        } else
 	        if (intentAction.equals(ACTION_DOCK_EVENT)) {
-	        	docked = intent.getIntExtra(EXTRA_DOCK_STATE, -1);
+	        	docked = intent.getIntExtra(EXTRA_DOCK_STATE, -1) & 7;
 	        	if (call_state == UserAgent.UA_STATE_INCALL)
 	        		engine(mContext).speaker(speakermode());
 	        } else
@@ -741,19 +792,22 @@ import org.zoolu.sip.provider.SipProvider;
 	        		engine(mContext).speaker(speakermode());
 	        } else
 	        if (intentAction.equals(Intent.ACTION_SCREEN_ON)) {
-	        	alarm(0,OwnWifi.class);
+				if (!PreferenceManager.getDefaultSharedPreferences(mContext).getBoolean(org.sipdroid.sipua.ui.Settings.PREF_OWNWIFI, org.sipdroid.sipua.ui.Settings.DEFAULT_OWNWIFI))
+					alarm(0,OwnWifi.class);
 	        } else
 	        if (intentAction.equals(Intent.ACTION_USER_PRESENT)) {
-	        	mHandler.sendEmptyMessageDelayed(MSG_ENABLE, 3000);
+	        	mHandler.sendEmptyMessageDelayed(MSG_ENABLE,3000);
 	        } else
 	        if (intentAction.equals(Intent.ACTION_SCREEN_OFF)) {
-	        	WifiManager wm = (WifiManager) mContext.getSystemService(Context.WIFI_SERVICE);
-	        	WifiInfo wi = wm.getConnectionInfo();
-	        	if (wm.getWifiState() != WifiManager.WIFI_STATE_ENABLED || wi == null || wi.getSupplicantState() != SupplicantState.COMPLETED
-	        			|| wi.getIpAddress() == 0)
-	        		alarm(2*60,OwnWifi.class);
-	        	else
-	        		alarm(15*60,OwnWifi.class);
+				if (PreferenceManager.getDefaultSharedPreferences(mContext).getBoolean(org.sipdroid.sipua.ui.Settings.PREF_OWNWIFI, org.sipdroid.sipua.ui.Settings.DEFAULT_OWNWIFI)) {
+		        	WifiManager wm = (WifiManager) mContext.getSystemService(Context.WIFI_SERVICE);
+		        	WifiInfo wi = wm.getConnectionInfo();
+		        	if (wm.getWifiState() != WifiManager.WIFI_STATE_ENABLED || wi == null || wi.getSupplicantState() != SupplicantState.COMPLETED
+		        			|| wi.getIpAddress() == 0)
+		        		alarm(2*60,OwnWifi.class);
+		        	else
+		        		alarm(15*60,OwnWifi.class);
+				}
 	        	if (SipdroidEngine.pwl != null)
 	        		for (PowerManager.WakeLock pwl : SipdroidEngine.pwl)
 	        			if (pwl != null && pwl.isHeld()) {
@@ -762,44 +816,47 @@ import org.zoolu.sip.provider.SipProvider;
 	        			}
 	        } else
 		    if (intentAction.equals(WifiManager.WIFI_STATE_CHANGED_ACTION)) {
-		    	mHandler.sendEmptyMessageDelayed(MSG_SCAN, 3000);
+				if (PreferenceManager.getDefaultSharedPreferences(mContext).getBoolean(org.sipdroid.sipua.ui.Settings.PREF_SELECTWIFI, org.sipdroid.sipua.ui.Settings.DEFAULT_SELECTWIFI))
+					mHandler.sendEmptyMessageDelayed(MSG_SCAN, 3000);
 	        } else
 	        if (intentAction.equals(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION)) {
-	        	if (PreferenceManager.getDefaultSharedPreferences(mContext).getBoolean(org.sipdroid.sipua.ui.Settings.PREF_SELECTWIFI, org.sipdroid.sipua.ui.Settings.DEFAULT_SELECTWIFI)) {
+	        	if (SystemClock.uptimeMillis() > lastscan + 45000 &&
+	        			PreferenceManager.getDefaultSharedPreferences(mContext).getBoolean(org.sipdroid.sipua.ui.Settings.PREF_SELECTWIFI, org.sipdroid.sipua.ui.Settings.DEFAULT_SELECTWIFI)) {
 		        	WifiManager wm = (WifiManager) mContext.getSystemService(Context.WIFI_SERVICE);
 		        	WifiInfo wi = wm.getConnectionInfo();
 		        	String activeSSID = null;
-		        	boolean activeFound = false;
 		        	if (wi != null) activeSSID = wi.getSSID();
+		        	if (activeSSID != null && (activeSSID.length() == 0 || activeSSID.equals("0x"))) activeSSID = null;
 		        	List<ScanResult> mScanResults = wm.getScanResults();
 		        	List<WifiConfiguration> configurations = wm.getConfiguredNetworks();
 		        	if (configurations != null) {
-		                WifiConfiguration bestconfig = null,maxconfig = null;
+		                WifiConfiguration bestconfig = null,maxconfig = null,activeconfig = null;
 		                for(final WifiConfiguration config : configurations) {
 		                        if (maxconfig == null || config.priority > maxconfig.priority) {
 		                                maxconfig = config;
 		                        }
+		                        if (config.SSID != null && (config.SSID.equals("\""+activeSSID+"\"") ||
+		                        		config.SSID.equals(activeSSID)))
+		                        	activeconfig = config;
 		                }
-		                ScanResult bestscan = null,maxscan = null;
+		                ScanResult bestscan = null,activescan = null;
 		                if (mScanResults != null)
 			                for(final ScanResult scan : mScanResults) {	
-		                    	if (activeSSID != null && activeSSID.equals(scan.SSID))
-		                    		activeFound = true;
 			                    for(final WifiConfiguration config : configurations) {
 			                    	if (config.SSID != null && config.SSID.equals("\""+scan.SSID+"\"")) {
 			                    		if (bestscan == null || scan.level > bestscan.level) {
 				                    		bestscan = scan;
 				                    		bestconfig = config;
 			                    		}
-			                    		if (config == maxconfig) {
-			                    			maxscan = scan;
-			                    		}
+				                    	if (config == activeconfig)
+				                    		activescan = scan;
 			                    	}
 			                    }
 			                }
-		                if (bestconfig != null && bestconfig.priority != maxconfig.priority &&
-		                		asu(bestscan) > asu(maxscan)*1.5 &&
-		                		(activeSSID == null || activeFound)) {
+		                if (bestconfig != null &&
+		                		(activeconfig == null || bestconfig.priority != activeconfig.priority) &&
+		                		asu(bestscan) > asu(activescan)*1.5 &&
+		                		/* (activeSSID == null || activescan != null) && */ asu(bestscan) > 22) {
 		               		if (!Sipdroid.release) Log.i("SipUA:","changing to "+bestconfig.SSID);
 		               		if (activeSSID == null || !activeSSID.equals(bestscan.SSID))
 		               			wm.disconnect();
@@ -809,6 +866,11 @@ import org.zoolu.sip.provider.SipProvider;
 		                	wm.saveConfiguration();
 		               		if (activeSSID == null || !activeSSID.equals(bestscan.SSID))
 		               			wm.reconnect();
+		        			lastscan = SystemClock.uptimeMillis();
+		                } else if (activescan != null && asu(activescan) < 15) {
+		                	wm.disconnect();
+		                	wm.disableNetwork(activeconfig.networkId);
+		                	wm.saveConfiguration();
 		                }
 		        	}
 	        	}

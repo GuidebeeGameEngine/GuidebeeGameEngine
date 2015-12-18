@@ -96,15 +96,11 @@ public class Log {
 	public Log(String file_name, String log_tag, int verbose_level) {
 		PrintStream os = null;
 		if (verbose_level > 0) {
-			/**
-			 * Modified by the Mconf team
-			 * removed the log in a file
-			 */
-//			try {
-//				os = new PrintStream(new FileOutputStream(file_name));
-//			} catch (IOException e) {
-//				e.printStackTrace();
-//			}
+			try {
+				os = new PrintStream(new FileOutputStream(file_name));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 			init(os, log_tag, verbose_level, MAX_SIZE);
 		}
 	}
@@ -118,15 +114,11 @@ public class Log {
 			long max_size) {
 		PrintStream os = null;
 		if (verbose_level > 0) {
-			/**
-			 * Modified by the Mconf team
-			 * removed the log in a file
-			 */
-//			try {
-//				os = new PrintStream(new FileOutputStream(file_name));
-//			} catch (IOException e) {
-//				e.printStackTrace();
-//			}
+			try {
+				os = new PrintStream(new FileOutputStream(file_name));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 			init(os, log_tag, verbose_level, max_size);
 		} else {
 			init(null, log_tag, 0, 0);
@@ -143,15 +135,11 @@ public class Log {
 			long max_size, boolean append) {
 		PrintStream os = null;
 		if (verbose_level > 0) {
-			/**
-			 * Modified by the Mconf team
-			 * removed the log in a file
-			 */
-//			try {
-//				os = new PrintStream(new FileOutputStream(file_name, append));
-//			} catch (IOException e) {
-//				e.printStackTrace();
-//			}
+			try {
+				os = new PrintStream(new FileOutputStream(file_name, append));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 			init(os, log_tag, verbose_level, max_size);
 		} else {
 			init(null, log_tag, 0, 0);
@@ -179,12 +167,8 @@ public class Log {
 
 	/** Flushes */
 	protected Log flush() {
-		/**
-		 * Modified by the Mconf team
-		 * removed the log in a file
-		 */
-//		if (verbose_level > 0)
-//			out_stream.flush();
+		if (verbose_level > 0)
+			out_stream.flush();
 		return this;
 	}
 
@@ -193,11 +177,7 @@ public class Log {
 	/** Closes the log */
 	public void close() {
 		do_log = false;
-		/**
-		 * Modified by the Mconf team
-		 * removed the log in a file
-		 */
-//		out_stream.close();
+		out_stream.close();
 	}
 
 	/** Logs the Exception */
@@ -250,16 +230,10 @@ public class Log {
 	 */
 	public Log print(String message, int level) {
 		if (do_log && level <= verbose_level) {
-			/**
-			 * Modified by the Mconf team
-			 * removed the log in a file
-			 */
 			if (log_tag != null)
-				android.util.Log.d(log_tag, message);
-//				out_stream.print(log_tag + ": " + message);
+				out_stream.print(log_tag + ": " + message);
 			else
-				android.util.Log.d("sipdroid", message);
-//				out_stream.print(message);
+				out_stream.print(message);
 
 			if (max_size >= 0) {
 				counter += tag_size + message.length();

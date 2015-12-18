@@ -45,7 +45,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.provider.CallLog.Calls;
-import android.provider.Contacts.People;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -233,6 +232,27 @@ public class Sipdroid extends Activity implements OnDismissListener {
 		});
 
 		final Context mContext = this;
+
+		Button settingsButton = (Button) findViewById(R.id.settings_button);
+		settingsButton.setOnClickListener(new Button.OnClickListener() {
+			public void onClick(View v) {
+					Intent myIntent = new Intent(mContext,org.sipdroid.sipua.ui.Settings.class);
+				startActivity(myIntent);
+			}
+		});
+		Button exitButton = (Button) findViewById(R.id.exit_button);
+		exitButton.setOnClickListener(new Button.OnClickListener() {
+			public void onClick(View v) {
+				on(mContext,false);
+				Receiver.pos(true);
+				Receiver.engine(mContext).halt();
+				Receiver.mSipdroidEngine = null;
+				Receiver.reRegister(0);
+				stopService(new Intent(mContext,RegisterService.class));
+				finish();
+			}
+		});
+
 		final OnDismissListener listener = this;
 		
 		createButton = (Button) findViewById(R.id.create_button);
@@ -326,10 +346,10 @@ public class Sipdroid extends Activity implements OnDismissListener {
 		super.onResume();
 		if (Receiver.call_state != UserAgent.UA_STATE_IDLE) Receiver.moveTop();
 		String text;
-		if (Checkin.createButton == 0 || Random.nextInt(Checkin.createButton) != 0)
+		text = Integer.parseInt(Build.VERSION.SDK) >= 5?CreateAccount.isPossible(this):null;
+		if (text != null && !text.contains("Google Voice") &&
+				(Checkin.createButton == 0 || Random.nextInt(Checkin.createButton) != 0))
 			text = null;
-		else
-			text = Integer.parseInt(Build.VERSION.SDK) >= 5?CreateAccount.isPossible(this):null;
 		if (text != null) {
 			createButton.setVisibility(View.VISIBLE);
 			createButton.setText(text);

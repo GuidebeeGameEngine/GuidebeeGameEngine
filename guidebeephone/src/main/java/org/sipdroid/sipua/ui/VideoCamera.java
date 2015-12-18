@@ -36,6 +36,7 @@ import org.sipdroid.sipua.R;
 
 import android.content.Context;
 import android.hardware.Camera;
+import android.hardware.Camera.CameraInfo;
 import android.location.LocationManager;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
@@ -95,7 +96,7 @@ public class VideoCamera extends CallScreen implements
     private Handler mHandler = new MainHandler();
 	LocalSocket receiver,sender;
 	LocalServerSocket lss;
-	int obuffering;
+	int obuffering,opos;
 	int fps;
 	
     /** This Handler is used to post message back onto the main thread of the application */
@@ -130,12 +131,12 @@ public class VideoCamera extends CallScreen implements
                        	mRecordingTimeView.setText(text);
                         if (fps != 0) mFPS.setText(fps+(videoQualityHigh?"h":"l")+"fps");
                        	if (mVideoFrame != null) {
-                       		int buffering = mVideoFrame.getBufferPercentage();
+                       		int buffering = mVideoFrame.getBufferPercentage(),pos = mVideoFrame.getCurrentPosition();
                             if (buffering != 100 && buffering != 0) {
                             	mMediaController.show();
                             }
                             if (buffering != 0 && !mMediaRecorderRecording) mVideoPreview.setVisibility(View.INVISIBLE);
-                            if (obuffering != buffering && buffering == 100 && rtp_socket != null) {
+                            if (((obuffering != buffering && buffering == 100) || (opos == 0 && pos > 0)) && rtp_socket != null) {
         						RtpPacket keepalive = new RtpPacket(new byte[12],0);
         						keepalive.setPayloadType(125);
         						try {
@@ -144,6 +145,7 @@ public class VideoCamera extends CallScreen implements
 								}
                             }
                             obuffering = buffering;
+                            opos = pos;
                       	}
                         
                         // Work around a limitation of the T-Mobile G1: The T-Mobile
@@ -373,10 +375,14 @@ public class VideoCamera extends CallScreen implements
 					Log.d(TAG, ex.toString());
 				}
 			} else {
-				mCamera = Camera.open(); 
-				Camera.Parameters parameters = mCamera.getParameters(); 
-				parameters.set("camera-id", 2); 
-				mCamera.setParameters(parameters); 
+				if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) {
+					mCamera = VideoCameraNew_SDK9.open();
+				} else {
+					mCamera = Camera.open();
+					Camera.Parameters parameters = mCamera.getParameters();
+					parameters.set("camera-id", 2);
+					mCamera.setParameters(parameters);
+				}
 			}
 			VideoCameraNew.unlock(mCamera);
 			mMediaRecorder.setCamera(mCamera);
@@ -386,12 +392,11 @@ public class VideoCamera extends CallScreen implements
         mMediaRecorder.setVideoSource(MediaRecorder.VideoSource.CAMERA);
         mMediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
         mMediaRecorder.setOutputFile(sender.getFileDescriptor());
+        if (Integer.parseInt(Build.VERSION.SDK) < 14)
+        	mMediaRecorder.setVideoFrameRate(20);
+        else if (Integer.parseInt(Build.VERSION.SDK) > 16)
+        	mMediaRecorder.setVideoFrameRate(30);
 
-        // Use the same frame rate for both, since internally
-        // if the frame rate is too large, it can cause camera to become
-        // unstable. We need to fix the MediaRecorder to disable the support
-        // of setting frame rate for now.
-        mMediaRecorder.setVideoFrameRate(20);
         if (videoQualityHigh) {
             mMediaRecorder.setVideoSize(352,288);
         } else {
@@ -511,9 +516,11 @@ public class VideoCamera extends CallScreen implements
     							break;
 							}
     						
-        					for (num = 14; num <= 14+number-2; num++)
-    							if (buffer[num] == 0 && buffer[num+1] == 0) break;
-    						if (num > 14+number-2) {
+        					for (num = 14; num <= 14+number-3; num++)
+    							if (buffer[num] == 0 && buffer[num+1] == 0 && (buffer[num+2]&0xfc) == 0x80) {
+    								break;
+    							}
+    						if (num > 14+number-3) {
     							num = 0;
     							rtp_packet.setMarker(false);
     						} else {	

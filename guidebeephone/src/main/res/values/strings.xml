@@ -71,7 +71,7 @@
 <string name="settings_username1">Username or Caller ID</string>
 <string name="settings_callerid2">Leave empty if same as authorization username</string>
 <string name="settings_port">Port</string>
-	<string-array name="port_display_values">
+	<string-array name="port_display_values2">
 		<item>53</item>
 		<item>69</item>
 		<item>80</item>
@@ -86,13 +86,14 @@
 		<item>4500</item>
 		<item>5060 (standard)</item>
 		<item>5061</item>
+		<item>5070</item>
 		<item>5900</item>
 		<item>16999</item>
 		<item>26999</item>
 		<item>36999</item>
 		<item>custom</item>
 	</string-array>
-	<string-array name="port_values">
+	<string-array name="port_values2">
 		<item>53</item>
 		<item>69</item>
 		<item>80</item>
@@ -107,6 +108,7 @@
 		<item>4500</item>
 		<item>5060</item>
 		<item>5061</item>
+		<item>5070</item>
 		<item>5900</item>
 		<item>16999</item>
 		<item>26999</item>
@@ -115,14 +117,16 @@
 	</string-array>
 
 <string name="settings_protocol">Protocol</string>
-    <string-array name="protocol_display_values">
+    <string-array name="protocol_display_values2">
         <item>UDP (less standby on 3G)</item>
         <item>TCP (longer standby on 3G)</item>
-    </string-array>
-    <string-array name="protocol_values">
+        <item>TLS (encrypted)</item>
+        </string-array>
+    <string-array name="protocol_values2">
         <item>udp</item>
         <item>tcp</item>
-    </string-array>
+        <item>tls</item>
+        </string-array>
 <string name="settings_vquality">Video Quality</string>
     <string-array name="vquality_display_values">
         <item>High (352x288 @ 360kbit)</item>
@@ -304,6 +308,5 @@
 
 <string name="help_speakerphone">Press and hold volume buttons to force talk</string>
 <string name="menu_create">New PBX linked to my Google Voice</string>
-<string name="menu_register">Register VideoSMS feature</string>
 
 </resources>

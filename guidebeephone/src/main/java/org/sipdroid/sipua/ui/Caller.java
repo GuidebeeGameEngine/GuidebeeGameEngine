@@ -37,9 +37,9 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
-import android.provider.Contacts;
-import android.provider.Contacts.People;
-import android.provider.Contacts.Phones;
+import android.provider.ContactsContract;
+import android.provider.ContactsContract.CommonDataKinds.Phone;
+import android.provider.ContactsContract.PhoneLookup;
 import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
 import android.util.Log;
@@ -49,6 +49,34 @@ public class Caller extends BroadcastReceiver {
 		static long noexclude;
 		String last_number;
 		long last_time;
+		
+		static String getNumber(Context context,Uri contactRef,String column) {
+			String number = "";
+
+	        Cursor phonesCursor = context.getContentResolver().query(contactRef, null, null, null,
+	        		ContactsContract.CommonDataKinds.Phone.IS_PRIMARY + " DESC");
+	        if (phonesCursor != null) 
+	        {	        			        	
+	            if (phonesCursor.moveToNext()) 
+	            {
+	            	String id = phonesCursor.getString(phonesCursor
+	                        .getColumnIndex(column));
+		            Cursor pCur = context.getContentResolver().query(Phone.CONTENT_URI,  
+		            		null, Phone.CONTACT_ID + "=?", new String[] { id }, null);
+		        	while (pCur.moveToNext()) {
+	    	            	String n = pCur.getString(pCur
+	    	                            .getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
+	    	            	if (TextUtils.isEmpty(n)) continue;
+	    	             	if (!number.equals("")) number = number + "&";
+	    	             	n = PhoneNumberUtils.stripSeparators(n);
+	    	             	number = number + searchReplaceNumber(context, n);
+	    	        }
+	    	        pCur.close();
+	            }
+	            phonesCursor.close();
+	        }
+	        return number;
+		}
 		
 		@Override
 		public void onReceive(final Context context, Intent intent) {
@@ -107,11 +135,11 @@ public class Caller extends BroadcastReceiver {
 				    	for(int i = 0; i < vExPats.size(); i++)
 			            {
 				    		if (vExPats.get(i).startsWith("h") || vExPats.get(i).startsWith("H"))
-			        			vTypesCode.add(Integer.valueOf(People.Phones.TYPE_HOME));
+			        			vTypesCode.add(Integer.valueOf(ContactsContract.CommonDataKinds.Phone.TYPE_HOME));
 				    		else if (vExPats.get(i).startsWith("m") || vExPats.get(i).startsWith("M"))
-			        			vTypesCode.add(Integer.valueOf(People.Phones.TYPE_MOBILE));
+			        			vTypesCode.add(Integer.valueOf(ContactsContract.CommonDataKinds.Phone.TYPE_MOBILE));
 				    		else if (vExPats.get(i).startsWith("w") || vExPats.get(i).startsWith("W"))
-			        			vTypesCode.add(Integer.valueOf(People.Phones.TYPE_WORK));
+			        			vTypesCode.add(Integer.valueOf(ContactsContract.CommonDataKinds.Phone.TYPE_WORK));
 				    		else 
 				    			vPatNums.add(vExPats.get(i));     
 			            }
@@ -144,46 +172,14 @@ public class Caller extends BroadcastReceiver {
 	        		    	}
 	        		    	
 	        		    	// Search & replace.
-	    				String search = sp.getString(Settings.PREF_SEARCH, Settings.DEFAULT_SEARCH);
-	    				String callthru_number = searchReplaceNumber(search, number);
+	    				String callthru_number = searchReplaceNumber(context,number);
 	    				String callthru_prefix;
 	    				
 						if (!ask && !force && PreferenceManager.getDefaultSharedPreferences(context).getBoolean(Settings.PREF_PAR, Settings.DEFAULT_PAR)) 
 	    				{
-/*	    					String orig = intent.getStringExtra("android.phone.extra.ORIGINAL_URI");	
-	     					if (orig.lastIndexOf("/phones") >= 0) 
-	    					{
-	     						orig = orig.substring(0,orig.lastIndexOf("/phones")+7);
-	        					Uri contactRef = Uri.parse(orig);
-	        					*/
-	        			    	Uri contactRef = Uri.withAppendedPath(Contacts.Phones.CONTENT_FILTER_URL, number);
-	        				    final String[] PHONES_PROJECTION = new String[] {
-	         				        People.Phones.NUMBER, // 0
-	        				        People.Phones.TYPE, // 1
-	        				    };
-	        			        Cursor phonesCursor = context.getContentResolver().query(contactRef, PHONES_PROJECTION, null, null,
-	        			                Phones.ISPRIMARY + " DESC");
-	        			        if (phonesCursor != null) 
-	        			        {	        			        	
-	        			        	number = "";
-	        			            while (phonesCursor.moveToNext()) 
-	        			            {
-	        			                final int type = phonesCursor.getInt(1);
-	        			                String n = phonesCursor.getString(0);
-	         			                if (TextUtils.isEmpty(n)) continue;
-	         			                if (type == Phones.TYPE_MOBILE || type == Phones.TYPE_HOME || type == Phones.TYPE_WORK) 
-	         			                {
-	         			                	if (!number.equals("")) number = number + "&";
-	         			                	n = PhoneNumberUtils.stripSeparators(n);
-	         			                	number = number + searchReplaceNumber(search, n);
-	        			                }
-	        			            }
-	        			            phonesCursor.close();
-	        			            if (number.equals(""))
-	        			            	number = callthru_number;
-	        			        } else
-	        			        	number = callthru_number;
-//	        				}        					
+	        			    number = getNumber(context,Uri.withAppendedPath(ContactsContract.PhoneLookup.CONTENT_FILTER_URI, number), PhoneLookup._ID);
+	        			    if (number.equals(""))
+	        			    	number = callthru_number;
 	    				} else
 	    					number = callthru_number;
 						
@@ -193,7 +189,7 @@ public class Caller extends BroadcastReceiver {
 	    					setResultData(null);
 	    				else if (!ask && PreferenceManager.getDefaultSharedPreferences(context).getBoolean(Settings.PREF_CALLTHRU, Settings.DEFAULT_CALLTHRU) &&
 	    						(callthru_prefix = PreferenceManager.getDefaultSharedPreferences(context).getString(Settings.PREF_CALLTHRU2, Settings.DEFAULT_CALLTHRU2)).length() > 0) {
-	    					callthru_number = (callthru_prefix+","+callthru_number+"#").replaceAll(",", ",p");
+	    					callthru_number = (callthru_prefix+","+callthru_number+"#");
 	    					setResultData(callthru_number);
 	    				} else if (ask || force) {
 	    					setResultData(null);
@@ -216,7 +212,9 @@ public class Caller extends BroadcastReceiver {
 	        }
 	    }
 		
-		private String searchReplaceNumber(String pattern, String number) {
+		static private String searchReplaceNumber(Context context,String number) {
+	    	SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
+			String pattern = sp.getString(Settings.PREF_SEARCH, Settings.DEFAULT_SEARCH);
 		    // Comma should be safe as separator.
 		    String[] split = pattern.split(",");
 		    // We need exactly 2 parts: search and replace. Otherwise
@@ -297,11 +295,11 @@ public class Caller extends BroadcastReceiver {
 	    
 	    boolean isExcludedType(Vector<Integer> vExTypesCode, String sNumber, Context oContext)
 	    {
-	    	Uri contactRef = Uri.withAppendedPath(Contacts.Phones.CONTENT_FILTER_URL, sNumber);
+	    	Uri contactRef = Uri.withAppendedPath(ContactsContract.CommonDataKinds.Phone.CONTENT_FILTER_URI, sNumber);
 	    	final String[] PHONES_PROJECTION = new String[] 
 		    {
-		        People.Phones.NUMBER, // 0
-		        People.Phones.TYPE, // 1
+	    			ContactsContract.CommonDataKinds.Phone.NUMBER, // 0
+	    			ContactsContract.CommonDataKinds.Phone.TYPE, // 1
 		    };
 	        Cursor phonesCursor = oContext.getContentResolver().query(contactRef, PHONES_PROJECTION, null, null,
 	                null);

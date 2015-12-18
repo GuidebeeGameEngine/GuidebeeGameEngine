@@ -14,6 +14,7 @@ import org.sipdroid.sipua.ui.InstantAutoCompleteTextView;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.KeyguardManager;
+import android.app.KeyguardManager.OnKeyguardExitResult;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -59,6 +60,7 @@ public class CallScreen extends Activity implements DialogInterface.OnClickListe
 	public static final int TRANSFER_MENU_ITEM = FIRST_MENU_ID + 7;
 	public static final int ANSWER_MENU_ITEM = FIRST_MENU_ID + 8;
 	public static final int BLUETOOTH_MENU_ITEM = FIRST_MENU_ID + 9;
+	public static final int DTMF_MENU_ITEM = FIRST_MENU_ID + 10;
 
 	private static EditText transferText;
 
@@ -192,6 +194,11 @@ public class CallScreen extends Activity implements DialogInterface.OnClickListe
     	}
 		if (enabled) {
 			mKeyguardLock.disableKeyguard();
+			if (Integer.parseInt(Build.VERSION.SDK) == 16 && Build.MODEL.contains("HTC One"))
+				mKeyguardManager.exitKeyguardSecurely(new OnKeyguardExitResult() {
+				    public void onKeyguardExitResult(boolean success) {
+				    }
+				});
 			enabled = false;
 			enabletime = SystemClock.elapsedRealtime();
 		}

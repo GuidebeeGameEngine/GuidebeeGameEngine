@@ -49,6 +49,8 @@ import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -65,6 +67,8 @@ public class InCallScreen extends CallScreen implements View.OnClickListener, Se
 	final int MSG_BACK = 3;
 	final int MSG_TICK = 4;
 	final int MSG_POPUP = 5;
+	final int MSG_ACCEPT = 6;
+	final int MSG_ACCEPT_FORCE = 7;
 	
 	final int SCREEN_OFF_TIMEOUT = 12000;
 	
@@ -99,6 +103,8 @@ public class InCallScreen extends CallScreen implements View.OnClickListener, Se
 	public void onStop() {
 		super.onStop();
 		mHandler.removeMessages(MSG_BACK);
+		mHandler.removeMessages(MSG_ACCEPT);
+		mHandler.sendEmptyMessageDelayed(MSG_ACCEPT_FORCE, 1000);
 		if (Receiver.call_state == UserAgent.UA_STATE_IDLE)
 			finish();
 		sensorManager.unregisterListener(this);
@@ -108,11 +114,13 @@ public class InCallScreen extends CallScreen implements View.OnClickListener, Se
 	@Override
 	public void onStart() {
 		super.onStart();
+		mHandler.removeMessages(MSG_ACCEPT_FORCE);
 		if (Receiver.call_state == UserAgent.UA_STATE_IDLE)
      		mHandler.sendEmptyMessageDelayed(MSG_BACK, Receiver.call_end_reason == -1?
     				2000:5000);
 	    first = true;
 	    pactive = false;
+	    pactivetime = SystemClock.elapsedRealtime();
 	    sensorManager.registerListener(this,proximitySensor,SensorManager.SENSOR_DELAY_NORMAL);
 	    started = true;
 	}
@@ -252,7 +260,7 @@ public class InCallScreen extends CallScreen implements View.OnClickListener, Se
     			if (RtpStreamReceiver.good != 0) {
     				if (RtpStreamReceiver.timeout != 0)
     					mStats.setText("no data");
-    				else if (RtpStreamSender.m == 2)
+    				else if (RtpStreamSender.m > 1)
 	    				mStats.setText(Math.round(RtpStreamReceiver.loss/RtpStreamReceiver.good*100)+"%loss, "+
 	    						Math.round(RtpStreamReceiver.lost/RtpStreamReceiver.good*100)+"%lost, "+
 	    						Math.round(RtpStreamReceiver.late/RtpStreamReceiver.good*100)+"%late (>"+
@@ -267,6 +275,21 @@ public class InCallScreen extends CallScreen implements View.OnClickListener, Se
     			break;
     		case MSG_POPUP:
     	        if (mSlidingCardManager != null) mSlidingCardManager.showPopup();
+    			break;
+    		case MSG_ACCEPT:
+    		case MSG_ACCEPT_FORCE:
+    	        setScreenBacklight((float) -1);
+    	        getWindow().setFlags(0, 
+                        WindowManager.LayoutParams.FLAG_FULLSCREEN);
+    	        if (mDialerDrawer != null) {
+					mDialerDrawer.close();
+					mDialerDrawer.setVisibility(View.VISIBLE);
+    	        }
+				ContentResolver cr = getContentResolver();
+    			if (hapticset) {
+    				Settings.System.putInt(cr, Settings.System.HAPTIC_FEEDBACK_ENABLED, haptic);
+    				hapticset = false;
+    			}
     			break;
     		}
     	}
@@ -438,8 +461,6 @@ public class InCallScreen extends CallScreen implements View.OnClickListener, Se
         case KeyEvent.KEYCODE_BACK:
         	if (mDialerDrawer.isOpened())
         		mDialerDrawer.animateClose();
-        	else if (Receiver.call_state == UserAgent.UA_STATE_INCOMING_CALL)
-        		reject();      
             return true;
 
         case KeyEvent.KEYCODE_CAMERA:
@@ -464,6 +485,34 @@ public class InCallScreen extends CallScreen implements View.OnClickListener, Se
 	        }
         }
         return super.onKeyDown(keyCode, event);
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		boolean result = super.onCreateOptionsMenu(menu);
+
+		MenuItem m = menu.add(0, DTMF_MENU_ITEM, 0, R.string.menu_dtmf);
+		m.setIcon(R.drawable.ic_menu_dial_pad);
+		return result;
+	}
+
+	@Override
+	public boolean onPrepareOptionsMenu(Menu menu) {
+		boolean result = super.onPrepareOptionsMenu(menu);
+
+		menu.findItem(DTMF_MENU_ITEM).setVisible(Receiver.call_state == UserAgent.UA_STATE_INCALL);
+		return !(pactive || SystemClock.elapsedRealtime()-pactivetime < 1000);
+	}
+		
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case DTMF_MENU_ITEM:
+			mDialerDrawer.animateOpen();
+			return true;
+		default:
+			return super.onOptionsItemSelected(item);
+		}
 	}
 	
 	@Override
@@ -497,16 +546,40 @@ public class InCallScreen extends CallScreen implements View.OnClickListener, Se
 
 	static final float PROXIMITY_THRESHOLD = 5.0f;
 	public static boolean pactive;
+	public static long pactivetime;
+	static int haptic;
+	static boolean hapticset;
 	
 	@Override
 	public void onSensorChanged(SensorEvent event) {
+		boolean keepon = PreferenceManager.getDefaultSharedPreferences(mContext).getBoolean(org.sipdroid.sipua.ui.Settings.PREF_KEEPON, org.sipdroid.sipua.ui.Settings.DEFAULT_KEEPON);
 		if (first) {
 			first = false;
 			return;
 		}
 		float distance = event.values[0];
         boolean active = (distance >= 0.0 && distance < PROXIMITY_THRESHOLD && distance < event.sensor.getMaximumRange());
+		if (!keepon ||
+				Receiver.call_state == UserAgent.UA_STATE_HOLD)
+			active = false;
         pactive = active;
-        setScreenBacklight((float) (active?0.1:-1));
+        pactivetime = SystemClock.elapsedRealtime();
+        if (!active) {
+     		mHandler.sendEmptyMessageDelayed(MSG_ACCEPT, 1000);
+     		return;
+        }
+        mHandler.removeMessages(MSG_ACCEPT);
+        setScreenBacklight((float) 0.1);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, 
+                                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        closeOptionsMenu();
+		mDialerDrawer.close();
+		mDialerDrawer.setVisibility(View.GONE);
+        ContentResolver cr = getContentResolver();
+		if (!hapticset) {
+			haptic = Settings.System.getInt(cr, Settings.System.HAPTIC_FEEDBACK_ENABLED, 1);
+			hapticset = true;
+		}
+		Settings.System.putInt(cr, Settings.System.HAPTIC_FEEDBACK_ENABLED, 0);
 	}
 }

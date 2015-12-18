@@ -229,6 +229,7 @@ public class SlidingCardManager implements ViewTreeObserver.OnGlobalLayoutListen
         // aligned exactly with the bottom of the main frame.
         if (height == 0) {
         	height = mCallCard.getHeight();
+        	if (height == 0) return;
             // Reposition the "slide hints".
             RelativeLayout.LayoutParams lp =
                     (RelativeLayout.LayoutParams) mSlideUp.getLayoutParams();
@@ -358,7 +359,9 @@ public class SlidingCardManager implements ViewTreeObserver.OnGlobalLayoutListen
         final int yAbsolute = (int) ev.getRawY();
         
         if (isSlideInProgress()) {
-            if (SystemClock.elapsedRealtime()-mTouchDownTime > 1000 || InCallScreen.pactive)
+        	long now = SystemClock.elapsedRealtime();
+            if (now-mTouchDownTime > 1000 || InCallScreen.pactive ||
+            		now-InCallScreen.pactivetime < 1000)
             	abortSlide();
             else
             switch (action) {

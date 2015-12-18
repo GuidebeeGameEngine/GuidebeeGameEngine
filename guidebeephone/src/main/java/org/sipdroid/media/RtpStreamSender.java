@@ -82,11 +82,7 @@ public class RtpStreamSender extends Thread {
 
 	/** Whether it is running */
 	boolean running = false;
-	/**
-	 * Modified by the Mconf team
-	 * the sender begins muted
-	 */
-	boolean muted = true;
+	boolean muted = false;
 	
 	//DTMF change
 	String dtmf = "";
@@ -272,7 +268,7 @@ public class RtpStreamSender extends Thread {
 	/** Runs it in a new Thread. */
 	public void run() {
 		WifiManager wm = (WifiManager) Receiver.mContext.getSystemService(Context.WIFI_SERVICE);
-		long lastscan = 0;
+		long lastscan = 0,lastsent = 0;
 
 		if (rtp_socket == null)
 			return;
@@ -306,12 +302,7 @@ public class RtpStreamSender extends Thread {
 			if (frame_size == 960) frame_size = 320;
 		} else {
 			if (frame_size == 960) frame_size = 320;
-			if (frame_size == 1024) frame_size *= 2;
-			/**
-			 * Modified by the Mconf team
-			 * this parameter is to avoid the log message "RecordThread: buffer overflow"
-			 */
-			min *= 2;
+			if (frame_size == 1024) frame_size = 160; // frame_size *= 2;
 		}
 		frame_rate = p_type.codec.samp_rate()/frame_size;
 		long frame_period = 1000 / frame_rate;
@@ -327,7 +318,7 @@ public class RtpStreamSender extends Thread {
 
 		AudioRecord record = null;
 		
-		short[] lin = new short[frame_size*(frame_rate+1)];
+		short[] lin = new short[frame_size*(frame_rate+2)];
 		int num,ring = 0,pos;
 		random = new Random();
 		InputStream alerting = null;
@@ -356,6 +347,9 @@ public class RtpStreamSender extends Thread {
 					record = null;
 					break;
 				}
+				if (android.os.Build.VERSION.SDK_INT >= 16) {
+					RtpStreamSenderNew_SDK16.aec(record);
+				}
 				record.startRecording();
 				micgain = (int)(Settings.getMicGain()*10);
 			 }
@@ -363,29 +357,13 @@ public class RtpStreamSender extends Thread {
 				if (Receiver.call_state == UserAgent.UA_STATE_HOLD)
 					RtpStreamReceiver.restoreMode();
 				record.stop();
-				/**
-				 * Modified by the Mconf team
-				 * record must be released after stop
-				 */
-				record.release();
-				record = null;
 				while (running && (muted || Receiver.call_state == UserAgent.UA_STATE_HOLD)) {
 					try {
-						/**
-						 * Modified by the Mconf team
-						 * the sleep time is reduced
-						 */
-						// sleep(1000);
-						sleep(50);
+						sleep(1000);
 					} catch (InterruptedException e1) {
 					}
 				}
-				/**
-				 * Modified by the Mconf team
-				 * instead of start recording here, it will go back to the beginning loop
-				 */
-				// record.startRecording();
-				continue;
+				record.startRecording();
 			 }
 			 //DTMF change start
 			 if (dtmf.length() != 0) {
@@ -442,7 +420,7 @@ public class RtpStreamSender extends Thread {
 					 last_tx_time += next_tx_delay-sync_adj;
 				 }
 			 }
-			 pos = (ring+delay*frame_rate*frame_size)%(frame_size*(frame_rate+1));
+			 pos = Integer.parseInt(Build.VERSION.SDK) == 21?0:((ring+delay*frame_rate*frame_size/2)%(frame_size*(frame_rate+1)));
 			 num = record.read(lin,pos,frame_size);
 			 if (num <= 0)
 				 continue;
@@ -484,34 +462,38 @@ public class RtpStreamSender extends Thread {
 					 num = p_type.codec.encode(lin, 0, buffer, num);
 				 }
 			 } else {
-				 num = p_type.codec.encode(lin, ring%(frame_size*(frame_rate+1)), buffer, num);
+				 num = p_type.codec.encode(lin, Integer.parseInt(Build.VERSION.SDK) == 21?0:(ring%(frame_size*(frame_rate+1))), buffer, num);
 			 }
 			 
- 
  			 ring += frame_size;
  			 rtp_packet.setSequenceNumber(seqn++);
  			 rtp_packet.setTimestamp(time);
  			 rtp_packet.setPayloadLength(num);
- 			 try {
- 				 rtp_socket.send(rtp_packet);
- 				 if (m == 2)
- 					 rtp_socket.send(rtp_packet);
- 			 } catch (Exception e) {
- 			 }
+ 			 now = SystemClock.elapsedRealtime();
+ 			 if (RtpStreamReceiver.timeout == 0 || Receiver.on_wlan || now-lastsent > 500)
+	 			 try {
+	 				 lastsent = now;
+	 				 rtp_socket.send(rtp_packet);
+	 				 if (m > 1 && (RtpStreamReceiver.timeout == 0 || Receiver.on_wlan))
+	 					 for (int i = 1; i < m; i++)
+	 						 rtp_socket.send(rtp_packet);
+	 			 } catch (Exception e) {
+	 			 }
  			 if (p_type.codec.number() == 9)
  				 time += frame_size/2;
  			 else
  				 time += frame_size;
  			 if (RtpStreamReceiver.good != 0 &&
- 					 RtpStreamReceiver.loss/RtpStreamReceiver.good > 0.01) {
- 				 if (selectWifi && Receiver.on_wlan && SystemClock.elapsedRealtime()-lastscan > 10000) {
+ 					 RtpStreamReceiver.loss2/RtpStreamReceiver.good > 0.01) {
+ 				 if (selectWifi && Receiver.on_wlan && now-lastscan > 10000) {
  					 wm.startScan();
- 					 lastscan = SystemClock.elapsedRealtime();
+ 					 lastscan = now;
  				 }
  				 if (improve && delay == 0 &&
  						 (p_type.codec.number() == 0 || p_type.codec.number() == 8 || p_type.codec.number() == 9))        	
  					 m = 2;
  				 else
+ 					 
  					 m = 1;
  			 } else
  				 m = 1;

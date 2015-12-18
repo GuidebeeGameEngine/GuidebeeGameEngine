@@ -31,12 +31,12 @@ import org.sipdroid.sipua.SipdroidEngine;
 import org.zoolu.sip.provider.SipStack;
 
 import android.app.AlertDialog;
-import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.DialogInterface.OnClickListener;
 import android.content.SharedPreferences.Editor;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
@@ -269,7 +269,6 @@ public class Settings extends PreferenceActivity implements OnSharedPreferenceCh
     	if (Receiver.mContext == null) Receiver.mContext = this;
 		addPreferencesFromResource(R.xml.preferences);
 		setDefaultValues();
-		Codecs.check();
 	}
 	
 	void reload() {
@@ -278,7 +277,7 @@ public class Settings extends PreferenceActivity implements OnSharedPreferenceCh
 	}
 
 	private void setDefaultValues() {
-		settings = getSharedPreferences(sharedPrefsFile, MODE_PRIVATE);
+		settings = getSharedPreferences(sharedPrefsFile, Integer.parseInt(Build.VERSION.SDK) >= 11?4:MODE_PRIVATE);
 
 		for (int i = 0; i < SipdroidEngine.LINES; i++) {
 			String j = (i!=0?""+i:"");
@@ -325,6 +324,7 @@ public class Settings extends PreferenceActivity implements OnSharedPreferenceCh
 		settings.registerOnSharedPreferenceChangeListener(this);
 
 		updateSummaries();		
+		Codecs.check();
 	}
 
     @Override
@@ -418,7 +418,6 @@ public class Settings extends PreferenceActivity implements OnSharedPreferenceCh
 
 	private OnClickListener profileOnClick = new DialogInterface.OnClickListener() {
 		public void onClick(DialogInterface dialog, int whichItem) {
-			int set = updateSleepPolicy();
 			boolean message = settings.getBoolean(PREF_MESSAGE, DEFAULT_MESSAGE);
 
 			try {
@@ -438,8 +437,6 @@ public class Settings extends PreferenceActivity implements OnSharedPreferenceCh
    			reload();
    			settings.registerOnSharedPreferenceChangeListener(context);
    			updateSummaries();
-   			if (set != updateSleepPolicy())
-   				updateSleep();
    			if (message) {
    	    		Editor edit = settings.edit();
    	    		edit.putBoolean(PREF_MESSAGE, true);
@@ -509,7 +506,7 @@ public class Settings extends PreferenceActivity implements OnSharedPreferenceCh
 			.setPositiveButton(android.R.string.ok, this)
 			.show();
 			return;
-		} else if (key.startsWith(PREF_SERVER)) {
+		} else if (key.startsWith(PREF_SERVER) || key.startsWith(PREF_PROTOCOL)) {
     		Editor edit = sharedPreferences.edit();
     		for (int i = 0; i < SipdroidEngine.LINES; i++) {
     			edit.putString(PREF_DNS+i, DEFAULT_DNS);
@@ -519,6 +516,15 @@ public class Settings extends PreferenceActivity implements OnSharedPreferenceCh
     				lp.setValue(sharedPreferences.getString(PREF_SERVER+j, DEFAULT_SERVER).equals(DEFAULT_SERVER) ? "tcp" : "udp");
     				lp = (ListPreference) getPreferenceScreen().findPreference(PREF_PORT+j);
     				lp.setValue(sharedPreferences.getString(PREF_SERVER+j, DEFAULT_SERVER).equals(DEFAULT_SERVER) ? "5061" : DEFAULT_PORT);
+    			}
+    			if (key.equals(PREF_PROTOCOL+j)) {
+    				if (sharedPreferences.getString(PREF_SERVER+j, DEFAULT_SERVER).equals(DEFAULT_SERVER)) {
+    					ListPreference lp = (ListPreference) getPreferenceScreen().findPreference(PREF_PORT+j);
+    					lp.setValue(sharedPreferences.getString(PREF_PROTOCOL+j, DEFAULT_PROTOCOL).equals("tls") ? "5070" : "5061");
+    				} else {
+    		        	Receiver.engine(this).halt();
+    		    		Receiver.engine(this).StartEngine();
+    				}
     			}
     		}
     		edit.commit();
@@ -552,49 +558,8 @@ public class Settings extends PreferenceActivity implements OnSharedPreferenceCh
         	Receiver.engine(this).halt();
     		Receiver.engine(this).StartEngine();
 		}
-		if (key.startsWith(PREF_WLAN) || key.startsWith(PREF_3G) || key.startsWith(PREF_EDGE) || key.startsWith(PREF_OWNWIFI)) {
-			updateSleep();
-		}
-
 		updateSummaries();
     }
-
-    int updateSleepPolicy() {
-        ContentResolver cr = getContentResolver();
-		int get = android.provider.Settings.System.getInt(cr, android.provider.Settings.System.WIFI_SLEEP_POLICY, -1);
-		int set = get;
-		boolean wlan = false,g3 = true,valid = false;
-		for (int i = 0; i < SipdroidEngine.LINES; i++) {
-			String j = (i!=0?""+i:"");
-			if (!settings.getString(PREF_USERNAME+j, "").equals("") && 
-					!settings.getString(PREF_SERVER+j, "").equals("")) {
-				valid = true;
-				wlan |= settings.getBoolean(PREF_WLAN+j, DEFAULT_WLAN);
-				g3 &= settings.getBoolean(PREF_3G+j, DEFAULT_3G) ||
-					settings.getBoolean(PREF_EDGE+j, DEFAULT_EDGE);
-			}
-		}
-		boolean ownwifi = settings.getBoolean(PREF_OWNWIFI, DEFAULT_OWNWIFI);
-
-		if (g3 && valid && !ownwifi) {
-			set = android.provider.Settings.System.WIFI_SLEEP_POLICY_DEFAULT;
-		} else if (wlan || ownwifi) {
-			set = android.provider.Settings.System.WIFI_SLEEP_POLICY_NEVER;
-		}
-		return set;
-    }
-    
-	void updateSleep() {
-        ContentResolver cr = getContentResolver();
-		int get = android.provider.Settings.System.getInt(cr, android.provider.Settings.System.WIFI_SLEEP_POLICY, -1);
-		int set = updateSleepPolicy();
-
-		if (set != get) {
-			Toast.makeText(this, set == android.provider.Settings.System.WIFI_SLEEP_POLICY_DEFAULT?
-					R.string.settings_policy_default:R.string.settings_policy_never, Toast.LENGTH_LONG).show();
-			android.provider.Settings.System.putInt(cr, android.provider.Settings.System.WIFI_SLEEP_POLICY, set);
-		}
-	}
 
 	void fill(String pref,String def,int val,int disp) {
     	for (int i = 0; i < getResources().getStringArray(val).length; i++) {

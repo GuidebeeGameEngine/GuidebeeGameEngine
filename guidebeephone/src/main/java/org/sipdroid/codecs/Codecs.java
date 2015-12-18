@@ -95,7 +95,7 @@ public class Codecs {
 					 * according to the user */
 					if (c != null) {
 						codecs.remove(c);
-						codecs.insertElementAt(c, 0);
+						codecs.add(c);
 					}
 				} catch (Exception e) {
 					// do nothing (expecting
@@ -173,6 +173,7 @@ public class Codecs {
 		Vector<Integer> v = new Vector<Integer>(codecs.size());
 
 		for (Codec c : codecs) {
+			c.update();
 			if (!c.isValid())
 				continue;
 			v.add(c.number());
@@ -260,6 +261,7 @@ public class Codecs {
 			int index = formats.size() + 1;
 			
 			for (Codec c : codecs) {
+				c.update();
 				if (!c.isValid())
 					continue;
 
@@ -270,7 +272,7 @@ public class Codecs {
 					if ( (codec==null) || (i < index) ) {
 						codec = c;
 						index = i;
-						continue;
+						break;
 					}
 				}
 				
@@ -283,7 +285,7 @@ public class Codecs {
 								//fmt number has no attr with name 
 								codec = c;
 								index = i;
-								continue;
+								break;
 							}
 						}
 				}
