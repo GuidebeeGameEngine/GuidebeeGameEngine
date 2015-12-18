@@ -47,9 +47,6 @@ public class FontCanvas {
                     64,FontList.fontNames[i].toCharArray(),pen,brush);
 
 
-
-
-
         }
         FontCanvas.fontTexturePacker.renderTexture();
     }

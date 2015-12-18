@@ -64,7 +64,8 @@ public class Colors implements Disposable {
         AffineTransform matrix = new AffineTransform();
         graphics2D.setAffineTransform(matrix);
         Pen pen = new Pen(Color.white);
-        graphics2D.drawRectangle(pen, new Rectangle(0, 0, width, height));
+        graphics2D.setDefaultPen(pen);
+        //graphics2D.drawRectangle(pen, new Rectangle(0, 0, width, height));
 
         graphics2D.drawChars(VectorFont.getSystemFont(), 50, "Circle".toCharArray(), 0, 150);
 
