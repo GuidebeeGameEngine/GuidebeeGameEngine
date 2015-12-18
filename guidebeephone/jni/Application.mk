@@ -11,3 +11,5 @@ APP_MODULES	 += gsm_jni
 
 APP_OPTIM        := release 
 APP_CFLAGS       += -O3
+APP_ABI := armeabi armeabi-v7a x86
+APP_PLATFORM := android-8
