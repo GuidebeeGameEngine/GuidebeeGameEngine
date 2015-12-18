@@ -24,6 +24,7 @@ public class FontTexturePacker {
     private final ArrayList<TextureRegion> textureRegions;
 
     private Texture texture;
+    private  static int BUFFER_SIZE=4; //buffer area size
 
 
     /**
@@ -32,11 +33,20 @@ public class FontTexturePacker {
      * @param height initial canvas height
      */
     public FontTexturePacker(int width, int height){
+        this(width,height,4);
+    }
+    /**
+     * Constructor
+     * @param width initial canvas size
+     * @param height initial canvas height
+     */
+    public FontTexturePacker(int width, int height,int bufferSize){
         int newWidth=(width/64+1)*64;
         int newHeight=(height/64+1)*64;
         binSortPacker=new BinSortPacker(newWidth,newHeight);
         textInfos=new ArrayList<TextInfo>();
         textureRegions=new ArrayList<TextureRegion>();
+        BUFFER_SIZE=Math.max(bufferSize,4);
 
     }
 
@@ -51,8 +61,8 @@ public class FontTexturePacker {
      * @return
      */
     public int drawChars (VectorFont font, int fontSize, char[] data,Pen pen, Brush brush){
-        int height=fontSize;
-        int width=font.charsWidth(data,0,data.length,fontSize);
+        int height=fontSize+BUFFER_SIZE*2;
+        int width=font.charsWidth(data,0,data.length,fontSize)+BUFFER_SIZE*2;
         TextInfo textInfo=new TextInfo();
         textInfo.brush=brush;
         textInfo.pen=pen;
@@ -128,8 +138,8 @@ public class FontTexturePacker {
             graphics2D.drawChars(textInfo.font,
                     textInfo.fontSize,
                     textInfo.data,
-                    (int)pos.x,
-                    (int)pos.y);
+                    (int)pos.x+BUFFER_SIZE,
+                    (int)pos.y+BUFFER_SIZE);
             textInfo.location=pos;
         }
     }
