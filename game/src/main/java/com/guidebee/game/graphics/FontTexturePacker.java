@@ -114,8 +114,11 @@ public class FontTexturePacker {
         for (int i=0;i<textInfos.size();i++) {
             TextInfo textInfo = textInfos.get(i);
 
-            TextureRegion textureRegion=new TextureRegion(texture,(int)textInfo.location.x,
-                    (int)textInfo.location.y,textInfo.width,textInfo.height);
+            TextureRegion textureRegion=new TextureRegion(texture,(
+                    int)textInfo.location.x+BUFFER_SIZE,
+                    (int)textInfo.location.y+BUFFER_SIZE,
+                    textInfo.width-BUFFER_SIZE*2,
+                    textInfo.height-BUFFER_SIZE*2);
             textureRegions.add(textureRegion);
 
         }
