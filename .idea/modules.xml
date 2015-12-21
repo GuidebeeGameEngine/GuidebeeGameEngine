@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/box2d/box2d.iml" filepath="$PROJECT_DIR$/box2d/box2d.iml" />
       <module fileurl="file://$PROJECT_DIR$/game/game.iml" filepath="$PROJECT_DIR$/game/game.iml" />
+      <module fileurl="file://$PROJECT_DIR$/guidebeephone/guidebeephone.iml" filepath="$PROJECT_DIR$/guidebeephone/guidebeephone.iml" />
       <module fileurl="file://$PROJECT_DIR$/sipdroid/sipdroid.iml" filepath="$PROJECT_DIR$/sipdroid/sipdroid.iml" />
       <module fileurl="file://$PROJECT_DIR$/uicomponents/uicomponents.iml" filepath="$PROJECT_DIR$/uicomponents/uicomponents.iml" />
     </modules>

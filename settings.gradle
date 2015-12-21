@@ -1,1 +1,1 @@
-include ':app', ':game', ':box2d', ':uicomponents', ':actiondemo', ':Graphics', ':sipdroid'
+include ':app', ':game', ':box2d', ':uicomponents', ':actiondemo', ':Graphics', ':sipdroid', ':guidebeephone'
