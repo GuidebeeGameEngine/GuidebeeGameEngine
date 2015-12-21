@@ -27,12 +27,11 @@ package org.zoolu.net;
 import java.net.BindException;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
-import java.net.SocketException;
 import java.util.Enumeration;
 
-import org.sipdroid.sipua.ui.Receiver;
-import org.sipdroid.sipua.ui.Settings;
-import org.sipdroid.sipua.ui.Sipdroid;
+import com.guidebee.sipphone.ui.Receiver;
+import com.guidebee.sipphone.ui.Settings;
+import com.guidebee.sipphone.ui.Sipdroid;
 
 import android.preference.PreferenceManager;
 import android.content.Context;

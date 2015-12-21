@@ -23,9 +23,9 @@ package org.sipdroid.codecs;
 import java.util.HashMap;
 import java.util.Vector;
 
-import org.sipdroid.sipua.R;
-import org.sipdroid.sipua.ui.Receiver;
-import org.sipdroid.sipua.ui.Settings;
+import com.guidebee.sipphone.R;
+import com.guidebee.sipphone.ui.Receiver;
+import com.guidebee.sipphone.ui.Settings;
 import org.zoolu.sdp.MediaField;
 import org.zoolu.sdp.SessionDescriptor;
 import org.zoolu.sdp.AttributeField;

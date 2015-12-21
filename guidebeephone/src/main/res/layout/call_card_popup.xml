@@ -18,7 +18,7 @@
      The PopupWindow contains a single CallCard, and "slides" up and down
      (on top of the in-call UI elements) to lock/unlock the UI. -->
 <!-- The CallCard's contents come from call_card.xml. -->
-<org.sipdroid.sipua.phone.CallCard xmlns:android="http://schemas.android.com/apk/res/android"
+<com.guidebee.sipphone.phone.CallCard xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/callCard"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"

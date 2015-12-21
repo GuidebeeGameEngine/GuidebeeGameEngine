@@ -19,9 +19,9 @@
  */
 package org.sipdroid.codecs;
 
-import org.sipdroid.sipua.ui.Receiver;
-import org.sipdroid.sipua.ui.Settings;
-import org.sipdroid.sipua.ui.Sipdroid;
+import com.guidebee.sipphone.ui.Receiver;
+import com.guidebee.sipphone.ui.Settings;
+import com.guidebee.sipphone.ui.Sipdroid;
 
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;

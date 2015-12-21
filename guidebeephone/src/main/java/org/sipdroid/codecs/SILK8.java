@@ -19,7 +19,7 @@
  */
 package org.sipdroid.codecs;
 
-import org.sipdroid.sipua.ui.Sipdroid;
+import com.guidebee.sipphone.ui.Sipdroid;
 
 class SILK8 extends CodecBase implements Codec {   
 	/* 

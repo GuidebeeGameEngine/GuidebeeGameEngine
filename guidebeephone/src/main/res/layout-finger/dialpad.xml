@@ -14,7 +14,7 @@
      limitations under the License.
 -->
 
-<org.sipdroid.sipua.phone.ButtonGridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.guidebee.sipphone.phone.ButtonGridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/dialpad"
     android:paddingLeft="10px"
     android:paddingRight="10px"
@@ -104,5 +104,5 @@
             android:src="@drawable/dial_num_pound"
             android:background="@drawable/btn_dial"
         />
-</org.sipdroid.sipua.phone.ButtonGridLayout>
+</com.guidebee.sipphone.phone.ButtonGridLayout>
 

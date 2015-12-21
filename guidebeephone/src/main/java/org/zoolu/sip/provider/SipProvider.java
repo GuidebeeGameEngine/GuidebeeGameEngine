@@ -25,8 +25,8 @@
 
 package org.zoolu.sip.provider;
 
-import org.sipdroid.sipua.ui.Receiver;
-import org.sipdroid.sipua.ui.Sipdroid;
+import com.guidebee.sipphone.ui.Receiver;
+import com.guidebee.sipphone.ui.Sipdroid;
 import org.zoolu.net.*;
 import org.zoolu.sip.header.*;
 import org.zoolu.sip.message.Message;

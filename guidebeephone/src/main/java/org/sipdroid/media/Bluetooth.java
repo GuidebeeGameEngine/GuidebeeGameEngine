@@ -2,7 +2,7 @@ package org.sipdroid.media;
 
 import java.util.Set;
 
-import org.sipdroid.sipua.ui.Receiver;
+import com.guidebee.sipphone.ui.Receiver;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothClass;
