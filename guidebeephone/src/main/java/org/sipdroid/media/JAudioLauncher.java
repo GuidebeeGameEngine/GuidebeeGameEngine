@@ -21,8 +21,10 @@ package org.sipdroid.media;
 
 import org.sipdroid.codecs.Codecs;
 import org.sipdroid.net.SipdroidSocket;
-import com.guidebee.sipphone.ui.Receiver;
-import com.guidebee.sipphone.ui.Sipdroid;
+
+import com.guidebee.sipphone.activity.Settings;
+import com.guidebee.sipphone.receiver.Receiver;
+import com.guidebee.sipphone.activity.Sipdroid;
 import org.zoolu.sip.provider.SipStack;
 import org.zoolu.tools.Log;
 import org.zoolu.tools.LogLevel;
@@ -83,8 +85,8 @@ public class JAudioLauncher implements MediaLauncher
       try
       {
     	 CallRecorder call_recorder = null;
-    	 if (PreferenceManager.getDefaultSharedPreferences(Receiver.mContext).getBoolean(com.guidebee.sipphone.ui.Settings.PREF_CALLRECORD,
-					com.guidebee.sipphone.ui.Settings.DEFAULT_CALLRECORD))
+    	 if (PreferenceManager.getDefaultSharedPreferences(Receiver.mContext).getBoolean(Settings.PREF_CALLRECORD,
+					Settings.DEFAULT_CALLRECORD))
     		 call_recorder = new CallRecorder(null,payload_type.codec.samp_rate()); // Autogenerate filename from date. 
     	 socket=new SipdroidSocket(local_port);
          dir=direction;

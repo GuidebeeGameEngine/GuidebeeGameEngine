@@ -22,8 +22,9 @@ package com.guidebee.sipphone.phone;
  */
 
 import com.guidebee.sipphone.R;
-import com.guidebee.sipphone.ui.InCallScreen;
-import com.guidebee.sipphone.ui.Receiver;
+import com.guidebee.sipphone.activity.CallCard;
+import com.guidebee.sipphone.activity.InCallScreen;
+import com.guidebee.sipphone.receiver.Receiver;
 
 import android.content.Context;
 import android.os.SystemClock;
@@ -342,7 +343,7 @@ public class SlidingCardManager implements ViewTreeObserver.OnGlobalLayoutListen
      * Handles a touch event on the CallCard.
      * @see CallCard.dispatchTouchEvent
      */
-    /* package */ void handleCallCardTouchEvent(MotionEvent ev) {
+    /* package */ public void handleCallCardTouchEvent(MotionEvent ev) {
         // if (DBG) log("handleCallCardTouchEvent(" + ev + ")...");
 
         if (mInCallScreen == null || mInCallScreen.isFinishing()) {

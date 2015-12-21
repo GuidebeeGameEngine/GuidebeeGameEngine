@@ -29,9 +29,9 @@ import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.util.Enumeration;
 
-import com.guidebee.sipphone.ui.Receiver;
-import com.guidebee.sipphone.ui.Settings;
-import com.guidebee.sipphone.ui.Sipdroid;
+import com.guidebee.sipphone.receiver.Receiver;
+import com.guidebee.sipphone.activity.Settings;
+import com.guidebee.sipphone.activity.Sipdroid;
 
 import android.preference.PreferenceManager;
 import android.content.Context;

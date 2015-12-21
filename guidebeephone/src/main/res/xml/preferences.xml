@@ -148,7 +148,7 @@
 				android:key="nodata"
 				android:title="@string/settings_nodata"
 				android:summary="@string/settings_nodata2" />
-			<com.guidebee.sipphone.ui.SipRingtonePreference
+			<com.guidebee.sipphone.activity.SipRingtonePreference
 				android:key="sipringtone"
 				android:title="@string/settings_sipringtone"
 				android:summary="@string/settings_sipringtone2"

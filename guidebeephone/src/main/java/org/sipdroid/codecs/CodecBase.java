@@ -19,7 +19,7 @@
  */
 package org.sipdroid.codecs;
 
-import com.guidebee.sipphone.ui.Receiver;
+import com.guidebee.sipphone.receiver.Receiver;
 
 import android.content.Context;
 import android.content.SharedPreferences;

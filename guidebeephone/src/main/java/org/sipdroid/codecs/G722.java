@@ -19,7 +19,7 @@
  */
 package org.sipdroid.codecs;
 
-import com.guidebee.sipphone.ui.Sipdroid;
+import com.guidebee.sipphone.activity.Sipdroid;
 
 class G722 extends CodecBase implements Codec {
 

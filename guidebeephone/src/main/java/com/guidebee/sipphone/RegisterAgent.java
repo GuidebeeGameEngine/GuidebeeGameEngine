@@ -23,9 +23,10 @@ package com.guidebee.sipphone;
 
 import java.util.Vector;
 
-import com.guidebee.sipphone.ui.Receiver;
-import com.guidebee.sipphone.ui.Settings;
-import com.guidebee.sipphone.ui.Sipdroid;
+import com.guidebee.sipphone.activity.Settings;
+import com.guidebee.sipphone.activity.Sipdroid;
+import com.guidebee.sipphone.receiver.Receiver;
+
 import org.zoolu.sip.address.NameAddress;
 import org.zoolu.sip.authentication.DigestAuthentication;
 import org.zoolu.sip.dialog.SubscriberDialog;

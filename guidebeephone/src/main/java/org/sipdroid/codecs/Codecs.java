@@ -24,8 +24,8 @@ import java.util.HashMap;
 import java.util.Vector;
 
 import com.guidebee.sipphone.R;
-import com.guidebee.sipphone.ui.Receiver;
-import com.guidebee.sipphone.ui.Settings;
+import com.guidebee.sipphone.receiver.Receiver;
+import com.guidebee.sipphone.activity.Settings;
 import org.zoolu.sdp.MediaField;
 import org.zoolu.sdp.SessionDescriptor;
 import org.zoolu.sdp.AttributeField;

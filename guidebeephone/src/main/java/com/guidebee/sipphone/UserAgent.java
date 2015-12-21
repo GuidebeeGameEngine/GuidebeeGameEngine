@@ -29,9 +29,11 @@ import org.sipdroid.codecs.Codecs;
 import org.sipdroid.media.JAudioLauncher;
 import org.sipdroid.media.MediaLauncher;
 import org.sipdroid.media.RtpStreamReceiver;
-import com.guidebee.sipphone.ui.Receiver;
-import com.guidebee.sipphone.ui.Settings;
-import com.guidebee.sipphone.ui.Sipdroid;
+
+import com.guidebee.sipphone.activity.Settings;
+import com.guidebee.sipphone.activity.Sipdroid;
+import com.guidebee.sipphone.receiver.Receiver;
+
 import org.zoolu.net.IpAddress;
 import org.zoolu.sdp.AttributeField;
 import org.zoolu.sdp.ConnectionField;

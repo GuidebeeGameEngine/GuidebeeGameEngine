@@ -46,7 +46,7 @@ public static class CallerInfoToken {
 /**
  * Start a CallerInfo Query based on the earliest connection in the call.
  */
-static CallerInfoToken startGetCallerInfo(Context context, Call call,
+public static CallerInfoToken startGetCallerInfo(Context context, Call call,
         CallerInfoAsyncQuery.OnQueryCompleteListener listener, Object cookie) {
     Connection conn = call.getEarliestConnection();
     return startGetCallerInfo(context, conn, listener, cookie);
@@ -56,7 +56,7 @@ static CallerInfoToken startGetCallerInfo(Context context, Call call,
  * place a temporary callerinfo object in the hands of the caller and notify
  * caller when the actual query is done.
  */
-static CallerInfoToken startGetCallerInfo(Context context, Connection c,
+public static CallerInfoToken startGetCallerInfo(Context context, Connection c,
         CallerInfoAsyncQuery.OnQueryCompleteListener listener, Object cookie) {
     CallerInfoToken cit;
 
@@ -187,7 +187,7 @@ static CallerInfoAsyncQuery.OnQueryCompleteListener sCallerInfoQueryListener =
  * If the name is null, return defaultString as the default value, usually
  * context.getString(R.string.unknown).
  */
-static String getCompactNameFromCallerInfo(CallerInfo ci, Context context) {
+public static String getCompactNameFromCallerInfo(CallerInfo ci, Context context) {
     if (DBG) log("getCompactNameFromCallerInfo: info = " + ci);
 
     String compactName = null;

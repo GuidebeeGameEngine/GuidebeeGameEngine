@@ -25,11 +25,12 @@ import java.io.IOException;
 import java.net.UnknownHostException;
 
 import org.sipdroid.net.KeepAliveSip;
-import com.guidebee.sipphone.ui.ChangeAccount;
-import com.guidebee.sipphone.ui.LoopAlarm;
-import com.guidebee.sipphone.ui.Receiver;
-import com.guidebee.sipphone.ui.Settings;
-import com.guidebee.sipphone.ui.Sipdroid;
+import com.guidebee.sipphone.activity.ChangeAccount;
+import com.guidebee.sipphone.receiver.LoopAlarm;
+import com.guidebee.sipphone.activity.Settings;
+import com.guidebee.sipphone.activity.Sipdroid;
+import com.guidebee.sipphone.receiver.Receiver;
+
 import org.zoolu.net.IpAddress;
 import org.zoolu.net.SocketAddress;
 import org.zoolu.sip.address.NameAddress;
@@ -101,10 +102,10 @@ public class SipdroidEngine implements RegisterAgentListener {
 			PowerManager pm = (PowerManager) getUIContext().getSystemService(Context.POWER_SERVICE);
 			WifiManager wm = (WifiManager) getUIContext().getSystemService(Context.WIFI_SERVICE);
 			if (wl == null) {
-				if (!PreferenceManager.getDefaultSharedPreferences(getUIContext()).contains(com.guidebee.sipphone.ui.Settings.PREF_KEEPON)) {
+				if (!PreferenceManager.getDefaultSharedPreferences(getUIContext()).contains(Settings.PREF_KEEPON)) {
 					Editor edit = PreferenceManager.getDefaultSharedPreferences(getUIContext()).edit();
 	
-					edit.putBoolean(com.guidebee.sipphone.ui.Settings.PREF_KEEPON, true);
+					edit.putBoolean(Settings.PREF_KEEPON, true);
 					edit.commit();
 				}
 				wl = new PowerManager.WakeLock[LINES];
@@ -130,7 +131,7 @@ public class SipdroidEngine implements RegisterAgentListener {
 				if (wl[i] == null) {
 					wl[i] = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "Sipdroid.SipdroidEngine");
 					pwl[i] = pm.newWakeLock(PowerManager.SCREEN_DIM_WAKE_LOCK | PowerManager.ACQUIRE_CAUSES_WAKEUP, "Sipdroid.SipdroidEngine");
-					if (!PreferenceManager.getDefaultSharedPreferences(getUIContext()).getBoolean(com.guidebee.sipphone.ui.Settings.PREF_KEEPON, com.guidebee.sipphone.ui.Settings.DEFAULT_KEEPON)) {
+					if (!PreferenceManager.getDefaultSharedPreferences(getUIContext()).getBoolean(Settings.PREF_KEEPON, Settings.DEFAULT_KEEPON)) {
 						wwl[i] = wm.createWifiLock(3, "Sipdroid.SipdroidEngine");
 						wwl[i].setReferenceCounted(false);
 					}

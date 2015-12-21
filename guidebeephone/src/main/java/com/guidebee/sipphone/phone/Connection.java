@@ -1,6 +1,6 @@
 package com.guidebee.sipphone.phone;
 
-import com.guidebee.sipphone.ui.Receiver;
+import com.guidebee.sipphone.receiver.Receiver;
 
 import android.content.ContentResolver;
 import android.content.ContentValues;

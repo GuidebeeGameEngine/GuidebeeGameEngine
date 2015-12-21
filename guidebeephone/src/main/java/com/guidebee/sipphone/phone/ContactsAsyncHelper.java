@@ -40,7 +40,7 @@ import android.widget.ImageView;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
-import com.guidebee.sipphone.ui.Sipdroid;
+import com.guidebee.sipphone.activity.Sipdroid;
 
 /**
  * Helper class for async access of images.
