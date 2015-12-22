@@ -1,17 +1,5 @@
 package com.guidebee.sipphone.activity;
 
-import java.io.IOException;
-import java.net.InetAddress;
-
-import org.sipdroid.media.RtpStreamReceiver;
-import org.sipdroid.net.RtpPacket;
-import org.sipdroid.net.RtpSocket;
-import org.sipdroid.net.SipdroidSocket;
-import com.guidebee.sipphone.R;
-import com.guidebee.sipphone.UserAgent;
-import com.guidebee.sipphone.view.InstantAutoCompleteTextView;
-import com.guidebee.sipphone.receiver.Receiver;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.KeyguardManager;
@@ -30,6 +18,19 @@ import android.text.InputType;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+
+import com.guidebee.sipphone.R;
+import com.guidebee.sipphone.UserAgent;
+import com.guidebee.sipphone.receiver.Receiver;
+import com.guidebee.sipphone.view.InstantAutoCompleteTextView;
+
+import org.sipdroid.media.RtpStreamReceiver;
+import org.sipdroid.net.RtpPacket;
+import org.sipdroid.net.RtpSocket;
+import org.sipdroid.net.SipdroidSocket;
+
+import java.io.IOException;
+import java.net.InetAddress;
 
 /*
  * Copyright (C) 2009 The Sipdroid Open Source Project

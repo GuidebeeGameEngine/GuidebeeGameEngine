@@ -20,24 +20,10 @@
 
 package com.guidebee.sipphone.activity;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-
-import org.sipdroid.codecs.Codecs;
-import org.sipdroid.media.RtpStreamReceiver;
-import com.guidebee.sipphone.R;
-import com.guidebee.sipphone.SipdroidEngine;
-import com.guidebee.sipphone.Checkin;
-import com.guidebee.sipphone.view.InstantAutoCompleteTextView;
-import com.guidebee.sipphone.receiver.Receiver;
-
-import org.zoolu.sip.provider.SipStack;
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.SharedPreferences;
 import android.content.DialogInterface.OnClickListener;
+import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Build;
@@ -52,6 +38,20 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.guidebee.sipphone.Checkin;
+import com.guidebee.sipphone.R;
+import com.guidebee.sipphone.SipdroidEngine;
+import com.guidebee.sipphone.receiver.Receiver;
+import com.guidebee.sipphone.view.InstantAutoCompleteTextView;
+
+import org.sipdroid.codecs.Codecs;
+import org.sipdroid.media.RtpStreamReceiver;
+import org.zoolu.sip.provider.SipStack;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+
 public class Settings extends PreferenceActivity implements OnSharedPreferenceChangeListener, OnClickListener {
 	// Current settings handler
 	private static SharedPreferences settings;
@@ -61,9 +61,9 @@ public class Settings extends PreferenceActivity implements OnSharedPreferenceCh
 	// Path where to store all profiles - !!!should be replaced by some system variable!!!
 	private final static String profilePath = "/sdcard/Sipdroid/";
 	// Path where is stored the shared preference file - !!!should be replaced by some system variable!!!
-	private final String sharedPrefsPath = "/data/data/com.guidebee.sipphone/shared_prefs/";
+	private final String sharedPrefsPath = "/data/com.guidebee.sipphone/shared_prefs/";
 	// Shared preference file name - !!!should be replaced by some system variable!!!
-	private final String sharedPrefsFile = "org.sipdroid.sipphone_preferences";
+	private final String sharedPrefsFile = "com.guidebee.sipphone_preferences";
 	// List of profile files available on the SD card
 	private String[] profileFiles = null;
 	// Which profile file to delete

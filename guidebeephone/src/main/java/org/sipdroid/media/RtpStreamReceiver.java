@@ -21,18 +21,6 @@
 
 package org.sipdroid.media;
 
-import java.io.IOException;
-import java.net.SocketException;
-
-import org.sipdroid.net.RtpPacket;
-import org.sipdroid.net.RtpSocket;
-import org.sipdroid.net.SipdroidSocket;
-import com.guidebee.sipphone.R;
-import com.guidebee.sipphone.UserAgent;
-import com.guidebee.sipphone.receiver.Receiver;
-import com.guidebee.sipphone.activity.Sipdroid;
-import org.sipdroid.codecs.Codecs;
-
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.SharedPreferences.Editor;
@@ -48,6 +36,19 @@ import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.view.KeyEvent;
 import android.widget.Toast;
+
+import com.guidebee.sipphone.R;
+import com.guidebee.sipphone.UserAgent;
+import com.guidebee.sipphone.activity.Sipdroid;
+import com.guidebee.sipphone.receiver.Receiver;
+
+import org.sipdroid.codecs.Codecs;
+import org.sipdroid.net.RtpPacket;
+import org.sipdroid.net.RtpSocket;
+import org.sipdroid.net.SipdroidSocket;
+
+import java.io.IOException;
+import java.net.SocketException;
 
 /**
  * RtpStreamReceiver is a generic stream receiver. It receives packets from RTP

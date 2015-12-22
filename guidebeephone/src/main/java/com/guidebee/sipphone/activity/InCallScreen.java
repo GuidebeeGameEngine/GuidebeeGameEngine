@@ -20,17 +20,6 @@ package com.guidebee.sipphone.activity;
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-import java.util.HashMap;
-
-import org.sipdroid.media.RtpStreamReceiver;
-import org.sipdroid.media.RtpStreamSender;
-import com.guidebee.sipphone.R;
-import com.guidebee.sipphone.UserAgent;
-import com.guidebee.sipphone.phone.Call;
-import com.guidebee.sipphone.phone.Phone;
-import com.guidebee.sipphone.phone.SlidingCardManager;
-import com.guidebee.sipphone.receiver.Receiver;
-
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
@@ -59,6 +48,18 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.SlidingDrawer;
 import android.widget.TextView;
+
+import com.guidebee.sipphone.R;
+import com.guidebee.sipphone.UserAgent;
+import com.guidebee.sipphone.phone.Call;
+import com.guidebee.sipphone.phone.Phone;
+import com.guidebee.sipphone.phone.SlidingCardManager;
+import com.guidebee.sipphone.receiver.Receiver;
+
+import org.sipdroid.media.RtpStreamReceiver;
+import org.sipdroid.media.RtpStreamSender;
+
+import java.util.HashMap;
 
 public class InCallScreen extends CallScreen implements View.OnClickListener, SensorEventListener {
 

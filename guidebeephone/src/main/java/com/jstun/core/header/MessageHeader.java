@@ -11,14 +11,14 @@
 
 package com.jstun.core.header;
 
-import java.util.Iterator;
-import java.util.TreeMap;
-import java.util.logging.Logger;
-
 import com.jstun.core.attribute.MessageAttribute;
 import com.jstun.core.attribute.MessageAttributeParsingException;
 import com.jstun.core.util.Utility;
 import com.jstun.core.util.UtilityException;
+
+import java.util.Iterator;
+import java.util.TreeMap;
+import java.util.logging.Logger;
 
 public class MessageHeader implements MessageHeaderInterface {
 	/*

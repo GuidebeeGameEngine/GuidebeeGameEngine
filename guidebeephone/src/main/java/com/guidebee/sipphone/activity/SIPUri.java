@@ -22,11 +22,6 @@
 
 package com.guidebee.sipphone.activity;
 
-import com.guidebee.sipphone.R;
-import com.guidebee.sipphone.SipdroidEngine;
-import com.guidebee.sipphone.receiver.Caller;
-import com.guidebee.sipphone.receiver.Receiver;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -38,6 +33,11 @@ import android.provider.ContactsContract;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
 import android.util.Log;
 import android.view.Window;
+
+import com.guidebee.sipphone.R;
+import com.guidebee.sipphone.SipdroidEngine;
+import com.guidebee.sipphone.receiver.Caller;
+import com.guidebee.sipphone.receiver.Receiver;
 
 public class SIPUri extends Activity {
 

@@ -25,9 +25,9 @@
 
 package org.zoolu.sdp;
 
-import java.util.Vector;
-
 import org.zoolu.net.IpAddress;
+
+import java.util.Vector;
 
 /* HSC CHANGE STARTS */
 // import java.util.Enumeration;

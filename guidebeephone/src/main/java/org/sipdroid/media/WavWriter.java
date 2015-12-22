@@ -19,10 +19,10 @@
  */
 package org.sipdroid.media;
 
+import android.util.Log;
+
 import java.io.IOException;
 import java.io.RandomAccessFile;
-
-import android.util.Log;
 
 // Simple class allowing one to write to a wav file and send the
 // left and right channel data in different function calls.

@@ -19,17 +19,17 @@
  */
 package org.sipdroid.media;
 
-import org.sipdroid.codecs.Codecs;
-import org.sipdroid.net.SipdroidSocket;
+import android.preference.PreferenceManager;
 
 import com.guidebee.sipphone.activity.Settings;
-import com.guidebee.sipphone.receiver.Receiver;
 import com.guidebee.sipphone.activity.Sipdroid;
+import com.guidebee.sipphone.receiver.Receiver;
+
+import org.sipdroid.codecs.Codecs;
+import org.sipdroid.net.SipdroidSocket;
 import org.zoolu.sip.provider.SipStack;
 import org.zoolu.tools.Log;
 import org.zoolu.tools.LogLevel;
-
-import android.preference.PreferenceManager;
 
 /** Audio launcher based on javax.sound  */
 public class JAudioLauncher implements MediaLauncher

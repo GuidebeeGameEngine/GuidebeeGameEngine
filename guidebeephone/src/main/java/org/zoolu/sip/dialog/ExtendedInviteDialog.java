@@ -25,16 +25,24 @@
 
 package org.zoolu.sip.dialog;
 
-import org.zoolu.sip.provider.*;
 import org.zoolu.sip.address.NameAddress;
-import org.zoolu.sip.header.StatusLine;
-import org.zoolu.sip.header.RequestLine;
+import org.zoolu.sip.authentication.DigestAuthentication;
 import org.zoolu.sip.header.AuthorizationHeader;
+import org.zoolu.sip.header.RequestLine;
+import org.zoolu.sip.header.StatusLine;
 import org.zoolu.sip.header.ViaHeader;
 import org.zoolu.sip.header.WwwAuthenticateHeader;
-import org.zoolu.sip.transaction.*;
-import org.zoolu.sip.message.*;
-import org.zoolu.sip.authentication.DigestAuthentication;
+import org.zoolu.sip.message.BaseMessageFactory;
+import org.zoolu.sip.message.Message;
+import org.zoolu.sip.message.MessageFactory;
+import org.zoolu.sip.message.SipMethods;
+import org.zoolu.sip.message.SipResponses;
+import org.zoolu.sip.provider.SipProvider;
+import org.zoolu.sip.provider.SipStack;
+import org.zoolu.sip.provider.TransactionIdentifier;
+import org.zoolu.sip.transaction.Transaction;
+import org.zoolu.sip.transaction.TransactionClient;
+import org.zoolu.sip.transaction.TransactionServer;
 import org.zoolu.tools.LogLevel;
 
 import java.util.Hashtable;

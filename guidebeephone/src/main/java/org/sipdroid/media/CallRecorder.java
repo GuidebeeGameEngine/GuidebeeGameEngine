@@ -19,9 +19,9 @@
  */
 package org.sipdroid.media;
 
-import java.io.File;
-
 import android.text.format.Time;
+
+import java.io.File;
 
 // Simple class to support call recording.
 public class CallRecorder

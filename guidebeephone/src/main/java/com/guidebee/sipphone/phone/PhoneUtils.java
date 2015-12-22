@@ -25,7 +25,8 @@ import android.content.Context;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
-import com.guidebee.sipphone.*;
+
+import com.guidebee.sipphone.R;
 
 public class PhoneUtils {
     private static final String LOG_TAG = "PhoneUtils";

@@ -21,20 +21,20 @@ package com.guidebee.sipphone.phone;
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-import com.guidebee.sipphone.R;
-import com.guidebee.sipphone.activity.CallCard;
-import com.guidebee.sipphone.activity.InCallScreen;
-import com.guidebee.sipphone.receiver.Receiver;
-
 import android.content.Context;
 import android.os.SystemClock;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.view.ViewTreeObserver;
+
+import com.guidebee.sipphone.R;
+import com.guidebee.sipphone.activity.CallCard;
+import com.guidebee.sipphone.activity.InCallScreen;
+import com.guidebee.sipphone.receiver.Receiver;
 
 /**
  * Helper class to manage the sliding "call card" on the InCallScreen.

@@ -3,7 +3,7 @@ package com.guidebee.game.tutorial.actions;
 import com.guidebee.game.GamePlay;
 import com.guidebee.game.graphics.TextureAtlas;
 
-import static com.guidebee.game.GameEngine.*;
+import static com.guidebee.game.GameEngine.assetManager;
 
 
 public class ActionGamePlay extends GamePlay{

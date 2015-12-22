@@ -21,23 +21,6 @@ package com.guidebee.sipphone.activity;
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.lang.reflect.Method;
-import java.net.InetAddress;
-import java.util.ArrayList;
-
-import org.sipdroid.media.RtpStreamReceiver;
-import org.sipdroid.media.RtpStreamSender;
-import org.sipdroid.net.RtpPacket;
-import org.sipdroid.net.RtpSocket;
-import org.sipdroid.net.SipdroidSocket;
-import com.guidebee.sipphone.R;
-import com.guidebee.sipphone.receiver.Receiver;
-import com.guidebee.sipphone.SipdroidListener;
-import com.guidebee.sipphone.view.VideoPreview;
-
-
 import android.content.Context;
 import android.hardware.Camera;
 import android.location.LocationManager;
@@ -62,13 +45,30 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.SurfaceHolder;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.VideoView;
+
+import com.guidebee.sipphone.R;
+import com.guidebee.sipphone.SipdroidListener;
+import com.guidebee.sipphone.receiver.Receiver;
+import com.guidebee.sipphone.view.VideoPreview;
+
+import org.sipdroid.media.RtpStreamReceiver;
+import org.sipdroid.media.RtpStreamSender;
+import org.sipdroid.net.RtpPacket;
+import org.sipdroid.net.RtpSocket;
+import org.sipdroid.net.SipdroidSocket;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.lang.reflect.Method;
+import java.net.InetAddress;
+import java.util.ArrayList;
 
 public class VideoCamera extends CallScreen implements
         SipdroidListener, SurfaceHolder.Callback, MediaRecorder.OnErrorListener, MediaPlayer.OnErrorListener, OnClickListener, OnLongClickListener {

@@ -32,8 +32,6 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
-//import android.pim.ContactsAsyncHelper;
-//import android.pim.DateUtils;
 import android.provider.Contacts.People;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -46,8 +44,8 @@ import android.widget.Chronometer;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.guidebee.sipphone.*;
-import com.guidebee.sipphone.receiver.Receiver;
+
+import com.guidebee.sipphone.R;
 import com.guidebee.sipphone.phone.Call;
 import com.guidebee.sipphone.phone.CallerInfo;
 import com.guidebee.sipphone.phone.CallerInfoAsyncQuery;
@@ -56,6 +54,10 @@ import com.guidebee.sipphone.phone.ContactsAsyncHelper;
 import com.guidebee.sipphone.phone.Phone;
 import com.guidebee.sipphone.phone.PhoneUtils;
 import com.guidebee.sipphone.phone.SlidingCardManager;
+import com.guidebee.sipphone.receiver.Receiver;
+
+//import android.pim.ContactsAsyncHelper;
+//import android.pim.DateUtils;
 
 
 /**

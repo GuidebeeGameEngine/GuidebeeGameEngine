@@ -7,7 +7,8 @@ import com.guidebee.game.graphics.TextureRegion;
 import com.guidebee.game.scene.Actor;
 import com.guidebee.utils.collections.Array;
 
-import static com.guidebee.game.GameEngine.*;
+import static com.guidebee.game.GameEngine.assetManager;
+import static com.guidebee.game.GameEngine.graphics;
 
 public class Bird extends Actor {
 

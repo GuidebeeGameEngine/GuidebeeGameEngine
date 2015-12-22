@@ -24,8 +24,13 @@
 
 package org.zoolu.sip.provider;
 
-import org.zoolu.net.*;
+import org.zoolu.net.IpAddress;
+import org.zoolu.net.UdpPacket;
+import org.zoolu.net.UdpProvider;
+import org.zoolu.net.UdpProviderListener;
+import org.zoolu.net.UdpSocket;
 import org.zoolu.sip.message.Message;
+
 import java.io.IOException;
 
 /**

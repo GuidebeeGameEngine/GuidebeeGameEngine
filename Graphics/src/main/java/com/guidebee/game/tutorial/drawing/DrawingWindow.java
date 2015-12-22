@@ -1,9 +1,7 @@
 package com.guidebee.game.tutorial.drawing;
 
 import com.guidebee.game.camera.viewports.ScalingViewport;
-import com.guidebee.game.camera.viewports.ScreenViewport;
 import com.guidebee.game.scene.Scene;
-import com.guidebee.game.tutorial.drawing.actor.BezierActor;
 import com.guidebee.game.tutorial.drawing.actor.CircleActor;
 import com.guidebee.game.tutorial.drawing.actor.FontList;
 import com.guidebee.game.tutorial.drawing.actor.GuidebeeIT;

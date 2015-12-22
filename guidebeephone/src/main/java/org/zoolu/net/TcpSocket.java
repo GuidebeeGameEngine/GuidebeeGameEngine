@@ -24,17 +24,17 @@
 
 package org.zoolu.net;
 
-import java.net.InetSocketAddress;
-import java.net.Socket; // import java.net.InetAddress;
+import org.apache.http.conn.ssl.SSLSocketFactory;
+
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.InetSocketAddress;
+import java.net.Socket;
 
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocket;
-
-import org.apache.http.conn.ssl.SSLSocketFactory;
 
 /**
  * TcpSocket provides a uniform interface to TCP transport protocol, regardless

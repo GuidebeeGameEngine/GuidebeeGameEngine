@@ -19,14 +19,14 @@
  */
 package org.sipdroid.codecs;
 
-import com.guidebee.sipphone.receiver.Receiver;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceManager;
 import android.telephony.TelephonyManager;
+
+import com.guidebee.sipphone.receiver.Receiver;
 
 class CodecBase implements Preference.OnPreferenceChangeListener {
 	protected String CODEC_NAME;

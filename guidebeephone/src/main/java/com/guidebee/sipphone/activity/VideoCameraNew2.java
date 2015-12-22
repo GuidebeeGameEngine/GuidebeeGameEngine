@@ -21,11 +21,11 @@ package com.guidebee.sipphone.activity;
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-import java.io.IOException;
-
 import android.annotation.TargetApi;
 import android.hardware.Camera;
 import android.os.Build;
+
+import java.io.IOException;
 
 @TargetApi(Build.VERSION_CODES.FROYO) 
 public class VideoCameraNew2 {

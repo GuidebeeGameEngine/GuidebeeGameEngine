@@ -1,13 +1,6 @@
 package com.jstun.demo;
 
 
-import java.io.IOException;
-import java.net.DatagramPacket;
-import java.net.DatagramSocket;
-import java.net.InetAddress;
-import java.net.SocketException;
-import java.net.SocketTimeoutException;
-import java.net.UnknownHostException;
 import android.util.Log;
 
 import com.jstun.core.attribute.ChangeRequest;
@@ -20,6 +13,14 @@ import com.jstun.core.attribute.MessageAttributeParsingException;
 import com.jstun.core.header.MessageHeader;
 import com.jstun.core.header.MessageHeaderParsingException;
 import com.jstun.core.util.UtilityException;
+
+import java.io.IOException;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+import java.net.SocketException;
+import java.net.SocketTimeoutException;
+import java.net.UnknownHostException;
 
 public class DiscoveryTest {
 	private static final String TAG = "DiscoveryTest";

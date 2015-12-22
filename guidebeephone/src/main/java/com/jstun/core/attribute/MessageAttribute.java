@@ -11,10 +11,10 @@
 
 package com.jstun.core.attribute;
 
-import java.util.logging.Logger;
-
 import com.jstun.core.util.Utility;
 import com.jstun.core.util.UtilityException;
+
+import java.util.logging.Logger;
 
 
 public abstract class MessageAttribute implements MessageAttributeInterface {

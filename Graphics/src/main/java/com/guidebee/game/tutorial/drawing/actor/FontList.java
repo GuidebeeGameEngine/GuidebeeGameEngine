@@ -1,12 +1,7 @@
 package com.guidebee.game.tutorial.drawing.actor;
 
-import com.guidebee.drawing.Color;
-import com.guidebee.drawing.Pen;
-import com.guidebee.drawing.SolidBrush;
-import com.guidebee.game.GameEngine;
 import com.guidebee.game.graphics.Batch;
 import com.guidebee.game.graphics.TextureRegion;
-import com.guidebee.game.graphics.TrueTypeFont;
 import com.guidebee.game.scene.Actor;
 import com.guidebee.game.tutorial.drawing.FontCanvas;
 

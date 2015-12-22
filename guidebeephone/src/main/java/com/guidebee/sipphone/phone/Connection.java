@@ -1,7 +1,5 @@
 package com.guidebee.sipphone.phone;
 
-import com.guidebee.sipphone.receiver.Receiver;
-
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
@@ -13,6 +11,8 @@ import android.provider.CallLog.Calls;
 import android.provider.ContactsContract;
 import android.provider.ContactsContract.Data;
 import android.text.TextUtils;
+
+import com.guidebee.sipphone.receiver.Receiver;
 
 /*
  * Copyright (C) 2009 The Sipdroid Open Source Project

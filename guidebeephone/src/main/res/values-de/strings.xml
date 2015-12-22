@@ -25,8 +25,7 @@
 /////////////////////////////////////////////////////////////////////
 -->
 
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources>
 
 <string name="pstn_name">Telefon-Anruf</string>
 <string name="sip_name">Sipdroid-Anruf, wenn verfügbar</string>

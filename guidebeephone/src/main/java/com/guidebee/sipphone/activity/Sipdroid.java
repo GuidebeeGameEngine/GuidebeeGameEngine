@@ -21,26 +21,14 @@
 
 package com.guidebee.sipphone.activity;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.guidebee.sipphone.R;
-import com.guidebee.sipphone.SipdroidEngine;
-import com.guidebee.sipphone.UserAgent;
-import com.guidebee.sipphone.service.RegisterService;
-import com.guidebee.sipphone.Checkin;
-import com.guidebee.sipphone.receiver.Receiver;
-
-import org.zoolu.tools.Random;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.DialogInterface.OnDismissListener;
+import android.content.Intent;
 import android.content.SharedPreferences.Editor;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.database.Cursor;
@@ -54,16 +42,28 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnKeyListener;
 import android.view.ViewGroup;
 import android.view.Window;
-import android.view.View.OnKeyListener;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CursorAdapter;
 import android.widget.Filterable;
 import android.widget.TextView;
-import android.widget.AdapterView.OnItemClickListener;
+
+import com.guidebee.sipphone.Checkin;
+import com.guidebee.sipphone.R;
+import com.guidebee.sipphone.SipdroidEngine;
+import com.guidebee.sipphone.UserAgent;
+import com.guidebee.sipphone.receiver.Receiver;
+import com.guidebee.sipphone.service.RegisterService;
+
+import org.zoolu.tools.Random;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /////////////////////////////////////////////////////////////////////
 // this the main activity of Sipdroid

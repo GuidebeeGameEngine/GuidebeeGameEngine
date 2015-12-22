@@ -24,9 +24,9 @@
 
 package org.zoolu.net;
 
-import java.net.ServerSocket;
 import java.io.IOException;
 import java.io.InterruptedIOException;
+import java.net.ServerSocket;
 
 /**
  * TcpServer implements a TCP server wainting for incoming connection.

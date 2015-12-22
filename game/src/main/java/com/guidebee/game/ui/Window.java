@@ -24,7 +24,6 @@ import com.guidebee.game.ScreenAdapter;
 import com.guidebee.game.camera.viewports.ScalingViewport;
 import com.guidebee.game.camera.viewports.ScreenViewport;
 import com.guidebee.game.graphics.Batch;
-import com.guidebee.game.graphics.SpriteBatch;
 import com.guidebee.game.graphics.TextureAtlas;
 
 //[------------------------------ MAIN CLASS ----------------------------------]

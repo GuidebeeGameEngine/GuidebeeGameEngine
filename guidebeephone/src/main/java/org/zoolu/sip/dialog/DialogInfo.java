@@ -24,16 +24,18 @@
 
 package org.zoolu.sip.dialog;
 
-import org.zoolu.sip.address.*; 
+import org.zoolu.sip.address.NameAddress;
+
+import java.util.Vector;
+
 /* HSC CHANGES BEGIN */
 //import org.zoolu.sip.message.*;
 //import org.zoolu.sip.header.*;
 //import org.zoolu.sip.provider.*;
 //import org.zoolu.tools.Log;
 //import org.zoolu.tools.LogLevel;
-//import org.zoolu.tools.AssertException; 
+//import org.zoolu.tools.AssertException;
 /* HSC CHANGES END */
-import java.util.Vector;
 
 /**
  * Class DialogInfo maintains a complete information status of a generic SIP

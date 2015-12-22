@@ -20,13 +20,13 @@
 
 package com.guidebee.sipphone.receiver;
 
-import com.guidebee.sipphone.UserAgent;
-import com.guidebee.sipphone.activity.Sipdroid;
-
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
+
+import com.guidebee.sipphone.UserAgent;
+import com.guidebee.sipphone.activity.Sipdroid;
 
 public class OwnWifi extends BroadcastReceiver {
 

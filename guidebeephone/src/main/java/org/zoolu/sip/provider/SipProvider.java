@@ -25,32 +25,37 @@
 
 package org.zoolu.sip.provider;
 
-import com.guidebee.sipphone.receiver.Receiver;
-import com.guidebee.sipphone.activity.Sipdroid;
-import org.zoolu.net.*;
-import org.zoolu.sip.header.*;
-import org.zoolu.sip.message.Message;
-import org.zoolu.sip.address.*;
-import org.zoolu.tools.Configure;
-import org.zoolu.tools.Configurable;
-import org.zoolu.tools.Parser;
-import org.zoolu.tools.Random;
-import org.zoolu.tools.Log;
-import org.zoolu.tools.LogLevel;
-import org.zoolu.tools.RotatingLog;
-import org.zoolu.tools.SimpleDigest;
-import org.zoolu.tools.DateFormat;
-
-import java.util.Hashtable;
-import java.io.IOException;
-import org.zoolu.tools.HashSet;
-import org.zoolu.tools.Iterator;
-
 import android.content.Context;
 import android.os.PowerManager;
 
-import java.util.Enumeration;
+import com.guidebee.sipphone.activity.Sipdroid;
+import com.guidebee.sipphone.receiver.Receiver;
+
+import org.zoolu.net.IpAddress;
+import org.zoolu.net.SocketAddress;
+import org.zoolu.net.TcpServer;
+import org.zoolu.net.TcpServerListener;
+import org.zoolu.net.TcpSocket;
+import org.zoolu.sip.address.NameAddress;
+import org.zoolu.sip.address.SipURL;
+import org.zoolu.sip.header.ViaHeader;
+import org.zoolu.sip.message.Message;
+import org.zoolu.tools.Configurable;
+import org.zoolu.tools.Configure;
+import org.zoolu.tools.DateFormat;
+import org.zoolu.tools.HashSet;
+import org.zoolu.tools.Iterator;
+import org.zoolu.tools.Log;
+import org.zoolu.tools.LogLevel;
+import org.zoolu.tools.Parser;
+import org.zoolu.tools.Random;
+import org.zoolu.tools.RotatingLog;
+import org.zoolu.tools.SimpleDigest;
+
+import java.io.IOException;
 import java.util.Date;
+import java.util.Enumeration;
+import java.util.Hashtable;
 
 /**
  * SipProvider implements the SIP transport layer, that is the layer responsable

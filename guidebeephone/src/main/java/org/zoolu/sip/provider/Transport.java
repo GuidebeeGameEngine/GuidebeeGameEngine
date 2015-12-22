@@ -23,8 +23,9 @@
 
 package org.zoolu.sip.provider;
 
-import org.zoolu.sip.message.Message;
 import org.zoolu.net.IpAddress;
+import org.zoolu.sip.message.Message;
+
 import java.io.IOException;
 
 /**

@@ -2,10 +2,16 @@ package com.guidebee.game.tutorial.actions;
 
 
 import com.guidebee.game.ui.actions.Action;
-import com.guidebee.game.ui.actions.MoveToAction;
 import com.guidebee.math.Interpolation;
 
-import static com.guidebee.game.ui.actions.Actions.*;
+import static com.guidebee.game.ui.actions.Actions.delay;
+import static com.guidebee.game.ui.actions.Actions.forever;
+import static com.guidebee.game.ui.actions.Actions.moveTo;
+import static com.guidebee.game.ui.actions.Actions.parallel;
+import static com.guidebee.game.ui.actions.Actions.repeat;
+import static com.guidebee.game.ui.actions.Actions.rotateTo;
+import static com.guidebee.game.ui.actions.Actions.scaleTo;
+import static com.guidebee.game.ui.actions.Actions.sequence;
 
 public class DemoActions {
 

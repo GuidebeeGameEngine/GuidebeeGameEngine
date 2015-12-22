@@ -25,7 +25,11 @@
 
 package org.zoolu.sip.call;
 
-import org.zoolu.sdp.*;
+import org.zoolu.sdp.AttributeField;
+import org.zoolu.sdp.MediaDescriptor;
+import org.zoolu.sdp.MediaField;
+import org.zoolu.sdp.SessionDescriptor;
+
 import java.util.Enumeration;
 import java.util.Vector;
 

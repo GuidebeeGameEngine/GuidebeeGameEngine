@@ -73,8 +73,8 @@ public class VideoPreview extends SurfaceView {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         if (mAspectRatio != DONT_CARE) {
-            int widthSpecSize =  MeasureSpec.getSize(widthMeasureSpec);
-            int heightSpecSize =  MeasureSpec.getSize(heightMeasureSpec);
+            int widthSpecSize = MeasureSpec.getSize(widthMeasureSpec);
+            int heightSpecSize = MeasureSpec.getSize(heightMeasureSpec);
 
             int width = widthSpecSize;
             int height = heightSpecSize;

@@ -24,19 +24,18 @@
 
 package org.zoolu.net;
 
+import android.content.Context;
+import android.preference.PreferenceManager;
+
+import com.guidebee.sipphone.activity.Settings;
+import com.guidebee.sipphone.activity.Sipdroid;
+import com.guidebee.sipphone.receiver.Receiver;
+import com.jstun.demo.DiscoveryTest;
+
 import java.net.BindException;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.util.Enumeration;
-
-import com.guidebee.sipphone.receiver.Receiver;
-import com.guidebee.sipphone.activity.Settings;
-import com.guidebee.sipphone.activity.Sipdroid;
-
-import android.preference.PreferenceManager;
-import android.content.Context;
-
-import com.jstun.demo.DiscoveryTest;
 
 /**
  * IpAddress is an IP address.

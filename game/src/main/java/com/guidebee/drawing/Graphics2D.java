@@ -18,8 +18,6 @@ package com.guidebee.drawing;
 
 //--------------------------------- IMPORTS ------------------------------------
 
-import android.util.Log;
-
 import com.guidebee.drawing.geometry.AffineTransform;
 import com.guidebee.drawing.geometry.Area;
 import com.guidebee.drawing.geometry.IPathIterator;

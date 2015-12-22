@@ -6,15 +6,8 @@ import com.guidebee.drawing.Pen;
 import com.guidebee.drawing.SolidBrush;
 import com.guidebee.drawing.VectorFont;
 import com.guidebee.drawing.geometry.AffineTransform;
-import com.guidebee.drawing.geometry.Rectangle;
-import com.guidebee.game.Configuration;
-import com.guidebee.game.GameEngine;
-import com.guidebee.game.graphics.Pixmap;
 import com.guidebee.game.graphics.Texture;
 import com.guidebee.utils.Disposable;
-
-import java.io.IOException;
-import java.io.InputStream;
 
 /**
  * Created by James on 15/12/15.

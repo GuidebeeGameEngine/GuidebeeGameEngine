@@ -23,10 +23,12 @@
 
 package org.zoolu.sip.header;
 
-import org.zoolu.sip.address.*;
+import org.zoolu.sip.address.NameAddress;
+import org.zoolu.sip.address.SipURL;
 import org.zoolu.sip.provider.SipParser;
-import org.zoolu.tools.Parser;
 import org.zoolu.tools.DateFormat;
+import org.zoolu.tools.Parser;
+
 import java.util.Date;
 
 // import java.text.DateFormat;

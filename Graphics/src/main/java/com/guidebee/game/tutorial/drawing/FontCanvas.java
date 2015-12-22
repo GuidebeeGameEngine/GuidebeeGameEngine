@@ -5,11 +5,8 @@ import com.guidebee.drawing.Pen;
 import com.guidebee.drawing.SolidBrush;
 import com.guidebee.game.GameEngine;
 import com.guidebee.game.graphics.FontTexturePacker;
-import com.guidebee.game.graphics.TextureRegion;
 import com.guidebee.game.graphics.TrueTypeFont;
 import com.guidebee.game.tutorial.drawing.actor.FontList;
-
-import java.util.ArrayList;
 
 /**
  * Created by James on 17/12/15.

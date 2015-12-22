@@ -24,18 +24,19 @@
 
 package org.zoolu.sip.provider;
 
-import org.zoolu.sip.address.*;
+import org.zoolu.sip.address.NameAddress;
+import org.zoolu.sip.address.SipURL;
 import org.zoolu.sip.header.Header;
 import org.zoolu.sip.header.RequestLine;
 import org.zoolu.sip.header.StatusLine;
 import org.zoolu.sip.message.Message;
 import org.zoolu.tools.DateFormat;
-import java.util.Vector;
+import org.zoolu.tools.Parser;
+
 import java.util.Date;
+import java.util.Vector;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import org.zoolu.tools.Parser;
 
 /**
  * Class SipParser extends class Parser for parsing of SIP messages.

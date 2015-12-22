@@ -1,16 +1,16 @@
 package org.sipdroid.media;
 
-import java.util.Set;
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothClass;
+import android.bluetooth.BluetoothClass.Device;
+import android.bluetooth.BluetoothClass.Service;
+import android.bluetooth.BluetoothDevice;
+import android.content.Context;
+import android.media.AudioManager;
 
 import com.guidebee.sipphone.receiver.Receiver;
 
-import android.bluetooth.BluetoothAdapter;
-import android.bluetooth.BluetoothClass;
-import android.bluetooth.BluetoothDevice;
-import android.bluetooth.BluetoothClass.Device;
-import android.bluetooth.BluetoothClass.Service;
-import android.content.Context;
-import android.media.AudioManager;
+import java.util.Set;
 
 /*
  * Copyright (C) 2010 The Sipdroid Open Source Project

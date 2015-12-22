@@ -19,12 +19,12 @@
  */
 package org.sipdroid.codecs;
 
-import com.guidebee.sipphone.receiver.Receiver;
-import com.guidebee.sipphone.activity.Settings;
-import com.guidebee.sipphone.activity.Sipdroid;
-
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+
+import com.guidebee.sipphone.activity.Settings;
+import com.guidebee.sipphone.activity.Sipdroid;
+import com.guidebee.sipphone.receiver.Receiver;
 
 class GSM extends CodecBase implements Codec {
 	GSM() {

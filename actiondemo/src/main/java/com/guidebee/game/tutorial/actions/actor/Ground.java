@@ -1,9 +1,7 @@
 package com.guidebee.game.tutorial.actions.actor;
 
-import com.guidebee.game.graphics.Batch;
 import com.guidebee.game.graphics.TextureAtlas;
 import com.guidebee.game.graphics.TextureRegion;
-import com.guidebee.game.physics.BodyDef;
 import com.guidebee.game.scene.Actor;
 import com.guidebee.game.tutorial.actions.Configuration;
 

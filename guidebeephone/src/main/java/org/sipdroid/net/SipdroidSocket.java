@@ -20,6 +20,9 @@
 
 package org.sipdroid.net;
 
+import org.sipdroid.net.impl.OSNetworkSystem;
+import org.sipdroid.net.impl.PlainDatagramSocketImpl;
+
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
@@ -27,9 +30,6 @@ import java.net.InetAddress;
 import java.net.SocketException;
 import java.net.SocketOptions;
 import java.net.UnknownHostException;
-
-import org.sipdroid.net.impl.OSNetworkSystem;
-import org.sipdroid.net.impl.PlainDatagramSocketImpl;
 
 public class SipdroidSocket extends DatagramSocket {
 

@@ -26,7 +26,8 @@ package org.zoolu.sip.header;
 
 import org.zoolu.sip.provider.SipParser;
 import org.zoolu.tools.Parser;
-import java.util.*;
+
+import java.util.Vector;
 
 /**
  * Abstract ParametricHeader is the base class for all SIP Headers that include

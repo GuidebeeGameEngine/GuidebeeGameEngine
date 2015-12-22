@@ -20,23 +20,13 @@
 
 package org.sipdroid.codecs;
 
-import java.util.HashMap;
-import java.util.Vector;
-
-import com.guidebee.sipphone.R;
-import com.guidebee.sipphone.receiver.Receiver;
-import com.guidebee.sipphone.activity.Settings;
-import org.zoolu.sdp.MediaField;
-import org.zoolu.sdp.SessionDescriptor;
-import org.zoolu.sdp.AttributeField;
-
 import android.content.Context;
-import android.content.res.Resources;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
-import android.preference.ListPreference;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.view.ContextMenu;
@@ -45,6 +35,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView.AdapterContextMenuInfo;
+
+import com.guidebee.sipphone.R;
+import com.guidebee.sipphone.activity.Settings;
+import com.guidebee.sipphone.receiver.Receiver;
+
+import org.zoolu.sdp.AttributeField;
+import org.zoolu.sdp.MediaField;
+import org.zoolu.sdp.SessionDescriptor;
+
+import java.util.HashMap;
+import java.util.Vector;
 
 public class Codecs {
     	private static final Vector<Codec> codecs = new Vector<Codec>() {{

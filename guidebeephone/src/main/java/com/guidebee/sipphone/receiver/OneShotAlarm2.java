@@ -20,16 +20,16 @@ package com.guidebee.sipphone.receiver;
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-import com.guidebee.sipphone.SipdroidEngine;
-import com.guidebee.sipphone.service.RegisterService;
-import com.guidebee.sipphone.activity.Settings;
-import com.guidebee.sipphone.activity.Sipdroid;
-
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.preference.PreferenceManager;
 import android.util.Log;
+
+import com.guidebee.sipphone.SipdroidEngine;
+import com.guidebee.sipphone.activity.Settings;
+import com.guidebee.sipphone.activity.Sipdroid;
+import com.guidebee.sipphone.service.RegisterService;
 
 public class OneShotAlarm2 extends BroadcastReceiver {
 

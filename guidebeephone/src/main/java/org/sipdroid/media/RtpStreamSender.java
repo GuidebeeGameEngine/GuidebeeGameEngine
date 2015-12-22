@@ -21,22 +21,6 @@
 
 package org.sipdroid.media;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.InetAddress;
-import java.util.HashMap;
-import java.util.Random;
-
-import org.sipdroid.net.RtpPacket;
-import org.sipdroid.net.RtpSocket;
-import org.sipdroid.net.SipdroidSocket;
-import com.guidebee.sipphone.UserAgent;
-import com.guidebee.sipphone.receiver.Receiver;
-import com.guidebee.sipphone.activity.Settings;
-import com.guidebee.sipphone.activity.Sipdroid;
-import org.sipdroid.codecs.Codecs;
-import org.sipdroid.codecs.G711;
-
 import android.content.Context;
 import android.media.AudioFormat;
 import android.media.AudioManager;
@@ -46,6 +30,23 @@ import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
+
+import com.guidebee.sipphone.UserAgent;
+import com.guidebee.sipphone.activity.Settings;
+import com.guidebee.sipphone.activity.Sipdroid;
+import com.guidebee.sipphone.receiver.Receiver;
+
+import org.sipdroid.codecs.Codecs;
+import org.sipdroid.codecs.G711;
+import org.sipdroid.net.RtpPacket;
+import org.sipdroid.net.RtpSocket;
+import org.sipdroid.net.SipdroidSocket;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.InetAddress;
+import java.util.HashMap;
+import java.util.Random;
 
 /**
  * RtpStreamSender is a generic stream sender. It takes an InputStream and sends

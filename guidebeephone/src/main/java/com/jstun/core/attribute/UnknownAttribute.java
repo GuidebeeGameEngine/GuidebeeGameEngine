@@ -11,11 +11,11 @@
 
 package com.jstun.core.attribute;
 
-import java.util.Iterator;
-import java.util.Vector;
-
 import com.jstun.core.util.Utility;
 import com.jstun.core.util.UtilityException;
+
+import java.util.Iterator;
+import java.util.Vector;
 
 public class UnknownAttribute extends MessageAttribute {
 	/* 
