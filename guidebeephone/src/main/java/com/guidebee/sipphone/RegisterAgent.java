@@ -351,9 +351,8 @@ public class RegisterAgent implements TransactionClientListener, SubscriberDialo
         if (alreadySubscribed)
             return;
         Message req = getSubscribeMessage(false);
-        if (!PreferenceManager.getDefaultSharedPreferences(Receiver.mContext)
-                .getBoolean(Configurations.PREF_MWI_ENABLED,
-                        Configurations.DEFAULT_MWI_ENABLED))
+        if (!Helper.getConfig(Receiver.mContext, Configurations.PREF_MWI_ENABLED,
+                Configurations.DEFAULT_MWI_ENABLED))
             return;
         if (sd != null) sd.subscribe(req);
     }
@@ -431,9 +430,8 @@ public class RegisterAgent implements TransactionClientListener, SubscriberDialo
     public void onDlgNotify(SubscriberDialog dialog, NameAddress target,
                             NameAddress notifier, NameAddress contact, String state,
                             String content_type, String body, Message msg) {
-        if (!PreferenceManager.getDefaultSharedPreferences(Receiver.mContext)
-                .getBoolean(Configurations.PREF_MWI_ENABLED,
-                        Configurations.DEFAULT_MWI_ENABLED))
+        if (!Helper.getConfig(Receiver.mContext, Configurations.PREF_MWI_ENABLED,
+                Configurations.DEFAULT_MWI_ENABLED))
             return;
         Parser p = new Parser(body);
         final char[] propertysep = {':', '\r', '\n'};
