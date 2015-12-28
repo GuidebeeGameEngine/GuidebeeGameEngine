@@ -34,7 +34,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.SystemClock;
-import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -62,7 +61,8 @@ import org.sipdroid.media.RtpStreamSender;
 
 import java.util.HashMap;
 
-public class InCallScreen extends CallScreen implements View.OnClickListener, SensorEventListener {
+public class InCallScreen extends CallScreen
+		implements View.OnClickListener, SensorEventListener {
 
 	final int MSG_ANSWER = 1;
 	final int MSG_ANSWER_SPEAKER = 2;
@@ -88,14 +88,18 @@ public class InCallScreen extends CallScreen implements View.OnClickListener, Se
         	return;
         if (off) {
         	if (oldtimeout == 0) {
-        		oldtimeout = Settings.System.getInt(cr, Settings.System.SCREEN_OFF_TIMEOUT, 60000);
-	        	Settings.System.putInt(cr, Settings.System.SCREEN_OFF_TIMEOUT, SCREEN_OFF_TIMEOUT);
+        		oldtimeout = Settings.System.getInt(cr,
+						Settings.System.SCREEN_OFF_TIMEOUT, 60000);
+	        	Settings.System.putInt(cr,
+						Settings.System.SCREEN_OFF_TIMEOUT, SCREEN_OFF_TIMEOUT);
         	}
         } else {
-        	if (oldtimeout == 0 && Settings.System.getInt(cr, Settings.System.SCREEN_OFF_TIMEOUT, 60000) == SCREEN_OFF_TIMEOUT)
+        	if (oldtimeout == 0 && Settings.System.getInt(cr,
+					Settings.System.SCREEN_OFF_TIMEOUT, 60000) == SCREEN_OFF_TIMEOUT)
         		oldtimeout = 60000;
         	if (oldtimeout != 0) {
-	        	Settings.System.putInt(cr, Settings.System.SCREEN_OFF_TIMEOUT, oldtimeout);
+	        	Settings.System.putInt(cr,
+						Settings.System.SCREEN_OFF_TIMEOUT, oldtimeout);
         		oldtimeout = 0;
         	}
         }
@@ -168,12 +172,16 @@ public class InCallScreen extends CallScreen implements View.OnClickListener, Se
 		switch (Receiver.call_state) {
 		case UserAgent.UA_STATE_INCOMING_CALL:
 			if (Receiver.pstn_state == null || Receiver.pstn_state.equals("IDLE"))
-				if (Helper.getConfig(mContext, Configurations.PREF_AUTO_ON, Configurations.DEFAULT_AUTO_ON) &&
+				if (Helper.getConfig(mContext, Configurations.PREF_AUTO_ON,
+						Configurations.DEFAULT_AUTO_ON) &&
 						!mKeyguardManager.inKeyguardRestrictedInputMode())
 					mHandler.sendEmptyMessageDelayed(MSG_ANSWER, 1000);
-				else if ((Helper.getConfig(mContext, Configurations.PREF_AUTO_ONDEMAND, Configurations.DEFAULT_AUTO_ONDEMAND) &&
-						Helper.getConfig(mContext, Configurations.PREF_AUTO_DEMAND, Configurations.DEFAULT_AUTO_DEMAND)) ||
-						(Helper.getConfig(mContext, Configurations.PREF_AUTO_HEADSET, Configurations.DEFAULT_AUTO_HEADSET) &&
+				else if ((Helper.getConfig(mContext, Configurations.PREF_AUTO_ONDEMAND,
+						Configurations.DEFAULT_AUTO_ONDEMAND) &&
+						Helper.getConfig(mContext, Configurations.PREF_AUTO_DEMAND,
+								Configurations.DEFAULT_AUTO_DEMAND)) ||
+						(Helper.getConfig(mContext, Configurations.PREF_AUTO_HEADSET,
+								Configurations.DEFAULT_AUTO_HEADSET) &&
 								Receiver.headset > 0))
 					mHandler.sendEmptyMessageDelayed(MSG_ANSWER_SPEAKER, 10000);
 			break;
@@ -207,7 +215,8 @@ public class InCallScreen extends CallScreen implements View.OnClickListener, Se
 	
 					if (Settings.System.getInt(getContentResolver(),
 							Settings.System.DTMF_TONE_WHEN_DIALING, 1) == 1)
-						tg = new ToneGenerator(AudioManager.STREAM_VOICE_CALL, (int)(ToneGenerator.MAX_VOLUME*2* Configurations.getEarGain()));
+						tg = new ToneGenerator(AudioManager.STREAM_VOICE_CALL,
+								(int)(ToneGenerator.MAX_VOLUME*2* Configurations.getEarGain()));
 					for (;;) {
 						if (!running) {
 							t = null;
@@ -215,8 +224,10 @@ public class InCallScreen extends CallScreen implements View.OnClickListener, Se
 						}
 						if (len != mDigits.getText().length()) {
 							time = SystemClock.elapsedRealtime();
-							if (tg != null) tg.startTone(mToneMap.get(mDigits.getText().charAt(len)));
-							Receiver.engine(Receiver.mContext).info(mDigits.getText().charAt(len++),250);
+							if (tg != null)
+								tg.startTone(mToneMap.get(mDigits.getText().charAt(len)));
+							Receiver.engine(Receiver.mContext)
+									.info(mDigits.getText().charAt(len++),250);
 							time = 250-(SystemClock.elapsedRealtime()-time);
 							try {
 								if (time > 0) sleep(time);
@@ -554,13 +565,15 @@ public class InCallScreen extends CallScreen implements View.OnClickListener, Se
 	
 	@Override
 	public void onSensorChanged(SensorEvent event) {
-		boolean keepon = Helper.getConfig(mContext, Configurations.PREF_KEEPON, Configurations.DEFAULT_KEEPON);
+		boolean keepon = Helper.getConfig(mContext, Configurations.PREF_KEEPON,
+				Configurations.DEFAULT_KEEPON);
 		if (first) {
 			first = false;
 			return;
 		}
 		float distance = event.values[0];
-        boolean active = (distance >= 0.0 && distance < PROXIMITY_THRESHOLD && distance < event.sensor.getMaximumRange());
+        boolean active = (distance >= 0.0 && distance < PROXIMITY_THRESHOLD
+				&& distance < event.sensor.getMaximumRange());
 		if (!keepon ||
 				Receiver.call_state == UserAgent.UA_STATE_HOLD)
 			active = false;
@@ -579,7 +592,8 @@ public class InCallScreen extends CallScreen implements View.OnClickListener, Se
 		mDialerDrawer.setVisibility(View.GONE);
         ContentResolver cr = getContentResolver();
 		if (!hapticset) {
-			haptic = Settings.System.getInt(cr, Settings.System.HAPTIC_FEEDBACK_ENABLED, 1);
+			haptic = Settings.System.getInt(cr,
+					Settings.System.HAPTIC_FEEDBACK_ENABLED, 1);
 			hapticset = true;
 		}
 		Settings.System.putInt(cr, Settings.System.HAPTIC_FEEDBACK_ENABLED, 0);

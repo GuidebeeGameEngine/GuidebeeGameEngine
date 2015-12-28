@@ -273,9 +273,12 @@ public class Sipdroid extends Activity implements OnDismissListener {
 			boolean ask = false;
     		for (int i = 0; i < SipdroidEngine.LINES; i++) {
     			String j = (i!=0?""+i:"");
-    			if (Helper.getConfig(this, Configurations.PREF_SERVER + j, Configurations.DEFAULT_SERVER).equals(Configurations.DEFAULT_SERVER)
-    					&& Helper.getConfig(this, Configurations.PREF_USERNAME + j, Configurations.DEFAULT_USERNAME).length() != 0 &&
-    					Helper.getConfig(this, Configurations.PREF_PORT + j, Configurations.DEFAULT_PORT).equals(Configurations.DEFAULT_PORT))
+    			if (Helper.getConfig(this, Configurations.PREF_SERVER + j,
+						Configurations.DEFAULT_SERVER).equals(Configurations.DEFAULT_SERVER)
+    					&& Helper.getConfig(this, Configurations.PREF_USERNAME + j,
+						Configurations.DEFAULT_USERNAME).length() != 0 &&
+    					Helper.getConfig(this, Configurations.PREF_PORT + j,
+								Configurations.DEFAULT_PORT).equals(Configurations.DEFAULT_PORT))
     				ask = true;
     		}
     		if (ask)
@@ -286,9 +289,14 @@ public class Sipdroid extends Activity implements OnDismissListener {
 	                		Editor edit = PreferenceManager.getDefaultSharedPreferences(mContext).edit();
 	                		for (int i = 0; i < SipdroidEngine.LINES; i++) {
 	                			String j = (i!=0?""+i:"");
-	                			if (Helper.getConfig(mContext, Configurations.PREF_SERVER + j, Configurations.DEFAULT_SERVER).equals(Configurations.DEFAULT_SERVER)
-	                					&& Helper.getConfig(mContext, Configurations.PREF_USERNAME + j, Configurations.DEFAULT_USERNAME).length() != 0 &&
-										Helper.getConfig(mContext, Configurations.PREF_PORT + j, Configurations.DEFAULT_PORT).equals(Configurations.DEFAULT_PORT))
+	                			if (Helper.getConfig(mContext, Configurations.PREF_SERVER + j,
+										Configurations.DEFAULT_SERVER)
+										.equals(Configurations.DEFAULT_SERVER)
+	                					&& Helper.getConfig(mContext, Configurations.PREF_USERNAME + j,
+										Configurations.DEFAULT_USERNAME).length() != 0 &&
+										Helper.getConfig(mContext, Configurations.PREF_PORT + j,
+												Configurations.DEFAULT_PORT)
+												.equals(Configurations.DEFAULT_PORT))
 	                				edit.putString(Configurations.PREF_PORT+j, "5061");
 	                		}
 	                		edit.commit();
@@ -309,7 +317,8 @@ public class Sipdroid extends Activity implements OnDismissListener {
 	                    }
 	                })
 				.show();
-		} else if (Helper.getConfig(this, Configurations.PREF_PREF, Configurations.DEFAULT_PREF).equals(Configurations.VAL_PREF_PSTN) &&
+		} else if (Helper.getConfig(this, Configurations.PREF_PREF,
+				Configurations.DEFAULT_PREF).equals(Configurations.VAL_PREF_PSTN) &&
 				!Helper.getConfig(this, Configurations.PREF_NODEFAULT, Configurations.DEFAULT_NODEFAULT))
 			new AlertDialog.Builder(this)
 				.setMessage(R.string.dialog_default)

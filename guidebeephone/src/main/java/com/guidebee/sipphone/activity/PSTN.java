@@ -24,7 +24,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 
 import com.guidebee.sipphone.Helper;
 import com.guidebee.sipphone.receiver.Receiver;
@@ -39,7 +38,11 @@ public class PSTN extends Activity {
 			if (!number.equals("")) {
 		        Intent intent = new Intent(Intent.ACTION_CALL,
 		                Uri.fromParts("tel", Uri.decode(number)+
-		                		(!Helper.getConfig(Receiver.mContext, Configurations.PREF_PREF, Configurations.DEFAULT_PREF).equals(Configurations.VAL_PREF_PSTN) ? "+" : ""), null));
+		                		(!Helper.getConfig(Receiver.mContext,
+										Configurations.PREF_PREF,
+										Configurations.DEFAULT_PREF)
+										.equals(Configurations.VAL_PREF_PSTN) ? "+" : ""),
+								null));
 		        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		        Receiver.mContext.startActivity(intent);
 			}

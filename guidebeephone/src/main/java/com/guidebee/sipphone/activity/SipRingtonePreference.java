@@ -56,7 +56,9 @@ public class SipRingtonePreference extends RingtonePreference
     protected void onSaveRingtone(Uri ringtoneUri) 
     {
         Editor edit = PreferenceManager.getDefaultSharedPreferences(mContext).edit();
-		edit.putString(Configurations.PREF_SIPRINGTONE, ringtoneUri != null ? ringtoneUri.toString() : Configurations.DEFAULT_SIPRINGTONE);
+		edit.putString(Configurations.PREF_SIPRINGTONE,
+                ringtoneUri != null
+                        ? ringtoneUri.toString() : Configurations.DEFAULT_SIPRINGTONE);
 		edit.commit();        
     }
 

@@ -28,7 +28,6 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
 import android.net.Uri;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.provider.ContactsContract;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
 import android.util.Log;
@@ -80,7 +79,8 @@ public class SIPUri extends Activity {
 			target = Caller.getNumber(this, uri, Phone.CONTACT_ID);
 			ask = true;
 		} else {
-			ask = Helper.getConfig(this, Configurations.PREF_PREF, Configurations.DEFAULT_PREF).equals(Configurations.VAL_PREF_ASK);
+			ask = Helper.getConfig(this, Configurations.PREF_PREF,
+					Configurations.DEFAULT_PREF).equals(Configurations.VAL_PREF_ASK);
 			if (uri.getScheme().equals("sip") || uri.getScheme().equals("sipdroid")) {
 				target = uri.getSchemeSpecificPart();
 			} else {
@@ -89,7 +89,8 @@ public class SIPUri extends Activity {
 						uri.getAuthority().equals("icq") ||
 						uri.getAuthority().equals("gtalk") ||
 						uri.getAuthority().equals("msn"))
-					target = uri.getLastPathSegment().replaceAll("@","_at_") + "@" + uri.getAuthority() + ".gtalk2voip.com";
+					target = uri.getLastPathSegment().replaceAll("@","_at_") + "@"
+							+ uri.getAuthority() + ".gtalk2voip.com";
 				else if (uri.getAuthority().equals("skype"))
 					target = uri.getLastPathSegment() + "@" + uri.getAuthority();
 				else
@@ -119,8 +120,11 @@ public class SIPUri extends Activity {
 				});
 
 			for (int p = 0; p < SipdroidEngine.LINES; p++)
-				if (Receiver.isFast(p) || (Helper.getConfig(this, Configurations.PREF_CALLBACK, Configurations.DEFAULT_CALLBACK) &&
-						Helper.getConfig(this, Configurations.PREF_POSURL, Configurations.DEFAULT_POSURL).length() > 0)) {
+				if (Receiver.isFast(p) || (Helper.getConfig(this,
+						Configurations.PREF_CALLBACK,
+						Configurations.DEFAULT_CALLBACK) &&
+						Helper.getConfig(this, Configurations.PREF_POSURL,
+								Configurations.DEFAULT_POSURL).length() > 0)) {
 					alert.setPositiveButton(R.string.app_name,new DialogInterface.OnClickListener() {
 		                public void onClick(DialogInterface dialog, int whichButton) {
 		            			call(items[item]);

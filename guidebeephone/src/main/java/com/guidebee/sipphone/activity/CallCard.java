@@ -21,11 +21,6 @@ package com.guidebee.sipphone.activity;
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-//import com.android.internal.telephony.Call;
-//import com.android.internal.telephony.CallerInfo;
-//import com.android.internal.telephony.CallerInfoAsyncQuery;
-//import com.android.internal.telephony.Connection;
-//import com.android.internal.telephony.Phone;
 
 import android.content.ContentUris;
 import android.content.Context;
@@ -55,9 +50,6 @@ import com.guidebee.sipphone.phone.Phone;
 import com.guidebee.sipphone.phone.PhoneUtils;
 import com.guidebee.sipphone.phone.SlidingCardManager;
 import com.guidebee.sipphone.receiver.Receiver;
-
-//import android.pim.ContactsAsyncHelper;
-//import android.pim.DateUtils;
 
 
 /**
@@ -261,7 +253,8 @@ public class CallCard extends FrameLayout
         int callCardBackgroundResid = 0;
 
         // Background frame resources are different between portrait/landscape:
-        boolean landscapeMode = getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
+        boolean landscapeMode = getResources().getConfiguration().orientation
+                == Configuration.ORIENTATION_LANDSCAPE;
 
         switch (state) {
             case ACTIVE:

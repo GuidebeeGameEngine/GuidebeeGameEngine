@@ -36,7 +36,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.SystemClock;
-import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.telephony.TelephonyManager;
 import android.util.Log;
@@ -72,7 +71,8 @@ import java.net.InetAddress;
 import java.util.ArrayList;
 
 public class VideoCamera extends CallScreen implements
-        SipdroidListener, SurfaceHolder.Callback, MediaRecorder.OnErrorListener, MediaPlayer.OnErrorListener, OnClickListener, OnLongClickListener {
+        SipdroidListener, SurfaceHolder.Callback, MediaRecorder.OnErrorListener,
+        MediaPlayer.OnErrorListener, OnClickListener, OnLongClickListener {
 	
 	Thread t;
 	Context mContext = this;
@@ -135,12 +135,15 @@ public class VideoCamera extends CallScreen implements
                        	mRecordingTimeView.setText(text);
                         if (fps != 0) mFPS.setText(fps+(videoQualityHigh?"h":"l")+"fps");
                        	if (mVideoFrame != null) {
-                       		int buffering = mVideoFrame.getBufferPercentage(),pos = mVideoFrame.getCurrentPosition();
+                       		int buffering = mVideoFrame.getBufferPercentage(),
+                                    pos = mVideoFrame.getCurrentPosition();
                             if (buffering != 100 && buffering != 0) {
                             	mMediaController.show();
                             }
-                            if (buffering != 0 && !mMediaRecorderRecording) mVideoPreview.setVisibility(View.INVISIBLE);
-                            if (((obuffering != buffering && buffering == 100) || (opos == 0 && pos > 0)) && rtp_socket != null) {
+                            if (buffering != 0 && !mMediaRecorderRecording)
+                                mVideoPreview.setVisibility(View.INVISIBLE);
+                            if (((obuffering != buffering && buffering == 100)
+                                    || (opos == 0 && pos > 0)) && rtp_socket != null) {
         						RtpPacket keepalive = new RtpPacket(new byte[12],0);
         						keepalive.setPayloadType(125);
         						try {
@@ -196,7 +199,8 @@ public class VideoCamera extends CallScreen implements
     public void onStart() {
         super.onStart();
         speakermode = Receiver.engine(this).speaker(AudioManager.MODE_NORMAL);
-        videoQualityHigh = Helper.getConfig(mContext, Configurations.PREF_VQUALITY, Configurations.DEFAULT_VQUALITY).equals("high");
+        videoQualityHigh = Helper.getConfig(mContext, Configurations.PREF_VQUALITY,
+                Configurations.DEFAULT_VQUALITY).equals("high");
         if ((intent = getIntent()).hasExtra(MediaStore.EXTRA_VIDEO_QUALITY)) {
             int extraVideoQuality = intent.getIntExtra(MediaStore.EXTRA_VIDEO_QUALITY, 0);
             videoQualityHigh = (extraVideoQuality > 0);
@@ -227,7 +231,9 @@ public class VideoCamera extends CallScreen implements
             mVideoPreview.setVisibility(View.VISIBLE);
 	        if (!mMediaRecorderRecording) initializeVideo();
 	        startVideoRecording();
-        } else if (Receiver.engine(mContext).getRemoteVideo() != 0 && Helper.getConfig(this, Configurations.PREF_SERVER, Configurations.DEFAULT_SERVER).equals(Configurations.DEFAULT_SERVER)) {
+        } else if (Receiver.engine(mContext).getRemoteVideo() != 0
+                && Helper.getConfig(this, Configurations.PREF_SERVER,
+                Configurations.DEFAULT_SERVER).equals(Configurations.DEFAULT_SERVER)) {
         	mVideoFrame.setVideoURI(Uri.parse("rtsp://"+Receiver.engine(mContext).getRemoteAddr()+"/"+
         		Receiver.engine(mContext).getRemoteVideo()+"/sipdroid"));
         	mVideoFrame.setMediaController(mMediaController = new MediaController(this));
@@ -371,7 +377,8 @@ public class VideoCamera extends CallScreen implements
 			{
 				try
 				{
-					Method method = Class.forName("android.hardware.HtcFrontFacingCamera").getDeclaredMethod("getCamera", null);
+					Method method = Class.forName("android.hardware.HtcFrontFacingCamera")
+                            .getDeclaredMethod("getCamera", null);
 					mCamera = (Camera) method.invoke(null, null);
 				}
 				catch (Exception ex)

@@ -21,8 +21,6 @@
 
 package com.guidebee.sipphone;
 
-import android.preference.PreferenceManager;
-
 import com.guidebee.sipphone.activity.Configurations;
 import com.guidebee.sipphone.activity.Sipdroid;
 import com.guidebee.sipphone.receiver.Receiver;

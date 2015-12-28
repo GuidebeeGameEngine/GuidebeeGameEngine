@@ -78,26 +78,41 @@ public class SipdroidEngine implements RegisterAgentListener {
     UserAgentProfile getUserAgentProfile(String suffix) {
         UserAgentProfile user_profile = new UserAgentProfile(null);
 
-        user_profile.username = Helper.getConfig(getUIContext(), Configurations.PREF_USERNAME + suffix, Configurations.DEFAULT_USERNAME); // modified
-        user_profile.passwd = Helper.getConfig(getUIContext(), Configurations.PREF_PASSWORD + suffix, Configurations.DEFAULT_PASSWORD);
-        if (Helper.getConfig(getUIContext(), Configurations.PREF_DOMAIN + suffix, Configurations.DEFAULT_DOMAIN).length() == 0) {
-            user_profile.realm = Helper.getConfig(getUIContext(), Configurations.PREF_SERVER + suffix, Configurations.DEFAULT_SERVER);
+        user_profile.username = Helper.getConfig(getUIContext(),
+                Configurations.PREF_USERNAME + suffix,
+                Configurations.DEFAULT_USERNAME); // modified
+        user_profile.passwd = Helper.getConfig(getUIContext(),
+                Configurations.PREF_PASSWORD + suffix,
+                Configurations.DEFAULT_PASSWORD);
+        if (Helper.getConfig(getUIContext(), Configurations.PREF_DOMAIN + suffix,
+                Configurations.DEFAULT_DOMAIN).length() == 0) {
+            user_profile.realm = Helper.getConfig(getUIContext(),
+                    Configurations.PREF_SERVER + suffix, Configurations.DEFAULT_SERVER);
         } else {
-            user_profile.realm = Helper.getConfig(getUIContext(), Configurations.PREF_DOMAIN + suffix, Configurations.DEFAULT_DOMAIN);
+            user_profile.realm = Helper.getConfig(getUIContext(),
+                    Configurations.PREF_DOMAIN + suffix, Configurations.DEFAULT_DOMAIN);
         }
         user_profile.realm_orig = user_profile.realm;
-        if (Helper.getConfig(getUIContext(), Configurations.PREF_FROMUSER + suffix, Configurations.DEFAULT_FROMUSER).length() == 0) {
+        if (Helper.getConfig(getUIContext(), Configurations.PREF_FROMUSER + suffix,
+                Configurations.DEFAULT_FROMUSER).length() == 0) {
             user_profile.from_url = user_profile.username;
         } else {
-            user_profile.from_url = Helper.getConfig(getUIContext(), Configurations.PREF_FROMUSER + suffix, Configurations.DEFAULT_FROMUSER);
+            user_profile.from_url = Helper.getConfig(getUIContext(),
+                    Configurations.PREF_FROMUSER + suffix, Configurations.DEFAULT_FROMUSER);
         }
 
         // MMTel configuration (added by mandrajg)
-        user_profile.qvalue = Helper.getConfig(getUIContext(), Configurations.PREF_MMTEL_QVALUE, Configurations.DEFAULT_MMTEL_QVALUE);
-        user_profile.mmtel = Helper.getConfig(getUIContext(), Configurations.PREF_MMTEL, Configurations.DEFAULT_MMTEL);
+        user_profile.qvalue = Helper.getConfig(getUIContext(),
+                Configurations.PREF_MMTEL_QVALUE,
+                Configurations.DEFAULT_MMTEL_QVALUE);
+        user_profile.mmtel = Helper.getConfig(getUIContext(),
+                Configurations.PREF_MMTEL, Configurations.DEFAULT_MMTEL);
 
-        user_profile.pub = Helper.getConfig(getUIContext(), Configurations.PREF_EDGE + suffix, Configurations.DEFAULT_EDGE) ||
-                Helper.getConfig(getUIContext(), Configurations.PREF_3G + suffix, Configurations.DEFAULT_3G);
+        user_profile.pub = Helper.getConfig(getUIContext(),
+                Configurations.PREF_EDGE + suffix, Configurations.DEFAULT_EDGE) ||
+                Helper.getConfig(getUIContext(),
+                        Configurations.PREF_3G + suffix,
+                        Configurations.DEFAULT_3G);
         return user_profile;
     }
 
@@ -105,7 +120,8 @@ public class SipdroidEngine implements RegisterAgentListener {
         PowerManager pm = (PowerManager) getUIContext().getSystemService(Context.POWER_SERVICE);
         WifiManager wm = (WifiManager) getUIContext().getSystemService(Context.WIFI_SERVICE);
         if (wl == null) {
-            if (!PreferenceManager.getDefaultSharedPreferences(getUIContext()).contains(Configurations.PREF_KEEPON)) {
+            if (!PreferenceManager.getDefaultSharedPreferences(getUIContext())
+                    .contains(Configurations.PREF_KEEPON)) {
                 Editor edit = PreferenceManager.getDefaultSharedPreferences(getUIContext()).edit();
 
                 edit.putBoolean(Configurations.PREF_KEEPON, true);
@@ -133,7 +149,8 @@ public class SipdroidEngine implements RegisterAgentListener {
         for (UserAgentProfile user_profile : user_profiles) {
             if (wl[i] == null) {
                 wl[i] = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "Sipdroid.SipdroidEngine");
-                pwl[i] = pm.newWakeLock(PowerManager.SCREEN_DIM_WAKE_LOCK | PowerManager.ACQUIRE_CAUSES_WAKEUP, "Sipdroid.SipdroidEngine");
+                pwl[i] = pm.newWakeLock(PowerManager.SCREEN_DIM_WAKE_LOCK
+                        | PowerManager.ACQUIRE_CAUSES_WAKEUP, "Sipdroid.SipdroidEngine");
                 if (!Helper.getConfig(getUIContext(), Configurations.PREF_KEEPON, Configurations.DEFAULT_KEEPON)) {
                     wwl[i] = wm.createWifiLock(3, "Sipdroid.SipdroidEngine");
                     wwl[i].setReferenceCounted(false);
@@ -145,7 +162,8 @@ public class SipdroidEngine implements RegisterAgentListener {
                 //			SipStack.log_path = "/data/data/com.guidebee.sipphone";
                 SipStack.max_retransmission_timeout = 4000;
                 SipStack.default_transport_protocols = new String[1];
-                SipStack.default_transport_protocols[0] = Helper.getConfig(getUIContext(), Configurations.PREF_PROTOCOL + (i != 0 ? i : ""),
+                SipStack.default_transport_protocols[0] = Helper.getConfig(getUIContext(),
+                        Configurations.PREF_PROTOCOL + (i != 0 ? i : ""),
                         user_profile.realm.equals(Configurations.DEFAULT_SERVER) ? "tcp" : "udp");
 
                 if (SipStack.default_transport_protocols[0].equals("tls"))
@@ -203,13 +221,20 @@ public class SipdroidEngine implements RegisterAgentListener {
 
     void setOutboundProxy(SipProvider sip_provider, int i) {
         try {
-            String host = Helper.getConfig(getUIContext(), Configurations.PREF_PROTOCOL + (i != 0 ? i : ""), Configurations.DEFAULT_PROTOCOL).equals("tls") ?
-                    Helper.getConfig(getUIContext(), Configurations.PREF_SERVER + (i != 0 ? i : ""), Configurations.DEFAULT_SERVER) : null;
+            String host = Helper.getConfig(getUIContext(),
+                    Configurations.PREF_PROTOCOL + (i != 0 ? i : ""),
+                    Configurations.DEFAULT_PROTOCOL).equals("tls") ?
+                    Helper.getConfig(getUIContext(),
+                            Configurations.PREF_SERVER + (i != 0 ? i : ""),
+                            Configurations.DEFAULT_SERVER) : null;
             if (host != null && host.equals(Configurations.DEFAULT_SERVER))
                 host = "www1.pbxes.com";
             if (sip_provider != null) sip_provider.setOutboundProxy(new SocketAddress(
-                            IpAddress.getByName(Helper.getConfig(getUIContext(), Configurations.PREF_DNS + i, Configurations.DEFAULT_DNS)),
-                            Integer.valueOf(Helper.getConfig(getUIContext(), Configurations.PREF_PORT + (i != 0 ? i : ""), Configurations.DEFAULT_PORT))),
+                            IpAddress.getByName(Helper.getConfig(getUIContext(),
+                                    Configurations.PREF_DNS + i, Configurations.DEFAULT_DNS)),
+                            Integer.valueOf(Helper.getConfig(getUIContext(),
+                                    Configurations.PREF_PORT + (i != 0 ? i : ""),
+                                    Configurations.DEFAULT_PORT))),
                     host);
         } catch (Exception e) {
         }
@@ -260,7 +285,8 @@ public class SipdroidEngine implements RegisterAgentListener {
         RegisterAgent ra = ras[i];
         if (ra != null && ra.unregister()) {
             Receiver.alarm(0, LoopAlarm.class);
-            Receiver.onText(Receiver.REGISTER_NOTIFICATION + i, getUIContext().getString(R.string.reg), R.drawable.sym_presence_idle, 0);
+            Receiver.onText(Receiver.REGISTER_NOTIFICATION + i,
+                    getUIContext().getString(R.string.reg), R.drawable.sym_presence_idle, 0);
             wl[i].acquire();
         } else
             Receiver.onText(Receiver.REGISTER_NOTIFICATION + i, null, 0, 0);
@@ -279,7 +305,8 @@ public class SipdroidEngine implements RegisterAgentListener {
                 user_profiles[i].contact_url = getContactURL(user_profiles[i].from_url, sip_providers[i]);
 
                 if (ra != null && !ra.isRegistered() && Receiver.isFast(i) && ra.register()) {
-                    Receiver.onText(Receiver.REGISTER_NOTIFICATION + i, getUIContext().getString(R.string.reg), R.drawable.sym_presence_idle, 0);
+                    Receiver.onText(Receiver.REGISTER_NOTIFICATION + i,
+                            getUIContext().getString(R.string.reg), R.drawable.sym_presence_idle, 0);
                     wl[i].acquire();
                 }
             } catch (Exception ex) {
@@ -305,7 +332,8 @@ public class SipdroidEngine implements RegisterAgentListener {
                     unregister(i);
                 } else {
                     if (ra != null && ra.register()) {
-                        Receiver.onText(Receiver.REGISTER_NOTIFICATION + i, getUIContext().getString(R.string.reg), R.drawable.sym_presence_idle, 0);
+                        Receiver.onText(Receiver.REGISTER_NOTIFICATION + i,
+                                getUIContext().getString(R.string.reg), R.drawable.sym_presence_idle, 0);
                         wl[i].acquire();
                     }
                 }
@@ -335,7 +363,9 @@ public class SipdroidEngine implements RegisterAgentListener {
                     unregister(i);
                 } else {
                     if (ra != null && ra.register()) {
-                        Receiver.onText(Receiver.REGISTER_NOTIFICATION + i, getUIContext().getString(R.string.reg), R.drawable.sym_presence_idle, 0);
+                        Receiver.onText(Receiver.REGISTER_NOTIFICATION + i,
+                                getUIContext().getString(R.string.reg),
+                                R.drawable.sym_presence_idle, 0);
                         wl[i].acquire();
                     }
                 }
@@ -352,7 +382,8 @@ public class SipdroidEngine implements RegisterAgentListener {
         int i = 0;
         for (RegisterAgent ra : ras) {
             unregister(i);
-            while (ra != null && ra.CurrentState != RegisterAgent.UNREGISTERED && SystemClock.elapsedRealtime() - time < 2000)
+            while (ra != null && ra.CurrentState != RegisterAgent.UNREGISTERED
+                    && SystemClock.elapsedRealtime() - time < 2000)
                 try {
                     Thread.sleep(100);
                 } catch (InterruptedException e1) {
@@ -407,7 +438,9 @@ public class SipdroidEngine implements RegisterAgentListener {
         if (isRegistered(i)) {
             if (Receiver.on_wlan)
                 Receiver.alarm(getKeepaliveInterval(i), LoopAlarm.class);
-            Receiver.onText(Receiver.REGISTER_NOTIFICATION + i, getUIContext().getString(i == pref ? R.string.regpref : R.string.regclick), R.drawable.sym_presence_available, 0);
+            Receiver.onText(Receiver.REGISTER_NOTIFICATION + i,
+                    getUIContext().getString(i == pref ? R.string.regpref : R.string.regclick),
+                    R.drawable.sym_presence_available, 0);
             reg_ra.subattempts = 0;
             reg_ra.startMWI();
             Receiver.registered();
@@ -436,7 +469,8 @@ public class SipdroidEngine implements RegisterAgentListener {
             }
             Receiver.MWI_account = vmacc;
             if (lastmsgs[i] == null || !msgs.equals(lastmsgs[i])) {
-                Receiver.onText(Receiver.MWI_NOTIFICATION, msgs, android.R.drawable.stat_notify_voicemail, 0);
+                Receiver.onText(Receiver.MWI_NOTIFICATION, msgs,
+                        android.R.drawable.stat_notify_voicemail, 0);
                 lastmsgs[i] = msgs;
             }
         } else {
@@ -463,13 +497,17 @@ public class SipdroidEngine implements RegisterAgentListener {
             Receiver.onText(Receiver.REGISTER_NOTIFICATION + i, null, 0, 0);
         } else {
             retry = true;
-            Receiver.onText(Receiver.REGISTER_NOTIFICATION + i, getUIContext().getString(R.string.regfailed) + " (" + result + ")", R.drawable.sym_presence_away, 0);
+            Receiver.onText(Receiver.REGISTER_NOTIFICATION + i,
+                    getUIContext().getString(R.string.regfailed)
+                            + " (" + result + ")",
+                    R.drawable.sym_presence_away, 0);
         }
         if (retry) {
             retry = false;
             if (SystemClock.uptimeMillis() > lastpwl + 45000) {
                 if (pwl[i] != null && !pwl[i].isHeld()) {
-                    if ((!Receiver.on_wlan && Build.MODEL.contains("HTC One")) || (Receiver.on_wlan && wwl[i] == null)) {
+                    if ((!Receiver.on_wlan && Build.MODEL.contains("HTC One"))
+                            || (Receiver.on_wlan && wwl[i] == null)) {
                         pwl[i].acquire();
                         retry = true;
                     }
@@ -509,7 +547,9 @@ public class SipdroidEngine implements RegisterAgentListener {
         int i = 0;
         for (SipProvider sip_provider : sip_providers) {
             try {
-                edit.putString(Configurations.PREF_DNS + i, IpAddress.getByName(Helper.getConfig(getUIContext(), Configurations.PREF_SERVER + (i != 0 ? i : ""), "")).toString());
+                edit.putString(Configurations.PREF_DNS + i,
+                        IpAddress.getByName(Helper.getConfig(getUIContext(),
+                                Configurations.PREF_SERVER + (i != 0 ? i : ""), "")).toString());
             } catch (UnknownHostException e1) {
                 i++;
                 continue;
@@ -569,8 +609,10 @@ public class SipdroidEngine implements RegisterAgentListener {
         }
 
         if (!found || (ua = uas[p]) == null) {
-            if (Helper.getConfig(getUIContext(), Configurations.PREF_CALLBACK, Configurations.DEFAULT_CALLBACK) &&
-                    Helper.getConfig(getUIContext(), Configurations.PREF_POSURL, Configurations.DEFAULT_POSURL).length() > 0) {
+            if (Helper.getConfig(getUIContext(), Configurations.PREF_CALLBACK,
+                    Configurations.DEFAULT_CALLBACK) &&
+                    Helper.getConfig(getUIContext(), Configurations.PREF_POSURL,
+                            Configurations.DEFAULT_POSURL).length() > 0) {
                 Receiver.url("n=" + Uri.encode(target_url));
                 return true;
             }
@@ -605,7 +647,8 @@ public class SipdroidEngine implements RegisterAgentListener {
 
     public void togglemute() {
         if (ua.muteMediaApplication())
-            Receiver.onText(Receiver.CALL_NOTIFICATION, getUIContext().getString(R.string.menu_mute), android.R.drawable.stat_notify_call_mute, Receiver.ccCall.base);
+            Receiver.onText(Receiver.CALL_NOTIFICATION, getUIContext().getString(R.string.menu_mute),
+                    android.R.drawable.stat_notify_call_mute, Receiver.ccCall.base);
         else
             Receiver.progress();
     }

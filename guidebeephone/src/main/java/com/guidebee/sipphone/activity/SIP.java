@@ -25,7 +25,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.SystemClock;
-import android.preference.PreferenceManager;
 
 import com.guidebee.sipphone.Helper;
 import com.guidebee.sipphone.receiver.Caller;
@@ -39,8 +38,11 @@ public class SIP extends Activity {
 			number = uri.substring(uri.indexOf(":")+1);
 			if (!number.equals("")) {
 		        Intent intent = new Intent(Intent.ACTION_CALL,
-		                Uri.fromParts(Uri.decode(number).contains("@")?"sipdroid":"tel", Uri.decode(number)+
-		                		(Helper.getConfig(this,Configurations.PREF_PREF, Configurations.DEFAULT_PREF).equals(Configurations.VAL_PREF_PSTN) ? "+" : ""), null));
+		                Uri.fromParts(Uri.decode(number).contains("@")?"sipdroid":"tel",
+								Uri.decode(number)+
+		                		(Helper.getConfig(this,Configurations.PREF_PREF,
+										Configurations.DEFAULT_PREF)
+										.equals(Configurations.VAL_PREF_PSTN) ? "+" : ""), null));
 		        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		        Caller.noexclude = SystemClock.elapsedRealtime();
 		        startActivity(intent);

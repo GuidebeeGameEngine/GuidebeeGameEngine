@@ -23,7 +23,6 @@ package com.guidebee.sipphone.receiver;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.preference.PreferenceManager;
 import android.util.Log;
 
 import com.guidebee.sipphone.Helper;

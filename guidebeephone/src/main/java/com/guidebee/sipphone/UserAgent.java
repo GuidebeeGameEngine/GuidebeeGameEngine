@@ -229,21 +229,26 @@ public class UserAgent extends CallListenerAdapter {
 				if (i == 0) codec.init();
 				avpvec.add(String.valueOf(i));
 				if (codec.number() == 9)
-					afvec.add(new AttributeField("rtpmap", String.format("%d %s/%d", i, codec.userName(), 8000))); // kludge for G722. See RFC3551.
+					afvec.add(new AttributeField("rtpmap", String.format("%d %s/%d", i,
+							codec.userName(), 8000))); // kludge for G722. See RFC3551.
 				else
-					afvec.add(new AttributeField("rtpmap", String.format("%d %s/%d", i, codec.userName(), codec.samp_rate())));
+					afvec.add(new AttributeField("rtpmap", String.format("%d %s/%d", i,
+							codec.userName(), codec.samp_rate())));
 			}
 		} else {
 			c.codec.init();
 			avpvec.add(String.valueOf(c.number));
 			if (c.codec.number() == 9)
-				afvec.add(new AttributeField("rtpmap", String.format("%d %s/%d", c.number, c.codec.userName(), 8000))); // kludge for G722. See RFC3551.
+				afvec.add(new AttributeField("rtpmap", String.format("%d %s/%d", c.number,
+						c.codec.userName(), 8000))); // kludge for G722. See RFC3551.
 			else
-				afvec.add(new AttributeField("rtpmap", String.format("%d %s/%d", c.number, c.codec.userName(), c.codec.samp_rate())));
+				afvec.add(new AttributeField("rtpmap", String.format("%d %s/%d", c.number,
+						c.codec.userName(), c.codec.samp_rate())));
 		}
 		if (user_profile.dtmf_avp != 0){
 			avpvec.add(String.valueOf(user_profile.dtmf_avp));
-			afvec.add(new AttributeField("rtpmap", String.format("%d telephone-event/%d", user_profile.dtmf_avp, user_profile.audio_sample_rate)));
+			afvec.add(new AttributeField("rtpmap", String.format("%d telephone-event/%d",
+					user_profile.dtmf_avp, user_profile.audio_sample_rate)));
 			afvec.add(new AttributeField("fmtp", String.format("%d 0-15", user_profile.dtmf_avp)));
 		}
 				
@@ -276,7 +281,8 @@ public class UserAgent extends CallListenerAdapter {
 		{
 			//We can initiate or terminate a call only when
 			//we are in an idle state
-			printLog("Call attempted in state" + this.getSessionDescriptor() + " : Failing Request", LogLevel.HIGH);
+			printLog("Call attempted in state" + this.getSessionDescriptor()
+					+ " : Failing Request", LogLevel.HIGH);
 			return false;
 		}
 		hangup(); // modified
@@ -343,7 +349,8 @@ public class UserAgent extends CallListenerAdapter {
 		{
 			//We can listen for a call only when
 			//we are in an idle state
-			printLog("Call listening mode initiated in " + this.getSessionDescriptor() + " : Failing Request", LogLevel.HIGH);
+			printLog("Call listening mode initiated in " + this.getSessionDescriptor()
+					+ " : Failing Request", LogLevel.HIGH);
 			return false;
 		}
 		

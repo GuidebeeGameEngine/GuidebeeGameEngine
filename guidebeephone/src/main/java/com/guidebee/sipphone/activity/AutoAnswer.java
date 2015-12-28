@@ -34,7 +34,8 @@ public class AutoAnswer extends Activity {
 	AudioManager am;
 
 	boolean getMode() {
-		return Helper.getConfig(this, Configurations.PREF_AUTO_DEMAND, Configurations.DEFAULT_AUTO_DEMAND);
+		return Helper.getConfig(this, Configurations.PREF_AUTO_DEMAND,
+				Configurations.DEFAULT_AUTO_DEMAND);
 	}
 	
 	void restoreVolume() {

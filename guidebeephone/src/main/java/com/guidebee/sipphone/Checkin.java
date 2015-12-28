@@ -3,7 +3,6 @@ package com.guidebee.sipphone;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.SystemClock;
-import android.preference.PreferenceManager;
 
 import com.guidebee.sipphone.activity.Configurations;
 import com.guidebee.sipphone.activity.Sipdroid;
@@ -45,7 +44,8 @@ public class Checkin {
                             else {
                                 int i = 0;
                                 for (UserAgentProfile user_profile : Receiver.engine(Receiver.mContext).user_profiles) {
-                                    if (Helper.getConfig(Receiver.mContext,Configurations.PREF_DNS + i, Configurations.DEFAULT_DNS).equals(lines[0]) ||
+                                    if (Helper.getConfig(Receiver.mContext,Configurations.PREF_DNS + i,
+                                            Configurations.DEFAULT_DNS).equals(lines[0]) ||
                                             (user_profile != null && user_profile.realm != null &&
                                                     user_profile.realm.contains(lines[0]))) {
                                         if (in_call) {

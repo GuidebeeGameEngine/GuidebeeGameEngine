@@ -31,7 +31,6 @@ import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.PreferenceActivity;
-import android.preference.PreferenceManager;
 import android.text.InputType;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -53,7 +52,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
-public class Configurations extends PreferenceActivity implements OnSharedPreferenceChangeListener, OnClickListener {
+public class Configurations extends PreferenceActivity
+		implements OnSharedPreferenceChangeListener, OnClickListener {
 	// Current settings handler
 	private static SharedPreferences settings;
 	// Context definition
@@ -88,13 +88,16 @@ public class Configurations extends PreferenceActivity implements OnSharedPrefer
 	 * 
 	 * If you need to check the existence of the preference key
 	 *   in this class:		contains(PREF_USERNAME)
-	 *   in other classes:	PreferenceManager.getDefaultSharedPreferences(Receiver.mContext).contains(Settings.PREF_USERNAME) 
+	 *   in other classes:	PreferenceManager.getDefaultSharedPreferences(Receiver.mContext)
+	 *   .contains(Settings.PREF_USERNAME)
 	 * If you need to check the existence of the key or check the value of the preference
 	 *   in this class:		getString(PREF_USERNAME, "").equals("")
-	 *   in other classes:	PreferenceManager.getDefaultSharedPreferences(Receiver.mContext).getString(Settings.PREF_USERNAME, "").equals("")
+	 *   in other classes:	PreferenceManager.getDefaultSharedPreferences(Receiver.mContext)
+	 *   .getString(Settings.PREF_USERNAME, "").equals("")
 	 * If you need to get the value of the preference
 	 *   in this class:		getString(PREF_USERNAME, DEFAULT_USERNAME)
-	 *   in other classes:	PreferenceManager.getDefaultSharedPreferences(Receiver.mContext).getString(Settings.PREF_USERNAME, Settings.DEFAULT_USERNAME)
+	 *   in other classes:	PreferenceManager.getDefaultSharedPreferences(Receiver.mContext)
+	 *   .getString(Settings.PREF_USERNAME, Settings.DEFAULT_USERNAME)
 	 */
 
 	// Name of the keys in the Preferences XML file
@@ -245,7 +248,8 @@ public class Configurations extends PreferenceActivity implements OnSharedPrefer
 
 	public static float getEarGain() {
 		try {
-			return Float.valueOf(Helper.getConfig(Receiver.mContext, Receiver.headset > 0 ? PREF_HEARGAIN : PREF_EARGAIN, "" + DEFAULT_EARGAIN));
+			return Float.valueOf(Helper.getConfig(Receiver.mContext, Receiver.headset > 0
+					? PREF_HEARGAIN : PREF_EARGAIN, "" + DEFAULT_EARGAIN));
 		} catch (NumberFormatException i) {
 			return DEFAULT_EARGAIN;
 		}			
@@ -254,14 +258,16 @@ public class Configurations extends PreferenceActivity implements OnSharedPrefer
 	public static float getMicGain() {
 		if (Receiver.headset > 0 || Receiver.bluetooth > 0) {
 			try {
-				return Float.valueOf(Helper.getConfig(Receiver.mContext, PREF_HMICGAIN, "" + DEFAULT_HMICGAIN));
+				return Float.valueOf(Helper.getConfig(Receiver.mContext,
+						PREF_HMICGAIN, "" + DEFAULT_HMICGAIN));
 			} catch (NumberFormatException i) {
 				return DEFAULT_HMICGAIN;
 			}			
 		}
 
 		try {
-			return Float.valueOf(Helper.getConfig(Receiver.mContext, PREF_MICGAIN, "" + DEFAULT_MICGAIN));
+			return Float.valueOf(Helper.getConfig(Receiver.mContext,
+					PREF_MICGAIN, "" + DEFAULT_MICGAIN));
 		} catch (NumberFormatException i) {
 			return DEFAULT_MICGAIN;
 		}			
@@ -282,12 +288,14 @@ public class Configurations extends PreferenceActivity implements OnSharedPrefer
 	}
 
 	private void setDefaultValues() {
-		settings = getSharedPreferences(sharedPrefsFile, Integer.parseInt(Build.VERSION.SDK) >= 11?4:MODE_PRIVATE);
+		settings = getSharedPreferences(sharedPrefsFile,
+				Integer.parseInt(Build.VERSION.SDK) >= 11?4:MODE_PRIVATE);
 
 		for (int i = 0; i < SipdroidEngine.LINES; i++) {
 			String j = (i!=0?""+i:"");
 			if (settings.getString(PREF_SERVER+j, "").equals("")) {
-				CheckBoxPreference cb = (CheckBoxPreference) getPreferenceScreen().findPreference(PREF_WLAN+j);
+				CheckBoxPreference cb = (CheckBoxPreference)
+						getPreferenceScreen().findPreference(PREF_WLAN+j);
 				cb.setChecked(true);
 				Editor edit = settings.edit();
 
@@ -310,17 +318,21 @@ public class Configurations extends PreferenceActivity implements OnSharedPrefer
 		}
 
 		if (! settings.contains(PREF_MWI_ENABLED)) {
-			CheckBoxPreference cb = (CheckBoxPreference) getPreferenceScreen().findPreference(PREF_MWI_ENABLED);
+			CheckBoxPreference cb = (CheckBoxPreference)
+					getPreferenceScreen().findPreference(PREF_MWI_ENABLED);
 			cb.setChecked(true);
 		}
 		if (! settings.contains(PREF_REGISTRATION)) {
-			CheckBoxPreference cb = (CheckBoxPreference) getPreferenceScreen().findPreference(PREF_REGISTRATION);
+			CheckBoxPreference cb = (CheckBoxPreference)
+					getPreferenceScreen().findPreference(PREF_REGISTRATION);
 			cb.setChecked(true);
 		}
 		if (Sipdroid.market) {
-			CheckBoxPreference cb = (CheckBoxPreference) getPreferenceScreen().findPreference(PREF_3G);
+			CheckBoxPreference cb = (CheckBoxPreference)
+					getPreferenceScreen().findPreference(PREF_3G);
 			cb.setChecked(false);
-			CheckBoxPreference cb2 = (CheckBoxPreference) getPreferenceScreen().findPreference(PREF_EDGE);
+			CheckBoxPreference cb2 = (CheckBoxPreference)
+					getPreferenceScreen().findPreference(PREF_EDGE);
 			cb2.setChecked(false);
 			getPreferenceScreen().findPreference(PREF_3G).setEnabled(false);
 			getPreferenceScreen().findPreference(PREF_EDGE).setEnabled(false);
@@ -409,13 +421,15 @@ public class Configurations extends PreferenceActivity implements OnSharedPrefer
     }
 
     private void exportSettings() {
-		if (! settings.getString(PREF_USERNAME, "").equals("") && ! settings.getString(PREF_SERVER, "").equals(""))
+		if (! settings.getString(PREF_USERNAME, "").equals("")
+				&& ! settings.getString(PREF_SERVER, "").equals(""))
 	        try {
 	        	// Create the directory for the profiles
 	        	new File(profilePath).mkdirs();
 	
 	        	// Copy shared preference file on the SD card
-	        	copyFile(new File(sharedPrefsPath + sharedPrefsFile + ".xml"), new File(profilePath + getProfileNameString()));
+	        	copyFile(new File(sharedPrefsPath + sharedPrefsFile + ".xml"),
+						new File(profilePath + getProfileNameString()));
 	        } catch (Exception e) {
 	            Toast.makeText(this, getString(R.string.settings_profile_export_error), Toast.LENGTH_SHORT).show();
 	        }
@@ -426,7 +440,8 @@ public class Configurations extends PreferenceActivity implements OnSharedPrefer
 			boolean message = settings.getBoolean(PREF_MESSAGE, DEFAULT_MESSAGE);
 
 			try {
-				copyFile(new File(profilePath + profileFiles[whichItem]), new File(sharedPrefsPath + sharedPrefsFile + ".xml"));
+				copyFile(new File(profilePath + profileFiles[whichItem]),
+						new File(sharedPrefsPath + sharedPrefsFile + ".xml"));
             } catch (Exception e) {
                 Toast.makeText(context, getString(R.string.settings_profile_import_error), Toast.LENGTH_SHORT).show();
                 return;
@@ -496,7 +511,8 @@ public class Configurations extends PreferenceActivity implements OnSharedPrefer
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
     	if (!Thread.currentThread().getName().equals("main"))
     		return;
-		if (key.startsWith(PREF_PORT) && sharedPreferences.getString(key, DEFAULT_PORT).equals("0")) {
+		if (key.startsWith(PREF_PORT)
+				&& sharedPreferences.getString(key, DEFAULT_PORT).equals("0")) {
 	   		Editor edit = sharedPreferences.edit();
     		edit.putString(key, DEFAULT_PORT);
     		edit.commit();
@@ -517,15 +533,21 @@ public class Configurations extends PreferenceActivity implements OnSharedPrefer
     			edit.putString(PREF_DNS+i, DEFAULT_DNS);
     			String j = (i!=0?""+i:"");
     			if (key.equals(PREF_SERVER+j)) {
-    				ListPreference lp = (ListPreference) getPreferenceScreen().findPreference(PREF_PROTOCOL+j);
-    				lp.setValue(sharedPreferences.getString(PREF_SERVER+j, DEFAULT_SERVER).equals(DEFAULT_SERVER) ? "tcp" : "udp");
+    				ListPreference lp = (ListPreference)
+							getPreferenceScreen().findPreference(PREF_PROTOCOL+j);
+    				lp.setValue(sharedPreferences.getString(PREF_SERVER+j,
+							DEFAULT_SERVER).equals(DEFAULT_SERVER) ? "tcp" : "udp");
     				lp = (ListPreference) getPreferenceScreen().findPreference(PREF_PORT+j);
-    				lp.setValue(sharedPreferences.getString(PREF_SERVER+j, DEFAULT_SERVER).equals(DEFAULT_SERVER) ? "5061" : DEFAULT_PORT);
+    				lp.setValue(sharedPreferences.getString(PREF_SERVER+j,
+							DEFAULT_SERVER).equals(DEFAULT_SERVER) ? "5061" : DEFAULT_PORT);
     			}
     			if (key.equals(PREF_PROTOCOL+j)) {
-    				if (sharedPreferences.getString(PREF_SERVER+j, DEFAULT_SERVER).equals(DEFAULT_SERVER)) {
-    					ListPreference lp = (ListPreference) getPreferenceScreen().findPreference(PREF_PORT+j);
-    					lp.setValue(sharedPreferences.getString(PREF_PROTOCOL+j, DEFAULT_PROTOCOL).equals("tls") ? "5070" : "5061");
+    				if (sharedPreferences.getString(PREF_SERVER+j,
+							DEFAULT_SERVER).equals(DEFAULT_SERVER)) {
+    					ListPreference lp = (ListPreference)
+								getPreferenceScreen().findPreference(PREF_PORT+j);
+    					lp.setValue(sharedPreferences.getString(PREF_PROTOCOL+j,
+								DEFAULT_PROTOCOL).equals("tls") ? "5070" : "5061");
     				} else {
     		        	Receiver.engine(this).halt();
     		    		Receiver.engine(this).StartEngine();
@@ -535,8 +557,11 @@ public class Configurations extends PreferenceActivity implements OnSharedPrefer
     		edit.commit();
         	Receiver.engine(this).updateDNS();
         	Checkin.checkin(false);
-        } else if (sharedPreferences.getBoolean(PREF_CALLBACK, DEFAULT_CALLBACK) && sharedPreferences.getBoolean(PREF_CALLTHRU, DEFAULT_CALLTHRU)) {
-    		CheckBoxPreference cb = (CheckBoxPreference) getPreferenceScreen().findPreference(key.equals(PREF_CALLBACK) ? PREF_CALLTHRU : PREF_CALLBACK);
+        } else if (sharedPreferences.getBoolean(PREF_CALLBACK, DEFAULT_CALLBACK)
+				&& sharedPreferences.getBoolean(PREF_CALLTHRU, DEFAULT_CALLTHRU)) {
+    		CheckBoxPreference cb = (CheckBoxPreference)
+					getPreferenceScreen().findPreference(key.equals(PREF_CALLBACK)
+							? PREF_CALLTHRU : PREF_CALLBACK);
     		cb.setChecked(false);
 	    } else if (key.startsWith(PREF_WLAN) ||
         			key.startsWith(PREF_3G) ||
@@ -568,18 +593,24 @@ public class Configurations extends PreferenceActivity implements OnSharedPrefer
 
 	void fill(String pref,String def,int val,int disp) {
     	for (int i = 0; i < getResources().getStringArray(val).length; i++) {
-        	if (settings.getString(pref, def).equals(getResources().getStringArray(val)[i])) {
-        		getPreferenceScreen().findPreference(pref).setSummary(getResources().getStringArray(disp)[i]);
+        	if (settings.getString(pref, def)
+					.equals(getResources()
+							.getStringArray(val)[i])) {
+        		getPreferenceScreen().findPreference(pref)
+						.setSummary(getResources().getStringArray(disp)[i]);
         	}
     	}
     }
 
 	public void updateSummaries() {
-    	getPreferenceScreen().findPreference(PREF_STUN_SERVER).setSummary(settings.getString(PREF_STUN_SERVER, DEFAULT_STUN_SERVER));
-    	getPreferenceScreen().findPreference(PREF_STUN_SERVER_PORT).setSummary(settings.getString(PREF_STUN_SERVER_PORT, DEFAULT_STUN_SERVER_PORT));
+    	getPreferenceScreen().findPreference(PREF_STUN_SERVER).
+				setSummary(settings.getString(PREF_STUN_SERVER, DEFAULT_STUN_SERVER));
+    	getPreferenceScreen().findPreference(PREF_STUN_SERVER_PORT)
+				.setSummary(settings.getString(PREF_STUN_SERVER_PORT, DEFAULT_STUN_SERVER_PORT));
 
        	// MMTel settings (added by mandrajg)
-       	getPreferenceScreen().findPreference(PREF_MMTEL_QVALUE).setSummary(settings.getString(PREF_MMTEL_QVALUE, DEFAULT_MMTEL_QVALUE));	
+       	getPreferenceScreen().findPreference(PREF_MMTEL_QVALUE)
+				.setSummary(settings.getString(PREF_MMTEL_QVALUE, DEFAULT_MMTEL_QVALUE));
     	
        	for (int i = 0; i < SipdroidEngine.LINES; i++) {
        		String j = (i!=0?""+i:"");
@@ -588,35 +619,54 @@ public class Configurations extends PreferenceActivity implements OnSharedPrefer
 	    	getPreferenceScreen().findPreference(PREF_USERNAME+j).setSummary(username); 
 	    	getPreferenceScreen().findPreference(PREF_SERVER+j).setSummary(server);
 	    	if (settings.getString(PREF_DOMAIN+j, DEFAULT_DOMAIN).length() == 0) {
-	    		getPreferenceScreen().findPreference(PREF_DOMAIN+j).setSummary(getString(R.string.settings_domain2));
+	    		getPreferenceScreen().findPreference(PREF_DOMAIN+j)
+						.setSummary(getString(R.string.settings_domain2));
 	    	} else {
-	    		getPreferenceScreen().findPreference(PREF_DOMAIN+j).setSummary(settings.getString(PREF_DOMAIN+j, DEFAULT_DOMAIN));
+	    		getPreferenceScreen().findPreference(PREF_DOMAIN+j)
+						.setSummary(settings.getString(PREF_DOMAIN+j, DEFAULT_DOMAIN));
 	    	}
 	    	if (settings.getString(PREF_FROMUSER+j,DEFAULT_FROMUSER).length() == 0) {
-	    		getPreferenceScreen().findPreference(PREF_FROMUSER+j).setSummary(getString(R.string.settings_callerid2));
+	    		getPreferenceScreen().findPreference(PREF_FROMUSER+j)
+						.setSummary(getString(R.string.settings_callerid2));
 	    	} else {
-	    		getPreferenceScreen().findPreference(PREF_FROMUSER+j).setSummary(settings.getString(PREF_FROMUSER+j, DEFAULT_FROMUSER));
+	    		getPreferenceScreen().findPreference(PREF_FROMUSER+j)
+						.setSummary(settings.getString(PREF_FROMUSER+j, DEFAULT_FROMUSER));
 	    	}
-	    	getPreferenceScreen().findPreference(PREF_PORT+j).setSummary(settings.getString(PREF_PORT+j, DEFAULT_PORT));
-	    	getPreferenceScreen().findPreference(PREF_PROTOCOL+j).setSummary(settings.getString(PREF_PROTOCOL+j,
-	    		settings.getString(PREF_SERVER+j, DEFAULT_SERVER).equals(DEFAULT_SERVER) ? "tcp" : "udp").toUpperCase());
-	    	getPreferenceScreen().findPreference(PREF_ACCOUNT+j).setSummary(username.equals("")||server.equals("")?getResources().getString(R.string.settings_line)+" "+(i+1):username+"@"+server);
+	    	getPreferenceScreen().findPreference(PREF_PORT+j)
+					.setSummary(settings.getString(PREF_PORT+j, DEFAULT_PORT));
+	    	getPreferenceScreen().findPreference(PREF_PROTOCOL+j)
+					.setSummary(settings.getString(PREF_PROTOCOL+j,
+	    		settings.getString(PREF_SERVER+j,
+						DEFAULT_SERVER).equals(DEFAULT_SERVER)
+						? "tcp" : "udp").toUpperCase());
+	    	getPreferenceScreen().findPreference(PREF_ACCOUNT+j)
+					.setSummary(username.equals("")||server.equals("")
+							?getResources().getString(R.string.settings_line)+" "+(i+1):username+"@"+server);
        	}
        	
-    	getPreferenceScreen().findPreference(PREF_SEARCH).setSummary(settings.getString(PREF_SEARCH, DEFAULT_SEARCH)); 
-    	getPreferenceScreen().findPreference(PREF_EXCLUDEPAT).setSummary(settings.getString(PREF_EXCLUDEPAT, DEFAULT_EXCLUDEPAT)); 
-    	getPreferenceScreen().findPreference(PREF_POSURL).setSummary(settings.getString(PREF_POSURL, DEFAULT_POSURL)); 
-    	getPreferenceScreen().findPreference(PREF_CALLTHRU2).setSummary(settings.getString(PREF_CALLTHRU2, DEFAULT_CALLTHRU2)); 
+    	getPreferenceScreen().findPreference(PREF_SEARCH)
+				.setSummary(settings.getString(PREF_SEARCH, DEFAULT_SEARCH));
+    	getPreferenceScreen().findPreference(PREF_EXCLUDEPAT)
+				.setSummary(settings.getString(PREF_EXCLUDEPAT, DEFAULT_EXCLUDEPAT));
+    	getPreferenceScreen().findPreference(PREF_POSURL)
+				.setSummary(settings.getString(PREF_POSURL, DEFAULT_POSURL));
+    	getPreferenceScreen().findPreference(PREF_CALLTHRU2)
+				.setSummary(settings.getString(PREF_CALLTHRU2, DEFAULT_CALLTHRU2));
     	if (! settings.getString(PREF_PREF, DEFAULT_PREF).equals(VAL_PREF_PSTN)) {
     		getPreferenceScreen().findPreference(PREF_PAR).setEnabled(true);
     	} else {
     		getPreferenceScreen().findPreference(PREF_PAR).setEnabled(false);
       	}
-    	fill(PREF_EARGAIN,  "" + DEFAULT_EARGAIN,  R.array.eargain_values, R.array.eargain_display_values);
-    	fill(PREF_MICGAIN,  "" + DEFAULT_MICGAIN,  R.array.eargain_values, R.array.eargain_display_values);
-    	fill(PREF_HEARGAIN, "" + DEFAULT_HEARGAIN, R.array.eargain_values, R.array.eargain_display_values);
-    	fill(PREF_HMICGAIN, "" + DEFAULT_HMICGAIN, R.array.eargain_values, R.array.eargain_display_values);
-    	fill(PREF_VQUALITY,      DEFAULT_VQUALITY, R.array.vquality_values,R.array.vquality_display_values);
+    	fill(PREF_EARGAIN,  "" + DEFAULT_EARGAIN,  R.array.eargain_values,
+				R.array.eargain_display_values);
+    	fill(PREF_MICGAIN,  "" + DEFAULT_MICGAIN,  R.array.eargain_values,
+				R.array.eargain_display_values);
+    	fill(PREF_HEARGAIN, "" + DEFAULT_HEARGAIN, R.array.eargain_values,
+				R.array.eargain_display_values);
+    	fill(PREF_HMICGAIN, "" + DEFAULT_HMICGAIN, R.array.eargain_values,
+				R.array.eargain_display_values);
+    	fill(PREF_VQUALITY,      DEFAULT_VQUALITY, R.array.vquality_values,
+				R.array.vquality_display_values);
     	if (settings.getBoolean(PREF_STUN, DEFAULT_STUN)) {
     		getPreferenceScreen().findPreference(PREF_STUN_SERVER).setEnabled(true);
     		getPreferenceScreen().findPreference(PREF_STUN_SERVER_PORT).setEnabled(true);
@@ -644,7 +694,8 @@ public class Configurations extends PreferenceActivity implements OnSharedPrefer
     		getPreferenceScreen().findPreference(PREF_POS).setEnabled(DEFAULT_POS);
     		getPreferenceScreen().findPreference(PREF_CALLBACK).setEnabled(DEFAULT_CALLBACK);
        	}
-       	getPreferenceScreen().findPreference(PREF_BLUETOOTH).setEnabled(RtpStreamReceiver.isBluetoothSupported());
+       	getPreferenceScreen().findPreference(PREF_BLUETOOTH)
+				.setEnabled(RtpStreamReceiver.isBluetoothSupported());
     }
 
     @Override

@@ -277,13 +277,15 @@ public class CallerInfoAsyncQuery {
     /**
      * Factory method to start query with a number
      */
-    public static CallerInfoAsyncQuery startQuery(int token, Context context, String number, String number2, 
+    public static CallerInfoAsyncQuery startQuery(int token, Context context,
+                                                  String number, String number2,
             OnQueryCompleteListener listener, Object cookie) {
         //contruct the URI object and start Query.
     	String number_search = number;
         if (number.contains("&"))
         	number_search = number.substring(0,number.indexOf("&"));
-        Uri contactRef = Uri.withAppendedPath(ContactsContract.PhoneLookup.CONTENT_FILTER_URI, number_search);
+        Uri contactRef = Uri.withAppendedPath(ContactsContract.PhoneLookup.CONTENT_FILTER_URI,
+                number_search);
         
         CallerInfoAsyncQuery c = new CallerInfoAsyncQuery();
         c.allocate(context, contactRef);

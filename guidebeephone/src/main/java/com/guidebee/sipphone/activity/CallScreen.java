@@ -13,7 +13,6 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
 import android.os.SystemClock;
-import android.preference.PreferenceManager;
 import android.text.InputType;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -100,7 +99,9 @@ public class CallScreen extends Activity implements DialogInterface.OnClickListe
 				Receiver.mSipdroidEngine.ua.audio_app != null) {
 			menu.findItem(HOLD_MENU_ITEM).setVisible(true);
 			menu.findItem(MUTE_MENU_ITEM).setVisible(true);
-			menu.findItem(VIDEO_MENU_ITEM).setVisible(VideoCamera.videoValid() && Receiver.call_state == UserAgent.UA_STATE_INCALL && Receiver.engine(this).getRemoteVideo() != 0);
+			menu.findItem(VIDEO_MENU_ITEM).setVisible(VideoCamera.videoValid()
+					&& Receiver.call_state == UserAgent.UA_STATE_INCALL
+					&& Receiver.engine(this).getRemoteVideo() != 0);
 			menu.findItem(TRANSFER_MENU_ITEM).setVisible(true);
 			menu.findItem(BLUETOOTH_MENU_ITEM).setVisible(RtpStreamReceiver.isBluetoothAvailable());
 		} else {
@@ -110,8 +111,10 @@ public class CallScreen extends Activity implements DialogInterface.OnClickListe
 			menu.findItem(TRANSFER_MENU_ITEM).setVisible(false);
 			menu.findItem(BLUETOOTH_MENU_ITEM).setVisible(false);
 		}
-		menu.findItem(SPEAKER_MENU_ITEM).setVisible(!(Receiver.headset > 0 || Receiver.docked > 0 || Receiver.bluetooth > 0));
-		menu.findItem(ANSWER_MENU_ITEM).setVisible(Receiver.call_state == UserAgent.UA_STATE_INCOMING_CALL);
+		menu.findItem(SPEAKER_MENU_ITEM).setVisible(!(Receiver.headset > 0
+				|| Receiver.docked > 0 || Receiver.bluetooth > 0));
+		menu.findItem(ANSWER_MENU_ITEM).setVisible(Receiver.call_state
+				== UserAgent.UA_STATE_INCOMING_CALL);
 		
 		return result;
 	}
@@ -163,7 +166,8 @@ public class CallScreen extends Activity implements DialogInterface.OnClickListe
 			break;
 					
 		case SPEAKER_MENU_ITEM:
-			Receiver.engine(this).speaker(RtpStreamReceiver.speakermode == AudioManager.MODE_NORMAL?
+			Receiver.engine(this).speaker(RtpStreamReceiver.speakermode
+					== AudioManager.MODE_NORMAL?
 					AudioManager.MODE_IN_CALL:AudioManager.MODE_NORMAL);
 			break;
 			
@@ -172,7 +176,8 @@ public class CallScreen extends Activity implements DialogInterface.OnClickListe
 			break;
 					
 		case VIDEO_MENU_ITEM:
-			if (Receiver.call_state == UserAgent.UA_STATE_HOLD) Receiver.engine(this).togglehold();
+			if (Receiver.call_state == UserAgent.UA_STATE_HOLD)
+				Receiver.engine(this).togglehold();
 			try {
 				intent = new Intent(this, VideoCamera.class);
 				startActivity(intent);
@@ -229,9 +234,11 @@ public class CallScreen extends Activity implements DialogInterface.OnClickListe
 		super.onResume();
 		if (Integer.parseInt(Build.VERSION.SDK) >= 5 && Integer.parseInt(Build.VERSION.SDK) <= 7)
 			disableKeyguard();
-		if (Receiver.call_state == UserAgent.UA_STATE_INCALL && socket == null && Receiver.engine(mContext).getLocalVideo()
+		if (Receiver.call_state == UserAgent.UA_STATE_INCALL && socket == null
+				&& Receiver.engine(mContext).getLocalVideo()
 				!= 0 && Receiver.engine(mContext).getRemoteVideo() != 0
-				&& Helper.getConfig(this,Configurations.PREF_SERVER, Configurations.DEFAULT_SERVER).equals(Configurations.DEFAULT_SERVER))
+				&& Helper.getConfig(this, Configurations.PREF_SERVER,
+				Configurations.DEFAULT_SERVER).equals(Configurations.DEFAULT_SERVER))
 	        (new Thread() {
 				public void run() {
 					RtpPacket keepalive = new RtpPacket(new byte[12],0);
@@ -239,7 +246,8 @@ public class CallScreen extends Activity implements DialogInterface.OnClickListe
 					
 					try {
 						if (intent == null || rtp_socket == null) {
-							rtp_socket = new RtpSocket(socket = new SipdroidSocket(Receiver.engine(mContext).getLocalVideo()),
+							rtp_socket = new RtpSocket(socket
+									= new SipdroidSocket(Receiver.engine(mContext).getLocalVideo()),
 								InetAddress.getByName(Receiver.engine(mContext).getRemoteAddr()),
 								Receiver.engine(mContext).getRemoteVideo());
 							sleep(3000);

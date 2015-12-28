@@ -69,25 +69,39 @@ public class CreateAccount extends Dialog {
 		email = trunkserver = null;
 	   	for (int i = 0; i < SipdroidEngine.LINES; i++) {
 	   		String j = (i!=0?""+i:"");
-	   		String username = Helper.getConfig(context, Configurations.PREF_USERNAME + j, Configurations.DEFAULT_USERNAME),
-	   			server = Helper.getConfig(context, Configurations.PREF_SERVER + j, Configurations.DEFAULT_SERVER);
+	   		String username = Helper.getConfig(context,
+					Configurations.PREF_USERNAME + j,
+					Configurations.DEFAULT_USERNAME),
+	   			server = Helper.getConfig(context,
+						Configurations.PREF_SERVER + j,
+						Configurations.DEFAULT_SERVER);
 	   		if (username.equals("") || server.equals(""))
 	   			continue;
 	   		if (server.contains("pbxes"))
 	   			found = true;
 	   		else if (i == 0 &&
-	   				!Helper.getConfig(context, Configurations.PREF_PROTOCOL + j, Configurations.DEFAULT_PROTOCOL).equals("tcp") &&
-					Helper.getConfig(context, Configurations.PREF_3G + j, Configurations.DEFAULT_3G) &&
+	   				!Helper.getConfig(context,
+							Configurations.PREF_PROTOCOL + j,
+							Configurations.DEFAULT_PROTOCOL).equals("tcp") &&
+					Helper.getConfig(context,
+							Configurations.PREF_3G + j,
+							Configurations.DEFAULT_3G) &&
 	   				Receiver.engine(context).isRegistered(i) &&
-	   				Receiver.engine(context).ras[i].CurrentState == RegisterAgent.REGISTERED) {
+	   				Receiver.engine(context).ras[i].CurrentState
+							== RegisterAgent.REGISTERED) {
 	   			trunkserver = server;
 	   			trunkuser = username;
-	   			trunkpassword = Helper.getConfig(context, Configurations.PREF_PASSWORD + j, Configurations.DEFAULT_PASSWORD);
-	   			trunkport = Helper.getConfig(context, Configurations.PREF_PORT + j, Configurations.DEFAULT_PORT);
+	   			trunkpassword = Helper.getConfig(context,
+						Configurations.PREF_PASSWORD + j,
+						Configurations.DEFAULT_PASSWORD);
+	   			trunkport = Helper.getConfig(context,
+						Configurations.PREF_PORT + j,
+						Configurations.DEFAULT_PORT);
 	   		}
 	   	}
 	   	if (found) return null;
-        Account[] accounts = AccountManager.get(context).getAccountsByType("com.google");
+        Account[] accounts = AccountManager.get(context)
+				.getAccountsByType("com.google");
         for (Account account : accounts) {
       	  email = account.name;
       	  break;
@@ -96,7 +110,8 @@ public class CreateAccount extends Dialog {
 		Intent intent = new Intent(Intent.ACTION_SENDTO);
 		intent.setPackage("com.google.android.apps.googlevoice");
 		intent.setData(Uri.fromParts("smsto", "", null));
-		List<ResolveInfo> a = context.getPackageManager().queryIntentActivities(intent,PackageManager.GET_INTENT_FILTERS);
+		List<ResolveInfo> a = context.getPackageManager()
+				.queryIntentActivities(intent,PackageManager.GET_INTENT_FILTERS);
 		if (a != null && a.size() != 0) {
 			trunkserver = null;
 			return context.getString(R.string.menu_create);
@@ -133,7 +148,9 @@ public class CreateAccount extends Dialog {
 	    int i;
 	    for(i = 0; i < length; i++)
 	    {
-	            password = password + availableCharacters.charAt(selector.nextInt(availableCharacters.length() - 1));
+	            password = password
+						+ availableCharacters.charAt(
+						selector.nextInt(availableCharacters.length() - 1));
 	    }
 	    
 	    return password;
@@ -143,7 +160,8 @@ public class CreateAccount extends Dialog {
 		buttonCancel.setEnabled(false);
 		buttonOK.setEnabled(false);
 		setCancelable(false);
-		Toast.makeText(mContext, "Please stand by while your account is being created", Toast.LENGTH_LONG).show();
+		Toast.makeText(mContext, "Please stand by while your account is being created",
+				Toast.LENGTH_LONG).show();
         (new Thread() {
 			public void run() {
 				line = "Can't connect to webserver";
@@ -158,8 +176,12 @@ public class CreateAccount extends Dialog {
 							language = "cn";
 						else
 							language = "en";
-					String s = "https://www1.pbxes.com/config.php?m=register&a=update&f=action&username="+Uri.encode(etName.getText().toString())+"&password="
-	        			+Uri.encode(etPass.getText().toString())+"&password_confirm="+Uri.encode(etConfirm.getText().toString())+"&language="+language+"&email="+Uri.encode(email)+"&land="+Uri.encode(Time.getCurrentTimezone())+
+					String s = "https://www1.pbxes.com/config.php?m=register&a=update&f=action&username="
+							+Uri.encode(etName.getText().toString())+"&password="
+	        			+Uri.encode(etPass.getText().toString())+"&password_confirm="
+							+Uri.encode(etConfirm.getText().toString())+"&language="
+							+language+"&email="+Uri.encode(email)+"&land="
+							+Uri.encode(Time.getCurrentTimezone())+
 	        			"&sipdroid="+Uri.encode(password);
 					if (trunkserver != null) {
 						s = s+"&trunkserver="+Uri.encode(trunkserver+":"+trunkport)+
@@ -230,7 +252,11 @@ public class CreateAccount extends Dialog {
         TextView intro = (TextView) findViewById(R.id.intro);
         TextView intro2 = (TextView) findViewById(R.id.email);
         if (trunkserver != null) {
-            intro.setText("To save battery life by utilizing SIP over TCP protocol, a new PBXes account is being offered to you. It will be automatically linked to your existing "+trunkserver+" account, and therefore get the same password as your "+trunkserver+" account.");
+            intro.setText("To save battery life by utilizing SIP over TCP protocol," +
+					" a new PBXes account is being offered to you. " +
+					"It will be automatically linked to your existing "
+					+trunkserver+" account, and therefore get the same password as your "
+					+trunkserver+" account.");
         	TextView intro3 = (TextView) findViewById(R.id.password);
         	TextView intro4 = (TextView) findViewById(R.id.password_confirm);
         	etPass.setVisibility(View.GONE);
@@ -241,7 +267,9 @@ public class CreateAccount extends Dialog {
         	intro4.setVisibility(View.GONE);
         	intro2.setText("Email Address");
         } else {
-            intro.setText("A new PBXes account will be created. It will be linked to your existing Google Voice account, and therefore get the same password as your Google Voice account.");
+            intro.setText("A new PBXes account will be created. It will be linked to your existing" +
+					" Google Voice account, and therefore get the same " +
+					"password as your Google Voice account.");
         	intro2.setText("Google Voice Name");
         }
     }

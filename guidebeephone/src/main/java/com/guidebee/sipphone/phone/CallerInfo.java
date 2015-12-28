@@ -142,7 +142,8 @@ public class CallerInfo {
                     if (typeColumnIndex != -1) {
                         info.numberType = cursor.getInt(typeColumnIndex);
                         info.numberLabel = cursor.getString(columnIndex);
-                        info.phoneLabel = ContactsContract.CommonDataKinds.Phone.getTypeLabel(context.getResources(),
+                        info.phoneLabel = ContactsContract.CommonDataKinds.Phone
+                                .getTypeLabel(context.getResources(),
                                 info.numberType, info.numberLabel)
                                 .toString();
                     }
