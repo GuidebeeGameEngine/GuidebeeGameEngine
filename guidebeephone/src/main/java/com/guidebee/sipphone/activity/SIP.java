@@ -27,6 +27,7 @@ import android.os.Bundle;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
 
+import com.guidebee.sipphone.Helper;
 import com.guidebee.sipphone.receiver.Caller;
 
 public class SIP extends Activity {
@@ -39,7 +40,7 @@ public class SIP extends Activity {
 			if (!number.equals("")) {
 		        Intent intent = new Intent(Intent.ACTION_CALL,
 		                Uri.fromParts(Uri.decode(number).contains("@")?"sipdroid":"tel", Uri.decode(number)+
-		                		(PreferenceManager.getDefaultSharedPreferences(this).getString(Settings.PREF_PREF, Settings.DEFAULT_PREF).equals(Settings.VAL_PREF_PSTN) ? "+" : ""), null));
+		                		(Helper.getConfig(this,Configurations.PREF_PREF, Configurations.DEFAULT_PREF).equals(Configurations.VAL_PREF_PSTN) ? "+" : ""), null));
 		        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		        Caller.noexclude = SystemClock.elapsedRealtime();
 		        startActivity(intent);

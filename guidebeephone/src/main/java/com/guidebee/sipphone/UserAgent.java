@@ -21,7 +21,7 @@
 
 package com.guidebee.sipphone;
 
-import com.guidebee.sipphone.activity.Settings;
+import com.guidebee.sipphone.activity.Configurations;
 import com.guidebee.sipphone.activity.Sipdroid;
 import com.guidebee.sipphone.receiver.Receiver;
 
@@ -303,7 +303,7 @@ public class UserAgent extends CallListenerAdapter {
 		// in case of incomplete url (e.g. only 'user' is present), try to
 		// complete it
 		if (target_url.indexOf("@") < 0) {
-			if (user_profile.realm.equals(Settings.DEFAULT_SERVER))
+			if (user_profile.realm.equals(Configurations.DEFAULT_SERVER))
 				target_url = "&" + target_url;
 			target_url = target_url + "@" + realm; // modified
 		}

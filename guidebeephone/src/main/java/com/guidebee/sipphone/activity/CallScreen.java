@@ -19,6 +19,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 
+import com.guidebee.sipphone.Helper;
 import com.guidebee.sipphone.R;
 import com.guidebee.sipphone.UserAgent;
 import com.guidebee.sipphone.receiver.Receiver;
@@ -228,7 +229,9 @@ public class CallScreen extends Activity implements DialogInterface.OnClickListe
 		super.onResume();
 		if (Integer.parseInt(Build.VERSION.SDK) >= 5 && Integer.parseInt(Build.VERSION.SDK) <= 7)
 			disableKeyguard();
-		if (Receiver.call_state == UserAgent.UA_STATE_INCALL && socket == null && Receiver.engine(mContext).getLocalVideo() != 0 && Receiver.engine(mContext).getRemoteVideo() != 0 && PreferenceManager.getDefaultSharedPreferences(this).getString(Settings.PREF_SERVER, Settings.DEFAULT_SERVER).equals(Settings.DEFAULT_SERVER))
+		if (Receiver.call_state == UserAgent.UA_STATE_INCALL && socket == null && Receiver.engine(mContext).getLocalVideo()
+				!= 0 && Receiver.engine(mContext).getRemoteVideo() != 0
+				&& Helper.getConfig(this,Configurations.PREF_SERVER, Configurations.DEFAULT_SERVER).equals(Configurations.DEFAULT_SERVER))
 	        (new Thread() {
 				public void run() {
 					RtpPacket keepalive = new RtpPacket(new byte[12],0);

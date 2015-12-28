@@ -37,7 +37,7 @@ import android.view.View;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 
 import com.guidebee.sipphone.R;
-import com.guidebee.sipphone.activity.Settings;
+import com.guidebee.sipphone.activity.Configurations;
 import com.guidebee.sipphone.receiver.Receiver;
 
 import org.zoolu.sdp.AttributeField;
@@ -73,14 +73,14 @@ public class Codecs {
 		}
 
 		SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(Receiver.mContext);
-		String prefs = sp.getString(Settings.PREF_CODECS, Settings.DEFAULT_CODECS);
+		String prefs = sp.getString(Configurations.PREF_CODECS, Configurations.DEFAULT_CODECS);
 		if (prefs == null) {
 			String v = "";
 			SharedPreferences.Editor e = sp.edit();
 
 			for (Codec c : codecs)
 				v = v + c.number() + " ";
-			e.putString(Settings.PREF_CODECS, v);
+			e.putString(Configurations.PREF_CODECS, v);
 			e.commit();
 		} else {
 			String[] vals = prefs.split(" ");
@@ -159,7 +159,7 @@ public class Codecs {
 			l.setEnabled(!c.isFailed());
 			c.setListPreference(l);
 			if (c.number() == 9)
-				if (ps.getSharedPreferences().getString(Settings.PREF_SERVER, Settings.DEFAULT_SERVER).equals(Settings.DEFAULT_SERVER))
+				if (ps.getSharedPreferences().getString(Configurations.PREF_SERVER, Configurations.DEFAULT_SERVER).equals(Configurations.DEFAULT_SERVER))
 					l.setSummary(l.getEntry()+" ("+r.getString(R.string.settings_improve2)+")");
 				else
 					l.setSummary(l.getEntry()+" ("+r.getString(R.string.settings_hdvoice)+")");
@@ -355,7 +355,7 @@ public class Codecs {
 
 			for (Codec d : codecs)
 				v = v + d.number() + " ";
-			e.putString(Settings.PREF_CODECS, v);
+			e.putString(Configurations.PREF_CODECS, v);
 			e.commit();
 			ps.removeAll();
 			addPreferences(ps);

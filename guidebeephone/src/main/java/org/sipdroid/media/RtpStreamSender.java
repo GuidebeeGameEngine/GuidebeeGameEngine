@@ -32,7 +32,7 @@ import android.os.SystemClock;
 import android.preference.PreferenceManager;
 
 import com.guidebee.sipphone.UserAgent;
-import com.guidebee.sipphone.activity.Settings;
+import com.guidebee.sipphone.activity.Configurations;
 import com.guidebee.sipphone.activity.Sipdroid;
 import com.guidebee.sipphone.receiver.Receiver;
 
@@ -151,7 +151,7 @@ public class RtpStreamSender extends Thread {
 			  int dest_port) {
 		this.p_type = payload_type;
 		this.frame_rate = (int)frame_rate;
-		if (PreferenceManager.getDefaultSharedPreferences(Receiver.mContext).getString(Settings.PREF_SERVER, "").equals(Settings.DEFAULT_SERVER))
+		if (PreferenceManager.getDefaultSharedPreferences(Receiver.mContext).getString(Configurations.PREF_SERVER, "").equals(Configurations.DEFAULT_SERVER))
 			switch (payload_type.codec.number()) {
 			case 0:
 			case 8:
@@ -276,8 +276,8 @@ public class RtpStreamSender extends Thread {
 		int seqn = 0;
 		long time = 0;
 		double p = 0;
-		boolean improve = PreferenceManager.getDefaultSharedPreferences(Receiver.mContext).getBoolean(Settings.PREF_IMPROVE, Settings.DEFAULT_IMPROVE);
-		boolean selectWifi = PreferenceManager.getDefaultSharedPreferences(Receiver.mContext).getBoolean(Settings.PREF_SELECTWIFI, Settings.DEFAULT_SELECTWIFI);
+		boolean improve = PreferenceManager.getDefaultSharedPreferences(Receiver.mContext).getBoolean(Configurations.PREF_IMPROVE, Configurations.DEFAULT_IMPROVE);
+		boolean selectWifi = PreferenceManager.getDefaultSharedPreferences(Receiver.mContext).getBoolean(Configurations.PREF_SELECTWIFI, Configurations.DEFAULT_SELECTWIFI);
 		int micgain = 0;
 		long last_tx_time = 0;
 		long next_tx_delay;
@@ -352,7 +352,7 @@ public class RtpStreamSender extends Thread {
 					RtpStreamSenderNew_SDK16.aec(record);
 				}
 				record.startRecording();
-				micgain = (int)(Settings.getMicGain()*10);
+				micgain = (int)(Configurations.getMicGain()*10);
 			 }
 			 if (muted || Receiver.call_state == UserAgent.UA_STATE_HOLD) {
 				if (Receiver.call_state == UserAgent.UA_STATE_HOLD)

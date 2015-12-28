@@ -36,8 +36,9 @@ import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.guidebee.sipphone.Helper;
 import com.guidebee.sipphone.UserAgent;
-import com.guidebee.sipphone.activity.Settings;
+import com.guidebee.sipphone.activity.Configurations;
 import com.guidebee.sipphone.activity.Sipdroid;
 
 import org.sipdroid.media.RtpStreamReceiver;
@@ -88,12 +89,12 @@ public class Caller extends BroadcastReceiver {
         if (intentAction.equals(Intent.ACTION_NEW_OUTGOING_CALL) && number != null) {
             if (!Sipdroid.release) Log.i("SipUA:", "outgoing call");
             if (!Sipdroid.on(context)) return;
-            boolean sip_type = !PreferenceManager.getDefaultSharedPreferences(context)
-                    .getString(Settings.PREF_PREF, Settings.DEFAULT_PREF)
-                    .equals(Settings.VAL_PREF_PSTN);
-            boolean ask = PreferenceManager.getDefaultSharedPreferences(context)
-                    .getString(Settings.PREF_PREF, Settings.DEFAULT_PREF)
-                    .equals(Settings.VAL_PREF_ASK);
+            boolean sip_type = !Helper.getConfig(context,
+                    Configurations.PREF_PREF, Configurations.DEFAULT_PREF)
+                    .equals(Configurations.VAL_PREF_PSTN);
+            boolean ask = Helper.getConfig(context, Configurations.PREF_PREF,
+                    Configurations.DEFAULT_PREF)
+                    .equals(Configurations.VAL_PREF_ASK);
 
             if (Receiver.call_state != UserAgent.UA_STATE_IDLE
                     && RtpStreamReceiver.isBluetoothAvailable()) {
@@ -129,9 +130,8 @@ public class Caller extends BroadcastReceiver {
                 force = true;
             }
             if (sip_type && !force) {
-                String sExPat = PreferenceManager.getDefaultSharedPreferences(context)
-                        .getString(Settings.PREF_EXCLUDEPAT,
-                                Settings.DEFAULT_EXCLUDEPAT);
+                String sExPat = Helper.getConfig(context, Configurations.PREF_EXCLUDEPAT,
+                        Configurations.DEFAULT_EXCLUDEPAT);
                 boolean bExNums = false;
                 boolean bExTypes = false;
                 if (sExPat.length() > 0) {
@@ -164,12 +164,12 @@ public class Caller extends BroadcastReceiver {
                     // Migrate the "prefix" option. TODO Remove this code in a future release.
                     SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
                     if (sp.contains("prefix")) {
-                        String prefix = sp.getString(Settings.PREF_PREFIX, Settings.DEFAULT_PREFIX);
+                        String prefix = sp.getString(Configurations.PREF_PREFIX, Configurations.DEFAULT_PREFIX);
                         Editor editor = sp.edit();
                         if (!prefix.trim().equals("")) {
-                            editor.putString(Settings.PREF_SEARCH, "(.*)," + prefix + "\\1");
+                            editor.putString(Configurations.PREF_SEARCH, "(.*)," + prefix + "\\1");
                         }
-                        editor.remove(Settings.PREF_PREFIX);
+                        editor.remove(Configurations.PREF_PREFIX);
                         editor.commit();
                     }
 
@@ -177,19 +177,19 @@ public class Caller extends BroadcastReceiver {
                     String callthru_number = searchReplaceNumber(context, number);
                     String callthru_prefix;
 
-                    if (!ask && !force && PreferenceManager.getDefaultSharedPreferences(context).getBoolean(Settings.PREF_PAR, Settings.DEFAULT_PAR)) {
+                    if (!ask && !force && Helper.getConfig(context, Configurations.PREF_PAR, Configurations.DEFAULT_PAR)) {
                         number = getNumber(context, Uri.withAppendedPath(ContactsContract.PhoneLookup.CONTENT_FILTER_URI, number), PhoneLookup._ID);
                         if (number.equals(""))
                             number = callthru_number;
                     } else
                         number = callthru_number;
 
-                    if (PreferenceManager.getDefaultSharedPreferences(context).getString(Settings.PREF_PREF, Settings.DEFAULT_PREF).equals(Settings.VAL_PREF_SIPONLY))
+                    if (Helper.getConfig(context, Configurations.PREF_PREF, Configurations.DEFAULT_PREF).equals(Configurations.VAL_PREF_SIPONLY))
                         force = true;
                     if (!ask && Receiver.engine(context).call(number, force))
                         setResultData(null);
-                    else if (!ask && PreferenceManager.getDefaultSharedPreferences(context).getBoolean(Settings.PREF_CALLTHRU, Settings.DEFAULT_CALLTHRU) &&
-                            (callthru_prefix = PreferenceManager.getDefaultSharedPreferences(context).getString(Settings.PREF_CALLTHRU2, Settings.DEFAULT_CALLTHRU2)).length() > 0) {
+                    else if (!ask && Helper.getConfig(context, Configurations.PREF_CALLTHRU, Configurations.DEFAULT_CALLTHRU) &&
+                            (callthru_prefix = Helper.getConfig(context, Configurations.PREF_CALLTHRU2, Configurations.DEFAULT_CALLTHRU2)).length() > 0) {
                         callthru_number = (callthru_prefix + "," + callthru_number + "#");
                         setResultData(callthru_number);
                     } else if (ask || force) {
@@ -215,7 +215,7 @@ public class Caller extends BroadcastReceiver {
 
     static private String searchReplaceNumber(Context context, String number) {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
-        String pattern = sp.getString(Settings.PREF_SEARCH, Settings.DEFAULT_SEARCH);
+        String pattern = sp.getString(Configurations.PREF_SEARCH, Configurations.DEFAULT_SEARCH);
         // Comma should be safe as separator.
         String[] split = pattern.split(",");
         // We need exactly 2 parts: search and replace. Otherwise

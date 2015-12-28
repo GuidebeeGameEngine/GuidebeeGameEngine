@@ -23,7 +23,7 @@ package com.guidebee.sipphone;
 
 import android.preference.PreferenceManager;
 
-import com.guidebee.sipphone.activity.Settings;
+import com.guidebee.sipphone.activity.Configurations;
 import com.guidebee.sipphone.activity.Sipdroid;
 import com.guidebee.sipphone.receiver.Receiver;
 
@@ -352,8 +352,8 @@ public class RegisterAgent implements TransactionClientListener, SubscriberDialo
             return;
         Message req = getSubscribeMessage(false);
         if (!PreferenceManager.getDefaultSharedPreferences(Receiver.mContext)
-                .getBoolean(Settings.PREF_MWI_ENABLED,
-                        Settings.DEFAULT_MWI_ENABLED))
+                .getBoolean(Configurations.PREF_MWI_ENABLED,
+                        Configurations.DEFAULT_MWI_ENABLED))
             return;
         if (sd != null) sd.subscribe(req);
     }
@@ -432,8 +432,8 @@ public class RegisterAgent implements TransactionClientListener, SubscriberDialo
                             NameAddress notifier, NameAddress contact, String state,
                             String content_type, String body, Message msg) {
         if (!PreferenceManager.getDefaultSharedPreferences(Receiver.mContext)
-                .getBoolean(Settings.PREF_MWI_ENABLED,
-                        Settings.DEFAULT_MWI_ENABLED))
+                .getBoolean(Configurations.PREF_MWI_ENABLED,
+                        Configurations.DEFAULT_MWI_ENABLED))
             return;
         Parser p = new Parser(body);
         final char[] propertysep = {':', '\r', '\n'};

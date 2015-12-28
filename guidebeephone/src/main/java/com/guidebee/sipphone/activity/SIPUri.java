@@ -34,6 +34,7 @@ import android.provider.ContactsContract.CommonDataKinds.Phone;
 import android.util.Log;
 import android.view.Window;
 
+import com.guidebee.sipphone.Helper;
 import com.guidebee.sipphone.R;
 import com.guidebee.sipphone.SipdroidEngine;
 import com.guidebee.sipphone.receiver.Caller;
@@ -79,7 +80,7 @@ public class SIPUri extends Activity {
 			target = Caller.getNumber(this, uri, Phone.CONTACT_ID);
 			ask = true;
 		} else {
-			ask = PreferenceManager.getDefaultSharedPreferences(this).getString(Settings.PREF_PREF, Settings.DEFAULT_PREF).equals(Settings.VAL_PREF_ASK);
+			ask = Helper.getConfig(this, Configurations.PREF_PREF, Configurations.DEFAULT_PREF).equals(Configurations.VAL_PREF_ASK);
 			if (uri.getScheme().equals("sip") || uri.getScheme().equals("sipdroid")) {
 				target = uri.getSchemeSpecificPart();
 			} else {
@@ -118,8 +119,8 @@ public class SIPUri extends Activity {
 				});
 
 			for (int p = 0; p < SipdroidEngine.LINES; p++)
-				if (Receiver.isFast(p) || (PreferenceManager.getDefaultSharedPreferences(this).getBoolean(Settings.PREF_CALLBACK, Settings.DEFAULT_CALLBACK) &&
-						PreferenceManager.getDefaultSharedPreferences(this).getString(Settings.PREF_POSURL, Settings.DEFAULT_POSURL).length() > 0)) {
+				if (Receiver.isFast(p) || (Helper.getConfig(this, Configurations.PREF_CALLBACK, Configurations.DEFAULT_CALLBACK) &&
+						Helper.getConfig(this, Configurations.PREF_POSURL, Configurations.DEFAULT_POSURL).length() > 0)) {
 					alert.setPositiveButton(R.string.app_name,new DialogInterface.OnClickListener() {
 		                public void onClick(DialogInterface dialog, int whichButton) {
 		            			call(items[item]);

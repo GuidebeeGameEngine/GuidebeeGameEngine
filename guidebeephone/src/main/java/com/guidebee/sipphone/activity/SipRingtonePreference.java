@@ -31,6 +31,8 @@ import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 
+import com.guidebee.sipphone.Helper;
+
 public class SipRingtonePreference extends RingtonePreference 
 {   
 	private Context mContext;
@@ -54,15 +56,15 @@ public class SipRingtonePreference extends RingtonePreference
     protected void onSaveRingtone(Uri ringtoneUri) 
     {
         Editor edit = PreferenceManager.getDefaultSharedPreferences(mContext).edit();
-		edit.putString(com.guidebee.sipphone.activity.Settings.PREF_SIPRINGTONE, ringtoneUri != null ? ringtoneUri.toString() : com.guidebee.sipphone.activity.Settings.DEFAULT_SIPRINGTONE);
+		edit.putString(Configurations.PREF_SIPRINGTONE, ringtoneUri != null ? ringtoneUri.toString() : Configurations.DEFAULT_SIPRINGTONE);
 		edit.commit();        
     }
 
     @Override
     protected Uri onRestoreRingtone() 
     {
-        String uriString = PreferenceManager.getDefaultSharedPreferences(mContext).getString(com.guidebee.sipphone.activity.Settings.PREF_SIPRINGTONE,
-        		Settings.System.DEFAULT_RINGTONE_URI.toString());
+        String uriString = Helper.getConfig(mContext, Configurations.PREF_SIPRINGTONE,
+                Settings.System.DEFAULT_RINGTONE_URI.toString());
         return !TextUtils.isEmpty(uriString) ? Uri.parse(uriString) : null;        
     }    
 }

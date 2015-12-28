@@ -27,7 +27,7 @@ package org.zoolu.net;
 import android.content.Context;
 import android.preference.PreferenceManager;
 
-import com.guidebee.sipphone.activity.Settings;
+import com.guidebee.sipphone.activity.Configurations;
 import com.guidebee.sipphone.activity.Sipdroid;
 import com.guidebee.sipphone.receiver.Receiver;
 import com.jstun.demo.DiscoveryTest;
@@ -144,12 +144,12 @@ public class IpAddress {
 					if (!inetAddress.isLoopbackAddress()) { 
 						if (inetAddress.getHostAddress().toString().contains(":"))
 							continue;
-						if (!PreferenceManager.getDefaultSharedPreferences(getUIContext()).getBoolean(Settings.PREF_STUN, Settings.DEFAULT_STUN)) {
+						if (!PreferenceManager.getDefaultSharedPreferences(getUIContext()).getBoolean(Configurations.PREF_STUN, Configurations.DEFAULT_STUN)) {
 							localIpAddress = inetAddress.getHostAddress().toString();
 						} else {
 							try {
-								String StunServer = PreferenceManager.getDefaultSharedPreferences(getUIContext()).getString(Settings.PREF_STUN_SERVER, Settings.DEFAULT_STUN_SERVER);
-								int StunServerPort = Integer.valueOf(PreferenceManager.getDefaultSharedPreferences(getUIContext()).getString(Settings.PREF_STUN_SERVER_PORT, Settings.DEFAULT_STUN_SERVER_PORT));
+								String StunServer = PreferenceManager.getDefaultSharedPreferences(getUIContext()).getString(Configurations.PREF_STUN_SERVER, Configurations.DEFAULT_STUN_SERVER);
+								int StunServerPort = Integer.valueOf(PreferenceManager.getDefaultSharedPreferences(getUIContext()).getString(Configurations.PREF_STUN_SERVER_PORT, Configurations.DEFAULT_STUN_SERVER_PORT));
 
 								DiscoveryTest StunDiscover = new DiscoveryTest(inetAddress, StunServer, StunServerPort);
 

@@ -49,6 +49,7 @@ import android.widget.RelativeLayout;
 import android.widget.SlidingDrawer;
 import android.widget.TextView;
 
+import com.guidebee.sipphone.Helper;
 import com.guidebee.sipphone.R;
 import com.guidebee.sipphone.UserAgent;
 import com.guidebee.sipphone.phone.Call;
@@ -167,12 +168,12 @@ public class InCallScreen extends CallScreen implements View.OnClickListener, Se
 		switch (Receiver.call_state) {
 		case UserAgent.UA_STATE_INCOMING_CALL:
 			if (Receiver.pstn_state == null || Receiver.pstn_state.equals("IDLE"))
-				if (PreferenceManager.getDefaultSharedPreferences(mContext).getBoolean(com.guidebee.sipphone.activity.Settings.PREF_AUTO_ON, com.guidebee.sipphone.activity.Settings.DEFAULT_AUTO_ON) &&
+				if (Helper.getConfig(mContext, Configurations.PREF_AUTO_ON, Configurations.DEFAULT_AUTO_ON) &&
 						!mKeyguardManager.inKeyguardRestrictedInputMode())
 					mHandler.sendEmptyMessageDelayed(MSG_ANSWER, 1000);
-				else if ((PreferenceManager.getDefaultSharedPreferences(mContext).getBoolean(com.guidebee.sipphone.activity.Settings.PREF_AUTO_ONDEMAND, com.guidebee.sipphone.activity.Settings.DEFAULT_AUTO_ONDEMAND) &&
-						PreferenceManager.getDefaultSharedPreferences(mContext).getBoolean(com.guidebee.sipphone.activity.Settings.PREF_AUTO_DEMAND, com.guidebee.sipphone.activity.Settings.DEFAULT_AUTO_DEMAND)) ||
-						(PreferenceManager.getDefaultSharedPreferences(mContext).getBoolean(com.guidebee.sipphone.activity.Settings.PREF_AUTO_HEADSET, com.guidebee.sipphone.activity.Settings.DEFAULT_AUTO_HEADSET) &&
+				else if ((Helper.getConfig(mContext, Configurations.PREF_AUTO_ONDEMAND, Configurations.DEFAULT_AUTO_ONDEMAND) &&
+						Helper.getConfig(mContext, Configurations.PREF_AUTO_DEMAND, Configurations.DEFAULT_AUTO_DEMAND)) ||
+						(Helper.getConfig(mContext, Configurations.PREF_AUTO_HEADSET, Configurations.DEFAULT_AUTO_HEADSET) &&
 								Receiver.headset > 0))
 					mHandler.sendEmptyMessageDelayed(MSG_ANSWER_SPEAKER, 10000);
 			break;
@@ -206,7 +207,7 @@ public class InCallScreen extends CallScreen implements View.OnClickListener, Se
 	
 					if (Settings.System.getInt(getContentResolver(),
 							Settings.System.DTMF_TONE_WHEN_DIALING, 1) == 1)
-						tg = new ToneGenerator(AudioManager.STREAM_VOICE_CALL, (int)(ToneGenerator.MAX_VOLUME*2* com.guidebee.sipphone.activity.Settings.getEarGain()));
+						tg = new ToneGenerator(AudioManager.STREAM_VOICE_CALL, (int)(ToneGenerator.MAX_VOLUME*2* Configurations.getEarGain()));
 					for (;;) {
 						if (!running) {
 							t = null;
@@ -553,7 +554,7 @@ public class InCallScreen extends CallScreen implements View.OnClickListener, Se
 	
 	@Override
 	public void onSensorChanged(SensorEvent event) {
-		boolean keepon = PreferenceManager.getDefaultSharedPreferences(mContext).getBoolean(com.guidebee.sipphone.activity.Settings.PREF_KEEPON, com.guidebee.sipphone.activity.Settings.DEFAULT_KEEPON);
+		boolean keepon = Helper.getConfig(mContext, Configurations.PREF_KEEPON, Configurations.DEFAULT_KEEPON);
 		if (first) {
 			first = false;
 			return;

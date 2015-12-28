@@ -62,6 +62,7 @@ import android.util.Log;
 import android.widget.RemoteViews;
 
 import com.guidebee.sipphone.Checkin;
+import com.guidebee.sipphone.Helper;
 import com.guidebee.sipphone.R;
 import com.guidebee.sipphone.SipdroidEngine;
 import com.guidebee.sipphone.SipdroidListener;
@@ -69,6 +70,7 @@ import com.guidebee.sipphone.UserAgent;
 import com.guidebee.sipphone.activity.Activity2;
 import com.guidebee.sipphone.activity.AutoAnswer;
 import com.guidebee.sipphone.activity.ChangeAccount;
+import com.guidebee.sipphone.activity.Configurations;
 import com.guidebee.sipphone.activity.InCallScreen;
 import com.guidebee.sipphone.activity.Sipdroid;
 import com.guidebee.sipphone.phone.Call;
@@ -213,7 +215,7 @@ public class Receiver extends BroadcastReceiver {
                     if (v == null)
                         v = (Vibrator) mContext.getSystemService(Context.VIBRATOR_SERVICE);
                     if ((pstn_state == null || pstn_state.equals("IDLE")) &&
-                            PreferenceManager.getDefaultSharedPreferences(mContext).getBoolean(com.guidebee.sipphone.activity.Settings.PREF_AUTO_ON, com.guidebee.sipphone.activity.Settings.DEFAULT_AUTO_ON) &&
+                            Helper.getConfig(mContext, Configurations.PREF_AUTO_ON, Configurations.DEFAULT_AUTO_ON) &&
                             !mKeyguardManager.inKeyguardRestrictedInputMode())
                         v.vibrate(vibratePattern, 1);
                     else {
@@ -222,7 +224,7 @@ public class Receiver extends BroadcastReceiver {
                                         (rm == AudioManager.RINGER_MODE_NORMAL && vs == AudioManager.VIBRATE_SETTING_ON)))
                             v.vibrate(vibratePattern, 1);
                         if (am.getStreamVolume(AudioManager.STREAM_RING) > 0) {
-                            String sUriSipRingtone = PreferenceManager.getDefaultSharedPreferences(mContext).getString(com.guidebee.sipphone.activity.Settings.PREF_SIPRINGTONE,
+                            String sUriSipRingtone = Helper.getConfig(mContext,Configurations.PREF_SIPRINGTONE,
                                     Settings.System.DEFAULT_RINGTONE_URI.toString());
                             if (!TextUtils.isEmpty(sUriSipRingtone)) {
                                 oRingtone = RingtoneManager.getRingtone(mContext, Uri.parse(sUriSipRingtone));
@@ -302,7 +304,7 @@ public class Receiver extends BroadcastReceiver {
             cache_res = mInCallResId;
         }
         if (type >= REGISTER_NOTIFICATION && mInCallResId == R.drawable.sym_presence_available &&
-                !PreferenceManager.getDefaultSharedPreferences(Receiver.mContext).getBoolean(com.guidebee.sipphone.activity.Settings.PREF_REGISTRATION, com.guidebee.sipphone.activity.Settings.DEFAULT_REGISTRATION))
+                !Helper.getConfig(Receiver.mContext, Configurations.PREF_REGISTRATION, Configurations.DEFAULT_REGISTRATION))
             text = null;
         NotificationManager mNotificationMgr = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
         if (text != null) {
@@ -312,7 +314,7 @@ public class Receiver extends BroadcastReceiver {
                 notification.flags |= Notification.FLAG_AUTO_CANCEL;
                 //notification.setLatestEventInfo(mContext, text, mContext.getString(R.string.app_name),
                 //		PendingIntent.getActivity(mContext, 0, createCallLogIntent(), 0));
-                if (PreferenceManager.getDefaultSharedPreferences(Receiver.mContext).getBoolean(com.guidebee.sipphone.activity.Settings.PREF_NOTIFY, com.guidebee.sipphone.activity.Settings.DEFAULT_NOTIFY)) {
+                if (Helper.getConfig(Receiver.mContext, Configurations.PREF_NOTIFY, Configurations.DEFAULT_NOTIFY)) {
                     notification.flags |= Notification.FLAG_SHOW_LIGHTS;
                     notification.ledARGB = 0xff0000ff; /* blue */
                     notification.ledOnMS = 125;
@@ -356,7 +358,7 @@ public class Receiver extends BroadcastReceiver {
                 if (base != 0) {
                     contentView.setChronometer(R.id.text1, base, text + " (%s)", true);
                 } else if (type >= REGISTER_NOTIFICATION) {
-                    if (PreferenceManager.getDefaultSharedPreferences(mContext).getBoolean(com.guidebee.sipphone.activity.Settings.PREF_POS, com.guidebee.sipphone.activity.Settings.DEFAULT_POS))
+                    if (Helper.getConfig(mContext, Configurations.PREF_POS, Configurations.DEFAULT_POS))
                         contentView.setTextViewText(R.id.text2, text + "/" + mContext.getString(R.string.settings_pos3));
                     else
                         contentView.setTextViewText(R.id.text2, text);
@@ -379,9 +381,9 @@ public class Receiver extends BroadcastReceiver {
     }
 
     public static void updateAutoAnswer() {
-        if (PreferenceManager.getDefaultSharedPreferences(mContext).getBoolean(com.guidebee.sipphone.activity.Settings.PREF_AUTO_ONDEMAND, com.guidebee.sipphone.activity.Settings.DEFAULT_AUTO_ONDEMAND) &&
+        if (Helper.getConfig(mContext, Configurations.PREF_AUTO_ONDEMAND, Configurations.DEFAULT_AUTO_ONDEMAND) &&
                 Sipdroid.on(mContext)) {
-            if (PreferenceManager.getDefaultSharedPreferences(mContext).getBoolean(com.guidebee.sipphone.activity.Settings.PREF_AUTO_DEMAND, com.guidebee.sipphone.activity.Settings.DEFAULT_AUTO_DEMAND))
+            if (Helper.getConfig(mContext, Configurations.PREF_AUTO_DEMAND, Configurations.DEFAULT_AUTO_DEMAND))
                 updateAutoAnswer(1);
             else
                 updateAutoAnswer(0);
@@ -422,8 +424,8 @@ public class Receiver extends BroadcastReceiver {
 
     public static void pos(boolean enable) {
 
-        if (!PreferenceManager.getDefaultSharedPreferences(mContext).getBoolean(com.guidebee.sipphone.activity.Settings.PREF_POS, com.guidebee.sipphone.activity.Settings.DEFAULT_POS) ||
-                PreferenceManager.getDefaultSharedPreferences(mContext).getString(com.guidebee.sipphone.activity.Settings.PREF_POSURL, com.guidebee.sipphone.activity.Settings.DEFAULT_POSURL).length() < 1) {
+        if (!Helper.getConfig(mContext, Configurations.PREF_POS, Configurations.DEFAULT_POS) ||
+                Helper.getConfig(mContext,Configurations.PREF_POSURL, Configurations.DEFAULT_POSURL).length() < 1) {
             if (lm != null && am != null) {
                 pos_gps(false);
                 pos_net(false);
@@ -438,8 +440,8 @@ public class Receiver extends BroadcastReceiver {
         pos_gps(false);
         if (enable) {
             if (call_state == UserAgent.UA_STATE_IDLE && Sipdroid.on(mContext) &&
-                    PreferenceManager.getDefaultSharedPreferences(mContext).getBoolean(com.guidebee.sipphone.activity.Settings.PREF_POS, com.guidebee.sipphone.activity.Settings.DEFAULT_POS) &&
-                    PreferenceManager.getDefaultSharedPreferences(mContext).getString(com.guidebee.sipphone.activity.Settings.PREF_POSURL, com.guidebee.sipphone.activity.Settings.DEFAULT_POSURL).length() > 0) {
+                    Helper.getConfig(mContext, Configurations.PREF_POS, Configurations.DEFAULT_POS) &&
+                    Helper.getConfig(mContext,Configurations.PREF_POSURL, Configurations.DEFAULT_POSURL).length() > 0) {
                 Location last = lm.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
                 if (System.currentTimeMillis() - loctrydate > GPS_UPDATES && (last == null || System.currentTimeMillis() - last.getTime() > GPS_UPDATES)) {
                     loctrydate = System.currentTimeMillis();
@@ -485,9 +487,9 @@ public class Receiver extends BroadcastReceiver {
     }
 
     public static void enable_wifi(boolean enable) {
-        if (!PreferenceManager.getDefaultSharedPreferences(mContext).getBoolean(com.guidebee.sipphone.activity.Settings.PREF_OWNWIFI, com.guidebee.sipphone.activity.Settings.DEFAULT_OWNWIFI))
+        if (!Helper.getConfig(mContext, Configurations.PREF_OWNWIFI, Configurations.DEFAULT_OWNWIFI))
             return;
-        if (enable && !PreferenceManager.getDefaultSharedPreferences(mContext).getBoolean(com.guidebee.sipphone.activity.Settings.PREF_WIFI_DISABLED, com.guidebee.sipphone.activity.Settings.DEFAULT_WIFI_DISABLED))
+        if (enable && !Helper.getConfig(mContext, Configurations.PREF_WIFI_DISABLED, Configurations.DEFAULT_WIFI_DISABLED))
             return;
         WifiManager wm = (WifiManager) mContext.getSystemService(Context.WIFI_SERVICE);
         ContentResolver cr = Receiver.mContext.getContentResolver();
@@ -495,7 +497,7 @@ public class Receiver extends BroadcastReceiver {
             return;
         Editor edit = PreferenceManager.getDefaultSharedPreferences(Receiver.mContext).edit();
 
-        edit.putBoolean(com.guidebee.sipphone.activity.Settings.PREF_WIFI_DISABLED, !enable);
+        edit.putBoolean(Configurations.PREF_WIFI_DISABLED, !enable);
         edit.commit();
             /*
     		if (enable) {
@@ -511,7 +513,7 @@ public class Receiver extends BroadcastReceiver {
         (new Thread() {
             public void run() {
                 try {
-                    URL url = new URL(PreferenceManager.getDefaultSharedPreferences(mContext).getString(com.guidebee.sipphone.activity.Settings.PREF_POSURL, com.guidebee.sipphone.activity.Settings.DEFAULT_POSURL) +
+                    URL url = new URL(Helper.getConfig(mContext,Configurations.PREF_POSURL, Configurations.DEFAULT_POSURL) +
                             "?" + opt);
                     BufferedReader in;
                     in = new BufferedReader(new InputStreamReader(url.openStream()));
@@ -668,13 +670,13 @@ public class Receiver extends BroadcastReceiver {
     public static boolean on_wlan;
 
     static boolean on_vpn() {
-        return PreferenceManager.getDefaultSharedPreferences(mContext).getBoolean(com.guidebee.sipphone.activity.Settings.PREF_ON_VPN, com.guidebee.sipphone.activity.Settings.DEFAULT_ON_VPN);
+        return Helper.getConfig(mContext, Configurations.PREF_ON_VPN, Configurations.DEFAULT_ON_VPN);
     }
 
     static void on_vpn(boolean enable) {
         Editor edit = PreferenceManager.getDefaultSharedPreferences(Receiver.mContext).edit();
 
-        edit.putBoolean(com.guidebee.sipphone.activity.Settings.PREF_ON_VPN, enable);
+        edit.putBoolean(Configurations.PREF_ON_VPN, enable);
         edit.commit();
     }
 
@@ -682,8 +684,8 @@ public class Receiver extends BroadcastReceiver {
         WifiManager wm = (WifiManager) mContext.getSystemService(Context.WIFI_SERVICE);
         WifiInfo wi = wm.getConnectionInfo();
 
-        if (PreferenceManager.getDefaultSharedPreferences(mContext).getString(com.guidebee.sipphone.activity.Settings.PREF_USERNAME + (i != 0 ? i : ""), "").equals("") ||
-                PreferenceManager.getDefaultSharedPreferences(mContext).getString(com.guidebee.sipphone.activity.Settings.PREF_SERVER + (i != 0 ? i : ""), "").equals(""))
+        if (Helper.getConfig(mContext,Configurations.PREF_USERNAME + (i != 0 ? i : ""), "").equals("") ||
+                Helper.getConfig(mContext,Configurations.PREF_SERVER + (i != 0 ? i : ""), "").equals(""))
             return false;
         if (wi != null) {
             if (!Sipdroid.release)
@@ -694,9 +696,9 @@ public class Receiver extends BroadcastReceiver {
                     || WifiInfo.getDetailedStateOf(wi.getSupplicantState()) == DetailedState.CONNECTING) {
                 on_wlan = true;
                 if (!on_vpn())
-                    return PreferenceManager.getDefaultSharedPreferences(mContext).getBoolean(com.guidebee.sipphone.activity.Settings.PREF_WLAN + (i != 0 ? i : ""), com.guidebee.sipphone.activity.Settings.DEFAULT_WLAN);
+                    return Helper.getConfig(mContext, Configurations.PREF_WLAN + (i != 0 ? i : ""), Configurations.DEFAULT_WLAN);
                 else
-                    return PreferenceManager.getDefaultSharedPreferences(mContext).getBoolean(com.guidebee.sipphone.activity.Settings.PREF_VPN + (i != 0 ? i : ""), com.guidebee.sipphone.activity.Settings.DEFAULT_VPN);
+                    return Helper.getConfig(mContext, Configurations.PREF_VPN + (i != 0 ? i : ""), Configurations.DEFAULT_VPN);
             }
         }
         on_wlan = false;
@@ -709,11 +711,11 @@ public class Receiver extends BroadcastReceiver {
         if (Sipdroid.market)
             return false;
         if (on_vpn() && (tm.getNetworkType() >= TelephonyManager.NETWORK_TYPE_EDGE))
-            return PreferenceManager.getDefaultSharedPreferences(mContext).getBoolean(com.guidebee.sipphone.activity.Settings.PREF_VPN + (i != 0 ? i : ""), com.guidebee.sipphone.activity.Settings.DEFAULT_VPN);
+            return Helper.getConfig(mContext, Configurations.PREF_VPN + (i != 0 ? i : ""), Configurations.DEFAULT_VPN);
         if (tm.getNetworkType() >= TelephonyManager.NETWORK_TYPE_UMTS)
-            return PreferenceManager.getDefaultSharedPreferences(mContext).getBoolean(com.guidebee.sipphone.activity.Settings.PREF_3G + (i != 0 ? i : ""), com.guidebee.sipphone.activity.Settings.DEFAULT_3G);
+            return Helper.getConfig(mContext, Configurations.PREF_3G + (i != 0 ? i : ""), Configurations.DEFAULT_3G);
         if (tm.getNetworkType() == TelephonyManager.NETWORK_TYPE_EDGE)
-            return PreferenceManager.getDefaultSharedPreferences(mContext).getBoolean(com.guidebee.sipphone.activity.Settings.PREF_EDGE + (i != 0 ? i : ""), com.guidebee.sipphone.activity.Settings.DEFAULT_EDGE);
+            return Helper.getConfig(mContext, Configurations.PREF_EDGE + (i != 0 ? i : ""), Configurations.DEFAULT_EDGE);
         return false;
     }
 
@@ -807,12 +809,12 @@ public class Receiver extends BroadcastReceiver {
             if (call_state == UserAgent.UA_STATE_INCALL)
                 engine(mContext).speaker(speakermode());
         } else if (intentAction.equals(Intent.ACTION_SCREEN_ON)) {
-            if (!PreferenceManager.getDefaultSharedPreferences(mContext).getBoolean(com.guidebee.sipphone.activity.Settings.PREF_OWNWIFI, com.guidebee.sipphone.activity.Settings.DEFAULT_OWNWIFI))
+            if (!Helper.getConfig(mContext, Configurations.PREF_OWNWIFI, Configurations.DEFAULT_OWNWIFI))
                 alarm(0, OwnWifi.class);
         } else if (intentAction.equals(Intent.ACTION_USER_PRESENT)) {
             mHandler.sendEmptyMessageDelayed(MSG_ENABLE, 3000);
         } else if (intentAction.equals(Intent.ACTION_SCREEN_OFF)) {
-            if (PreferenceManager.getDefaultSharedPreferences(mContext).getBoolean(com.guidebee.sipphone.activity.Settings.PREF_OWNWIFI, com.guidebee.sipphone.activity.Settings.DEFAULT_OWNWIFI)) {
+            if (Helper.getConfig(mContext, Configurations.PREF_OWNWIFI, Configurations.DEFAULT_OWNWIFI)) {
                 WifiManager wm = (WifiManager) mContext.getSystemService(Context.WIFI_SERVICE);
                 WifiInfo wi = wm.getConnectionInfo();
                 if (wm.getWifiState() != WifiManager.WIFI_STATE_ENABLED || wi == null || wi.getSupplicantState() != SupplicantState.COMPLETED
@@ -828,11 +830,11 @@ public class Receiver extends BroadcastReceiver {
                         pwl.acquire();
                     }
         } else if (intentAction.equals(WifiManager.WIFI_STATE_CHANGED_ACTION)) {
-            if (PreferenceManager.getDefaultSharedPreferences(mContext).getBoolean(com.guidebee.sipphone.activity.Settings.PREF_SELECTWIFI, com.guidebee.sipphone.activity.Settings.DEFAULT_SELECTWIFI))
+            if (Helper.getConfig(mContext, Configurations.PREF_SELECTWIFI, Configurations.DEFAULT_SELECTWIFI))
                 mHandler.sendEmptyMessageDelayed(MSG_SCAN, 3000);
         } else if (intentAction.equals(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION)) {
             if (SystemClock.uptimeMillis() > lastscan + 45000 &&
-                    PreferenceManager.getDefaultSharedPreferences(mContext).getBoolean(com.guidebee.sipphone.activity.Settings.PREF_SELECTWIFI, com.guidebee.sipphone.activity.Settings.DEFAULT_SELECTWIFI)) {
+                    Helper.getConfig(mContext, Configurations.PREF_SELECTWIFI, Configurations.DEFAULT_SELECTWIFI)) {
                 WifiManager wm = (WifiManager) mContext.getSystemService(Context.WIFI_SERVICE);
                 WifiInfo wi = wm.getConnectionInfo();
                 String activeSSID = null;

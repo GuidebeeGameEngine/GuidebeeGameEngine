@@ -54,6 +54,7 @@ import android.widget.Filterable;
 import android.widget.TextView;
 
 import com.guidebee.sipphone.Checkin;
+import com.guidebee.sipphone.Helper;
 import com.guidebee.sipphone.R;
 import com.guidebee.sipphone.SipdroidEngine;
 import com.guidebee.sipphone.UserAgent;
@@ -240,7 +241,7 @@ public class Sipdroid extends Activity implements OnDismissListener {
 		Button settingsButton = (Button) findViewById(R.id.settings_button);
 		settingsButton.setOnClickListener(new Button.OnClickListener() {
 			public void onClick(View v) {
-					Intent myIntent = new Intent(mContext, Settings.class);
+					Intent myIntent = new Intent(mContext, Configurations.class);
 				startActivity(myIntent);
 			}
 		});
@@ -268,13 +269,13 @@ public class Sipdroid extends Activity implements OnDismissListener {
 			}
 		});
 		
-		if (!PreferenceManager.getDefaultSharedPreferences(this).getBoolean(Settings.PREF_NOPORT, Settings.DEFAULT_NOPORT)) {
+		if (!Helper.getConfig(this, Configurations.PREF_NOPORT, Configurations.DEFAULT_NOPORT)) {
 			boolean ask = false;
     		for (int i = 0; i < SipdroidEngine.LINES; i++) {
     			String j = (i!=0?""+i:"");
-    			if (PreferenceManager.getDefaultSharedPreferences(this).getString(Settings.PREF_SERVER+j, Settings.DEFAULT_SERVER).equals(Settings.DEFAULT_SERVER)
-    					&& PreferenceManager.getDefaultSharedPreferences(this).getString(Settings.PREF_USERNAME+j, Settings.DEFAULT_USERNAME).length() != 0 &&
-    					PreferenceManager.getDefaultSharedPreferences(this).getString(Settings.PREF_PORT+j, Settings.DEFAULT_PORT).equals(Settings.DEFAULT_PORT))
+    			if (Helper.getConfig(this, Configurations.PREF_SERVER + j, Configurations.DEFAULT_SERVER).equals(Configurations.DEFAULT_SERVER)
+    					&& Helper.getConfig(this, Configurations.PREF_USERNAME + j, Configurations.DEFAULT_USERNAME).length() != 0 &&
+    					Helper.getConfig(this, Configurations.PREF_PORT + j, Configurations.DEFAULT_PORT).equals(Configurations.DEFAULT_PORT))
     				ask = true;
     		}
     		if (ask)
@@ -285,10 +286,10 @@ public class Sipdroid extends Activity implements OnDismissListener {
 	                		Editor edit = PreferenceManager.getDefaultSharedPreferences(mContext).edit();
 	                		for (int i = 0; i < SipdroidEngine.LINES; i++) {
 	                			String j = (i!=0?""+i:"");
-	                			if (PreferenceManager.getDefaultSharedPreferences(mContext).getString(Settings.PREF_SERVER+j, Settings.DEFAULT_SERVER).equals(Settings.DEFAULT_SERVER)
-	                					&& PreferenceManager.getDefaultSharedPreferences(mContext).getString(Settings.PREF_USERNAME+j, Settings.DEFAULT_USERNAME).length() != 0 &&
-	                					PreferenceManager.getDefaultSharedPreferences(mContext).getString(Settings.PREF_PORT+j, Settings.DEFAULT_PORT).equals(Settings.DEFAULT_PORT))
-	                				edit.putString(Settings.PREF_PORT+j, "5061");
+	                			if (Helper.getConfig(mContext, Configurations.PREF_SERVER + j, Configurations.DEFAULT_SERVER).equals(Configurations.DEFAULT_SERVER)
+	                					&& Helper.getConfig(mContext, Configurations.PREF_USERNAME + j, Configurations.DEFAULT_USERNAME).length() != 0 &&
+										Helper.getConfig(mContext, Configurations.PREF_PORT + j, Configurations.DEFAULT_PORT).equals(Configurations.DEFAULT_PORT))
+	                				edit.putString(Configurations.PREF_PORT+j, "5061");
 	                		}
 	                		edit.commit();
 	                   		Receiver.engine(mContext).halt();
@@ -303,19 +304,19 @@ public class Sipdroid extends Activity implements OnDismissListener {
 	            .setNegativeButton(R.string.dontask, new DialogInterface.OnClickListener() {
 	                    public void onClick(DialogInterface dialog, int whichButton) {
 	                		Editor edit = PreferenceManager.getDefaultSharedPreferences(mContext).edit();
-	                		edit.putBoolean(Settings.PREF_NOPORT, true);
+	                		edit.putBoolean(Configurations.PREF_NOPORT, true);
 	                		edit.commit();
 	                    }
 	                })
 				.show();
-		} else if (PreferenceManager.getDefaultSharedPreferences(this).getString(Settings.PREF_PREF, Settings.DEFAULT_PREF).equals(Settings.VAL_PREF_PSTN) &&
-				!PreferenceManager.getDefaultSharedPreferences(this).getBoolean(Settings.PREF_NODEFAULT, Settings.DEFAULT_NODEFAULT))
+		} else if (Helper.getConfig(this, Configurations.PREF_PREF, Configurations.DEFAULT_PREF).equals(Configurations.VAL_PREF_PSTN) &&
+				!Helper.getConfig(this, Configurations.PREF_NODEFAULT, Configurations.DEFAULT_NODEFAULT))
 			new AlertDialog.Builder(this)
 				.setMessage(R.string.dialog_default)
 	            .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
 	                    public void onClick(DialogInterface dialog, int whichButton) {
 	                		Editor edit = PreferenceManager.getDefaultSharedPreferences(mContext).edit();
-	                		edit.putString(Settings.PREF_PREF, Settings.VAL_PREF_SIP);
+	                		edit.putString(Configurations.PREF_PREF, Configurations.VAL_PREF_SIP);
 	                		edit.commit();	
 	                    }
 	                })
@@ -327,7 +328,7 @@ public class Sipdroid extends Activity implements OnDismissListener {
 	            .setNegativeButton(R.string.dontask, new DialogInterface.OnClickListener() {
 	                    public void onClick(DialogInterface dialog, int whichButton) {
 	                		Editor edit = PreferenceManager.getDefaultSharedPreferences(mContext).edit();
-	                		edit.putBoolean(Settings.PREF_NODEFAULT, true);
+	                		edit.putBoolean(Configurations.PREF_NODEFAULT, true);
 	                		edit.commit();
 	                    }
 	                })
@@ -335,12 +336,12 @@ public class Sipdroid extends Activity implements OnDismissListener {
 	}
 
 	public static boolean on(Context context) {
-		return PreferenceManager.getDefaultSharedPreferences(context).getBoolean(Settings.PREF_ON, Settings.DEFAULT_ON);
+		return Helper.getConfig(context, Configurations.PREF_ON, Configurations.DEFAULT_ON);
 	}
 
 	public static void on(Context context,boolean on) {
 		Editor edit = PreferenceManager.getDefaultSharedPreferences(context).edit();
-		edit.putBoolean(Settings.PREF_ON, on);
+		edit.putBoolean(Configurations.PREF_ON, on);
 		edit.commit();
         if (on) Receiver.engine(context).isRegistered();
 	}
@@ -429,7 +430,7 @@ public class Sipdroid extends Activity implements OnDismissListener {
 			
 		case CONFIGURE_MENU_ITEM: {
 			try {
-				intent = new Intent(this, Settings.class);
+				intent = new Intent(this, Configurations.class);
 				startActivity(intent);
 			} catch (ActivityNotFoundException e) {
 			}

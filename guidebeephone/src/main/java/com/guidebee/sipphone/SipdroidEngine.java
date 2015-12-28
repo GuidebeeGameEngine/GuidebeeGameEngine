@@ -31,7 +31,7 @@ import android.os.SystemClock;
 import android.preference.PreferenceManager;
 
 import com.guidebee.sipphone.activity.ChangeAccount;
-import com.guidebee.sipphone.activity.Settings;
+import com.guidebee.sipphone.activity.Configurations;
 import com.guidebee.sipphone.activity.Sipdroid;
 import com.guidebee.sipphone.receiver.LoopAlarm;
 import com.guidebee.sipphone.receiver.Receiver;
@@ -50,9 +50,6 @@ public class SipdroidEngine implements RegisterAgentListener {
 
     public static final int LINES = 2;
     public int pref;
-
-    public static final int UNINITIALIZED = 0x0;
-    public static final int INITIALIZED = 0x2;
 
     /**
      * User Agent
@@ -81,26 +78,26 @@ public class SipdroidEngine implements RegisterAgentListener {
     UserAgentProfile getUserAgentProfile(String suffix) {
         UserAgentProfile user_profile = new UserAgentProfile(null);
 
-        user_profile.username = PreferenceManager.getDefaultSharedPreferences(getUIContext()).getString(Settings.PREF_USERNAME + suffix, Settings.DEFAULT_USERNAME); // modified
-        user_profile.passwd = PreferenceManager.getDefaultSharedPreferences(getUIContext()).getString(Settings.PREF_PASSWORD + suffix, Settings.DEFAULT_PASSWORD);
-        if (PreferenceManager.getDefaultSharedPreferences(getUIContext()).getString(Settings.PREF_DOMAIN + suffix, Settings.DEFAULT_DOMAIN).length() == 0) {
-            user_profile.realm = PreferenceManager.getDefaultSharedPreferences(getUIContext()).getString(Settings.PREF_SERVER + suffix, Settings.DEFAULT_SERVER);
+        user_profile.username = Helper.getConfig(getUIContext(), Configurations.PREF_USERNAME + suffix, Configurations.DEFAULT_USERNAME); // modified
+        user_profile.passwd = Helper.getConfig(getUIContext(), Configurations.PREF_PASSWORD + suffix, Configurations.DEFAULT_PASSWORD);
+        if (Helper.getConfig(getUIContext(), Configurations.PREF_DOMAIN + suffix, Configurations.DEFAULT_DOMAIN).length() == 0) {
+            user_profile.realm = Helper.getConfig(getUIContext(), Configurations.PREF_SERVER + suffix, Configurations.DEFAULT_SERVER);
         } else {
-            user_profile.realm = PreferenceManager.getDefaultSharedPreferences(getUIContext()).getString(Settings.PREF_DOMAIN + suffix, Settings.DEFAULT_DOMAIN);
+            user_profile.realm = Helper.getConfig(getUIContext(), Configurations.PREF_DOMAIN + suffix, Configurations.DEFAULT_DOMAIN);
         }
         user_profile.realm_orig = user_profile.realm;
-        if (PreferenceManager.getDefaultSharedPreferences(getUIContext()).getString(Settings.PREF_FROMUSER + suffix, Settings.DEFAULT_FROMUSER).length() == 0) {
+        if (Helper.getConfig(getUIContext(), Configurations.PREF_FROMUSER + suffix, Configurations.DEFAULT_FROMUSER).length() == 0) {
             user_profile.from_url = user_profile.username;
         } else {
-            user_profile.from_url = PreferenceManager.getDefaultSharedPreferences(getUIContext()).getString(Settings.PREF_FROMUSER + suffix, Settings.DEFAULT_FROMUSER);
+            user_profile.from_url = Helper.getConfig(getUIContext(), Configurations.PREF_FROMUSER + suffix, Configurations.DEFAULT_FROMUSER);
         }
 
         // MMTel configuration (added by mandrajg)
-        user_profile.qvalue = PreferenceManager.getDefaultSharedPreferences(getUIContext()).getString(Settings.PREF_MMTEL_QVALUE, Settings.DEFAULT_MMTEL_QVALUE);
-        user_profile.mmtel = PreferenceManager.getDefaultSharedPreferences(getUIContext()).getBoolean(Settings.PREF_MMTEL, Settings.DEFAULT_MMTEL);
+        user_profile.qvalue = Helper.getConfig(getUIContext(), Configurations.PREF_MMTEL_QVALUE, Configurations.DEFAULT_MMTEL_QVALUE);
+        user_profile.mmtel = Helper.getConfig(getUIContext(), Configurations.PREF_MMTEL, Configurations.DEFAULT_MMTEL);
 
-        user_profile.pub = PreferenceManager.getDefaultSharedPreferences(getUIContext()).getBoolean(Settings.PREF_EDGE + suffix, Settings.DEFAULT_EDGE) ||
-                PreferenceManager.getDefaultSharedPreferences(getUIContext()).getBoolean(Settings.PREF_3G + suffix, Settings.DEFAULT_3G);
+        user_profile.pub = Helper.getConfig(getUIContext(), Configurations.PREF_EDGE + suffix, Configurations.DEFAULT_EDGE) ||
+                Helper.getConfig(getUIContext(), Configurations.PREF_3G + suffix, Configurations.DEFAULT_3G);
         return user_profile;
     }
 
@@ -108,10 +105,10 @@ public class SipdroidEngine implements RegisterAgentListener {
         PowerManager pm = (PowerManager) getUIContext().getSystemService(Context.POWER_SERVICE);
         WifiManager wm = (WifiManager) getUIContext().getSystemService(Context.WIFI_SERVICE);
         if (wl == null) {
-            if (!PreferenceManager.getDefaultSharedPreferences(getUIContext()).contains(Settings.PREF_KEEPON)) {
+            if (!PreferenceManager.getDefaultSharedPreferences(getUIContext()).contains(Configurations.PREF_KEEPON)) {
                 Editor edit = PreferenceManager.getDefaultSharedPreferences(getUIContext()).edit();
 
-                edit.putBoolean(Settings.PREF_KEEPON, true);
+                edit.putBoolean(Configurations.PREF_KEEPON, true);
                 edit.commit();
             }
             wl = new PowerManager.WakeLock[LINES];
@@ -137,7 +134,7 @@ public class SipdroidEngine implements RegisterAgentListener {
             if (wl[i] == null) {
                 wl[i] = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "Sipdroid.SipdroidEngine");
                 pwl[i] = pm.newWakeLock(PowerManager.SCREEN_DIM_WAKE_LOCK | PowerManager.ACQUIRE_CAUSES_WAKEUP, "Sipdroid.SipdroidEngine");
-                if (!PreferenceManager.getDefaultSharedPreferences(getUIContext()).getBoolean(Settings.PREF_KEEPON, Settings.DEFAULT_KEEPON)) {
+                if (!Helper.getConfig(getUIContext(), Configurations.PREF_KEEPON, Configurations.DEFAULT_KEEPON)) {
                     wwl[i] = wm.createWifiLock(3, "Sipdroid.SipdroidEngine");
                     wwl[i].setReferenceCounted(false);
                 }
@@ -148,8 +145,8 @@ public class SipdroidEngine implements RegisterAgentListener {
                 //			SipStack.log_path = "/data/data/com.guidebee.sipphone";
                 SipStack.max_retransmission_timeout = 4000;
                 SipStack.default_transport_protocols = new String[1];
-                SipStack.default_transport_protocols[0] = PreferenceManager.getDefaultSharedPreferences(getUIContext()).getString(Settings.PREF_PROTOCOL + (i != 0 ? i : ""),
-                        user_profile.realm.equals(Settings.DEFAULT_SERVER) ? "tcp" : "udp");
+                SipStack.default_transport_protocols[0] = Helper.getConfig(getUIContext(), Configurations.PREF_PROTOCOL + (i != 0 ? i : ""),
+                        user_profile.realm.equals(Configurations.DEFAULT_SERVER) ? "tcp" : "udp");
 
                 if (SipStack.default_transport_protocols[0].equals("tls"))
                     SipStack.default_transport_protocols[0] = "tcp";
@@ -206,13 +203,13 @@ public class SipdroidEngine implements RegisterAgentListener {
 
     void setOutboundProxy(SipProvider sip_provider, int i) {
         try {
-            String host = PreferenceManager.getDefaultSharedPreferences(getUIContext()).getString(Settings.PREF_PROTOCOL + (i != 0 ? i : ""), Settings.DEFAULT_PROTOCOL).equals("tls") ?
-                    PreferenceManager.getDefaultSharedPreferences(getUIContext()).getString(Settings.PREF_SERVER + (i != 0 ? i : ""), Settings.DEFAULT_SERVER) : null;
-            if (host != null && host.equals(Settings.DEFAULT_SERVER))
+            String host = Helper.getConfig(getUIContext(), Configurations.PREF_PROTOCOL + (i != 0 ? i : ""), Configurations.DEFAULT_PROTOCOL).equals("tls") ?
+                    Helper.getConfig(getUIContext(), Configurations.PREF_SERVER + (i != 0 ? i : ""), Configurations.DEFAULT_SERVER) : null;
+            if (host != null && host.equals(Configurations.DEFAULT_SERVER))
                 host = "www1.pbxes.com";
             if (sip_provider != null) sip_provider.setOutboundProxy(new SocketAddress(
-                            IpAddress.getByName(PreferenceManager.getDefaultSharedPreferences(getUIContext()).getString(Settings.PREF_DNS + i, Settings.DEFAULT_DNS)),
-                            Integer.valueOf(PreferenceManager.getDefaultSharedPreferences(getUIContext()).getString(Settings.PREF_PORT + (i != 0 ? i : ""), Settings.DEFAULT_PORT))),
+                            IpAddress.getByName(Helper.getConfig(getUIContext(), Configurations.PREF_DNS + i, Configurations.DEFAULT_DNS)),
+                            Integer.valueOf(Helper.getConfig(getUIContext(), Configurations.PREF_PORT + (i != 0 ? i : ""), Configurations.DEFAULT_PORT))),
                     host);
         } catch (Exception e) {
         }
@@ -512,7 +509,7 @@ public class SipdroidEngine implements RegisterAgentListener {
         int i = 0;
         for (SipProvider sip_provider : sip_providers) {
             try {
-                edit.putString(Settings.PREF_DNS + i, IpAddress.getByName(PreferenceManager.getDefaultSharedPreferences(getUIContext()).getString(Settings.PREF_SERVER + (i != 0 ? i : ""), "")).toString());
+                edit.putString(Configurations.PREF_DNS + i, IpAddress.getByName(Helper.getConfig(getUIContext(), Configurations.PREF_SERVER + (i != 0 ? i : ""), "")).toString());
             } catch (UnknownHostException e1) {
                 i++;
                 continue;
@@ -572,8 +569,8 @@ public class SipdroidEngine implements RegisterAgentListener {
         }
 
         if (!found || (ua = uas[p]) == null) {
-            if (PreferenceManager.getDefaultSharedPreferences(getUIContext()).getBoolean(Settings.PREF_CALLBACK, Settings.DEFAULT_CALLBACK) &&
-                    PreferenceManager.getDefaultSharedPreferences(getUIContext()).getString(Settings.PREF_POSURL, Settings.DEFAULT_POSURL).length() > 0) {
+            if (Helper.getConfig(getUIContext(), Configurations.PREF_CALLBACK, Configurations.DEFAULT_CALLBACK) &&
+                    Helper.getConfig(getUIContext(), Configurations.PREF_POSURL, Configurations.DEFAULT_POSURL).length() > 0) {
                 Receiver.url("n=" + Uri.encode(target_url));
                 return true;
             }

@@ -39,6 +39,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.guidebee.sipphone.Checkin;
+import com.guidebee.sipphone.Helper;
 import com.guidebee.sipphone.R;
 import com.guidebee.sipphone.SipdroidEngine;
 import com.guidebee.sipphone.receiver.Receiver;
@@ -52,11 +53,11 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
-public class Settings extends PreferenceActivity implements OnSharedPreferenceChangeListener, OnClickListener {
+public class Configurations extends PreferenceActivity implements OnSharedPreferenceChangeListener, OnClickListener {
 	// Current settings handler
 	private static SharedPreferences settings;
 	// Context definition
-	private Settings context = null;
+	private Configurations context = null;
 
 	// Path where to store all profiles - !!!should be replaced by some system variable!!!
 	private final static String profilePath = "/sdcard/Sipdroid/";
@@ -244,7 +245,7 @@ public class Settings extends PreferenceActivity implements OnSharedPreferenceCh
 
 	public static float getEarGain() {
 		try {
-			return Float.valueOf(PreferenceManager.getDefaultSharedPreferences(Receiver.mContext).getString(Receiver.headset > 0 ? PREF_HEARGAIN : PREF_EARGAIN, "" + DEFAULT_EARGAIN));
+			return Float.valueOf(Helper.getConfig(Receiver.mContext, Receiver.headset > 0 ? PREF_HEARGAIN : PREF_EARGAIN, "" + DEFAULT_EARGAIN));
 		} catch (NumberFormatException i) {
 			return DEFAULT_EARGAIN;
 		}			
@@ -253,14 +254,14 @@ public class Settings extends PreferenceActivity implements OnSharedPreferenceCh
 	public static float getMicGain() {
 		if (Receiver.headset > 0 || Receiver.bluetooth > 0) {
 			try {
-				return Float.valueOf(PreferenceManager.getDefaultSharedPreferences(Receiver.mContext).getString(PREF_HMICGAIN, "" + DEFAULT_HMICGAIN));
+				return Float.valueOf(Helper.getConfig(Receiver.mContext, PREF_HMICGAIN, "" + DEFAULT_HMICGAIN));
 			} catch (NumberFormatException i) {
 				return DEFAULT_HMICGAIN;
 			}			
 		}
 
 		try {
-			return Float.valueOf(PreferenceManager.getDefaultSharedPreferences(Receiver.mContext).getString(PREF_MICGAIN, "" + DEFAULT_MICGAIN));
+			return Float.valueOf(Helper.getConfig(Receiver.mContext, PREF_MICGAIN, "" + DEFAULT_MICGAIN));
 		} catch (NumberFormatException i) {
 			return DEFAULT_MICGAIN;
 		}			

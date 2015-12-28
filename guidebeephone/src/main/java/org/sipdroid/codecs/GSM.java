@@ -22,7 +22,7 @@ package org.sipdroid.codecs;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
-import com.guidebee.sipphone.activity.Settings;
+import com.guidebee.sipphone.activity.Configurations;
 import com.guidebee.sipphone.activity.Sipdroid;
 import com.guidebee.sipphone.receiver.Receiver;
 
@@ -35,7 +35,7 @@ class GSM extends CodecBase implements Codec {
 		CODEC_DEFAULT_SETTING = "always";
 		/* up convert original compression parameter for this codec */
 		SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(Receiver.mContext);
-		String pref = sp.getString(Settings.PREF_COMPRESSION, Settings.DEFAULT_COMPRESSION);
+		String pref = sp.getString(Configurations.PREF_COMPRESSION, Configurations.DEFAULT_COMPRESSION);
 		if (pref != null) {
 			SharedPreferences.Editor e = sp.edit();
 			e.remove("compression");

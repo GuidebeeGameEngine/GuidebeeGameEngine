@@ -27,22 +27,23 @@ import android.media.AudioManager;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 
+import com.guidebee.sipphone.Helper;
 import com.guidebee.sipphone.receiver.Receiver;
 
 public class AutoAnswer extends Activity {
 	AudioManager am;
 
 	boolean getMode() {
-		return PreferenceManager.getDefaultSharedPreferences(this).getBoolean(Settings.PREF_AUTO_DEMAND, Settings.DEFAULT_AUTO_DEMAND);
+		return Helper.getConfig(this, Configurations.PREF_AUTO_DEMAND, Configurations.DEFAULT_AUTO_DEMAND);
 	}
 	
 	void restoreVolume() {
 		am.setStreamVolume(AudioManager.STREAM_RING,1,0);
 		am.setRingerMode(
-				PreferenceManager.getDefaultSharedPreferences(this).getInt("ringermode"+getMode(), 
+				Helper.getConfig(this,"ringermode"+getMode(), 
 				AudioManager.RINGER_MODE_NORMAL));
 		am.setStreamVolume(AudioManager.STREAM_RING,
-				PreferenceManager.getDefaultSharedPreferences(this).getInt("volume"+getMode(), 
+				Helper.getConfig(this,"volume"+getMode(), 
 				am.getStreamMaxVolume(AudioManager.STREAM_RING)*
 				(getMode()?4:3)/4
 				),AudioManager.FLAG_VIBRATE | AudioManager.FLAG_SHOW_UI);
@@ -63,7 +64,7 @@ public class AutoAnswer extends Activity {
 		
 		am = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 		saveVolume();
-		edit.putBoolean(Settings.PREF_AUTO_DEMAND, !getMode());
+		edit.putBoolean(Configurations.PREF_AUTO_DEMAND, !getMode());
 		edit.commit();
 		restoreVolume();
 		Receiver.updateAutoAnswer();

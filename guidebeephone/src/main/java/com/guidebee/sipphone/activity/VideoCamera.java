@@ -53,6 +53,7 @@ import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.VideoView;
 
+import com.guidebee.sipphone.Helper;
 import com.guidebee.sipphone.R;
 import com.guidebee.sipphone.SipdroidListener;
 import com.guidebee.sipphone.receiver.Receiver;
@@ -195,7 +196,7 @@ public class VideoCamera extends CallScreen implements
     public void onStart() {
         super.onStart();
         speakermode = Receiver.engine(this).speaker(AudioManager.MODE_NORMAL);
-        videoQualityHigh = PreferenceManager.getDefaultSharedPreferences(mContext).getString(Settings.PREF_VQUALITY, Settings.DEFAULT_VQUALITY).equals("high");
+        videoQualityHigh = Helper.getConfig(mContext, Configurations.PREF_VQUALITY, Configurations.DEFAULT_VQUALITY).equals("high");
         if ((intent = getIntent()).hasExtra(MediaStore.EXTRA_VIDEO_QUALITY)) {
             int extraVideoQuality = intent.getIntExtra(MediaStore.EXTRA_VIDEO_QUALITY, 0);
             videoQualityHigh = (extraVideoQuality > 0);
@@ -226,7 +227,7 @@ public class VideoCamera extends CallScreen implements
             mVideoPreview.setVisibility(View.VISIBLE);
 	        if (!mMediaRecorderRecording) initializeVideo();
 	        startVideoRecording();
-        } else if (Receiver.engine(mContext).getRemoteVideo() != 0 && PreferenceManager.getDefaultSharedPreferences(this).getString(Settings.PREF_SERVER, Settings.DEFAULT_SERVER).equals(Settings.DEFAULT_SERVER)) {
+        } else if (Receiver.engine(mContext).getRemoteVideo() != 0 && Helper.getConfig(this, Configurations.PREF_SERVER, Configurations.DEFAULT_SERVER).equals(Configurations.DEFAULT_SERVER)) {
         	mVideoFrame.setVideoURI(Uri.parse("rtsp://"+Receiver.engine(mContext).getRemoteAddr()+"/"+
         		Receiver.engine(mContext).getRemoteVideo()+"/sipdroid"));
         	mVideoFrame.setMediaController(mMediaController = new MediaController(this));

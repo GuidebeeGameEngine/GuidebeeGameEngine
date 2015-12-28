@@ -21,7 +21,7 @@ package org.sipdroid.media;
 
 import android.preference.PreferenceManager;
 
-import com.guidebee.sipphone.activity.Settings;
+import com.guidebee.sipphone.activity.Configurations;
 import com.guidebee.sipphone.activity.Sipdroid;
 import com.guidebee.sipphone.receiver.Receiver;
 
@@ -85,8 +85,8 @@ public class JAudioLauncher implements MediaLauncher
       try
       {
     	 CallRecorder call_recorder = null;
-    	 if (PreferenceManager.getDefaultSharedPreferences(Receiver.mContext).getBoolean(Settings.PREF_CALLRECORD,
-					Settings.DEFAULT_CALLRECORD))
+    	 if (PreferenceManager.getDefaultSharedPreferences(Receiver.mContext).getBoolean(Configurations.PREF_CALLRECORD,
+					Configurations.DEFAULT_CALLRECORD))
     		 call_recorder = new CallRecorder(null,payload_type.codec.samp_rate()); // Autogenerate filename from date. 
     	 socket=new SipdroidSocket(local_port);
          dir=direction;

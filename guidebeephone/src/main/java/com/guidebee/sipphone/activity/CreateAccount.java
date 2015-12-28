@@ -39,6 +39,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.guidebee.sipphone.Helper;
 import com.guidebee.sipphone.R;
 import com.guidebee.sipphone.RegisterAgent;
 import com.guidebee.sipphone.SipdroidEngine;
@@ -68,21 +69,21 @@ public class CreateAccount extends Dialog {
 		email = trunkserver = null;
 	   	for (int i = 0; i < SipdroidEngine.LINES; i++) {
 	   		String j = (i!=0?""+i:"");
-	   		String username = PreferenceManager.getDefaultSharedPreferences(context).getString(Settings.PREF_USERNAME+j, Settings.DEFAULT_USERNAME),
-	   			server = PreferenceManager.getDefaultSharedPreferences(context).getString(Settings.PREF_SERVER+j, Settings.DEFAULT_SERVER);
+	   		String username = Helper.getConfig(context, Configurations.PREF_USERNAME + j, Configurations.DEFAULT_USERNAME),
+	   			server = Helper.getConfig(context, Configurations.PREF_SERVER + j, Configurations.DEFAULT_SERVER);
 	   		if (username.equals("") || server.equals(""))
 	   			continue;
 	   		if (server.contains("pbxes"))
 	   			found = true;
 	   		else if (i == 0 &&
-	   				!PreferenceManager.getDefaultSharedPreferences(context).getString(Settings.PREF_PROTOCOL+j, Settings.DEFAULT_PROTOCOL).equals("tcp") &&
-	   				PreferenceManager.getDefaultSharedPreferences(context).getBoolean(Settings.PREF_3G+j, Settings.DEFAULT_3G) &&
+	   				!Helper.getConfig(context, Configurations.PREF_PROTOCOL + j, Configurations.DEFAULT_PROTOCOL).equals("tcp") &&
+					Helper.getConfig(context, Configurations.PREF_3G + j, Configurations.DEFAULT_3G) &&
 	   				Receiver.engine(context).isRegistered(i) &&
 	   				Receiver.engine(context).ras[i].CurrentState == RegisterAgent.REGISTERED) {
 	   			trunkserver = server;
 	   			trunkuser = username;
-	   			trunkpassword = PreferenceManager.getDefaultSharedPreferences(context).getString(Settings.PREF_PASSWORD+j, Settings.DEFAULT_PASSWORD);
-	   			trunkport = PreferenceManager.getDefaultSharedPreferences(context).getString(Settings.PREF_PORT+j, Settings.DEFAULT_PORT);
+	   			trunkpassword = Helper.getConfig(context, Configurations.PREF_PASSWORD + j, Configurations.DEFAULT_PASSWORD);
+	   			trunkport = Helper.getConfig(context, Configurations.PREF_PORT + j, Configurations.DEFAULT_PORT);
 	   		}
 	   	}
 	   	if (found) return null;
@@ -175,13 +176,13 @@ public class CreateAccount extends Dialog {
 					if (line != null) {
 						if (line.equals("OK")) {
 							Editor edit = PreferenceManager.getDefaultSharedPreferences(mContext).edit();
-							edit.putString(Settings.PREF_SERVER, Settings.DEFAULT_SERVER);
-							edit.putString(Settings.PREF_USERNAME, etName.getText()+"-200");
-							edit.putString(Settings.PREF_DOMAIN, Settings.DEFAULT_DOMAIN);
-							edit.putString(Settings.PREF_FROMUSER, Settings.DEFAULT_FROMUSER);
-							edit.putString(Settings.PREF_PORT, "5061");
-							edit.putString(Settings.PREF_PROTOCOL, "tcp");
-							edit.putString(Settings.PREF_PASSWORD, password);
+							edit.putString(Configurations.PREF_SERVER, Configurations.DEFAULT_SERVER);
+							edit.putString(Configurations.PREF_USERNAME, etName.getText()+"-200");
+							edit.putString(Configurations.PREF_DOMAIN, Configurations.DEFAULT_DOMAIN);
+							edit.putString(Configurations.PREF_FROMUSER, Configurations.DEFAULT_FROMUSER);
+							edit.putString(Configurations.PREF_PORT, "5061");
+							edit.putString(Configurations.PREF_PROTOCOL, "tcp");
+							edit.putString(Configurations.PREF_PASSWORD, password);
 							edit.commit();
 				        	Receiver.engine(mContext).updateDNS();
 				       		Receiver.engine(mContext).halt();

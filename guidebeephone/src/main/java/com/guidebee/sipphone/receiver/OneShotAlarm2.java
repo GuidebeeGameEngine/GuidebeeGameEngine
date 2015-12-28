@@ -26,8 +26,9 @@ import android.content.Intent;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
+import com.guidebee.sipphone.Helper;
 import com.guidebee.sipphone.SipdroidEngine;
-import com.guidebee.sipphone.activity.Settings;
+import com.guidebee.sipphone.activity.Configurations;
 import com.guidebee.sipphone.activity.Sipdroid;
 import com.guidebee.sipphone.service.RegisterService;
 
@@ -37,10 +38,10 @@ public class OneShotAlarm2 extends BroadcastReceiver {
 	public void onReceive(Context context, Intent intent) {
     	if (!Sipdroid.release) Log.i("SipUA:","alarm2");
 		for (int i = 0; i < SipdroidEngine.LINES; i++)
-			if (PreferenceManager.getDefaultSharedPreferences(context).getBoolean(Settings.PREF_WLAN+(i!=0?i:""), Settings.DEFAULT_WLAN) ||
-	        		PreferenceManager.getDefaultSharedPreferences(context).getBoolean(Settings.PREF_3G+(i!=0?i:""), Settings.DEFAULT_3G) ||
-	        		PreferenceManager.getDefaultSharedPreferences(context).getBoolean(Settings.PREF_VPN+(i!=0?i:""), Settings.DEFAULT_VPN) ||
-	        		PreferenceManager.getDefaultSharedPreferences(context).getBoolean(Settings.PREF_EDGE+(i!=0?i:""), Settings.DEFAULT_EDGE)) {
+			if (Helper.getConfig(context, Configurations.PREF_WLAN + (i != 0 ? i : ""), Configurations.DEFAULT_WLAN) ||
+					Helper.getConfig(context, Configurations.PREF_3G + (i != 0 ? i : ""), Configurations.DEFAULT_3G) ||
+					Helper.getConfig(context, Configurations.PREF_VPN + (i != 0 ? i : ""), Configurations.DEFAULT_VPN) ||
+					Helper.getConfig(context, Configurations.PREF_EDGE + (i != 0 ? i : ""), Configurations.DEFAULT_EDGE)) {
 	        	context.startService(new Intent(context,RegisterService.class));
 	        	return;
 	        }
