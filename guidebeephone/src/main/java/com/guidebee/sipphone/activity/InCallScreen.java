@@ -52,7 +52,6 @@ import com.guidebee.sipphone.Helper;
 import com.guidebee.sipphone.R;
 import com.guidebee.sipphone.UserAgent;
 import com.guidebee.sipphone.phone.Call;
-import com.guidebee.sipphone.phone.Phone;
 import com.guidebee.sipphone.phone.SlidingCardManager;
 import com.guidebee.sipphone.receiver.Receiver;
 
@@ -75,7 +74,7 @@ public class InCallScreen extends CallScreen
 	final int SCREEN_OFF_TIMEOUT = 12000;
 	
 	CallCard mCallCard;
-	Phone ccPhone;
+
 	int oldtimeout;
 	SensorManager sensorManager;
     Sensor proximitySensor;
@@ -141,7 +140,7 @@ public class InCallScreen extends CallScreen
     		break;
     	case UserAgent.UA_STATE_IDLE:
     		if (Receiver.ccCall != null)
-    			mCallCard.displayMainCallStatus(ccPhone,Receiver.ccCall);
+    			mCallCard.displayMainCallStatus(Receiver.ccCall);
      		mHandler.sendEmptyMessageDelayed(MSG_BACK, Receiver.call_end_reason == -1?
     				2000:5000);
     		break;
@@ -200,7 +199,7 @@ public class InCallScreen extends CallScreen
 			mDialerDrawer.close();
 			mDialerDrawer.setVisibility(View.GONE);
 		}
-		if (Receiver.ccCall != null) mCallCard.displayMainCallStatus(ccPhone,Receiver.ccCall);
+		if (Receiver.ccCall != null) mCallCard.displayMainCallStatus(Receiver.ccCall);
         if (mSlidingCardManager != null) mSlidingCardManager.showPopup();
 		mHandler.sendEmptyMessage(MSG_TICK);
 		mHandler.sendEmptyMessage(MSG_POPUP);
@@ -324,7 +323,7 @@ public class InCallScreen extends CallScreen
         mCallCard.reset();
 
         mSlidingCardManager = new SlidingCardManager();
-        mSlidingCardManager.init(ccPhone, this, mMainFrame);
+        mSlidingCardManager.init(this, mMainFrame);
         SlidingCardManager.WindowAttachNotifierView wanv =
             new SlidingCardManager.WindowAttachNotifierView(this);
 	    wanv.setSlidingCardManager(mSlidingCardManager);
@@ -335,8 +334,8 @@ public class InCallScreen extends CallScreen
 	    mStats = (TextView) findViewById(R.id.stats);
 	    mCodec = (TextView) findViewById(R.id.codec);
         mDialerDrawer = (SlidingDrawer) findViewById(R.id.dialer_container);
-        mCallCard.displayOnHoldCallStatus(ccPhone,null);
-        mCallCard.displayOngoingCallStatus(ccPhone,null);
+        mCallCard.displayOnHoldCallStatus(null);
+        mCallCard.displayOngoingCallStatus(null);
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE)
         	mCallCard.updateForLandscapeMode();
         
@@ -419,7 +418,7 @@ public class InCallScreen extends CallScreen
 		if (Receiver.ccCall != null) {
 			Receiver.stopRingtone();
 			Receiver.ccCall.setState(Call.State.DISCONNECTED);
-			mCallCard.displayMainCallStatus(ccPhone,Receiver.ccCall);
+			mCallCard.displayMainCallStatus(Receiver.ccCall);
 			mDialerDrawer.close();
 			mDialerDrawer.setVisibility(View.GONE);
 	        if (mSlidingCardManager != null)
@@ -441,7 +440,7 @@ public class InCallScreen extends CallScreen
 		if (Receiver.ccCall != null) {
 			Receiver.ccCall.setState(Call.State.ACTIVE);
 			Receiver.ccCall.base = SystemClock.elapsedRealtime();
-			mCallCard.displayMainCallStatus(ccPhone,Receiver.ccCall);
+			mCallCard.displayMainCallStatus(Receiver.ccCall);
 			mDialerDrawer.setVisibility(View.VISIBLE);
 	        if (mSlidingCardManager != null)
 	        	mSlidingCardManager.showPopup();

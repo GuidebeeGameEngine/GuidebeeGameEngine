@@ -77,8 +77,6 @@ public class SlidingCardManager implements ViewTreeObserver.OnGlobalLayoutListen
      */
     private InCallScreen mInCallScreen;
 
-    private Phone mPhone;
-
     // Touch mode states, and state of the sliding card
     private boolean mSlideInProgress = false;
     private int mTouchDownY;  // Y-coordinate of the DOWN event that started the slide
@@ -120,11 +118,10 @@ public class SlidingCardManager implements ViewTreeObserver.OnGlobalLayoutListen
      * @param inCallScreen the InCallScreen activity
      * @param mainFrame the InCallScreen's main frame containing the in-call UI elements
      */
-    /* package */ public void init(Phone phone,
+    /* package */ public void init(
                             InCallScreen inCallScreen,
                             ViewGroup mainFrame) {
         if (DBG) log("init()...");
-        mPhone = phone;
         mInCallScreen = inCallScreen;
         mMainFrame = mainFrame;
 
@@ -138,9 +135,7 @@ public class SlidingCardManager implements ViewTreeObserver.OnGlobalLayoutListen
         mCallCard.setSlidingCardManager(this);
     }
 
-    /* package */ void setPhone(Phone phone) {
-        mPhone = phone;
-    }
+
 
     /**
      * Null out our reference to the InCallScreen activity.

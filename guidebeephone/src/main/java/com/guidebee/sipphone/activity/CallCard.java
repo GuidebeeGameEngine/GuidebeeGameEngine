@@ -46,7 +46,6 @@ import com.guidebee.sipphone.phone.CallerInfo;
 import com.guidebee.sipphone.phone.CallerInfoAsyncQuery;
 import com.guidebee.sipphone.phone.Connection;
 import com.guidebee.sipphone.phone.ContactsAsyncHelper;
-import com.guidebee.sipphone.phone.Phone;
 import com.guidebee.sipphone.phone.PhoneUtils;
 import com.guidebee.sipphone.phone.SlidingCardManager;
 import com.guidebee.sipphone.receiver.Receiver;
@@ -175,79 +174,13 @@ public class CallCard extends FrameLayout
         mMenuButtonHint = (TextView) findViewById(R.id.menuButtonHint);
     }
 
-    void updateState(Phone phone) {
-        if (DBG) log("updateState(" + phone + ")...");
 
-        // Update some internal state based on the current state of the phone.
-        // TODO: This code, and updateForegroundCall() / updateRingingCall(),
-        // can probably still be simplified some more.
-
-        Phone.State state = phone.getState();  // IDLE, RINGING, or OFFHOOK
-        if (state == Phone.State.RINGING) {
-            // A phone call is ringing *or* call waiting
-            // (ie. another call may also be active as well.)
-            updateRingingCall(phone);
-        } else if (state == Phone.State.OFFHOOK) {
-            // The phone is off hook. At least one call exists that is
-            // dialing, active, or holding, and no calls are ringing or waiting.
-            updateForegroundCall(phone);
-        } else {
-            // Presumably IDLE:  no phone activity
-            // TODO: Should we ever be in this state in the first place?
-            // (Is there ever any reason to draw the in-call screen
-            // if the phone is totally idle?)
-            // ==> Possibly during the "call ended" state, for 5 seconds
-            //     *after* a call ends...
-            // For now:
-            Log.w(LOG_TAG, "CallCard updateState: overall Phone state is " + state);
-            updateForegroundCall(phone);
-        }
-    }
-
-    private void updateForegroundCall(Phone phone) {
-        if (DBG) log("updateForegroundCall()...");
-
-        Call fgCall = phone.getForegroundCall();
-        Call bgCall = phone.getBackgroundCall();
-
-        if (fgCall.isIdle() && !fgCall.hasConnections()) {
-            if (DBG) log("updateForegroundCall: no active call, show holding call");
-            // TODO: make sure this case agrees with the latest UI spec.
-
-            // Display the background call in the main info area of the
-            // CallCard, since there is no foreground call.  Note that
-            // displayMainCallStatus() will notice if the call we passed in is on
-            // hold, and display the "on hold" indication.
-            fgCall = bgCall;
-
-            // And be sure to not display anything in the "on hold" box.
-            bgCall = null;
-        }
-
-        displayMainCallStatus(phone, fgCall);
-        displayOnHoldCallStatus(phone, bgCall);
-        displayOngoingCallStatus(phone, null);
-    }
-
-    private void updateRingingCall(Phone phone) {
-        if (DBG) log("updateRingingCall()...");
-
-        Call ringingCall = phone.getRingingCall();
-        Call fgCall = phone.getForegroundCall();
-        Call bgCall = phone.getBackgroundCall();
-
-        displayMainCallStatus(phone, ringingCall);
-        displayOnHoldCallStatus(phone, bgCall);
-        displayOngoingCallStatus(phone, fgCall);
-    }
 
     /**
      * Updates the main block of caller info on the CallCard
      * (ie. the stuff in the mainCallCard block) based on the specified Call.
      */
-    public void displayMainCallStatus(Phone phone, Call call) {
-        if (DBG) log("displayMainCallStatus(phone " + phone
-                     + ", call " + call + ", state" + call.getState() + ")...");
+    public void displayMainCallStatus( Call call) {
 
         Call.State state = call.getState();
         int callCardBackgroundResid = 0;
@@ -315,7 +248,7 @@ public class CallCard extends FrameLayout
                 break;
         }
 
-        updateCardTitleWidgets(phone, call);
+        updateCardTitleWidgets(call);
 
  {
             // Update onscreen info for a regular call (which presumably
@@ -421,7 +354,7 @@ public class CallCard extends FrameLayout
     /**
      * Updates the "upper" and "lower" titles based on the current state of this call.
      */
-    private void updateCardTitleWidgets(Phone phone, Call call) {
+    private void updateCardTitleWidgets( Call call) {
         if (DBG) log("updateCardTitleWidgets(call " + call + ")...");
         Call.State state = call.getState();
 
@@ -532,7 +465,7 @@ public class CallCard extends FrameLayout
      * Or, clear out the "on hold" box if the specified call
      * is null or idle.
      */
-    public void displayOnHoldCallStatus(Phone phone, Call call) {
+    public void displayOnHoldCallStatus( Call call) {
         if (DBG) log("displayOnHoldCallStatus(call =" + call + ")...");
         if (call == null) {
             mOtherCallOnHoldInfoArea.setVisibility(View.GONE);
@@ -585,7 +518,7 @@ public class CallCard extends FrameLayout
      * Or, clear out the "ongoing call" box if the specified call
      * is null or idle.
      */
-    public void displayOngoingCallStatus(Phone phone, Call call) {
+    public void displayOngoingCallStatus( Call call) {
         if (DBG) log("displayOngoingCallStatus(call =" + call + ")...");
         if (call == null) {
             mOtherCallOngoingInfoArea.setVisibility(View.GONE);
