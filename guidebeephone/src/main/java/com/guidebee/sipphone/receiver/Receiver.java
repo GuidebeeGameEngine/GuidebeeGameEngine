@@ -634,7 +634,8 @@ public class Receiver extends BroadcastReceiver {
         Intent intent;
 
         if (MWI_account != null)
-            intent = new Intent(Intent.ACTION_CALL, Uri.parse(MWI_account.replaceFirst("sip:", "sipdroid:")));
+            intent = new Intent(Intent.ACTION_CALL,
+                    Uri.parse(MWI_account.replaceFirst("sip:", "sipdroid:")));
         else
             intent = new Intent(Intent.ACTION_DIAL);
         return intent;

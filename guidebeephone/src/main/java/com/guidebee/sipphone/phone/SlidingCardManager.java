@@ -341,7 +341,7 @@ public class SlidingCardManager implements ViewTreeObserver.OnGlobalLayoutListen
 
     /**
      * Handles a touch event on the CallCard.
-     * @see CallCard.dispatchTouchEvent
+
      */
     /* package */ public void handleCallCardTouchEvent(MotionEvent ev) {
         // if (DBG) log("handleCallCardTouchEvent(" + ev + ")...");

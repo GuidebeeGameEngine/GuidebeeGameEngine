@@ -21,8 +21,7 @@ package com.guidebee.sipphone.phone;
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-//import com.android.internal.telephony.CallerInfo;
-//import com.android.internal.telephony.Connection;
+
 
 import android.content.ContentUris;
 import android.content.Context;
