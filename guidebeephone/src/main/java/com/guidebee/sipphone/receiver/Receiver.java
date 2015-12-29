@@ -191,7 +191,8 @@ public class Receiver extends BroadcastReceiver {
             switch (call_state) {
                 case UserAgent.UA_STATE_INCOMING_CALL:
                     enable_wifi(true);
-                    RtpStreamReceiver.good = RtpStreamReceiver.lost = RtpStreamReceiver.loss = RtpStreamReceiver.late = 0;
+                    RtpStreamReceiver.good = RtpStreamReceiver.lost
+                            = RtpStreamReceiver.loss = RtpStreamReceiver.late = 0;
                     RtpStreamReceiver.speakermode = speakermode();
                     bluetooth = -1;
                     String text = caller.toString();
@@ -208,20 +209,24 @@ public class Receiver extends BroadcastReceiver {
                     ccConn.setIncoming(true);
                     ccConn.date = System.currentTimeMillis();
                     ccCall.base = 0;
-                    AudioManager am = (AudioManager) mContext.getSystemService(Context.AUDIO_SERVICE);
+                    AudioManager am
+                            = (AudioManager) mContext.getSystemService(Context.AUDIO_SERVICE);
                     int rm = am.getRingerMode();
                     int vs = am.getVibrateSetting(AudioManager.VIBRATE_TYPE_RINGER);
-                    KeyguardManager mKeyguardManager = (KeyguardManager) mContext.getSystemService(Context.KEYGUARD_SERVICE);
+                    KeyguardManager mKeyguardManager
+                            = (KeyguardManager) mContext.getSystemService(Context.KEYGUARD_SERVICE);
                     if (v == null)
                         v = (Vibrator) mContext.getSystemService(Context.VIBRATOR_SERVICE);
                     if ((pstn_state == null || pstn_state.equals("IDLE")) &&
-                            Helper.getConfig(mContext, Configurations.PREF_AUTO_ON, Configurations.DEFAULT_AUTO_ON) &&
+                            Helper.getConfig(mContext, Configurations.PREF_AUTO_ON,
+                                    Configurations.DEFAULT_AUTO_ON) &&
                             !mKeyguardManager.inKeyguardRestrictedInputMode())
                         v.vibrate(vibratePattern, 1);
                     else {
                         if ((pstn_state == null || pstn_state.equals("IDLE")) &&
                                 (rm == AudioManager.RINGER_MODE_VIBRATE ||
-                                        (rm == AudioManager.RINGER_MODE_NORMAL && vs == AudioManager.VIBRATE_SETTING_ON)))
+                                        (rm == AudioManager.RINGER_MODE_NORMAL
+                                                && vs == AudioManager.VIBRATE_SETTING_ON)))
                             v.vibrate(vibratePattern, 1);
                         if (am.getStreamVolume(AudioManager.STREAM_RING) > 0) {
                             String sUriSipRingtone = Helper.getConfig(mContext,Configurations.PREF_SIPRINGTONE,
@@ -284,7 +289,9 @@ public class Receiver extends BroadcastReceiver {
                     mContext.startActivity(createIntent(InCallScreen.class));
                     break;
                 case UserAgent.UA_STATE_HOLD:
-                    onText(CALL_NOTIFICATION, mContext.getString(R.string.card_title_on_hold), android.R.drawable.stat_sys_phone_call_on_hold, ccCall.base);
+                    onText(CALL_NOTIFICATION, mContext.getString(R.string.card_title_on_hold),
+                            android.R.drawable.stat_sys_phone_call_on_hold,
+                            ccCall.base);
                     ccCall.setState(Call.State.HOLDING);
                     if (InCallScreen.started && (pstn_state == null || !pstn_state.equals("RINGING")))
                         mContext.startActivity(createIntent(InCallScreen.class));
@@ -304,9 +311,11 @@ public class Receiver extends BroadcastReceiver {
             cache_res = mInCallResId;
         }
         if (type >= REGISTER_NOTIFICATION && mInCallResId == R.drawable.sym_presence_available &&
-                !Helper.getConfig(Receiver.mContext, Configurations.PREF_REGISTRATION, Configurations.DEFAULT_REGISTRATION))
+                !Helper.getConfig(Receiver.mContext, Configurations.PREF_REGISTRATION,
+                        Configurations.DEFAULT_REGISTRATION))
             text = null;
-        NotificationManager mNotificationMgr = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
+        NotificationManager mNotificationMgr
+                = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
         if (text != null) {
             Notification notification = new Notification();
             notification.icon = mInCallResId;
@@ -314,7 +323,8 @@ public class Receiver extends BroadcastReceiver {
                 notification.flags |= Notification.FLAG_AUTO_CANCEL;
                 //notification.setLatestEventInfo(mContext, text, mContext.getString(R.string.app_name),
                 //		PendingIntent.getActivity(mContext, 0, createCallLogIntent(), 0));
-                if (Helper.getConfig(Receiver.mContext, Configurations.PREF_NOTIFY, Configurations.DEFAULT_NOTIFY)) {
+                if (Helper.getConfig(Receiver.mContext, Configurations.PREF_NOTIFY,
+                        Configurations.DEFAULT_NOTIFY)) {
                     notification.flags |= Notification.FLAG_SHOW_LIGHTS;
                     notification.ledARGB = 0xff0000ff; /* blue */
                     notification.ledOnMS = 125;
@@ -336,7 +346,8 @@ public class Receiver extends BroadcastReceiver {
                                 createIntent(AutoAnswer.class), 0);
                         break;
                     default:
-                        if (type >= REGISTER_NOTIFICATION && mSipdroidEngine != null && type != REGISTER_NOTIFICATION + mSipdroidEngine.pref &&
+                        if (type >= REGISTER_NOTIFICATION && mSipdroidEngine != null
+                                && type != REGISTER_NOTIFICATION + mSipdroidEngine.pref &&
                                 mInCallResId == R.drawable.sym_presence_available)
                             notification.contentIntent = PendingIntent.getActivity(mContext, 0,
                                     createIntent(ChangeAccount.class), 0);
@@ -376,14 +387,17 @@ public class Receiver extends BroadcastReceiver {
         }
         if (type != AUTO_ANSWER_NOTIFICATION)
             updateAutoAnswer();
-        if (mSipdroidEngine != null && type >= REGISTER_NOTIFICATION && type != REGISTER_NOTIFICATION + mSipdroidEngine.pref)
+        if (mSipdroidEngine != null && type >= REGISTER_NOTIFICATION
+                && type != REGISTER_NOTIFICATION + mSipdroidEngine.pref)
             onText(REGISTER_NOTIFICATION + mSipdroidEngine.pref, cache_text, cache_res, 0);
     }
 
     public static void updateAutoAnswer() {
-        if (Helper.getConfig(mContext, Configurations.PREF_AUTO_ONDEMAND, Configurations.DEFAULT_AUTO_ONDEMAND) &&
+        if (Helper.getConfig(mContext, Configurations.PREF_AUTO_ONDEMAND,
+                Configurations.DEFAULT_AUTO_ONDEMAND) &&
                 Sipdroid.on(mContext)) {
-            if (Helper.getConfig(mContext, Configurations.PREF_AUTO_DEMAND, Configurations.DEFAULT_AUTO_DEMAND))
+            if (Helper.getConfig(mContext, Configurations.PREF_AUTO_DEMAND,
+                    Configurations.DEFAULT_AUTO_DEMAND))
                 updateAutoAnswer(1);
             else
                 updateAutoAnswer(0);
@@ -397,10 +411,12 @@ public class Receiver extends BroadcastReceiver {
         if (status != autoAnswerState) {
             switch (autoAnswerState = status) {
                 case 0:
-                    Receiver.onText(Receiver.AUTO_ANSWER_NOTIFICATION, mContext.getString(R.string.auto_disabled), R.drawable.auto_answer_disabled, 0);
+                    Receiver.onText(Receiver.AUTO_ANSWER_NOTIFICATION, mContext.getString(R.string.auto_disabled),
+                            R.drawable.auto_answer_disabled, 0);
                     break;
                 case 1:
-                    Receiver.onText(Receiver.AUTO_ANSWER_NOTIFICATION, mContext.getString(R.string.auto_enabled), R.drawable.auto_answer, 0);
+                    Receiver.onText(Receiver.AUTO_ANSWER_NOTIFICATION, mContext.getString(R.string.auto_enabled),
+                            R.drawable.auto_answer, 0);
                     break;
                 case -1:
                     Receiver.onText(Receiver.AUTO_ANSWER_NOTIFICATION, null, 0, 0);
@@ -425,7 +441,8 @@ public class Receiver extends BroadcastReceiver {
     public static void pos(boolean enable) {
 
         if (!Helper.getConfig(mContext, Configurations.PREF_POS, Configurations.DEFAULT_POS) ||
-                Helper.getConfig(mContext,Configurations.PREF_POSURL, Configurations.DEFAULT_POSURL).length() < 1) {
+                Helper.getConfig(mContext,Configurations.PREF_POSURL,
+                        Configurations.DEFAULT_POSURL).length() < 1) {
             if (lm != null && am != null) {
                 pos_gps(false);
                 pos_net(false);
@@ -440,15 +457,19 @@ public class Receiver extends BroadcastReceiver {
         pos_gps(false);
         if (enable) {
             if (call_state == UserAgent.UA_STATE_IDLE && Sipdroid.on(mContext) &&
-                    Helper.getConfig(mContext, Configurations.PREF_POS, Configurations.DEFAULT_POS) &&
-                    Helper.getConfig(mContext,Configurations.PREF_POSURL, Configurations.DEFAULT_POSURL).length() > 0) {
+                    Helper.getConfig(mContext, Configurations.PREF_POS,
+                            Configurations.DEFAULT_POS) &&
+                    Helper.getConfig(mContext,Configurations.PREF_POSURL,
+                            Configurations.DEFAULT_POSURL).length() > 0) {
                 Location last = lm.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-                if (System.currentTimeMillis() - loctrydate > GPS_UPDATES && (last == null || System.currentTimeMillis() - last.getTime() > GPS_UPDATES)) {
+                if (System.currentTimeMillis() - loctrydate > GPS_UPDATES && (last == null
+                        || System.currentTimeMillis() - last.getTime() > GPS_UPDATES)) {
                     loctrydate = System.currentTimeMillis();
                     pos_gps(true);
                     pos_net(false);
                 } else if (last != null)
-                    Receiver.url("lat=" + last.getLatitude() + "&lon=" + last.getLongitude() + "&rad=" + last.getAccuracy());
+                    Receiver.url("lat=" + last.getLatitude() + "&lon="
+                            + last.getLongitude() + "&rad=" + last.getAccuracy());
                 pos_net(true);
             } else
                 pos_net(false);
@@ -463,7 +484,8 @@ public class Receiver extends BroadcastReceiver {
         }
         if (enable) {
             lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, GPS_UPDATES, 3000, gps_sender);
-            am.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + 10 * 1000, gps_sender);
+            am.set(AlarmManager.ELAPSED_REALTIME_WAKEUP,
+                    SystemClock.elapsedRealtime() + 10 * 1000, gps_sender);
         } else {
             am.cancel(gps_sender);
             lm.removeUpdates(gps_sender);
@@ -478,7 +500,8 @@ public class Receiver extends BroadcastReceiver {
         }
         if (net_enabled != enable) {
             if (enable) {
-                lm.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, NET_UPDATES, 3000, net_sender);
+                lm.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,
+                        NET_UPDATES, 3000, net_sender);
             } else {
                 lm.removeUpdates(net_sender);
             }
@@ -489,7 +512,8 @@ public class Receiver extends BroadcastReceiver {
     public static void enable_wifi(boolean enable) {
         if (!Helper.getConfig(mContext, Configurations.PREF_OWNWIFI, Configurations.DEFAULT_OWNWIFI))
             return;
-        if (enable && !Helper.getConfig(mContext, Configurations.PREF_WIFI_DISABLED, Configurations.DEFAULT_WIFI_DISABLED))
+        if (enable && !Helper.getConfig(mContext, Configurations.PREF_WIFI_DISABLED,
+                Configurations.DEFAULT_WIFI_DISABLED))
             return;
         WifiManager wm = (WifiManager) mContext.getSystemService(Context.WIFI_SERVICE);
         ContentResolver cr = Receiver.mContext.getContentResolver();
@@ -513,7 +537,8 @@ public class Receiver extends BroadcastReceiver {
         (new Thread() {
             public void run() {
                 try {
-                    URL url = new URL(Helper.getConfig(mContext,Configurations.PREF_POSURL, Configurations.DEFAULT_POSURL) +
+                    URL url = new URL(Helper.getConfig(mContext,Configurations.PREF_POSURL,
+                            Configurations.DEFAULT_POSURL) +
                             "?" + opt);
                     BufferedReader in;
                     in = new BufferedReader(new InputStreamReader(url.openStream()));
@@ -549,7 +574,8 @@ public class Receiver extends BroadcastReceiver {
             }
         } else {
             AudioManager am = (AudioManager) mContext.getSystemService(Context.AUDIO_SERVICE);
-            if ((laststate == null || laststate.equals("IDLE")) && (was_playing = am.isMusicActive()))
+            if ((laststate == null || laststate.equals("IDLE"))
+                    && (was_playing = am.isMusicActive()))
                 mContext.sendBroadcast(new Intent(PAUSE_ACTION));
         }
         laststate = state;
@@ -564,7 +590,8 @@ public class Receiver extends BroadcastReceiver {
         AlarmManager am = (AlarmManager) mContext.getSystemService(Context.ALARM_SERVICE);
         am.cancel(sender);
         if (renew_time > 0)
-            am.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + renew_time * 1000, sender);
+            am.set(AlarmManager.ELAPSED_REALTIME_WAKEUP,
+                    SystemClock.elapsedRealtime() + renew_time * 1000, sender);
     }
 
     public static long expire_time;
@@ -573,7 +600,8 @@ public class Receiver extends BroadcastReceiver {
         if (renew_time == 0)
             expire_time = 0;
         else {
-            if (expire_time != 0 && renew_time * 1000 + SystemClock.elapsedRealtime() > expire_time)
+            if (expire_time != 0
+                    && renew_time * 1000 + SystemClock.elapsedRealtime() > expire_time)
                 return;
             expire_time = renew_time * 1000 + SystemClock.elapsedRealtime();
         }
@@ -652,18 +680,23 @@ public class Receiver extends BroadcastReceiver {
         if (mode == -1)
             mode = speakermode();
         if (mode == AudioManager.MODE_NORMAL)
-            Receiver.onText(Receiver.CALL_NOTIFICATION, mContext.getString(R.string.menu_speaker), android.R.drawable.stat_sys_speakerphone, Receiver.ccCall.base);
+            Receiver.onText(Receiver.CALL_NOTIFICATION, mContext.getString(R.string.menu_speaker),
+                    android.R.drawable.stat_sys_speakerphone, Receiver.ccCall.base);
         else if (bluetooth > 0)
-            Receiver.onText(Receiver.CALL_NOTIFICATION, mContext.getString(R.string.menu_bluetooth), R.drawable.stat_sys_phone_call_bluetooth, Receiver.ccCall.base);
+            Receiver.onText(Receiver.CALL_NOTIFICATION, mContext.getString(R.string.menu_bluetooth),
+                    R.drawable.stat_sys_phone_call_bluetooth, Receiver.ccCall.base);
         else switch (call_state) {
                 case UserAgent.UA_STATE_INCALL:
-                    Receiver.onText(Receiver.CALL_NOTIFICATION, mContext.getString(R.string.card_title_in_progress), R.drawable.stat_sys_phone_call, Receiver.ccCall.base);
+                    Receiver.onText(Receiver.CALL_NOTIFICATION, mContext.getString(R.string.card_title_in_progress),
+                            R.drawable.stat_sys_phone_call, Receiver.ccCall.base);
                     break;
                 case UserAgent.UA_STATE_OUTGOING_CALL:
-                    Receiver.onText(Receiver.CALL_NOTIFICATION, mContext.getString(R.string.card_title_dialing), R.drawable.stat_sys_phone_call, Receiver.ccCall.base);
+                    Receiver.onText(Receiver.CALL_NOTIFICATION, mContext.getString(R.string.card_title_dialing),
+                            R.drawable.stat_sys_phone_call, Receiver.ccCall.base);
                     break;
                 case UserAgent.UA_STATE_INCOMING_CALL:
-                    Receiver.onText(Receiver.CALL_NOTIFICATION, mContext.getString(R.string.card_title_incoming_call), R.drawable.stat_sys_phone_call, Receiver.ccCall.base);
+                    Receiver.onText(Receiver.CALL_NOTIFICATION, mContext.getString(R.string.card_title_incoming_call),
+                            R.drawable.stat_sys_phone_call, Receiver.ccCall.base);
                     break;
             }
     }
@@ -671,7 +704,8 @@ public class Receiver extends BroadcastReceiver {
     public static boolean on_wlan;
 
     static boolean on_vpn() {
-        return Helper.getConfig(mContext, Configurations.PREF_ON_VPN, Configurations.DEFAULT_ON_VPN);
+        return Helper.getConfig(mContext, Configurations.PREF_ON_VPN,
+                Configurations.DEFAULT_ON_VPN);
     }
 
     static void on_vpn(boolean enable) {
@@ -692,14 +726,17 @@ public class Receiver extends BroadcastReceiver {
             if (!Sipdroid.release)
                 Log.i("SipUA:", "isFastWifi() " + WifiInfo.getDetailedStateOf(wi.getSupplicantState())
                         + " " + wi.getIpAddress());
-            if (wi.getIpAddress() != 0 && (WifiInfo.getDetailedStateOf(wi.getSupplicantState()) == DetailedState.OBTAINING_IPADDR
+            if (wi.getIpAddress() != 0
+                    && (WifiInfo.getDetailedStateOf(wi.getSupplicantState()) == DetailedState.OBTAINING_IPADDR
                     || WifiInfo.getDetailedStateOf(wi.getSupplicantState()) == DetailedState.CONNECTED)
                     || WifiInfo.getDetailedStateOf(wi.getSupplicantState()) == DetailedState.CONNECTING) {
                 on_wlan = true;
                 if (!on_vpn())
-                    return Helper.getConfig(mContext, Configurations.PREF_WLAN + (i != 0 ? i : ""), Configurations.DEFAULT_WLAN);
+                    return Helper.getConfig(mContext, Configurations.PREF_WLAN
+                            + (i != 0 ? i : ""), Configurations.DEFAULT_WLAN);
                 else
-                    return Helper.getConfig(mContext, Configurations.PREF_VPN + (i != 0 ? i : ""), Configurations.DEFAULT_VPN);
+                    return Helper.getConfig(mContext, Configurations.PREF_VPN
+                            + (i != 0 ? i : ""), Configurations.DEFAULT_VPN);
             }
         }
         on_wlan = false;
@@ -712,11 +749,14 @@ public class Receiver extends BroadcastReceiver {
         if (Sipdroid.market)
             return false;
         if (on_vpn() && (tm.getNetworkType() >= TelephonyManager.NETWORK_TYPE_EDGE))
-            return Helper.getConfig(mContext, Configurations.PREF_VPN + (i != 0 ? i : ""), Configurations.DEFAULT_VPN);
+            return Helper.getConfig(mContext, Configurations.PREF_VPN + (i != 0 ? i : ""),
+                    Configurations.DEFAULT_VPN);
         if (tm.getNetworkType() >= TelephonyManager.NETWORK_TYPE_UMTS)
-            return Helper.getConfig(mContext, Configurations.PREF_3G + (i != 0 ? i : ""), Configurations.DEFAULT_3G);
+            return Helper.getConfig(mContext, Configurations.PREF_3G + (i != 0 ? i : ""),
+                    Configurations.DEFAULT_3G);
         if (tm.getNetworkType() == TelephonyManager.NETWORK_TYPE_EDGE)
-            return Helper.getConfig(mContext, Configurations.PREF_EDGE + (i != 0 ? i : ""), Configurations.DEFAULT_EDGE);
+            return Helper.getConfig(mContext, Configurations.PREF_EDGE + (i != 0 ? i : ""),
+                    Configurations.DEFAULT_EDGE);
         return false;
     }
 
@@ -769,7 +809,8 @@ public class Receiver extends BroadcastReceiver {
                 intentAction.equals(ACTION_EXTERNAL_APPLICATIONS_UNAVAILABLE) ||
                 intentAction.equals(Intent.ACTION_PACKAGE_REPLACED)) {
             engine(context).register();
-        } else if (intentAction.equals(ACTION_VPN_CONNECTIVITY) && intent.hasExtra("connection_state")) {
+        } else if (intentAction.equals(ACTION_VPN_CONNECTIVITY)
+                && intent.hasExtra("connection_state")) {
             String state = intent.getSerializableExtra("connection_state").toString();
             if (state != null && on_vpn() != state.equals("CONNECTED")) {
                 on_vpn(state.equals("CONNECTED"));
@@ -789,7 +830,8 @@ public class Receiver extends BroadcastReceiver {
                 broadcastCallStateChanged(null, null);
             if (!pstn_state.equals("IDLE") && call_state == UserAgent.UA_STATE_INCALL)
                 mHandler.sendEmptyMessageDelayed(MSG_HOLD, 5000);
-            else if (!pstn_state.equals("IDLE") && (call_state == UserAgent.UA_STATE_INCOMING_CALL || call_state == UserAgent.UA_STATE_OUTGOING_CALL))
+            else if (!pstn_state.equals("IDLE") && (call_state == UserAgent.UA_STATE_INCOMING_CALL
+                    || call_state == UserAgent.UA_STATE_OUTGOING_CALL))
                 mHandler.sendEmptyMessageDelayed(MSG_HANGUP, 5000);
             else if (pstn_state.equals("IDLE")) {
                 mHandler.removeMessages(MSG_HOLD);
@@ -871,7 +913,7 @@ public class Receiver extends BroadcastReceiver {
                     if (bestconfig != null &&
                             (activeconfig == null || bestconfig.priority != activeconfig.priority) &&
                             asu(bestscan) > asu(activescan) * 1.5 &&
-		                		/* (activeSSID == null || activescan != null) && */ asu(bestscan) > 22) {
+		                		 asu(bestscan) > 22) {
                         if (!Sipdroid.release) Log.i("SipUA:", "changing to " + bestconfig.SSID);
                         if (activeSSID == null || !activeSSID.equals(bestscan.SSID))
                             wm.disconnect();

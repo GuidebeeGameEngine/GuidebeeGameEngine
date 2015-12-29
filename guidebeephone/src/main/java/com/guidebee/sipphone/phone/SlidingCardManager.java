@@ -114,11 +114,11 @@ public class SlidingCardManager implements ViewTreeObserver.OnGlobalLayoutListen
     /**
      * Initializes the internal state of the SlidingCardManager.
      *
-     * @param phone the Phone app's Phone instance
+
      * @param inCallScreen the InCallScreen activity
      * @param mainFrame the InCallScreen's main frame containing the in-call UI elements
      */
-    /* package */ public void init(
+    public void init(
                             InCallScreen inCallScreen,
                             ViewGroup mainFrame) {
         if (DBG) log("init()...");
@@ -154,7 +154,7 @@ public class SlidingCardManager implements ViewTreeObserver.OnGlobalLayoutListen
      * need to have a valid window token for our call to
      * mPopup.showAtLocation().
      */
-    public /* package */ void showPopup() {
+    public  void showPopup() {
         if (DBG) log("showPopup()...");
         updateCardPreferredPosition();  // Sets mCardAtTop, mCallEndedState,
                                         // mCardPreferredX, and mCardPreferredY
@@ -182,7 +182,7 @@ public class SlidingCardManager implements ViewTreeObserver.OnGlobalLayoutListen
      * card should switch to "Call ended" mode and smoothly animate to the
      * bottom position.)
      */
-    public /* package */ void updateCardPreferredPosition() {
+    public  void updateCardPreferredPosition() {
         if (DBG) log("updateCardPreferredPosition()...");
         //if (DBG) log("- card's LayoutParams: " + mCallCard.getLayoutParams());
 
@@ -273,7 +273,7 @@ public class SlidingCardManager implements ViewTreeObserver.OnGlobalLayoutListen
      * Update the "slide hints" (displayed onscreen either above or below
      * the slidable CallCard) based on the current state.
      */
-    public /* package */ void updateCardSlideHints() {
+    public void updateCardSlideHints() {
         if (DBG) log("updateCardSlideHints()...");
 
         if (mSlideInProgress) {
@@ -338,7 +338,7 @@ public class SlidingCardManager implements ViewTreeObserver.OnGlobalLayoutListen
      * Handles a touch event on the CallCard.
 
      */
-    /* package */ public void handleCallCardTouchEvent(MotionEvent ev) {
+    public void handleCallCardTouchEvent(MotionEvent ev) {
         // if (DBG) log("handleCallCardTouchEvent(" + ev + ")...");
 
         if (mInCallScreen == null || mInCallScreen.isFinishing()) {
@@ -460,7 +460,7 @@ public class SlidingCardManager implements ViewTreeObserver.OnGlobalLayoutListen
      * Stop sliding the card.
      * Called when we get an UP touch event while sliding.
      */
-    /* package */ void stopSliding(int y) {
+    void stopSliding(int y) {
         int totalSlideAmount = y - mTouchDownY;
         if (DBG) log("stopSliding: Total slide delta: " + totalSlideAmount);
 
@@ -607,7 +607,7 @@ public class SlidingCardManager implements ViewTreeObserver.OnGlobalLayoutListen
         }
     }
     
-    /* package */ public static class WindowAttachNotifierView extends View {
+    public static class WindowAttachNotifierView extends View {
         private SlidingCardManager mSlidingCardManager;
 
         public WindowAttachNotifierView(Context c) {
