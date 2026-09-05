@@ -1,3 +1,4 @@
+#include "ChainShape.h"
 #include <Box2D/Box2D.h>
 
 JNIEXPORT jlong JNICALL

@@ -1,3 +1,4 @@
+#include "Manifold.h"
 #include <Box2D/Box2D.h>
 
 JNIEXPORT jint JNICALL

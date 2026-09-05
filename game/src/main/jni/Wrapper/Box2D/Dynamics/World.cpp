@@ -1,3 +1,4 @@
+#include "World.h"
 #include <Box2D/Box2D.h>
 
 static jclass worldClass = 0;

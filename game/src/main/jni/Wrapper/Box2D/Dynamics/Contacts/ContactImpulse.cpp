@@ -1,3 +1,4 @@
+#include "ContactImpulse.h"
 #include <Box2D/Box2D.h>
 
 JNIEXPORT void JNICALL

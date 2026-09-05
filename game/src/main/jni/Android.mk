@@ -4,8 +4,8 @@ include $(CLEAR_VARS)
 LOCAL_MODULE    := libgameengine
 LOCAL_C_INCLUDES := 
  
-LOCAL_CFLAGS := $(LOCAL_C_INCLUDES:%=-I%) -O2 -Wall -D__ANDROID__
-LOCAL_CPPFLAGS := $(LOCAL_C_INCLUDES:%=-I%) -O2 -Wall -D__ANDROID__
+LOCAL_CFLAGS := $(LOCAL_C_INCLUDES:%=-I%) -O2 -Wall -D__ANDROID__ -include jni.h -include stdlib.h -include string.h -include assert.h
+LOCAL_CPPFLAGS := $(LOCAL_C_INCLUDES:%=-I%) -O2 -Wall -D__ANDROID__ -include jni.h -include stdlib.h -include cstring -include new -include cassert
 LOCAL_LDLIBS := -lm -lGLESv2 -llog
 LOCAL_ARM_MODE  := arm
  

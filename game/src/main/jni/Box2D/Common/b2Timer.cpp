@@ -61,6 +61,8 @@ float32 b2Timer::GetMilliseconds() const
 
 #elif defined(__linux__) || defined (__APPLE__)
 
+#include <sys/time.h>
+
 b2Timer::b2Timer()
 {
     Reset();

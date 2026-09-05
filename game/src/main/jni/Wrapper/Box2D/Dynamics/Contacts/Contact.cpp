@@ -1,3 +1,4 @@
+#include "Contact.h"
 #include <Box2D/Box2D.h>
 
 static inline jint

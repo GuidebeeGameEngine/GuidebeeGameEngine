@@ -21,6 +21,8 @@
 
 #include <cassert>
 #include <cmath>
+#include <cstring>
+#include <new>
 
 #define B2_NOT_USED(x) ((void)(x))
 #define b2Assert(A) assert(A)

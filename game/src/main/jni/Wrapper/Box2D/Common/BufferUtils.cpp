@@ -1,3 +1,7 @@
+#include "BufferUtils.h"
+#include <cstdlib>
+#include <cstring>
+
 JNIEXPORT void JNICALL
 Java_com_guidebee_utils_collections_BufferUtils_freeMemory(JNIEnv* env, jclass clazz, jobject obj_buffer)
 {

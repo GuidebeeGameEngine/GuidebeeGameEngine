@@ -1,3 +1,6 @@
+#include "ETC1.h"
+#include "ETC1Utils.h"
+
 JNIEXPORT jint JNICALL
 Java_com_guidebee_game_engine_graphics_glutils_ETC1_getCompressedDataSize(JNIEnv* env, jclass clazz,
     jint width, jint height)

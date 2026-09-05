@@ -1,6 +1,10 @@
+#include "2DPixmap.h"
+
 #define STBI_HEADER_FILE_ONLY
 #define STBI_NO_FAILURE_STRINGS
 
+#include "Stb_Image.cpp"
+#include "JPGDC.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -849,8 +853,8 @@ static inline void blit_bilinear(const native_pixmap* src_pixmap, const native_p
 			if(sx < 0 || dx < 0) continue;
 			if(sx >= src_pixmap->width || dx >= dst_pixmap->width) break;
 
-			const void* dst_ptr = dst_pixmap->pixels + dx * dbpp + dy * dpitch;
-			const void* src_ptr = src_pixmap->pixels + sx * sbpp + sy * spitch;
+			const unsigned char* dst_ptr = dst_pixmap->pixels + dx * dbpp + dy * dpitch;
+			const unsigned char* src_ptr = src_pixmap->pixels + sx * sbpp + sy * spitch;
 			uint32_t c1 = 0, c2 = 0, c3 = 0, c4 = 0;
 			c1 = to_RGBA8888(src_pixmap->format, pget((unsigned char*)src_ptr));
 			if(sx + 1 < src_width) c2 = to_RGBA8888(src_pixmap->format, pget((unsigned char*)(src_ptr + sbpp))); else c2 = c1;
